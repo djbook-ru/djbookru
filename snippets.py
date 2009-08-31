@@ -4,8 +4,8 @@ from django.shortcuts import render_to_response
 
 from django.template import RequestContext
 
-def render_to(template, processor):
-    if not callable(processor):
+def render_to(template, processor=None):
+    if processor and not callable(processor):
         raise Exception('Processor is not callable.')
     def renderer(func):
         def wrapper(request, *args, **kw):
