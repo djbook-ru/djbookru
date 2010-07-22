@@ -1,0 +1,5 @@
+*.pyc
+*.*~
+src/settings_local.py
+env/*
+database.sqlite
