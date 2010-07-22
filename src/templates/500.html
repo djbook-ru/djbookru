@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block structure %}
+<div style="font-size: 24px; margin: 0.5em 0px 1em 0px; padding: 0.5em; background-color: #ddddff;">
+  {% trans "Forgotten page..." %}
+</div>
+<div style="font-size: 16px; margin: 2em;">
+  Error 500
+</div>
+<div style="font-family: arial; font-size: 14px; background-color: lightgreen; padding: 0.5em; ">
+  {% trans "You may visit" %}:
+  <ul>
+  <li><a href="/shop/">{% trans "my demo shop" %};</a></li>
+  <li><a href="/djangobook/">{% trans "my book" %};</a></li>
+  </ul>
+</div>
+{% endblock %}

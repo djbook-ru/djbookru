@@ -1,0 +1,154 @@
+{% load i18n %}
+<div class="informer">
+  <div style="font-size: 10px; font-weight: bold; margin: 4px 0px;">
+    Увидели ошибку?
+  </div>
+  <div>
+    Выделите её мышкой и нажмите
+    <div style="white-space: nowrap; margin: 4px; ">
+      <span class="guibutton">Ctrl</span>-<span class="guibutton">Enter</span>
+    </div>
+  </div>
+  <div class="pending">
+    <div style="font-size: 10px; font-weight: bold; margin: 4px 0px;">
+      Обработано:
+    </div>
+    <div class="spelling">
+      <span id="spelling_error_count_pending" title="{% trans 'New' %}">{{ spelling_error_count_pending }}</span>
+      <span id="spelling_error_count_assigned" title="{% trans 'Assigned' %}">{{ spelling_error_count_assigned }}</span>
+      <span id="spelling_error_count_fixed" title="{% trans 'Fixed' %}">{{ spelling_error_count_fixed }}</span>
+      <span id="spelling_error_count_invalid" title="{% trans 'Invalid' %}">{{ spelling_error_count_invalid }}</span>
+    </div>
+  </div>
+</div>
+
+<br/>
+
+<div class="informer">
+  <div class="title">Версия книги</div>
+  <div style="margin:0.5em;">
+    <span id="ver1" class="guibutton {% ifequal version "1" %}current{% endifequal %}">1.0</span>
+    <span id="ver2" class="guibutton {% ifequal version "2" %}current{% endifequal %}">2.0</span>
+  </div>
+  <div>Версия 2.0 в процессе перевода!</div>
+</div>
+
+<br/>
+
+<div style="border: 1px solid black; -moz-border-radius: 4px; padding: 6px; background-color: white; text-align: center; cursor: pointer;"
+     onclick="document.location='http://moiluch.ru/';">
+  <div style="color: black; font-family:comic sans ms; font-size: 150%; font-weight: bold;">Мой луч</div>
+    <img src="/pics/moiluch.gif" title="Большой выбор люстр" border="0"/>
+  <div style="color: black; font-family:comic sans ms; font-size: 120%;">Многообразие света</div>
+</div>
+
+<br/>
+
+<div class="informer">
+  <div class="title">Полезное</div>
+  <div>
+    Актуальные вакансии,
+    <a href="http://pyjob.ru/">Python работа</a>
+    для python-разработчиков.
+  </div>
+</div>
+
+<br/>
+
+<div class="informer">
+  <div class="title">RSS</div>
+  <a href="/feed/latest/">Последние новости</a>
+</div>
+
+<br/>
+
+<div class="informer">
+  <div class="title">Скачать в формате</div>
+  <a href="http://depositfiles.com/files/7652256">CHM от 2 сентября</a><br/><br/>
+  Заказать PDF файл можно через почту, чат, джаббер. Всего 2WMZ. Содержимое точно соответствует содержимому сайта.<br/>
+  Чем чаще заказываете &mdash; тем больше перевожу.
+</div>
+
+<br/>
+
+<div class="informer">
+  <div class="title">Русская группа</div>
+  <div>
+    <a href="http://groups.google.ru/group/django-russian?hl=ru">на Google</a>
+  </div>
+</div>
+
+<br/>
+
+<div class="yandex-money">
+{% if not debug %}
+  <table width="116" cellpadding="0" cellspacing="0" border="0" style="font: 0.8em Arial, sans-serif; border: 0px;">
+    <tr>
+      <td width="116" height="77" style="background:url(http://www.yandex.ru/redir?dtype=stred&pid=41&cid=132&url=https://img.yandex.net/i/money/top-1rub-default.gif) repeat-y; text-align:center" align="center" valign="bottom">
+    <form style="margin: 0; padding: 0 0 2px;" action="https://money.yandex.ru/donate.xml" method="post">
+      <input type="hidden" name="to" value="41001223475816"/>
+      <input type="hidden" name="s5" value="1rub"/>
+      <input type="submit" value="Дай рубль"/>
+    </form>
+      </td>
+    </tr>
+    <tr>
+      <td width="116" height="38" style="background:url(https://img.yandex.net/i/money/bg-default.gif) repeat-y; text-align:center; padding: 5px 0; color: black;" align="center" valign="top">
+    <b>на поддержку перевода</b>
+      </td>
+    </tr>
+    <tr>
+      <td>
+    <img src="https://img.yandex.net/i/money/bottom-default.gif" width="116" height="40" alt="" usemap="#button" border="0" />
+    <map name="button">
+      <area alt="Яндекс" coords="38,2,49,21" href="http://www.yandex.ru"/>
+      <area alt="Яндекс.Деньги" coords="52,1,84,28" href="https://money.yandex.ru"/>
+      <area alt="Хочу такую же кнопку" coords="17,29,100,40" href="https://money.yandex.ru/choose-banner.xml"/>
+    </map>
+      </td>
+    </tr>
+  </table>
+{% endif %}
+  <div class="title">Ускорить процесс перевода!</div>
+  <div class="webmoney">
+    R130494980980<br/>
+    Z425285133788<br/>
+    E112528079659<br/>
+    U327380922061
+  </div>
+</div>
+
+<br/>
+
+<div class="informer">
+  <div class="title">Книга помогла реализовать:</div>
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" style="font-size: 100%;">
+    <tr>
+      <td width="16">
+    <img src="http://moiluch.ru/pics/favicon.png" align="left"/>
+      </td>
+      <td>
+    <a href="http://moiluch.ru/">Проект &laquo;Мой луч&raquo;</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+    <img src="/pics/favicon.png" align="left"/>
+      </td>
+      <td>
+    <a href="http://arm.fmsmoscow.ru/">АРМ УФМС.</a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<br/>
+
+<div style="border: 1px solid green; -moz-border-radius: 4px; padding: 6px; background-color: white; text-align: center;">
+  <a href="http://docbook.org/">
+    <img src="http://docbook.org/graphics/button.jpg" title="Данная книга написана с использованием технологии DocBook" border="0"/></a>
+</div>
+
+<br/>
+
+<div style="background:transparent url(http://bizinformation.org/images/widget/button_back.gif) no-repeat; width: 130px; height: 53px;"><p style="margin: 0; line-height:14px; padding:12px 0 0 0; border: 0; text-align: center;"><span style="color:#222; float:none; font-size: 11px;"><a style="display: block; text-decoration: none; color: #222;" href="http://bizinformation.org/ru/">Мой вебсайт стоит</a></span><span style="float:none; font-size:14px;"><a title="djbook.ru" style="line-height:18px; text-decoration: none; display: block;" href="http://bizinformation.org/ru/www.djbook.ru"><b>666 337,31 руб </b></a></span></p></div>

@@ -1,11 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load i18n %} 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lanh="ru">
     <head>
-      <title>Job CMS</title>
-      <meta charset="utf-8" />
-      {% block head %}{% endblock %}
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Content-Language" content="ru"/>
+        <meta name="ROBOTS" content="ALL"/>
+        <meta name="keywords" content="Python, Django, framework, open-source, Питон, Джанго"/>
+        <meta name="description" content="Джанго является высокоуровневой средой разработки основанной на языке Питон, которая нацелена на ускоренный процесс разработки и явный дизайн."/>
+        <meta name="generator" content="Django"/>
+        <meta name='yandex-verification' content='446e96868717e10e' />
+        <title>{% block title %}DjangoBook v2.0{% endblock %}</title>
+        <link rel="shortcut icon" href="{{ MEDIA_URL }}img/favicon.png"/>
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/djangobook.css" type="text/css"/>
+        {% block head %}{% endblock %}
     </head>
-    <body>
-       {% block body %}{% endblock %} 
+    <body style="padding: 0px; margin: 0px;">
+    
+        {% block menu %}
+            {% include '_menu.html' %}
+        {% endblock %}
+        
+        {% block search %}
+            {% include '_search.html' %}
+        {% endblock %}
+             
+        {% block body %}
+       
+        {% endblock %}
+        
+        {% if not debug %}{{ google_analytics|safe }}{% endif %}
+        
+        <div style="padding: 0.5em;" class="topic">
+          <table width="100%" border="0">
+            <tr>
+              <td style="color: #326342;">
+            &copy; 2008-2009 Ruslan Popov @ gmail.com
+              </td>
+              <td style="color: #326342; text-align: right;">
+            <span>Powered by <a href="http://djangoproject.com/">Django</a> {{ django_version }}</span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        {% include '_menu.html' %}      
     </body>
 </html>

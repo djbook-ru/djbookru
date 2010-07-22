@@ -1,0 +1,262 @@
+BODY { font: 14px arial, helvetica, sans-serif; background-color: #326342; margin: 0px; }
+FORM { margin: 0px; }
+P { font: 12px arial; color: white; line-height: 1.5; }
+H1.title { font: 32px arial; font-weight: bold; color: #9AEF3F; }
+H2.title { font: 24px arial; font-weight: bold; color: #9AEF3F; }
+H3.title { font: 20px arial; font-weight: bold; color: #9AEF3F; }
+H4.title { font: 18px arial; font-weight: bold; color: #9AEF3F; }
+HR { border: 1px dotted #9AEF3F; }
+CODE.systemitem { color: brown; }
+A { color: #FFC757; }
+IMG { behavior: url("/css/png.htc"); }
+
+.content { background-color: #487858; margin: 0.5em; padding: 0.5em; }
+
+.topic { background-color: #94CE4A; }
+.footer { background-color: #94CE4A; }
+.footer .line{ color: #487858; text-align: center; }
+
+/* стили для поисковой формы */
+.search { padding: 2px 1em; font: 12px arial; vertical-align: middle; }
+.search .soon { position: absolute; top: 130px; left: 250px; }
+.search .field { width: 60%; }
+.searchbutton { color: #9AEF3F; background: #487858; 
+   font-size: 10px;
+   margin: 1px; padding: 1px 2px; border: 1px solid gray; 
+   -moz-border-radius: 4px; cursor: default; }
+
+.wide { width: 100%; }
+.claim { position: absolute; top: 100px; left: 100px; z-index: 20;
+   border: 1px solid red; width: 400px; 
+   background-color: gray; }
+.claim .padd { padding: 4px; }
+.claim .border { border: 1px solid black; }
+.claim-title { font: 12px arial; color: white; background: black; padding: 2px 4px; }
+.claim-context { font: 10px arial; background-color: white; }
+.claim-error { background-color: red; }
+.claim-comment { font-family: monospace; font-size: 10px; width: 100%; height: 100px; }
+.claim-button { text-align: right; }
+.claim-button BUTTON { cursor: pointer; }
+
+.splashwidget { position: absolute; top: 20px; left: 20px;
+   font: 12px arial; padding: 1em;
+   border: 1px solid red; background-color: gray; }
+
+.informer { border: 0px; background-color: #94CE4A; color: black;
+   font: 10px arial; text-align: center; padding: 4px; }
+.informer .title { font-size: 12px; font-weight: bold; text-align: center; }
+.informer A { color: blue; }
+
+.informer .spelling { cursor: pointer; }
+.informer .current { border-color: orange; }
+
+.pending { margin: 1em 2px; }
+#spelling_error_count_pending { border: 1px solid yellow; font-weight: bold; padding: 0px 2px; }
+#spelling_error_count_assigned { border: 1px solid orange; font-weight: bold; padding: 0px 2px; }
+#spelling_error_count_fixed { border: 1px solid green; font-weight: bold; padding: 0px 2px; }
+#spelling_error_count_invalid { border: 1px solid red; font-weight: bold; padding: 0px 2px; }
+#readers_count { border: 1px solid lightgreen; font-weight: bold; padding: 0px 2px; }
+
+.archive-block { border-top: 2px solid #94CE4A; border-bottom: 2px solid #94CE4A; margin-bottom: 0.5em; }
+.archive-block .title { margin: 0.5em; font-size: 1.5em; text-align: center; }
+.archive-block .year-list { margin: 0.5em; font-family: verdana; font-size: 1em; text-align: center; }
+.archive-block .current { font-weight: bold; }
+.archive-block .month-list { margin: 0.5em 1em; font-family: verdana; font-size: 1em; text-align: left; }
+
+.news-block { margin-bottom: 0.5em; }
+.news-block .title { margin: 0.5em; font-size: 1.5em; text-align: left; }
+
+.news-inc .text {font-family: "trebuchet MS",sans-serif;
+		 font-size: 12px;
+		 letter-spacing: 0.2pt;
+		 word-spacing: 1pt;
+		 line-height: 1.5;
+		 padding: 0px 4px; margin-bottom: 4px;}
+.yandex-money { border: 0px; background-color: #487858; text-align: center; }
+.yandex-money .webmoney { color: white; font-family: monospace; font-size: 12px; text-align: center; }
+
+.accesskeys { border: 0px; background-color: #94CE4A; color: black;
+   font: 10px arial; text-align: center; padding: 4px; }
+.accesskeys .title { font: 12px arial; font-weight: bold; margin-bottom: 0.5em; }
+
+/* стили для книги */
+.navheader { font-family: verdana; color: #9AEF3F; }
+.navheader TD { font-size: 10px; }
+.navheader TH { font-size: 12px; }
+.navheader TABLE { border: 0px; }
+.navfooter TD { font: 10px verdana; }
+.navfooter TH { font: 12px arial; }
+.navfooter TABLE { border: 0px; }
+
+.toc { font: 14px arial; color: white; }
+.toc P B { font: 20px sans-serif; font-weight: bold; color: #9AEF3F;}
+.toc .chapter A { font: 16px arial; color: white; }
+.toc .section A { font: 14px arial; color: white; }
+.toc .appendix A { font: 14px arial; color: white; }
+dt { margin: 4px 0px;}
+
+.area-title { color: white; background-color: #94CE4A; 
+	      font: 14px arial; font-weight: bold; 
+	      padding: 4px; margin-bottom: 0.5em; }
+.tocmini-chapter { margin: 0.4em 0em; overflow: auto; }
+.tocmini-chapter A { font: 12px arial; color: white; }
+.tocmini-sections { padding-left: 1em; }
+.tocmini-section A { font: 12px arial; color: white; }
+
+.subtitle { font: 24px helvetica, sans-serif italic; }
+
+.list-of-figures P B { font: 16px arial; }
+.list-of-figures { font: 14px arial; color: white; }
+.list-of-figures A { color: white; }
+
+.list-of-tables P B { font: 16px arial; }
+.list-of-tables { font: 14px arial; color: white; }
+.list-of-tables A { color: white; }
+
+.bibliography {}
+
+.figure { text-align: center; }
+.figure .title { font: 12px verdana; color: #9AEF3F; text-align: center; }
+
+.productname { font: 14px arial italic; }
+
+.filename { font: 12px courier; color: #FFC757; }
+
+.firstterm { font: 14px helvetica, sans-serif italic; color: darkred; }
+
+.note {	border: 1px solid black; background: #234F32; padding: 0px 2em; margin: 0px; }
+.note .title { font: 14px arial; font-weight: bold; color: #9AEF3F; }
+
+.emphasis { font-style: italic; }
+
+.quote { }
+
+.orderedlist { color: white; padding-left: 10px; }
+.orderedlist .title { font: 16px arial; }
+.orderedlist P { font: 12px arial; line-height: 1.5; }
+
+.itemizedlist { color: white; padding-left: 10px; }
+.itemizedlist .title { font: 16px arial; }
+.itemizedlist P { font: 12px arial; line-height: 1.5; }
+
+.command { font: 12px courier; color: #FFC757; padding: 2px 4px; white-space: nowrap; }
+.token { font: 12px courier; font-weight: bold; white-space: nowrap; color: #FFC757; }
+.classname { font: 12px courier; white-space: nowrap; background-color: #486953; padding: 0px 2px; }
+.function { font-family: monospace; font-size: 12px; background-color: #708D8A; padding: 0px 2px; }
+.varname { font: 12px courier; color: #FFC757; }
+
+
+.screenshot { }
+.screenshot IMG { border: 1px solid black; text-align: center }
+
+.guibutton { color: #9AEF3F; background: #487858; 
+   font-size: 10px;
+   margin: 1px; padding: 1px 2px; border: 1px solid gray; 
+   -moz-border-radius: 4px; cursor: default; }
+
+.guilabel { color: brown; }
+.guimenu { }
+
+.computeroutput { font: 14px courier small-caps; color: brown; }
+.screen { font-family: monospace; font-size: 12px; white-space: pre; color: #FFC757; padding-left: 4em; }
+
+TABLE { font: 12px arial; color: white;border-collapse: collapse; }
+.table .title { font: 14px arial italic; color: #9AEF3F; }
+
+/*
+
+
+.titlepage { font: 12px helvetica, sans-serif; }
+.title { font: 18px helvetica, sans-serif; }
+
+.zsection {
+	font-family: helvetica, sans-serif;
+	font-size: 18px;
+}
+
+
+
+.topic .sections { font: 10px arial; background-color: #487858; 
+   padding: 2px 1em; }
+
+
+.news { margin: 0.5em 0em; }
+.news .title { background-color: #94CE4A; padding: 2px 0.5em; 
+   font: 12px arial; }
+.news .body { padding: 0.5em; font: 10px arial; color: white; line-height: 1.5; }
+
+
+
+*/
+
+/* Стили для highlight.js - BEGIN */
+pre code {
+    display: block;
+    background-color: #326342;
+    border: 1px solid #94CE4A;
+    padding: 4px;
+    white-space: wrap;
+}
+
+.subst, .title {
+    font-weight: normal;
+}
+
+.comment, .template_comment, .javadoc, .diff .header {
+    color: lightgray;
+    font-style: italic;
+}
+
+.annotation, .decorator, .preprocessor, .doctype, .pi, .chunk, .shebang, .apache .cbracket {
+    color: yellow;
+}
+
+.tag, .pi {
+    background: #efefef;
+}
+
+.tag .title, .id, .attr_selector, .literal, .keyword, .hexcolor, .css .function, .ini .title, .css .class, .list .title {
+    font-weight: bold;
+    color: #FFC757;
+}
+
+.attribute, .rules .keyword, .number, .date, .regexp {
+    font-weight: bold;
+    color: #0000ff;
+}
+
+.number, .regexp {
+    font-weight: normal;
+}
+
+.string, .value, .filter .argument, .css .function .params, .apache .tag {
+    color: #ed8282;
+    font-weight: bold;
+}
+
+.symbol, .char {
+    color: #000;
+    background: #d0eded;
+    font-style: italic;
+}
+
+.phpdoc, .javadoctag {
+    text-decoration: underline;
+}
+
+.variable, .envvar, .apache .sqbracket {
+    color: #660e7a;
+}
+
+.addition {
+    background: #baeeba;
+}
+
+.deletion {
+    background: #ffc8bd;
+}
+
+.diff .change {
+    background: #bccff9;
+}
+/* Стили для highlight.js - END */

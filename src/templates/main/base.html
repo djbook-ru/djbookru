@@ -1,9 +1,22 @@
 {% extends 'base.html' %}
-
-{% block head %}
-
-{% endblock %}
-
+{% block head %}{% endblock %}
 {% block body %}
-
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+    <tr>
+        <td width="25%" valign="top">
+            {# левая колонка #}
+            {% include 'main/_left.html' %}
+        </td>
+        <td width="*" valign="top" class="content">
+            {% include "main/_google.html" %}
+            <hr/>
+            {% block content %}{% endblock %}
+            <hr/>
+        </td>
+        <td width="116" valign="top">
+            {# правая колонка #}
+            {% include 'main/_right.html' %}
+        </td>
+    </tr>
+</table>
 {% endblock %}

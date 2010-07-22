@@ -74,6 +74,13 @@ else:
         )),
     )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.auth',
+    'django.core.context_processors.request',
+    'django.core.context_processors.media',
+    'context_processors.custom'
+)
+
 AUTHENTICATION_BACKENDS = (
     'accounts.backends.CustomUserBackend',
     'django.contrib.auth.backends.ModelBackend',
@@ -103,6 +110,18 @@ INSTALLED_APPS = (
     'accounts',
     'main'
 )
+
+GOOGLE_ANALYTICS = """
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-3919032-4");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+"""
 
 try:
     from settings_local import *
