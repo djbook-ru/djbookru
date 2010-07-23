@@ -1,1 +1,7 @@
 {% extends 'main/base.html' %}
+
+{% block title %}{{ page.name }}: {{ page.book.name }}{% endblock %}
+
+{% block content %}
+    {{ page.content|safe }}
+{% endblock %}
