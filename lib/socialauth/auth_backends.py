@@ -1,11 +1,13 @@
+from django.contrib.auth.models import User
+from django.conf import settings
 from django.contrib.auth.backends import ModelBackend
-from accounts.models import User
+
 from socialauth.lib import oauthtwitter
 from socialauth.models import OpenidProfile as UserAssociation, TwitterUserProfile, FacebookUserProfile, AuthMeta
 from socialauth.lib.facebook import get_user_info, get_facebook_signature
-import random
+
 from datetime import datetime
-from django.conf import settings
+import random
 
 TWITTER_CONSUMER_KEY = getattr(settings, 'TWITTER_CONSUMER_KEY', '')
 TWITTER_CONSUMER_SECRET = getattr(settings, 'TWITTER_CONSUMER_SECRET', '')
@@ -16,7 +18,6 @@ FACEBOOK_REST_SERVER = getattr(settings, 'FACEBOOK_REST_SERVER', 'http://api.fac
 class CustomUserBackend(ModelBackend):
     
     def authenticate(self, username=None, password=None):
-        print User.objects.all()
         try:
             user = User.objects.get(username=username)
             if user.check_password(password):
@@ -29,13 +30,13 @@ class CustomUserBackend(ModelBackend):
             return User.objects.get(pk=user_id)
         except User.DoesNotExist:
             return None
-        
-class OpenIdBackend(object):
+
+class OpenIdBackend:
     def authenticate(self, openid_key, request, provider):
         try:
             assoc = UserAssociation.objects.get(openid_key = openid_key)
-            return assoc.user
-        except UserAssociation.DoesNotExist:
+            return User.objects.get(pk=assoc.user.pk)
+        except (UserAssociation.DoesNotExist, User.DoesNotExist):
             #fetch if openid provider provides any simple registration fields
             nickname = None
             email = None
@@ -43,35 +44,27 @@ class OpenIdBackend(object):
                 email = request.openid.sreg.get('email')
                 nickname = request.openid.sreg.get('nickname')
             elif request.openid and request.openid.ax:
-                if provider == 'Google':
-                    email = request.openid.ax.get('http://axschema.org/contact/email')
-                    email = email.pop()
-                else:
-                    email = request.openid.ax.get('email')
-                    nickname = request.openid.ax.get('nickname')
- 
+                email = request.openid.ax.get('email')
+                nickname = request.openid.ax.get('nickname')
             if nickname is None :
-                if email:
-                    nickname = email.split('@')[0]
-                else:
-                    nickname =  ''.join([random.choice('abcdefghijklmnopqrstuvwxyz') for i in xrange(10)])
+                nickname =  ''.join([random.choice('abcdefghijklmnopqrstuvwxyz') for i in xrange(10)])
             if email is None :
                 valid_username = False
-                email =  None #'%s@example.openid.com'%(nickname)
+                email =  '%s@%s.%s.com'%(nickname, provider, settings.SITE_NAME)
             else:
-                valid_username = True
+                valid_username = True                
             name_count = User.objects.filter(username__startswith = nickname).count()
             if name_count:
                 username = '%s%s'%(nickname, name_count + 1)
-                user = User.objects.create_user(username,email or '')
+                user = User.objects.create_user(username,email)
             else:
-                user = User.objects.create_user(nickname,email or '')
+                user = User.objects.create_user(nickname,email)
             user.save()
- 
+    
             #create openid association
             assoc = UserAssociation()
             assoc.openid_key = openid_key
-            assoc.user = user#AuthUser.objects.get(pk=user.pk)
+            assoc.user = user
             if email:
                 assoc.email = email
             if nickname:
@@ -79,22 +72,21 @@ class OpenIdBackend(object):
             if valid_username:
                 assoc.is_username_valid = True
             assoc.save()
- 
+            
             #Create AuthMeta
             auth_meta = AuthMeta(user = user, provider = provider)
             auth_meta.save()
             return user
- 
+    
     def get_user(self, user_id):
         try:
             user = User.objects.get(pk = user_id)
             return user
         except User.DoesNotExist:
             return None
-        
-class TwitterBackend(object):
-    """
-    TwitterBackend for authentication
+
+class TwitterBackend:
+    """TwitterBackend for authentication
     """
     def authenticate(self, access_token):
         '''authenticates the token by requesting user information from twitter
@@ -111,8 +103,8 @@ class TwitterBackend(object):
         try:
             user_profile = TwitterUserProfile.objects.get(screen_name = screen_name)
             user = user_profile.user
-            return user
-        except TwitterUserProfile.DoesNotExist:
+            return User.objects.get(pk=user.pk)
+        except (TwitterUserProfile.DoesNotExist, User.DoesNotExist):
             #Create new user
             same_name_count = User.objects.filter(username__startswith = screen_name).count()
             if same_name_count:
@@ -128,7 +120,7 @@ class TwitterBackend(object):
             except:
                 first_name, last_name =  screen_name, ''
             user.first_name, user.last_name = first_name, last_name
-            #user.email = '%s@twitteruser.%s.com'%(userinfo.screen_name, settings.SITE_NAME)
+            user.email = '%s@twitteruser.%s.com'%(userinfo.screen_name, settings.SITE_NAME)
             user.save()
             userprofile = TwitterUserProfile(user = user, screen_name = screen_name)
             userprofile.access_token = access_token.key
@@ -147,7 +139,7 @@ class TwitterBackend(object):
             return None
         
 
-class FacebookBackend(object):
+class FacebookBackend:
     
     def authenticate(self, cookies):
         API_KEY = FACEBOOK_API_KEY
@@ -160,14 +152,14 @@ class FacebookBackend(object):
                 username = user_info_response[0]['first_name']
                 try:
                     profile = FacebookUserProfile.objects.get(facebook_uid = user_info_response[0]['uid'])
-                    return profile.user
-                except FacebookUserProfile.DoesNotExist:
+                    return User.objects.get(pk=profile.user)
+                except (FacebookUserProfile.DoesNotExist, User.DoesNotExist):
                     fb_data = user_info_response[0]
                     name_count = User.objects.filter(username__istartswith = username).count()
                     if name_count:
                         username = '%s%s' % (username, name_count + 1)
-                    #user_email = '%s@facebookuser.%s.com'%(user_info_response[0]['first_name'], settings.SITE_NAME)
-                    user = User.objects.create(username = username)
+                    user_email = '%s@facebookuser.%s.com'%(user_info_response[0]['first_name'], settings.SITE_NAME)
+                    user = User.objects.create(username = username, email=user_email)
                     user.first_name = fb_data['first_name']
                     user.last_name = fb_data['last_name']
                     user.save()
@@ -179,6 +171,7 @@ class FacebookBackend(object):
             else:
                 return None
                     
+                
         else:
             return None
     
@@ -186,4 +179,4 @@ class FacebookBackend(object):
         try:
             return User.objects.get(pk=user_id)
         except:
-            return None                
+            return None

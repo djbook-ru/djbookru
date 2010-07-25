@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Авторизация{% endblock %}
+
+{% block content %}
+    {% if not user.is_authenticated %}
+        <a class="twitter" href="{% url socialauth_twitter_login %}?next={{ next }}"> twitter</a> 
+        <a class="open-id" href="{% url socialauth_openid_login %}?next={{ next }}">openid</a>
+        <a class="google" href="{% url socialauth_google_login %}?next={{ next }}">gmail</a>
+    {% else %}
+        Вы уже авторизованы.
+    {% endif %}
+{% endblock %}
