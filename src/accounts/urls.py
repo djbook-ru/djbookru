@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import *
+from django.contrib.auth.views import login
 
-urlpatterns = patterns('accounts.views',
-    url('^login/$', 'login', name='login'),
-    url('^logout/$', 'logout', name='logout'),
+urlpatterns = patterns('',
+    url('^login/$', login, name='login'),
+    url('^logout/$', 'accounts.views.logout', name='logout'),
 )

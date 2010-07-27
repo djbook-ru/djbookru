@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     (r'^', include('main.urls', 'main')),
     (r'auth/', include('accounts.urls', 'accounts')),
     (r'socialauth/', include('socialauth.urls')),
+    (r'forum/', include('dinette.urls')),
     (r'^admin/', include(admin.site.urls)),
 )
 

@@ -1,23 +1,13 @@
-{% extends 'openid_consumer/base.html' %}
+{% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}
-
-{{ block.super }} - Sign in with your OpenID
-
-{% endblock %}
-
 {% block content %}
-
 <h1>{% trans "Sign in with your OpenID" %}</h1>
-
 <form action="{{ action }}" method="post">
     {% csrf_token %}
     <p>
         <input class="openid" type="text" name="openid_url"> 
-        <input type="submit" value="{% trans "Sign in" %}" class="open-id">
+        <input type="submit" value="{% trans "Login" %}" class="open-id">
     </p>
 </form>
-
-<br /><br /><br /><br />
 {% endblock %}

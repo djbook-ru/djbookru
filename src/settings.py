@@ -75,6 +75,7 @@ else:
     )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.request",
     "django.contrib.auth.context_processors.auth",
     "django.core.context_processors.debug",
     "django.core.context_processors.i18n",
@@ -88,7 +89,7 @@ AUTHENTICATION_BACKENDS = (
     'accounts.backends.OpenIdBackend',
     'accounts.backends.TwitterBackend',
     'accounts.backends.FacebookBackend',    
-    'django.contrib.auth.backends.ModelBackend',
+    #'django.contrib.auth.backends.ModelBackend',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -98,6 +99,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'openid_consumer.middleware.OpenIDMiddleware',
+    'pagination.middleware.PaginationMiddleware', 
 )
 
 ROOT_URLCONF = 'urls'
@@ -116,9 +118,13 @@ INSTALLED_APPS = (
     'accounts',
     'main',
     'socialauth',
-    'openid_consumer',    
+    'openid_consumer',
+    'dinette',
+    'pagination',
+    'sorl.thumbnail'
 )
 
+#authentication settings
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/auth/login/'
@@ -134,6 +140,21 @@ TWITTER_CONSUMER_SECRET = 'r9qtVVwjtHBSYIM875CTcoSVft7xVHL600x3G8co'
 #for testing and add django.local.ru to hosts
 #TWITTER_CONSUMER_KEY = 'wOpKCQS3inKOLEL5tVg'
 #TWITTER_CONSUMER_SECRET = 'e9c22D4NrMQBfYfE35tDQtHgeZoA0nEDhAuhSfy8tUI'
+
+#forum settings
+TOPIC_PAGE_SIZE = 10
+REPLY_PAGE_SIZE = 20
+FLOOD_TIME = 5
+TEMPLATE_CONTEXT_PROCESSORS += (
+    "dinette.context_processors.get_announcement",
+    "dinette.context_processors.get_site_config",
+    "dinette.context_processors.get_forumwide_links"
+)
+
+MIDDLEWARE_CLASSES += (
+     "dinette.middleware.UserActivity",
+)
+RANKS_NAMES_DATA = ((30, "Member"), (100, "Senior Member"), (300, 'Star'))
 
 GOOGLE_ANALYTICS = """
 <script type="text/javascript">
