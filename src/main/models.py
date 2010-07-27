@@ -22,6 +22,8 @@ class Page(models.Model):
     slug = models.CharField(max_length=100)
     content = models.TextField()
     book = models.ForeignKey(Book, related_name='pages')
+    chapter = models.CharField(max_length=10, blank=True)
+    section = models.CharField(max_length=10, blank=True)
     
     class Meta:
         unique_together = ['slug', 'book']

@@ -45,24 +45,34 @@ class BookAdminForm(forms.ModelForm):
             if not filename.split('.')[-1] == 'html':
                 continue
             
-            if filename == 'index.html':
-                name = u'Первая страница'
-            elif chs_pattern.match(filename):
-                r = chs_pattern.match(filename)
-                #FIXME: fix numbers 01 == 1
-                name = u'Глава %s, раздел %s' % (r.group('ch'), r.group('s'))
-            elif ch_pattern.match(filename):
-                r = ch_pattern.match(filename)
-                name = u'Глава %s' % r.group('ch')
-            elif appendix_pattern.match(filename):
-                r = appendix_pattern.match(filename)
-                name = u'Приложение %s' % r.group('section').upper()
-            else:
-                name = filename
+            slug = filename[:-5]
             
-            page = Page(name=name, slug=filename[:-5])
+            try:
+                page = Page.objects.get(slug=slug, book=obj)
+            except Page.DoesNotExist:
+                page = Page(slug=slug, book=obj)
+                #create name if page is new
+                if filename == 'index.html':
+                    name = u'Первая страница'
+                elif chs_pattern.match(filename):
+                    r = chs_pattern.match(filename)
+                    name = u'Глава %s, раздел %s' % (int(r.group('ch')), int(r.group('s')))
+                    page.chapter = r.group('ch')
+                    page.section = r.group('s')
+                elif ch_pattern.match(filename):
+                    r = ch_pattern.match(filename)
+                    name = u'Глава %s' % int(r.group('ch'))
+                    page.chapter = r.group('ch')
+                elif appendix_pattern.match(filename):
+                    r = appendix_pattern.match(filename)
+                    name = u'Приложение %s' % r.group('section').upper()
+                    page.chapter = u'ap'
+                    page.section = r.group('section')
+                else:
+                    name = filename
+                page.name=name
+                
             page.content=archive.read(filename)
-            page.book = obj
             page.save()
             
         archive.close()

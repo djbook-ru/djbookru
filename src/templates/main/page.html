@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ page.name }}: {{ page.book.name }}{% endblock %}
+
+{% block left %}
+    {% include '_left.html' %}
+{% endblock %}
+
+{% block content %}
+    {{ page.content|safe }}
+{% endblock %}
+
