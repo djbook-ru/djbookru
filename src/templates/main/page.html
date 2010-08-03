@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
+{% load book_page %}
+
 {% block title %}{{ page.name }}: {{ page.book.name }}{% endblock %}
 
 {% block left %}
-    {% include '_left.html' %}
+    {% toc page %}
 {% endblock %}
 
 {% block content %}

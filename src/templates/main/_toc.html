@@ -1,0 +1,11 @@
+  <div class="area-title">Оглавление</div>
+  {% for c in toc.chapters %}
+    <div class="tocmini-chapter"><a href="{{c.0}}">{{ c.1 }}<a></div>
+    {% ifequal c.0 toc.chapter_url %}
+      <div class="tocmini-sections">
+        {% for s in toc.sections %}
+          <div class="tocmini-section"><a href="{{s.0}}">{{ s.1 }}<a></div>
+        {% endfor %}
+      </div>
+    {% endifequal %}
+  {% endfor %}

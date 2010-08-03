@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.utils import simplejson
 
 class Book(models.Model):
     name = models.CharField(_(u'Name'), max_length=255)
@@ -16,6 +17,9 @@ class Book(models.Model):
     @classmethod
     def get(cls):
         return cls.objects.latest('created')
+    
+    def get_toc(self):
+        return simplejson.loads(self.toc)
     
 class Page(models.Model):
     name = models.CharField(_(u'Name'), max_length=255)

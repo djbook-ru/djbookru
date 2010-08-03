@@ -14,7 +14,7 @@ def index(request):
         'page': page
     }
 
-@render_to('main/index.html')    
+@render_to('main/page.html')    
 def page(request, slug):
     try:
         book = Book.get()
