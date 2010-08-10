@@ -1,5 +1,7 @@
 {% extends 'main/page.html' %}
 
+{% load news_tags %}
+
 {% block left %}
-    {% include '_left.html' %}
+    {% last_news %}
 {% endblock %}
