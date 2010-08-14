@@ -1,0 +1,16 @@
+<div class="comments">
+    {% for item in qs %}
+        {% include 'comments/_item.html' %}
+    {% endfor %}
+</div>
+<script type="text/javascript">
+    function update_comments(){
+        jQuery.post('{% url comments:update_comments %}', {
+            ct: '{{ content_type.pk }}',
+            last_comment_id: jQuery('.table_comment:first').attr('comment_id') || '',
+            obj_id: '{{ obj.pk }}'
+        }, function(data){
+            jQuery('.table_body.comments').prepend(data)
+        }, 'html')
+    }    
+</script>

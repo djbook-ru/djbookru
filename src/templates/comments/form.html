@@ -1,0 +1,57 @@
+{% if form %}
+<form method="post" action="{% url comments:post %}" id="comment-form">
+    {% csrf_token %}
+    {% for field in form %}
+        {% if field.is_hidden %}
+            {{ field }}
+        {% endif %}
+    {% endfor %}
+    <div>
+        {{ form.content }}
+    </div>
+    <button type="submit"><span>Post</span></button>    
+</form>
+<script type="text/javascript">
+jQuery(document).ready(function($){
+    $('#comment-form').ajaxForm({
+        dataType: 'json',
+        success: function(data, status, xhr, $form){
+            if (data.success){
+                $('#id_comment_form_content').clearFields();
+                if (update_comments){
+                    update_comments();
+                }
+            } else {
+                for (key in data.errors){
+                    var $field = $('input[name="'+key+'"]', $form);
+                    var error = '<p class="error_list">'+data.errors[key]+'</p>';
+                    if ($field.length){
+                        $('input[name="'+key+'"]', $form).before(error);
+                    }else{
+                        $form.prepend(error);
+                    }
+                };
+            }
+        },
+        beforeSubmit: function(formData, $Form, options){
+            $('p.error_list', $Form).remove();
+            var form = $Form[0];
+            if (!form.content.value){
+                $(form.content).before('<p class="error_list">Enter comment please.</p>');
+                return false;
+            }
+        }
+    });
+    
+    $('.reply').live('click', function(){
+        $('#id_comment_form_reply_to').val($(this).attr('comment_id'))
+        $('#id_comment_form_content').focus();
+        return false;
+    });
+});
+</script>
+{% else %}
+    <div class="comment-form">
+        <a href="{% url auth:login %}?next={{ next_page }}">Login to post a comment</a> 
+    </div>
+{% endif %}

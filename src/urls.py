@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     (r'socialauth/', include('socialauth.urls')),
     (r'forum/', include('dinette.urls')),
     (r'^admin/', include(admin.site.urls)),
+    (r'^comments/', include('comments.urls', 'comments')),    
 )
 
 if settings.DEBUG:

@@ -104,6 +104,7 @@ INSTALLED_APPS = (
     'accounts',
     'main',
     'news',
+    'comments'
 )
 
 #authentication settings
@@ -152,7 +153,7 @@ pageTracker._trackPageview();
 """
 
 #available options
-#NEWS_ON_MAIN
+#NEWS_ON_MAIN, NEWS_ON_PAGE, COMMENT_MAX_LENGTH
 
 try:
     from settings_local import *

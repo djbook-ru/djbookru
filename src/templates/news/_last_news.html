@@ -1,5 +1,3 @@
-{% load markup %}
-
 {% for item in news %}
     <div class="news-inc">
         <div style="font-family: arial; font-size: 12px; font-weight: bold; border-bottom: 1px dotted rgb(148, 206, 74);">
@@ -9,7 +7,7 @@
             {{ item.created|date }} {{ item.created|time }}
         </div>
         <div class="text">
-            {{ item.content|markdown }}
+            {{ item.content|safe }}
         </div>
         <br>
     </div>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load news_tags pagination_tags comments_tags %}
+
+{% block left %}
+    {% last_news %}
+{% endblock %}
+
+{% block content %}
+    <div class="news-block">
+        <div>
+            <span class="title">{{ object.title }}</span> <span class="date">{{ object.created|date:"d m Y" }}</span>
+        </div>
+        <div style="padding-left: 1em;">
+            {{ object.content|safe }}
+        </div>
+    </div>
+    {% render_comment_list object %}
+    {% render_comment_form object %}
+{% endblock %}
