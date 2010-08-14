@@ -1,7 +1,7 @@
 {% load thumbnail %}
 
 <div class="comment" comment_id="{{ item.id }}">
-    <div class="table_user_deets">
+    <div class="comment_text">
         <span class="user_thumb">
             {% if item.user.photo  %}
                 <img src="{% thumbnail item.user.photo 80x80 %}" />                                                    
@@ -9,19 +9,23 @@
                 <img src="http://www.gravatar.com/avatar/{{ item.user.getMD5 }}.jpg" alt="" />
             {% endif %}
         </span>
-        <a href="{{ item.user.get_absolute_url }}">{{ item.user }}</a>
-        <span class="comment_date">{{ item.submit_date|timesince }} назад</span>
-    </div>
-    <div class="comment_text">
+        <div class="table_user_deets">
+            <a href="{{ item.user.get_absolute_url }}">{{ item.user }}</a>
+            <span class="comment_date">{{ item.submit_date|timesince }} назад</span>
+        </div>        
         <a name="comments-{{ item.id }}"></a>
-        <a href="#" class="floatright reply"  comment_id="{{ item.id }}">
+        <a href="#" class="reply"  comment_id="{{ item.id }}">
             <span>Ответить</span>
         </a>
-        <a href="#comments-{{ item.id }}" class="floatright" style="margin-right: 5px">Линк</a>
+        <a href="#comments-{{ item.id }}" class="link" style="margin-right: 5px">Линк</a>
         {% if item.reply_to %}
-            <a href="#comments-{{ item.reply_to.id }}">ответ для {{ item.reply_to.user }}</a>
-            <div class="replied">{{ item.reply_to.content|linebreaksbr }}</div>
+            <p class="replied">
+                <a href="#comments-{{ item.reply_to.id }}">ответ для {{ item.reply_to.user }}</a>
+                <br/>
+                {{ item.reply_to.content|linebreaksbr }}
+            </p>
         {% endif %}
-        <p>{{ item.content|linebreaksbr }}</p>
+        <p class="content">{{ item.content|linebreaksbr }}</p>
     </div>
+    <div style="clear:both"></div>
 </div>

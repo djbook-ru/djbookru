@@ -7,10 +7,10 @@
     function update_comments(){
         jQuery.post('{% url comments:update_comments %}', {
             ct: '{{ content_type.pk }}',
-            last_comment_id: jQuery('.table_comment:first').attr('comment_id') || '',
+            last_comment_id: jQuery('.comment:first').attr('comment_id') || '',
             obj_id: '{{ obj.pk }}'
         }, function(data){
-            jQuery('.table_body.comments').prepend(data)
+            jQuery('.comments').prepend(data)
         }, 'html')
     }    
 </script>

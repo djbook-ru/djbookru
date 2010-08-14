@@ -262,8 +262,33 @@ pre code {
 /* Стили для highlight.js - END */
 
 /* Стили для комментариев */
+.comments .comment {
+    border-bottom: 1px solid #94CE4A;
+    margin-bottom: 5px;
+    padding-bottom: -5px;
+}
 
+.comments .user_thumb {
+    float: left;
+    margin-right: 5px;
+}
 
+.comments .table_user_deets {
+    float: left;
+}
 
+.comments .link, .comments .reply {
+    float: right;
+}
+
+.comments .replied {
+    clear: right;
+    border: 1px dotted rgb(148, 206, 74);
+    margin: 5px 5px 5px 85px;
+    padding: 4px;
+}
+
+.comments .content {
+    clear: right;
+}
 /* Стили для комментариев - END */
- */

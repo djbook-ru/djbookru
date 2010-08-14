@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load book_page %}
+{% load book_page comments_tags %}
 
 {% block title %}{{ page.name }}: {{ page.book.name }}{% endblock %}
 
@@ -9,6 +9,10 @@
 {% endblock %}
 
 {% block content %}
-    {{ page.content|safe }}
+    {{ page.content|safe }}    
+    {% block comments %}
+        {% render_comment_list page %}
+        {% render_comment_form page %}
+    {% endblock %}    
 {% endblock %}
 
