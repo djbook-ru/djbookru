@@ -1,4 +1,4 @@
-{% load i18n %} 
+{% load i18n news_tags %} 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lanh="ru">
     <head>
@@ -37,7 +37,9 @@
         <table width="100%" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td width="25%" valign="top">
-                    {% block left %}{% endblock %}
+                    {% block left %}
+                        {% last_news %}
+                    {% endblock %}
                 </td>
                 <td width="*" valign="top" class="content">
                     {% include "_google.html" %}
@@ -52,7 +54,7 @@
             </tr>
         </table>
         
-        {% if not debug %}{{ google_analytics|safe }}{% endif %}
+        {% if not DEBUG %}{{ google_analytics|safe }}{% endif %}
         
         {% include '_footer.html' %}
         

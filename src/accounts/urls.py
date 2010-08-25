@@ -3,5 +3,9 @@ from django.contrib.auth.views import login
 
 urlpatterns = patterns('',
     url('^login/$', login, name='login'),
-    url('^logout/$', 'accounts.views.logout', name='logout'),
+)
+
+urlpatterns += patterns('accounts.views',
+    url('^logout/$', 'logout', name='logout'),
+    url('^(?P<pk>\d+)/$', 'profile', name='profile')
 )

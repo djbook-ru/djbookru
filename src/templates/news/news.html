@@ -1,15 +1,11 @@
 {% extends 'base.html' %}
 
-{% load news_tags pagination_tags comments_tags %}
-
-{% block left %}
-    {% last_news %}
-{% endblock %}
+{% load pagination_tags comments_tags %}
 
 {% block content %}
     <div class="news-block">
         <div>
-            <span class="title">{{ object.title }}</span> <span class="date">{{ object.created|date:"d m Y" }}</span>
+            <span class="title">{{ object.title }}</span> <span class="date">{{ object.created|date:'DATETIME_FORMAT' }}</span>
         </div>
         <div style="padding-left: 1em;">
             {{ object.content|safe }}

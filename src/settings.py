@@ -107,6 +107,8 @@ INSTALLED_APPS = (
     'comments'
 )
 
+DATETIME_FORMAT = 'j N Y, G:i'
+
 #authentication settings
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'

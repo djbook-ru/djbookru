@@ -16,8 +16,9 @@ class User(BaseUser):
     
     objects = UserManager()
 
+    @models.permalink
     def get_absolute_url(self):
-        return '/'       
+        return ('accounts:profile', [self.pk])      
     
     #forum profile methods
     def get_total_posts(self):

@@ -1,14 +1,14 @@
 {% for item in news %}
     <div class="news-inc">
-        <div style="font-family: arial; font-size: 12px; font-weight: bold; border-bottom: 1px dotted rgb(148, 206, 74);">
+        <a style="font-family: arial; font-size: 12px; font-weight: bold; " href="{{ item.get_absolute_url }}">
             {{ item.title }}
-        </div>
+        </a
         <div style="font-size: 8px; text-align: right;">
-            {{ item.created|date }} {{ item.created|time }}
+            {{ item.created|date:'DATETIME_FORMAT' }}
         </div>
         <div class="text">
             {{ item.content|safe }}
         </div>
-        <br>
+        <hr/>
     </div>
 {% endfor %}

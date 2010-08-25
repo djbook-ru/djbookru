@@ -1,10 +1,6 @@
 {% extends 'base.html' %}
 
-{% load news_tags pagination_tags %}
-
-{% block left %}
-    {% last_news %}
-{% endblock %}
+{% load pagination_tags %}
 
 {% block content %}
     {% if is_paginated %}
