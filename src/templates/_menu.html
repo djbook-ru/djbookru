@@ -14,7 +14,7 @@
             </td>
             <td style="white-space: nowrap; padding: 4px 1em;">
                 {% if user.is_authenticated %}
-                    {{ user.username }} | <a href="{% url accounts:logout %}">Logout</a>
+                    <a href="{{ user.get_absolute_url }}">{{ user.username }}</a> | <a href="{% url accounts:logout %}">Logout</a>
                 {% else %}
                     <a href="{% url accounts:login %}">Login</a>
                 {% endif %}

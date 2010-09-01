@@ -292,3 +292,11 @@ pre code {
     clear: right;
 }
 /* Стили для комментариев - END */
+
+.edit-form {
+    width: 350px;
+}
+
+.edit-form input, .edit-form textarea {
+    float: right;
+}

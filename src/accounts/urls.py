@@ -7,5 +7,6 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('accounts.views',
     url('^logout/$', 'logout', name='logout'),
+    url('^edit/$', 'edit', name='edit'),
     url('^(?P<pk>\d+)/$', 'profile', name='profile')
 )

@@ -1,7 +1,36 @@
 {% extends 'base.html' %}
 
-{% load news_tags pagination_tags %}
+{% load thumbnail %}
 
 {% block content %}
-    xyu
+    <div style="float:left; width: 300px;">
+        <h3>
+            {{ user_obj.username }}        
+            {% if user == user_obj %}
+                <a href="{% url accounts:edit %}">edit</a>
+            {% endif %}
+        </h3>
+        
+        <p>
+        {% if user_obj.first_name or user_obj.last_name %}
+            <h4>{{ user_obj.first_name }} {{ user_obj.last_name }}</h4>
+        {% endif %}
+        </p>
+        
+        {% if user_obj.biography %}
+        <h4 style="margin-bottom: -5px;">О поьзователе:</h4>
+        <p>
+            {{ user_obj.biography|linebreaksbr }}
+        </p>
+        {% endif %}
+    </div>
+    
+    <div style="float: left">
+        {% if user_obj.photo  %}
+            <img src="{% thumbnail user_obj.photo 80x80 %}"/>                                                    
+        {% else %}                                                        
+            <img src="{{ user_obj.gravatar_photo }}" />
+        {% endif %}
+    </div>    
+    <div style="clear: both"></div>
 {% endblock %}

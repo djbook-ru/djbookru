@@ -6,7 +6,7 @@
             {% if item.user.photo  %}
                 <img src="{% thumbnail item.user.photo 80x80 %}" />                                                    
             {% else %}                                                        
-                <img src="http://www.gravatar.com/avatar/{{ item.user.getMD5 }}.jpg" alt="" />
+                <img src="{{ item.user.gravatar_photo }}" alt="" />
             {% endif %}
         </span>
         <div class="table_user_deets">

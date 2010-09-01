@@ -3,3 +3,4 @@
 src/settings_local.py
 env/*
 database.sqlite
+src/static/users/photo

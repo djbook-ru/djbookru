@@ -1,3 +1,9 @@
 {% extends 'main/page.html' %}
 
-{% block comments %}{% endblock %} 
+{% load i18n news_tags %}
+
+{% block comments %}{% endblock %}
+
+{% block left %}
+    {% last_news %}
+{% endblock %}

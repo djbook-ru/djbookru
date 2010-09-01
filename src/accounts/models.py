@@ -3,10 +3,13 @@ from django.db import models
 from django.db.models.signals import post_save
 import datetime
 import hashlib
+from django.utils.translation import ugettext_lazy as _
 
 class User(BaseUser):
-    photo = models.ImageField(upload_to='users/photo',null=True,blank=True)    
-    
+    photo = models.ImageField(_(u'photo'), upload_to='users/photo',null=True,blank=True)    
+    biography = models.TextField(_(u'biography'), blank=True)
+    homepage = models.URLField(_(u'homepage'), verify_exists=False, blank=True)
+        
     #forum profile fields
     last_activity = models.DateTimeField(null=True)
     last_session_activity = models.DateTimeField(null=True)
@@ -19,6 +22,9 @@ class User(BaseUser):
     @models.permalink
     def get_absolute_url(self):
         return ('accounts:profile', [self.pk])      
+    
+    def gravatar_photo(self):
+        return 'http://www.gravatar.com/avatar/%s.jpg' % self.getMD5()
     
     #forum profile methods
     def get_total_posts(self):
