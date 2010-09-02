@@ -300,3 +300,49 @@ pre code {
 .edit-form input, .edit-form textarea {
     float: right;
 }
+
+.login-link {
+    display: block;
+    float: left;
+    margin: 3px;
+    width: 113px;
+    height: 32px;
+    text-decoration: none;
+}
+
+.login-link.open-id {
+    background: url(../img/login.png) 0 0px no-repeat;
+}
+
+.login-link.twitter {
+    background: url(../img/login.png) -120px 0px no-repeat;
+}
+
+.login-link.google {
+    background: url(../img/login.png) -222px 0px no-repeat;
+}
+
+ul.messages, ul.errorlist {
+    list-style: none;
+    margin-left: 0px;
+    padding: 0px;
+}
+
+ul.errorlist li {
+    color: #ff8080;
+}
+
+ul.messages li {
+    padding: 5px;
+    font-size: 1.2em;
+    margin: 2px;
+    font-weight: bold;
+}
+
+ul.messages li.error {
+    background: #ff8080;
+}
+
+ul.messages li.success {
+    background: #94CE4A;
+}

@@ -53,6 +53,6 @@ jQuery(document).ready(function($){
 </script>
 {% else %}
     <div class="comment-form">
-        <a href="{% url auth:login %}?next={{ next_page }}">Авторизируйтесь что бы оставлять комментарии</a> 
+        <a href="{% url accounts:login %}?next={{ next_page }}">Авторизируйтесь что бы оставлять комментарии</a> 
     </div>
 {% endif %}

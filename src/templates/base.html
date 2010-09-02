@@ -27,14 +27,6 @@
             {% include '_search.html' %}
         {% endblock %}
         
-        {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li class="{% if message.tags %} {{ message.tags }}{% endif %}">{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-             
         <table width="100%" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td width="25%" valign="top">
@@ -44,7 +36,14 @@
                 </td>
                 <td width="*" valign="top" class="content">
                     {% include "_google.html" %}
-                    <hr/>
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                            <li class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <hr/>                    
                     {% block content %}{% endblock %}
                     <hr/>
                 </td>

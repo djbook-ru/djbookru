@@ -1,10 +1,11 @@
+{% load i18n %}
 <div class="menu">
     <ul>
-        <li><a href="/" >Главная</a></li>
-        <li><a href="{% url news:index %}" >Архив новостей</a></li>
-        <li><a href="{% url dinette_category %}" >Форум</a></li>
-        <li><a href="/text/hosting/" >Площадка</a></li>
-        <li><a href="/text/hosting/" >Примеры</a></li>
+        <li><a href="/" >{% trans 'Main' %}</a></li>
+        <li><a href="{% url news:index %}" >{% trans 'News' %}</a></li>
+        <li><a href="{% url dinette_category %}" >{% trans 'Forum' %}</a></li>
+        <li><a href="/text/hosting/" >{% trans 'Platform' %}</a></li>
+        <li><a href="/text/hosting/" >{% trans 'Examples' %}</a></li>
         {% comment %}
         <li><a href="/text/examples/">Примеры</a>
             <ul>
@@ -14,22 +15,13 @@
                 <li><a href="#">Dreamweaver Menus</a></li>
            </ul>
         </li>
-        
-        <li><a href="/faq.php">FAQ</a>
-            <ul>
-            <li><a href="#">Drop Down CSS Menus</a></li>
-            <li><a href="#">Horizontal CSS Menus</a></li>
-            <li><a href="#">Vertical CSS Menus</a></li>
-            <li><a href="#">Dreamweaver Menus</a></li>
-            </ul>
-        </li>
-        <li><a href="/contact/contact.php">Contact</a></li>
         {% endcomment %}
         <ol>
             {% if user.is_authenticated %}
-                <a href="{{ user.get_absolute_url }}">{{ user.username }}</a> | <a href="{% url accounts:logout %}">Logout</a>
+                <a href="{{ user.get_absolute_url }}">{{ user.username }}</a> | 
+                <a href="{% url accounts:logout %}?next={{ request.path_info|urlencode }}">{% trans 'Logout' %}</a>
             {% else %}
-                <a href="{% url accounts:login %}">Login</a>
+                <a href="{% url accounts:login %}?next={{ request.path_info|urlencode }}">{% trans 'Login' %}</a>
             {% endif %}              
         </ol>
     </ul>
