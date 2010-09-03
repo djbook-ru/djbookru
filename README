@@ -1,0 +1,10 @@
+New version of djbook.ru site.
+
+Install:
+
+easy_install setuptools                #install setuptools
+easy_install pip                          #install pip
+easy_install virtualenv                   #install virtualenv
+virtualenv env                            #create virtual enviroment
+source env/bin/activate                   #activate virtual enviroment
+pip install -r requirements.txt           #install required libraries

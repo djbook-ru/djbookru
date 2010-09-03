@@ -14,7 +14,8 @@
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/djangobook.css" type="text/css"/>
         <link rel="stylesheet" href="{{ MEDIA_URL }}menu/menu_style.css" type="text/css"/>
         <script src="{{ MEDIA_URL }}js/jquery-1.4.2.min.js"></script>
-        <script src="{{ MEDIA_URL }}js/jquery.form.js"></script>        
+        <script src="{{ MEDIA_URL }}js/jquery.form.js"></script>
+        <script src="{{ MEDIA_URL }}js/jquery-spelling.js"></script>
         {% block head %}{% endblock %}
     </head>
     <body style="padding: 0px; margin: 0px;">
@@ -49,7 +50,7 @@
                 </td>
                 <td width="116" valign="top">
                     {# правая колонка #}
-                    {# include '_right.html' #}
+                    {% include '_right.html' %}
                 </td>
             </tr>
         </table>
