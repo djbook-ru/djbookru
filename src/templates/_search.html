@@ -8,7 +8,7 @@
               </td>
               <td style="color: #326342;">
             {# Начало поиска от Google #}
-            <form action="http://djbook.ru/search/" id="cse-search-box">
+            <form action="{% url main:search %}" id="cse-search-box">
               <div>
                 <input type="hidden" name="cx" value="partner-pub-2091160070233929:hgadcucfsly" />
                 <input type="hidden" name="cof" value="FORID:11" />

@@ -23,4 +23,8 @@ def page(request, slug):
         raise Http404
     return {
         'page': page
-    }    
+    }
+    
+@render_to('main/search.html')
+def search(request):
+    return {}
