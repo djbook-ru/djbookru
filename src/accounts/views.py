@@ -51,7 +51,9 @@ def edit(request):
         form = UserEditForm(request.POST, request.FILES, instance=request.user)
         if form.is_valid():
             form.save()
+            messages.success(request, _(u'Profile changed success!'))
             return redirect(request.user)
+        messages.error(request, _(u'Please correct the error below.'))
     else:
         form = UserEditForm( instance=request.user)
     return {

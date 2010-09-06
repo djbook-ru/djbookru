@@ -1,8 +1,10 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.conf import settings
+from patch import sites_flatpages_patch
 
 admin.autodiscover()
+sites_flatpages_patch()
 
 urlpatterns = patterns('',
     (r'^', include('main.urls', 'main')),
