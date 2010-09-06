@@ -12,6 +12,8 @@ urlpatterns = patterns('',
     (r'auth/', include('accounts.urls', 'accounts')),
     (r'socialauth/', include('socialauth.urls')),
     (r'forum/', include('dinette.urls')),
+    (r'^grappelli/', include('grappelli.urls')),
+    (r'^admin_tools/', include('admin_tools.urls')),
     (r'^admin/', include(admin.site.urls)),
     (r'^comments/', include('comments.urls', 'comments')),    
 )

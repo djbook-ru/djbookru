@@ -25,6 +25,8 @@ DATABASES = {
     }
 }
 
+FIRST_DAY_OF_WEEK = 1
+
 TIME_ZONE = 'Europe/Moscow'
 
 LANGUAGE_CODE = 'ru'
@@ -91,6 +93,8 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'admin_tools.dashboard',
+    'grappelli',                  
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -98,7 +102,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'django.contrib.markup',
-    'django.contrib.flatpages',
+    'django.contrib.flatpages', 
     'sorl.thumbnail',
     'pagination',
     'socialauth',
@@ -112,6 +116,12 @@ INSTALLED_APPS = (
 )
 
 DATETIME_FORMAT = 'j N Y, G:i'
+
+#grappelli settings
+GRAPPELLI_ADMIN_TITLE = 'Djbook.ru'
+
+ADMIN_TOOLS_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
+ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'dashboard.CustomAppIndexDashboard'
 
 #authentication settings
 LOGIN_REDIRECT_URL = '/'

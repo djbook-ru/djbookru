@@ -27,6 +27,12 @@ class FlatPageAdmin(admin.ModelAdmin):
     search_fields = ('url', 'title')
     save_on_top = True
     
+    class Media:
+        js = [
+            settings.ADMIN_MEDIA_PREFIX+'tinymce/jscripts/tiny_mce/tiny_mce.js', 
+            'js/tinymce_setup.js'
+        ]
+        
     def save_model(self, request, new_object, form, change=False):
         super(FlatPageAdmin, self).save_model(request, new_object, form, change)
         new_object.sites.add(settings.SITE_ID)

@@ -28,7 +28,6 @@ class User(BaseUser):
     
     #forum profile methods
     def get_total_posts(self):
-        print self.user.ftopics_set.count() + self.user.reply_set.count()
         return self.user.ftopics_set.count() + self.user.reply_set.count()
     
     def is_online(self):
