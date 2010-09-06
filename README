@@ -1,5 +1,7 @@
 New version of djbook.ru site.
 
+DONT FORGET: now ADMIN_MEDIA_URL points to /lib/grappelli/media
+
 Install:
 
 easy_install setuptools                #install setuptools
@@ -8,3 +10,7 @@ easy_install virtualenv                   #install virtualenv
 virtualenv env                            #create virtual enviroment
 source env/bin/activate                   #activate virtual enviroment
 pip install -r requirements.txt           #install required libraries
+
+Run:
+
+use run.bat or run.sh
