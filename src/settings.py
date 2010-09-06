@@ -105,7 +105,8 @@ INSTALLED_APPS = (
     'accounts',
     'main',
     'news',
-    'comments'
+    'comments',
+    'claims'
 )
 
 DATETIME_FORMAT = 'j N Y, G:i'
