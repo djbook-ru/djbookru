@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}{{ block.super }} | {% trans 'Examples' %} | {{ category }}{% endblock %}
+
+{% block content %}
+    <h1>{{ category }}</h1>
+    {% for item in category.examples.all %}
+        <p style="padding-left: 20px;"><a href="{{ item.get_absolute_url }}">{{ item }}</a></p>
+    {% endfor %}
+{% endblock %}

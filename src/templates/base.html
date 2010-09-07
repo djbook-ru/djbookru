@@ -1,4 +1,4 @@
-{% load i18n news_tags %} 
+{% load i18n news_tags components %} 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lanh="ru">
     <head>
@@ -16,12 +16,14 @@
         <script src="{{ MEDIA_URL }}js/jquery-1.4.2.min.js"></script>
         <script src="{{ MEDIA_URL }}js/jquery.form.js"></script>
         <script src="{{ MEDIA_URL }}js/jquery-spelling.js"></script>
+        <script src="{{ MEDIA_URL }}js/highlight.pack.js"></script>
+        <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
         {% block head %}{% endblock %}
     </head>
     <body style="padding: 0px; margin: 0px;">
     
         {% block menu %}
-            {% include '_menu.html' %}
+            {% menu %}
         {% endblock %}
         
         {% block search %}
