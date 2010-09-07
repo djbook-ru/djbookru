@@ -1,4 +1,5 @@
-  <div class="area-title">Оглавление</div>
+  {% load i18n %}
+  <div class="area-title">{% trans 'Table of contents' %}</div>
   {% for c in toc.chapters %}
     <div class="tocmini-chapter"><a href="{{c.0}}">{{ c.1 }}<a></div>
     {% ifequal c.0 toc.chapter_url %}

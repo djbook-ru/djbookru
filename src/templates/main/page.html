@@ -2,7 +2,7 @@
 
 {% load book_page comments_tags %}
 
-{% block title %}{{ page.name }}: {{ page.book.name }}{% endblock %}
+{% block title %}{{ block.super }} | {{ page.name }}: {{ page.book.name }}{% endblock %}
 
 {% block left %}
     {% toc page %}

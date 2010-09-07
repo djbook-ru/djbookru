@@ -4,6 +4,7 @@ from django.db.models.signals import post_save
 import datetime
 import hashlib
 from django.utils.translation import ugettext_lazy as _
+from sorl.thumbnail.main import DjangoThumbnail
 
 class User(BaseUser):
     photo = models.ImageField(_(u'photo'), upload_to='users/photo',null=True,blank=True)    
@@ -25,6 +26,12 @@ class User(BaseUser):
     
     def gravatar_photo(self):
         return 'http://www.gravatar.com/avatar/%s.jpg' % self.getMD5()
+    
+    def avatar(self):
+        if self.photo:
+            return DjangoThumbnail(self.photo, (80, 80))
+        else:
+            return self.gravatar_photo()
     
     #forum profile methods
     def get_total_posts(self):

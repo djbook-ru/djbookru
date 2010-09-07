@@ -1,6 +1,6 @@
-
+{% load i18n %}
 <div id="brd-head" class="gen-content">
-  <p id="brd-access"><a href="#brd-main">Skip to forum content</a></p>
+  <p id="brd-access"><a href="#brd-main">{% trans 'Skip to forum content' %}</a></p>
   <p id="brd-title"><a href="/"><img src="{{ MEDIA_URL }}img/djangobook-title.png" border="0"/></a></p>
   <p id="brd-desc">{{ config.tag_line }}</p>
 </div>
@@ -8,14 +8,14 @@
 <div id="brd-navlinks" class="gen-content"> 
   	<ul>	    
   		<li>
-			<a href="{% url dinette_category %}">Home</a>
+			<a href="{% url dinette_category %}">{% trans 'Home' %}</a>
 		</li>
 		<li>
-			<a href="{% url dinette_search %}">Search</a>
+			<a href="{% url dinette_search %}">{% trans 'Search' %}</a>
 		</li>
 		{% if user.is_authenticated %}
 			<li>
-				<a href="{% url dinette_new_for_user %}">New topics</a>
+				<a href="{% url dinette_new_for_user %}">{% trans 'New topics' %}</a>
 			</li>
 		{% endif %}
 	  	{% for link in dinette_nav_links %}
@@ -30,15 +30,15 @@
   <p id="welcome">
   	<span>
 		{% if user.is_authenticated %}
-		  Hello {{ user.nickname }}, <a href='{% url accounts:logout %}?next=/forum/'>Logout</a>
+		  {% trans 'Hello'%} {{ user.nickname }}, <a href='{% url accounts:logout %}?next=/forum/'>{% trans 'Logout' %}</a>
 		{% else %}
 		  <a href="{% url accounts:login %}?next=/forum/">Login</a>
 		{% endif %}
 	</span>
   </p>
   <p id="visit-links" class="options">
-  		<span><a href="{% url dinette_active %}">Active Topics</a></span>
-		<span><a href="{% url dinette_unanswered %}">Unanswered Topics</a></span>
+  		<span><a href="{% url dinette_active %}">{% trans 'Active Topics' %}</a></span>
+		<span><a href="{% url dinette_unanswered %}">{% trans 'Unanswered Topics' %}</a></span>
   </p>
 </div>	
 

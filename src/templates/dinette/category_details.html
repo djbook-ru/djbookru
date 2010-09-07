@@ -1,10 +1,10 @@
 {% extends "dinette/base.html" %}
 
-{% block title %}{{  block.super }}{% endblock %}
+{% block title %}{{ block.super }}{% endblock %}
 
 {% block content %}
 
-{% load pagination_tags %}
+{% load pagination_tags i18n %}
 
 {% autopaginate topic_list topic_page_size %}
 
@@ -32,7 +32,7 @@
 			  <th> </th>
 			  <td>
 			    <input type="submit" value="Post Topic" onClick="return check_errors_in_form()" />
-			    &nbsp; <span class="closebutton"> <a href="" onclick="return hideForm()">close</a>  </span>
+			    &nbsp; <span class="closebutton"> <a href="" onclick="return hideForm()">{% trans 'close' %}</a>  </span>
 			  </td>
 			</tr>
 		  </tbody>
@@ -47,7 +47,7 @@
     <!-- brd-main begin -->
 	<div id="brd-main">
 	  <h1 class="main-title">
-	    <a class="permalink" href="{{ topic.category.get_absolute_url }}" rel="bookmark" title="Permanent link to this forum.">
+	    <a class="permalink" href="{{ topic.category.get_absolute_url }}" rel="bookmark" title="{% trans 'Permanent link to this forum.' %}">
 	      {{ topic.category.name }} 
 	    </a> 
 	  </h1>
@@ -64,9 +64,9 @@
 		  </span>
         
 		  {% if authenticated %}
-			<a href="#" onclick="return isUserAuthenticated(0)">New Topic</a>        
+			<a href="#" onclick="return isUserAuthenticated(0)">{% trans 'New Topic' %}</a>        
 		  {% else %}
-			<a href="{% url accounts:login %}?next={{ category.get_absolute_url }}">Login to start New Topic</a>        
+			<a href="{% url accounts:login %}?next={{ category.get_absolute_url }}">{% trans 'Login to start New Topic' %}</a>        
 		  {% endif %}
         </p>
 	  </div>
@@ -74,16 +74,16 @@
 	
 	  <div class="main-head">
 		<p class="options"><span class="feed first-item"><a href="{% url dinette_feed_url category.getCategoryString %}"> RSS </a></span></p>	
-		<h2 class="hn"><span><span class="item-info">Topics </span></span></h2>
+		<h2 class="hn"><span><span class="item-info">{% trans 'Topics' %}</span></span></h2>
 	  </div>
 
 	  <div class="main-subhead">
 		<p class="item-summary forum-views">
 		  <span>
-			<strong class="subject-title">Topics</strong> in this forum with details of 
-			<strong class="info-replies">replies</strong>, 
-			<strong class="info-views">views</strong>, 
-			<strong class="info-lastpost">last post</strong>.
+			<strong class="subject-title">{% trans 'Topics'</strong> {% trans 'in this forum with details of' %} 
+			<strong class="info-replies">{% trans 'replies' %}</strong>, 
+			<strong class="info-views">{% trans 'views' %}</strong>, 
+			<strong class="info-lastpost">{% trans 'last post' %}</strong>.
 		  </span>
 		</p>
 	  </div>
