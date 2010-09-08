@@ -32,6 +32,7 @@ class Page(models.Model):
     section = models.CharField(_(u'section'), max_length=10, blank=True)
     
     class Meta:
+        ordering = ['chapter', 'section']
         unique_together = ['slug', 'book']
         verbose_name = _(u'Page')
         verbose_name_plural = _(u'Pages')
