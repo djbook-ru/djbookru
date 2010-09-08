@@ -4,6 +4,7 @@ def rel(*x):
     return os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
 
 sys.path.insert(0, rel('..', 'lib'))
+gettext_noop = lambda s: s
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -117,6 +118,8 @@ INSTALLED_APPS = (
 )
 
 DATETIME_FORMAT = 'j N Y, G:i'
+FEEDBACK_SUBJECT = gettext_noop(u'Feedback message from Djbook.ru')
+FEEDBACK_EMAIL = 'djbook.feedback@gmail.com'
 
 #grappelli settings
 GRAPPELLI_ADMIN_TITLE = 'Djbook.ru'
@@ -154,7 +157,11 @@ TEMPLATE_CONTEXT_PROCESSORS += (
 MIDDLEWARE_CLASSES += (
      "dinette.middleware.UserActivity",
 )
-RANKS_NAMES_DATA = ((30, "Member"), (100, "Senior Member"), (300, 'Star'))
+RANKS_NAMES_DATA = (
+    (30, gettext_noop("Member")), 
+    (100, gettext_noop("Senior Member")), 
+    (300, gettext_noop('Star'))
+)
 
 #Google settings
 GOOGLE_ANALYTICS = """

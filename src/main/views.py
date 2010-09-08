@@ -1,7 +1,8 @@
-from decorators import render_to
+from decorators import render_to, render_to_json
 from main.models import Page, Book
 from django.http import Http404
 from django.db.models import ObjectDoesNotExist
+from main.forms import FeedbackForm
 
 @render_to('main/index.html')
 def index(request):
@@ -28,3 +29,14 @@ def page(request, slug):
 @render_to('main/search.html')
 def search(request):
     return {}
+
+@render_to_json
+def feedback(request):
+    output = dict(success=False)
+    form = FeedbackForm(request.POST)
+    if form.is_valid():
+        form.send(request)
+        output['success'] = True
+    else:
+        output['errors'] = form.get_errors()
+    return output

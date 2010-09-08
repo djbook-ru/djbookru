@@ -2,8 +2,9 @@ from django import forms
 from comments.models import Comment, COMMENT_MAX_LENGTH
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext_lazy as _
+from utils.forms import AjaxForm
 
-class CommentForm(forms.ModelForm):
+class CommentForm(forms.ModelForm, AjaxForm):
     honeypot = forms.CharField(required=False, widget=forms.HiddenInput)
     content = forms.CharField(label=_('Comment'), widget=forms.Textarea,
                                     max_length=COMMENT_MAX_LENGTH)
