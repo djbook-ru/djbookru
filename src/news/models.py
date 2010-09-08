@@ -1,9 +1,10 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 class News(models.Model):
-    title = models.CharField(max_length=255)
-    content = models.TextField()
-    created = models.DateTimeField(auto_now=True)
+    title = models.CharField(_(u'title'), max_length=255)
+    content = models.TextField(_(u'content'))
+    created = models.DateTimeField(_(u'created'), auto_now=True)
     
     class Meta:
         ordering = ['-created']

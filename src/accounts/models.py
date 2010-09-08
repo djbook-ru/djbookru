@@ -12,14 +12,18 @@ class User(BaseUser):
     homepage = models.URLField(_(u'homepage'), verify_exists=False, blank=True)
         
     #forum profile fields
-    last_activity = models.DateTimeField(null=True)
-    last_session_activity = models.DateTimeField(null=True)
-    userrank = models.CharField(max_length=30,default="Junior Member")
-    last_posttime = models.DateTimeField(null=True)
-    signature = models.CharField(max_length = 1000, null = True, blank = True)
+    last_activity = models.DateTimeField(_(u'last activity'), null=True)
+    last_session_activity = models.DateTimeField(_(u'last session activity'), null=True)
+    userrank = models.CharField(_(u'user rank'), max_length=30, default="Junior Member")
+    last_posttime = models.DateTimeField(_(u'last posttime'), null=True)
+    signature = models.CharField(_(u'signature'), max_length = 1000, null = True, blank = True)
     
     objects = UserManager()
-
+    
+    class Meta:
+        verbose_name = _(u'User')
+        verbose_name_plural = _(u'Users')
+    
     @models.permalink
     def get_absolute_url(self):
         return ('accounts:profile', [self.pk])      

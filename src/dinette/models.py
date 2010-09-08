@@ -8,18 +8,11 @@ import datetime
 from BeautifulSoup import BeautifulSoup
 from dinette.libs.postmarkup import render_bbcode
 from accounts.models import User
-
-#loading the logging configuration
-#logging.config.fileConfig(settings.LOG_FILE_NAME,defaults=dict(log_path=settings.LOG_FILE_PATH))
- 
-#Create module logger 
-#mlog=logging.getLogger(__name__) 
-#mlog.debug("From settings LOG_FILE_NAME %s LOG_FILE_PATH %s" % (settings.LOG_FILE_NAME,settings.LOG_FILE_PATH))
-#mlog.debug("Models Compliing!"+__name__)
+from django.utils.translation import ugettext_lazy as _
 
 class SiteConfig(models.Model):
-    name = models.CharField(max_length = 100)
-    tag_line = models.TextField(max_length = 100)
+    name = models.CharField(_(u'name'), max_length = 100)
+    tag_line = models.TextField(_(u'tag line'), max_length = 100)
 
 class SuperCategory(models.Model):
     name = models.CharField(max_length = 100)
@@ -31,8 +24,8 @@ class SuperCategory(models.Model):
     accessgroups  = models.ManyToManyField(Group,related_name='can_access_forums')
     
     class Meta:
-        verbose_name = "Super Category"
-        verbose_name_plural = "Super Categories"
+        verbose_name = _("Super Category")
+        verbose_name_plural = _("Super Categories")
         ordering = ('-ordering', 'created_on')
         
     def __unicode__(self):
@@ -51,8 +44,8 @@ class Category(models.Model):
     moderated_by = models.ManyToManyField(User, related_name='moderaters')
     
     class Meta:
-        verbose_name = "Category"
-        verbose_name_plural = "Categories"
+        verbose_name = _(u"Category")
+        verbose_name_plural = _(u"Categories")
         ordering = ('ordering','-created_on' )    
     
     
@@ -85,20 +78,15 @@ class Category(models.Model):
         ##mlog.debug("TOtal count =%d " % count)
         return count
     
-    
     def lastPostDatetime(self):
         ''' we are assuming post can be topic / reply
          we are finding out the last post / (if exists) last reply datetime '''                
         return self.lastPost().created_on
         
-        
-        
-        
     def lastPostedUser(self):
         '''  we are assuming post can be topic / reply
              we are finding out the last post / (if exists) last reply datetime '''
         return self.lastPost().posted_by.username
-        
      
     def lastPost(self):
         if(self.ftopics_set.count() == 0):
@@ -120,13 +108,12 @@ class TopicManager(models.Manager):
         "Topics with new replies after @when"
         now = datetime.datetime.now()
         return self.filter(last_reply_on__gt = now)
-    
 
 class Ftopics(models.Model):
     category = models.ForeignKey(Category)
     posted_by = models.ForeignKey(User)
     
-    subject = models.CharField(max_length=999)
+    subject = models.CharField(_(u'subject'), max_length=999)
     slug = models.SlugField(max_length = 200, db_index = True) 
     message = models.TextField()
     file = models.FileField(upload_to='dinette/files',default='',null=True,blank=True)
@@ -152,8 +139,8 @@ class Ftopics(models.Model):
     class Meta:
         ordering = ('-is_sticky', '-last_reply_on',)
         get_latest_by = ('created_on')
-        verbose_name = "Topic"
-        verbose_name_plural = "Topics"
+        verbose_name = _("Topic")
+        verbose_name_plural = _("Topics")
         
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -164,8 +151,6 @@ class Ftopics(models.Model):
                 slug = slug + str(same_slug_count)
             self.slug = slug
         super(Ftopics, self).save(*args, **kwargs)
-        
-    
         
     def __unicode__(self):
         return self.subject
@@ -201,7 +186,6 @@ class Ftopics(models.Model):
         
     def classname(self):
         return  self.__class__.__name__
-         
 
 # Create Replies for a topic
 class Reply(models.Model):
@@ -217,10 +201,9 @@ class Reply(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     
-    
     class Meta:
-        verbose_name = "Reply"
-        verbose_name_plural = "Replies"
+        verbose_name = _("Reply")
+        verbose_name_plural = _("Replies")
         ordering = ('created_on',)
         get_latest_by = ('created_on', )
         
@@ -236,7 +219,6 @@ class Reply(models.Model):
         msg = "%s %s"%(self.message, self.topic.subject)
         return truncatewords(msg, 100)
     
-    
     @models.permalink
     def get_absolute_url(self):
         return ('dinette_topic_detail',(),{'categoryslug':self.topic.category.slug,'topic_slug': self.topic.slug})
@@ -248,7 +230,6 @@ class Reply(models.Model):
             return "%s?page=%s#%s" % (url, page, self.reply_number)
         else:
             return "%s#%s" % (url, self.reply_number)
-            
     
     def htmlfrombbcode(self):
         soup = BeautifulSoup(self.message)
@@ -269,8 +250,8 @@ class NavLink(models.Model):
     url = models.URLField()
     
     class Meta:
-        verbose_name = "Navigation Link"
-        verbose_name_plural = "Navigation Links"
+        verbose_name = _("Navigation Link")
+        verbose_name_plural = _("Navigation Links")
         
     def __unicode__(self):
         return self.title

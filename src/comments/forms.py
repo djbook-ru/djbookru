@@ -1,10 +1,11 @@
 from django import forms
 from comments.models import Comment, COMMENT_MAX_LENGTH
 from django.contrib.contenttypes.models import ContentType
+from django.utils.translation import ugettext_lazy as _
 
 class CommentForm(forms.ModelForm):
     honeypot = forms.CharField(required=False, widget=forms.HiddenInput)
-    content = forms.CharField(label='Comment', widget=forms.Textarea,
+    content = forms.CharField(label=_('Comment'), widget=forms.Textarea,
                                     max_length=COMMENT_MAX_LENGTH)
     
     class Meta:
@@ -28,7 +29,7 @@ class CommentForm(forms.ModelForm):
         object_pk = self.cleaned_data.get('object_pk')
         if reply_to and content_type and object_pk:
             if not reply_to.content_type == content_type and not reply_to.object_pk == object_pk:
-                raise forms.ValidationError('You car reply only comments for same object')
+                raise forms.ValidationError(_('You car reply only comments for same object'))
         return self.cleaned_data
     
     def clean_honeypot(self):

@@ -8,7 +8,7 @@ from zipfile import ZipFile, BadZipfile
 import re
 
 class BookAdminForm(forms.ModelForm):
-    archive = forms.FileField(required=False)
+    archive = forms.FileField(label=_(u'archive'), required=False)
     
     class Meta:
         model = Book

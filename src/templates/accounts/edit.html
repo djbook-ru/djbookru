@@ -7,51 +7,7 @@
     {% csrf_token %}
     <h3>{% trans 'Edit profile' %}</h3>
     {{ form.non_field_errors }}
-    <p>
-        {{ form.first_name.errors }}
-        {{ form.first_name.label_tag }}
-        {{ form.first_name }}        
-    </p>
-    <p>
-        {{ form.last_name.errors }}
-        {{ form.last_name.label_tag }}
-        {{ form.last_name }}
-    </p>
-    <p>
-        {{ form.homepage.errors }}
-        {{ form.homepage.label_tag }}
-        {{ form.homepage }}
-    </p>
-    <p>
-        {{ form.photo.errors }}
-        {{ form.photo.label_tag }}
-        {{ form.photo }}          
-    </p>
-    <p>
-        {{ form.biography.errors }}
-        {{ form.biography.label_tag }}
-        {{ form.biography }}
-    </p>      
-    <p>
-        {{ form.email.errors }}
-        {{ form.email.label_tag }}
-        {{ form.email }}
-    </p>
-    <p>
-        {{ form.current_password.errors }}
-        {{ form.current_password.label_tag }}
-        {{ form.current_password }}
-    </p>
-    <p>
-        {{ form.new_password.errors }}
-        {{ form.new_password.label_tag }}
-        {{ form.new_password }}
-    </p>
-    <p>
-        {{ form.new_password_verify.errors }}
-        {{ form.new_password_verify.label_tag }}
-        {{ form.new_password_verify }}
-    </p>
+    {{ form.as_p }} 
     <p>
         <input type="submit" value='{% trans "Save" %}'/>
     </p>

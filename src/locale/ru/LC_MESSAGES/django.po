@@ -1,0 +1,722 @@
+#: .\dashboard.py:41
+msgid "Administration"
+msgstr "Администрирование"
+
+#: .\dashboard.py:48
+msgid "Applications"
+msgstr "Приложения"
+
+#: .\dashboard.py:56 .\dashboard.py:121
+msgid "Recent Actions"
+msgstr ""
+
+#: .\dashboard.py:63
+msgid "Latest Django News"
+msgstr ""
+
+#: .\dashboard.py:71
+msgid "Support"
+msgstr ""
+
+#: .\dashboard.py:74
+msgid "Django documentation"
+msgstr ""
+
+#: .\dashboard.py:79
+msgid "Django \"django-users\" mailing list"
+msgstr ""
+
+#: .\dashboard.py:84
+msgid "Django irc channel"
+msgstr ""
+
+#: .\patch.py:9
+msgid "URL"
+msgstr ""
+
+#: .\patch.py:10
+msgid ""
+"Example: '/about/contact/'. Make sure to have leading and trailing slashes."
+msgstr ""
+
+#: .\patch.py:12
+msgid ""
+"This value must contain only letters, numbers, underscores, dashes or "
+"slashes."
+msgstr ""
+
+#: .\patch.py:22
+msgid "Advanced options"
+msgstr ""
+
+#: .\accounts\forms.py:6
+msgid "Current password"
+msgstr ""
+
+#: .\accounts\forms.py:7
+msgid "New password"
+msgstr ""
+
+#: .\accounts\forms.py:8
+msgid "Confirm new password"
+msgstr ""
+
+#: .\accounts\forms.py:10
+msgid "Confirm new password:"
+msgstr ""
+
+#: .\accounts\forms.py:19
+msgid "Invalid password."
+msgstr ""
+
+#: .\accounts\forms.py:21
+msgid "The two passwords did not match."
+msgstr ""
+
+#: .\accounts\forms.py:31
+msgid "This email is used already."
+msgstr ""
+
+#: .\accounts\models.py:10
+msgid "photo"
+msgstr ""
+
+#: .\accounts\models.py:11
+msgid "biography"
+msgstr ""
+
+#: .\accounts\models.py:12
+msgid "homepage"
+msgstr ""
+
+#: .\accounts\models.py:15
+msgid "last activity"
+msgstr ""
+
+#: .\accounts\models.py:16
+msgid "last session activity"
+msgstr ""
+
+#: .\accounts\models.py:17
+msgid "user rank"
+msgstr ""
+
+#: .\accounts\models.py:18
+msgid "last posttime"
+msgstr ""
+
+#: .\accounts\models.py:19
+msgid "signature"
+msgstr ""
+
+#: .\accounts\models.py:24
+msgid "User"
+msgstr ""
+
+#: .\accounts\models.py:25
+msgid "Users"
+msgstr ""
+
+#: .\accounts\views.py:22
+msgid "Account created success!"
+msgstr ""
+
+#: .\accounts\views.py:24 .\accounts\views.py:56
+msgid "Please correct the error below."
+msgstr ""
+
+#: .\accounts\views.py:54
+msgid "Profile changed success!"
+msgstr ""
+
+#: .\claims\models.py:13
+msgid "Notify"
+msgstr ""
+
+#: .\claims\models.py:17
+msgid "Claim"
+msgstr ""
+
+#: .\claims\models.py:18
+msgid "Claims"
+msgstr ""
+
+#: .\claims\models.py:27
+msgid "Unknown"
+msgstr ""
+
+#: .\claims\models.py:36
+msgid "DjangoBook in russian: Claim's state was changed to"
+msgstr ""
+
+#: .\claims\models.py:46
+msgid "This is automatic generated message, you do not need to answer on it."
+msgstr ""
+
+#: .\claims\models.py:80 .\templates\_right.html.py:17
+msgid "New"
+msgstr ""
+
+#: .\claims\models.py:80 .\templates\_right.html.py:18
+msgid "Assigned"
+msgstr ""
+
+#: .\claims\models.py:81 .\templates\_right.html.py:19
+msgid "Fixed"
+msgstr ""
+
+#: .\claims\models.py:81 .\templates\_right.html.py:20
+msgid "Invalid"
+msgstr ""
+
+#: .\claims\models.py:89
+msgid "Claim status"
+msgstr ""
+
+#: .\claims\models.py:90
+msgid "Claim statuses"
+msgstr ""
+
+#: .\claims\models.py:96
+msgid "Label"
+msgstr ""
+
+#: .\claims\models.py:101
+msgid "Text"
+msgstr ""
+
+#: .\claims\models.py:102
+msgid "Texts"
+msgstr ""
+
+#: .\comments\forms.py:8 .\comments\models.py:22
+msgid "Comment"
+msgstr ""
+
+#: .\comments\forms.py:32
+msgid "You car reply only comments for same object"
+msgstr ""
+
+#: .\comments\models.py:13
+msgid "object ID"
+msgstr ""
+
+#: .\comments\models.py:15
+msgid "user"
+msgstr ""
+
+#: .\comments\models.py:16 .\templates\comments\_item.html.py:19
+msgid "reply to"
+msgstr ""
+
+#: .\comments\models.py:17
+msgid "comment"
+msgstr ""
+
+#: .\comments\models.py:18
+msgid "submit date"
+msgstr ""
+
+#: .\comments\models.py:23
+msgid "Comments"
+msgstr ""
+
+#: .\dinette\forms.py:8 .\dinette\models.py:116
+msgid "subject"
+msgstr ""
+
+#: .\dinette\forms.py:9 .\dinette\forms.py:17
+msgid "message"
+msgstr ""
+
+#: .\dinette\models.py:14 .\examples\models.py:5 .\main\models.py:6
+#: .\main\models.py:27
+msgid "name"
+msgstr ""
+
+#: .\dinette\models.py:15
+msgid "tag line"
+msgstr ""
+
+#: .\dinette\models.py:27
+msgid "Super Category"
+msgstr ""
+
+#: .\dinette\models.py:28
+msgid "Super Categories"
+msgstr ""
+
+#: .\dinette\models.py:47 .\examples\models.py:9
+msgid "Category"
+msgstr ""
+
+#: .\dinette\models.py:48 .\examples\models.py:10
+msgid "Categories"
+msgstr ""
+
+#: .\dinette\models.py:142
+msgid "Topic"
+msgstr ""
+
+#: .\dinette\models.py:143 .\templates\dinette\category_details.html.py:77
+#: .\templates\dinette\category_details.html.py:83
+#: .\templates\dinette\new_topics.html.py:23
+msgid "Topics"
+msgstr ""
+
+#: .\dinette\models.py:205
+msgid "Reply"
+msgstr ""
+
+#: .\dinette\models.py:206
+msgid "Replies"
+msgstr ""
+
+#: .\dinette\models.py:253
+msgid "Navigation Link"
+msgstr ""
+
+#: .\dinette\models.py:254
+msgid "Navigation Links"
+msgstr ""
+
+#: .\examples\models.py:20
+msgid "category"
+msgstr ""
+
+#: .\examples\models.py:21 .\news\models.py:5
+msgid "title"
+msgstr ""
+
+#: .\examples\models.py:22 .\main\models.py:29 .\news\models.py:6
+msgid "content"
+msgstr ""
+
+#: .\examples\models.py:23 .\main\models.py:7 .\news\models.py:7
+msgid "created"
+msgstr ""
+
+#: .\examples\models.py:27
+msgid "Example"
+msgstr ""
+
+#: .\examples\models.py:28 .\templates\_menu.html.py:7
+#: .\templates\examples\category.html.py:5
+#: .\templates\examples\detail.html.py:5 .\templates\examples\index.html.py:5
+msgid "Examples"
+msgstr ""
+
+#: .\main\admin.py:11
+msgid "archive"
+msgstr ""
+
+#: .\main\admin.py:27
+msgid "This should be zip archive"
+msgstr ""
+
+#: .\main\models.py:8
+msgid "description"
+msgstr ""
+
+#: .\main\models.py:9
+msgid "ToC"
+msgstr ""
+
+#: .\main\models.py:13
+msgid "Book"
+msgstr ""
+
+#: .\main\models.py:14
+msgid "Books"
+msgstr ""
+
+#: .\main\models.py:28
+msgid "slug"
+msgstr ""
+
+#: .\main\models.py:30
+msgid "book"
+msgstr ""
+
+#: .\main\models.py:31
+msgid "chapter"
+msgstr ""
+
+#: .\main\models.py:32
+msgid "section"
+msgstr ""
+
+#: .\main\models.py:36
+msgid "Page"
+msgstr ""
+
+#: .\main\models.py:37
+msgid "Pages"
+msgstr ""
+
+#: .\templates\404.html.py:5 .\templates\500.html.py:5
+msgid "Forgotten page..."
+msgstr ""
+
+#: .\templates\404.html.py:11 .\templates\500.html.py:11
+msgid "You may visit"
+msgstr ""
+
+#: .\templates\404.html.py:13 .\templates\500.html.py:13
+msgid "my demo shop"
+msgstr ""
+
+#: .\templates\404.html.py:14 .\templates\500.html.py:14
+msgid "my book"
+msgstr ""
+
+#: .\templates\_menu.html.py:4
+msgid "Main"
+msgstr ""
+
+#: .\templates\_menu.html.py:5
+msgid "News"
+msgstr ""
+
+#: .\templates\_menu.html.py:6
+msgid "Forum"
+msgstr ""
+
+#: .\templates\_menu.html.py:16
+msgid "Platform"
+msgstr ""
+
+#: .\templates\_menu.html.py:17 .\templates\accounts\profile.html.py:21
+msgid "About"
+msgstr ""
+
+#: .\templates\_menu.html.py:21 .\templates\dinette\header_frag.html.py:33
+msgid "Logout"
+msgstr ""
+
+#: .\templates\_menu.html.py:23 .\templates\openid_consumer\signin.html.py:10
+#: .\templates\registration\login.html.py:16
+msgid "Login"
+msgstr ""
+
+#: .\templates\_right.html.py:4
+msgid "Found misprint?"
+msgstr ""
+
+#: .\templates\_right.html.py:7
+msgid "Select it and click the mouse"
+msgstr ""
+
+#: .\templates\_right.html.py:9
+msgid "Enter"
+msgstr ""
+
+#: .\templates\_right.html.py:14
+msgid "Processed"
+msgstr ""
+
+#: .\templates\accounts\create.html.py:5 .\templates\accounts\create.html.py:8
+#: .\templates\registration\login.html.py:16
+msgid "Register"
+msgstr ""
+
+#: .\templates\accounts\create.html.py:15
+msgid "Create"
+msgstr ""
+
+#: .\templates\accounts\edit.html.py:8
+msgid "Edit profile"
+msgstr ""
+
+#: .\templates\accounts\edit.html.py:12
+msgid "Save"
+msgstr ""
+
+#: .\templates\accounts\profile.html.py:10
+msgid "edit"
+msgstr ""
+
+#: .\templates\comments\_item.html.py:10
+msgid "ago"
+msgstr ""
+
+#: .\templates\comments\_item.html.py:14
+msgid "Answer"
+msgstr ""
+
+#: .\templates\comments\_item.html.py:16
+msgid "Link"
+msgstr ""
+
+#: .\templates\comments\form.html.py:13
+msgid "Post"
+msgstr ""
+
+#: .\templates\comments\form.html.py:42
+msgid "Enter comment please."
+msgstr ""
+
+#: .\templates\comments\form.html.py:57
+msgid "Login please to post comment"
+msgstr ""
+
+#: .\templates\dinette\announce_frag.html.py:6
+msgid "New Announcement"
+msgstr ""
+
+#: .\templates\dinette\attachement_frag.html.py:6
+msgid "File Attachment"
+msgstr ""
+
+#: .\templates\dinette\attachement_frag.html.py:8
+#: .\templates\dinette\attachement_frag.html.py:20
+msgid "Download"
+msgstr ""
+
+#: .\templates\dinette\attachement_frag.html.py:15
+msgid "Image Attachment"
+msgstr ""
+
+#: .\templates\dinette\category_details.html.py:35
+#: .\templates\dinette\topic_detail.html.py:180
+msgid "close"
+msgstr ""
+
+#: .\templates\dinette\category_details.html.py:50
+msgid "Permanent link to this forum."
+msgstr ""
+
+#: .\templates\dinette\category_details.html.py:67
+msgid "New Topic"
+msgstr ""
+
+#: .\templates\dinette\category_details.html.py:69
+msgid "Login to start New Topic"
+msgstr ""
+
+#: .\templates\dinette\category_details.html.py:84
+#: .\templates\dinette\new_topics.html.py:24
+#: .\templates\dinette\topic_detail_frag.html.py:32
+msgid "replies"
+msgstr ""
+
+#: .\templates\dinette\category_details.html.py:85
+#: .\templates\dinette\new_topics.html.py:25
+#: .\templates\dinette\topic_detail_frag.html.py:36
+msgid "views"
+msgstr ""
+
+#: .\templates\dinette\category_details.html.py:86
+#: .\templates\dinette\mainindex.html.py:33
+#: .\templates\dinette\new_topics.html.py:26
+msgid "last post"
+msgstr ""
+
+#: .\templates\dinette\header_frag.html.py:3
+msgid "Skip to forum content"
+msgstr ""
+
+#: .\templates\dinette\header_frag.html.py:11
+msgid "Home"
+msgstr ""
+
+#: .\templates\dinette\header_frag.html.py:14
+#: .\templates\dinette\search.html.py:19 .\templates\main\search.html.py:5
+msgid "Search"
+msgstr ""
+
+#: .\templates\dinette\header_frag.html.py:18
+msgid "New topics"
+msgstr ""
+
+#: .\templates\dinette\header_frag.html.py:33
+msgid "Hello"
+msgstr ""
+
+#: .\templates\dinette\header_frag.html.py:40
+msgid "Active Topics"
+msgstr ""
+
+#: .\templates\dinette\header_frag.html.py:41
+msgid "Unanswered Topics"
+msgstr ""
+
+#: .\templates\dinette\mainindex.html.py:30
+msgid "in this category with details of"
+msgstr ""
+
+#: .\templates\dinette\mainindex.html.py:31
+#: .\templates\dinette\mainindex.html.py:60
+msgid "topics"
+msgstr ""
+
+#: .\templates\dinette\mainindex.html.py:32
+#: .\templates\dinette\mainindex.html.py:63
+msgid "posts"
+msgstr ""
+
+#: .\templates\dinette\mainindex.html.py:49
+msgid "Moderated by"
+msgstr ""
+
+#: .\templates\dinette\mainindex.html.py:66
+#: .\templates\dinette\topic_detail_frag.html.py:39
+msgid "Last post"
+msgstr ""
+
+#: .\templates\dinette\mainindex.html.py:85
+msgid "Forum statistics"
+msgstr ""
+
+#: .\templates\dinette\mainindex.html.py:88
+msgid "Total number of registered users"
+msgstr ""
+
+#: .\templates\dinette\mainindex.html.py:91
+msgid "Newest registered user"
+msgstr ""
+
+#: .\templates\dinette\mainindex.html.py:100
+msgid "Total number of topics"
+msgstr ""
+
+#: .\templates\dinette\mainindex.html.py:103
+msgid "Total number of posts"
+msgstr ""
+
+#: .\templates\dinette\mainindex.html.py:106
+msgid "Users Online"
+msgstr ""
+
+#: .\templates\dinette\moderation_frag.html.py:4
+msgid "Reopen"
+msgstr ""
+
+#: .\templates\dinette\moderation_frag.html.py:4
+msgid "Close"
+msgstr ""
+
+#: .\templates\dinette\moderation_frag.html.py:5
+msgid "Un Stickify"
+msgstr ""
+
+#: .\templates\dinette\moderation_frag.html.py:5
+msgid "Stickify"
+msgstr ""
+
+#: .\templates\dinette\moderation_frag.html.py:6
+msgid "Remove from announcement"
+msgstr ""
+
+#: .\templates\dinette\moderation_frag.html.py:6
+msgid "Make announcement"
+msgstr ""
+
+#: .\templates\dinette\moderation_frag.html.py:7
+msgid "Hide"
+msgstr ""
+
+#: .\templates\dinette\new_topics.html.py:23
+msgid "in this forum with details of"
+msgstr ""
+
+#: .\templates\dinette\new_topics.html.py:34
+msgid "There is no topic with new replies since your last visit."
+msgstr ""
+
+#: .\templates\dinette\replydetail_frag.html.py:12
+#: .\templates\dinette\topic_detail.html.py:88
+msgid "Reply by"
+msgstr ""
+
+#: .\templates\dinette\replydetail_frag.html.py:16
+msgid "Permanent link to this post"
+msgstr ""
+
+#: .\templates\dinette\replydetail_frag.html.py:42
+#: .\templates\dinette\topic_detail.html.py:120
+msgid "Online"
+msgstr ""
+
+#: .\templates\dinette\replydetail_frag.html.py:44
+#: .\templates\dinette\topic_detail.html.py:122
+msgid "Offline"
+msgstr ""
+
+#: .\templates\dinette\replydetail_frag.html.py:54
+#: .\templates\dinette\topic_detail.html.py:127
+msgid "Registered"
+msgstr ""
+
+#: .\templates\dinette\replydetail_frag.html.py:59
+#: .\templates\dinette\topic_detail.html.py:72
+#: .\templates\dinette\topic_detail.html.py:128
+msgid "Posts"
+msgstr ""
+
+#: .\templates\dinette\search.html.py:36
+msgid "We do not have any results for this query."
+msgstr ""
+
+#: .\templates\dinette\topic_detail.html.py:48
+#: .\templates\dinette\topic_detail.html.py:157
+msgid "Post Reply"
+msgstr ""
+
+#: .\templates\dinette\topic_detail.html.py:50
+#: .\templates\dinette\topic_detail.html.py:159
+msgid "Login to Post Reply"
+msgstr ""
+
+#: .\templates\dinette\topic_detail.html.py:55
+msgid "Next"
+msgstr ""
+
+#: .\templates\dinette\topic_detail.html.py:59
+msgid "Previous"
+msgstr ""
+
+#: .\templates\dinette\topic_detail.html.py:69
+msgid "RSS Topic Feed"
+msgstr ""
+
+#: .\templates\dinette\topic_detail_frag.html.py:18
+msgid "Closed"
+msgstr ""
+
+#: .\templates\dinette\topic_detail_frag.html.py:22
+msgid "Sticky"
+msgstr ""
+
+#: .\templates\dinette\topic_detail_frag.html.py:26
+msgid "by"
+msgstr ""
+
+#: .\templates\examples\index.html.py:8
+msgid "Examles"
+msgstr ""
+
+#: .\templates\main\_toc.html.py:2
+msgid "Table of contents"
+msgstr ""
+
+#: .\templates\news\index.html.py:19
+msgid "more"
+msgstr ""
+
+#: .\templates\openid_consumer\signin.html.py:5
+msgid "Sign in with your OpenID"
+msgstr ""
+
+#: .\templates\registration\login.html.py:5
+#: .\templates\registration\login.html.py:8
+msgid "Authentication"
+msgstr ""
+
+#: .\templates\registration\login.html.py:16
+msgid "or"
+msgstr ""
+
+#: .\templates\registration\login.html.py:25
+msgid "You are authenticated already"
+msgstr ""

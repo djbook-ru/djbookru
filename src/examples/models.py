@@ -1,11 +1,14 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 class Category(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(_(u'name'), max_length=255)
     
     class Meta:
         ordering = ['name']
-    
+        verbose_name = _(u'Category')
+        verbose_name_plural = _(u'Categories')
+            
     def __unicode__(self):
         return self.name
     
@@ -14,14 +17,16 @@ class Category(models.Model):
         return ('examples:category', [self.pk])
     
 class Example(models.Model):
-    category = models.ForeignKey(Category, related_name='examples')
-    title = models.CharField(max_length=255)
-    content = models.TextField()
-    created = models.DateTimeField(auto_now=True)
+    category = models.ForeignKey(Category, related_name='examples', verbose_name=_(u'category'))
+    title = models.CharField(_(u'title'), max_length=255)
+    content = models.TextField(_(u'content'))
+    created = models.DateTimeField(_(u'created'), auto_now=True)
     
     class Meta:
         ordering = ['title']
-    
+        verbose_name = _(u'Example')
+        verbose_name_plural = _(u'Examples')
+            
     def __unicode__(self):
         return self.title
     
