@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}{{ block.super }} | {% trans 'Feedback' %}{% endblock %}
+
+{% block content %}
+    <h1>{% trans "You can send message to us" %}</h1>
+    
+    <form method="post" action=".">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p>
+            <input type="submit" value="{% trans 'Send' %}"/>
+        </p>
+    </form>
+{% endblock %}

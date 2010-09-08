@@ -26,7 +26,11 @@
 
 <div class="informer">
   <div style="font-size: 10px; font-weight: bold; margin: 4px 0px;">
-    <a href="#">{% trans 'We are glad to hear your questions, comments or suggestions!' %}</a>
+    {% trans 'We are glad to hear your questions, comments or suggestions!' %}
+    <br/>
+    <a href="{% url main:feedback %}" target="_blank">
+        ({% trans 'Open in new tab' %})
+    </a>
   </div>
 </div>
 

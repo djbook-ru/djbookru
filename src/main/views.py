@@ -3,6 +3,9 @@ from main.models import Page, Book
 from django.http import Http404
 from django.db.models import ObjectDoesNotExist
 from main.forms import FeedbackForm
+from django.shortcuts import redirect
+from django.contrib import messages
+from django.utils.translation import ugettext_lazy as _
 
 @render_to('main/index.html')
 def index(request):
@@ -30,13 +33,17 @@ def page(request, slug):
 def search(request):
     return {}
 
-@render_to_json
+@render_to('main/feedback.html')
 def feedback(request):
-    output = dict(success=False)
-    form = FeedbackForm(request.POST)
-    if form.is_valid():
-        form.send(request)
-        output['success'] = True
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.send(request)
+            messages.success(request, _(u'Feedback sent success!'))
+            return redirect('main:feedback')
     else:
-        output['errors'] = form.get_errors()
-    return output
+        form = FeedbackForm(initial={'referer': request.META.get('HTTP_REFERER', '')})
+    print form
+    return {
+        'form': form
+    }
