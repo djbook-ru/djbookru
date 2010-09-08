@@ -95,7 +95,8 @@ TEMPLATE_DIRS = (
 
 INSTALLED_APPS = (
     'admin_tools.dashboard',
-    'grappelli',                  
+    'grappelli',
+    'filebrowser',                  
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -124,6 +125,13 @@ FEEDBACK_EMAIL = 'djbook.feedback@gmail.com'
 #grappelli settings
 GRAPPELLI_ADMIN_TITLE = 'Djbook.ru'
 
+FILEBROWSER_URL_FILEBROWSER_MEDIA = MEDIA_URL+'filebrowser/'
+FILEBROWSER_PATH_TINYMCE = os.path.join(MEDIA_ROOT, 'tinymce/jscripts/tiny_mce/')
+FILEBROWSER_URL_TINYMCE = ADMIN_MEDIA_PREFIX + "tinymce/jscripts/tiny_mce/"
+FILEBROWSER_STRICT_PIL = True
+FILEBROWSER_DIRECTORY = 'uploads/'
+FILEBROWSER_VERSIONS_BASEDIR = 'fb_thumbnails/'
+ 
 ADMIN_TOOLS_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
 ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'dashboard.CustomAppIndexDashboard'
 

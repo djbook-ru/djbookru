@@ -43,7 +43,6 @@ def feedback(request):
             return redirect('main:feedback')
     else:
         form = FeedbackForm(initial={'referer': request.META.get('HTTP_REFERER', '')})
-    print form
     return {
         'form': form
     }
