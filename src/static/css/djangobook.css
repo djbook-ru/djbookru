@@ -278,8 +278,9 @@ pre code {
     float: left;
 }
 
-.comments .link, .comments .reply {
+.comments .link, .comments .reply, .comment .delete, .comment .edit {
     float: right;
+    margin-right: 5px;
 }
 
 .comments .replied {

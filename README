@@ -23,3 +23,12 @@ Run:
 cd src # if needed
 use run.bat or run.sh
 
+
+#Comments
+
+User is comment moderator if User.is_staff == True and user has permission to
+edit or delete comments.
+
+#Forum
+
+SuperCategory should belong to "general" auth.Group to be public visible. 

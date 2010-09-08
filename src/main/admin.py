@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django import forms
 from main.models import Book, Page
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ugettext_lazy as _
 from StringIO import StringIO
 from zipfile import ZipFile, BadZipfile
 import re

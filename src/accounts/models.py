@@ -47,7 +47,7 @@ class User(BaseUser):
 
     def getMD5(self):
         m = hashlib.md5()
-        m.update(self.user.email)        
+        m.update(self.user.email or self.user.username+'@djbook.ru')        
         return m.hexdigest()
     
     def get_since_last_visit(self):
@@ -59,7 +59,7 @@ class User(BaseUser):
     def nickname(self):
         #for easy change of user name display 
         return self.username
-    
+        
 def create_custom_user(sender, instance, created, **kwargs):
     if created:
         values = {}

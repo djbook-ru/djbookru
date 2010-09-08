@@ -23,7 +23,7 @@ class Comment(models.Model):
         verbose_name_plural = _(u'Comments')
         
     def __unicode__(self):
-        return "%s: %s..." % (self.user.__unicode__(), self.comment[:50])
+        return "%s: %s..." % (self.user.__unicode__(), self.content[:50])
     
     @classmethod
     def get_for_object(self, obj):

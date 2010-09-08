@@ -13,7 +13,9 @@ def render_comment_form(context, obj):
         form = None
     return {
         'form': form,
-        'next_page': context['request'].get_full_path()
+        'next_page': context['request'].get_full_path(),
+        'perms': context['perms'],
+        'user': context['user']
     }
 
 @register.inclusion_tag('comments/list.html', takes_context=True)
@@ -21,7 +23,9 @@ def render_comment_list(context, obj):
     return {
         'qs': Comment.get_for_object(obj),
         'content_type': ContentType.objects.get_for_model(obj),
-        'obj': obj
+        'obj': obj,
+        'perms': context['perms'],
+        'user': context['user']
     }
     
 @register.simple_tag    

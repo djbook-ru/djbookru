@@ -21,7 +21,7 @@ class SuperCategory(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     posted_by = models.ForeignKey(User)   
-    accessgroups  = models.ManyToManyField(Group,related_name='can_access_forums')
+    accessgroups  = models.ManyToManyField(Group, related_name='can_access_forums')
     
     class Meta:
         verbose_name = _("Super Category")

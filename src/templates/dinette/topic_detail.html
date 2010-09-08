@@ -102,11 +102,7 @@
 			  <li>
 				<table class="authortable">
 				  <tr><td >
-					{% if topic.posted_by.photo  %}
-					  <img src="{% thumbnail topic.posted_by.photo 80x80 %}" />                                                    
-					{% else %}                                                        
-					  <img src="http://www.gravatar.com/avatar/{{topic.posted_by.getMD5}}.jpg" alt="" />
-					{% endif %}  
+				     <img src="{{ topic.posted_by.avatar }}" /> 
 				  </td></tr>
 				  <tr><td>
 					<a href="{{ topic.posted_by.get_absolute_url }}">{{topic.posted_by.username}}</a>
