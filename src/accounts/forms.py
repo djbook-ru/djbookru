@@ -9,7 +9,7 @@ class UserEditForm(forms.ModelForm):
                                           required=False)    
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'photo', 'biography', 'email', 'signature')
+        fields = ('first_name', 'last_name', 'biography', 'email', 'signature')
         
     def clean(self):
         current, new, verify = map(self.cleaned_data.get,
@@ -18,8 +18,6 @@ class UserEditForm(forms.ModelForm):
             raise forms.ValidationError(_(u'Invalid password.'))
         if new and new != verify:
             raise forms.ValidationError(_(u'The two passwords did not match.'))
-        if not self.cleaned_data['photo']:
-            del self.cleaned_data['photo']
         return self.cleaned_data
     
     def clean_email(self):

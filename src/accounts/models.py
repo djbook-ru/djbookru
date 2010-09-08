@@ -7,7 +7,6 @@ from django.utils.translation import ugettext_lazy as _
 from sorl.thumbnail.main import DjangoThumbnail
 
 class User(BaseUser):
-    photo = models.ImageField(_(u'photo'), upload_to='users/photo',null=True,blank=True)    
     biography = models.TextField(_(u'biography'), blank=True)
     homepage = models.URLField(_(u'homepage'), verify_exists=False, blank=True)
         
@@ -29,13 +28,10 @@ class User(BaseUser):
         return ('accounts:profile', [self.pk])      
     
     def gravatar_photo(self):
-        return 'http://www.gravatar.com/avatar/%s.jpg' % self.getMD5()
+        return 'http://www.gravatar.com/avatar/%s.jpg?d=wavatar' % self.getMD5()
     
     def avatar(self):
-        if self.photo:
-            return DjangoThumbnail(self.photo, (80, 80))
-        else:
-            return self.gravatar_photo()
+        return self.gravatar_photo()
     
     #forum profile methods
     def get_total_posts(self):
