@@ -105,8 +105,12 @@ def openid_login(request):
         request.session['openid_provider'] = user_url
         return begin(request, user_url = user_url)
     else:
-        request.session['openid_provider'] = 'Openid'
-        return begin(request)
+        if 'google.com' in request.POST.get('openid_url', ''):
+            request.session['openid_provider'] = 'Google'
+            return begin(request, user_url='https://www.google.com/accounts/o8/id')
+        else:
+            request.session['openid_provider'] = 'Openid'
+            return begin(request)
 
 def gmail_login(request):
     request.session['openid_provider'] = 'Google'

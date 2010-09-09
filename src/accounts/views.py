@@ -55,7 +55,7 @@ def edit(request):
             return redirect(request.user)
         messages.error(request, _(u'Please correct the error below.'))
     else:
-        form = UserEditForm( instance=request.user)
+        form = UserEditForm(instance=request.user)
     return {
         'form': form
     }

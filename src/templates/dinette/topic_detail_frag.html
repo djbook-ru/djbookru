@@ -1,3 +1,4 @@
+{% load i18n %}
 <div id="topic{{ topic.pk }}" class="main-item odd main-first-item normal">
   {% if topic.is_closed %}
 	<span class="icon closed"><!-- --></span>
@@ -14,28 +15,28 @@
   <div class="item-subject">
 	<h3 class="hn"><span class="item-num">1</span>
 	  {% if topic.is_closed %}
-		<strong>(Closed)</strong>
+		<strong>({% trans 'Closed' %})</strong>
 	  {% endif %}
 	  
 	  {% if topic.is_sticky %}
-		<strong>(Sticky)</strong>
+		<strong>({% trans 'Sticky' %})</strong>
 	  {% endif %}		
 	  <a href="{% url dinette_topic_detail topic.category.slug topic.slug %}">{{topic.subject}} </a>   
 	</h3>
-	&nbsp; <span class="item-starter">by <cite>{{topic.posted_by.username}}</cite></span>
+	&nbsp; <span class="item-starter">{% trans 'by' %} <cite>{{topic.posted_by.username}}</cite></span>
   </div>
   
   <ul class="item-info">
 	<li class="info-replies">
 	  <strong>{{ topic.reply_set.count }}</strong> 
-	  <span class="label">replies</span>
+	  <span class="label">{% trans 'replies' %}</span>
 	</li>
 	<li class="info-views">
 	  <strong>{{ topic.viewcount }}</strong> 
-	  <span class="label">views</span>
+	  <span class="label">{% trans 'views' %}</span>
 	</li>
 	<li class="info-lastpost">
-	  <span class="label">Last post</span>
+	  <span class="label">{% trans 'Last post' %}</span>
 	  <strong><a href="{{ topic.get_absolute_url }}">{{ topic.lastPostDatetime|date:"jS F Y H:i A" }}</a></strong>
 	  <cite>by {{topic.lastPostedUser}}</cite>
 	</li>

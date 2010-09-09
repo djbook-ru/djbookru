@@ -1,17 +1,17 @@
 {% load i18n %}
 <div class="informer">
   <div style="font-size: 10px; font-weight: bold; margin: 4px 0px;">
-    Увидели ошибку?
+    {% trans 'Found misprint?' %}
   </div>
   <div>
-    Выделите её мышкой и нажмите
+    {% trans 'Select it and click the mouse' %}
     <div style="white-space: nowrap; margin: 4px; ">
-      <span class="guibutton">Ctrl</span>-<span class="guibutton">Enter</span>
+      <span class="guibutton">Ctrl</span>-<span class="guibutton">{% trans 'Enter' %}</span>
     </div>
   </div>
   <div class="pending">
     <div style="font-size: 10px; font-weight: bold; margin: 4px 0px;">
-      Обработано:
+      {% trans 'Processed' %}:
     </div>
     <div class="spelling">
       <span id="spelling_error_count_pending" title="{% trans 'New' %}">{{ spelling_error_count_pending }}</span>
@@ -23,15 +23,19 @@
 </div>
 
 <br/>
-{% comment %}
+
 <div class="informer">
-  <div class="title">Версия книги</div>
-  <div style="margin:0.5em;">
-    <span id="ver1" class="guibutton {% ifequal version "1" %}current{% endifequal %}">1.0</span>
-    <span id="ver2" class="guibutton {% ifequal version "2" %}current{% endifequal %}">2.0</span>
+  <div style="font-size: 10px; font-weight: bold; margin: 4px 0px;">
+    {% trans 'We are glad to hear your questions, comments or suggestions!' %}
+    <br/>
+    <a href="{% url main:feedback %}" target="_blank">
+        ({% trans 'Open in new tab' %})
+    </a>
   </div>
-  <div>Версия 2.0 в процессе перевода!</div>
 </div>
+
+<br/>
+{% comment %}
 
 <br/>
 

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load pagination_tags %}
+{% load pagination_tags i18n %}
 
 {% block content %}
     {% if is_paginated %}
@@ -16,7 +16,7 @@
                 {{ n.content|truncatewords_html:20|safe }}
             </div>
             <div style="padding-left: 1em; text-align: right">
-                <a href="{{ n.get_absolute_url }}">Далее</a>
+                <a href="{{ n.get_absolute_url }}">{% trans 'more' %}</a>
             </div>
         </div>
         {% if not forloop.last %}

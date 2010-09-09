@@ -13,29 +13,6 @@ class CustomIndexDashboard(Dashboard):
     def __init__(self, **kwargs):
         Dashboard.__init__(self, **kwargs)
 
-        # append a link list module for "quick links"
-        #self.children.append(modules.LinkList(
-        #    title=_('Quick links'),
-        #    layout='inline',
-        #    draggable=False,
-        #    deletable=False,
-        #    collapsible=False,
-        #    children=[
-        #        {
-        #            'title': _('Return to site'),
-        #            'url': '/',
-        #        },
-        #        {
-        #            'title': _('Change password'),
-        #            'url': reverse('admin:password_change'),
-        #        },
-        #        {
-        #            'title': _('Log out'),
-        #            'url': reverse('admin:logout')
-        #        },
-        #    ]
-        #))
-        
         # append an app list module for "Administration"
         self.children.append(modules.AppList(
             title=_('Administration'),
@@ -50,11 +27,32 @@ class CustomIndexDashboard(Dashboard):
             css_classes=['collapse', 'open'],
         ))
 
-        # append a recent actions module
-        self.children.append(modules.RecentActions(
+        #append a link list module for "quick links"
+        self.children.append(modules.LinkList(
             column=2,
-            title=_('Recent Actions'),
-            limit=5
+            title=_('Quick links'),
+            layout='inline',
+            draggable=False,
+            deletable=False,
+            collapsible=False,
+            children=[
+                {
+                    'title': _('Filebrowser'),
+                    'url': reverse('fb_browse'),
+                },                      
+                {
+                    'title': _('Return to site'),
+                    'url': '/',
+                },
+                {
+                    'title': _('Change password'),
+                    'url': reverse('admin:password_change'),
+                },
+                {
+                    'title': _('Log out'),
+                    'url': reverse('admin:logout')
+                },
+            ]
         ))
 
         # append a feed module
@@ -63,29 +61,6 @@ class CustomIndexDashboard(Dashboard):
             title=_('Latest Django News'),
             feed_url='http://www.djangoproject.com/rss/weblog/',
             limit=5
-        ))
-
-        # append another link list module for "support".
-        self.children.append(modules.LinkList(
-            column=2,
-            title=_('Support'),
-            children=[
-                {
-                    'title': _('Django documentation'),
-                    'url': 'http://docs.djangoproject.com/',
-                    'external': True,
-                },
-                {
-                    'title': _('Django "django-users" mailing list'),
-                    'url': 'http://groups.google.com/group/django-users',
-                    'external': True,
-                },
-                {
-                    'title': _('Django irc channel'),
-                    'url': 'irc://irc.freenode.net/django',
-                    'external': True,
-                },
-            ]
         ))
 
     def init_with_context(self, context):

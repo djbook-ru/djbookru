@@ -2,6 +2,15 @@
 
 {% load i18n news_tags %}
 
+{% block head %}
+    {{ block.super }}
+    <style>
+        div.toc dl dd {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
 {% block comments %}{% endblock %}
 
 {% block left %}

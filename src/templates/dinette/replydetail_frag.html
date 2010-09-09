@@ -1,5 +1,5 @@
 
-{% load thumbnail %} 
+{% load thumbnail i18n %} 
  
 <!-- div.post/even/replypost begins-->
 <a name="{{ reply.reply_number }}"></a>
@@ -9,11 +9,11 @@
     <h3 class="hn post-ident">
 	  <span class="post-num">   </span>
 	  <span class="post-byline">
-	    <span>Reply by </span>
+	    <span>{% trans 'Reply by' %} </span>
 		<a title="" href="#"></a>
 	  </span>
       <span class="post-link">
-	    <a class="permalink" rel="bookmark" title="Permanent link to this post" href="{{ reply.get_url_with_fragment }}">{{ reply.created_on|date:"jS F Y H:i A" }}</a>
+	    <a class="permalink" rel="bookmark" title="{% trans 'Permanent link to this post' %}" href="{{ reply.get_url_with_fragment }}">{{ reply.created_on|date:"jS F Y H:i A" }}</a>
 	  </span> &nbsp; &nbsp; &nbsp;
 	</h3>
   </div>
@@ -28,14 +28,10 @@
 	    <li>
 		  <table class="authortable">
 		  <tr><td>
-		    {% if reply.posted_by.photo  %}
-		      <img src="{% thumbnail reply.posted_by.photo 80x80 %}" />
-		    {% else %}                                                        
-		      <img src="http://www.gravatar.com/avatar/{{reply.posted_by.getMD5}}.jpg" alt="{{reply.posted_by.username}}'s Photo" />
-		    {% endif %} 
+		    <img src="{{ reply.posted_by.avatar }}" />
 		  </td></tr>
 		  <tr><td>
-		    <a href="{{ reply.posted_by.get_absolute_url }}">{{reply.posted_by.username}}</a>
+		    <a href="{{ reply.posted_by.get_absolute_url }}">{{reply.posted_by.nickname}}</a>
 		  </td></tr>
 		  </table>
 		</li>
@@ -43,9 +39,9 @@
 		<li class="userstatus">
 		  <span>
 		  {% if reply.posted_by.is_online %}
-			Online
+			{% trans 'Online' %}
 		  {% else %}
-			Offline
+			{% trans 'Offline' %}
 		  {% endif %}
 		  </span>
 		</li>
@@ -55,13 +51,13 @@
 	  <!-- ul.author-info begins-->
 	  <ul class="author-info">
 	    <li>
-		  <span>Registered: 
+		  <span>{% trans 'Registered' %}: 
 		    <strong> {{ reply.posted_by.date_joined|date:"jS F Y H:i A" }}</strong>
 		  </span>
 		</li>
 		<li>
-		  <span>Posts: 
-		    <strong> {{ reply.posted_by.get_total_posts  }}</strong>
+		  <span>{% trans 'Posts' %}: 
+		    <strong> {{ reply.posted_by.get_total_posts }}</strong>
 		  </span>
 		</li>
 	  </ul>

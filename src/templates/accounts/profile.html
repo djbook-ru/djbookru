@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
-{% load thumbnail %}
+{% load thumbnail i18n %}
 
 {% block content %}
     <div style="float:left; width: 300px;">
         <h3>
             {{ user_obj.username }}        
             {% if user == user_obj %}
-                <a href="{% url accounts:edit %}">edit</a>
+                <a href="{% url accounts:edit %}">{% trans 'edit' %}</a>
             {% endif %}
         </h3>
         
@@ -18,7 +18,7 @@
         </p>
         
         {% if user_obj.biography %}
-        <h4 style="margin-bottom: -5px;">О поьзователе:</h4>
+        <h4 style="margin-bottom: -5px;">{% trans 'About' %}:</h4>
         <p>
             {{ user_obj.biography|linebreaksbr }}
         </p>
@@ -26,11 +26,7 @@
     </div>
     
     <div style="float: left">
-        {% if user_obj.photo  %}
-            <img src="{% thumbnail user_obj.photo 80x80 %}"/>                                                    
-        {% else %}                                                        
-            <img src="{{ user_obj.gravatar_photo }}" />
-        {% endif %}
+        <img src="{{ user_obj.avatar }}"/>
     </div>    
     <div style="clear: both"></div>
 {% endblock %}

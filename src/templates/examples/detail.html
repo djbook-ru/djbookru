@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load i18n comments_tags %}
+
+{% block title %}{{ block.super }} | {% trans 'Examples' %} | {{ obj }}{% endblock %}
+
+{% block content %}
+    <h1>{{ obj }}</h1>
+    <p style="margin-top: -5px">
+        <a href="{{ obj.category.get_absolute_url }}">{{ obj.category }}</a> 
+    </p>
+    {{ obj.content|safe }}
+    {% render_comment_list obj %}
+    {% render_comment_form obj %}    
+{% endblock %}

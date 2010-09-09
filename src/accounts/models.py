@@ -4,27 +4,34 @@ from django.db.models.signals import post_save
 import datetime
 import hashlib
 from django.utils.translation import ugettext_lazy as _
+from sorl.thumbnail.main import DjangoThumbnail
 
 class User(BaseUser):
-    photo = models.ImageField(_(u'photo'), upload_to='users/photo',null=True,blank=True)    
     biography = models.TextField(_(u'biography'), blank=True)
     homepage = models.URLField(_(u'homepage'), verify_exists=False, blank=True)
         
     #forum profile fields
-    last_activity = models.DateTimeField(null=True)
-    last_session_activity = models.DateTimeField(null=True)
-    userrank = models.CharField(max_length=30,default="Junior Member")
-    last_posttime = models.DateTimeField(null=True)
-    signature = models.CharField(max_length = 1000, null = True, blank = True)
+    last_activity = models.DateTimeField(_(u'last activity'), null=True)
+    last_session_activity = models.DateTimeField(_(u'last session activity'), null=True)
+    userrank = models.CharField(_(u'user rank'), max_length=30, default="Junior Member")
+    last_posttime = models.DateTimeField(_(u'last posttime'), null=True)
+    signature = models.CharField(_(u'signature'), max_length = 1000, null = True, blank = True)
     
     objects = UserManager()
-
+    
+    class Meta:
+        verbose_name = _(u'User')
+        verbose_name_plural = _(u'Users')
+    
     @models.permalink
     def get_absolute_url(self):
         return ('accounts:profile', [self.pk])      
     
     def gravatar_photo(self):
-        return 'http://www.gravatar.com/avatar/%s.jpg' % self.getMD5()
+        return 'http://www.gravatar.com/avatar/%s.jpg?d=wavatar' % self.getMD5()
+    
+    def avatar(self):
+        return self.gravatar_photo()
     
     #forum profile methods
     def get_total_posts(self):
@@ -40,7 +47,7 @@ class User(BaseUser):
 
     def getMD5(self):
         m = hashlib.md5()
-        m.update(self.user.email)        
+        m.update(self.user.email or self.user.username+'@djbook.ru')        
         return m.hexdigest()
     
     def get_since_last_visit(self):
@@ -52,7 +59,7 @@ class User(BaseUser):
     def nickname(self):
         #for easy change of user name display 
         return self.username
-    
+        
 def create_custom_user(sender, instance, created, **kwargs):
     if created:
         values = {}

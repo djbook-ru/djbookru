@@ -1,26 +1,23 @@
-    {% load thumbnail %}    
+    {% load thumbnail i18n %}    
     
-    {%ifequal  rtopic.attachment_type  "text"%}
+    {% if rtopic.attachment_type == "text" %}
     <p>
-    ----- <br/>
-    <strong> File Attachment : </strong>  <br/>
-    <a href="{{MEDIA_URL}}/{{rtopic.file}}" > {{rtopic.filename}}  </a>
-    &nbsp; <a href=""> Download </a>
+        ----- <br/>
+        <strong>{% trans 'File Attachment' %}:</strong><br/>
+        <a href="{{MEDIA_URL}}/{{rtopic.file}}" >{{ rtopic.filename }}</a>
+        &nbsp; <a href="">{% trans 'Download' %}</a>
     </p>
-    {% endifequal %}
+    {% endif %}
     
-    
-     {%ifequal  rtopic.attachment_type  "image"%}
+    {% if rtopic.attachment_type == "image" %}
     <p>
-    ----- <br/>
-    <strong> Image Attachment : </strong>  <br/>
-    {{rtopic.filename}}<br/><br/>
-    <a href="{{MEDIA_URL}}/{{rtopic.file}}">
-        
-        <img src="{% thumbnail rtopic.file 200x200 %}" />
-        
-    </a>   
-    &nbsp; <a href=""> Download </a>
+        ----- <br/>
+        <strong>{% trans 'Image Attachment' %}:</strong><br/>
+        {{rtopic.filename}}<br/><br/>
+        <a href="{{MEDIA_URL}}/{{ rtopic.file }}">
+            <img src="{% thumbnail rtopic.file 200x200 %}" />
+        </a>   
+        &nbsp; <a href="">{% trans 'Download' %}</a>
     </p>
-    {% endifequal %}
+    {% endif%}
                                                 

@@ -3,14 +3,13 @@ from accounts.models import User
 from django.utils.translation import ugettext_lazy as _
 
 class UserEditForm(forms.ModelForm):
-    current_password = forms.CharField(widget=forms.PasswordInput, required=False)
-    new_password = forms.CharField(widget=forms.PasswordInput, required=False)
-    new_password_verify = forms.CharField(widget=forms.PasswordInput,
-                                          required=False,
-                                          label=_(u'Confirm new password:'))    
+    current_password = forms.CharField(label=_(u'Current password'), widget=forms.PasswordInput, required=False)
+    new_password = forms.CharField(label=_(u'New password'), widget=forms.PasswordInput, required=False)
+    new_password_verify = forms.CharField(label=_(u'Confirm new password'), widget=forms.PasswordInput,
+                                          required=False)    
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'photo', 'biography', 'email')
+        fields = ('first_name', 'last_name', 'biography', 'email', 'signature')
         
     def clean(self):
         current, new, verify = map(self.cleaned_data.get,
@@ -19,8 +18,6 @@ class UserEditForm(forms.ModelForm):
             raise forms.ValidationError(_(u'Invalid password.'))
         if new and new != verify:
             raise forms.ValidationError(_(u'The two passwords did not match.'))
-        if not self.cleaned_data['photo']:
-            del self.cleaned_data['photo']
         return self.cleaned_data
     
     def clean_email(self):
