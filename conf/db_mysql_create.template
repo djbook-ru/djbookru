@@ -1,0 +1,4 @@
+create database ${db_database};
+create user ${db_schema_name}@${db_host} identified by '${db_schema_pass}';
+grant all on ${db_database}.* to ${db_schema_name}@${db_host};
+exit

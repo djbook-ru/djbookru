@@ -1,0 +1,3 @@
+drop user ${db_schema_name}@${db_host};
+drop database ${db_database};
+exit
