@@ -49,7 +49,7 @@ class BookAdminForm(forms.ModelForm):
         return archive
     
     def update_from_archive(self, archive, obj):
-        Page.objects.filter(book=obj).delete()
+        old_pks = list(Page.objects.filter(book=obj).values_list('id', flat=True))
         archive = ZipFile(archive)
         
         toc = archive.read('toc.py')
@@ -69,6 +69,7 @@ class BookAdminForm(forms.ModelForm):
             
             try:
                 page = Page.objects.get(slug=slug, book=obj)
+                old_pks.remove(page.pk)
             except Page.DoesNotExist:
                 page = Page(slug=slug, book=obj)
                 #create name if page is new
@@ -94,7 +95,7 @@ class BookAdminForm(forms.ModelForm):
                 
             page.content=archive.read(filename)
             page.save()
-            
+        Page.objects.filter(pk__in=old_pks).delete()    
         archive.close()
                 
     def save(self, commit=True):
