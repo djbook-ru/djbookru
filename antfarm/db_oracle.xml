@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<!-- Макросы для работы с БД Oracle. -->
+<project name="db_oracle">
+
+  <!-- макрос для работы с sqlplus -->
+  <macrodef name="sqlplus">
+    <attribute name="file"/>
+    <attribute name="options"/>
+    <attribute name="path"/>
+    <sequential>
+      <echo message="sqlplus @{options} @@@{file}"/>
+      <exec dir="@{path}" failonerror="true" executable="sqlplus" osfamily="windows">
+        <arg line="@{options} @@@{file}"/>
+        <env key="NLS_LANG" value="${nls_lang}"/>
+        <env key="NLS_DATE_FORMAT" value="${nls_date_format}"/>
+      </exec>
+      <exec dir="@{path}" failonerror="true" executable="sqlplus" osfamily="unix">
+        <arg line="@{options} @@@{file}"/>
+        <env key="NLS_LANG" value="${nls_lang}"/>
+        <env key="NLS_DATE_FORMAT" value="${nls_date_format}"/>
+        <env key="PATH" value="${env.PATH}:."/>
+      </exec>
+    </sequential>
+  </macrodef>
+
+</project>

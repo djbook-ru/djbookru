@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<!-- Макросы для работы с subversion - централизованной системой контроля версий (СКВ). -->
+<project name="vcs_subversion">
+
+  <!-- Макрос для выполнения команды СКВ -->
+  <macrodef name="svn_call">
+    <attribute name="command"/>
+    <attribute name="related"/>
+
+    <sequential>
+      <condition property="network_exist">
+        <socket server="8.8.8.8" port="53"/>
+      </condition>
+
+      <if> <!-- ant-contrib -->
+        <isset property="network_exist"/>
+        <then>
+          <sequential>
+            <exec executable="svn" failonerror="true">
+              <arg line="@{command} @{related}"/>
+          </exec>
+          </sequential>
+        </then>
+        <else>
+          <echo message="Offline! Skip repository actions."/>
+        </else>
+      </if>
+    </sequential>
+  </macrodef>
+
+  <!-- Макрос для получения исходного кода из репозитория. -->
+  <macrodef name="svn_sync">
+    <attribute name="url"/>
+    <attribute name="dst"/>
+    <attribute name="checkfile"/>
+    <attribute name="repname"/>
+    <sequential>
+      <!-- проверить способ синхронизации: checkout или update -->
+      <condition property="need_checkout">
+        <not>
+          <available file="@{checkfile}" type="file"/>
+        </not>
+      </condition>
+
+      <if> <!-- ant-contrib -->
+        <isset property="need_checkout"/>
+        <then>
+          <echo message="No @{repname} repository has found. Checkout ..."/>
+          <svn_call command="checkout" related="@{url} @{dst}"/>
+        </then>
+        <else>
+          <echo message="The @{repname} repository has found. Update ..."/>
+          <svn_call command="update" related="@{dst}"/>
+        </else>
+      </if>
+    </sequential>
+  </macrodef>
+
+</project>

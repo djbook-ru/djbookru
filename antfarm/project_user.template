@@ -1,0 +1,9 @@
+developer_suffix=<OVERRIDE_THIS_WITH_UNDERSCORE>
+
+web_admin_name=<USER_NAME>
+web_admin_email=<USER_EMAIL>
+web_server_name=<PROJECT_NAME>
+
+db_engine=django.db.backends.sqlite3
+db_database=rel('database.sqlite')
+db_schema_pass=<SCHEMA_PASSWORD>

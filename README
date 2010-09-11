@@ -12,6 +12,14 @@ virtualenv env                            #create virtual enviroment
 source env/bin/activate                   #activate virtual enviroment
 pip install -r requirements.txt           #install required libraries
 
+How to use build farm:
+
+1. install last version of Apache Ant from http://ant.apache.org/
+   or 'apt-get install ant'
+2. Do ant configure first time to create project.user.properties file.
+3. Make your changes in project.user.properties file.
+4. Configure project with 'ant configure'.
+
 Prepare:
 
 cd src

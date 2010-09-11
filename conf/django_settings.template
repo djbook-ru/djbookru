@@ -1,4 +1,7 @@
+# -*- coding: utf-8 -*-
+
 import os, sys
+#from django.utils.translation import ugettext_lazy as _
 
 def rel(*x):
     return os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
@@ -6,23 +9,25 @@ def rel(*x):
 sys.path.insert(0, rel('..', 'lib'))
 gettext_noop = lambda s: s
 
+# Django settings for ${project_name} project.
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
+    ('${web_admin_name}', '${web_admin_email}'),
 )
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': rel('database.sqlite'),                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'ENGINE': ${db_engine},
+        'NAME': ${db_database},
+        'USER': ${db_schema_name},
+        'PASSWORD': ${db_schema_pass},
+        'HOST': '',
+        'PORT': '',
     }
 }
 
@@ -35,20 +40,22 @@ LANGUAGE_CODE = 'ru'
 SITE_ID = 1
 
 USE_I18N = True
+USE_L10N = True
 
 MEDIA_ROOT = rel('static')
 
 MEDIA_URL = '/static/'
 
-ADMIN_MEDIA_PREFIX = '/media/'
+ADMIN_MEDIA_PREFIX = '/lib/grappelli/media/'
 
-SECRET_KEY = '$g^_w#9*(an#-gn@l-em@)upegpzqg-u9!!ukhn%c8tuz5=#)u'
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = 'TOPSECRETKEY'
 
 if DEBUG:
     TEMPLATE_LOADERS = (
         'django.template.loaders.filesystem.Loader',
         'django.template.loaders.app_directories.Loader',
-    )    
+    )
 else:
     TEMPLATE_LOADERS = (
         ('django.template.loaders.cached.Loader', (
@@ -71,19 +78,20 @@ AUTHENTICATION_BACKENDS = (
     'accounts.backends.CustomUserBackend',
     'accounts.backends.OpenIdBackend',
     'accounts.backends.TwitterBackend',
-    'accounts.backends.FacebookBackend',    
+    'accounts.backends.FacebookBackend',
     #'django.contrib.auth.backends.ModelBackend',
 )
+
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',    
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'openid_consumer.middleware.OpenIDMiddleware',
-    'pagination.middleware.PaginationMiddleware', 
+    'pagination.middleware.PaginationMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
@@ -96,7 +104,6 @@ TEMPLATE_DIRS = (
 INSTALLED_APPS = (
     'admin_tools.dashboard',
     'grappelli',
-    'filebrowser',                  
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -104,7 +111,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'django.contrib.markup',
-    'django.contrib.flatpages', 
+    'django.contrib.flatpages',
     'sorl.thumbnail',
     'pagination',
     'socialauth',
@@ -114,7 +121,7 @@ INSTALLED_APPS = (
     'main',
     'news',
     'comments',
-    'claims',
+    'claims'
     'examples'
 )
 
@@ -131,7 +138,7 @@ FILEBROWSER_URL_TINYMCE = ADMIN_MEDIA_PREFIX + "tinymce/jscripts/tiny_mce/"
 FILEBROWSER_STRICT_PIL = True
 FILEBROWSER_DIRECTORY = 'uploads/'
 FILEBROWSER_VERSIONS_BASEDIR = 'fb_thumbnails/'
- 
+
 ADMIN_TOOLS_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
 ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'dashboard.CustomAppIndexDashboard'
 
@@ -165,11 +172,7 @@ TEMPLATE_CONTEXT_PROCESSORS += (
 MIDDLEWARE_CLASSES += (
      "dinette.middleware.UserActivity",
 )
-RANKS_NAMES_DATA = (
-    (30, gettext_noop("Member")), 
-    (100, gettext_noop("Senior Member")), 
-    (300, gettext_noop('Star'))
-)
+RANKS_NAMES_DATA = ((30, "Member"), (100, "Senior Member"), (300, 'Star'))
 
 #Google settings
 GOOGLE_ANALYTICS = """
@@ -186,8 +189,3 @@ pageTracker._trackPageview();
 
 #available options
 #NEWS_ON_MAIN, NEWS_ON_PAGE, COMMENT_MAX_LENGTH
-
-try:
-    from settings_local import *
-except ImportError:
-    pass

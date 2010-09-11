@@ -1,0 +1,30 @@
+<VirtualHost *>
+    ServerName ${web_server_name}
+    ServerAdmin ${web_admin_email}
+
+    WSGIScriptAlias / ${django_apps}/${web_server_name}/django.wsgi
+
+    # These parameters are not supported on Windows.
+    WSGIDaemonProcess ${web_server_name} processes=1 maximum-requests=1 threads=1
+    WSGIProcessGroup ${web_server_name}
+
+    LogLevel debug
+    ErrorLog ${django_apps}/${web_server_name}/logs/error.log
+    CustomLog ${django_apps}/${web_server_name}/logs/access.log combined
+    ServerSignature On
+
+    Alias /admin/media/ "${django_engine}/django/contrib/admin/media/"
+    Alias /css/ "${django_apps}/${web_server_name}/css/"
+    Alias /pics/ "${django_apps}/${web_server_name}/pics/"
+    Alias /js/ "${django_apps}/${web_server_name}/js/"
+
+    # Allow access
+    <Directory "${django_apps}/${web_server_name}">
+		Order allow,deny
+		Allow from all
+    </Directory>
+    <Directory "${django_engine}/django/contrib/admin/media">
+		Order allow,deny
+		Allow from all
+    </Directory>
+</VirtualHost>
