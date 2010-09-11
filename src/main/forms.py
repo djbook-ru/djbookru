@@ -6,12 +6,14 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from main.models import Page, Book
 from zipfile import ZipFile, BadZipfile
+from utils.forms import ReCaptchaField
 import re
 
 class FeedbackForm(forms.Form):
     email = forms.EmailField(label=_(u'email'), required=False)
     message = forms.CharField(label=_(u'message'), widget=forms.Textarea())
     referer = forms.CharField(required=False, widget=forms.HiddenInput())
+    captcha = ReCaptchaField(label=_(u'captcha'))
     
     def send(self, request):
         email = self.cleaned_data['email']

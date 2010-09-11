@@ -36,7 +36,7 @@ def search(request):
 @render_to('main/feedback.html')
 def feedback(request):
     if request.method == 'POST':
-        form = FeedbackForm(request.POST)
+        form = FeedbackForm(request.POST, initial={'captcha': request.META['REMOTE_ADDR']})
         if form.is_valid():
             form.send(request)
             messages.success(request, _(u'Feedback sent success!'))

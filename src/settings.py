@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import os, sys
-#from django.utils.translation import ugettext_lazy as _
 
 def rel(*x):
     return os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
@@ -9,23 +8,21 @@ def rel(*x):
 sys.path.insert(0, rel('..', 'lib'))
 gettext_noop = lambda s: s
 
-# Django settings for ${project_name} project.
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('${web_admin_name}', '${web_admin_email}'),
+    #('${web_admin_name}', '${web_admin_email}'),
 )
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': ${db_engine},
-        'NAME': ${db_database},
-        'USER': ${db_schema_name},
-        'PASSWORD': ${db_schema_pass},
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': rel('database.sqlite'),
+        'USER': '',
+        'PASSWORD': '',
         'HOST': '',
         'PORT': '',
     }
@@ -46,7 +43,7 @@ MEDIA_ROOT = rel('static')
 
 MEDIA_URL = '/static/'
 
-ADMIN_MEDIA_PREFIX = '/lib/grappelli/media/'
+ADMIN_MEDIA_PREFIX = '/media/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'TOPSECRETKEY'
@@ -159,6 +156,12 @@ TWITTER_CONSUMER_SECRET = 'r9qtVVwjtHBSYIM875CTcoSVft7xVHL600x3G8co'
 #TWITTER_CONSUMER_KEY = 'wOpKCQS3inKOLEL5tVg'
 #TWITTER_CONSUMER_SECRET = 'e9c22D4NrMQBfYfE35tDQtHgeZoA0nEDhAuhSfy8tUI'
 
+RECAPTCHA_PUBLIC = '6Lf2_rwSAAAAAIVSMiyO52ZlKvTWC42yS60wMyLe'
+RECAPTCHA_PRIVATE = '6Lf2_rwSAAAAAE0rYui5oujyAxrrGT2N42qwXe9U'
+#for testing and add django.local.ru to hosts
+#RECAPTCHA_PUBLIC = '6Le3_7wSAAAAAC0NnasEKR857VX9D3L-IZX4-nkR'
+#RECAPTCHA_PRIVATE = '6Le3_7wSAAAAAGBaOovId6tooirJZ2zg9TopwFIa'
+
 #forum settings
 TOPIC_PAGE_SIZE = 10
 REPLY_PAGE_SIZE = 20
@@ -189,3 +192,8 @@ pageTracker._trackPageview();
 
 #available options
 #NEWS_ON_MAIN, NEWS_ON_PAGE, COMMENT_MAX_LENGTH
+
+try:
+    from settings_local import *
+except ImportError:
+    pass

@@ -5,8 +5,7 @@ from django.http import HttpResponseRedirect
 from accounts.models import User
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from accounts.forms import UserEditForm
-from django.contrib.auth.forms import UserCreationForm
+from accounts.forms import UserEditForm, CreateUserForm
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 
@@ -16,14 +15,14 @@ LOGOUT_REDIRECT_URL = getattr(settings, 'LOGOUT_REDIRECT_URL', '/')
 @render_to('accounts/create.html')
 def create(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CreateUserForm(request.POST, initial={'captcha': request.META['REMOTE_ADDR']})
         if form.is_valid():
             form.save()
             messages.success(request, _(u'Account created success!'))
             return redirect('accounts:login')
         messages.error(request, _(u'Please correct the error below.'))
     else:
-        form = UserCreationForm()
+        form = CreateUserForm()
     return {
         'form': form
     }
