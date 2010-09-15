@@ -127,6 +127,9 @@ DATETIME_FORMAT = 'j N Y, G:i'
 FEEDBACK_SUBJECT = gettext_noop(u'Feedback message from Djbook.ru')
 FEEDBACK_EMAIL = 'djbook.feedback@gmail.com'
 
+SKIP_SOUTH_TESTS = True
+SOUTH_TESTS_MIGRATE = False
+
 #grappelli settings
 GRAPPELLI_ADMIN_TITLE = 'Djbook.ru'
 
