@@ -2,7 +2,7 @@
 
 {% load i18n %}
 
-{% block title %}{% trans 'Register' %}{% endblock %}
+{% block title %}{% trans 'Register' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
     <h1>{% trans 'Register' %}</h1>

@@ -2,6 +2,8 @@
 
 {% load thumbnail i18n %}
 
+{% block title %}{{ user_obj }} | {% trans 'Profile' %} | {{ block.super }}{% endblock %}
+
 {% block content %}
     <div style="float:left; width: 300px;">
         <h3>

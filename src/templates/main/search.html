@@ -2,7 +2,7 @@
 
 {% load i18n %}
 
-{% block title %}{{ block.super }} | {% trans 'Search' %}{% endblock %}
+{% block title %}{% trans 'Search' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
     <div id="cse-search-results"></div>

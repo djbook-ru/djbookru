@@ -2,6 +2,8 @@
 
 {% load pagination_tags i18n %}
 
+{% block title %}{% trans 'News' %} | {{ block.super }}{% endblock %}
+
 {% block content %}
     {% if is_paginated %}
         {% paginate %}<br/><br/>

@@ -2,7 +2,7 @@
 
 {% load i18n %}
 
-{% block title %}{% trans 'Authentication' %}{% endblock %}
+{% block title %}{% trans 'Authentication' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
     <h1>{% trans "Authentication" %}</h1>

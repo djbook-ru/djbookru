@@ -2,7 +2,7 @@
 
 {% load i18n comments_tags %}
 
-{% block title %}{{ block.super }} | {% trans 'Examples' %} | {{ obj }}{% endblock %}
+{% block title %}{{ obj }} | {% trans 'Examples' %} |{{ block.super }}{% endblock %}
 
 {% block content %}
     <h1>{{ obj }}</h1>
