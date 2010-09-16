@@ -41,9 +41,10 @@ def pending(request):
 def get_claims_count_by_status(code):
     from django.db import connection
     cursor = connection.cursor()
-    sql = ' '.join(['select id from claims_claimstatus',
+    sql = ' '.join(['select count(*) from claims_claimstatus',
                     'where status=%i and applied in',
                     '(select max(applied) from claims_claimstatus',
                     'group by claim_id)'])
     cursor.execute(sql % code)
-    return cursor.rowcount
+
+    return cursor.fetchone()[0]
