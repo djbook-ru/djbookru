@@ -33,7 +33,7 @@ class Claims(models.Model):
         claim_desc = self.get_description(code)
         mail_from = '"Ruslan Popov" <rad@caml.ru>'
         mail_to = '"DjangoBook Reader" <%s>' % self.email
-        mail_subject = '%s [%s]' % (_(u'DjangoBook in russian: Claim\'s state was changed to'), claim_desc)
+        mail_subject = '%s [%s]' % (unicode(_(u'DjangoBook in russian: Claim\'s state was changed to')), unicode(claim_desc))
         msgRoot = MIMEMultipart('related')
         msgRoot.set_charset('UTF-8')
         msgRoot['From'] = mail_from

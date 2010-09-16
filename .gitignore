@@ -5,3 +5,4 @@ env/*
 database.sqlite
 src/static/users/photo
 pip-log.txt
+.idea

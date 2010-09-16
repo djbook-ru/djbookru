@@ -9,6 +9,7 @@ sites_flatpages_patch()
 urlpatterns = patterns('',
     (r'^', include('main.urls', 'main')),
     (r'^news/', include('news.urls', 'news')),
+    (r'^claims/', include('claims.urls', 'claims')),
     (r'^examples/', include('examples.urls', 'examples')),
     (r'auth/', include('accounts.urls', 'accounts')),
     (r'socialauth/', include('socialauth.urls')),
