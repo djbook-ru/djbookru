@@ -71,7 +71,6 @@ var spelling = {
             },
             buttons: {
                 'Отправить': function() {
-                    console.log($('#comment').val());
                     var text_errors = '';
                     if ($('#comment').val() == '') {
                         text_errors += '<div>Комментарий не может быть пустым.</div>';
