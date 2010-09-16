@@ -1,6 +1,6 @@
 $(function() {
 
-    spelling.startInformer()
+    spelling.startInformer();
 
     $('html').bind('keypress', function(e) {
 
@@ -11,28 +11,30 @@ $(function() {
     })
 });
 
-var spelling  = {
+var spelling = {
+    /**
+     * Запуск обновления статуса информера по таймеру
+     */
+    startInformer: function() {
+        this.updateInformer();
+        setInterval(this.updateInformer, 30000);
+    },
+
     /**
      * Обновление статуса перевода
      */
-    startInformer: function() {
-        var updateInformer = function() {
+    updateInformer: function() {
 
-          $.get('/claims/pending/', function(xml){
-              var $xml = $(xml);
-              $('#spelling_error_count_pending').html($xml.find('pending').text());
-              $('#spelling_error_count_assigned').html($xml.find('assigned').text());
-              $('#spelling_error_count_fixed').html($xml.find('fixed').text());
-              $('#spelling_error_count_invalid').html($xml.find('invalid').text());
-              //$('#readers_count').html($xml.find('readers').text());
-          }, 'xml');
+        $.get('/claims/pending/', function(xml) {
+            var $xml = $(xml);
+            $('#spelling_error_count_pending').html($xml.find('pending').text());
+            $('#spelling_error_count_assigned').html($xml.find('assigned').text());
+            $('#spelling_error_count_fixed').html($xml.find('fixed').text());
+            $('#spelling_error_count_invalid').html($xml.find('invalid').text());
+            //$('#readers_count').html($xml.find('readers').text());
+        }, 'xml');
 
-        }
-
-        updateInformer();
-        setInterval(updateInformer, 30000);
     },
-
     /**
      * Форма для заполнения данных об обнаруженной ошибке
      */
@@ -52,10 +54,10 @@ var spelling  = {
                 '<p><label>Контекст ошибки</label>' +
                 '<span class="display">' + context_error + '</span>' +
                 '</p>' +
-                '<p><label>Комментарий</label>' +
+                '<p><label>Комментарий *</label>' +
                 '<textarea id="comment" />' +
                 '</p>' +
-                '<p><label>E-mail</label>' +
+                '<p><label>E-mail *</label>' +
                 '<input type="text" id="email"></p>' +
                 '<p><input type="checkbox"  id="notify" />' +
                 '<label>Уведомлять об изменении состояния вашего сообщения</label></p>' +
@@ -70,22 +72,40 @@ var spelling  = {
             },
             buttons: {
                 'Отправить': function() {
-                    $.post('/claims/', {ctx_left: selection.context_left,
-							   selected: selection.context_error,
-							   ctx_right: selection.context_right,
-							   email: $('#email').val(),
-							   notify: $('#notify').attr('checked'),
-							   comment: $('#comment').val()},
-                            function(xml){
-                                var text = $xml.find('result').text();
-                                if (text == 'ok'){
-                                    spelling.alert('Ваше сообщение успешно отправлено!');
-                                }
-                                else{
-                                    spelling.alert('К сожалению при отправке произошла ошибка. Попробуйте повторить позже.');
-                                }
 
-                           });
+                    var text_errors = '';
+                    if ($('#comment').val() == '') {
+                        text_errors += '<div>Комментарий не может быть пустым.</div>';
+                    }
+                    if ($('#email').val() == '') {
+                        text_errors += '<div>E-mail не может быть пустым.</div>';
+                    }
+                    else if (! spelling.isValidEmail($('#email').val())) {
+                        text_errors += '<div>E-mail не валидный.</div>';
+                    }
+
+                    if (text_errors != ''){
+                        spelling.alert(text_errors, 'Форма заполнена с ошибками');
+                        return;
+                    }
+
+                    $.post('/claims/', {ctx_left: selection.context_left,
+                        selected: selection.context_error,
+                        ctx_right: selection.context_right,
+                        email: $('#email').val(),
+                        notify: $('#notify').attr('checked'),
+                        comment: $('#comment').val()},
+                          function(xml) {
+                              var text = $(xml).find('result').text();
+                              if (text == 'ok') {
+                                  spelling.alert('Ваше сообщение успешно отправлено!');
+                                  spelling.updateInformer();
+                              }
+                              else {
+                                  spelling.alert('К сожалению при отправке произошла ошибка. Попробуйте повторить позже.');
+                              }
+
+                          });
                     $(this).dialog('close');
                 },
                 'Отменить': function() {
@@ -96,7 +116,7 @@ var spelling  = {
     },
 
     /**
-     * Возвращает массив с текстами ошибки и ее обрамления
+     * Возвращает массив с текстом ошибки и обрамляющим ее текстом справа и слева
      * В случае выделения больше 255 символов возвращает false
      *
      * @return array | false
@@ -186,6 +206,14 @@ var spelling  = {
                 }
             }
         });
+    },
+    /**
+     * Валидация email
+     * @param value
+     */
+    isValidEmail: function(value) {
+        // contributed by Scott Gonzalez: http://projects.scottsplayground.com/email_address_validation/
+        return /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i.test(value);
     }
 
 };
