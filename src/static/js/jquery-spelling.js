@@ -2,12 +2,10 @@ $(function() {
 
     spelling.startInformer();
 
-    $('html').bind('keypress', function(e) {
-
+    $(document).bind('keydown', function(e) {
         if (e.keyCode == 13 && e.ctrlKey) {
             spelling.showForm();
         }
-
     })
 });
 
@@ -35,6 +33,7 @@ var spelling = {
         }, 'xml');
 
     },
+    $form: '',
     /**
      * Форма для заполнения данных об обнаруженной ошибке
      */
@@ -49,7 +48,7 @@ var spelling = {
                 + '<span class="ui-widget-content ui-state-error">' + selection.context_error
                 + '</span>' + '<span>' + selection.context_right + '</span>';
 
-        var $form = $('<div title="Форма сообщения об ошибке" >' +
+        this.$form = this.$form || $('<div title="Форма сообщения об ошибке" >' +
                 '<form id="spelling_form">' +
                 '<p><label>Контекст ошибки</label>' +
                 '<span class="display">' + context_error + '</span>' +
@@ -63,16 +62,16 @@ var spelling = {
                 '<label>Уведомлять об изменении состояния вашего сообщения</label></p>' +
                 '</div>');
 
-        $form.dialog({
+        this.$form.dialog({
             resizable: false,
             modal: true,
             width: 380,
-            close: function(event, ui) {
-                is_show = false
+            beforeClose: function() {
+                $(this).find('form')[0].reset();
             },
             buttons: {
                 'Отправить': function() {
-
+                    console.log($('#comment').val());
                     var text_errors = '';
                     if ($('#comment').val() == '') {
                         text_errors += '<div>Комментарий не может быть пустым.</div>';
@@ -86,6 +85,7 @@ var spelling = {
 
                     if (text_errors != ''){
                         spelling.alert(text_errors, 'Форма заполнена с ошибками');
+                        text_errors = '';
                         return;
                     }
 
