@@ -348,3 +348,37 @@ ul.messages li.error {
 ul.messages li.success {
     background: #94CE4A;
 }
+
+/* spelling form */
+#spelling_form p{
+    margin: 0 0 10px 0;
+
+}
+#spelling_form .spelling_error{
+    background-color:red;
+}
+
+#spelling_form .display{
+    border: 1px solid #092e20;
+    padding:4px;
+    width: 342px;
+    font-size: 10px;
+    background-color: #c8d48d;
+    display: block;
+    color: #092e20;
+}
+#spelling_form p label {
+    color: #000;
+}
+#spelling_form textarea{
+    width: 350px; height: 80px;
+    border: 1px solid #092e20;
+}
+#spelling_form input[type="text"]{
+    width: 350px;
+    border: 1px solid #092e20;
+}
+#spelling_form input[type="checkbox"]{
+    margin-right: 10px;
+}
+/* spelling form - END*/
