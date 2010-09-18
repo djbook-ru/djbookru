@@ -40,3 +40,11 @@ edit or delete comments.
 #Forum
 
 SuperCategory should belong to "general" auth.Group to be public visible. 
+
+#Data
+
+To load news from fixture run: 
+python manage.py loaddata news.json
+
+To load data for examples from fixture run:
+python manage.py loaddata examples.json
