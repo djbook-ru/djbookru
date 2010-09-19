@@ -6,8 +6,13 @@ from patch import sites_flatpages_patch
 admin.autodiscover()
 sites_flatpages_patch()
 
+js_info_dict = {
+    'packages': ('main'),
+}
+
 urlpatterns = patterns('',
     (r'^', include('main.urls', 'main')),
+    url(r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict, name='js_i18n_catalog'),
     (r'^news/', include('news.urls', 'news')),
     (r'^claims/', include('claims.urls', 'claims')),
     (r'^examples/', include('examples.urls', 'examples')),

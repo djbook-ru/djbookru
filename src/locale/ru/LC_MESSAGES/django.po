@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-08 12:59+0300\n"
+"POT-Creation-Date: 2010-09-19 18:42+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,36 +18,40 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: .\dashboard.py:41
+#: .\dashboard.py:18
 msgid "Administration"
 msgstr ""
 
-#: .\dashboard.py:48
+#: .\dashboard.py:25
 msgid "Applications"
 msgstr ""
 
-#: .\dashboard.py:56 .\dashboard.py:121
-msgid "Recent Actions"
+#: .\dashboard.py:33
+msgid "Quick links"
 msgstr ""
 
-#: .\dashboard.py:63
+#: .\dashboard.py:40
+msgid "Filebrowser"
+msgstr ""
+
+#: .\dashboard.py:44
+msgid "Return to site"
+msgstr ""
+
+#: .\dashboard.py:48
+msgid "Change password"
+msgstr ""
+
+#: .\dashboard.py:52
+msgid "Log out"
+msgstr ""
+
+#: .\dashboard.py:61
 msgid "Latest Django News"
 msgstr ""
 
-#: .\dashboard.py:71
-msgid "Support"
-msgstr ""
-
-#: .\dashboard.py:74
-msgid "Django documentation"
-msgstr ""
-
-#: .\dashboard.py:79
-msgid "Django \"django-users\" mailing list"
-msgstr ""
-
-#: .\dashboard.py:84
-msgid "Django irc channel"
+#: .\dashboard.py:96
+msgid "Recent Actions"
 msgstr ""
 
 #: .\patch.py:9
@@ -69,84 +73,104 @@ msgstr ""
 msgid "Advanced options"
 msgstr ""
 
-#: .\accounts\forms.py:6
+#: .\settings.py:131
+msgid "Feedback message from Djbook.ru"
+msgstr ""
+
+#: .\accounts\forms.py:8 .\main\forms.py:16
+msgid "captcha"
+msgstr ""
+
+#: .\accounts\forms.py:11
 msgid "Current password"
 msgstr ""
 
-#: .\accounts\forms.py:7
+#: .\accounts\forms.py:12
 msgid "New password"
 msgstr ""
 
-#: .\accounts\forms.py:8
+#: .\accounts\forms.py:13
 msgid "Confirm new password"
 msgstr ""
 
-#: .\accounts\forms.py:10
-msgid "Confirm new password:"
-msgstr ""
-
-#: .\accounts\forms.py:19
+#: .\accounts\forms.py:23
 msgid "Invalid password."
 msgstr ""
 
-#: .\accounts\forms.py:21
+#: .\accounts\forms.py:25
 msgid "The two passwords did not match."
 msgstr ""
 
-#: .\accounts\forms.py:31
+#: .\accounts\forms.py:33
 msgid "This email is used already."
 msgstr ""
 
 #: .\accounts\models.py:10
-msgid "photo"
-msgstr ""
-
-#: .\accounts\models.py:11
 msgid "biography"
 msgstr ""
 
-#: .\accounts\models.py:12
+#: .\accounts\models.py:11
 msgid "homepage"
 msgstr ""
 
-#: .\accounts\models.py:15
+#: .\accounts\models.py:14
 msgid "last activity"
 msgstr ""
 
-#: .\accounts\models.py:16
+#: .\accounts\models.py:15
 msgid "last session activity"
 msgstr ""
 
-#: .\accounts\models.py:17
+#: .\accounts\models.py:16
 msgid "user rank"
 msgstr ""
 
-#: .\accounts\models.py:18
+#: .\accounts\models.py:17
 msgid "last posttime"
 msgstr ""
 
-#: .\accounts\models.py:19
+#: .\accounts\models.py:18
 msgid "signature"
 msgstr ""
 
-#: .\accounts\models.py:24
+#: .\accounts\models.py:23
 msgid "User"
 msgstr ""
 
-#: .\accounts\models.py:25
+#: .\accounts\models.py:24
 msgid "Users"
 msgstr ""
 
-#: .\accounts\views.py:22
+#: .\accounts\views.py:21
 msgid "Account created success!"
 msgstr ""
 
-#: .\accounts\views.py:24 .\accounts\views.py:56
+#: .\accounts\views.py:23 .\accounts\views.py:55
 msgid "Please correct the error below."
 msgstr ""
 
-#: .\accounts\views.py:54
+#: .\accounts\views.py:53
 msgid "Profile changed success!"
+msgstr ""
+
+#: .\claims\admin.py:37 .\claims\models.py:27
+msgid "Unknown"
+msgstr ""
+
+#: .\claims\admin.py:41 .\claims\models.py:89
+msgid "Claim status"
+msgstr ""
+
+#: .\claims\admin.py:47
+msgid "Meta"
+msgstr ""
+
+#: .\claims\admin.py:49
+msgid "Error"
+msgstr ""
+
+#: .\claims\admin.py:51 .\comments\forms.py:9 .\comments\models.py:22
+msgid "Comment"
 msgstr ""
 
 #: .\claims\models.py:13
@@ -159,10 +183,6 @@ msgstr ""
 
 #: .\claims\models.py:18
 msgid "Claims"
-msgstr ""
-
-#: .\claims\models.py:27
-msgid "Unknown"
 msgstr ""
 
 #: .\claims\models.py:36
@@ -189,10 +209,6 @@ msgstr ""
 msgid "Invalid"
 msgstr ""
 
-#: .\claims\models.py:89
-msgid "Claim status"
-msgstr ""
-
 #: .\claims\models.py:90
 msgid "Claim statuses"
 msgstr ""
@@ -209,11 +225,7 @@ msgstr ""
 msgid "Texts"
 msgstr ""
 
-#: .\comments\forms.py:8 .\comments\models.py:22
-msgid "Comment"
-msgstr ""
-
-#: .\comments\forms.py:32
+#: .\comments\forms.py:33
 msgid "You car reply only comments for same object"
 msgstr ""
 
@@ -225,7 +237,7 @@ msgstr ""
 msgid "user"
 msgstr ""
 
-#: .\comments\models.py:16 .\templates\comments\_item.html.py:19
+#: .\comments\models.py:16 .\templates\comments\_item.html.py:25
 msgid "reply to"
 msgstr ""
 
@@ -245,7 +257,7 @@ msgstr ""
 msgid "subject"
 msgstr ""
 
-#: .\dinette\forms.py:9 .\dinette\forms.py:17
+#: .\dinette\forms.py:9 .\dinette\forms.py:17 .\main\forms.py:14
 msgid "message"
 msgstr ""
 
@@ -326,11 +338,15 @@ msgstr ""
 msgid "Examples"
 msgstr ""
 
-#: .\main\admin.py:11
+#: .\main\forms.py:13
+msgid "email"
+msgstr ""
+
+#: .\main\forms.py:31
 msgid "archive"
 msgstr ""
 
-#: .\main\admin.py:27
+#: .\main\forms.py:47
 msgid "This should be zip archive"
 msgstr ""
 
@@ -366,12 +382,16 @@ msgstr ""
 msgid "section"
 msgstr ""
 
-#: .\main\models.py:36
+#: .\main\models.py:37
 msgid "Page"
 msgstr ""
 
-#: .\main\models.py:37
+#: .\main\models.py:38
 msgid "Pages"
+msgstr ""
+
+#: .\main\views.py:42
+msgid "Feedback sent success!"
 msgstr ""
 
 #: .\templates\404.html.py:5 .\templates\500.html.py:5
@@ -394,11 +414,12 @@ msgstr ""
 msgid "Main"
 msgstr ""
 
-#: .\templates\_menu.html.py:5
+#: .\templates\_menu.html.py:5 .\templates\news\index.html.py:5
+#: .\templates\news\news.html.py:5
 msgid "News"
 msgstr ""
 
-#: .\templates\_menu.html.py:6
+#: .\templates\_menu.html.py:6 .\templates\dinette\mainindex.html.py:30
 msgid "Forum"
 msgstr ""
 
@@ -406,7 +427,7 @@ msgstr ""
 msgid "Platform"
 msgstr ""
 
-#: .\templates\_menu.html.py:17 .\templates\accounts\profile.html.py:21
+#: .\templates\_menu.html.py:17 .\templates\accounts\profile.html.py:23
 msgid "About"
 msgstr ""
 
@@ -435,6 +456,14 @@ msgstr ""
 msgid "Processed"
 msgstr ""
 
+#: .\templates\_right.html.py:29
+msgid "We are glad to hear your questions, comments or suggestions!"
+msgstr ""
+
+#: .\templates\_right.html.py:32
+msgid "Open in new tab"
+msgstr ""
+
 #: .\templates\accounts\create.html.py:5 .\templates\accounts\create.html.py:8
 #: .\templates\registration\login.html.py:16
 msgid "Register"
@@ -444,15 +473,23 @@ msgstr ""
 msgid "Create"
 msgstr ""
 
-#: .\templates\accounts\edit.html.py:8
+#: .\templates\accounts\edit.html.py:5
+msgid "Edit Profile"
+msgstr ""
+
+#: .\templates\accounts\edit.html.py:10
 msgid "Edit profile"
 msgstr ""
 
-#: .\templates\accounts\edit.html.py:12
+#: .\templates\accounts\edit.html.py:14
 msgid "Save"
 msgstr ""
 
-#: .\templates\accounts\profile.html.py:10
+#: .\templates\accounts\profile.html.py:5
+msgid "Profile"
+msgstr ""
+
+#: .\templates\accounts\profile.html.py:12
 msgid "edit"
 msgstr ""
 
@@ -468,6 +505,14 @@ msgstr ""
 msgid "Link"
 msgstr ""
 
+#: .\templates\comments\_item.html.py:18
+msgid "Delete"
+msgstr ""
+
+#: .\templates\comments\_item.html.py:21
+msgid "Edit"
+msgstr ""
+
 #: .\templates\comments\form.html.py:13
 msgid "Post"
 msgstr ""
@@ -480,7 +525,7 @@ msgstr ""
 msgid "Login please to post comment"
 msgstr ""
 
-#: .\templates\dinette\announce_frag.html.py:6
+#: .\templates\dinette\announce_frag.html.py:7
 msgid "New Announcement"
 msgstr ""
 
@@ -498,7 +543,7 @@ msgid "Image Attachment"
 msgstr ""
 
 #: .\templates\dinette\category_details.html.py:35
-#: .\templates\dinette\topic_detail.html.py:180
+#: .\templates\dinette\topic_detail.html.py:176
 msgid "close"
 msgstr ""
 
@@ -512,6 +557,11 @@ msgstr ""
 
 #: .\templates\dinette\category_details.html.py:69
 msgid "Login to start New Topic"
+msgstr ""
+
+#: .\templates\dinette\category_details.html.py:83
+#: .\templates\dinette\new_topics.html.py:23
+msgid "in this forum with details of"
 msgstr ""
 
 #: .\templates\dinette\category_details.html.py:84
@@ -636,10 +686,6 @@ msgstr ""
 msgid "Hide"
 msgstr ""
 
-#: .\templates\dinette\new_topics.html.py:23
-msgid "in this forum with details of"
-msgstr ""
-
 #: .\templates\dinette\new_topics.html.py:34
 msgid "There is no topic with new replies since your last visit."
 msgstr ""
@@ -654,23 +700,23 @@ msgid "Permanent link to this post"
 msgstr ""
 
 #: .\templates\dinette\replydetail_frag.html.py:42
-#: .\templates\dinette\topic_detail.html.py:120
+#: .\templates\dinette\topic_detail.html.py:116
 msgid "Online"
 msgstr ""
 
 #: .\templates\dinette\replydetail_frag.html.py:44
-#: .\templates\dinette\topic_detail.html.py:122
+#: .\templates\dinette\topic_detail.html.py:118
 msgid "Offline"
 msgstr ""
 
 #: .\templates\dinette\replydetail_frag.html.py:54
-#: .\templates\dinette\topic_detail.html.py:127
+#: .\templates\dinette\topic_detail.html.py:123
 msgid "Registered"
 msgstr ""
 
 #: .\templates\dinette\replydetail_frag.html.py:59
 #: .\templates\dinette\topic_detail.html.py:72
-#: .\templates\dinette\topic_detail.html.py:128
+#: .\templates\dinette\topic_detail.html.py:124
 msgid "Posts"
 msgstr ""
 
@@ -679,12 +725,12 @@ msgid "We do not have any results for this query."
 msgstr ""
 
 #: .\templates\dinette\topic_detail.html.py:48
-#: .\templates\dinette\topic_detail.html.py:157
+#: .\templates\dinette\topic_detail.html.py:153
 msgid "Post Reply"
 msgstr ""
 
 #: .\templates\dinette\topic_detail.html.py:50
-#: .\templates\dinette\topic_detail.html.py:159
+#: .\templates\dinette\topic_detail.html.py:155
 msgid "Login to Post Reply"
 msgstr ""
 
@@ -720,7 +766,19 @@ msgstr ""
 msgid "Table of contents"
 msgstr ""
 
-#: .\templates\news\index.html.py:19
+#: .\templates\main\feedback.html.py:5
+msgid "Feedback"
+msgstr ""
+
+#: .\templates\main\feedback.html.py:8
+msgid "You can send message to us"
+msgstr ""
+
+#: .\templates\main\feedback.html.py:14
+msgid "Send"
+msgstr ""
+
+#: .\templates\news\index.html.py:21
 msgid "more"
 msgstr ""
 

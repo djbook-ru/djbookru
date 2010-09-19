@@ -1,3 +1,5 @@
+var gettext = gettext || function(val){return val}
+
 $(function() {
 
     spelling.startInformer();
@@ -48,18 +50,18 @@ var spelling = {
                 + '<span class="ui-widget-content ui-state-error">' + selection.context_error
                 + '</span>' + '<span>' + selection.context_right + '</span>';
 
-        this.$form = this.$form || $('<div title="Форма сообщения об ошибке" >' +
+        this.$form = this.$form || $('<div title="'+gettext('Send error form')+'" >' +
                 '<form id="spelling_form">' +
-                '<p><label>Контекст ошибки</label>' +
+                '<p><label>'+gettext('Context of error')+'</label>' +
                 '<span class="display">' + context_error + '</span>' +
                 '</p>' +
-                '<p><label>Комментарий *</label>' +
+                '<p><label>'+gettext('Comment')+' *</label>' +
                 '<textarea id="comment" />' +
                 '</p>' +
                 '<p><label>E-mail *</label>' +
                 '<input type="text" id="email"></p>' +
                 '<p><input type="checkbox"  id="notify" />' +
-                '<label>Уведомлять об изменении состояния вашего сообщения</label></p>' +
+                '<label>'+gettext('Notify about changes of error status')+'</label></p>' +
                 '</div>');
 
         this.$form.dialog({
@@ -73,17 +75,17 @@ var spelling = {
                 'Отправить': function() {
                     var text_errors = '';
                     if ($('#comment').val() == '') {
-                        text_errors += '<div>Комментарий не может быть пустым.</div>';
+                        text_errors += '<div>'+gettext('Comment is required.')+'</div>';
                     }
                     if ($('#email').val() == '') {
-                        text_errors += '<div>E-mail не может быть пустым.</div>';
+                        text_errors += '<div>'+gettext('E-mail is required.')+'</div>';
                     }
                     else if (! spelling.isValidEmail($('#email').val())) {
-                        text_errors += '<div>E-mail не валидный.</div>';
+                        text_errors += '<div>'+gettext('E-mail is wrong.')+'</div>';
                     }
 
                     if (text_errors != ''){
-                        spelling.alert(text_errors, 'Форма заполнена с ошибками');
+                        spelling.alert(text_errors, gettext('Form has errors.'));
                         text_errors = '';
                         return;
                     }
@@ -97,11 +99,11 @@ var spelling = {
                           function(xml) {
                               var text = $(xml).find('result').text();
                               if (text == 'ok') {
-                                  spelling.alert('Ваше сообщение успешно отправлено!');
+                                  spelling.alert(gettext('Message sent success!'));
                                   spelling.updateInformer();
                               }
                               else {
-                                  spelling.alert('К сожалению при отправке произошла ошибка. Попробуйте повторить позже.');
+                                  spelling.alert(gettext('Something broken. Try later.'));
                               }
 
                           });
@@ -167,7 +169,7 @@ var spelling = {
 
         // усечение данных
         if (context_error.length > 255) {
-            this.alert('Нельзя выделять больше 255 символов!');
+            this.alert(gettext('You can\'t mark more then 255 symbols!'));
             return false;
         }
         if (context_left.length > 255) context_left = context_left.substring(context_left.length - 255);
@@ -189,7 +191,7 @@ var spelling = {
      */
     alert: function(message, title) {
 
-        title = title || 'Сообщение';
+        title = title || gettext('Message');
 
         var $form = $('<div title="' + title + '" >' +
                 '<div>' + message + '</div>' +
