@@ -49,6 +49,9 @@ python manage.py loaddata news.json
 To load data for examples from fixture run:
 python manage.py loaddata examples.json
 
+To load flatpages run:
+python manage.py loaddata flatpages.json
+
 #i18n
 
 Некоторый проблемы с локализацией. При подключении .po файлов для js нужно указывать

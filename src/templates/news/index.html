@@ -12,7 +12,7 @@
     {% for n in object_list %}
         <div class="news-block">
             <div>
-                <span class="title">{{ n.title }}</span> <span class="date">{{ n.created|date:"d m Y" }}</span>
+                <span class="title">{{ n.title }}</span> <span>{{ n.created|date:'DATETIME_FORMAT' }}</span>
             </div>
             <div style="padding-left: 1em;">
                 {{ n.content|truncatewords_html:20|safe }}
