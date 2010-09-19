@@ -7,11 +7,20 @@
 {% block content %}
     <h1>{% trans "You can send message to us" %}</h1>
     
+    <p>
+        {% trans "We are glad to hear your questions, comments or suggestions!" %} 
+    </p>
+    
     <form method="post" action=".">
-        {{ form.as_p }}
+        <table>
+        {{ form }}
         {% csrf_token %}
-        <p>
-            <input type="submit" value="{% trans 'Send' %}"/>
-        </p>
+        <tr>
+            <td></td>
+            <td style="text-align: right;">
+                <input type="submit" value="{% trans 'Send' %}"/>
+            </td>
+        </tr>
+        </table>
     </form>
 {% endblock %}

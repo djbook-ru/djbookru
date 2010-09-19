@@ -137,6 +137,9 @@ var spelling = {
 
         var bodyEl = document.getElementsByTagName('BODY')[0];
         var bodyText;
+        if ( ! userSelection.getRangeAt){
+            userSelection = userSelection.htmlText;
+        }
         if (typeof userSelection == 'object') {
             var range = userSelection.getRangeAt(0); // берём первое выделение
             context_left = range.startContainer.nodeValue.substring(0, range.startOffset);
