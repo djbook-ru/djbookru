@@ -263,6 +263,10 @@ pre code {
 /* Стили для highlight.js - END */
 
 /* Стили для комментариев */
+.comments {
+    margin-top: 10px;
+}
+
 .comments .comment {
     border-bottom: 1px solid #94CE4A;
     margin-bottom: 5px;

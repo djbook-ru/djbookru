@@ -28,6 +28,10 @@ DATABASES = {
     }
 }
 
+FIXTURE_DIRS = (
+    rel('fixtures'),
+)
+
 FIRST_DAY_OF_WEEK = 1
 
 TIME_ZONE = 'Europe/Moscow'

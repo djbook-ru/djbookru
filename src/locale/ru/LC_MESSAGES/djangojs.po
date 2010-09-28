@@ -1,0 +1,65 @@
+# Copyright (C) 2010 Ruslan Popov
+# This file is distributed under the same license as the translation package.
+# Ruslan Popov <ruslan.popov@gmail.com>, 2010.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: release\n"
+"Report-Msgid-Bugs-To: ruslan.popov@gmail.com\n"
+"POT-Creation-Date: 2010-09-19 18:42+0300\n"
+"PO-Revision-Date: 2010-09-19 22:11+0400\n"
+"Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
+"Language-Team: ru <ru@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: .\static\js\jquery-spelling.js.py:53
+msgid "Send error form"
+msgstr "Форма отправки ошибки"
+
+#: .\static\js\jquery-spelling.js.py:55
+msgid "Context of error"
+msgstr "Контекст ошибки"
+
+#: .\static\js\jquery-spelling.js.py:58
+msgid "Comment"
+msgstr "Комментарий"
+
+#: .\static\js\jquery-spelling.js.py:64
+msgid "Notify about changes of error status"
+msgstr "Уведомлять об изменении статуса сообщения."
+
+#: .\static\js\jquery-spelling.js.py:78
+msgid "Comment is required."
+msgstr "Комментарий не может быть пустым."
+
+#: .\static\js\jquery-spelling.js.py:81
+msgid "E-mail is required."
+msgstr "E-mail не может быть пустым."
+
+#: .\static\js\jquery-spelling.js.py:84
+msgid "E-mail is wrong."
+msgstr "E-mail не верен."
+
+#: .\static\js\jquery-spelling.js.py:88
+msgid "Form has errors."
+msgstr "Форма запонена не верно."
+
+#: .\static\js\jquery-spelling.js.py:102
+msgid "Message sent success!"
+msgstr "Сообщение отправлено!"
+
+#: .\static\js\jquery-spelling.js.py:106
+msgid "Something broken. Try later."
+msgstr "При отправке сообщения возникла ошибка. Попробуй позже."
+
+#: .\static\js\jquery-spelling.js.py:169
+msgid "You can't mark more then 255 symbols!"
+msgstr "Вы не можете отметить больше 255 символов!"
+
+#: .\static\js\jquery-spelling.js.py:191
+msgid "Message"
+msgstr "Сообщение"

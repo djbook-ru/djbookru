@@ -1,18 +1,20 @@
 {% extends 'base.html' %}
 
-{% load pagination_tags comments_tags %}
+{% load pagination_tags comments_tags i18n %}
 
 {% block title %}{{ object }} | {% trans 'News' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
     <div class="news-block">
         <div>
-            <span class="title">{{ object }}</span> <span class="date">{{ object.created|date:'DATETIME_FORMAT' }}</span>
+            <span class="title">{{ object }}</span> <span>{{ object.created|date:'DATETIME_FORMAT' }}</span>
         </div>
+        <br/>
         <div style="padding-left: 1em;">
             {{ object.content|safe }}
         </div>
     </div>
+    <hr/>
     {% render_comment_list object %}
     {% render_comment_form object %}
 {% endblock %}

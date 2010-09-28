@@ -1,0 +1,35 @@
+[
+    {
+        "pk": 1,
+        "model": "auth.user",
+        "fields": {
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "is_active": true,
+            "is_superuser": true,
+            "is_staff": true,
+            "last_login": "2010-09-15 16:16:30",
+            "groups": [],
+            "user_permissions": [],
+            "password": "sha1$377c3$cb4b6013363b7d5f8e450f04de1364bd2c5216b2",
+            "email": "admin@mail.net",
+            "date_joined": "2010-09-11 20:33:27"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "accounts.user",
+        "fields": {
+            "signature": null,
+            "last_activity": "2010-09-15 17:00:41",
+            "groups": [],
+            "last_posttime": null,
+            "user_permissions": [],
+            "last_session_activity": "2010-09-15 17:00:41",
+            "userrank": "Junior Member",
+            "homepage": "",
+            "biography": ""
+        }
+    }    
+]
