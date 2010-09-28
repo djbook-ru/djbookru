@@ -258,19 +258,10 @@ class LatestRepliesOfTopic(Feed):
     
     
 def assignUserElements(user):
-    ranks = getattr(settings, 'RANKS_NAMES_DATA')
-    rank = ''
-    if ranks:
-        totalposts = user.ftopics_set.count() + user.reply_set.count()
-        for el in ranks:
-            if totalposts == el[0]:
-                rank = el[1]
-        if rank:    
-            user.userrank = rank
-            #this is the time when user posted his last post
-            user.last_posttime = datetime.now()
-            user.save()
-    
+    totalposts = user.ftopics_set.count() + user.reply_set.count()
+    user.posts_count = totalposts
+    user.last_posttime = datetime.now()
+    user.save()        
     
 ###Moderation views###
 @login_required
