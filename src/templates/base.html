@@ -14,6 +14,10 @@
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/djangobook.css" type="text/css"/>
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/djbook/jquery-ui-1.8.4.custom.css" type="text/css"/>
         <link rel="stylesheet" href="{{ MEDIA_URL }}menu/menu_style.css" type="text/css"/>
+
+        <link href="/news/feed" rel="alternate" type="application/rss+xml" title="{% trans 'The freshest news about Russian version of DjangoBook' %}"/>
+        <link href="/examples/feed" rel="alternate" type="application/rss+xml" title="{% trans 'Newly examples from Russian DjangoBook' %}"/>
+
         <script src="{{ MEDIA_URL }}js/jquery-1.4.2.min.js"></script>
         <script src="{{ MEDIA_URL }}js/jquery-ui-1.8.4.custom.min.js"></script>
         <script src="{{ MEDIA_URL }}js/jquery.form.js"></script>
