@@ -1,0 +1,7 @@
+[
+    {
+        "pk": 1,
+        "model": "sites.site",
+        "fields": {"domain": "djbook.ru", "name": "Russian DjangoBook"}
+    }
+]
