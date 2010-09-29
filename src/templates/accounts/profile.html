@@ -19,6 +19,12 @@
         {% endif %}
         </p>
         
+        <p>
+            <strong>{% trans 'Userrank' %}:</strong> {{ user_obj.userrank }}<br/>
+            <strong>{% trans 'Posts count' %}:</strong> {{ user_obj.posts_count }}<br/>
+            <strong>{% trans 'Comments count' %}:</strong> {{ user_obj.comments_count }}
+        </p>
+        
         {% if user_obj.biography %}
         <h4 style="margin-bottom: -5px;">{% trans 'About' %}:</h4>
         <p>

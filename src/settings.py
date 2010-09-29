@@ -176,14 +176,13 @@ REPLY_PAGE_SIZE = 20
 FLOOD_TIME = 5
 TEMPLATE_CONTEXT_PROCESSORS += (
     "dinette.context_processors.get_announcement",
-    "dinette.context_processors.get_site_config",
     "dinette.context_processors.get_forumwide_links"
 )
 
 MIDDLEWARE_CLASSES += (
      "dinette.middleware.UserActivity",
 )
-RANKS_NAMES_DATA = ((30, "Member"), (100, "Senior Member"), (300, 'Star'))
+RANKS_NAMES_DATA = ((30, gettext_noop("Member")), (100, gettext_noop("Senior Member")), (300, gettext_noop('Star')))
 
 #Google settings
 GOOGLE_ANALYTICS = """
