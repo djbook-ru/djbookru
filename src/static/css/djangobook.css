@@ -314,7 +314,9 @@ pre code {
 .edit-form label{
     display:block;
 }
-
+.edit-form p{
+    line-height:1.1
+}
 .login-link {
     display: block;
     float: left;
