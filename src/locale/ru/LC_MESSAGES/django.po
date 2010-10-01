@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-01 22:23+0300\n"
+"POT-Creation-Date: 2010-10-01 23:00+0300\n"
 "PO-Revision-Date: 2010-09-19 22:11+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -526,7 +526,7 @@ msgstr "Форум"
 msgid "Platform"
 msgstr "Платформа"
 
-#: .\templates\_menu.html.py:17 .\templates\accounts\profile.html.py:29
+#: .\templates\_menu.html.py:17
 msgid "About"
 msgstr "О проекте"
 
@@ -596,6 +596,11 @@ msgstr "Откликов"
 #: .\templates\accounts\profile.html.py:25
 msgid "Comments count"
 msgstr "Комментариев"
+
+#: .\templates\accounts\profile.html.py:29
+#, fuzzy
+msgid "Biography"
+msgstr "Биография"
 
 #: .\templates\comments\_item.html.py:10
 msgid "ago"

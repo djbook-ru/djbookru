@@ -45,6 +45,10 @@ class CustomIndexDashboard(Dashboard):
                     'url': '/',
                 },
                 {
+                    'title': _('Markdown: Syntax'),
+                    'url': 'http://daringfireball.net/projects/markdown/syntax',                
+                },
+                {
                     'title': _('Change password'),
                     'url': reverse('admin:password_change'),
                 },

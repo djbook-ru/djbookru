@@ -37,7 +37,7 @@ class User(BaseUser):
                 rank_name = name
             else:
                 break
-        return rank_name
+        return _(rank_name)
     
     @models.permalink
     def get_absolute_url(self):
