@@ -31,16 +31,6 @@ Run:
 cd src # if needed
 use run.bat or run.sh
 
-
-#Comments
-
-User is comment moderator if User.is_staff == True and user has permission to
-edit or delete comments.
-
-#Forum
-
-SuperCategory should belong to "general" auth.Group to be public visible. 
-
 #Data
 
 To load news from fixture run: 
@@ -52,9 +42,18 @@ python manage.py loaddata examples.json
 To load flatpages run:
 python manage.py loaddata flatpages.json
 
+#Forum
+
+SuperCategory should belong to "general" auth.Group to be public visible. 
+
 #i18n
 
 Некоторый проблемы с локализацией. При подключении .po файлов для js нужно указывать
 приложение в котором они хранятся. Тоесть если они лежат в корне проекта,
 нужно добавлять проект в INSTALL_APP. Но лучше после компиляции в .mo копировать 
 их в main/local. (кто переведет это на English, тому респект и уважуха)
+
+#Comments
+
+User is comment moderator if User.is_staff == True and user has permission to
+edit or delete comments.

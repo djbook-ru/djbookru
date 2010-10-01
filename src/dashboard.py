@@ -49,7 +49,7 @@ class CustomIndexDashboard(Dashboard):
                     'url': reverse('admin:password_change'),
                 },
                 {
-                    'title': _('Log out'),
+                    'title': _('Logout'),
                     'url': reverse('admin:logout')
                 },
             ]

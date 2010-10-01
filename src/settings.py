@@ -52,7 +52,7 @@ ADMIN_MEDIA_PREFIX = '/media/'
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'TOPSECRETKEY'
 
-if DEBUG:
+if True:
     TEMPLATE_LOADERS = (
         'django.template.loaders.filesystem.Loader',
         'django.template.loaders.app_directories.Loader',
@@ -105,6 +105,7 @@ TEMPLATE_DIRS = (
 INSTALLED_APPS = (
     'admin_tools.dashboard',
     'grappelli',
+    'filebrowser',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

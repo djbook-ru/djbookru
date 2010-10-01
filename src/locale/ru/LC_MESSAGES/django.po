@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
-"Report-Msgid-Bugs-To: ruslan.popov@gmail.com\n"
-"POT-Creation-Date: 2010-09-19 18:42+0300\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-10-01 21:23+0300\n"
 "PO-Revision-Date: 2010-09-19 22:11+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -40,8 +40,9 @@ msgstr "Вернуться на сайт"
 msgid "Change password"
 msgstr "Изменить пароль"
 
-#: .\dashboard.py:52
-msgid "Log out"
+#: .\dashboard.py:52 .\templates\_menu.html.py:21
+#: .\templates\dinette\header_frag.html.py:33
+msgid "Logout"
 msgstr "Выйти"
 
 #: .\dashboard.py:61
@@ -59,13 +60,17 @@ msgstr "URL"
 #: .\patch.py:10
 msgid ""
 "Example: '/about/contact/'. Make sure to have leading and trailing slashes."
-msgstr "Пример: /about/contact/'. Проверьте наличие открывающего и завершающего слешей."
+msgstr ""
+"Пример: /about/contact/'. Проверьте наличие открывающего и завершающего "
+"слешей."
 
 #: .\patch.py:11
 msgid ""
 "This value must contain only letters, numbers, underscores, dashes or "
 "slashes."
-msgstr "Данное значение должно содержать только буквы, цифры, символы подчёркивания, тире или слеши."
+msgstr ""
+"Данное значение должно содержать только буквы, цифры, символы подчёркивания, "
+"тире или слеши."
 
 #: .\patch.py:20
 msgid "Advanced options"
@@ -74,6 +79,19 @@ msgstr "Дополнительные возможности"
 #: .\settings.py:131
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
+
+#: .\settings.py:185
+msgid "Member"
+msgstr ""
+
+#: .\settings.py:185
+msgid "Senior Member"
+msgstr ""
+
+#: .\settings.py:185
+#, fuzzy
+msgid "Star"
+msgstr "Поиск"
 
 #: .\accounts\forms.py:8 .\main\forms.py:16
 msgid "captcha"
@@ -103,39 +121,35 @@ msgstr "Введённые пароли не совпадают."
 msgid "This email is used already."
 msgstr "Данный адрес электронной почты уже используется."
 
-#: .\accounts\models.py:10
+#: .\accounts\models.py:11
 msgid "biography"
 msgstr "биография"
 
-#: .\accounts\models.py:11
+#: .\accounts\models.py:12
 msgid "homepage"
 msgstr "домашняя страница"
 
-#: .\accounts\models.py:14
+#: .\accounts\models.py:15
 msgid "last activity"
 msgstr "последнее действие"
 
-#: .\accounts\models.py:15
+#: .\accounts\models.py:16
 msgid "last session activity"
 msgstr ""
 
-#: .\accounts\models.py:16
-msgid "user rank"
-msgstr "карма пользователя"
-
-#: .\accounts\models.py:17
+#: .\accounts\models.py:18
 msgid "last posttime"
 msgstr ""
 
-#: .\accounts\models.py:18
+#: .\accounts\models.py:19
 msgid "signature"
 msgstr "подпись"
 
-#: .\accounts\models.py:23
+#: .\accounts\models.py:24
 msgid "User"
 msgstr "Пользователь"
 
-#: .\accounts\models.py:24
+#: .\accounts\models.py:25
 msgid "Users"
 msgstr "Пользователи"
 
@@ -189,7 +203,8 @@ msgstr "DjangoBook по-русски: Состояние жалобы было �
 
 #: .\claims\models.py:46
 msgid "This is automatic generated message, you do not need to answer on it."
-msgstr "Это сообщение сгенерировано автоматически, вам не требуется отвечать на него."
+msgstr ""
+"Это сообщение сгенерировано автоматически, вам не требуется отвечать на него."
 
 #: .\claims\models.py:80 .\templates\_right.html.py:17
 msgid "New"
@@ -310,6 +325,14 @@ msgstr "Навигационная ссылка"
 msgid "Navigation Links"
 msgstr "Навигационные ссылки"
 
+#: .\examples\feeds.py:7
+msgid "Russian DjangoBook Examples"
+msgstr ""
+
+#: .\examples\feeds.py:9 .\templates\base.html.py:19
+msgid "Newly examples from Russian DjangoBook"
+msgstr ""
+
 #: .\examples\models.py:20
 msgid "category"
 msgstr "категория"
@@ -321,6 +344,10 @@ msgstr "тема"
 #: .\examples\models.py:22 .\main\models.py:29 .\news\models.py:6
 msgid "content"
 msgstr "содержимое"
+
+#: .\examples\models.py:22 .\news\models.py:6
+msgid "Use Markdown and HTML"
+msgstr ""
 
 #: .\examples\models.py:23 .\main\models.py:7 .\news\models.py:7
 msgid "created"
@@ -392,6 +419,14 @@ msgstr "Страницы"
 msgid "Feedback sent success!"
 msgstr "Отзыв успешно отправлен!"
 
+#: .\news\feeds.py:7
+msgid "Russian DjangoBook"
+msgstr ""
+
+#: .\news\feeds.py:9 .\templates\base.html.py:18
+msgid "The freshest news about Russian version of DjangoBook"
+msgstr ""
+
 #: .\templates\404.html.py:5 .\templates\500.html.py:5
 msgid "Forgotten page..."
 msgstr "Потерянная страница..."
@@ -417,7 +452,8 @@ msgstr "Главная"
 msgid "News"
 msgstr "Новости"
 
-#: .\templates\_menu.html.py:6 .\templates\dinette\mainindex.html.py:30
+#: .\templates\_menu.html.py:6 .\templates\dinette\base.html.py:14
+#: .\templates\dinette\mainindex.html.py:30
 msgid "Forum"
 msgstr "Форум"
 
@@ -425,15 +461,12 @@ msgstr "Форум"
 msgid "Platform"
 msgstr "Платформа"
 
-#: .\templates\_menu.html.py:17 .\templates\accounts\profile.html.py:23
+#: .\templates\_menu.html.py:17 .\templates\accounts\profile.html.py:29
 msgid "About"
 msgstr "О проекте"
 
-#: .\templates\_menu.html.py:21 .\templates\dinette\header_frag.html.py:33
-msgid "Logout"
-msgstr "Выйти"
-
-#: .\templates\_menu.html.py:23 .\templates\openid_consumer\signin.html.py:10
+#: .\templates\_menu.html.py:23 .\templates\dinette\header_frag.html.py:35
+#: .\templates\openid_consumer\signin.html.py:10
 #: .\templates\registration\login.html.py:16
 msgid "Login"
 msgstr "Вход"
@@ -443,7 +476,8 @@ msgid "Found misprint?"
 msgstr "Нашли опечатку?"
 
 #: .\templates\_right.html.py:7
-msgid "Select it and click the mouse"
+#, fuzzy
+msgid "Select it with the mouse and hit Enter"
 msgstr "Выделите её и нажмите мышкой"
 
 #: .\templates\_right.html.py:9
@@ -454,7 +488,7 @@ msgstr ""
 msgid "Processed"
 msgstr "Выполнено"
 
-#: .\templates\_right.html.py:29
+#: .\templates\_right.html.py:29 .\templates\main\feedback.html.py:11
 msgid "We are glad to hear your questions, comments or suggestions!"
 msgstr "Мы рады получить ваши вопросы, комментарии или предложения!"
 
@@ -490,6 +524,21 @@ msgstr "Профиль"
 #: .\templates\accounts\profile.html.py:12
 msgid "edit"
 msgstr "редактировать"
+
+#: .\templates\accounts\profile.html.py:23
+#, fuzzy
+msgid "Userrank"
+msgstr "карма пользователя"
+
+#: .\templates\accounts\profile.html.py:24
+#, fuzzy
+msgid "Posts count"
+msgstr "Откликов"
+
+#: .\templates\accounts\profile.html.py:25
+#, fuzzy
+msgid "Comments count"
+msgstr "Комментарии"
 
 #: .\templates\comments\_item.html.py:10
 msgid "ago"
@@ -772,7 +821,7 @@ msgstr "Обратная связь"
 msgid "You can send message to us"
 msgstr "Вы можете отправить нам сообщение"
 
-#: .\templates\main\feedback.html.py:14
+#: .\templates\main\feedback.html.py:21
 msgid "Send"
 msgstr "Отправить"
 
@@ -796,3 +845,6 @@ msgstr "или"
 #: .\templates\registration\login.html.py:25
 msgid "You are authenticated already"
 msgstr "Вы уже аутентифицированы"
+
+#~ msgid "Log out"
+#~ msgstr "Выйти"
