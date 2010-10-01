@@ -1,3 +1,4 @@
+{% load markup %}
 {% for item in news %}
     <div class="news-inc">
         <a style="font-family: arial; font-size: 12px; font-weight: bold; " href="{{ item.get_absolute_url }}">
@@ -7,7 +8,7 @@
             {{ item.created|date:'DATETIME_FORMAT' }}
         </div>
         <div class="text">
-            {{ item.content|safe }}
+            {{ item.content|markdown }}
         </div>
         <hr/>
     </div>

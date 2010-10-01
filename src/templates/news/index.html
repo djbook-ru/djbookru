@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load pagination_tags i18n %}
+{% load pagination_tags i18n markup %}
 
 {% block title %}{% trans 'News' %} | {{ block.super }}{% endblock %}
 
@@ -15,7 +15,7 @@
                 <span class="title">{{ n.title }}</span> <span>{{ n.created|date:'DATETIME_FORMAT' }}</span>
             </div>
             <div style="padding-left: 1em;">
-                {{ n.content|truncatewords_html:20|safe }}
+                {{ n.content|markdown|truncatewords_html:20 }}
             </div>
             <div style="padding-left: 1em; text-align: right">
                 <a href="{{ n.get_absolute_url }}">{% trans 'more' %}</a>

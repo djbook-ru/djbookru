@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load pagination_tags comments_tags i18n %}
+{% load pagination_tags comments_tags i18n markup %}
 
 {% block title %}{{ object }} | {% trans 'News' %} | {{ block.super }}{% endblock %}
 
@@ -11,7 +11,7 @@
         </div>
         <br/>
         <div style="padding-left: 1em;">
-            {{ object.content|safe }}
+            {{ object.content|markdown }}
         </div>
     </div>
     <hr/>

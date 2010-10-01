@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 class News(models.Model):
     title = models.CharField(_(u'title'), max_length=255)
-    content = models.TextField(_(u'content'))
+    content = models.TextField(_(u'content'), help_text=_('Use Markdown and HTML'))
     created = models.DateTimeField(_(u'created'), auto_now_add=True)
     
     class Meta:

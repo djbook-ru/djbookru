@@ -19,7 +19,7 @@ class Category(models.Model):
 class Example(models.Model):
     category = models.ForeignKey(Category, related_name='examples', verbose_name=_(u'category'))
     title = models.CharField(_(u'title'), max_length=255)
-    content = models.TextField(_(u'content'))
+    content = models.TextField(_(u'content'), help_text=_('Use Markdown and HTML'))
     created = models.DateTimeField(_(u'created'), auto_now=True)
     
     class Meta:
