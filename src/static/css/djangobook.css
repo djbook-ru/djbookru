@@ -300,11 +300,19 @@ pre code {
 /* Стили для комментариев - END */
 
 .edit-form {
-    width: 350px;
+    width: 320px;
 }
 
-.edit-form input, .edit-form textarea {
-    float: right;
+.edit-form input[type="text"], .edit-form textarea {
+    border: 1px solid #333;
+    width: 300px
+}
+.edit-form input[type="password"]{
+    border: 1px solid #333;
+    width: 280px
+}
+.edit-form label{
+    display:block;
 }
 
 .login-link {

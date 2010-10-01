@@ -4,13 +4,21 @@
 
 {% block title %}{% trans 'Edit Profile' %} | {{ block.super }}{% endblock %}
 
+{% block head %}
+    <script type="text/javascript">
+        $(function(){
+            $('input:submit').button();
+        })
+    </script>
+{% endblock %}
+
 {% block content %}
 <form action="." method="post" enctype="multipart/form-data" class="edit-form">
     {% csrf_token %}
     <h3>{% trans 'Edit profile' %}</h3>
     {{ form.non_field_errors }}
     {{ form.as_p }} 
-    <p>
+    <p style="text-align:center;">
         <input type="submit" value='{% trans "Save" %}'/>
     </p>
     <div style="clear: both"></div>
