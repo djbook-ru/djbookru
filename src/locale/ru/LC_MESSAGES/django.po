@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-01 21:23+0300\n"
+"POT-Creation-Date: 2010-10-01 21:58+0300\n"
 "PO-Revision-Date: 2010-09-19 22:11+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -76,19 +76,19 @@ msgstr ""
 msgid "Advanced options"
 msgstr "Дополнительные возможности"
 
-#: .\settings.py:131
+#: .\settings.py:132
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
 
-#: .\settings.py:185
+#: .\settings.py:186
 msgid "Member"
-msgstr ""
+msgstr "Член сообщества"
 
-#: .\settings.py:185
+#: .\settings.py:186
 msgid "Senior Member"
-msgstr ""
+msgstr "Спер член сообщества"
 
-#: .\settings.py:185
+#: .\settings.py:186
 #, fuzzy
 msgid "Star"
 msgstr "Поиск"
@@ -135,11 +135,11 @@ msgstr "последнее действие"
 
 #: .\accounts\models.py:16
 msgid "last session activity"
-msgstr ""
+msgstr "последняя активность"
 
 #: .\accounts\models.py:18
 msgid "last posttime"
-msgstr ""
+msgstr "время последнего сообщения"
 
 #: .\accounts\models.py:19
 msgid "signature"
@@ -240,7 +240,7 @@ msgstr "Тексты"
 
 #: .\comments\forms.py:33
 msgid "You car reply only comments for same object"
-msgstr ""
+msgstr "Отвечать можно только на комментарии с этой страници"
 
 #: .\comments\models.py:13
 msgid "object ID"
@@ -285,11 +285,11 @@ msgstr "строка тегов"
 
 #: .\dinette\models.py:27
 msgid "Super Category"
-msgstr ""
+msgstr "Главная категория"
 
 #: .\dinette\models.py:28
 msgid "Super Categories"
-msgstr ""
+msgstr "Главные категории"
 
 #: .\dinette\models.py:47 .\examples\models.py:9
 msgid "Category"
@@ -301,13 +301,13 @@ msgstr "Категории"
 
 #: .\dinette\models.py:142
 msgid "Topic"
-msgstr ""
+msgstr "Тема"
 
 #: .\dinette\models.py:143 .\templates\dinette\category_details.html.py:77
 #: .\templates\dinette\category_details.html.py:83
 #: .\templates\dinette\new_topics.html.py:23
 msgid "Topics"
-msgstr ""
+msgstr "Темы"
 
 #: .\dinette\models.py:205
 msgid "Reply"
@@ -327,11 +327,11 @@ msgstr "Навигационные ссылки"
 
 #: .\examples\feeds.py:7
 msgid "Russian DjangoBook Examples"
-msgstr ""
+msgstr "Примеры с Russian DjangoBook"
 
 #: .\examples\feeds.py:9 .\templates\base.html.py:19
 msgid "Newly examples from Russian DjangoBook"
-msgstr ""
+msgstr "Последние примеры с Russian DjangoBook"
 
 #: .\examples\models.py:20
 msgid "category"
@@ -347,7 +347,7 @@ msgstr "содержимое"
 
 #: .\examples\models.py:22 .\news\models.py:6
 msgid "Use Markdown and HTML"
-msgstr ""
+msgstr "ИСпользуйте Markdown или HTML"
 
 #: .\examples\models.py:23 .\main\models.py:7 .\news\models.py:7
 msgid "created"
@@ -360,6 +360,7 @@ msgstr "Пример"
 #: .\examples\models.py:28 .\templates\_menu.html.py:7
 #: .\templates\examples\category.html.py:5
 #: .\templates\examples\detail.html.py:5 .\templates\examples\index.html.py:5
+#: .\templates\examples\index.html.py:8
 msgid "Examples"
 msgstr "Примеры"
 
@@ -421,11 +422,11 @@ msgstr "Отзыв успешно отправлен!"
 
 #: .\news\feeds.py:7
 msgid "Russian DjangoBook"
-msgstr ""
+msgstr "Russian DjangoBook"
 
 #: .\news\feeds.py:9 .\templates\base.html.py:18
 msgid "The freshest news about Russian version of DjangoBook"
-msgstr ""
+msgstr "Последние новости с Russian DjangoBook"
 
 #: .\templates\404.html.py:5 .\templates\500.html.py:5
 msgid "Forgotten page..."
@@ -479,10 +480,6 @@ msgstr "Нашли опечатку?"
 #, fuzzy
 msgid "Select it with the mouse and hit Enter"
 msgstr "Выделите её и нажмите мышкой"
-
-#: .\templates\_right.html.py:9
-msgid "Enter"
-msgstr ""
 
 #: .\templates\_right.html.py:14
 msgid "Processed"
@@ -574,7 +571,7 @@ msgstr "Пожалуйста, произведите вход для отпра�
 
 #: .\templates\dinette\announce_frag.html.py:7
 msgid "New Announcement"
-msgstr ""
+msgstr "Новые объявления"
 
 #: .\templates\dinette\attachement_frag.html.py:6
 msgid "File Attachment"
@@ -605,11 +602,6 @@ msgstr "Новая тема"
 #: .\templates\dinette\category_details.html.py:69
 msgid "Login to start New Topic"
 msgstr "Произведите вход для создания новой темы"
-
-#: .\templates\dinette\category_details.html.py:83
-#: .\templates\dinette\new_topics.html.py:23
-msgid "in this forum with details of"
-msgstr ""
 
 #: .\templates\dinette\category_details.html.py:84
 #: .\templates\dinette\new_topics.html.py:24
@@ -657,10 +649,6 @@ msgstr "Активные темы"
 #: .\templates\dinette\header_frag.html.py:41
 msgid "Unanswered Topics"
 msgstr "Темы без ответов"
-
-#: .\templates\dinette\mainindex.html.py:30
-msgid "in this category with details of"
-msgstr ""
 
 #: .\templates\dinette\mainindex.html.py:31
 #: .\templates\dinette\mainindex.html.py:60
@@ -727,7 +715,7 @@ msgstr "Убрать из анонсирования"
 
 #: .\templates\dinette\moderation_frag.html.py:6
 msgid "Make announcement"
-msgstr ""
+msgstr "Создать объявление"
 
 #: .\templates\dinette\moderation_frag.html.py:7
 msgid "Hide"
@@ -803,11 +791,7 @@ msgstr "Прикреплен"
 
 #: .\templates\dinette\topic_detail_frag.html.py:26
 msgid "by"
-msgstr ""
-
-#: .\templates\examples\index.html.py:8
-msgid "Examles"
-msgstr ""
+msgstr "от"
 
 #: .\templates\main\_toc.html.py:2
 msgid "Table of contents"
@@ -845,6 +829,3 @@ msgstr "или"
 #: .\templates\registration\login.html.py:25
 msgid "You are authenticated already"
 msgstr "Вы уже аутентифицированы"
-
-#~ msgid "Log out"
-#~ msgstr "Выйти"

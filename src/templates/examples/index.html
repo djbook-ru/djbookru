@@ -5,7 +5,7 @@
 {% block title %}{% trans 'Examples' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
-    <h1>{% trans 'Examles' %}</h1>
+    <h1>{% trans 'Examples' %}</h1>
     {% for category in categories %}
         <h2><a href="{{ category.get_absolute_url }}">{{ category }}</a></h2>
         {% for item in category.examples.all %}
