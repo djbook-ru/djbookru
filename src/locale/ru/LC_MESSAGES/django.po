@@ -89,9 +89,8 @@ msgid "Senior Member"
 msgstr "Спер член сообщества"
 
 #: .\settings.py:186
-#, fuzzy
 msgid "Star"
-msgstr "Поиск"
+msgstr "Звезда"
 
 #: .\accounts\forms.py:8 .\main\forms.py:16
 msgid "captcha"
@@ -347,7 +346,7 @@ msgstr "содержимое"
 
 #: .\examples\models.py:22 .\news\models.py:6
 msgid "Use Markdown and HTML"
-msgstr "ИСпользуйте Markdown или HTML"
+msgstr "Иcпользуйте Markdown или HTML"
 
 #: .\examples\models.py:23 .\main\models.py:7 .\news\models.py:7
 msgid "created"
@@ -477,9 +476,8 @@ msgid "Found misprint?"
 msgstr "Нашли опечатку?"
 
 #: .\templates\_right.html.py:7
-#, fuzzy
 msgid "Select it with the mouse and hit Enter"
-msgstr "Выделите её и нажмите мышкой"
+msgstr "Выделите её мышкой и нажмите Enter"
 
 #: .\templates\_right.html.py:14
 msgid "Processed"
@@ -523,19 +521,16 @@ msgid "edit"
 msgstr "редактировать"
 
 #: .\templates\accounts\profile.html.py:23
-#, fuzzy
 msgid "Userrank"
-msgstr "карма пользователя"
+msgstr "Карма пользователя"
 
 #: .\templates\accounts\profile.html.py:24
-#, fuzzy
 msgid "Posts count"
 msgstr "Откликов"
 
 #: .\templates\accounts\profile.html.py:25
-#, fuzzy
 msgid "Comments count"
-msgstr "Комментарии"
+msgstr "Комментариев"
 
 #: .\templates\comments\_item.html.py:10
 msgid "ago"
