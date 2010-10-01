@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-01 21:58+0300\n"
+"POT-Creation-Date: 2010-10-01 22:23+0300\n"
 "PO-Revision-Date: 2010-09-19 22:11+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -325,6 +325,71 @@ msgstr "Навигационная ссылка"
 msgid "Navigation Links"
 msgstr "Навигационные ссылки"
 
+#: .\dinette\views.py:167
+msgid ""
+"You have posted message too recently. Please wait a while before trying "
+"again."
+msgstr "Вы отправляете сообщения очень часто."
+
+#: .\dinette\views.py:213
+#, python-format
+msgid "Latest topics in category %(name)s"
+msgstr "Последние темы в категории %(name)s"
+
+#: .\dinette\views.py:275
+#, python-format
+msgid "You have reopened topic %(subject)s"
+msgstr "Вы открыли тему %(subject)s"
+
+#: .\dinette\views.py:277
+#, python-format
+msgid "You have closed topic %(subject)s"
+msgstr "Вы закрыли %(subject)s"
+
+#: .\dinette\views.py:281
+#, python-format
+msgid "%(subject)s is no longer an announcement."
+msgstr "%(subject)s убрано из объявлений"
+
+#: .\dinette\views.py:283
+#, python-format
+msgid "%(subject)s is now an announcement."
+msgstr "%(subject)s отмечен как объявление."
+
+#: .\dinette\views.py:287
+#, python-format
+msgid "%(subject)s has been unstickied."
+msgstr "%(subject)s откреплена."
+
+#: .\dinette\views.py:289
+#, python-format
+msgid "%(subject)s has been stickied."
+msgstr "%(subject)s прикреплена."
+
+#: .\dinette\views.py:293
+#, python-format
+msgid "%(subject)s has been unhidden."
+msgstr "%(subject)s вновь отображается."
+
+#: .\dinette\views.py:295
+#, python-format
+msgid "%(subject)s has been hidden and won't show up any further."
+msgstr "%(subject)s скрыт и не будет отображаться."
+
+#: .\dinette\views.py:302
+msgid "This view must be called via post"
+msgstr "Требуется POST запрос"
+
+#: .\dinette\views.py:319
+#, fuzzy
+msgid "Topics since your last visit"
+msgstr "Со времени вашего последнего посещения не было ни одного отклика."
+
+#: .\dinette\views.py:326
+#, fuzzy
+msgid "Most active Topics"
+msgstr "Активные темы"
+
 #: .\examples\feeds.py:7
 msgid "Russian DjangoBook Examples"
 msgstr "Примеры с Russian DjangoBook"
@@ -347,7 +412,7 @@ msgstr "содержимое"
 
 #: .\examples\models.py:22 .\news\models.py:6
 msgid "Use Markdown and HTML"
-msgstr "ИСпользуйте Markdown или HTML"
+msgstr "Иcпользуйте Markdown или HTML"
 
 #: .\examples\models.py:23 .\main\models.py:7 .\news\models.py:7
 msgid "created"

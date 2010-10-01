@@ -12,7 +12,7 @@ from django.contrib.auth.models import Group
 from django.conf import settings
 from django.views.generic.list_detail import object_list
 from django.shortcuts import get_object_or_404
-
+from django.utils.translation import ugettext_lazy as _
 from  datetime  import datetime, timedelta
 import simplejson
 
@@ -164,7 +164,7 @@ def postReply(request) :
     last_posttime = request.user.last_posttime
     if last_posttime and (datetime.now() - last_posttime).seconds <= settings.FLOOD_TIME:
     #oh....... user trying to flood us Stop him
-        d2 = {"is_valid":"flood","errormessage":"You have posted message too recently. Please wait a while before trying again."}
+        d2 = {"is_valid":"flood","errormessage": _("You have posted message too recently. Please wait a while before trying again.")}
         if request.FILES : 
             json = "<textarea>"+simplejson.dumps(d2)+"</textarea>"
         else :
@@ -210,7 +210,7 @@ class LatestTopicsByCategory(Feed):
         return get_object_or_404(Category, slug=whichcategory[0])
     
     def title(self, obj):
-        return "Latest topics in category %s" % obj.name
+        return _("Latest topics in category %(name)s") % dict(name=obj.name)
     
     def link(self, obj):
         return  settings.SITE_URL
@@ -235,7 +235,7 @@ class LatestRepliesOfTopic(Feed):
         return get_object_or_404(Ftopics, slug=whichtopic[0])
          
     def title(self, obj):
-        return "Latest replies in topic %s" % obj.subject
+        return "Latest replies in topic %(subject)s" % dict(subject=obj.subject)
      
     def link(self, obj):
         return  settings.SITE_URL
@@ -272,34 +272,34 @@ def moderate_topic(request, topic_id, action):
     if request.method == 'POST':
         if action == 'close':
             if topic.is_closed:
-                message = 'You have reopened topic %s'%topic.subject
+                message = _('You have reopened topic %(subject)s') % dict(subject=topic.subject)
             else:
-                message = 'You have closed topic %s'%topic.subject
+                message = _('You have closed topic %(subject)s') % dict(subject=topic.subject)
             topic.is_closed = not topic.is_closed
         elif action == 'announce':
             if topic.announcement_flag:
-                message = '%s is no longer an announcement.' % topic.subject
+                message = _('%(subject)s is no longer an announcement.') % dict(subject=topic.subject)
             else:
-                message = '%s is now an announcement.' % topic.subject
+                message = _('%(subject)s is now an announcement.') % dict(subject=topic.subject)
             topic.announcement_flag = not topic.announcement_flag
         elif action == 'sticky':
             if topic.is_sticky:
-                message = '%s has been unstickied.' % topic.subject
+                message = _('%(subject)s has been unstickied.') % dict(subject=topic.subject)
             else:
-                message = '%s has been stickied.' % topic.subject
+                message = _('%(subject)s has been stickied.') % dict(subject=topic.subject)
             topic.is_sticky = not topic.is_sticky
         elif action == 'hide':
             if topic.is_hidden:
-                message = '%s has been unhidden.' % topic.subject
+                message = _('%(subject)s has been unhidden.') % dict(subject=topic.subject)
             else:
-                message = "%s has been hidden and won't show up any further." % topic.subject
+                message = _("%(subject)s has been hidden and won't show up any further.") % dict(subject=topic.subject)
             topic.is_hidden = not topic.is_hidden
         topic.save()
         payload = {'topic_id':topic.pk, 'message':message}
         resp = simplejson.dumps(payload)
         return HttpResponse(resp, mimetype = json_mimetype)
     else:
-        return HttpResponse('This view must be called via post')
+        return HttpResponse(_('This view must be called via post'))
     
 def login(request):
     if getattr(settings, 'DINETTE_LOGIN_TEMPLATE', None):
@@ -316,14 +316,14 @@ def user_profile(request, user_name):
 def new_topics(request):
     user= request.user
     new_topic_list = user.get_since_last_visit()
-    return topic_list(request, new_topic_list, page_message = "Topics since your last visit")
+    return topic_list(request, new_topic_list, page_message = _("Topics since your last visit"))
     
 def active(request):
     #Time filter = 48 hours
     days_ago_2 = datetime.now() - timedelta(days = 2)
     topics = Ftopics.objects.filter(last_reply_on__gt =  days_ago_2)
     active_topics = topics.extra(select= {"activity":"viewcount+100*num_replies"}).order_by("-activity")
-    return topic_list(request, active_topics, page_message = "Most active Topics")
+    return topic_list(request, active_topics, page_message = _("Most active Topics"))
     
 def topic_list(request, queryset, page_message):
     payload = {"new_topic_list": queryset, "page_message": page_message}
