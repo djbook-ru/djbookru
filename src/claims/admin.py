@@ -41,6 +41,24 @@ def claim_status_field(claim):
 claim_status_field.short_description = _(u'Claim status')
 claim_status_field.allow_tags = True
 
+def make_assigned(modeladmin, request, queryset):
+    selected = request.POST.getlist(admin.ACTION_CHECKBOX_NAME)
+    for item in Claims.objects.filter(id__in=selected).all():
+        item.set_status('2')
+make_assigned.short_description = _("Mark selected claims as assigned")
+
+def make_fixed(modeladmin, request, queryset):
+    selected = request.POST.getlist(admin.ACTION_CHECKBOX_NAME)
+    for item in Claims.objects.filter(id__in=selected).all():
+        item.set_status('3')
+make_fixed.short_description = _("Mark selected claims as fixed")
+
+def make_invalid(modeladmin, request, queryset):
+    selected = request.POST.getlist(admin.ACTION_CHECKBOX_NAME)
+    for item in Claims.objects.filter(id__in=selected).all():
+        item.set_status('4')
+make_invalid.short_description = _("Mark selected claims as invalid")
+
 class ClaimsAdmin(admin.ModelAdmin):
     form = ClaimsAdminForm
     fieldsets = (
@@ -53,6 +71,9 @@ class ClaimsAdmin(admin.ModelAdmin):
         )
     list_display = ('url', 'comment', 'email', 'notify',
                     claim_status_field, 'datetime')
-    ordered = ('-datetime')
+    ordering = ('-datetime',)
+    actions = [make_assigned, make_fixed, make_invalid]
+
 
 admin.site.register(Claims, ClaimsAdmin)
+
