@@ -30,3 +30,11 @@ if settings.DEBUG:
     urlpatterns += patterns('',
         url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     )
+    
+from django import http
+from django.template import RequestContext, loader
+
+def handler500(request, template_name='500.html'):
+    print 'XYU'
+    t = loader.get_template(template_name)
+    return http.HttpResponseServerError(t.render(RequestContext(request)))
