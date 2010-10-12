@@ -128,6 +128,8 @@ INSTALLED_APPS = (
     'south'
 )
 
+EMAIL_SUBJECT_PREFIX = '[Djbook.ru]'
+
 DATETIME_FORMAT = 'j N Y, G:i'
 FEEDBACK_SUBJECT = gettext_noop(u'Feedback message from Djbook.ru')
 FEEDBACK_EMAIL = 'djbook.feedback@gmail.com'
