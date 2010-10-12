@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import Group
 from django.conf import settings
 #from django.template.defaultfilters import slugify
-from utils.translit import slugify
+from pytils.translit import slugify
 from django.db.models.signals import post_save
 from django.template.defaultfilters import truncatewords
 import datetime
