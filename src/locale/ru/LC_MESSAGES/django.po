@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-12 23:48+0300\n"
+"POT-Creation-Date: 2010-10-13 00:06+0300\n"
 "PO-Revision-Date: 2010-09-19 22:11+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -278,7 +278,7 @@ msgstr "комментарий"
 msgid "submit date"
 msgstr "дата отправки"
 
-#: .\comments\models.py:23
+#: .\comments\models.py:23 .\templates\news\_last_news.html.py:14
 msgid "Comments"
 msgstr "Комментарии"
 

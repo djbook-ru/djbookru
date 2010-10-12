@@ -1,4 +1,4 @@
-{% load markup %}
+{% load i18n markup comments_tags %}
 {% for item in news %}
     <div class="news-inc">
         <a style="font-family: arial; font-size: 12px; font-weight: bold; " href="{{ item.get_absolute_url }}">
@@ -10,7 +10,8 @@
         <div class="text">
             {{ item.content|markdown }}
         </div>
-        <div style="margin: -15px 0 5px 0;">
+        <div style="margin: -7px 0 5px 0;">
+            <a style="float: left" href="{{ item.author.get_absolute_url }}">{% trans 'Comments' %}: {% get_comment_count item %}</a>
             <a style="float: right" href="{{ item.author.get_absolute_url }}">{{ item.author }}</a>
         </div>
         <hr style="clear: both"/>
