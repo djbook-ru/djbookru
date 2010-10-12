@@ -10,6 +10,9 @@
         <div class="text">
             {{ item.content|markdown }}
         </div>
-        <hr/>
+        <div style="margin: -15px 0 5px 0;">
+            <a style="float: right" href="{{ item.author.get_absolute_url }}">{{ item.author }}</a>
+        </div>
+        <hr style="clear: both"/>
     </div>
 {% endfor %}

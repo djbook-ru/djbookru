@@ -26,6 +26,14 @@ cd src
 # By default, it uses sqlite
 python manage.py syncdb
 
+Migration: 
+
+For first migration use:
+> python manage.py migrate news 0001 --fake
+
+then just:
+> python manage.py migrate news
+
 Run:
 
 cd src # if needed
