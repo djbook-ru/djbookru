@@ -38,12 +38,12 @@ class Claims(models.Model):
         msgRoot.set_charset('UTF-8')
         msgRoot['From'] = mail_from
         msgRoot['To'] = mail_to
-        msgRoot['Subject'] = mail_subject.decode('utf-8').encode('utf-8')
+        msgRoot['Subject'] = mail_subject.encode('utf-8')
         msgRoot['Mime-version'] = '1.0'
         msgRoot['Content-type'] = 'text/plain; charset=utf-8'
         msgRoot['Content-transfer-encoding'] = '8bit'
         msgRoot.preamble = u'This is a multi-part message in MIME format.'.encode('utf-8')
-        msgText = MIMEText(_(u'This is automatic generated message, you do not need to answer on it.').decode('utf-8').encode('utf-8'))
+        msgText = MIMEText(_(u'This is automatic generated message, you do not need to answer on it.').encode('utf-8'))
         msgAlternative = MIMEMultipart('alternative')
         msgAlternative.attach(msgText)
         msgRoot.attach(msgAlternative)
@@ -103,8 +103,8 @@ class Text(models.Model):
 
     def __unicode__(self):
         return self.label
-    
+
     def get_absolute_url(self):
         """ This returns the absolute URL for a record. """
         return '/djangobook/text/%s/' % self.label # fixme: определять приложение автоматически
-    
+

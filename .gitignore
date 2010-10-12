@@ -1,8 +1,9 @@
 *.pyc
 *.*~
-src/settings_local.py
-env/*
 database.sqlite
-src/static/users/photo
+/src/settings_local.py
+/src/static/users/photo
+/src/settings.py
+/env/*
 pip-log.txt
 .idea
