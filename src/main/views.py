@@ -46,3 +46,7 @@ def feedback(request):
     return {
         'form': form
     }
+    
+def test_error_email(request):
+    raise Exception('Test!')
+    return
