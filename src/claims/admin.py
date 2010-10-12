@@ -63,11 +63,11 @@ class ClaimsAdmin(admin.ModelAdmin):
     form = ClaimsAdminForm
     fieldsets = (
         (_(u'Meta'),
-         {'fields': ('datetime', 'url', 'status')}),
+         {'fields': ('datetime', 'url')}),
         (_(u'Error'),
          {'fields': ('ctx_left', 'selected', 'ctx_right')}),
         (_(u'Comment'),
-         {'fields': ('email','comment')})
+         {'fields': ('status', 'email','comment')})
         )
     list_display = ('url', 'comment', 'email', 'notify',
                     claim_status_field, 'datetime')
