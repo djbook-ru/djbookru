@@ -1,6 +1,7 @@
 *.pyc
 *.*~
 database.sqlite
+/src/static/pics/*
 /src/settings_local.py
 /src/static/users/photo
 /src/settings.py
