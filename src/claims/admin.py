@@ -3,6 +3,7 @@
 from django.contrib import admin
 from django import forms
 from django.utils.translation import ugettext as _
+from django.db.models.aggregates import Max
 from claims.models import Claims, ClaimStatus, CLAIM_STATUSES
 
 class ClaimsAdminForm(forms.ModelForm):
@@ -75,9 +76,12 @@ class ClaimsAdmin(admin.ModelAdmin):
         )
     list_display = ('url', 'comment', 'email', 'notify',
                     claim_status_field, 'datetime')
-    ordering = ('-datetime',)
+    ordering = ('claimstatus__status__max',)
     actions = [make_assigned, make_fixed, make_invalid]
 
+    def queryset(self, request):
+        qs = super(ClaimsAdmin, self).queryset(request)
+        return qs.annotate(Max('claimstatus__status'))
 
 admin.site.register(Claims, ClaimsAdmin)
 

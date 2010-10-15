@@ -16,6 +16,7 @@ class Claims(models.Model):
     class Meta:
         verbose_name = _(u'Claim')
         verbose_name_plural = _(u'Claims')
+        ordering=('datetime',)
 
     def __unicode__(self):
         return self.selected
