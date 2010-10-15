@@ -13,8 +13,9 @@
         <div style="padding-left: 1em;">
             {{ object.content|markdown }}
         </div>
+        <a style="float: right" href="{{ object.author.get_absolute_url }}">{{ object.author }}</a>
     </div>
-    <hr/>
+    <hr style="clear: both"/>
     {% render_comment_list object %}
     {% render_comment_form object %}
 {% endblock %}

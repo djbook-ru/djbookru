@@ -4,7 +4,7 @@
         <li><a href="/" >{% trans 'Main' %}</a></li>
         <li><a href="{% url news:index %}" >{% trans 'News' %}</a></li>
         <li><a href="{% url dinette_category %}" >{% trans 'Forum' %}</a></li>
-        <li><a href="{% url examples:index %}" >{% trans 'Examples' %}</a>
+        <li><a href="{% url examples:index %}" >{% trans 'Recipes' %}</a>
             {% if example_categories %}
             <ul>
                 {% for item in example_categories %}

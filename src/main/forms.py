@@ -57,6 +57,9 @@ class BookAdminForm(forms.ModelForm):
         obj.toc = toc
         obj.save()
         
+        pics = [name for name in archive.namelist() if name.startswith('pics/') and not name == 'pics/']
+        archive.extractall(settings.MEDIA_ROOT, pics)
+        
         appendix_pattern = re.compile(r'^ap(?P<section>[a-z])\.html$')
         ch_pattern = re.compile(r'^ch(?P<ch>\d+)\.html$')
         chs_pattern = re.compile(r'^ch(?P<ch>\d+)s(?P<s>\d+)\.html$')
