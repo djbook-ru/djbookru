@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-13 00:06+0300\n"
+"POT-Creation-Date: 2010-10-19 22:59+0300\n"
 "PO-Revision-Date: 2010-09-19 22:11+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -169,35 +169,35 @@ msgstr "Пожалуйста, исправьте ошибки перечисле
 msgid "Profile changed success!"
 msgstr "Профайл успешно изменён!"
 
-#: .\claims\admin.py:37 .\claims\models.py:27
+#: .\claims\admin.py:38 .\claims\models.py:28
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: .\claims\admin.py:41 .\claims\models.py:89
+#: .\claims\admin.py:42 .\claims\models.py:90
 msgid "Claim status"
 msgstr "Статус жалобы"
 
-#: .\claims\admin.py:52
+#: .\claims\admin.py:53
 msgid "Mark selected claims as assigned"
 msgstr "Отметить выделенное как принятое"
 
-#: .\claims\admin.py:58
+#: .\claims\admin.py:59
 msgid "Mark selected claims as fixed"
 msgstr "Отметить выделенное как исправленное"
 
-#: .\claims\admin.py:64
+#: .\claims\admin.py:65
 msgid "Mark selected claims as invalid"
 msgstr "Отметить выделенное как отклоненное"
 
-#: .\claims\admin.py:69
+#: .\claims\admin.py:70
 msgid "Meta"
 msgstr "Мета"
 
-#: .\claims\admin.py:71
+#: .\claims\admin.py:72
 msgid "Error"
 msgstr "Ошибка"
 
-#: .\claims\admin.py:73 .\comments\forms.py:9 .\comments\models.py:22
+#: .\claims\admin.py:74 .\comments\forms.py:9 .\comments\models.py:22
 msgid "Comment"
 msgstr "Комментарий"
 
@@ -213,44 +213,44 @@ msgstr "Жалоба"
 msgid "Claims"
 msgstr "Жалобы"
 
-#: .\claims\models.py:36
+#: .\claims\models.py:37
 msgid "DjangoBook in russian: Claim's state was changed to"
 msgstr "DjangoBook по-русски: Состояние жалобы было изменено на"
 
-#: .\claims\models.py:46
+#: .\claims\models.py:47
 msgid "This is automatic generated message, you do not need to answer on it."
 msgstr ""
 "Это сообщение сгенерировано автоматически, вам не требуется отвечать на него."
 
-#: .\claims\models.py:80 .\templates\_right.html.py:17
+#: .\claims\models.py:81 .\templates\_right.html.py:17
 msgid "New"
 msgstr "Новая"
 
-#: .\claims\models.py:80 .\templates\_right.html.py:18
+#: .\claims\models.py:81 .\templates\_right.html.py:18
 msgid "Assigned"
 msgstr "Принята"
 
-#: .\claims\models.py:81 .\templates\_right.html.py:19
+#: .\claims\models.py:82 .\templates\_right.html.py:19
 msgid "Fixed"
 msgstr "Исправлена"
 
-#: .\claims\models.py:81 .\templates\_right.html.py:20
+#: .\claims\models.py:82 .\templates\_right.html.py:20
 msgid "Invalid"
 msgstr "Отклонена"
 
-#: .\claims\models.py:90
+#: .\claims\models.py:91
 msgid "Claim statuses"
 msgstr "Состояния жалобы"
 
-#: .\claims\models.py:96
+#: .\claims\models.py:97
 msgid "Label"
 msgstr "Метка"
 
-#: .\claims\models.py:101
+#: .\claims\models.py:102
 msgid "Text"
 msgstr "Текст"
 
-#: .\claims\models.py:102
+#: .\claims\models.py:103
 msgid "Texts"
 msgstr "Тексты"
 
@@ -831,6 +831,7 @@ msgstr "Нам нечем ответить на этот запрос."
 
 #: .\templates\dinette\topic_detail.html.py:48
 #: .\templates\dinette\topic_detail.html.py:153
+#: .\templates\dinette\topic_detail.html.py:175
 msgid "Post Reply"
 msgstr "Отправить отклик"
 
@@ -866,6 +867,11 @@ msgstr "от"
 #: .\templates\main\_toc.html.py:2
 msgid "Table of contents"
 msgstr "Содержимое"
+
+#: .\templates\main\_user_counter.html.py:4
+#, fuzzy
+msgid "Users number"
+msgstr "Всего пользователей"
 
 #: .\templates\main\feedback.html.py:5
 msgid "Feedback"
