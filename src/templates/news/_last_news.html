@@ -11,7 +11,7 @@
             {{ item.content|markdown }}
         </div>
         <div style="margin: -7px 0 5px 0;">
-            <a style="float: left" href="{{ item.author.get_absolute_url }}">{% trans 'Comments' %}: {% get_comment_count item %}</a>
+            <a style="float: left" href="{{ item.get_absolute_url }}#comments">{% trans 'Comments' %}: {% get_comment_count item %}</a>
             <a style="float: right" href="{{ item.author.get_absolute_url }}">{{ item.author }}</a>
         </div>
         <hr style="clear: both"/>
