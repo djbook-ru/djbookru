@@ -56,6 +56,10 @@ SuperCategory should belong to "general" auth.Group to be public visible.
 
 #i18n
 
+python manage.py makemessages -a
+python manage.py makemessages -d djangojs -a
+python manage.py compilemessages
+
 Некоторый проблемы с локализацией. При подключении .po файлов для js нужно указывать
 приложение в котором они хранятся. Тоесть если они лежат в корне проекта,
 нужно добавлять проект в INSTALL_APP. Но лучше после компиляции в .mo копировать 
