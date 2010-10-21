@@ -8,7 +8,6 @@ class NewsAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         if not change:
             obj.author = request.user
-            obj.save()
-
+        obj.save()
     
 admin.site.register(News, NewsAdmin)

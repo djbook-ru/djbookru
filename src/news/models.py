@@ -10,6 +10,8 @@ class News(models.Model):
     
     class Meta:
         ordering = ['-created']
+        verbose_name = _(u'News')
+        verbose_name_plural = _(u'News')
     
     def __unicode__(self):
         return self.title
