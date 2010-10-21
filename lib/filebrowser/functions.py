@@ -235,13 +235,8 @@ def handle_file_upload(path, file):
     """
     Handle File Upload.
     """
-    try:
-        file_path = os.path.join(path, file.name)
-        uploadedfile = default_storage.save(file_path, file)
-    except Exception, inst:
-        print "___filebrowser.functions.handle_file_upload(): could not save uploaded file"
-        print "ERROR: ", inst
-        print "___"
+    file_path = os.path.join(path, file.name)
+    uploadedfile = default_storage.save(file_path, file)
     return uploadedfile
 
 
