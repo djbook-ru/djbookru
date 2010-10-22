@@ -31,6 +31,10 @@ DATABASES = {
     }
 }
 
+FIXTURE_DIRS = (
+    rel('fixtures'),
+)
+
 FIRST_DAY_OF_WEEK = 1
 
 TIME_ZONE = 'Europe/Moscow'
@@ -104,6 +108,7 @@ TEMPLATE_DIRS = (
 INSTALLED_APPS = (
     'admin_tools.dashboard',
     'grappelli',
+    'filebrowser',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -122,12 +127,18 @@ INSTALLED_APPS = (
     'news',
     'comments',
     'claims',
+    'south',
     'examples'
 )
+
+EMAIL_SUBJECT_PREFIX = '[Djbook.ru]'
 
 DATETIME_FORMAT = 'j N Y, G:i'
 FEEDBACK_SUBJECT = gettext_noop(u'Feedback message from Djbook.ru')
 FEEDBACK_EMAIL = 'djbook.feedback@gmail.com'
+
+SKIP_SOUTH_TESTS = True
+SOUTH_TESTS_MIGRATE = False
 
 #grappelli settings
 GRAPPELLI_ADMIN_TITLE = 'Djbook.ru'
@@ -189,3 +200,8 @@ pageTracker._trackPageview();
 
 #available options
 #NEWS_ON_MAIN, NEWS_ON_PAGE, COMMENT_MAX_LENGTH
+
+try:
+    from settings_local import *
+except ImportError:
+    pass
