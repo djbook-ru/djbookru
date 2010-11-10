@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load i18n %}
+{% load i18n comments_tags %}
 
 {% block title %}{% trans 'Recipes' %} | {{ block.super }}{% endblock %}
 
@@ -9,7 +9,12 @@
     {% for category in categories %}
         <h2><a href="{{ category.get_absolute_url }}">{{ category }}</a></h2>
         {% for item in category.examples.all %}
-            <p style="padding-left: 20px;"><a href="{{ item.get_absolute_url }}">{{ item }}</a></p>
+            <p style="padding-left: 20px;">
+                <a href="{{ item.get_absolute_url }}">{{ item }}</a>
+                (<a class="comments-number" href="{{ item.get_absolute_url }}#comments">
+                    {% trans 'Comments' %}: {% get_comment_count item %}
+                </a>)                
+            </p>
         {% endfor %}
     {% endfor %}
 {% endblock %}
