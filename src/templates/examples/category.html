@@ -11,7 +11,10 @@
             <a href="{{ item.get_absolute_url }}">{{ item }}</a>
             (<a class="comments-number" href="{{ item.get_absolute_url }}#comments">
                 {% trans 'Comments' %}: {% get_comment_count item %}
-            </a>)              
+            </a>)<br/>
+            {% trans 'Author' %}: <a style="color: #fff" href="{{ item.author.get_absolute_url }}">
+                {{ item.author }}
+            </a>                           
         </p>
     {% endfor %}
 {% endblock %}
