@@ -25,6 +25,9 @@ class Comment(models.Model):
     def __unicode__(self):
         return "%s: %s..." % (self.user.__unicode__(), self.content[:50])
     
+    def get_absolute_url(self):
+        return '%s#comments' % self.content_object.get_absolute_url()
+    
     @classmethod
     def get_for_object(self, obj):
         if obj.pk:
