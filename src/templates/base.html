@@ -1,4 +1,4 @@
-{% load i18n news_tags components %} 
+{% load i18n news_tags components comments_tags %} 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lanh="ru">
     <head>
@@ -42,6 +42,7 @@
                 <td width="25%" valign="top">
                     {% block left %}
                         {% last_news %}
+                        {% last_comments %}
                     {% endblock %}
                 </td>
                 <td width="*" valign="top" class="content">

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-10 22:17+0200\n"
+"POT-Creation-Date: 2010-11-14 17:56+0200\n"
 "PO-Revision-Date: 2010-09-19 22:11+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -606,6 +606,7 @@ msgid "Biography"
 msgstr "Биография"
 
 #: .\templates\comments\_item.html.py:10
+#: .\templates\comments\last_comments.html.py:12
 msgid "ago"
 msgstr "прошло"
 
@@ -636,6 +637,11 @@ msgstr "Введите комментарий, пожалуйста."
 #: .\templates\comments\form.html.py:59
 msgid "Login please to post comment"
 msgstr "Пожалуйста, произведите вход для отправки комментария"
+
+#: .\templates\comments\last_comments.html.py:4
+#, fuzzy
+msgid "Last comments"
+msgstr "Последние комментарий"
 
 #: .\templates\dinette\announce_frag.html.py:7
 msgid "New Announcement"
@@ -863,6 +869,7 @@ msgid "by"
 msgstr "от"
 
 #: .\templates\examples\category.html.py:15
+#: .\templates\examples\detail.html.py:12
 #: .\templates\examples\index.html.py:18
 msgid "Author"
 msgstr "Автор"

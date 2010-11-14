@@ -1,0 +1,24 @@
+{% load i18n %}
+
+<div class="informer" style="font-weight: bold; margin-top: 10px; font-size: 1.1em">
+    {% trans 'Last comments' %}:
+</div>
+{% for item in last_comments %}
+    <div class="news-inc">
+        <a style="font-family: arial; font-size: 12px; font-weight: bold; " href="{{ item.get_absolute_url }}">
+            {{ item.content_object }}
+        </a        
+        <div style="font-size: 8px; text-align: right;">
+            {{ item.submit_date|timesince }} {% trans 'ago' %}
+        </div>
+        <div class="text">
+            {{ item.content|truncatewords:15|linebreaksbr }}
+        </div>
+        <div style="margin: -7px 0 5px 0;">
+            <a style="float: right" href="{{ item.user.get_absolute_url }}">
+                {{ item.user }}
+            </a>
+        </div>
+        <hr style="clear: both; border: 1px dotted #38964b;"/>
+    </div>
+{% endfor %}
