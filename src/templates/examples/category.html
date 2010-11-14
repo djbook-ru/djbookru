@@ -1,12 +1,20 @@
 {% extends 'base.html' %}
 
-{% load i18n %}
+{% load i18n comments_tags %}
 
 {% block title %}{{ category }} | {% trans 'Examples' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
     <h1>{{ category }}</h1>
     {% for item in category.examples.all %}
-        <p style="padding-left: 20px;"><a href="{{ item.get_absolute_url }}">{{ item }}</a></p>
+        <p style="padding-left: 20px;">
+            <a href="{{ item.get_absolute_url }}">{{ item }}</a>
+            (<a class="comments-number" href="{{ item.get_absolute_url }}#comments">
+                {% trans 'Comments' %}: {% get_comment_count item %}
+            </a>)<br/>
+            {% trans 'Author' %}: <a style="color: #fff" href="{{ item.author.get_absolute_url }}">
+                {{ item.author }}
+            </a>                           
+        </p>
     {% endfor %}
 {% endblock %}

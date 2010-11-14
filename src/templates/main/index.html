@@ -1,6 +1,6 @@
 {% extends 'main/page.html' %}
 
-{% load i18n news_tags %}
+{% load i18n news_tags comments_tags %}
 
 {% block head %}
     {{ block.super }}
@@ -15,4 +15,5 @@
 
 {% block left %}
     {% last_news %}
+    {% last_comments %}
 {% endblock %}

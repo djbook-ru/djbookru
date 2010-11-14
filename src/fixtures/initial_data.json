@@ -6,5 +6,21 @@
             "name": "general",
             "permissions": []
         }
-    }
+    },
+    {
+        "pk": 2,
+        "model": "sites.site",
+        "fields": {
+            "domain": "127.0.0.1:8000",
+            "name": "local"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "sites.site",
+        "fields": {
+            "domain": "djbook.ru",
+            "name": "DjangoBook v2.0"
+        }
+    }    
 ]
