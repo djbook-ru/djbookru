@@ -1,553 +1,557 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Copyright (C) 2010 Ruslan Popov
+# This file is distributed under the same license as the translation package.
+# Ruslan Popov <ruslan.popov@gmail.com>, 2010.
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-14 18:02+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2010-11-14 19:29+0300\n"
+"PO-Revision-Date: 2010-11-14 19:31+0300\n"
+"Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
+"Language-Team: ru <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: .\dashboard.py:18
+#: dashboard.py:18
 msgid "Administration"
-msgstr ""
+msgstr "Управление"
 
-#: .\dashboard.py:25
+#: dashboard.py:25
 msgid "Applications"
-msgstr ""
+msgstr "Приложения"
 
-#: .\dashboard.py:33
+#: dashboard.py:33
 msgid "Quick links"
-msgstr ""
+msgstr "Быстрые ссылки"
 
-#: .\dashboard.py:40
+#: dashboard.py:40
 msgid "Filebrowser"
-msgstr ""
+msgstr "Файлоглядун"
 
-#: .\dashboard.py:44
+#: dashboard.py:44
 msgid "Return to site"
-msgstr ""
+msgstr "Вернуться на сайт"
 
-#: .\dashboard.py:48
+#: dashboard.py:48
 msgid "Markdown: Syntax"
-msgstr ""
+msgstr "Маркдаун: Синтаксис"
 
-#: .\dashboard.py:52
+#: dashboard.py:52
 msgid "Change password"
-msgstr ""
+msgstr "Изменить пароль"
 
-#: .\dashboard.py:56 .\templates\_menu.html.py:20
-#: .\templates\dinette\header_frag.html.py:33
+#: dashboard.py:56 templates/_menu.html:20
+#: templates/dinette/header_frag.html:33
 msgid "Logout"
-msgstr ""
+msgstr "Выйти"
 
-#: .\dashboard.py:65
+#: dashboard.py:65
 msgid "Latest Django News"
-msgstr ""
+msgstr "Свежие новости Django"
 
-#: .\dashboard.py:100
+#: dashboard.py:100
 msgid "Recent Actions"
-msgstr ""
+msgstr "Недавние действия"
 
-#: .\patch.py:9
+#: patch.py:9
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
-#: .\patch.py:10
+#: patch.py:10
 msgid ""
 "Example: '/about/contact/'. Make sure to have leading and trailing slashes."
 msgstr ""
+"Пример: /about/contact/'. Проверьте наличие открывающего и завершающего "
+"слешей."
 
-#: .\patch.py:11
+#: patch.py:11
 msgid ""
 "This value must contain only letters, numbers, underscores, dashes or "
 "slashes."
 msgstr ""
+"Данное значение должно содержать только буквы, цифры, символы подчёркивания, "
+"тире или слеши."
 
-#: .\patch.py:20
+#: patch.py:20
 msgid "Advanced options"
-msgstr ""
+msgstr "Дополнительные возможности"
 
-#: .\settings.py:134
+#: settings.py:137
 msgid "Feedback message from Djbook.ru"
-msgstr ""
+msgstr "Ответное сообщение с Djbook.ru"
 
-#: .\settings.py:188
+#: settings.py:191
 msgid "Member"
-msgstr ""
+msgstr "Член сообщества"
 
-#: .\settings.py:188
+#: settings.py:191
 msgid "Senior Member"
-msgstr ""
+msgstr "Спер член сообщества"
 
-#: .\settings.py:188
+#: settings.py:191
 msgid "Star"
-msgstr ""
+msgstr "Звезда"
 
-#: .\accounts\forms.py:8 .\main\forms.py:16
+#: accounts/forms.py:8 main/forms.py:16
 msgid "captcha"
-msgstr ""
+msgstr "капча"
 
-#: .\accounts\forms.py:11
+#: accounts/forms.py:11
 msgid "Current password"
-msgstr ""
+msgstr "Текущий пароль"
 
-#: .\accounts\forms.py:12
+#: accounts/forms.py:12
 msgid "New password"
-msgstr ""
+msgstr "Новый пароль"
 
-#: .\accounts\forms.py:13
+#: accounts/forms.py:13
 msgid "Confirm new password"
-msgstr ""
+msgstr "Подтверждение нового пароля"
 
-#: .\accounts\forms.py:23
+#: accounts/forms.py:23
 msgid "Invalid password."
-msgstr ""
+msgstr "Неправильный пароль."
 
-#: .\accounts\forms.py:25
+#: accounts/forms.py:25
 msgid "The two passwords did not match."
-msgstr ""
+msgstr "Введённые пароли не совпадают."
 
-#: .\accounts\forms.py:33
+#: accounts/forms.py:33
 msgid "This email is used already."
-msgstr ""
+msgstr "Данный адрес электронной почты уже используется."
 
-#: .\accounts\models.py:11
+#: accounts/models.py:11
 msgid "biography"
-msgstr ""
+msgstr "биография"
 
-#: .\accounts\models.py:12
+#: accounts/models.py:12
 msgid "homepage"
-msgstr ""
+msgstr "домашняя страница"
 
-#: .\accounts\models.py:15
+#: accounts/models.py:15
 msgid "last activity"
-msgstr ""
+msgstr "последнее действие"
 
-#: .\accounts\models.py:16
+#: accounts/models.py:16
 msgid "last session activity"
-msgstr ""
+msgstr "последняя активность"
 
-#: .\accounts\models.py:18
+#: accounts/models.py:18
 msgid "last posttime"
-msgstr ""
+msgstr "время последнего сообщения"
 
-#: .\accounts\models.py:19
+#: accounts/models.py:19
 msgid "signature"
-msgstr ""
+msgstr "подпись"
 
-#: .\accounts\models.py:24
+#: accounts/models.py:24
 msgid "User"
-msgstr ""
+msgstr "Пользователь"
 
-#: .\accounts\models.py:25
+#: accounts/models.py:25
 msgid "Users"
-msgstr ""
+msgstr "Пользователи"
 
-#: .\accounts\views.py:21
+#: accounts/views.py:21
 msgid "Account created success!"
-msgstr ""
+msgstr "Аккаунт успешно создан!"
 
-#: .\accounts\views.py:23 .\accounts\views.py:55
+#: accounts/views.py:23 accounts/views.py:55
 msgid "Please correct the error below."
-msgstr ""
+msgstr "Пожалуйста, исправьте ошибки перечисленные далее."
 
-#: .\accounts\views.py:53
+#: accounts/views.py:53
 msgid "Profile changed success!"
-msgstr ""
+msgstr "Профайл успешно изменён!"
 
-#: .\claims\admin.py:38 .\claims\models.py:28
+#: claims/admin.py:38 claims/models.py:28
 msgid "Unknown"
-msgstr ""
+msgstr "Неизвестно"
 
-#: .\claims\admin.py:42 .\claims\models.py:90
+#: claims/admin.py:42 claims/models.py:90
 msgid "Claim status"
-msgstr ""
+msgstr "Статус жалобы"
 
-#: .\claims\admin.py:53
+#: claims/admin.py:53
 msgid "Mark selected claims as assigned"
-msgstr ""
+msgstr "Отметить выделенное как принятое"
 
-#: .\claims\admin.py:59
+#: claims/admin.py:59
 msgid "Mark selected claims as fixed"
-msgstr ""
+msgstr "Отметить выделенное как исправленное"
 
-#: .\claims\admin.py:65
+#: claims/admin.py:65
 msgid "Mark selected claims as invalid"
-msgstr ""
+msgstr "Отметить выделенное как отклоненное"
 
-#: .\claims\admin.py:70
+#: claims/admin.py:70
 msgid "Meta"
-msgstr ""
+msgstr "Мета"
 
-#: .\claims\admin.py:72
+#: claims/admin.py:72
 msgid "Error"
-msgstr ""
+msgstr "Ошибка"
 
-#: .\claims\admin.py:74 .\comments\forms.py:9 .\comments\models.py:22
+#: claims/admin.py:74 comments/forms.py:9 comments/models.py:22
 msgid "Comment"
-msgstr ""
+msgstr "Комментарий"
 
-#: .\claims\models.py:13
+#: claims/models.py:13
 msgid "Notify"
-msgstr ""
+msgstr "Уведомление"
 
-#: .\claims\models.py:17
+#: claims/models.py:17
 msgid "Claim"
-msgstr ""
+msgstr "Жалоба"
 
-#: .\claims\models.py:18
+#: claims/models.py:18
 msgid "Claims"
-msgstr ""
+msgstr "Жалобы"
 
-#: .\claims\models.py:37
+#: claims/models.py:37
 msgid "DjangoBook in russian: Claim's state was changed to"
-msgstr ""
+msgstr "DjangoBook по-русски: Состояние жалобы было изменено на"
 
-#: .\claims\models.py:47
+#: claims/models.py:47
 msgid "This is automatic generated message, you do not need to answer on it."
 msgstr ""
+"Это сообщение сгенерировано автоматически, вам не требуется отвечать на него."
 
-#: .\claims\models.py:81 .\templates\_right.html.py:17
+#: claims/models.py:81 templates/_right.html:17
 msgid "New"
-msgstr ""
+msgstr "Новая"
 
-#: .\claims\models.py:81 .\templates\_right.html.py:18
+#: claims/models.py:81 templates/_right.html:18
 msgid "Assigned"
-msgstr ""
+msgstr "Принята"
 
-#: .\claims\models.py:82 .\templates\_right.html.py:19
+#: claims/models.py:82 templates/_right.html:19
 msgid "Fixed"
-msgstr ""
+msgstr "Исправлена"
 
-#: .\claims\models.py:82 .\templates\_right.html.py:20
+#: claims/models.py:82 templates/_right.html:20
 msgid "Invalid"
-msgstr ""
+msgstr "Отклонена"
 
-#: .\claims\models.py:91
+#: claims/models.py:91
 msgid "Claim statuses"
-msgstr ""
+msgstr "Состояния жалобы"
 
-#: .\claims\models.py:97
+#: claims/models.py:97
 msgid "Label"
-msgstr ""
+msgstr "Метка"
 
-#: .\claims\models.py:102
+#: claims/models.py:102
 msgid "Text"
-msgstr ""
+msgstr "Текст"
 
-#: .\claims\models.py:103
+#: claims/models.py:103
 msgid "Texts"
-msgstr ""
+msgstr "Тексты"
 
-#: .\comments\forms.py:33
+#: comments/forms.py:33
 msgid "You car reply only comments for same object"
-msgstr ""
+msgstr "Отвечать можно только на комментарии с этой страници"
 
-#: .\comments\models.py:13
+#: comments/models.py:13
 msgid "object ID"
-msgstr ""
+msgstr "Идентификатор объекта"
 
-#: .\comments\models.py:15
+#: comments/models.py:15
 msgid "user"
-msgstr ""
+msgstr "пользователь"
 
-#: .\comments\models.py:16 .\templates\comments\_item.html.py:25
+#: comments/models.py:16 templates/comments/_item.html:25
 msgid "reply to"
-msgstr ""
+msgstr "ответить"
 
-#: .\comments\models.py:17
+#: comments/models.py:17
 msgid "comment"
-msgstr ""
+msgstr "комментарий"
 
-#: .\comments\models.py:18
+#: comments/models.py:18
 msgid "submit date"
-msgstr ""
+msgstr "дата отправки"
 
-#: .\comments\models.py:23 .\templates\examples\category.html.py:13
-#: .\templates\examples\index.html.py:15
-#: .\templates\news\_last_news.html.py:15
+#: comments/models.py:23 templates/examples/category.html:13
+#: templates/examples/index.html:15 templates/news/_last_news.html:15
 msgid "Comments"
-msgstr ""
+msgstr "Комментарии"
 
-#: .\dinette\forms.py:8 .\dinette\models.py:117
+#: dinette/forms.py:8 dinette/models.py:117
 msgid "subject"
-msgstr ""
+msgstr "тема"
 
-#: .\dinette\forms.py:9 .\dinette\forms.py:17 .\main\forms.py:14
+#: dinette/forms.py:9 dinette/forms.py:17 main/forms.py:14
 msgid "message"
-msgstr ""
+msgstr "сообщение"
 
-#: .\dinette\models.py:15 .\examples\models.py:6 .\main\models.py:6
-#: .\main\models.py:27
+#: dinette/models.py:15 examples/models.py:6 main/models.py:6
+#: main/models.py:27
 msgid "name"
-msgstr ""
+msgstr "имя"
 
-#: .\dinette\models.py:16
+#: dinette/models.py:16
 msgid "tag line"
-msgstr ""
+msgstr "строка тегов"
 
-#: .\dinette\models.py:28
+#: dinette/models.py:28
 msgid "Super Category"
-msgstr ""
+msgstr "Главная категория"
 
-#: .\dinette\models.py:29
+#: dinette/models.py:29
 msgid "Super Categories"
-msgstr ""
+msgstr "Главные категории"
 
-#: .\dinette\models.py:48 .\examples\models.py:10
+#: dinette/models.py:48 examples/models.py:10
 msgid "Category"
-msgstr ""
+msgstr "Категория"
 
-#: .\dinette\models.py:49 .\examples\models.py:11
+#: dinette/models.py:49 examples/models.py:11
 msgid "Categories"
-msgstr ""
+msgstr "Категории"
 
-#: .\dinette\models.py:143
+#: dinette/models.py:143
 msgid "Topic"
-msgstr ""
+msgstr "Тема"
 
-#: .\dinette\models.py:144 .\templates\dinette\category_details.html.py:77
-#: .\templates\dinette\category_details.html.py:83
-#: .\templates\dinette\new_topics.html.py:23
+#: dinette/models.py:144 templates/dinette/category_details.html:77
+#: templates/dinette/category_details.html:83
+#: templates/dinette/new_topics.html:23
 msgid "Topics"
-msgstr ""
+msgstr "Темы"
 
-#: .\dinette\models.py:206
+#: dinette/models.py:206
 msgid "Reply"
-msgstr ""
+msgstr "Отклик"
 
-#: .\dinette\models.py:207
+#: dinette/models.py:207
 msgid "Replies"
-msgstr ""
+msgstr "Отклики"
 
-#: .\dinette\models.py:254
+#: dinette/models.py:254
 msgid "Navigation Link"
-msgstr ""
+msgstr "Навигационная ссылка"
 
-#: .\dinette\models.py:255
+#: dinette/models.py:255
 msgid "Navigation Links"
-msgstr ""
+msgstr "Навигационные ссылки"
 
-#: .\dinette\views.py:167
+#: dinette/views.py:167
 msgid ""
 "You have posted message too recently. Please wait a while before trying "
 "again."
-msgstr ""
+msgstr "Вы отправляете сообщения очень часто."
 
-#: .\dinette\views.py:213
+#: dinette/views.py:213
 #, python-format
 msgid "Latest topics in category %(name)s"
-msgstr ""
+msgstr "Последние темы в категории %(name)s"
 
-#: .\dinette\views.py:275
+#: dinette/views.py:275
 #, python-format
 msgid "You have reopened topic %(subject)s"
-msgstr ""
+msgstr "Вы открыли тему %(subject)s"
 
-#: .\dinette\views.py:277
+#: dinette/views.py:277
 #, python-format
 msgid "You have closed topic %(subject)s"
-msgstr ""
+msgstr "Вы закрыли %(subject)s"
 
-#: .\dinette\views.py:281
+#: dinette/views.py:281
 #, python-format
 msgid "%(subject)s is no longer an announcement."
-msgstr ""
+msgstr "%(subject)s убрано из объявлений"
 
-#: .\dinette\views.py:283
+#: dinette/views.py:283
 #, python-format
 msgid "%(subject)s is now an announcement."
-msgstr ""
+msgstr "%(subject)s отмечен как объявление."
 
-#: .\dinette\views.py:287
+#: dinette/views.py:287
 #, python-format
 msgid "%(subject)s has been unstickied."
-msgstr ""
+msgstr "%(subject)s откреплена."
 
-#: .\dinette\views.py:289
+#: dinette/views.py:289
 #, python-format
 msgid "%(subject)s has been stickied."
-msgstr ""
+msgstr "%(subject)s прикреплена."
 
-#: .\dinette\views.py:293
+#: dinette/views.py:293
 #, python-format
 msgid "%(subject)s has been unhidden."
-msgstr ""
+msgstr "%(subject)s вновь отображается."
 
-#: .\dinette\views.py:295
+#: dinette/views.py:295
 #, python-format
 msgid "%(subject)s has been hidden and won't show up any further."
-msgstr ""
+msgstr "%(subject)s скрыт и не будет отображаться."
 
-#: .\dinette\views.py:302
+#: dinette/views.py:302
 msgid "This view must be called via post"
-msgstr ""
+msgstr "Требуется POST запрос"
 
-#: .\dinette\views.py:319
+#: dinette/views.py:319
 msgid "Topics since your last visit"
-msgstr ""
+msgstr "Со времени вашего последнего посещения было создано тем"
 
-#: .\dinette\views.py:326
+#: dinette/views.py:326
 msgid "Most active Topics"
-msgstr ""
+msgstr "Наиболее активные темы"
 
-#: .\examples\feeds.py:7
+#: examples/feeds.py:7
 msgid "Russian DjangoBook Examples"
-msgstr ""
+msgstr "Примеры с Russian DjangoBook"
 
-#: .\examples\feeds.py:9 .\templates\base.html.py:19
+#: examples/feeds.py:9 templates/base.html:19
 msgid "Newly examples from Russian DjangoBook"
-msgstr ""
+msgstr "Последние примеры с Russian DjangoBook"
 
-#: .\examples\models.py:21
+#: examples/models.py:21
 msgid "category"
-msgstr ""
+msgstr "категория"
 
-#: .\examples\models.py:22 .\news\models.py:6
+#: examples/models.py:22 news/models.py:6
 msgid "title"
-msgstr ""
+msgstr "тема"
 
-#: .\examples\models.py:23 .\main\models.py:29 .\news\models.py:7
+#: examples/models.py:23 main/models.py:29 news/models.py:7
 msgid "content"
-msgstr ""
+msgstr "содержимое"
 
-#: .\examples\models.py:23 .\news\models.py:7
+#: examples/models.py:23 news/models.py:7
 msgid "Use Markdown and HTML"
-msgstr ""
+msgstr "Иcпользуйте Markdown или HTML"
 
-#: .\examples\models.py:24 .\main\models.py:7 .\news\models.py:8
+#: examples/models.py:24 main/models.py:7 news/models.py:8
 msgid "created"
-msgstr ""
+msgstr "создано"
 
-#: .\examples\models.py:28
+#: examples/models.py:28
 msgid "Example"
-msgstr ""
+msgstr "Пример"
 
-#: .\examples\models.py:29 .\templates\examples\category.html.py:5
-#: .\templates\examples\detail.html.py:5
+#: examples/models.py:29 templates/examples/category.html:5
+#: templates/examples/detail.html:5
 msgid "Examples"
-msgstr ""
+msgstr "Примеры"
 
-#: .\main\forms.py:13
+#: main/forms.py:13
 msgid "email"
-msgstr ""
+msgstr "е-почта"
 
-#: .\main\forms.py:31
+#: main/forms.py:31
 msgid "archive"
-msgstr ""
+msgstr "архив"
 
-#: .\main\forms.py:47
+#: main/forms.py:47
 msgid "This should be zip archive"
-msgstr ""
+msgstr "Хочу zip архив"
 
-#: .\main\models.py:8
+#: main/models.py:8
 msgid "description"
-msgstr ""
+msgstr "описание"
 
-#: .\main\models.py:9
+#: main/models.py:9
 msgid "ToC"
-msgstr ""
+msgstr "Оглавление"
 
-#: .\main\models.py:13
+#: main/models.py:13
 msgid "Book"
-msgstr ""
+msgstr "Книга"
 
-#: .\main\models.py:14
+#: main/models.py:14
 msgid "Books"
-msgstr ""
+msgstr "Книги"
 
-#: .\main\models.py:28
+#: main/models.py:28
 msgid "slug"
-msgstr ""
+msgstr "метка"
 
-#: .\main\models.py:30
+#: main/models.py:30
 msgid "book"
-msgstr ""
+msgstr "книга"
 
-#: .\main\models.py:31
+#: main/models.py:31
 msgid "chapter"
-msgstr ""
+msgstr "глава"
 
-#: .\main\models.py:32
+#: main/models.py:32
 msgid "section"
-msgstr ""
+msgstr "раздел"
 
-#: .\main\models.py:37
+#: main/models.py:37
 msgid "Page"
-msgstr ""
+msgstr "Страница"
 
-#: .\main\models.py:38
+#: main/models.py:38
 msgid "Pages"
-msgstr ""
+msgstr "Страницы"
 
-#: .\main\views.py:42
+#: main/views.py:42
 msgid "Feedback sent success!"
-msgstr ""
+msgstr "Отзыв успешно отправлен!"
 
-#: .\news\feeds.py:7
+#: news/feeds.py:7
 msgid "Russian DjangoBook"
-msgstr ""
+msgstr "Russian DjangoBook"
 
-#: .\news\feeds.py:9 .\templates\base.html.py:18
+#: news/feeds.py:9 templates/base.html:18
 msgid "The freshest news about Russian version of DjangoBook"
-msgstr ""
+msgstr "Последние новости с Russian DjangoBook"
 
-#: .\news\models.py:13 .\news\models.py:14 .\templates\_menu.html.py:5
-#: .\templates\news\index.html.py:5 .\templates\news\news.html.py:5
+#: news/models.py:13 news/models.py:14 templates/_menu.html:5
+#: templates/news/index.html:5 templates/news/news.html:5
 msgid "News"
-msgstr ""
+msgstr "Новости"
 
-#: .\templates\404.html.py:7 .\templates\500.html.py:7
+#: templates/404.html:7 templates/500.html:7
 msgid "Forgotten page..."
-msgstr ""
+msgstr "Потерянная страница..."
 
-#: .\templates\_menu.html.py:4
+#: templates/_menu.html:4
 msgid "Main"
-msgstr ""
+msgstr "Главная"
 
-#: .\templates\_menu.html.py:6 .\templates\dinette\base.html.py:14
-#: .\templates\dinette\mainindex.html.py:30
+#: templates/_menu.html:6 templates/dinette/base.html:14
+#: templates/dinette/mainindex.html:30
 msgid "Forum"
-msgstr ""
+msgstr "Форум"
 
-#: .\templates\_menu.html.py:7 .\templates\examples\index.html.py:5
-#: .\templates\examples\index.html.py:8
+#: templates/_menu.html:7 templates/examples/index.html:5
+#: templates/examples/index.html.py:8
 msgid "Recipes"
-msgstr ""
+msgstr "Рецепты"
 
-#: .\templates\_menu.html.py:16
+#: templates/_menu.html:16
 msgid "About"
-msgstr ""
+msgstr "О проекте"
 
-#: .\templates\_menu.html.py:22 .\templates\dinette\header_frag.html.py:35
-#: .\templates\openid_consumer\signin.html.py:10
-#: .\templates\registration\login.html.py:16
+#: templates/_menu.html:22 templates/dinette/header_frag.html:35
+#: templates/openid_consumer/signin.html:10
+#: templates/registration/login.html:16
 msgid "Login"
-msgstr ""
+msgstr "Вход"
 
-#: .\templates\_right.html.py:4
+#: templates/_right.html:4
 msgid "Found misprint?"
-msgstr ""
+msgstr "Нашли опечатку?"
 
-#: .\templates\_right.html.py:7
+#: templates/_right.html:7
 msgid "Select it with the mouse and hit Enter"
-msgstr ""
+msgstr "Выделите её мышкой и нажмите Enter"
 
-#: .\templates\_right.html.py:14
+#: templates/_right.html:14
 msgid "Processed"
-msgstr ""
+msgstr "Выполнено"
 
-#: .\templates\_right.html.py:29
+#: templates/_right.html:29
 msgid ""
 "\n"
 "    The full repository of DjangoBook translation you can get on <a href="
@@ -556,365 +560,377 @@ msgid ""
 "    We appreciate your patches!\n"
 "    "
 msgstr ""
+"\n"
+"Полный репозиторий перевода DjangoBook вы можете получить на <a href="
+"\"http://github.com/RaD/djangobook/\">GitHub</a>.\n"
+"    <br/>\n"
+"    Мы ждём ваших патчей!\n"
+"    "
 
-#: .\templates\_right.html.py:41 .\templates\main\feedback.html.py:11
+#: templates/_right.html:41 templates/main/feedback.html:11
 msgid "We are glad to hear your questions, comments or suggestions!"
-msgstr ""
+msgstr "Мы рады получить ваши вопросы, комментарии или предложения!"
 
-#: .\templates\_right.html.py:44
+#: templates/_right.html:44
 msgid "Open in new tab"
-msgstr ""
+msgstr "Открыть новую вкладку"
 
-#: .\templates\accounts\create.html.py:5 .\templates\accounts\create.html.py:8
-#: .\templates\registration\login.html.py:16
+#: templates/accounts/create.html:5 templates/accounts/create.html.py:8
+#: templates/registration/login.html:16
 msgid "Register"
-msgstr ""
+msgstr "Регистрация"
 
-#: .\templates\accounts\create.html.py:15
+#: templates/accounts/create.html:15
 msgid "Create"
-msgstr ""
+msgstr "Создать"
 
-#: .\templates\accounts\edit.html.py:5
+#: templates/accounts/edit.html:5
 msgid "Edit Profile"
-msgstr ""
+msgstr "Изменить профиль"
 
-#: .\templates\accounts\edit.html.py:18
+#: templates/accounts/edit.html:18
 msgid "Edit profile"
-msgstr ""
+msgstr "Изменить профиль"
 
-#: .\templates\accounts\edit.html.py:22
+#: templates/accounts/edit.html:22
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
-#: .\templates\accounts\profile.html.py:5
+#: templates/accounts/profile.html:5
 msgid "Profile"
-msgstr ""
+msgstr "Профиль"
 
-#: .\templates\accounts\profile.html.py:12
+#: templates/accounts/profile.html:12
 msgid "edit"
-msgstr ""
+msgstr "редактировать"
 
-#: .\templates\accounts\profile.html.py:23
+#: templates/accounts/profile.html:23
 msgid "Userrank"
-msgstr ""
+msgstr "Карма пользователя"
 
-#: .\templates\accounts\profile.html.py:24
+#: templates/accounts/profile.html:24
 msgid "Posts count"
-msgstr ""
+msgstr "Откликов"
 
-#: .\templates\accounts\profile.html.py:25
+#: templates/accounts/profile.html:25
 msgid "Comments count"
-msgstr ""
+msgstr "Комментариев"
 
-#: .\templates\accounts\profile.html.py:29
+#: templates/accounts/profile.html:29
 msgid "Biography"
-msgstr ""
+msgstr "Биография"
 
-#: .\templates\comments\_item.html.py:10
-#: .\templates\comments\last_comments.html.py:12
+#: templates/comments/_item.html:10 templates/comments/last_comments.html:12
 msgid "ago"
-msgstr ""
+msgstr "прошло"
 
-#: .\templates\comments\_item.html.py:14
+#: templates/comments/_item.html:14
 msgid "Answer"
-msgstr ""
+msgstr "Ответ"
 
-#: .\templates\comments\_item.html.py:16
+#: templates/comments/_item.html:16
 msgid "Link"
-msgstr ""
+msgstr "Ссылка"
 
-#: .\templates\comments\_item.html.py:18
+#: templates/comments/_item.html:18
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
-#: .\templates\comments\_item.html.py:21
+#: templates/comments/_item.html:21
 msgid "Edit"
-msgstr ""
+msgstr "Редактировать"
 
-#: .\templates\comments\form.html.py:13
+#: templates/comments/form.html:13
 msgid "Post"
-msgstr ""
+msgstr "Отправить"
 
-#: .\templates\comments\form.html.py:43
+#: templates/comments/form.html:43
 msgid "Enter comment please."
-msgstr ""
+msgstr "Введите комментарий, пожалуйста."
 
-#: .\templates\comments\form.html.py:59
+#: templates/comments/form.html:59
 msgid "Login please to post comment"
-msgstr ""
+msgstr "Пожалуйста, произведите вход для отправки комментария"
 
-#: .\templates\comments\last_comments.html.py:4
+#: templates/comments/last_comments.html:4
 msgid "Last comments"
-msgstr ""
+msgstr "Последние комментарии"
 
-#: .\templates\dinette\announce_frag.html.py:7
+#: templates/dinette/announce_frag.html:7
 msgid "New Announcement"
-msgstr ""
+msgstr "Новые объявления"
 
-#: .\templates\dinette\attachement_frag.html.py:6
+#: templates/dinette/attachement_frag.html:6
 msgid "File Attachment"
-msgstr ""
+msgstr "Вложенный файл"
 
-#: .\templates\dinette\attachement_frag.html.py:8
-#: .\templates\dinette\attachement_frag.html.py:20
+#: templates/dinette/attachement_frag.html:8
+#: templates/dinette/attachement_frag.html:20
 msgid "Download"
-msgstr ""
+msgstr "Загрузка"
 
-#: .\templates\dinette\attachement_frag.html.py:15
+#: templates/dinette/attachement_frag.html:15
 msgid "Image Attachment"
-msgstr ""
+msgstr "Вложенное изображение"
 
-#: .\templates\dinette\category_details.html.py:35
-#: .\templates\dinette\topic_detail.html.py:176
+#: templates/dinette/category_details.html:35
+#: templates/dinette/topic_detail.html:176
 msgid "close"
-msgstr ""
+msgstr "закрыть"
 
-#: .\templates\dinette\category_details.html.py:50
+#: templates/dinette/category_details.html:50
 msgid "Permanent link to this forum."
-msgstr ""
+msgstr "Постоянная ссылка на данный форум."
 
-#: .\templates\dinette\category_details.html.py:67
+#: templates/dinette/category_details.html:67
 msgid "New Topic"
-msgstr ""
+msgstr "Новая тема"
 
-#: .\templates\dinette\category_details.html.py:69
+#: templates/dinette/category_details.html:69
 msgid "Login to start New Topic"
-msgstr ""
+msgstr "Произведите вход для создания новой темы"
 
-#: .\templates\dinette\category_details.html.py:84
-#: .\templates\dinette\new_topics.html.py:24
-#: .\templates\dinette\topic_detail_frag.html.py:32
+#: templates/dinette/category_details.html:84
+#: templates/dinette/new_topics.html:24
+#: templates/dinette/topic_detail_frag.html:32
 msgid "replies"
-msgstr ""
+msgstr "откликов"
 
-#: .\templates\dinette\category_details.html.py:85
-#: .\templates\dinette\new_topics.html.py:25
-#: .\templates\dinette\topic_detail_frag.html.py:36
+#: templates/dinette/category_details.html:85
+#: templates/dinette/new_topics.html:25
+#: templates/dinette/topic_detail_frag.html:36
 msgid "views"
-msgstr ""
+msgstr "просмотров"
 
-#: .\templates\dinette\category_details.html.py:86
-#: .\templates\dinette\mainindex.html.py:33
-#: .\templates\dinette\new_topics.html.py:26
+#: templates/dinette/category_details.html:86
+#: templates/dinette/mainindex.html:33 templates/dinette/new_topics.html:26
 msgid "last post"
-msgstr ""
+msgstr "последнее сообщение"
 
-#: .\templates\dinette\header_frag.html.py:3
+#: templates/dinette/header_frag.html:3
 msgid "Skip to forum content"
-msgstr ""
+msgstr "Проскочить до содержимого"
 
-#: .\templates\dinette\header_frag.html.py:11
+#: templates/dinette/header_frag.html:11
 msgid "Home"
-msgstr ""
+msgstr "Домой"
 
-#: .\templates\dinette\header_frag.html.py:14
-#: .\templates\dinette\search.html.py:19 .\templates\main\search.html.py:5
+#: templates/dinette/header_frag.html:14 templates/dinette/search.html:19
+#: templates/main/search.html:5
 msgid "Search"
-msgstr ""
+msgstr "Поиск"
 
-#: .\templates\dinette\header_frag.html.py:18
+#: templates/dinette/header_frag.html:18
 msgid "New topics"
-msgstr ""
+msgstr "Новые темы"
 
-#: .\templates\dinette\header_frag.html.py:33
+#: templates/dinette/header_frag.html:33
 msgid "Hello"
-msgstr ""
+msgstr "Привет"
 
-#: .\templates\dinette\header_frag.html.py:40
+#: templates/dinette/header_frag.html:40
 msgid "Active Topics"
-msgstr ""
+msgstr "Активные темы"
 
-#: .\templates\dinette\header_frag.html.py:41
+#: templates/dinette/header_frag.html:41
 msgid "Unanswered Topics"
-msgstr ""
+msgstr "Темы без ответов"
 
-#: .\templates\dinette\mainindex.html.py:31
-#: .\templates\dinette\mainindex.html.py:60
+#: templates/dinette/mainindex.html:31 templates/dinette/mainindex.html:60
 msgid "topics"
-msgstr ""
+msgstr "темы"
 
-#: .\templates\dinette\mainindex.html.py:32
-#: .\templates\dinette\mainindex.html.py:63
+#: templates/dinette/mainindex.html:32 templates/dinette/mainindex.html:63
 msgid "posts"
-msgstr ""
+msgstr "сообщений"
 
-#: .\templates\dinette\mainindex.html.py:49
+#: templates/dinette/mainindex.html:49
 msgid "Moderated by"
-msgstr ""
+msgstr "Администрируется"
 
-#: .\templates\dinette\mainindex.html.py:66
-#: .\templates\dinette\topic_detail_frag.html.py:39
+#: templates/dinette/mainindex.html:66
+#: templates/dinette/topic_detail_frag.html:39
 msgid "Last post"
-msgstr ""
+msgstr "Последнее сообщение"
 
-#: .\templates\dinette\mainindex.html.py:85
+#: templates/dinette/mainindex.html:85
 msgid "Forum statistics"
-msgstr ""
+msgstr "Статистика форума"
 
-#: .\templates\dinette\mainindex.html.py:88
+#: templates/dinette/mainindex.html:88
 msgid "Total number of registered users"
-msgstr ""
+msgstr "Общее количество зарегистрированных пользователей"
 
-#: .\templates\dinette\mainindex.html.py:91
+#: templates/dinette/mainindex.html:91
 msgid "Newest registered user"
-msgstr ""
+msgstr "Последний зарегистрированный пользователь"
 
-#: .\templates\dinette\mainindex.html.py:100
+#: templates/dinette/mainindex.html:100
 msgid "Total number of topics"
-msgstr ""
+msgstr "Общее количество тем"
 
-#: .\templates\dinette\mainindex.html.py:103
+#: templates/dinette/mainindex.html:103
 msgid "Total number of posts"
-msgstr ""
+msgstr "Общее количество откликов"
 
-#: .\templates\dinette\mainindex.html.py:106
+#: templates/dinette/mainindex.html:106
 msgid "Users Online"
-msgstr ""
+msgstr "Пользователи в сети"
 
-#: .\templates\dinette\moderation_frag.html.py:4
+#: templates/dinette/moderation_frag.html:4
 msgid "Reopen"
-msgstr ""
+msgstr "Открыть заново"
 
-#: .\templates\dinette\moderation_frag.html.py:4
+#: templates/dinette/moderation_frag.html:4
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
-#: .\templates\dinette\moderation_frag.html.py:5
+#: templates/dinette/moderation_frag.html:5
 msgid "Un Stickify"
-msgstr ""
+msgstr "Открепить"
 
-#: .\templates\dinette\moderation_frag.html.py:5
+#: templates/dinette/moderation_frag.html:5
 msgid "Stickify"
-msgstr ""
+msgstr "Прикрепить"
 
-#: .\templates\dinette\moderation_frag.html.py:6
+#: templates/dinette/moderation_frag.html:6
 msgid "Remove from announcement"
-msgstr ""
+msgstr "Убрать из анонсирования"
 
-#: .\templates\dinette\moderation_frag.html.py:6
+#: templates/dinette/moderation_frag.html:6
 msgid "Make announcement"
-msgstr ""
+msgstr "Создать объявление"
 
-#: .\templates\dinette\moderation_frag.html.py:7
+#: templates/dinette/moderation_frag.html:7
 msgid "Hide"
-msgstr ""
+msgstr "Спрятать"
 
-#: .\templates\dinette\new_topics.html.py:34
+#: templates/dinette/new_topics.html:34
 msgid "There is no topic with new replies since your last visit."
-msgstr ""
+msgstr "Со времени вашего последнего посещения не было ни одного отклика."
 
-#: .\templates\dinette\replydetail_frag.html.py:12
-#: .\templates\dinette\topic_detail.html.py:88
+#: templates/dinette/replydetail_frag.html:12
+#: templates/dinette/topic_detail.html:88
 msgid "Reply by"
-msgstr ""
+msgstr "Отклик от"
 
-#: .\templates\dinette\replydetail_frag.html.py:16
+#: templates/dinette/replydetail_frag.html:16
 msgid "Permanent link to this post"
-msgstr ""
+msgstr "Постоянная ссылка на данный отклик"
 
-#: .\templates\dinette\replydetail_frag.html.py:42
-#: .\templates\dinette\topic_detail.html.py:116
+#: templates/dinette/replydetail_frag.html:42
+#: templates/dinette/topic_detail.html:116
 msgid "Online"
-msgstr ""
+msgstr "Онлайн"
 
-#: .\templates\dinette\replydetail_frag.html.py:44
-#: .\templates\dinette\topic_detail.html.py:118
+#: templates/dinette/replydetail_frag.html:44
+#: templates/dinette/topic_detail.html:118
 msgid "Offline"
-msgstr ""
+msgstr "Офлайн"
 
-#: .\templates\dinette\replydetail_frag.html.py:54
-#: .\templates\dinette\topic_detail.html.py:123
+#: templates/dinette/replydetail_frag.html:54
+#: templates/dinette/topic_detail.html:123
 msgid "Registered"
-msgstr ""
+msgstr "Зарегистрировано"
 
-#: .\templates\dinette\replydetail_frag.html.py:59
-#: .\templates\dinette\topic_detail.html.py:72
-#: .\templates\dinette\topic_detail.html.py:124
+#: templates/dinette/replydetail_frag.html:59
+#: templates/dinette/topic_detail.html:72
+#: templates/dinette/topic_detail.html:124
 msgid "Posts"
-msgstr ""
+msgstr "Откликов"
 
-#: .\templates\dinette\search.html.py:36
+#: templates/dinette/search.html:36
 msgid "We do not have any results for this query."
-msgstr ""
+msgstr "Нам нечем ответить на этот запрос."
 
-#: .\templates\dinette\topic_detail.html.py:48
-#: .\templates\dinette\topic_detail.html.py:153
-#: .\templates\dinette\topic_detail.html.py:175
+#: templates/dinette/topic_detail.html:48
+#: templates/dinette/topic_detail.html:153
+#: templates/dinette/topic_detail.html:175
 msgid "Post Reply"
-msgstr ""
+msgstr "Отправить отклик"
 
-#: .\templates\dinette\topic_detail.html.py:50
-#: .\templates\dinette\topic_detail.html.py:155
+#: templates/dinette/topic_detail.html:50
+#: templates/dinette/topic_detail.html:155
 msgid "Login to Post Reply"
-msgstr ""
+msgstr "Произведите вход для отправки отклика"
 
-#: .\templates\dinette\topic_detail.html.py:55
+#: templates/dinette/topic_detail.html:55
 msgid "Next"
-msgstr ""
+msgstr "Следующий"
 
-#: .\templates\dinette\topic_detail.html.py:59
+#: templates/dinette/topic_detail.html:59
 msgid "Previous"
-msgstr ""
+msgstr "Предыдущий"
 
-#: .\templates\dinette\topic_detail.html.py:69
+#: templates/dinette/topic_detail.html:69
 msgid "RSS Topic Feed"
-msgstr ""
+msgstr "RSS раздача тем"
 
-#: .\templates\dinette\topic_detail_frag.html.py:18
+#: templates/dinette/topic_detail_frag.html:18
 msgid "Closed"
-msgstr ""
+msgstr "Закрыт"
 
-#: .\templates\dinette\topic_detail_frag.html.py:22
+#: templates/dinette/topic_detail_frag.html:22
 msgid "Sticky"
-msgstr ""
+msgstr "Прикреплен"
 
-#: .\templates\dinette\topic_detail_frag.html.py:26
+#: templates/dinette/topic_detail_frag.html:26
 msgid "by"
-msgstr ""
+msgstr "от"
 
-#: .\templates\examples\category.html.py:15
-#: .\templates\examples\detail.html.py:12
-#: .\templates\examples\index.html.py:18
+#: templates/examples/category.html:15 templates/examples/detail.html:12
+#: templates/examples/index.html:18
 msgid "Author"
-msgstr ""
+msgstr "Автор"
 
-#: .\templates\main\_toc.html.py:2
+#: templates/main/_toc.html:2
 msgid "Table of contents"
-msgstr ""
+msgstr "Содержимое"
 
-#: .\templates\main\_user_counter.html.py:4
+#: templates/main/_user_counter.html:4
 msgid "Users number"
-msgstr ""
+msgstr "Всего пользователей"
 
-#: .\templates\main\feedback.html.py:5
+#: templates/main/feedback.html:5
 msgid "Feedback"
-msgstr ""
+msgstr "Обратная связь"
 
-#: .\templates\main\feedback.html.py:8
+#: templates/main/feedback.html:8
 msgid "You can send message to us"
-msgstr ""
+msgstr "Вы можете отправить нам сообщение"
 
-#: .\templates\main\feedback.html.py:21
+#: templates/main/feedback.html:21
 msgid "Send"
-msgstr ""
+msgstr "Отправить"
 
-#: .\templates\news\index.html.py:21
+#: templates/news/index.html:21
 msgid "more"
-msgstr ""
+msgstr "ещё"
 
-#: .\templates\openid_consumer\signin.html.py:5
+#: templates/openid_consumer/signin.html:5
 msgid "Sign in with your OpenID"
-msgstr ""
+msgstr "Вход с помощью OpenID"
 
-#: .\templates\registration\login.html.py:5
-#: .\templates\registration\login.html.py:8
+#: templates/registration/login.html:5 templates/registration/login.html:8
 msgid "Authentication"
-msgstr ""
+msgstr "Аутентификация"
 
-#: .\templates\registration\login.html.py:16
+#: templates/registration/login.html:16
 msgid "or"
-msgstr ""
+msgstr "или"
 
-#: .\templates\registration\login.html.py:25
+#: templates/registration/login.html:25
 msgid "You are authenticated already"
-msgstr ""
+msgstr "Вы уже аутентифицированы"
+
+#~ msgid "You may visit"
+#~ msgstr "Вы можете посетить"
+
+#~ msgid "my demo shop"
+#~ msgstr "мой демонстрационный магазин"
+
+#~ msgid "my book"
+#~ msgstr "моя книга"
+
+#~ msgid "Platform"
+#~ msgstr "Платформа"
