@@ -5,4 +5,5 @@ oauth==1.0.1
 python-openid==2.2.5
 python-yadis==1.1.0
 feedparser
+-e git+http://github.com/RaD/django-nezabudka.git/#egg=django-nezabudka
 
