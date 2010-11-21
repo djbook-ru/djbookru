@@ -223,7 +223,7 @@ pre code {
 
 .attribute, .rules .keyword, .number, .date, .regexp {
     font-weight: bold;
-    color: #0000ff;
+    color: #FFFF88;
 }
 
 .number, .regexp {
