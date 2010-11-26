@@ -140,7 +140,7 @@
       </fileset>
     </delete>
     <delete file="${basedir}/${cumulative_config}" quiet="yes"/>
-    <delete file="${basedir}/src/django.wsgi" quiet="yes"/>
+    <delete file="${basedir}/src/settings.py" quiet="yes"/>
     <delete file="${basedir}/pip-log.txt" quiet="yes"/>
     <delete includeemptydirs="true" quiet="yes">
       <fileset dir="conf"/>

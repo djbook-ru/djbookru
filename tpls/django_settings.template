@@ -20,14 +20,20 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'djbookru@gmail.com'
+EMAIL_HOST_PASSWORD = ${email_host_password}
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 DATABASES = {
     'default': {
         'ENGINE': ${db_engine},
-        'NAME': ${db_database},
-        'USER': ${db_schema_name},
-        'PASSWORD': ${db_schema_pass},
-        'HOST': '',
-        'PORT': '',
+        'NAME': ${db_name},
+        'USER': ${db_user},
+        'PASSWORD': ${db_pass},
+        'HOST': ${db_host},
+        'PORT': ${db_port},
     }
 }
 
@@ -53,7 +59,7 @@ MEDIA_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/lib/grappelli/media/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'TOPSECRETKEY'
+SECRET_KEY = '${django_secretkey}'
 
 if DEBUG:
     TEMPLATE_LOADERS = (
@@ -117,6 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.markup',
     'django.contrib.flatpages',
+    'google_analytics',
     'sorl.thumbnail',
     'pagination',
     'socialauth',
@@ -164,11 +171,8 @@ OPENID_SREG = {"required": "nickname, email", "optional":"postcode, country", "p
 OPENID_AX = [{"type_uri": "http://axschema.org/contact/email", "count": 1, "required": True, "alias": "email"},
              {"type_uri": "fullname", "count": 1 , "required": False, "alias": "fullname"}]
 
-TWITTER_CONSUMER_KEY = 'kxqAh00azOKuxh5ANVvOw'
-TWITTER_CONSUMER_SECRET = 'r9qtVVwjtHBSYIM875CTcoSVft7xVHL600x3G8co'
-#for testing and add django.local.ru to hosts
-#TWITTER_CONSUMER_KEY = 'wOpKCQS3inKOLEL5tVg'
-#TWITTER_CONSUMER_SECRET = 'e9c22D4NrMQBfYfE35tDQtHgeZoA0nEDhAuhSfy8tUI'
+TWITTER_CONSUMER_KEY = '${twitter_consumer_key}'
+TWITTER_CONSUMER_SECRET = '${twitter_consumer_secret}'
 
 #forum settings
 TOPIC_PAGE_SIZE = 10
@@ -184,24 +188,3 @@ MIDDLEWARE_CLASSES += (
      "dinette.middleware.UserActivity",
 )
 RANKS_NAMES_DATA = ((30, "Member"), (100, "Senior Member"), (300, 'Star'))
-
-#Google settings
-GOOGLE_ANALYTICS = """
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-3919032-4");
-pageTracker._trackPageview();
-} catch(err) {}</script>
-"""
-
-#available options
-#NEWS_ON_MAIN, NEWS_ON_PAGE, COMMENT_MAX_LENGTH
-
-try:
-    from settings_local import *
-except ImportError:
-    pass

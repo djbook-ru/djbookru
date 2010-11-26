@@ -3,8 +3,7 @@
 import os, sys
 sys.stdout = sys.stderr
 sys.path.insert(0, os.path.dirname(__file__))
-sys.path.append('${django_engine}')
-sys.path.append('${django_apps}')
+sys.path.append('${install_to}')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 from django.core.handlers.wsgi import WSGIHandler
 application = WSGIHandler()

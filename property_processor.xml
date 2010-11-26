@@ -18,8 +18,16 @@
         <entry key="news_onfeed_count" value="${news_onfeed_count}"/>
         <entry key="news_onpage_count" value="${news_onpage_count}"/>
 
-        <entry key="mail_proxy_user" value="${mail_proxy_user}"/>
-        <entry key="mail_proxy_pass" value="${mail_proxy_pass}"/>
+        <entry key="email_host" value="${email_host}"/>
+        <entry key="email_host_user" value="${email_host_user}"/>
+        <entry key="email_host_password" value="${email_host_password}"/>
+        <entry key="email_port" value="${email_port}"/>
+        <entry key="email_use_tls" value="${email_use_tls}"/>
+
+        <entry key="twitter_consumer_key" value="${twitter_consumer_key}"/>
+        <entry key="twitter_consumer_secret" value="${twitter_consumer_secret}"/>
+        <entry key="recaptcha_public" value="${recaptcha_public}"/>
+        <entry key="recaptcha_private" value="${recaptcha_private}"/>
 
         <entry key="db_engine" value="'django.db.backends.${db_engine}'"/>
       </propertyfile>
