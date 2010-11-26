@@ -180,7 +180,7 @@ REPLY_PAGE_SIZE = 20
 FLOOD_TIME = 5
 TEMPLATE_CONTEXT_PROCESSORS += (
     "dinette.context_processors.get_announcement",
-    "dinette.context_processors.get_site_config",
+    #"dinette.context_processors.get_site_config",
     "dinette.context_processors.get_forumwide_links"
 )
 
