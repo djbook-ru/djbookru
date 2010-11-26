@@ -22,22 +22,6 @@
   </target>
 
   <target name="init">
-    <condition property="not_user_configuration">
-      <not>
-        <available file="${basedir}/project.user.properties" type="file"/>
-      </not>
-    </condition>
-
-    <if> <!-- ant-contrib -->
-      <isset property="not_user_configuration"/>
-      <then>
-        <copy file="${basedir}/tpls/project_user.template"
-              tofile="${basedir}/project.user.properties"
-              overwrite="false" encoding="utf-8"/>
-        <fail message="Please, edit your project.user.properties before any actions!"/>
-      </then>
-    </if>
-
     <condition property="no_virtual_environment">
       <not>
         <available file="${basedir}/env/bin/activate" type="file"/>
@@ -81,7 +65,10 @@
     <if> <!-- ant-contrib -->
       <isset property="not_user_configuration"/>
       <then>
-        <fail message="Please, do 'ant init' first!"/>
+        <copy file="${basedir}/tpls/project_user.template"
+              tofile="${basedir}/project.user.properties"
+              overwrite="false" encoding="utf-8"/>
+        <fail message="Please, edit your project.user.properties before any actions!"/>
       </then>
     </if>
 
