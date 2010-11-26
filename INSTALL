@@ -1,0 +1,48 @@
+Base packages installation:
+
+  * Unknown OS:
+    * easy_install setuptools
+    * easy_install virtualenv
+    * install the latest version of Apache Ant from http://ant.apache.org/
+    * install the latest version of Ant Contrib from http://ant-contrib.sourceforge.net/
+
+  * Ubuntu Linux:
+    apt-get install python-setuptools python-virtualenv
+    apt-get install ant ant-contrib
+
+Project initialization:
+
+  Create a virtual environment:
+
+    ant init
+
+    During this process the virtual environment is created. The PIP is installed into it.
+    Then PIP loads all dependencies, mentioned in deps.txt.
+
+  Configure the project:
+
+    ant configure
+
+    At this step the build system checks the existence of project.user.properties file.
+    If it doesn't exist, this file will be created automatically using a template.
+    Please fill needed parameters (see project.properties) inside it. Then rerun configuration.
+
+  Fill database with models:
+
+    cd src
+    python manage.py syncdb
+
+  Start the development server:
+
+    cd src # если требуется
+    ./run.sh или run.bat
+
+Project cleaning:
+
+  Clear the configuration:
+
+    ant clean
+
+  Clear the environment:
+
+    ant dropenv

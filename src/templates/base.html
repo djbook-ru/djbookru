@@ -1,4 +1,4 @@
-{% load i18n news_tags components comments_tags %} 
+{% load i18n analytics news_tags components comments_tags %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lanh="ru">
     <head>
@@ -28,15 +28,15 @@
         {% block head %}{% endblock %}
     </head>
     <body style="padding: 0px; margin: 0px;">
-    
+
         {% block menu %}
             {% menu %}
         {% endblock %}
-        
+
         {% block search %}
             {% include '_search.html' %}
         {% endblock %}
-        
+
         <table width="100%" border="0" cellspacing="0" cellpadding="10">
             <tr>
                 <td width="25%" valign="top">
@@ -53,7 +53,7 @@
                             {% endfor %}
                         </ul>
                     {% endif %}
-                    <hr/>                    
+                    <hr/>
                     {% block content %}{% endblock %}
                     <hr/>
                 </td>
@@ -63,11 +63,12 @@
                 </td>
             </tr>
         </table>
-        
+
         {% if not DEBUG %}{{ google_analytics|safe }}{% endif %}
-        
+
         {% include '_footer.html' %}
-        
-        {% include '_menu.html' %}      
+
+        {% include '_menu.html' %}
     </body>
+{% if not debug %}{% analytics "UA-3919032-6" %}{% endif %}
 </html>

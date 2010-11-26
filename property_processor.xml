@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<project name="property_processor">
+
+  <macrodef name="make_prop_file">
+    <attribute name="filename"/>
+
+    <sequential>
+      <propertyfile file="@{filename}">
+        <entry key="project_name" value="${project_name}"/>
+        <entry key="user_project_name" value="${project_name}${developer_suffix}"/>
+        <entry key="install_to" value="${install_to}"/>
+        <entry key="django_secretkey" value="${django_secretkey}"/>
+        <entry key="web_admin_name" value="${web_admin_name}"/>
+        <entry key="web_admin_email" value="${web_admin_email}"/>
+        <entry key="web_server_name" value="${web_server_name}"/>
+
+        <entry key="news_onfeed_count" value="${news_onfeed_count}"/>
+        <entry key="news_onpage_count" value="${news_onpage_count}"/>
+
+        <entry key="email_host" value="${email_host}"/>
+        <entry key="email_host_user" value="${email_host_user}"/>
+        <entry key="email_host_password" value="${email_host_password}"/>
+        <entry key="email_port" value="${email_port}"/>
+        <entry key="email_use_tls" value="${email_use_tls}"/>
+
+        <entry key="twitter_consumer_key" value="${twitter_consumer_key}"/>
+        <entry key="twitter_consumer_secret" value="${twitter_consumer_secret}"/>
+        <entry key="recaptcha_public" value="${recaptcha_public}"/>
+        <entry key="recaptcha_private" value="${recaptcha_private}"/>
+
+        <entry key="db_engine" value="'django.db.backends.${db_engine}'"/>
+      </propertyfile>
+
+      <if>
+        <equals arg1="${db_engine}" arg2="sqlite3"/>
+        <then>
+          <propertyfile file="@{filename}">
+            <entry key="db_name" value="rel('${db_name}')"/>
+            <entry key="db_host" value="''"/>
+            <entry key="db_port" value="''"/>
+            <entry key="db_user" value="''"/>
+            <entry key="db_pass" value="''"/>
+          </propertyfile>
+        </then>
+      </if>
+
+      <if>
+        <equals arg1="${db_engine}" arg2="mysql"/>
+        <then>
+          <propertyfile file="@{filename}">
+            <entry key="db_name" value="'${db_name}'"/>
+            <entry key="db_host" value="'${db_host}'"/>
+            <entry key="db_port" value="'${db_port}'"/>
+            <entry key="db_user" value="'${db_user}'"/>
+            <entry key="db_pass" value="'${db_pass}'"/>
+          </propertyfile>
+        </then>
+      </if>
+
+      <if>
+        <equals arg1="${db_engine}" arg2="oracle"/>
+        <then>
+          <propertyfile file="@{filename}">
+            <entry key="db_name" value="${db_name}${developer_suffix}"/>
+            <entry key="db_host" value="'${db_host}'"/>
+            <entry key="db_port" value="'${db_port}'"/>
+            <entry key="db_user" value="'${db_user}${developer_suffix}'"/>
+            <entry key="db_pass" value="'${db_pass}'"/>
+          </propertyfile>
+        </then>
+      </if>
+    </sequential>
+  </macrodef>
+
+</project>

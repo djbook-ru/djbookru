@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 
-<!-- Макросы для работы с subversion - централизованной системой контроля версий (СКВ). -->
 <project name="vcs_subversion">
 
-  <!-- Макрос для выполнения команды СКВ -->
   <macrodef name="svn_call">
     <attribute name="command"/>
     <attribute name="related"/>
@@ -29,14 +27,12 @@
     </sequential>
   </macrodef>
 
-  <!-- Макрос для получения исходного кода из репозитория. -->
   <macrodef name="svn_sync">
     <attribute name="url"/>
     <attribute name="dst"/>
     <attribute name="checkfile"/>
     <attribute name="repname"/>
     <sequential>
-      <!-- проверить способ синхронизации: checkout или update -->
       <condition property="need_checkout">
         <not>
           <available file="@{checkfile}" type="file"/>

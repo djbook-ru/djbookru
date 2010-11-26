@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<project name="vcs_fossil">
+
+  <macrodef name="vcs_call">
+    <attribute name="command"/>
+    <attribute name="related"/>
+
+    <sequential>
+      <exec executable="fossil" failonerror="true">
+        <arg line="@{command} @{related}"/>
+      </exec>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="vcs_sync">
+    <attribute name="url"/>
+    <sequential>
+      <vcs_call command="sync" related="@{url}"/>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="vcs_push">
+    <attribute name="url"/>
+    <sequential>
+      <vcs_call command="push" related="@{url}"/>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="vcs_pull">
+    <attribute name="url"/>
+    <sequential>
+      <vcs_call command="pull" related="@{url}"/>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="vcs_update">
+    <attribute name="url"/>
+    <sequential>
+      <vcs_call command="update" related="@{url}"/>
+    </sequential>
+  </macrodef>
+
+</project>

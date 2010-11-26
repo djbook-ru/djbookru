@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 
-<!-- Макросы для работы с БД Oracle. -->
 <project name="db_oracle">
 
-  <!-- макрос для работы с sqlplus -->
   <macrodef name="sqlplus">
     <attribute name="file"/>
     <attribute name="options"/>

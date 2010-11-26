@@ -9,10 +9,9 @@
     </classpath>
   </taskdef>
 
-  <!-- подгружаем макросы для работы с системой контроля версий -->
+  <import file="vcs_fossil.xml"/>
   <import file="vcs_subversion.xml"/>
 
-  <!-- макрос для определения целевого компонента -->
   <macrodef name="set_target_component">
     <sequential>
       <if> <!-- ant-contrib -->
@@ -27,7 +26,6 @@
     </sequential>
   </macrodef>
 
-  <!-- макрос для обработки компонента -->
   <macrodef name="component">
     <attribute name="name"/>
     <attribute name="action"/>
@@ -36,7 +34,6 @@
     </sequential>
   </macrodef>
 
-  <!-- макрос конвертация (yes, no) >> (True, False) -->
   <macrodef name="convert_pair">
     <attribute name="propname"/>
     <attribute name="propval"/>
@@ -57,7 +54,6 @@
     </sequential>
   </macrodef>
 
-  <!-- макрос для заполнения шаблона -->
   <macrodef name="parse_template">
     <attribute name="src"/>
     <attribute name="dst"/>

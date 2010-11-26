@@ -143,7 +143,7 @@ dt { margin: 4px 0px;}
 .command { font: 12px courier; color: #FFC757; padding: 2px 4px; white-space: nowrap; }
 .token { font: 12px courier; font-weight: bold; white-space: nowrap; color: #FFC757; }
 .classname { font: 12px courier; white-space: nowrap; background-color: #486953; padding: 0px 2px; }
-.function { font-family: monospace; font-size: 12px; background-color: #708D8A; padding: 0px 2px; }
+.function { font-family: monospace; font-size: 12px; color:#aceffd; padding: 0px 2px; }
 .varname { font: 12px courier; color: #FFC757; }
 
 
@@ -200,7 +200,14 @@ pre code {
 }
 
 .subst, .title {
-    font-weight: normal;
+    font-weight: bold;
+    color: #fdf1ac;
+    font-size: 1.1em;
+}
+
+.built_in {
+    font-weight: bold;
+    color: #fce770;
 }
 
 .comment, .template_comment, .javadoc, .diff .header {
@@ -223,14 +230,18 @@ pre code {
 
 .attribute, .rules .keyword, .number, .date, .regexp {
     font-weight: bold;
-    color: #0000ff;
+    color: #FFFF88;
 }
 
 .number, .regexp {
     font-weight: normal;
 }
 
-.string, .value, .filter .argument, .css .function .params, .apache .tag {
+.string {
+    color: #6cf74f;
+}
+
+.value, .filter .argument, .css .function .params, .apache .tag {
     color: #ed8282;
     font-weight: bold;
 }
@@ -246,7 +257,7 @@ pre code {
 }
 
 .variable, .envvar, .apache .sqbracket {
-    color: #660e7a;
+    color: #a8f7e7;
 }
 
 .addition {

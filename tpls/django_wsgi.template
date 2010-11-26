@@ -1,0 +1,10 @@
+# -*- coding: utf-8 -*-
+
+import os, sys, site
+sys.stdout = sys.stderr
+site_packages = os.path.join(os.path.dirname(__file__), '..', 'env', 'lib', 'python2.6', 'site-packages')
+site.addsitedir(os.path.abspath(site_packages))
+sys.path.append('${install_to}')
+os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+from django.core.handlers.wsgi import WSGIHandler
+application = WSGIHandler()

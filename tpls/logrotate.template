@@ -1,4 +1,4 @@
-${django_apps}/${project_name}/logs/*.log {
+${install_to}/${project_name}/logs/*.log {
 	weekly
 	missingok
 	rotate 4
