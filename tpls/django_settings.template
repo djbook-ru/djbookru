@@ -171,8 +171,8 @@ OPENID_SREG = {"required": "nickname, email", "optional":"postcode, country", "p
 OPENID_AX = [{"type_uri": "http://axschema.org/contact/email", "count": 1, "required": True, "alias": "email"},
              {"type_uri": "fullname", "count": 1 , "required": False, "alias": "fullname"}]
 
-TWITTER_CONSUMER_KEY = '${twitter_consumer_key}'
-TWITTER_CONSUMER_SECRET = '${twitter_consumer_secret}'
+TWITTER_CONSUMER_KEY = ${twitter_consumer_key}
+TWITTER_CONSUMER_SECRET = ${twitter_consumer_secret}
 
 #forum settings
 TOPIC_PAGE_SIZE = 10
