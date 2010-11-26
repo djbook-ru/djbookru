@@ -7,3 +7,4 @@ python-yadis==1.1.0
 feedparser
 -e git+http://github.com/RaD/django-nezabudka.git/#egg=django-nezabudka
 -e git+http://github.com/clintecker/django-google-analytics.git/#egg=django-google_analytics
+-e hg+http://bitbucket.org/jezdez/django-robots/#egg=django-robots

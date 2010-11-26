@@ -125,6 +125,7 @@ INSTALLED_APPS = (
     'django.contrib.markup',
     'django.contrib.flatpages',
     'google_analytics',
+    'robots',
     'sorl.thumbnail',
     'pagination',
     'socialauth',

@@ -69,7 +69,8 @@ sitemaps = {
 urlpatterns += patterns(
     '',
     (r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
-    )
+    (r'^robots.txt$', include('robots.urls')),
+)
 
 from django import http
 from django.template import RequestContext, loader
