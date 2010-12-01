@@ -29,6 +29,9 @@
         <entry key="recaptcha_public" value="${recaptcha_public}"/>
         <entry key="recaptcha_private" value="${recaptcha_private}"/>
 
+        <entry key="target_site_packages" value="${target_site_packages}"/>
+        <entry key="target_project_src" value="${target_project_src}"/>
+
         <entry key="db_engine" value="'django.db.backends.${db_engine}'"/>
       </propertyfile>
 
