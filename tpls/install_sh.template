@@ -1,0 +1,32 @@
+#!/usr/local/bin/bash
+
+echo "Create links for static."
+
+cd ${hosting_site_dir}/public_html/
+
+ln -s ${hosting_code_dir}/src/static static
+ln -s ${hosting_code_dir}/lib lib
+
+echo "Create webapp WSGI."
+
+cp \
+    ${hosting_code_dir}/conf/django.wsgi \
+    ${hosting_site_dir}/webapp/webapp.wsgi
+
+echo "Create environment."
+
+mkdir -p ${hosting_sys_dir}/lib/${hosting_python_ver}/site-packages
+if ! test -f ${hosting_sys_dir}/bin/activate; then
+        easy_install --prefix=${hosting_sys_dir} virtualenv
+        easy_install --prefix=${hosting_sys_dir} pip
+fi
+
+${hosting_sys_dir}/bin/virtualenv ${hosting_env_dir}
+
+echo "Download dependencies."
+
+${hosting_sys_dir}/bin/pip install \
+    -E ${hosting_env_dir} \
+    -r ${hosting_code_dir}/deps.txt
+
+exit 0

@@ -29,8 +29,12 @@
         <entry key="recaptcha_public" value="${recaptcha_public}"/>
         <entry key="recaptcha_private" value="${recaptcha_private}"/>
 
-        <entry key="target_site_packages" value="${target_site_packages}"/>
-        <entry key="target_project_src" value="${target_project_src}"/>
+        <entry key="hosting_site_dir" value="${hosting_site_dir}"/>
+        <entry key="hosting_code_dir" value="${hosting_code_dir}"/>
+        <entry key="hosting_dump_dir" value="${hosting_dump_dir}"/>
+        <entry key="hosting_sys_dir" value="${hosting_sys_dir}"/>
+        <entry key="hosting_env_dir" value="${hosting_env_dir}"/>
+        <entry key="hosting_python_ver" value="${hosting_python_ver}"/>
 
         <entry key="db_engine" value="'django.db.backends.${db_engine}'"/>
       </propertyfile>
@@ -40,10 +44,10 @@
         <then>
           <propertyfile file="@{filename}">
             <entry key="db_name" value="rel('${db_name}')"/>
-            <entry key="db_host" value="''"/>
-            <entry key="db_port" value="''"/>
-            <entry key="db_user" value="''"/>
-            <entry key="db_pass" value="''"/>
+            <entry key="db_host" value=""/>
+            <entry key="db_port" value=""/>
+            <entry key="db_user" value=""/>
+            <entry key="db_pass" value=""/>
           </propertyfile>
         </then>
       </if>
@@ -52,11 +56,11 @@
         <equals arg1="${db_engine}" arg2="mysql"/>
         <then>
           <propertyfile file="@{filename}">
-            <entry key="db_name" value="'${db_name}'"/>
-            <entry key="db_host" value="'${db_host}'"/>
-            <entry key="db_port" value="'${db_port}'"/>
-            <entry key="db_user" value="'${db_user}'"/>
-            <entry key="db_pass" value="'${db_pass}'"/>
+            <entry key="db_name" value="${db_name}"/>
+            <entry key="db_host" value="${db_host}"/>
+            <entry key="db_port" value="${db_port}"/>
+            <entry key="db_user" value="${db_user}"/>
+            <entry key="db_pass" value="${db_pass}"/>
           </propertyfile>
         </then>
       </if>
@@ -66,10 +70,10 @@
         <then>
           <propertyfile file="@{filename}">
             <entry key="db_name" value="${db_name}${developer_suffix}"/>
-            <entry key="db_host" value="'${db_host}'"/>
-            <entry key="db_port" value="'${db_port}'"/>
-            <entry key="db_user" value="'${db_user}${developer_suffix}'"/>
-            <entry key="db_pass" value="'${db_pass}'"/>
+            <entry key="db_host" value="${db_host}"/>
+            <entry key="db_port" value="${db_port}"/>
+            <entry key="db_user" value="${db_user}${developer_suffix}"/>
+            <entry key="db_pass" value="${db_pass}"/>
           </propertyfile>
         </then>
       </if>

@@ -87,6 +87,28 @@
                     dst="${basedir}/conf/django.wsgi"
                     params="${basedir}/${cumulative_config}"/>
 
+    <parse_template src="${basedir}/tpls/crontab.template"
+                    dst="${basedir}/conf/crontab.txt"
+                    params="${basedir}/${cumulative_config}"/>
+
+    <parse_template src="${basedir}/tpls/bash_profile.template"
+                    dst="${basedir}/conf/bash_profile.txt"
+                    params="${basedir}/${cumulative_config}"/>
+
+    <parse_template src="${basedir}/tpls/dump_sh.template"
+                    dst="${basedir}/conf/dump.sh"
+                    params="${basedir}/${cumulative_config}"/>
+
+    <parse_template src="${basedir}/tpls/install_sh.template"
+                    dst="${basedir}/conf/install.sh"
+                    params="${basedir}/${cumulative_config}"/>
+    <parse_template src="${basedir}/tpls/update_sh.template"
+                    dst="${basedir}/conf/update.sh"
+                    params="${basedir}/${cumulative_config}"/>
+    <parse_template src="${basedir}/tpls/remove_sh.template"
+                    dst="${basedir}/conf/remove.sh"
+                    params="${basedir}/${cumulative_config}"/>
+
     <parse_template src="${basedir}/tpls/django_settings.template"
                     dst="${basedir}/src/settings.py"
                     params="${basedir}/${cumulative_config}"/>

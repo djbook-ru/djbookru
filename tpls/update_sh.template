@@ -1,0 +1,9 @@
+#!/usr/local/bin/bash
+
+echo "Download dependencies."
+
+${hosting_sys_dir}/bin/pip install \
+    -E ${hosting_env_dir} \
+    -r ${hosting_code_dir}/deps.txt
+
+exit 0

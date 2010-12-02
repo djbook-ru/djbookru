@@ -1,0 +1,6 @@
+PATH=~/bin:$PATH
+PYTHONPATH=${hosting_sys_dir}/lib/${hosting_python_ver}/site-packages:${hosting_env_dir}/lib/${hosting_python_ver}/site-packages
+
+export PATH PYTHONPATH
+
+alias ll='ls -la'

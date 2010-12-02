@@ -1,0 +1,8 @@
+# Variables
+SHELL=/usr/local/bin/bash
+PATH=${hosting_env_dir}/lib/${hosting_python_ver}/site-packages/django/bin:/usr/local/bin:/usr/bin:/bin
+PYTHONPATH=${hosting_site_dir}/lib/${hosting_python_ver}/site-packages:${hosting_env_dir}/lib/${hosting_python_ver}/site-packages
+MAILTO="${web_admin_email}"
+
+# Everyday dump
+0 5 * * *       ${hosting_code_dir}/conf/dump.sh

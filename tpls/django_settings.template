@@ -29,11 +29,11 @@ EMAIL_USE_TLS = True
 DATABASES = {
     'default': {
         'ENGINE': ${db_engine},
-        'NAME': ${db_name},
-        'USER': ${db_user},
-        'PASSWORD': ${db_pass},
-        'HOST': ${db_host},
-        'PORT': ${db_port},
+        'NAME': '${db_name}',
+        'USER': '${db_user}',
+        'PASSWORD': '${db_pass}',
+        'HOST': '${db_host}',
+        'PORT': '${db_port}',
     }
 }
 
