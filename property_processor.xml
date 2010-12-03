@@ -43,7 +43,7 @@
         <equals arg1="${db_engine}" arg2="sqlite3"/>
         <then>
           <propertyfile file="@{filename}">
-            <entry key="db_name" value="rel('${db_name}')"/>
+            <entry key="db_name" value="${db_name}"/>
             <entry key="db_host" value=""/>
             <entry key="db_port" value=""/>
             <entry key="db_user" value=""/>

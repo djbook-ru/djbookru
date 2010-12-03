@@ -34,20 +34,20 @@
         <sequential>
           <echo message="Initialize virtual environment for this project."/>
           <exec executable="virtualenv" failonerror="true">
-            <arg line="env"/>
+            <arg line="${basedir}/env"/>
           </exec>
           <echo message="Install PIP into the virtual environment."/>
-          <exec executable="./env/bin/easy_install" failonerror="true">
+          <exec executable="${basedir}/env/bin/easy_install" failonerror="true">
             <arg line="-q pip"/>
           </exec>
           <echo message="Sourcing the virtual environment."/>
           <property name="sysenv.PATH" value="${basedir}/env/lib/python2.6/site-packages:%{sysenv.PATH}"/>
           <property name="sysenv.PYTHON_EGG_CACHE" value="${basedir}/env/.python-eggs:%{sysenv.PYTHON_EGG_CACHE}"/>
           <echo message="Install dependencies into the virtual environment. Please wait..."/>
-          <exec executable="./env/bin/pip" failonerror="true">
-            <arg line="install -q -E env -r ./deps.txt"/>
+          <exec executable="${basedir}/env/bin/pip" failonerror="true">
+            <arg line="install -q -E ${basedir}/env -r ./deps.txt"/>
           </exec>
-          <echo message="Source environment with: . ./env/bin/activate"/>
+          <echo message="Source environment with: . ${basedir}/env/bin/activate"/>
           <echo message="Use deactivate to disable virtual environment."/>
         </sequential>
       </then>
@@ -128,8 +128,47 @@
   </target>
 
   <target name="build">
+    <echo message="Install project into temporary directory"/>
+    <mkdir dir="${basedir}/${project_name}/"/>
+    <copy todir="${basedir}/${project_name}/" encoding="utf-8">
+      <fileset dir="${basedir}">
+        <include name="conf/**/*"/>
+        <include name="src/**/*"/>
+        <exclude name="src/database.sqlite"/>
+        <exclude name="src/**/*.sh"/>
+        <exclude name="src/**/*.bat"/>
+        <exclude name="src/**/*.po"/>
+        <include name="lib/**/*"/>
+        <include name="DEPLOY*"/>
+        <include name="deps.txt"/>
+      </fileset>
+    </copy>
+
+    <echo message="Compilation"/>
+    <fileset id="python_sources" dir="${basedir}/${project_name}/">
+      <include name="src/**/*.py"/>
+    </fileset>
+    <foreach list="${toString:python_sources}" delimiter=";"
+             target="compileModile" param="filename"/>
+
+    <delete verbose="true">
+      <fileset dir="${basedir}/${project_name}/" defaultexcludes="no">
+        <include name="src/**/*.py"/>
+      </fileset>
+    </delete>
+
+    <echo message="Build project's TARball"/>
     <exec executable="tar" failonerror="true">
-      <arg line="cjf ../djbookru.tar.bz2 ./src ./lib ./conf/django.wsgi ./deps.txt"/>
+      <arg line="cjf ../${project_name}.tar.bz2 ./${project_name}"/>
+    </exec>
+
+    <echo message="Clean temporary directory"/>
+    <delete dir="${basedir}/${project_name}" includeemptydirs="true" quiet="yes"/>
+  </target>
+  <target name="compileModile">
+    <echo message="Compile ${filename}"/>
+    <exec executable="py_compilefiles" failonerror="true">
+      <arg line="-q ${filename}"/>
     </exec>
   </target>
 
@@ -151,7 +190,7 @@
   </target>
 
   <target name="dropenv">
-    <delete dir="env" includeemptydirs="true" quiet="yes"/>
+    <delete dir="${basedir}/env" includeemptydirs="true" quiet="yes"/>
     <delete file="${basedir}/distribute-0.6.10.tar.gz" quiet="yes"/>
   </target>
 
