@@ -1,3 +1,4 @@
+from django.conf import settings
 from decorators import render_to, render_to_json
 from main.models import Page, Book
 from django.http import Http404
@@ -7,7 +8,16 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 
-@render_to('main/index.html')
+from claims.models import Claims
+
+def context_processor(request):
+    return {
+        'user': request.user,
+        'debug': settings.DEBUG,
+        'claims': Claims.statistic(),
+        }
+
+@render_to('main/index.html', context_processor)
 def index(request):
     try:
         book = Book.get()
@@ -18,7 +28,7 @@ def index(request):
         'page': page
     }
 
-@render_to('main/page.html')    
+@render_to('main/page.html', context_processor)
 def page(request, slug):
     try:
         book = Book.get()
@@ -28,12 +38,12 @@ def page(request, slug):
     return {
         'page': page
     }
-    
-@render_to('main/search.html')
+
+@render_to('main/search.html', context_processor)
 def search(request):
     return {}
 
-@render_to('main/feedback.html')
+@render_to('main/feedback.html', context_processor)
 def feedback(request):
     if request.method == 'POST':
         form = FeedbackForm(request.POST, initial={'captcha': request.META['REMOTE_ADDR']})
@@ -46,7 +56,7 @@ def feedback(request):
     return {
         'form': form
     }
-    
+
 def test_error_email(request):
     raise Exception('Test!')
     return
