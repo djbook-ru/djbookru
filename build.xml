@@ -166,6 +166,7 @@
         <exclude name="src/**/*.sh"/>
         <exclude name="src/**/*.bat"/>
         <exclude name="src/**/*.po"/>
+        <exclude name="src/**/*.pyc"/>
         <include name="lib/**/*"/>
         <include name="DEPLOY*"/>
         <include name="deps.txt"/>
@@ -175,6 +176,7 @@
     <echo message="Compilation"/>
     <fileset id="python_sources" dir="${basedir}/${project_name}/">
       <include name="src/**/*.py"/>
+      <exclude name="src/**/migrations/*.py"/>
     </fileset>
     <foreach list="${toString:python_sources}" delimiter=";"
              target="compileModule" param="filename"/>
@@ -182,6 +184,7 @@
     <delete verbose="true">
       <fileset dir="${basedir}/${project_name}/" defaultexcludes="no">
         <include name="src/**/*.py"/>
+        <exclude name="src/**/migrations/*.py"/>
       </fileset>
     </delete>
 
@@ -196,7 +199,7 @@
   <target name="compileModule">
     <echo message="Compile ${filename}"/>
     <exec executable="py_compilefiles" failonerror="true">
-      <arg line="-q ${filename}"/>
+      <arg line="${basedir}/${project_name}/${filename}"/>
     </exec>
   </target>
 
