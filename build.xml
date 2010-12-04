@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 
-<project name="simpletrainru" default="help">
+<project name="djbookru" default="help">
 
   <property environment="sysenv"/>
 
@@ -177,7 +177,7 @@
       <include name="src/**/*.py"/>
     </fileset>
     <foreach list="${toString:python_sources}" delimiter=";"
-             target="compileModile" param="filename"/>
+             target="compileModule" param="filename"/>
 
     <delete verbose="true">
       <fileset dir="${basedir}/${project_name}/" defaultexcludes="no">
@@ -193,7 +193,7 @@
     <echo message="Clean temporary directory"/>
     <delete dir="${basedir}/${project_name}" includeemptydirs="true" quiet="yes"/>
   </target>
-  <target name="compileModile">
+  <target name="compileModule">
     <echo message="Compile ${filename}"/>
     <exec executable="py_compilefiles" failonerror="true">
       <arg line="-q ${filename}"/>
