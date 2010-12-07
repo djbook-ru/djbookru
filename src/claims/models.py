@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from django.conf import settings
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.db.models import Count
@@ -27,13 +28,17 @@ class Claims(models.Model):
     def __unicode__(self):
         return self.selected
 
-    def sendemail(self, code):
+    def save(self, *args, **kwargs):
+        super(Claims, self).save(*args, **kwargs)
+        self.sendemail()
+
+    def sendemail(self):
         from django.core.mail import send_mail
 
         subject = '%s [%s]' % (unicode(_(u'DjangoBook in russian: Claim\'s state was changed to')),
                                unicode(self.get_status_display()))
         message = _(u'This is automatic generated message, you do not need to answer on it.')
-        mail_from = '"Ruslan Popov" <ruslan.popov@gmail.com>'
+        mail_from = '"%s" <%s>' % settings.ADMINS[0]
         recipient_list = ['"DjangoBook Reader" <%s>' % self.email, ]
         if self.reply is not None:
             message = _(u'%(auto)s\n\nThe reply on your comment is:\n%(reply)s') % {

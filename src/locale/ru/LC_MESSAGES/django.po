@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-14 19:29+0300\n"
-"PO-Revision-Date: 2010-11-14 19:31+0300\n"
+"POT-Creation-Date: 2010-12-07 17:34+0300\n"
+"PO-Revision-Date: 2010-12-07 17:37+0300\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -81,21 +81,9 @@ msgstr ""
 msgid "Advanced options"
 msgstr "Дополнительные возможности"
 
-#: settings.py:137
+#: settings.py:146
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
-
-#: settings.py:191
-msgid "Member"
-msgstr "Член сообщества"
-
-#: settings.py:191
-msgid "Senior Member"
-msgstr "Спер член сообщества"
-
-#: settings.py:191
-msgid "Star"
-msgstr "Звезда"
 
 #: accounts/forms.py:8 main/forms.py:16
 msgid "captcha"
@@ -169,90 +157,112 @@ msgstr "Пожалуйста, исправьте ошибки перечисле
 msgid "Profile changed success!"
 msgstr "Профайл успешно изменён!"
 
-#: claims/admin.py:38 claims/models.py:28
-msgid "Unknown"
-msgstr "Неизвестно"
-
-#: claims/admin.py:42 claims/models.py:90
-msgid "Claim status"
-msgstr "Статус жалобы"
-
-#: claims/admin.py:53
-msgid "Mark selected claims as assigned"
-msgstr "Отметить выделенное как принятое"
-
-#: claims/admin.py:59
-msgid "Mark selected claims as fixed"
-msgstr "Отметить выделенное как исправленное"
-
-#: claims/admin.py:65
-msgid "Mark selected claims as invalid"
-msgstr "Отметить выделенное как отклоненное"
-
-#: claims/admin.py:70
+#: claims/admin.py:13
 msgid "Meta"
 msgstr "Мета"
 
-#: claims/admin.py:72
+#: claims/admin.py:15
 msgid "Error"
 msgstr "Ошибка"
 
-#: claims/admin.py:74 comments/forms.py:9 comments/models.py:22
+#: claims/admin.py:17 comments/forms.py:9 comments/models.py:22
 msgid "Comment"
 msgstr "Комментарий"
 
+#: claims/admin.py:25
+msgid "Status"
+msgstr "Состояние"
+
+#: claims/models.py:7
+msgid "New"
+msgstr "Новая"
+
+#: claims/models.py:7
+msgid "Assigned"
+msgstr "Принята"
+
+#: claims/models.py:7
+msgid "Fixed"
+msgstr "Исправлена"
+
+#: claims/models.py:7
+msgid "Invalid"
+msgstr "Отклонена"
+
+#: claims/models.py:11
+msgid "Left Context Value"
+msgstr "Контекст слева"
+
+#: claims/models.py:12
+msgid "Selected Text"
+msgstr "Выделенные текст"
+
 #: claims/models.py:13
-msgid "Notify"
-msgstr "Уведомление"
+msgid "Right Context Value"
+msgstr "Контекст справа"
+
+#: claims/models.py:14
+msgid "Status of the Claim"
+msgstr "Состояние жалобы"
+
+#: claims/models.py:15
+msgid "Status Applied"
+msgstr "Состояние изменено"
+
+#: claims/models.py:16
+msgid "Reader's Comment"
+msgstr "Комментарий читателя"
 
 #: claims/models.py:17
+msgid "Enter here the reply for the Reader"
+msgstr "Введите здесь сообщение для читателя"
+
+#: claims/models.py:18
+msgid "Context URL"
+msgstr "URL контекста"
+
+#: claims/models.py:19
+msgid "Reader's E-mail"
+msgstr "Е-почта читателя"
+
+#: claims/models.py:20
+msgid "Reader wants the Notify"
+msgstr "Уведомлять читателя"
+
+#: claims/models.py:21 templates/dinette/replydetail_frag.html:54
+#: templates/dinette/topic_detail.html:123
+msgid "Registered"
+msgstr "Зарегистрировано"
+
+#: claims/models.py:24
 msgid "Claim"
 msgstr "Жалоба"
 
-#: claims/models.py:18
+#: claims/models.py:25
 msgid "Claims"
 msgstr "Жалобы"
 
-#: claims/models.py:37
+#: claims/models.py:38
 msgid "DjangoBook in russian: Claim's state was changed to"
 msgstr "DjangoBook по-русски: Состояние жалобы было изменено на"
 
-#: claims/models.py:47
+#: claims/models.py:40
 msgid "This is automatic generated message, you do not need to answer on it."
 msgstr ""
 "Это сообщение сгенерировано автоматически, вам не требуется отвечать на него."
 
-#: claims/models.py:81 templates/_right.html:17
-msgid "New"
-msgstr "Новая"
-
-#: claims/models.py:81 templates/_right.html:18
-msgid "Assigned"
-msgstr "Принята"
-
-#: claims/models.py:82 templates/_right.html:19
-msgid "Fixed"
-msgstr "Исправлена"
-
-#: claims/models.py:82 templates/_right.html:20
-msgid "Invalid"
-msgstr "Отклонена"
-
-#: claims/models.py:91
-msgid "Claim statuses"
-msgstr "Состояния жалобы"
-
-#: claims/models.py:97
-msgid "Label"
-msgstr "Метка"
-
-#: claims/models.py:102
-msgid "Text"
-msgstr "Текст"
-
-#: claims/models.py:103
-msgid "Texts"
-msgstr "Тексты"
+#: claims/models.py:44
+#, python-format
+msgid ""
+"%(auto)s\n"
+"\n"
+"The reply on your comment is:\n"
+"%(reply)s"
+msgstr ""
+"%(auto)s\n"
+"\n"
+"Ответ на ваш комментарий:\n"
+"%(reply)s"
 
 #: comments/forms.py:33
 msgid "You car reply only comments for same object"
@@ -409,7 +419,7 @@ msgstr "Наиболее активные темы"
 msgid "Russian DjangoBook Examples"
 msgstr "Примеры с Russian DjangoBook"
 
-#: examples/feeds.py:9 templates/base.html:19
+#: examples/feeds.py:9 templates/base.html:20
 msgid "Newly examples from Russian DjangoBook"
 msgstr "Последние примеры с Russian DjangoBook"
 
@@ -494,7 +504,7 @@ msgstr "Страница"
 msgid "Pages"
 msgstr "Страницы"
 
-#: main/views.py:42
+#: main/views.py:52
 msgid "Feedback sent success!"
 msgstr "Отзыв успешно отправлен!"
 
@@ -502,7 +512,7 @@ msgstr "Отзыв успешно отправлен!"
 msgid "Russian DjangoBook"
 msgstr "Russian DjangoBook"
 
-#: news/feeds.py:9 templates/base.html:18
+#: news/feeds.py:9 templates/base.html:19
 msgid "The freshest news about Russian version of DjangoBook"
 msgstr "Последние новости с Russian DjangoBook"
 
@@ -551,7 +561,7 @@ msgstr "Выделите её мышкой и нажмите Enter"
 msgid "Processed"
 msgstr "Выполнено"
 
-#: templates/_right.html:29
+#: templates/_right.html:28
 msgid ""
 "\n"
 "    The full repository of DjangoBook translation you can get on <a href="
@@ -567,11 +577,11 @@ msgstr ""
 "    Мы ждём ваших патчей!\n"
 "    "
 
-#: templates/_right.html:41 templates/main/feedback.html:11
+#: templates/_right.html:40 templates/main/feedback.html:11
 msgid "We are glad to hear your questions, comments or suggestions!"
 msgstr "Мы рады получить ваши вопросы, комментарии или предложения!"
 
-#: templates/_right.html:44
+#: templates/_right.html:43
 msgid "Open in new tab"
 msgstr "Открыть новую вкладку"
 
@@ -828,11 +838,6 @@ msgstr "Онлайн"
 msgid "Offline"
 msgstr "Офлайн"
 
-#: templates/dinette/replydetail_frag.html:54
-#: templates/dinette/topic_detail.html:123
-msgid "Registered"
-msgstr "Зарегистрировано"
-
 #: templates/dinette/replydetail_frag.html:59
 #: templates/dinette/topic_detail.html:72
 #: templates/dinette/topic_detail.html:124
@@ -922,6 +927,42 @@ msgstr "или"
 #: templates/registration/login.html:25
 msgid "You are authenticated already"
 msgstr "Вы уже аутентифицированы"
+
+#~ msgid "Member"
+#~ msgstr "Член сообщества"
+
+#~ msgid "Senior Member"
+#~ msgstr "Спер член сообщества"
+
+#~ msgid "Unknown"
+#~ msgstr "Неизвестно"
+
+#~ msgid "Claim status"
+#~ msgstr "Статус жалобы"
+
+#~ msgid "Mark selected claims as assigned"
+#~ msgstr "Отметить выделенное как принятое"
+
+#~ msgid "Mark selected claims as fixed"
+#~ msgstr "Отметить выделенное как исправленное"
+
+#~ msgid "Mark selected claims as invalid"
+#~ msgstr "Отметить выделенное как отклоненное"
+
+#~ msgid "Notify"
+#~ msgstr "Уведомление"
+
+#~ msgid "Claim statuses"
+#~ msgstr "Состояния жалобы"
+
+#~ msgid "Label"
+#~ msgstr "Метка"
+
+#~ msgid "Text"
+#~ msgstr "Текст"
+
+#~ msgid "Texts"
+#~ msgstr "Тексты"
 
 #~ msgid "You may visit"
 #~ msgstr "Вы можете посетить"
