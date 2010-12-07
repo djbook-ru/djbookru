@@ -11,6 +11,7 @@
         <entry key="user_project_name" value="${project_name}${developer_suffix}"/>
         <entry key="install_to" value="${install_to}"/>
         <entry key="django_secretkey" value="${django_secretkey}"/>
+        <entry key="debugging" value="${debugging}"/>
         <entry key="web_admin_name" value="${web_admin_name}"/>
         <entry key="web_admin_email" value="${web_admin_email}"/>
         <entry key="web_server_name" value="${web_server_name}"/>

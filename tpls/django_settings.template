@@ -11,7 +11,7 @@ gettext_noop = lambda s: s
 
 # Django settings for ${project_name} project.
 
-DEBUG = True
+DEBUG = ${debugging}
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
