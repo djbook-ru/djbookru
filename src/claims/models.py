@@ -34,13 +34,13 @@ class Claims(models.Model):
                                unicode(self.get_status_display()))
         message = _(u'This is automatic generated message, you do not need to answer on it.')
         mail_from = '"Ruslan Popov" <ruslan.popov@gmail.com>'
-        mail_to = '"DjangoBook Reader" <%s>' % self.email
+        recipient_list = ['"DjangoBook Reader" <%s>' % self.email, ]
         if self.reply is not None:
             message = _(u'%(auto)s\n\nThe reply on your comment is:\n%(reply)s') % {
                 'auto': message,
                 'reply': unicode(self.reply)
                 }
-        send_mail(subject.encode('utf-8'), message.encode('utf-8'), from_email, recipient_list, fail_silently=True)
+        send_mail(subject.encode('utf-8'), message.encode('utf-8'), mail_from, recipient_list, fail_silently=True)
 
     @staticmethod
     def statistic():
