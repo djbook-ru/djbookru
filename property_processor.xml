@@ -15,6 +15,7 @@
         <entry key="web_admin_name" value="${web_admin_name}"/>
         <entry key="web_admin_email" value="${web_admin_email}"/>
         <entry key="web_server_name" value="${web_server_name}"/>
+        <entry key="web_server_url" value="${web_server_url}"/>
 
         <entry key="news_onfeed_count" value="${news_onfeed_count}"/>
         <entry key="news_onpage_count" value="${news_onpage_count}"/>
