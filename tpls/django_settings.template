@@ -15,7 +15,7 @@ DEBUG = ${debugging}
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('${web_admin_name}', '${web_admin_email}'),
+    ('${web_admin_name}', '${web_admin_email}'), ${additional_admins}
 )
 
 MANAGERS = ADMINS
