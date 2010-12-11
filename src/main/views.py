@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.conf import settings
 from decorators import render_to, render_to_json
 from main.models import Page, Book

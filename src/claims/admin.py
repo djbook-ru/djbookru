@@ -8,6 +8,7 @@ from claims import models
 class __Claims(admin.ModelAdmin):
     list_display = ('url', 'status_colored', 'status_applied', 'comment', 'email', 'notify')
     list_filter = ('status',)
+    list_per_page = 20
 
     fieldsets = (
         (_(u'Meta'),
