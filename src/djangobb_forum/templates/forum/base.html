@@ -1,0 +1,67 @@
+{% load forum_extras %}
+{% load i18n %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>{{ forum_settings.FORUM_BASE_TITLE }} {% block title %}{% endblock %}</title>
+	<meta name="description" content="{{ forum_settings.FORUM_META_DESCRIPTION }} " />
+	<meta name="keywords" content="{{ forum_settings.FORUM_META_KEYWORDS }}" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	
+	{% set_theme_style request.user %}
+
+	<link rel="alternate" type="application/atom+xml" href="{% url djangobb:forum_posts_feed %}" title="{% trans "Latest posts on forum" %}" />
+	<link rel="alternate" type="application/atom+xml" href="{% url djangobb:forum_topics_feed %}" title="{% trans "Latest topics on forum" %}" />
+
+	<link rel="shortcut icon" href="{{ MEDIA_URL }}forum/favicon.png" type="image/png" />
+	<script type="text/javascript">
+		var MEDIA_URL = "{{ MEDIA_URL }}";
+		var POST_PREVIEW_URL = "{% url djangobb:post_preview %}";
+	</script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	{% if post %}
+		{% set_markup_editor request.user post.markup %}
+	{% else %}
+		{% set_markup_editor request.user %}
+	{% endif %}
+	{% if user.is_authenticated %}
+		<script type="text/javascript" >
+		   $(document).ready(function() {
+			$(".markup").markItUp(mySettings);
+		   });
+		</script>
+	{% endif %}
+
+    <!-- Highlightjs goodies -->
+	<script type="text/javascript" src="{{ MEDIA_URL }}forum/js/highlight.pack.js"></script>
+	<script type="text/javascript">
+		hljs.initHighlightingOnLoad();
+	</script>
+	<link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}forum/css/hljs_styles/djangobb.css" />
+	{% if highlight_word %}
+		<script type="text/javascript" src="{{ MEDIA_URL }}forum/js/jquery.highlight-3.pack.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("div.postmsg").highlight("{{ highlight_word }}");
+			});
+		</script>
+	{% endif %}
+	{% block extra_meta %}{% endblock %}
+</head>
+<body>
+	{% include 'forum/header.html' %}
+	{% block content %}{% endblock %}
+	<div id="brdfooter" class="block">
+	<h2><span>{% trans "Board footer" %}</span></h2>
+	<div class="box">
+		<div class="inbox">
+			{% block controls %}
+			{% endblock %}
+			<p class="conr">Powered by <a href="http://djangobb.org/">DjangoBB</a></p>
+			<div class="clearer"></div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
