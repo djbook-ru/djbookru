@@ -14,21 +14,13 @@
 					<fieldset id="profileavatar">
 						<legend>{% trans "Set your avatar display options" %}</legend>
 						<div class="infldset">
-							{{ profile.forum_profile.avatar.errors }}
-							{% if profile.forum_profile.avatar %}
-								<img src="{{ profile.forum_profile.avatar.url }}" />
-							{% endif %}
+						  <img src="{{ profile.forum_profile.avatar.url }}" />
 							<p>{% trans "An avatar is a small image that will be displayed with all your posts. You can upload an avatar by clicking the link below. The checkbox 'Use avatar' below must be checked in order for the avatar to be visible in your posts." %}</p>
+                            <p>{% trans "We are using <a href='http://gravatar.com/'>gravatar.com</a> for avatar display." %}</p>
 							<div class="rbox">
 								{{ form.show_avatar.errors }}
 								<label>{{ form.show_avatar }}{% trans "Use avatar." %}<br></label>
 							</div>
-							{% if profile.forum_profile.avatar %}
-								<p class="clearb"><a href="{% url djangobb:forum_profile profile.username %}?action=upload_avatar">{% trans "Upload avatar" %}</a>
-								&nbsp;&nbsp;&nbsp;<a href="{% url djangobb:forum_profile profile.username %}?action=delete_avatar">{% trans "Delete avatar" %}</a></p>
-							{% else %}
-								<p class="clearb"><a href="{% url djangobb:forum_profile profile.username %}?action=upload_avatar">{% trans "Upload avatar" %}</a>
-							{% endif %}
 						</div>
 					</fieldset>
 				</div>

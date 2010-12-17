@@ -453,25 +453,6 @@ def user(request, username):
                         'form': form,
                         'TEMPLATE': 'forum/profile/profile_essentials.html'
                         }
-
-        elif 'action' in request.GET:
-            action = request.GET['action']
-            if action == 'upload_avatar':
-                form = build_form(UploadAvatarForm, request, instance=user.forum_profile)
-                if request.method == 'POST' and form.is_valid():
-                    form.save()
-                    return HttpResponseRedirect(reverse('djangobb:forum_profile', args=[user.username]))
-                return {'form': form,
-                        'avatar_width': forum_settings.AVATAR_WIDTH,
-                        'avatar_height': forum_settings.AVATAR_HEIGHT,
-                        'TEMPLATE': 'forum/upload_avatar.html'
-                       }
-            elif action == 'delete_avatar':
-                profile = get_object_or_404(Profile, user=request.user)
-                profile.avatar = None
-                profile.save()
-                return HttpResponseRedirect(reverse('djangobb:forum_profile', args=[user.username]))
-
         else:
             form = build_form(EssentialsProfileForm, request, instance=user.forum_profile,
                                   user_view=user, user_request=request.user)

@@ -285,7 +285,7 @@ class Profile(models.Model):
     
     @property
     def avatar(self):
-        return self.user.avatar()
+        return dict(url=self.user.avatar())
     
     def last_post(self):
         posts = Post.objects.filter(user__id=self.user_id).order_by('-created')
