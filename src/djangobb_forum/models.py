@@ -4,7 +4,7 @@ import os.path
 
 from django.db import models
 from django.contrib.auth.models import Group
-from accounts.models import User
+#from accounts.models import User
 from django.utils.html import escape
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
@@ -94,7 +94,7 @@ class Forum(models.Model):
     name = models.CharField(_('Name'), max_length=80)
     position = models.IntegerField(_('Position'), blank=True, default=0)
     description = models.TextField(_('Description'), blank=True, default='')
-    moderators = models.ManyToManyField(User, blank=True, null=True, verbose_name=_('Moderators'))
+    moderators = models.ManyToManyField('accounts.User', blank=True, null=True, verbose_name=_('Moderators'))
     updated = models.DateTimeField(_('Updated'), auto_now=True)
     post_count = models.IntegerField(_('Post count'), blank=True, default=0)
     topic_count = models.IntegerField(_('Topic count'), blank=True, default=0)
@@ -122,11 +122,11 @@ class Topic(models.Model):
     name = models.CharField(_('Subject'), max_length=255)
     created = models.DateTimeField(_('Created'), auto_now_add=True)
     updated = models.DateTimeField(_('Updated'), null=True)
-    user = models.ForeignKey(User, verbose_name=_('User'))
+    user = models.ForeignKey('accounts.User', verbose_name=_('User'))
     views = models.IntegerField(_('Views count'), blank=True, default=0)
     sticky = models.BooleanField(_('Sticky'), blank=True, default=False)
     closed = models.BooleanField(_('Closed'), blank=True, default=False)
-    subscribers = models.ManyToManyField(User, related_name='subscriptions', verbose_name=_('Subscribers'), blank=True)
+    subscribers = models.ManyToManyField('accounts.User', related_name='subscriptions', verbose_name=_('Subscribers'), blank=True)
     post_count = models.IntegerField(_('Post count'), blank=True, default=0)
     last_post = models.ForeignKey('Post', related_name='last_topic_post', blank=True, null=True)
 
@@ -176,10 +176,10 @@ class Topic(models.Model):
 
 class Post(models.Model):
     topic = models.ForeignKey(Topic, related_name='posts', verbose_name=_('Topic'))
-    user = models.ForeignKey(User, related_name='posts', verbose_name=_('User'))
+    user = models.ForeignKey('accounts.User', related_name='posts', verbose_name=_('User'))
     created = models.DateTimeField(_('Created'), auto_now_add=True)
     updated = models.DateTimeField(_('Updated'), blank=True, null=True)
-    updated_by = models.ForeignKey(User, verbose_name=_('Updated by'), blank=True, null=True)
+    updated_by = models.ForeignKey('accounts.User', verbose_name=_('Updated by'), blank=True, null=True)
     markup = models.CharField(_('Markup'), max_length=15, default=forum_settings.DEFAULT_MARKUP, choices=MARKUP_CHOICES)
     body = models.TextField(_('Message'))
     body_html = models.TextField(_('HTML version'))
@@ -242,8 +242,8 @@ class Post(models.Model):
 
 
 class Reputation(models.Model):
-    from_user = models.ForeignKey(User, related_name='reputations_from', verbose_name=_('From'))
-    to_user = models.ForeignKey(User, related_name='reputations_to', verbose_name=_('To'))
+    from_user = models.ForeignKey('accounts.User', related_name='reputations_from', verbose_name=_('From'))
+    to_user = models.ForeignKey('accounts.User', related_name='reputations_to', verbose_name=_('To'))
     post = models.ForeignKey(Post, related_name='post', verbose_name=_('Post'))
     time = models.DateTimeField(_('Time'), auto_now_add=True)
     sign = models.IntegerField(_('Sign'), choices=SIGN_CHOICES, default=0)
@@ -259,7 +259,7 @@ class Reputation(models.Model):
 
 
 class Profile(models.Model):
-    user = AutoOneToOneField(User, related_name='forum_profile', verbose_name=_('User'))
+    user = AutoOneToOneField('accounts.User', related_name='forum_profile', verbose_name=_('User'))
     status = models.CharField(_('Status'), max_length=30, blank=True)
     site = models.URLField(_('Site'), verify_exists=False, blank=True)
     jabber = models.CharField(_('Jabber'), max_length=80, blank=True)
@@ -307,7 +307,7 @@ class PostTracking(models.Model):
     In topics stored ids of topics and last_posts as dict.
     """
 
-    user = AutoOneToOneField(User)
+    user = AutoOneToOneField('accounts.User')
     topics = JSONField(null=True)
     last_read = models.DateTimeField(null=True)
 
@@ -320,10 +320,10 @@ class PostTracking(models.Model):
 
 
 class Report(models.Model):
-    reported_by = models.ForeignKey(User, related_name='reported_by', verbose_name=_('Reported by'))
+    reported_by = models.ForeignKey('accounts.User', related_name='reported_by', verbose_name=_('Reported by'))
     post = models.ForeignKey(Post, verbose_name=_('Post'))
     zapped = models.BooleanField(_('Zapped'), blank=True, default=False)
-    zapped_by = models.ForeignKey(User, related_name='zapped_by', blank=True, null=True,  verbose_name=_('Zapped by'))
+    zapped_by = models.ForeignKey('accounts.User', related_name='zapped_by', blank=True, null=True,  verbose_name=_('Zapped by'))
     created = models.DateTimeField(_('Created'), blank=True)
     reason = models.TextField(_('Reason'), blank=True, default='', max_length='1000')
 
@@ -335,7 +335,7 @@ class Report(models.Model):
         return u'%s %s' % (self.reported_by ,self.zapped)
 
 class Ban(models.Model):
-    user = models.OneToOneField(User, verbose_name=_('Banned user'), related_name='ban_users')
+    user = models.OneToOneField('accounts.User', verbose_name=_('Banned user'), related_name='ban_users')
     ban_start = models.DateTimeField(_('Ban start'), default=datetime.now)
     ban_end = models.DateTimeField(_('Ban end'), blank=True, null=True)
     reason = models.TextField(_('Reason'))

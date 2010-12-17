@@ -19,8 +19,8 @@
 		var MEDIA_URL = "{{ MEDIA_URL }}";
 		var POST_PREVIEW_URL = "{% url djangobb:post_preview %}";
 	</script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-	{% if post %}
+    <script src="{{ MEDIA_URL }}js/jquery-1.4.2.min.js"></script>	
+    {% if post %}
 		{% set_markup_editor request.user post.markup %}
 	{% else %}
 		{% set_markup_editor request.user %}

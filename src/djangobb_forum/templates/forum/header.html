@@ -16,9 +16,6 @@
 				<li id="navindex"><a href="{% url djangobb:index %}">{% trans "Index" %}</a></li>
 				<li id="navuserlist"><a href="{% url djangobb:forum_users %}">{% trans "User list" %}</a></li>
 				<li id="navsearch"><a href="{% url djangobb:search %}">{% trans "Search" %}</a></li>
-				{% if user.is_superuser %}
-					<li id="navadmin"><a href="{% url admin:index %}">{% trans "Administration" %}</a></li>
-				{% endif %}
 				{% if user.is_authenticated %}
 					<li id="navprofile"><a href="{% url djangobb:forum_profile request.user %}">{% trans "Profile" %}</a></li>
 				{% if forum_settings.PM_SUPPORT %}

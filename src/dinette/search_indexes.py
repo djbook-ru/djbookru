@@ -1,7 +1,7 @@
 from haystack import indexes
 from haystack import site
 
-from dinette.models import Ftopics, Reply, DinetteUserProfile
+from dinette.models import Ftopics, Reply
 
 class TopicIndex(indexes.SearchIndex):
     text = indexes.CharField(document=True, use_template=True)
@@ -12,12 +12,5 @@ class ReplyIndex(indexes.SearchIndex):
     text = indexes.CharField(document=True, use_template=True)
     message = indexes.CharField(model_attr="message")
     
-class UserprofileIndex(indexes.SearchIndex):
-    text = indexes.CharField(document=True, use_template=True)
-    username = indexes.CharField(model_attr="username")
-    first_name = indexes.CharField(model_attr="first_name")
-    last_name = indexes.CharField(model_attr="last_name")
-    
 site.register(Ftopics, TopicIndex)
 site.register(Reply, ReplyIndex)
-site.register(DinetteUserProfile, UserprofileIndex)
