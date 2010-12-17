@@ -271,7 +271,7 @@ class Profile(models.Model):
     signature = models.TextField(_('Signature'), blank=True, default='', max_length=forum_settings.SIGNATURE_MAX_LENGTH)
     time_zone = models.FloatField(_('Time zone'), choices=TZ_CHOICES, default=float(forum_settings.DEFAULT_TIME_ZONE))
     language = models.CharField(_('Language'), max_length=5, default='', choices=settings.LANGUAGES)
-    theme = models.CharField(_('Theme'), choices=THEME_CHOICES, max_length=80, default='default')
+    theme = models.CharField(_('Theme'), choices=THEME_CHOICES, max_length=80, default='DjangoBB')
     show_avatar = models.BooleanField(_('Show avatar'), blank=True, default=True)
     show_signatures = models.BooleanField(_('Show signatures'), blank=True, default=True)
     show_smilies = models.BooleanField(_('Show smilies'), blank=True, default=True)

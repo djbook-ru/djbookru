@@ -283,7 +283,7 @@ def set_theme_style(user):
         selected_theme = user.forum_profile.theme
         theme_style = '<link rel="stylesheet" type="text/css" href="%(media_url)sforum/themes/%(theme)s/style.css" />' 
     else:
-        theme_style = '<link rel="stylesheet" type="text/css" href="%(media_url)sforum/themes/default/style.css" />'
+        theme_style = '<link rel="stylesheet" type="text/css" href="%(media_url)sforum/themes/DjangoBB/style.css" />'
         
     return theme_style % dict(
         media_url=settings.MEDIA_URL,
