@@ -6,10 +6,8 @@
 <div id="brdheader" class="block">
 	<div class="box">
 		<div id="brdtitle" class="inbox">
-			<h1><span><a href="{% url djangobb:index %}">{{ forum_settings.HEADER|safe }}</a></span></h1>
+            <p style="margin: 4px"><a href="/"><img src="{{ MEDIA_URL }}img/djangobook-title.png" border="0"/></a></p>		    
 			<p><span>{{ forum_settings.TAGLINE|safe }}</span></p>
-			{% if not user.is_authenticated %}
-			{% endif %}
 		</div>
 		<div id="brdmenu" class="inbox">
 			<ul>
