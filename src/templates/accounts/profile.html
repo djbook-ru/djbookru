@@ -20,8 +20,7 @@
         </p>
         
         <p>
-            <strong>{% trans 'Userrank' %}:</strong> {{ user_obj.userrank }}<br/>
-            <strong>{% trans 'Posts count' %}:</strong> {{ user_obj.posts_count }}<br/>
+            <strong>{% trans 'Posts count' %}:</strong> {{ user_obj.forum_profile.post_count }}<br/>
             <strong>{% trans 'Comments count' %}:</strong> {{ user_obj.comments_count }}
         </p>
         
