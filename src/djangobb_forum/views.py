@@ -411,7 +411,7 @@ def user(request, username):
                         'TEMPLATE': 'forum/profile/profile_display.html'
                        }
             elif section == 'personality':
-                form = build_form(PersonalityProfileForm, request, markup=user.forum_profile.markup, instance=user.forum_profile)
+                form = build_form(PersonalityProfileForm, request, instance=user.forum_profile)
                 if request.method == 'POST' and form.is_valid():
                     form.save()
                     return HttpResponseRedirect(profile_url)

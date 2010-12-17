@@ -204,6 +204,7 @@ class MessagingProfileForm(forms.ModelForm):
         model = Profile
         fields = ['jabber', 'icq', 'msn', 'aim', 'yahoo']
 
+from django.utils.html import strip_tags
 
 class PersonalityProfileForm(forms.ModelForm):
     class Meta:
@@ -213,15 +214,16 @@ class PersonalityProfileForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.markup = kwargs.pop('markup', None)
         super(PersonalityProfileForm, self).__init__(*args, **kwargs)
-        self.fields['signature'].widget = forms.Textarea(attrs={'class':'markup', 'rows':'10', 'cols':'75'})
+        self.fields['signature'].widget = forms.Textarea(attrs={'rows':'10', 'cols':'75'})
+        if 'signature' in self.initial:
+            self.initial['signature'] = strip_tags(self.initial['signature'].replace('<br/>', '\n'))
 
     def save(self, commit=True):
         profile = super(PersonalityProfileForm, self).save(commit=False)
-        profile.signature = convert_text_to_html(profile.signature, self.markup)
+        profile.signature = convert_text_to_html(profile.signature, None)
         if commit:
             profile.save()
         return profile
-
 
 class DisplayProfileForm(forms.ModelForm):
     class Meta:

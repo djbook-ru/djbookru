@@ -286,8 +286,10 @@ def set_language(request, language):
     if language and check_for_language(language):
         if hasattr(request, 'session'):
             request.session['django_language'] = language
-        else:
-            response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language) 
+        #else:
+        #    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language) 
+
+from django.utils.html import linebreaks, escape
 
 def convert_text_to_html(text, markup):
     if markup == 'bbcode':
@@ -295,5 +297,5 @@ def convert_text_to_html(text, markup):
     elif markup == 'markdown':            
         text = markdown.markdown(text, safe_mode='escape')
     else:
-        raise Exception('Invalid markup property: %s' % markup)
+        text = escape(text).replace('\n', '<br/>')
     return urlize(text)
