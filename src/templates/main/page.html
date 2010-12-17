@@ -4,6 +4,8 @@
 
 {% block title %}{{ page.name }}: {{ page.book.name }} | {{ block.super }} {% endblock %}
 
+{% block description %}{{ page.content|striptags|truncatewords:40 }}{% endblock %}
+
 {% block left %}
     {% toc page %}
 {% endblock %}
