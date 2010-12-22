@@ -1400,7 +1400,7 @@ msgstr "Загрузить"
 #: djangobb_forum/templates/forum/profile/profile_messaging.html:16
 #: djangobb_forum/templates/forum/profile/profile_personal.html:9
 msgid "Personal"
-msgstr "Личное"
+msgstr "Персональное"
 
 #: djangobb_forum/templates/forum/user.html:15
 msgid "Username:"
@@ -1470,7 +1470,7 @@ msgstr "Yahoo! Messenger:"
 #: djangobb_forum/templates/forum/profile/profile_menu.html:10
 #: djangobb_forum/templates/forum/profile/profile_personality.html:9
 msgid "Personality"
-msgstr "Личное"
+msgstr "Понты"
 
 #: djangobb_forum/templates/forum/user.html:97
 msgid "Avatar:"
@@ -1572,7 +1572,7 @@ msgstr "Обновить форумы"
 #: djangobb_forum/templates/forum/profile/profile_display.html:9
 #: djangobb_forum/templates/forum/profile/profile_menu.html:11
 msgid "Display"
-msgstr "Отобрахить"
+msgstr "Отображение"
 
 #: djangobb_forum/templates/forum/profile/profile_display.html:15
 msgid "Select your preferred style"
@@ -1604,7 +1604,7 @@ msgstr ""
 #: djangobb_forum/templates/forum/profile/profile_essentials.html:9
 #: djangobb_forum/templates/forum/profile/profile_menu.html:7
 msgid "Essentials"
-msgstr "Основы"
+msgstr "Главное"
 
 #: djangobb_forum/templates/forum/profile/profile_essentials.html:15
 msgid "Enter your username and password"
@@ -1638,11 +1638,11 @@ msgstr "Профиль"
 #: djangobb_forum/templates/forum/profile/profile_menu.html:12
 #: djangobb_forum/templates/forum/profile/profile_privacy.html:9
 msgid "Privacy"
-msgstr "Личное"
+msgstr "Настройки"
 
 #: djangobb_forum/templates/forum/profile/profile_menu.html:13
 msgid "Site profile"
-msgstr "Профиль сайта"
+msgstr "Профиль на сайте"
 
 #: djangobb_forum/templates/forum/profile/profile_personal.html:16
 msgid "Enter your personal details"
