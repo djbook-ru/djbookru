@@ -143,6 +143,10 @@ INSTALLED_APPS = (
     'examples'
 )
 
+HAYSTACK_SITECONF = 'search_sites'
+HAYSTACK_SEARCH_ENGINE = 'whoosh'
+HAYSTACK_WHOOSH_PATH = rel('seacrh_index')
+
 EMAIL_SUBJECT_PREFIX = '[Djbook.ru]'
 
 DATETIME_FORMAT = 'j N Y, G:i'
