@@ -132,6 +132,8 @@ INSTALLED_APPS = (
     'socialauth',
     'openid_consumer',
     'dinette',
+    'haystack',
+    'djangobb_forum',
     'accounts',
     'main',
     'news',
