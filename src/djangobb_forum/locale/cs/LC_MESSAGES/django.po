@@ -1,0 +1,1205 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: DjangoBB\n"
+"Report-Msgid-Bugs-To: http://djangobb.org/report/1\n"
+"POT-Creation-Date: 2010-12-02 12:37+0200\n"
+"PO-Revision-Date: 2010-12-08 13:58+0000\n"
+"Last-Translator: slav0nic <slav0nic0@gmail.com>\n"
+"Language-Team: Czech <None>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
+
+#: feeds.py:26 feeds.py:27 templates/forum/base.html:14
+msgid "Latest posts on forum"
+msgstr ""
+
+#: feeds.py:45 feeds.py:46 templates/forum/base.html:15
+msgid "Latest topics on forum"
+msgstr ""
+
+#: feeds.py:76 feeds.py:84
+#, python-format
+msgid "Latest posts on %s topic"
+msgstr ""
+
+#: feeds.py:103 feeds.py:111
+#, python-format
+msgid "Latest posts on %s forum"
+msgstr ""
+
+#: feeds.py:130 feeds.py:133
+#, python-format
+msgid "Latest posts on %s category"
+msgstr ""
+
+#: forms.py:21 forms.py:142 forms.py:251 templates/forum/users.html:45
+msgid "Username"
+msgstr "Uživatelské jméno"
+
+#: forms.py:22 templates/forum/users.html:48
+msgid "Registered"
+msgstr "Registrovaný"
+
+#: forms.py:23
+msgid "No. of posts"
+msgstr ""
+
+#: forms.py:27
+msgid "Post time"
+msgstr ""
+
+#: forms.py:28
+msgid "Author"
+msgstr "Autor"
+
+#: forms.py:29 forms.py:51 forms.py:116 forms.py:338 models.py:121
+#: templates/forum/add_post.html:27 templates/forum/edit_post.html:24
+msgid "Subject"
+msgstr "Předmět"
+
+#: forms.py:30 forms.py:286 models.py:104 models.py:120
+#: templates/forum/index.html:53 templates/forum/search_topics.html:22
+msgid "Forum"
+msgstr "Fórum"
+
+#: forms.py:34
+msgid "Ascending"
+msgstr "Vzestupně"
+
+#: forms.py:35
+msgid "Descending"
+msgstr "Sestupně"
+
+#: forms.py:39 models.py:135 templates/forum/index.html:54
+msgid "Topics"
+msgstr "Témata"
+
+#: forms.py:40 models.py:192 templates/forum/index.html:55
+#: templates/forum/users.html:47
+msgid "Posts"
+msgstr "Příspěvky"
+
+#: forms.py:44
+msgid "Message text and topic subject"
+msgstr ""
+
+#: forms.py:45
+msgid "Message text only"
+msgstr ""
+
+#: forms.py:46
+msgid "Topic subject only"
+msgstr ""
+
+#: forms.py:53 templates/forum/add_post.html:36 templates/forum/topic.html:165
+msgid "Attachment"
+msgstr ""
+
+#: forms.py:80
+msgid "Attachment is too big"
+msgstr ""
+
+#: forms.py:143 templates/forum/topic.html:67
+msgid "E-mail"
+msgstr "E-mail"
+
+#: forms.py:173
+msgid "Real name"
+msgstr ""
+
+#: forms.py:253 forms.py:288
+msgid "Sort by"
+msgstr "Třídit podle"
+
+#: forms.py:254 forms.py:289
+msgid "Sort order"
+msgstr "Pořadí třídění"
+
+#: forms.py:282
+msgid "Keyword search"
+msgstr "Hledání podle klíčového slova"
+
+#: forms.py:284
+msgid "Author search"
+msgstr "Hledání podle autora"
+
+#: forms.py:287
+msgid "Search in"
+msgstr "Vyhledávat v"
+
+#: forms.py:290
+msgid "Show results as"
+msgstr ""
+
+#: forms.py:315
+#, python-format
+msgid "User with login %s does not exist"
+msgstr ""
+
+#: forms.py:325
+msgid "You already voted for this post"
+msgstr ""
+
+#: forms.py:340 models.py:183 templates/forum/add_post.html:29
+#: templates/forum/edit_post.html:27
+msgid "Message"
+msgstr "Zpráva"
+
+#: models.py:39
+msgid "Display your e-mail address."
+msgstr ""
+
+#: models.py:40
+msgid "Hide your e-mail address but allow form e-mail."
+msgstr ""
+
+#: models.py:41
+msgid "Hide your e-mail address and disallow form e-mail."
+msgstr ""
+
+#: models.py:56 models.py:93 models.py:362
+msgid "Name"
+msgstr ""
+
+#: models.py:57
+msgid "Groups"
+msgstr ""
+
+#: models.py:57
+msgid "Only users from these groups can see this category"
+msgstr ""
+
+#: models.py:58 models.py:94
+msgid "Position"
+msgstr ""
+
+#: models.py:62 models.py:92
+msgid "Category"
+msgstr ""
+
+#: models.py:63
+msgid "Categories"
+msgstr ""
+
+#: models.py:95
+msgid "Description"
+msgstr ""
+
+#: models.py:96
+msgid "Moderators"
+msgstr "Moderátoři"
+
+#: models.py:97 models.py:123 models.py:180
+msgid "Updated"
+msgstr ""
+
+#: models.py:98 models.py:129 models.py:280
+msgid "Post count"
+msgstr ""
+
+#: models.py:99
+msgid "Topic count"
+msgstr ""
+
+#: models.py:105
+msgid "Forums"
+msgstr "Fórum"
+
+#: models.py:122 models.py:179 models.py:323
+msgid "Created"
+msgstr ""
+
+#: models.py:124 models.py:178 models.py:261
+msgid "User"
+msgstr ""
+
+#: models.py:125
+msgid "Views count"
+msgstr ""
+
+#: models.py:126
+msgid "Sticky"
+msgstr "Zvýrazněno"
+
+#: models.py:127
+msgid "Closed"
+msgstr ""
+
+#: models.py:128
+msgid "Subscribers"
+msgstr ""
+
+#: models.py:134 models.py:177 templates/forum/forum.html:27
+#: templates/forum/moderate.html:23 templates/forum/search_topics.html:21
+msgid "Topic"
+msgstr ""
+
+#: models.py:181
+msgid "Updated by"
+msgstr ""
+
+#: models.py:182 templates/forum/profile/profile_display.html:24
+msgid "Markup"
+msgstr ""
+
+#: models.py:184
+msgid "HTML version"
+msgstr ""
+
+#: models.py:185
+msgid "User IP"
+msgstr ""
+
+#: models.py:191 models.py:246 models.py:320 models.py:358
+msgid "Post"
+msgstr ""
+
+#: models.py:244
+msgid "From"
+msgstr "Od"
+
+#: models.py:245
+msgid "To"
+msgstr ""
+
+#: models.py:247
+msgid "Time"
+msgstr ""
+
+#: models.py:248
+msgid "Sign"
+msgstr ""
+
+#: models.py:249 models.py:324 models.py:337 templates/forum/report.html:16
+#: templates/forum/reputation.html:24
+msgid "Reason"
+msgstr "Důvod"
+
+#: models.py:252 templates/forum/topic.html:57
+msgid "Reputation"
+msgstr ""
+
+#: models.py:253
+msgid "Reputations"
+msgstr ""
+
+#: models.py:262
+msgid "Status"
+msgstr "Stav zprávy:"
+
+#: models.py:263
+msgid "Site"
+msgstr "Web"
+
+#: models.py:264
+msgid "Jabber"
+msgstr "Jabber"
+
+#: models.py:265
+msgid "ICQ"
+msgstr "ICQ"
+
+#: models.py:266
+msgid "MSN"
+msgstr "MSN"
+
+#: models.py:267
+msgid "AIM"
+msgstr "AIM"
+
+#: models.py:268
+msgid "Yahoo"
+msgstr "Yahoo"
+
+#: models.py:269 templates/forum/user.html:25
+msgid "Location"
+msgstr "Místo"
+
+#: models.py:270
+msgid "Signature"
+msgstr "Podpis"
+
+#: models.py:271
+msgid "Time zone"
+msgstr ""
+
+#: models.py:272
+msgid "Language"
+msgstr "Jazyk"
+
+#: models.py:273
+msgid "Avatar"
+msgstr "Avatar"
+
+#: models.py:274
+msgid "Theme"
+msgstr ""
+
+#: models.py:275
+msgid "Show avatar"
+msgstr ""
+
+#: models.py:276
+msgid "Show signatures"
+msgstr ""
+
+#: models.py:277 templates/forum/profile/profile_display.html:39
+msgid "Show smilies"
+msgstr ""
+
+#: models.py:278
+msgid "Privacy permission"
+msgstr ""
+
+#: models.py:279
+msgid "Default markup"
+msgstr ""
+
+#: models.py:283 templates/forum/header.html:23 templates/forum/topic.html:65
+#: templates/forum/user.html:7
+msgid "Profile"
+msgstr ""
+
+#: models.py:284
+msgid "Profiles"
+msgstr ""
+
+#: models.py:311 models.py:312
+msgid "Post tracking"
+msgstr ""
+
+#: models.py:319
+msgid "Reported by"
+msgstr ""
+
+#: models.py:321
+msgid "Zapped"
+msgstr ""
+
+#: models.py:322
+msgid "Zapped by"
+msgstr ""
+
+#: models.py:327 templates/forum/topic.html:112
+msgid "Report"
+msgstr ""
+
+#: models.py:328
+msgid "Reports"
+msgstr ""
+
+#: models.py:334
+msgid "Banned user"
+msgstr ""
+
+#: models.py:335
+msgid "Ban start"
+msgstr ""
+
+#: models.py:336
+msgid "Ban end"
+msgstr ""
+
+#: models.py:340
+msgid "Ban"
+msgstr "Ban"
+
+#: models.py:341
+msgid "Bans"
+msgstr "Bans"
+
+#: models.py:359
+msgid "Size"
+msgstr ""
+
+#: models.py:360
+msgid "Content type"
+msgstr ""
+
+#: models.py:361
+msgid "Path"
+msgstr ""
+
+#: models.py:363
+msgid "Hash"
+msgstr ""
+
+#: templates/forum/add_post.html:9 templates/forum/add_post.html.py:11
+#: templates/forum/delete_posts.html:9 templates/forum/edit_post.html:8
+#: templates/forum/forum.html:13 templates/forum/forum.html.py:71
+#: templates/forum/moderate.html:9 templates/forum/topic.html:15
+#: templates/forum/topic.html.py:135 templates/forum/lofi/forum.html:8
+#: templates/forum/lofi/index.html:6 templates/forum/lofi/index.html.py:8
+#: templates/forum/lofi/topic.html:8
+msgid "Root"
+msgstr ""
+
+#: templates/forum/add_post.html:18 templates/forum/forum.html:11
+#: templates/forum/forum.html.py:69
+msgid "New topic"
+msgstr "Založit nové téma"
+
+#: templates/forum/add_post.html:18
+msgid "New reply"
+msgstr "Odpovědět"
+
+#: templates/forum/add_post.html:24 templates/forum/topic.html:156
+msgid "Write your message and submit"
+msgstr ""
+
+#: templates/forum/add_post.html:46 templates/forum/mail_to.html:25
+#: templates/forum/report.html:22 templates/forum/reputation_form.html:41
+#: templates/forum/search_form.html:71 templates/forum/topic.html:174
+#: templates/forum/profile/profile_display.html:44
+#: templates/forum/profile/profile_essentials.html:81
+#: templates/forum/profile/profile_messaging.html:30
+#: templates/forum/profile/profile_personal.html:31
+#: templates/forum/profile/profile_personality.html:53
+#: templates/forum/profile/profile_privacy.html:25
+msgid "Submit"
+msgstr "Odeslat"
+
+#: templates/forum/add_post.html:46 templates/forum/edit_post.html:34
+#: templates/forum/mail_to.html:25 templates/forum/move_topic.html:34
+#: templates/forum/report.html:22 templates/forum/reputation.html:65
+#: templates/forum/reputation_form.html:41
+#: templates/forum/search_posts.html:49 templates/forum/search_topics.html:60
+#: templates/forum/upload_avatar.html:23
+msgid "Go back"
+msgstr "Zpět"
+
+#: templates/forum/add_post.html:54
+msgid "Topic review (newest first)"
+msgstr ""
+
+#: templates/forum/add_post.html:70 templates/forum/topic.html:123
+msgid "Quote"
+msgstr "Citovat"
+
+#: templates/forum/base.html:55
+msgid "Board footer"
+msgstr "Zápatí"
+
+#: templates/forum/delete_posts.html:35 templates/forum/topic.html:93
+msgid "Edited"
+msgstr ""
+
+#: templates/forum/delete_posts.html:39 templates/forum/moderate.html:27
+msgid "Select"
+msgstr "Zobrazit"
+
+#: templates/forum/delete_posts.html:51 templates/forum/moderate.html:68
+#: templates/forum/reputation.html:28 templates/forum/topic.html:115
+msgid "Delete"
+msgstr "Smazat"
+
+#: templates/forum/edit_post.html:14
+msgid "Edit post"
+msgstr "Editovat příspěvek"
+
+#: templates/forum/edit_post.html:21
+msgid "Edit the post and submit changes"
+msgstr "Editujte příspěvek a uložte změny"
+
+#: templates/forum/edit_post.html:34
+msgid "Save"
+msgstr "Uložit"
+
+#: templates/forum/forum.html:28 templates/forum/moderate.html:24
+#: templates/forum/search_topics.html:23
+msgid "Replies"
+msgstr "Odpovědi"
+
+#: templates/forum/forum.html:29 templates/forum/moderate.html:25
+msgid "Views"
+msgstr "Zobrazení"
+
+#: templates/forum/forum.html:30 templates/forum/index.html:56
+#: templates/forum/moderate.html:26 templates/forum/search_topics.html:24
+msgid "Last post"
+msgstr "Poslední příspěvek"
+
+#: templates/forum/forum.html:42 templates/forum/moderate.html:39
+msgid "Sticky:"
+msgstr "Zvýrazněno:"
+
+#: templates/forum/forum.html:45 templates/forum/forum.html.py:47
+#: templates/forum/forum.html:54 templates/forum/forum_row.html:34
+#: templates/forum/moderate.html:42 templates/forum/moderate.html.py:44
+#: templates/forum/moderate.html:51 templates/forum/search_topics.html:35
+#: templates/forum/search_topics.html:37 templates/forum/search_topics.html:44
+msgid "by"
+msgstr "od"
+
+#: templates/forum/forum.html:58 templates/forum/moderate.html:56
+msgid "Forum is empty."
+msgstr "Fórum je prázdné"
+
+#: templates/forum/forum.html:89
+msgid "Jump to"
+msgstr "Přejít na"
+
+#: templates/forum/forum.html:100 templates/forum/topic.html:206
+msgid "Go"
+msgstr "Přejít"
+
+#: templates/forum/forum.html:104
+msgid "Moderate forum"
+msgstr "Moderovat fórum"
+
+#: templates/forum/header.html:16
+msgid "Index"
+msgstr "Index"
+
+#: templates/forum/header.html:17 templates/forum/users.html:39
+#: templates/forum/lofi/header.html:5
+msgid "User list"
+msgstr "Seznam uživatelů"
+
+#: templates/forum/header.html:18 templates/forum/search_form.html:7
+#: templates/forum/users.html:29 templates/forum/lofi/header.html:4
+msgid "Search"
+msgstr "Hledat"
+
+#: templates/forum/header.html:20 templates/forum/profile/profile_admin.html:9
+#: templates/forum/profile/profile_menu.html:14
+msgid "Administration"
+msgstr "Administrace"
+
+#: templates/forum/header.html:25 templates/forum/topic.html:75
+msgid "PM"
+msgstr "PM"
+
+#: templates/forum/header.html:27
+msgid "Log out"
+msgstr "Odhlásit"
+
+#: templates/forum/header.html:29
+msgid "Log in"
+msgstr "Přihlásit"
+
+#: templates/forum/header.html:30
+msgid "Sign up"
+msgstr "Registrace"
+
+#: templates/forum/header.html:37
+msgid "Logged in as"
+msgstr "Přihlášen jako"
+
+#: templates/forum/header.html:38
+msgid "Last visit:"
+msgstr "Poslední návštěva:"
+
+#: templates/forum/header.html:40
+#, python-format
+msgid " There are new messages (%(new_msg)s)"
+msgstr ""
+
+#: templates/forum/header.html:43
+msgid "You are not logged in."
+msgstr ""
+
+#: templates/forum/header.html:46
+msgid "There are new reports"
+msgstr ""
+
+#: templates/forum/header.html:51
+msgid "Show new posts since last visit"
+msgstr ""
+
+#: templates/forum/header.html:52
+msgid "Mark all topics as read"
+msgstr ""
+
+#: templates/forum/header.html:62
+msgid "Notice"
+msgstr ""
+
+#: templates/forum/index.html:71
+msgid "Board information"
+msgstr "Informace o fóru"
+
+#: templates/forum/index.html:75
+msgid "Board statistics"
+msgstr "Statistika fóra"
+
+#: templates/forum/index.html:76
+msgid "Total number of registered users:"
+msgstr "Celkem registrovaných uživatelů:"
+
+#: templates/forum/index.html:77
+msgid "Total number of topics:"
+msgstr "Témat:"
+
+#: templates/forum/index.html:78
+msgid "Total number of posts:"
+msgstr "Příspěvků:"
+
+#: templates/forum/index.html:81
+msgid "User information"
+msgstr "Informace o uživateli"
+
+#: templates/forum/index.html:82
+msgid "Newest registered user:"
+msgstr "Nejnovější registrovaný uživatel:"
+
+#: templates/forum/index.html:83
+msgid "Registered users online:"
+msgstr "Registrovaní uživatelé online:"
+
+#: templates/forum/index.html:84
+msgid "Guests online:"
+msgstr "Hosté online:"
+
+#: templates/forum/index.html:88
+msgid "Online:"
+msgstr "Online:"
+
+#: templates/forum/index.html:112 templates/forum/search_posts.html:67
+#: templates/forum/search_topics.html:76
+msgid "Search links"
+msgstr "Hledané odkazy"
+
+#: templates/forum/index.html:113 templates/forum/search_posts.html:68
+#: templates/forum/search_topics.html:77
+msgid "Show recent posts"
+msgstr "Zobrazit poslední příspěvky"
+
+#: templates/forum/index.html:114 templates/forum/search_posts.html:69
+#: templates/forum/search_topics.html:78
+msgid "Show unanswered posts"
+msgstr "Zobrazit příspěvky bez odpovědí"
+
+#: templates/forum/index.html:116 templates/forum/search_posts.html:71
+#: templates/forum/search_topics.html:80
+msgid "Show your subscribed topics"
+msgstr "Zobrazit témata s oznamováním"
+
+#: templates/forum/index.html:117 templates/forum/search_posts.html:72
+#: templates/forum/search_topics.html:81
+msgid "Show your posts"
+msgstr "Zobrazit mé příspěvky"
+
+#: templates/forum/mail_to.html:7
+msgid "Send e-mail to"
+msgstr "Poslat e-mail"
+
+#: templates/forum/mail_to.html:13
+msgid "Write and submit your e-mail message"
+msgstr "Napište a odešlete Vaši e-mailovou zprávu."
+
+#: templates/forum/mail_to.html:21
+msgid "Please note that by using this form, your e-mail address will be disclosed to the recipient."
+msgstr "Pokud použijete tento formulář, Vaše e-mailová adresa bude pro příjemce zobrazena."
+
+#: templates/forum/moderate.html:67 templates/forum/move_topic.html:34
+msgid "Move"
+msgstr "Přesunout"
+
+#: templates/forum/moderate.html:69
+msgid "Open"
+msgstr "Otevřít"
+
+#: templates/forum/moderate.html:70
+msgid "Close"
+msgstr "Zavřít"
+
+#: templates/forum/moderators.html:3
+msgid "Moderated by"
+msgstr "Moderuje"
+
+#: templates/forum/move_topic.html:7 templates/forum/topic.html:212
+msgid "Move topic"
+msgstr "Přesunout téma"
+
+#: templates/forum/move_topic.html:16
+msgid "Select destination of move"
+msgstr ""
+
+#: templates/forum/move_topic.html:18
+msgid "Move to"
+msgstr "Přesunout do"
+
+#: templates/forum/pagination.html:3
+msgid "Pages"
+msgstr ""
+
+#: templates/forum/report.html:7
+msgid "Report post"
+msgstr "Nahlásit příspěvek"
+
+#: templates/forum/report.html:13
+msgid "Please enter a short reason why you are reporting this post"
+msgstr "Prosím napište stručně, proč upozorňujete na tento příspěvek."
+
+#: templates/forum/reputation.html:16
+msgid "Reputation of the user"
+msgstr ""
+
+#: templates/forum/reputation.html:22
+msgid "From user"
+msgstr "Od uživatele"
+
+#: templates/forum/reputation.html:23
+msgid "For post in topic"
+msgstr ""
+
+#: templates/forum/reputation.html:25
+msgid "Estimation"
+msgstr "Akce"
+
+#: templates/forum/reputation.html:26
+msgid "Date"
+msgstr "Datum"
+
+#: templates/forum/reputation.html:63
+msgid "Are you sure"
+msgstr ""
+
+#: templates/forum/reputation_form.html:7
+msgid "Please, fill the form"
+msgstr ""
+
+#: templates/forum/reputation_form.html:17
+msgid "Your name:"
+msgstr ""
+
+#: templates/forum/reputation_form.html:21
+msgid "To whom we change a reputation:"
+msgstr ""
+
+#: templates/forum/reputation_form.html:29
+msgid "Method:"
+msgstr ""
+
+#: templates/forum/reputation_form.html:32
+msgid "Add of a reputation"
+msgstr ""
+
+#: templates/forum/reputation_form.html:34
+msgid "Reduction of a reputation"
+msgstr ""
+
+#: templates/forum/search_form.html:13
+msgid "Enter your search criteria"
+msgstr ""
+
+#: templates/forum/search_form.html:18
+msgid "To search by keyword, enter a term or terms to search for. Separate terms with spaces. To search by author enter the username of the author whose posts you wish to search for."
+msgstr ""
+
+#: templates/forum/search_form.html:24
+msgid "Select where to search"
+msgstr ""
+
+#: templates/forum/search_form.html:30
+msgid "All forums"
+msgstr "Všechny diskuze"
+
+#: templates/forum/search_form.html:44
+msgid "Choose in which forum you would like to search and if you want to search in topic subjects, message text or both."
+msgstr ""
+
+#: templates/forum/search_form.html:51
+msgid "Select how to view search results"
+msgstr ""
+
+#: templates/forum/search_form.html:66
+msgid "You can choose how you wish to sort and show your results."
+msgstr ""
+
+#: templates/forum/search_posts.html:24
+msgid "Replies:"
+msgstr "Odpovědi:"
+
+#: templates/forum/search_posts.html:28
+msgid "Go to post"
+msgstr "Přejít na příspěvek"
+
+#: templates/forum/search_posts.html:44 templates/forum/search_topics.html:55
+msgid "Info"
+msgstr "Info"
+
+#: templates/forum/search_posts.html:48 templates/forum/search_topics.html:59
+msgid "Your search returned no hits."
+msgstr ""
+
+#: templates/forum/search_topics.html:15
+msgid "Search results"
+msgstr "Výsledky vyhledávání"
+
+#: templates/forum/topic.html:11 templates/forum/topic.html.py:121
+#: templates/forum/topic.html:134
+msgid "Reply"
+msgstr "Odpovědět"
+
+#: templates/forum/topic.html:49
+msgid "From:"
+msgstr ""
+
+#: templates/forum/topic.html:51 templates/forum/user.html:127
+#: templates/forum/profile/profile_essentials.html:73
+msgid "Registered:"
+msgstr "Registrovaný:"
+
+#: templates/forum/topic.html:52 templates/forum/user.html:119
+#: templates/forum/profile/profile_essentials.html:75
+msgid "Posts:"
+msgstr "Příspěvky:"
+
+#: templates/forum/topic.html:54
+msgid "IP:"
+msgstr ""
+
+#: templates/forum/topic.html:70 templates/forum/user.html:42
+#: templates/forum/profile/profile_essentials.html:43
+msgid "Send e-mail"
+msgstr "Poslat e-mail"
+
+#: templates/forum/topic.html:97
+msgid "Attachments:"
+msgstr ""
+
+#: templates/forum/topic.html:105
+msgid "Online"
+msgstr "Online"
+
+#: templates/forum/topic.html:107
+msgid "Offline"
+msgstr "Offline"
+
+#: templates/forum/topic.html:115
+msgid "Are you sure you want to delete this post?"
+msgstr "POZOR! Pokud je toto první příspěvek v tématu, téma bude SMAZÁNO!"
+
+#: templates/forum/topic.html:119
+msgid "Edit"
+msgstr "Editovat"
+
+#: templates/forum/topic.html:140
+msgid "Unsubscribe"
+msgstr "Odhlásit z odběru."
+
+#: templates/forum/topic.html:142
+msgid "Subscribe"
+msgstr "Přihlásit k odběru příspěvků v tomto tématu."
+
+#: templates/forum/topic.html:150
+msgid "Quick post"
+msgstr "Rychlá odpověď"
+
+#: templates/forum/topic.html:195
+msgid "Jump to "
+msgstr "Přejít na"
+
+#: templates/forum/topic.html:209
+msgid "Moderator control"
+msgstr "Moderátorské ovládání"
+
+#: templates/forum/topic.html:211
+msgid "Delete multiple posts"
+msgstr "Smazat více příspěvků"
+
+#: templates/forum/topic.html:214
+msgid "Open topic"
+msgstr "Otevřít téma"
+
+#: templates/forum/topic.html:216
+msgid "Close topic"
+msgstr "Zavřít téma"
+
+#: templates/forum/topic.html:219
+msgid "Unstick topic"
+msgstr "Zrušit zvýraznění"
+
+#: templates/forum/topic.html:221
+msgid "Stick topic"
+msgstr "Zvýraznit téma"
+
+#: templates/forum/upload_avatar.html:7
+#: templates/forum/profile/profile_personality.html:26
+#: templates/forum/profile/profile_personality.html:29
+msgid "Upload avatar"
+msgstr "Nahrát avatar"
+
+#: templates/forum/upload_avatar.html:13
+msgid "Enter an avatar file to upload"
+msgstr ""
+
+#: templates/forum/upload_avatar.html:19
+#, python-format
+msgid "An avatar is a small image that will be displayed under your username in your posts. It must not be any bigger than %(avatar_width)s x %(avatar_height)s pixels "
+msgstr ""
+
+#: templates/forum/upload_avatar.html:23
+msgid "Upload"
+msgstr ""
+
+#: templates/forum/user.html:12 templates/forum/profile/profile_menu.html:8
+#: templates/forum/profile/profile_messaging.html:15
+#: templates/forum/profile/profile_personal.html:9
+msgid "Personal"
+msgstr "Osobní"
+
+#: templates/forum/user.html:15
+msgid "Username:"
+msgstr "Uživatelské jméno"
+
+#: templates/forum/user.html:17 templates/forum/users.html:46
+msgid "Title"
+msgstr "Titulek"
+
+#: templates/forum/user.html:19
+msgid "Real name:"
+msgstr ""
+
+#: templates/forum/user.html:23 templates/forum/user.html.py:29
+#: templates/forum/user.html:35 templates/forum/user.html.py:61
+#: templates/forum/user.html:67 templates/forum/user.html.py:73
+#: templates/forum/user.html:79 templates/forum/user.html.py:85
+#: templates/forum/user.html:107 templates/forum/user.html.py:125
+msgid "(Unknown)"
+msgstr ""
+
+#: templates/forum/user.html:31
+msgid "Website:"
+msgstr "Web:"
+
+#: templates/forum/user.html:37
+msgid "E-mail:"
+msgstr "E-mail"
+
+#: templates/forum/user.html:44
+msgid "(Hidden)"
+msgstr ""
+
+#: templates/forum/user.html:54 templates/forum/profile/profile_menu.html:9
+#: templates/forum/profile/profile_messaging.html:9
+msgid "Messaging"
+msgstr "Komunikace"
+
+#: templates/forum/user.html:57
+msgid "Jabber:"
+msgstr "Jabber:"
+
+#: templates/forum/user.html:63
+msgid "ICQ:"
+msgstr "ICQ:"
+
+#: templates/forum/user.html:69
+msgid "MSN Messenger:"
+msgstr ""
+
+#: templates/forum/user.html:75
+msgid "AOL IM:"
+msgstr ""
+
+#: templates/forum/user.html:81
+msgid "Yahoo! Messenger:"
+msgstr ""
+
+#: templates/forum/user.html:94 templates/forum/profile/profile_menu.html:10
+#: templates/forum/profile/profile_personality.html:9
+msgid "Personality"
+msgstr "Identifikace"
+
+#: templates/forum/user.html:97
+msgid "Avatar:"
+msgstr "Avatar:"
+
+#: templates/forum/user.html:101
+msgid "(No avatar)"
+msgstr "(No avatar)"
+
+#: templates/forum/user.html:103
+msgid "Signature:"
+msgstr "Podpis:"
+
+#: templates/forum/user.html:116
+#: templates/forum/profile/profile_essentials.html:71
+msgid "User activity"
+msgstr "Uživatelovy aktivity"
+
+#: templates/forum/user.html:120
+#: templates/forum/profile/profile_essentials.html:76
+msgid "Show all posts"
+msgstr ""
+
+#: templates/forum/user.html:121
+#: templates/forum/profile/profile_essentials.html:74
+msgid "Last post:"
+msgstr "Poslední příspěvek:"
+
+#: templates/forum/users.html:7
+msgid "User search"
+msgstr "Hledání uživatele"
+
+#: templates/forum/users.html:12
+msgid "Find and sort users"
+msgstr ""
+
+#: templates/forum/users.html:25
+msgid "Enter a username to search for. The username field can be left blank. Sort users by name, date registered or number of posts and in ascending/descending order."
+msgstr ""
+
+#: templates/forum/lofi/forum.html:6 templates/forum/lofi/index.html:6
+#: templates/forum/lofi/topic.html:6
+msgid "Full Version:"
+msgstr ""
+
+#: templates/forum/lofi/forum.html:19
+msgid "IMPORTANT:"
+msgstr ""
+
+#: templates/forum/lofi/forum.html:19
+msgid "replies"
+msgstr ""
+
+#: templates/forum/lofi/index.html:18
+msgid "posts"
+msgstr ""
+
+#: templates/forum/profile/profile_admin.html:15
+msgid "Delete (administrators only) or ban user"
+msgstr ""
+
+#: templates/forum/profile/profile_admin.html:17
+msgid "Delete user"
+msgstr ""
+
+#: templates/forum/profile/profile_admin.html:17
+msgid "Ban user"
+msgstr ""
+
+#: templates/forum/profile/profile_admin.html:24
+msgid "Set moderator access"
+msgstr ""
+
+#: templates/forum/profile/profile_admin.html:26
+msgid "Choose what forums this user should be allowed to moderate. Note: This only applies to moderators. Administrators always have full permissions in all forums."
+msgstr ""
+
+#: templates/forum/profile/profile_admin.html:30
+msgid "Update forums"
+msgstr ""
+
+#: templates/forum/profile/profile_display.html:9
+#: templates/forum/profile/profile_menu.html:11
+msgid "Display"
+msgstr ""
+
+#: templates/forum/profile/profile_display.html:14
+msgid "Select your preferred style"
+msgstr ""
+
+#: templates/forum/profile/profile_display.html:17
+msgid "If you like you can use a different visual style for this forum."
+msgstr ""
+
+#: templates/forum/profile/profile_display.html:34
+msgid "Post display legend"
+msgstr ""
+
+#: templates/forum/profile/profile_display.html:36
+msgid "Post display info"
+msgstr ""
+
+#: templates/forum/profile/profile_display.html:44
+#: templates/forum/profile/profile_essentials.html:81
+#: templates/forum/profile/profile_messaging.html:30
+#: templates/forum/profile/profile_personal.html:31
+#: templates/forum/profile/profile_personality.html:53
+#: templates/forum/profile/profile_privacy.html:25
+msgid "When you update your profile, you will be redirected back to this page."
+msgstr ""
+
+#: templates/forum/profile/profile_essentials.html:9
+#: templates/forum/profile/profile_menu.html:7
+msgid "Essentials"
+msgstr "Základní"
+
+#: templates/forum/profile/profile_essentials.html:15
+msgid "Enter your username and password"
+msgstr ""
+
+#: templates/forum/profile/profile_essentials.html:26
+#: templates/forum/profile/profile_essentials.html:28
+msgid "Change password"
+msgstr ""
+
+#: templates/forum/profile/profile_essentials.html:37
+msgid "Enter a valid e-mail address"
+msgstr ""
+
+#: templates/forum/profile/profile_essentials.html:51
+msgid "Set your localisation options"
+msgstr ""
+
+#: templates/forum/profile/profile_essentials.html:55
+msgid "Timezone: For the forum to display times correctly you must select your local timezone."
+msgstr ""
+
+#: templates/forum/profile/profile_essentials.html:61
+msgid "Language: You can choose which language you wish to use to view the forum"
+msgstr ""
+
+#: templates/forum/profile/profile_menu.html:3
+msgid "Profile menu"
+msgstr "Profil menu"
+
+#: templates/forum/profile/profile_menu.html:12
+#: templates/forum/profile/profile_privacy.html:9
+msgid "Privacy"
+msgstr "Soukromé"
+
+#: templates/forum/profile/profile_personal.html:15
+msgid "Enter your personal details"
+msgstr "Zadejte osobní detaily"
+
+#: templates/forum/profile/profile_personal.html:21
+msgid "Leave blank to use forum default."
+msgstr ""
+
+#: templates/forum/profile/profile_personality.html:14
+msgid "Set your avatar display options"
+msgstr "Nastavte možnosti zobrazení avataru"
+
+#: templates/forum/profile/profile_personality.html:20
+msgid "An avatar is a small image that will be displayed with all your posts. You can upload an avatar by clicking the link below. The checkbox 'Use avatar' below must be checked in order for the avatar to be visible in your posts."
+msgstr "Avatar je malý obrázek, který se zobrazí pod Vaší přezdívkou u každého vašeho příspěvku. Nahrát avatar je možné po kliknutí na odkaz níže. Zaškrtávací políčko \\'Použít avatar\\' musí zaškrtnuto pro zobrazení avataru."
+
+#: templates/forum/profile/profile_personality.html:23
+msgid "Use avatar."
+msgstr "Použít avatar."
+
+#: templates/forum/profile/profile_personality.html:27
+msgid "Delete avatar"
+msgstr "Smazat avatar"
+
+#: templates/forum/profile/profile_personality.html:36
+msgid "Compose your signature"
+msgstr "Vytvořit vlastní podpis"
+
+#: templates/forum/profile/profile_personality.html:39
+msgid "A signature is a small piece of text that is attached to your posts. In it, you can enter just about anything you like. Perhaps you would like to enter your favourite quote or your star sign. It's up to you! In your signature you can use BBCode if it is allowed in this particular forum. You can see the features that are allowed/enabled listed below whenever you edit your signature."
+msgstr "Podpis je text, který se bude vkládat ke každému vašemu příspěvku. Vložte si tam co uznáte za vhodné. Třeba nějaký oblíbený citát, to vše je na Vás. Můžete také použít i BBcode funkce, pokud jsou v podpisu povoleny."
+
+#: templates/forum/profile/profile_personality.html:48
+msgid "No signature currently stored in profile."
+msgstr ""
+
+#: templates/forum/profile/profile_privacy.html:15
+msgid "Set your privacy options"
+msgstr ""
+
+#: templates/forum/profile/profile_privacy.html:18
+msgid "Select whether you want your e-mail address to be viewable to other users or not and if you want other users to be able to send you e-mail via the forum (form e-mail) or not."
+msgstr ""
