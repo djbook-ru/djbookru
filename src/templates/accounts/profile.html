@@ -7,9 +7,9 @@
 {% block content %}
     <div style="float:left; width: 300px;">
         <h3>
-            {{ user_obj.username }}        
+            {{ user_obj.username }} / <a href="{% url djangobb:forum_profile user.username %}">{% trans "Forum profile" %}</a>      
             {% if user == user_obj %}
-                <a href="{% url accounts:edit %}">{% trans 'edit' %}</a>
+                / <a href="{% url accounts:edit %}">{% trans 'Edit' %}</a>
             {% endif %}
         </h3>
         
@@ -20,7 +20,7 @@
         </p>
         
         <p>
-            <strong>{% trans 'Posts count' %}:</strong> {{ user_obj.forum_profile.post_count }}<br/>
+            <strong>{% trans 'Forum posts count' %}:</strong> {{ user_obj.forum_profile.post_count }}<br/>
             <strong>{% trans 'Comments count' %}:</strong> {{ user_obj.comments_count }}
         </p>
         

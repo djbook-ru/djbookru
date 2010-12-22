@@ -10,6 +10,7 @@
 					<li {%if active_menu == "personality" %}class="isactive"{% endif %}><a href="{% url djangobb:forum_profile profile %}?section=personality">{% trans "Personality" %}</a></li>
 					<li {%if active_menu == "display" %}class="isactive"{% endif %}><a href="{% url djangobb:forum_profile profile %}?section=display">{% trans "Display" %}</a></li>
 					<li {%if active_menu == "privacy" %}class="isactive"{% endif %}><a href="{% url djangobb:forum_profile profile %}?section=privacy">{% trans "Privacy" %}</a></li>
+                    <li><a href="{% url accounts:edit %}" style="font-style: italic;">{% trans "Site profile" %}</a></li>
 					{# if request.user.is_superuser #}
 					<!--li {% if active_menu == "admin" %}class="isactive"{% endif %}><a href="{% url djangobb:forum_profile profile %}?section=admin">{% trans "Administration" %}</a></li-->
 					{# endif #}

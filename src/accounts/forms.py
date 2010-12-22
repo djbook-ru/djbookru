@@ -14,7 +14,7 @@ class UserEditForm(forms.ModelForm):
                                           required=False)    
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'biography', 'email')
+        fields = ('biography', 'email')
         
     def clean(self):
         current, new, verify = map(self.cleaned_data.get,
