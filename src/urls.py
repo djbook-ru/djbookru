@@ -33,19 +33,15 @@ if settings.DEBUG:
     )
 
 from django.contrib.sitemaps import Sitemap, FlatPageSitemap, GenericSitemap
-from dinette import models as d_models
 from examples import models as r_models
 from news import models as n_models
 from comments import models as c_models
+from djangobb_forum import models as f_models
 
-sitemap_dinette_topics = {
-    'queryset': d_models.Ftopics.objects.filter(is_hidden=False),
-    'date_field': 'updated_on',
-    }
-sitemap_dinette_replies = {
-    'queryset': d_models.Reply.objects.filter(topic__is_hidden=False),
-    'date_field': 'updated_on',
-    }
+sitemap_forum = {
+    'queryset': f_models.Topic.objects.all(),
+    'date_field': 'created'
+}
 sitemap_recipes = {
     'queryset': r_models.Example.objects.all(),
     'date_field': 'created',
@@ -60,11 +56,10 @@ sitemap_comments = {
     }
 sitemaps = {
     'flatpages': FlatPageSitemap,
-    'forum_topics': GenericSitemap(sitemap_dinette_topics, priority=0.5),
-    'forum_topics': GenericSitemap(sitemap_dinette_replies, priority=0.5),
     'recipes': GenericSitemap(sitemap_recipes, priority=0.5),
     'news': GenericSitemap(sitemap_news, priority=0.5),
     'comment': GenericSitemap(sitemap_comments, priority=0.5),
+    'forum': GenericSitemap(sitemap_forum, priority=0.5)
     }
 urlpatterns += patterns(
     '',
