@@ -469,7 +469,7 @@ def user(request, username):
     else:
         topic_count = Topic.objects.filter(user__id=user.id).count()
         if user.forum_profile.post_count < forum_settings.POST_USER_SEARCH and not request.user.is_authenticated():
-            return HttpResponseRedirect(reverse('user_signin') + '?next=%s' % request.path)
+            return HttpResponseRedirect(reverse('accounts:login') + '?next=%s' % request.path)
         return {'profile': user,
                 'topic_count': topic_count,
                }
