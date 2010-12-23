@@ -1283,7 +1283,7 @@ msgstr "Результаты поиска"
 
 #: djangobb_forum/templates/forum/topic.html:49
 msgid "From:"
-msgstr "От:"
+msgstr "Из:"
 
 #: djangobb_forum/templates/forum/topic.html:51
 #: djangobb_forum/templates/forum/user.html:127
