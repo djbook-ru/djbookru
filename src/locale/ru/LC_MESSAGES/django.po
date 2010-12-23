@@ -783,11 +783,11 @@ msgstr "Затёрто"
 
 #: djangobb_forum/models.py:331 djangobb_forum/templates/forum/topic.html:112
 msgid "Report"
-msgstr "Доклад"
+msgstr "Жалоба"
 
 #: djangobb_forum/models.py:332
 msgid "Reports"
-msgstr "Доклады"
+msgstr "Жалобы"
 
 #: djangobb_forum/models.py:338
 msgid "Banned user"
