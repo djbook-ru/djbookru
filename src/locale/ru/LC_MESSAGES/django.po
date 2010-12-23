@@ -977,7 +977,7 @@ msgstr "Далее"
 
 #: djangobb_forum/templates/forum/forum.html:104
 msgid "Moderate forum"
-msgstr "Администрируется"
+msgstr "Модерировать форум"
 
 #: djangobb_forum/templates/forum/header.html:14
 msgid "Index"
