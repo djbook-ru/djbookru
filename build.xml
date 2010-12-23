@@ -127,6 +127,10 @@
                     dst="${basedir}/conf/dump.sh"
                     params="${basedir}/${cumulative_config}"/>
 
+    <parse_template src="${basedir}/tpls/forum_index_sh.template"
+                    dst="${basedir}/conf/forum_index.sh"
+                    params="${basedir}/${cumulative_config}"/>
+
     <parse_template src="${basedir}/tpls/install_sh.template"
                     dst="${basedir}/conf/install.sh"
                     params="${basedir}/${cumulative_config}"/>

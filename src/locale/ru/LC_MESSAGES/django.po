@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-07 17:34+0300\n"
-"PO-Revision-Date: 2010-12-07 17:37+0300\n"
+"POT-Creation-Date: 2010-12-22 14:27+0300\n"
+"PO-Revision-Date: 2010-12-22 14:38+0300\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,8 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: dashboard.py:18
+#: dashboard.py:18 djangobb_forum/templates/forum/profile/profile_admin.html:9
+#: djangobb_forum/templates/forum/profile/profile_menu.html:15
 msgid "Administration"
 msgstr "Управление"
 
@@ -42,6 +43,7 @@ msgid "Markdown: Syntax"
 msgstr "Маркдаун: Синтаксис"
 
 #: dashboard.py:52
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:25
 msgid "Change password"
 msgstr "Изменить пароль"
 
@@ -81,7 +83,7 @@ msgstr ""
 msgid "Advanced options"
 msgstr "Дополнительные возможности"
 
-#: settings.py:146
+#: settings.py:153
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
 
@@ -113,35 +115,20 @@ msgstr "Введённые пароли не совпадают."
 msgid "This email is used already."
 msgstr "Данный адрес электронной почты уже используется."
 
-#: accounts/models.py:11
+#: accounts/models.py:8
 msgid "biography"
 msgstr "биография"
 
-#: accounts/models.py:12
+#: accounts/models.py:9
 msgid "homepage"
 msgstr "домашняя страница"
 
-#: accounts/models.py:15
-msgid "last activity"
-msgstr "последнее действие"
-
-#: accounts/models.py:16
-msgid "last session activity"
-msgstr "последняя активность"
-
-#: accounts/models.py:18
-msgid "last posttime"
-msgstr "время последнего сообщения"
-
-#: accounts/models.py:19
-msgid "signature"
-msgstr "подпись"
-
-#: accounts/models.py:24
+#: accounts/models.py:14 djangobb_forum/models.py:125
+#: djangobb_forum/models.py:179 djangobb_forum/models.py:262
 msgid "User"
 msgstr "Пользователь"
 
-#: accounts/models.py:25
+#: accounts/models.py:15
 msgid "Users"
 msgstr "Пользователи"
 
@@ -157,101 +144,103 @@ msgstr "Пожалуйста, исправьте ошибки перечисле
 msgid "Profile changed success!"
 msgstr "Профайл успешно изменён!"
 
-#: claims/admin.py:13
+#: claims/admin.py:14
 msgid "Meta"
 msgstr "Мета"
 
-#: claims/admin.py:15
+#: claims/admin.py:16
 msgid "Error"
 msgstr "Ошибка"
 
-#: claims/admin.py:17 comments/forms.py:9 comments/models.py:22
+#: claims/admin.py:18 comments/forms.py:9 comments/models.py:22
 msgid "Comment"
 msgstr "Комментарий"
 
-#: claims/admin.py:25
+#: claims/admin.py:26 djangobb_forum/models.py:263
 msgid "Status"
 msgstr "Состояние"
 
-#: claims/models.py:7
+#: claims/models.py:8
 msgid "New"
 msgstr "Новая"
 
-#: claims/models.py:7
+#: claims/models.py:8
 msgid "Assigned"
 msgstr "Принята"
 
-#: claims/models.py:7
+#: claims/models.py:8
 msgid "Fixed"
 msgstr "Исправлена"
 
-#: claims/models.py:7
+#: claims/models.py:8
 msgid "Invalid"
 msgstr "Отклонена"
 
-#: claims/models.py:11
+#: claims/models.py:12
 msgid "Left Context Value"
 msgstr "Контекст слева"
 
-#: claims/models.py:12
+#: claims/models.py:13
 msgid "Selected Text"
 msgstr "Выделенные текст"
 
-#: claims/models.py:13
+#: claims/models.py:14
 msgid "Right Context Value"
 msgstr "Контекст справа"
 
-#: claims/models.py:14
+#: claims/models.py:15
 msgid "Status of the Claim"
 msgstr "Состояние жалобы"
 
-#: claims/models.py:15
+#: claims/models.py:16
 msgid "Status Applied"
 msgstr "Состояние изменено"
 
-#: claims/models.py:16
+#: claims/models.py:17
 msgid "Reader's Comment"
 msgstr "Комментарий читателя"
 
-#: claims/models.py:17
+#: claims/models.py:18
 msgid "Enter here the reply for the Reader"
 msgstr "Введите здесь сообщение для читателя"
 
-#: claims/models.py:18
+#: claims/models.py:19
 msgid "Context URL"
 msgstr "URL контекста"
 
-#: claims/models.py:19
+#: claims/models.py:20
 msgid "Reader's E-mail"
 msgstr "Е-почта читателя"
 
-#: claims/models.py:20
+#: claims/models.py:21
 msgid "Reader wants the Notify"
 msgstr "Уведомлять читателя"
 
-#: claims/models.py:21 templates/dinette/replydetail_frag.html:54
+#: claims/models.py:22 djangobb_forum/forms.py:22
+#: djangobb_forum/templates/forum/users.html:48
+#: templates/dinette/replydetail_frag.html:54
 #: templates/dinette/topic_detail.html:123
 msgid "Registered"
 msgstr "Зарегистрировано"
 
-#: claims/models.py:24
+#: claims/models.py:25
 msgid "Claim"
 msgstr "Жалоба"
 
-#: claims/models.py:25
+#: claims/models.py:26
 msgid "Claims"
 msgstr "Жалобы"
 
-#: claims/models.py:38
+#: claims/models.py:39
 msgid "DjangoBook in russian: Claim's state was changed to"
 msgstr "DjangoBook по-русски: Состояние жалобы было изменено на"
 
-#: claims/models.py:40
+#: claims/models.py:41
 msgid "This is automatic generated message, you do not need to answer on it."
 msgstr ""
 "Это сообщение сгенерировано автоматически, вам не требуется отвечать на него."
 
-#: claims/models.py:44
+#: claims/models.py:45
 #, python-format
 msgid ""
 "%(auto)s\n"
@@ -318,29 +307,39 @@ msgstr "Главная категория"
 msgid "Super Categories"
 msgstr "Главные категории"
 
-#: dinette/models.py:48 examples/models.py:10
+#: dinette/models.py:48 djangobb_forum/models.py:63
+#: djangobb_forum/models.py:93 examples/models.py:10
 msgid "Category"
 msgstr "Категория"
 
-#: dinette/models.py:49 examples/models.py:11
+#: dinette/models.py:49 djangobb_forum/models.py:64 examples/models.py:11
 msgid "Categories"
 msgstr "Категории"
 
-#: dinette/models.py:143
+#: dinette/models.py:143 djangobb_forum/models.py:135
+#: djangobb_forum/models.py:178 djangobb_forum/templates/forum/forum.html:27
+#: djangobb_forum/templates/forum/moderate.html:23
+#: djangobb_forum/templates/forum/search_topics.html:21
 msgid "Topic"
 msgstr "Тема"
 
-#: dinette/models.py:144 templates/dinette/category_details.html:77
+#: dinette/models.py:144 djangobb_forum/forms.py:39
+#: djangobb_forum/models.py:136 djangobb_forum/templates/forum/index.html:54
+#: templates/dinette/category_details.html:77
 #: templates/dinette/category_details.html:83
 #: templates/dinette/new_topics.html:23
 msgid "Topics"
 msgstr "Темы"
 
-#: dinette/models.py:206
+#: dinette/models.py:206 djangobb_forum/templates/forum/topic.html:11
+#: djangobb_forum/templates/forum/topic.html:121
+#: djangobb_forum/templates/forum/topic.html:134
 msgid "Reply"
 msgstr "Отклик"
 
-#: dinette/models.py:207
+#: dinette/models.py:207 djangobb_forum/templates/forum/forum.html:28
+#: djangobb_forum/templates/forum/moderate.html:24
+#: djangobb_forum/templates/forum/search_topics.html:23
 msgid "Replies"
 msgstr "Отклики"
 
@@ -414,6 +413,1305 @@ msgstr "Со времени вашего последнего посещения
 #: dinette/views.py:326
 msgid "Most active Topics"
 msgstr "Наиболее активные темы"
+
+#: djangobb_forum/feeds.py:26 djangobb_forum/feeds.py:27
+#: djangobb_forum/templates/forum/base.html:14
+msgid "Latest posts on forum"
+msgstr "Последние отклики в форуме"
+
+#: djangobb_forum/feeds.py:45 djangobb_forum/feeds.py:46
+#: djangobb_forum/templates/forum/base.html:15
+msgid "Latest topics on forum"
+msgstr "Последние темы в форуме"
+
+#: djangobb_forum/feeds.py:76 djangobb_forum/feeds.py:84
+#, python-format
+msgid "Latest posts on %s topic"
+msgstr "Последние отклики на тему %s"
+
+#: djangobb_forum/feeds.py:103 djangobb_forum/feeds.py:111
+#, python-format
+msgid "Latest posts on %s forum"
+msgstr "Последние отклики в форуме %s"
+
+#: djangobb_forum/feeds.py:130 djangobb_forum/feeds.py:133
+#, python-format
+msgid "Latest posts on %s category"
+msgstr "Последние отклики в категории %s"
+
+#: djangobb_forum/forms.py:21 djangobb_forum/forms.py:142
+#: djangobb_forum/forms.py:253 djangobb_forum/templates/forum/users.html:45
+msgid "Username"
+msgstr "Пользователь"
+
+#: djangobb_forum/forms.py:23
+msgid "No. of posts"
+msgstr "Количество откликов"
+
+#: djangobb_forum/forms.py:27
+msgid "Post time"
+msgstr "Время отклика"
+
+#: djangobb_forum/forms.py:28 templates/examples/category.html:15
+#: templates/examples/detail.html:12 templates/examples/index.html:18
+msgid "Author"
+msgstr "Автор"
+
+#: djangobb_forum/forms.py:29 djangobb_forum/forms.py:51
+#: djangobb_forum/forms.py:116 djangobb_forum/forms.py:340
+#: djangobb_forum/models.py:122
+#: djangobb_forum/templates/forum/add_post.html:27
+#: djangobb_forum/templates/forum/edit_post.html:24
+msgid "Subject"
+msgstr "Тема"
+
+#: djangobb_forum/forms.py:30 djangobb_forum/forms.py:288
+#: djangobb_forum/models.py:105 djangobb_forum/models.py:121
+#: djangobb_forum/templates/forum/index.html:53
+#: djangobb_forum/templates/forum/search_topics.html:22 templates/_menu.html:6
+#: templates/dinette/base.html:14 templates/dinette/mainindex.html:30
+msgid "Forum"
+msgstr "Форум"
+
+#: djangobb_forum/forms.py:34
+msgid "Ascending"
+msgstr "Туда"
+
+#: djangobb_forum/forms.py:35
+msgid "Descending"
+msgstr "Обратно"
+
+#: djangobb_forum/forms.py:40 djangobb_forum/models.py:193
+#: djangobb_forum/templates/forum/index.html:55
+#: djangobb_forum/templates/forum/users.html:47
+#: templates/dinette/replydetail_frag.html:59
+#: templates/dinette/topic_detail.html:72
+#: templates/dinette/topic_detail.html:124
+msgid "Posts"
+msgstr "Откликов"
+
+#: djangobb_forum/forms.py:44
+msgid "Message text and topic subject"
+msgstr "Текст сообщения и заголовок темы"
+
+#: djangobb_forum/forms.py:45
+msgid "Message text only"
+msgstr "Только текст сообщения"
+
+#: djangobb_forum/forms.py:46
+msgid "Topic subject only"
+msgstr "Только заголовок темы"
+
+#: djangobb_forum/forms.py:53 djangobb_forum/templates/forum/add_post.html:36
+#: djangobb_forum/templates/forum/topic.html:165
+msgid "Attachment"
+msgstr "Вложение"
+
+#: djangobb_forum/forms.py:80
+msgid "Attachment is too big"
+msgstr "Вложение превысило лимит"
+
+#: djangobb_forum/forms.py:143 djangobb_forum/templates/forum/topic.html:67
+msgid "E-mail"
+msgstr "Е-почта"
+
+#: djangobb_forum/forms.py:173
+msgid "Real name"
+msgstr "Настоящее имя"
+
+#: djangobb_forum/forms.py:255 djangobb_forum/forms.py:290
+msgid "Sort by"
+msgstr "Сортировка по"
+
+#: djangobb_forum/forms.py:256 djangobb_forum/forms.py:291
+msgid "Sort order"
+msgstr "Порядок сортировки"
+
+#: djangobb_forum/forms.py:284
+msgid "Keyword search"
+msgstr "Поиск по словам"
+
+#: djangobb_forum/forms.py:286
+msgid "Author search"
+msgstr "Поиск по автору"
+
+#: djangobb_forum/forms.py:289
+msgid "Search in"
+msgstr "Поиск"
+
+#: djangobb_forum/forms.py:292
+msgid "Show results as"
+msgstr "Отобразить результаты как"
+
+#: djangobb_forum/forms.py:317
+#, python-format
+msgid "User with login %s does not exist"
+msgstr "Пользователь с логином %s не существует"
+
+#: djangobb_forum/forms.py:327
+msgid "You already voted for this post"
+msgstr "Вы уже проголосовали за этот отклик"
+
+#: djangobb_forum/forms.py:342 djangobb_forum/models.py:184
+#: djangobb_forum/templates/forum/add_post.html:29
+#: djangobb_forum/templates/forum/edit_post.html:27
+msgid "Message"
+msgstr "Сообщение"
+
+#: djangobb_forum/models.py:40
+msgid "Display your e-mail address."
+msgstr "Отображать адрес вашей Е-почты."
+
+#: djangobb_forum/models.py:41
+msgid "Hide your e-mail address but allow form e-mail."
+msgstr ""
+"Спрятать адрес вашей Е-почты, но разрешить отправку сообщений через форум."
+
+#: djangobb_forum/models.py:42
+msgid "Hide your e-mail address and disallow form e-mail."
+msgstr ""
+"Спрятать адрес вашей Е-почты и запретить отправку сообщений через форум."
+
+#: djangobb_forum/models.py:57 djangobb_forum/models.py:94
+#: djangobb_forum/models.py:366
+msgid "Name"
+msgstr "Имя"
+
+#: djangobb_forum/models.py:58
+msgid "Groups"
+msgstr "Группы"
+
+#: djangobb_forum/models.py:58
+msgid "Only users from these groups can see this category"
+msgstr "Только пользователи из этих групп могут читать данную категорию"
+
+#: djangobb_forum/models.py:59 djangobb_forum/models.py:95
+msgid "Position"
+msgstr "Позиция"
+
+#: djangobb_forum/models.py:96
+msgid "Description"
+msgstr "Описание"
+
+#: djangobb_forum/models.py:97
+msgid "Moderators"
+msgstr "Модераторы"
+
+#: djangobb_forum/models.py:98 djangobb_forum/models.py:124
+#: djangobb_forum/models.py:181
+msgid "Updated"
+msgstr "Обновлено"
+
+#: djangobb_forum/models.py:99 djangobb_forum/models.py:130
+#: djangobb_forum/models.py:280
+msgid "Post count"
+msgstr "Откликов"
+
+#: djangobb_forum/models.py:100
+msgid "Topic count"
+msgstr "Тем"
+
+#: djangobb_forum/models.py:106
+msgid "Forums"
+msgstr "Форумов"
+
+#: djangobb_forum/models.py:123 djangobb_forum/models.py:180
+#: djangobb_forum/models.py:327
+msgid "Created"
+msgstr "Создано"
+
+#: djangobb_forum/models.py:126
+msgid "Views count"
+msgstr "Просмотров"
+
+#: djangobb_forum/models.py:127 templates/dinette/topic_detail_frag.html:22
+msgid "Sticky"
+msgstr "Прикреплён"
+
+#: djangobb_forum/models.py:128 templates/dinette/topic_detail_frag.html:18
+msgid "Closed"
+msgstr "Закрыт"
+
+#: djangobb_forum/models.py:129
+msgid "Subscribers"
+msgstr "Подписчики"
+
+#: djangobb_forum/models.py:182
+msgid "Updated by"
+msgstr "Обновлено"
+
+#: djangobb_forum/models.py:183
+#: djangobb_forum/templates/forum/profile/profile_display.html:25
+msgid "Markup"
+msgstr "Разметка"
+
+#: djangobb_forum/models.py:185
+msgid "HTML version"
+msgstr "HTML версия"
+
+#: djangobb_forum/models.py:186
+msgid "User IP"
+msgstr "IP пользователя"
+
+#: djangobb_forum/models.py:192 djangobb_forum/models.py:247
+#: djangobb_forum/models.py:324 djangobb_forum/models.py:362
+#: templates/comments/form.html:13
+msgid "Post"
+msgstr "Отправить"
+
+#: djangobb_forum/models.py:245
+msgid "From"
+msgstr "От"
+
+#: djangobb_forum/models.py:246
+msgid "To"
+msgstr "К"
+
+#: djangobb_forum/models.py:248
+msgid "Time"
+msgstr "Время"
+
+#: djangobb_forum/models.py:249
+msgid "Sign"
+msgstr "Подпись"
+
+#: djangobb_forum/models.py:250 djangobb_forum/models.py:328
+#: djangobb_forum/models.py:341 djangobb_forum/templates/forum/report.html:16
+#: djangobb_forum/templates/forum/reputation.html:24
+msgid "Reason"
+msgstr "Причина"
+
+#: djangobb_forum/models.py:253 djangobb_forum/templates/forum/topic.html:57
+msgid "Reputation"
+msgstr "Репутация"
+
+#: djangobb_forum/models.py:254
+msgid "Reputations"
+msgstr "Репутации"
+
+#: djangobb_forum/models.py:264
+msgid "Site"
+msgstr "Сайт"
+
+#: djangobb_forum/models.py:265
+msgid "Jabber"
+msgstr "Джаббер"
+
+#: djangobb_forum/models.py:266
+msgid "ICQ"
+msgstr "ICQ"
+
+#: djangobb_forum/models.py:267
+msgid "MSN"
+msgstr "MSN"
+
+#: djangobb_forum/models.py:268
+msgid "AIM"
+msgstr "AIM"
+
+#: djangobb_forum/models.py:269
+msgid "Yahoo"
+msgstr "Yahoo"
+
+#: djangobb_forum/models.py:270 djangobb_forum/templates/forum/user.html:25
+msgid "Location"
+msgstr "Из"
+
+#: djangobb_forum/models.py:271
+msgid "Signature"
+msgstr "Подпись"
+
+#: djangobb_forum/models.py:272
+msgid "Time zone"
+msgstr "Временная зона"
+
+#: djangobb_forum/models.py:273
+msgid "Language"
+msgstr "Язык"
+
+#: djangobb_forum/models.py:274
+msgid "Theme"
+msgstr "Тема"
+
+#: djangobb_forum/models.py:275
+msgid "Show avatar"
+msgstr "Отображать аватар"
+
+#: djangobb_forum/models.py:276
+msgid "Show signatures"
+msgstr "Отображать подписи"
+
+#: djangobb_forum/models.py:277
+#: djangobb_forum/templates/forum/profile/profile_display.html:40
+msgid "Show smilies"
+msgstr "Отображать смайлы"
+
+#: djangobb_forum/models.py:278
+msgid "Privacy permission"
+msgstr "Личные права"
+
+#: djangobb_forum/models.py:279
+msgid "Default markup"
+msgstr "Стандартная разметка"
+
+#: djangobb_forum/models.py:283 djangobb_forum/templates/forum/header.html:18
+#: djangobb_forum/templates/forum/topic.html:65
+#: djangobb_forum/templates/forum/user.html:7
+#: templates/accounts/profile.html:5
+msgid "Profile"
+msgstr "Профиль"
+
+#: djangobb_forum/models.py:284
+msgid "Profiles"
+msgstr "Профили"
+
+#: djangobb_forum/models.py:315 djangobb_forum/models.py:316
+msgid "Post tracking"
+msgstr "Отслеживать отклики"
+
+#: djangobb_forum/models.py:323
+msgid "Reported by"
+msgstr "Доложил"
+
+#: djangobb_forum/models.py:325
+msgid "Zapped"
+msgstr "Затёрто"
+
+#: djangobb_forum/models.py:326
+msgid "Zapped by"
+msgstr "Затёрто"
+
+#: djangobb_forum/models.py:331 djangobb_forum/templates/forum/topic.html:112
+msgid "Report"
+msgstr "Жалоба"
+
+#: djangobb_forum/models.py:332
+msgid "Reports"
+msgstr "Жалобы"
+
+#: djangobb_forum/models.py:338
+msgid "Banned user"
+msgstr "Забаненный пользователь"
+
+#: djangobb_forum/models.py:339
+msgid "Ban start"
+msgstr "Бан начинается"
+
+#: djangobb_forum/models.py:340
+msgid "Ban end"
+msgstr "Бан завершается"
+
+#: djangobb_forum/models.py:344
+msgid "Ban"
+msgstr "Бан"
+
+#: djangobb_forum/models.py:345
+msgid "Bans"
+msgstr "Баны"
+
+#: djangobb_forum/models.py:363
+msgid "Size"
+msgstr "Размер"
+
+#: djangobb_forum/models.py:364
+msgid "Content type"
+msgstr "Тип содержимого"
+
+#: djangobb_forum/models.py:365
+msgid "Path"
+msgstr "Путь"
+
+#: djangobb_forum/models.py:367
+msgid "Hash"
+msgstr "Хэш"
+
+#: djangobb_forum/templates/forum/add_post.html:9
+#: djangobb_forum/templates/forum/add_post.html:11
+#: djangobb_forum/templates/forum/delete_posts.html:9
+#: djangobb_forum/templates/forum/edit_post.html:8
+#: djangobb_forum/templates/forum/forum.html:13
+#: djangobb_forum/templates/forum/forum.html:71
+#: djangobb_forum/templates/forum/moderate.html:9
+#: djangobb_forum/templates/forum/topic.html:15
+#: djangobb_forum/templates/forum/topic.html:135
+#: djangobb_forum/templates/forum/lofi/forum.html:8
+#: djangobb_forum/templates/forum/lofi/index.html:6
+#: djangobb_forum/templates/forum/lofi/index.html:8
+#: djangobb_forum/templates/forum/lofi/topic.html:8
+msgid "Root"
+msgstr "Начало"
+
+#: djangobb_forum/templates/forum/add_post.html:18
+#: djangobb_forum/templates/forum/forum.html:11
+#: djangobb_forum/templates/forum/forum.html:69
+msgid "New topic"
+msgstr "Новая тема"
+
+#: djangobb_forum/templates/forum/add_post.html:18
+msgid "New reply"
+msgstr "Новый отклик"
+
+#: djangobb_forum/templates/forum/add_post.html:24
+#: djangobb_forum/templates/forum/topic.html:156
+msgid "Write your message and submit"
+msgstr "Напишите своё сообщение и отправьте"
+
+#: djangobb_forum/templates/forum/add_post.html:46
+#: djangobb_forum/templates/forum/mail_to.html:25
+#: djangobb_forum/templates/forum/report.html:22
+#: djangobb_forum/templates/forum/reputation_form.html:41
+#: djangobb_forum/templates/forum/search_form.html:71
+#: djangobb_forum/templates/forum/topic.html:174
+#: djangobb_forum/templates/forum/profile/profile_display.html:45
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:77
+#: djangobb_forum/templates/forum/profile/profile_messaging.html:31
+#: djangobb_forum/templates/forum/profile/profile_personal.html:32
+#: djangobb_forum/templates/forum/profile/profile_personality.html:46
+#: djangobb_forum/templates/forum/profile/profile_privacy.html:26
+msgid "Submit"
+msgstr "Отправить"
+
+#: djangobb_forum/templates/forum/add_post.html:46
+#: djangobb_forum/templates/forum/edit_post.html:34
+#: djangobb_forum/templates/forum/mail_to.html:25
+#: djangobb_forum/templates/forum/move_topic.html:34
+#: djangobb_forum/templates/forum/report.html:22
+#: djangobb_forum/templates/forum/reputation.html:65
+#: djangobb_forum/templates/forum/reputation_form.html:41
+#: djangobb_forum/templates/forum/search_posts.html:49
+#: djangobb_forum/templates/forum/search_topics.html:60
+#: djangobb_forum/templates/forum/upload_avatar.html:23
+msgid "Go back"
+msgstr "Вернуться"
+
+#: djangobb_forum/templates/forum/add_post.html:54
+msgid "Topic review (newest first)"
+msgstr "Просмотр тем (новые сверху)"
+
+#: djangobb_forum/templates/forum/add_post.html:70
+#: djangobb_forum/templates/forum/topic.html:123
+msgid "Quote"
+msgstr "Цитата"
+
+#: djangobb_forum/templates/forum/base.html:56
+msgid "Board footer"
+msgstr "Подвал форума"
+
+#: djangobb_forum/templates/forum/delete_posts.html:35
+#: djangobb_forum/templates/forum/topic.html:93
+msgid "Edited"
+msgstr "Отредактирован"
+
+#: djangobb_forum/templates/forum/delete_posts.html:39
+#: djangobb_forum/templates/forum/moderate.html:27
+msgid "Select"
+msgstr "Выбрать"
+
+#: djangobb_forum/templates/forum/delete_posts.html:51
+#: djangobb_forum/templates/forum/moderate.html:68
+#: djangobb_forum/templates/forum/reputation.html:28
+#: djangobb_forum/templates/forum/topic.html:115
+#: templates/comments/_item.html:18
+msgid "Delete"
+msgstr "Удалить"
+
+#: djangobb_forum/templates/forum/edit_post.html:14
+msgid "Edit post"
+msgstr "Изменить отклик"
+
+#: djangobb_forum/templates/forum/edit_post.html:21
+msgid "Edit the post and submit changes"
+msgstr "Изменить отклик и отправить изменения"
+
+#: djangobb_forum/templates/forum/edit_post.html:34
+#: templates/accounts/edit.html:22
+msgid "Save"
+msgstr "Сохранить"
+
+#: djangobb_forum/templates/forum/forum.html:29
+#: djangobb_forum/templates/forum/moderate.html:25
+msgid "Views"
+msgstr "Просмотров"
+
+#: djangobb_forum/templates/forum/forum.html:30
+#: djangobb_forum/templates/forum/index.html:56
+#: djangobb_forum/templates/forum/moderate.html:26
+#: djangobb_forum/templates/forum/search_topics.html:24
+#: templates/dinette/mainindex.html:66
+#: templates/dinette/topic_detail_frag.html:39
+msgid "Last post"
+msgstr "Последнее сообщение"
+
+#: djangobb_forum/templates/forum/forum.html:42
+#: djangobb_forum/templates/forum/moderate.html:39
+msgid "Sticky:"
+msgstr "Прикреплен:"
+
+#: djangobb_forum/templates/forum/forum.html:45
+#: djangobb_forum/templates/forum/forum.html:47
+#: djangobb_forum/templates/forum/forum.html:54
+#: djangobb_forum/templates/forum/forum_row.html:34
+#: djangobb_forum/templates/forum/moderate.html:42
+#: djangobb_forum/templates/forum/moderate.html:44
+#: djangobb_forum/templates/forum/moderate.html:51
+#: djangobb_forum/templates/forum/search_topics.html:35
+#: djangobb_forum/templates/forum/search_topics.html:37
+#: djangobb_forum/templates/forum/search_topics.html:44
+#: templates/dinette/topic_detail_frag.html:26
+msgid "by"
+msgstr "от"
+
+#: djangobb_forum/templates/forum/forum.html:58
+#: djangobb_forum/templates/forum/moderate.html:56
+msgid "Forum is empty."
+msgstr "Форум пуст."
+
+#: djangobb_forum/templates/forum/forum.html:89
+msgid "Jump to"
+msgstr "Перейти к"
+
+#: djangobb_forum/templates/forum/forum.html:100
+#: djangobb_forum/templates/forum/topic.html:206
+msgid "Go"
+msgstr "Далее"
+
+#: djangobb_forum/templates/forum/forum.html:104
+msgid "Moderate forum"
+msgstr "Модерировать форум"
+
+#: djangobb_forum/templates/forum/header.html:14
+msgid "Index"
+msgstr "Начало"
+
+#: djangobb_forum/templates/forum/header.html:15
+#: djangobb_forum/templates/forum/users.html:39
+#: djangobb_forum/templates/forum/lofi/header.html:5
+msgid "User list"
+msgstr "Пользователи"
+
+#: djangobb_forum/templates/forum/header.html:16
+#: djangobb_forum/templates/forum/search_form.html:7
+#: djangobb_forum/templates/forum/users.html:29
+#: djangobb_forum/templates/forum/lofi/header.html:4
+#: templates/dinette/header_frag.html:14 templates/dinette/search.html:19
+#: templates/main/search.html:5
+msgid "Search"
+msgstr "Поиск"
+
+#: djangobb_forum/templates/forum/header.html:20
+#: djangobb_forum/templates/forum/topic.html:75
+msgid "PM"
+msgstr "PM"
+
+#: djangobb_forum/templates/forum/header.html:22
+msgid "Log out"
+msgstr "Выйти"
+
+#: djangobb_forum/templates/forum/header.html:24
+msgid "Log in"
+msgstr "Вход"
+
+#: djangobb_forum/templates/forum/header.html:31
+msgid "Logged in as"
+msgstr "Вошёл как"
+
+#: djangobb_forum/templates/forum/header.html:32
+msgid "Last visit:"
+msgstr "Последнее посещение:"
+
+#: djangobb_forum/templates/forum/header.html:34
+#, python-format
+msgid " There are new messages (%(new_msg)s)"
+msgstr " Есть новые сообщения (%(new_msg)s)"
+
+#: djangobb_forum/templates/forum/header.html:37
+msgid "You are not logged in."
+msgstr "Вход не произведён."
+
+#: djangobb_forum/templates/forum/header.html:40
+msgid "There are new reports"
+msgstr "Есть новые доклады"
+
+#: djangobb_forum/templates/forum/header.html:45
+msgid "Show new posts since last visit"
+msgstr "Отобразить новые отклики с момента последнего посещения"
+
+#: djangobb_forum/templates/forum/header.html:46
+msgid "Mark all topics as read"
+msgstr "Отметить все темы как прочитанные"
+
+#: djangobb_forum/templates/forum/header.html:56
+msgid "Notice"
+msgstr "Уведомление"
+
+#: djangobb_forum/templates/forum/index.html:71
+msgid "Board information"
+msgstr "Информация форума"
+
+#: djangobb_forum/templates/forum/index.html:75
+msgid "Board statistics"
+msgstr "Статистика форума"
+
+#: djangobb_forum/templates/forum/index.html:76
+msgid "Total number of registered users:"
+msgstr "Общее количество зарегистрированных пользователей:"
+
+#: djangobb_forum/templates/forum/index.html:77
+msgid "Total number of topics:"
+msgstr "Общее количество тем:"
+
+#: djangobb_forum/templates/forum/index.html:78
+msgid "Total number of posts:"
+msgstr "Общее количество откликов:"
+
+#: djangobb_forum/templates/forum/index.html:81
+msgid "User information"
+msgstr "Информация о пользователе"
+
+#: djangobb_forum/templates/forum/index.html:82
+msgid "Newest registered user:"
+msgstr "Последний зарегистрированный пользователь:"
+
+#: djangobb_forum/templates/forum/index.html:83
+msgid "Registered users online:"
+msgstr "Зарегистрированные пользователи в онлайне:"
+
+#: djangobb_forum/templates/forum/index.html:84
+msgid "Guests online:"
+msgstr "Гости в онлайне:"
+
+#: djangobb_forum/templates/forum/index.html:88
+msgid "Online:"
+msgstr "Онлайн:"
+
+#: djangobb_forum/templates/forum/index.html:112
+#: djangobb_forum/templates/forum/search_posts.html:67
+#: djangobb_forum/templates/forum/search_topics.html:76
+msgid "Search links"
+msgstr "Поисковые ссылки"
+
+#: djangobb_forum/templates/forum/index.html:113
+#: djangobb_forum/templates/forum/search_posts.html:68
+#: djangobb_forum/templates/forum/search_topics.html:77
+msgid "Show recent posts"
+msgstr "Отобразить свежие отклики"
+
+#: djangobb_forum/templates/forum/index.html:114
+#: djangobb_forum/templates/forum/search_posts.html:69
+#: djangobb_forum/templates/forum/search_topics.html:78
+msgid "Show unanswered posts"
+msgstr "Отобразить темы без ответов"
+
+#: djangobb_forum/templates/forum/index.html:116
+#: djangobb_forum/templates/forum/search_posts.html:71
+#: djangobb_forum/templates/forum/search_topics.html:80
+msgid "Show your subscribed topics"
+msgstr "Отобразить подписанные темы"
+
+#: djangobb_forum/templates/forum/index.html:117
+#: djangobb_forum/templates/forum/search_posts.html:72
+#: djangobb_forum/templates/forum/search_topics.html:81
+msgid "Show your posts"
+msgstr "Отобразить ваши темы"
+
+#: djangobb_forum/templates/forum/mail_to.html:7
+msgid "Send e-mail to"
+msgstr "Отправить почту для"
+
+#: djangobb_forum/templates/forum/mail_to.html:13
+msgid "Write and submit your e-mail message"
+msgstr "Написать и отправить ваше сообщение Е-почты"
+
+#: djangobb_forum/templates/forum/mail_to.html:21
+msgid ""
+"Please note that by using this form, your e-mail address will be disclosed "
+"to the recipient."
+msgstr ""
+"Пожалуйста, отметьте, что при использовании данной формы получатель не "
+"увидит вашего обратного адреса."
+
+#: djangobb_forum/templates/forum/moderate.html:67
+#: djangobb_forum/templates/forum/move_topic.html:34
+msgid "Move"
+msgstr "Переместить"
+
+#: djangobb_forum/templates/forum/moderate.html:69
+msgid "Open"
+msgstr "Открыть"
+
+#: djangobb_forum/templates/forum/moderate.html:70
+#: templates/dinette/moderation_frag.html:4
+msgid "Close"
+msgstr "Закрыть"
+
+#: djangobb_forum/templates/forum/moderators.html:3
+#: templates/dinette/mainindex.html:49
+msgid "Moderated by"
+msgstr "Администрируется"
+
+#: djangobb_forum/templates/forum/move_topic.html:7
+#: djangobb_forum/templates/forum/topic.html:212
+msgid "Move topic"
+msgstr "Переместить тему"
+
+#: djangobb_forum/templates/forum/move_topic.html:16
+msgid "Select destination of move"
+msgstr "Выбрать место для перемещения"
+
+#: djangobb_forum/templates/forum/move_topic.html:18
+msgid "Move to"
+msgstr "Перестить"
+
+#: djangobb_forum/templates/forum/pagination.html:3 main/models.py:38
+msgid "Pages"
+msgstr "Страницы"
+
+#: djangobb_forum/templates/forum/report.html:7
+msgid "Report post"
+msgstr "Отправка доклада"
+
+#: djangobb_forum/templates/forum/report.html:13
+msgid "Please enter a short reason why you are reporting this post"
+msgstr "Пожалуйста, введите краткое описание причины доклада о данном отклике."
+
+#: djangobb_forum/templates/forum/reputation.html:16
+msgid "Reputation of the user"
+msgstr "Репутация пользователя"
+
+#: djangobb_forum/templates/forum/reputation.html:22
+msgid "From user"
+msgstr "От пользователя"
+
+#: djangobb_forum/templates/forum/reputation.html:23
+msgid "For post in topic"
+msgstr "Об отклике в теме"
+
+#: djangobb_forum/templates/forum/reputation.html:25
+msgid "Estimation"
+msgstr "Оценка"
+
+#: djangobb_forum/templates/forum/reputation.html:26
+msgid "Date"
+msgstr "Дата"
+
+#: djangobb_forum/templates/forum/reputation.html:63
+msgid "Are you sure"
+msgstr "Вы уверены"
+
+#: djangobb_forum/templates/forum/reputation_form.html:7
+msgid "Please, fill the form"
+msgstr "Пожалуйста, заполните форму"
+
+#: djangobb_forum/templates/forum/reputation_form.html:17
+msgid "Your name:"
+msgstr "Ваше имя:"
+
+#: djangobb_forum/templates/forum/reputation_form.html:21
+msgid "To whom we change a reputation:"
+msgstr "Кому мы меняем репутацию:"
+
+#: djangobb_forum/templates/forum/reputation_form.html:29
+msgid "Method:"
+msgstr "Метод:"
+
+#: djangobb_forum/templates/forum/reputation_form.html:32
+msgid "Add of a reputation"
+msgstr "Добавить репутацию"
+
+#: djangobb_forum/templates/forum/reputation_form.html:34
+msgid "Reduction of a reputation"
+msgstr "Уменьшить репутацию"
+
+#: djangobb_forum/templates/forum/search_form.html:13
+msgid "Enter your search criteria"
+msgstr "Введите поисковый критерий"
+
+#: djangobb_forum/templates/forum/search_form.html:18
+msgid ""
+"To search by keyword, enter a term or terms to search for. Separate terms "
+"with spaces. To search by author enter the username of the author whose "
+"posts you wish to search for."
+msgstr ""
+"Для поиска по слову, введите соответствующие термин или термины. Разделяйте "
+"слова с помощью пробелов. Для поиска по автору введите его имя."
+
+#: djangobb_forum/templates/forum/search_form.html:24
+msgid "Select where to search"
+msgstr "Выберете место поиска"
+
+#: djangobb_forum/templates/forum/search_form.html:30
+msgid "All forums"
+msgstr "Все форумы"
+
+#: djangobb_forum/templates/forum/search_form.html:44
+msgid ""
+"Choose in which forum you would like to search and if you want to search in "
+"topic subjects, message text or both."
+msgstr ""
+"Выберите в каком форуме требуется произвести поиск и вид поиска: заголовки, "
+"тело или всё вместе."
+
+#: djangobb_forum/templates/forum/search_form.html:51
+msgid "Select how to view search results"
+msgstr "Выберите способ просмотра результатов поиска"
+
+#: djangobb_forum/templates/forum/search_form.html:66
+msgid "You can choose how you wish to sort and show your results."
+msgstr "Вы можете выбрать способ отображения и сортировки результатов."
+
+#: djangobb_forum/templates/forum/search_posts.html:24
+msgid "Replies:"
+msgstr "Отклик:"
+
+#: djangobb_forum/templates/forum/search_posts.html:28
+msgid "Go to post"
+msgstr "Перейти к отклику"
+
+#: djangobb_forum/templates/forum/search_posts.html:44
+#: djangobb_forum/templates/forum/search_topics.html:55
+msgid "Info"
+msgstr "Информация"
+
+#: djangobb_forum/templates/forum/search_posts.html:48
+#: djangobb_forum/templates/forum/search_topics.html:59
+msgid "Your search returned no hits."
+msgstr "Ничего не найдено."
+
+#: djangobb_forum/templates/forum/search_topics.html:15
+msgid "Search results"
+msgstr "Результаты поиска"
+
+#: djangobb_forum/templates/forum/topic.html:49
+msgid "From:"
+msgstr "Из:"
+
+#: djangobb_forum/templates/forum/topic.html:51
+#: djangobb_forum/templates/forum/user.html:127
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:69
+msgid "Registered:"
+msgstr "Зарегистрирован:"
+
+#: djangobb_forum/templates/forum/topic.html:52
+#: djangobb_forum/templates/forum/user.html:119
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:71
+msgid "Posts:"
+msgstr "Откликов:"
+
+#: djangobb_forum/templates/forum/topic.html:54
+msgid "IP:"
+msgstr "IP:"
+
+#: djangobb_forum/templates/forum/topic.html:70
+#: djangobb_forum/templates/forum/user.html:42
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:39
+msgid "Send e-mail"
+msgstr "Отправить Е-почту"
+
+#: djangobb_forum/templates/forum/topic.html:97
+msgid "Attachments:"
+msgstr "Вложения:"
+
+#: djangobb_forum/templates/forum/topic.html:105
+#: templates/dinette/replydetail_frag.html:42
+#: templates/dinette/topic_detail.html:116
+msgid "Online"
+msgstr "Онлайн"
+
+#: djangobb_forum/templates/forum/topic.html:107
+#: templates/dinette/replydetail_frag.html:44
+#: templates/dinette/topic_detail.html:118
+msgid "Offline"
+msgstr "Офлайн"
+
+#: djangobb_forum/templates/forum/topic.html:115
+msgid "Are you sure you want to delete this post?"
+msgstr "Вы уверены, что этот отклик надо удалить?"
+
+#: djangobb_forum/templates/forum/topic.html:119
+#: templates/accounts/profile.html:12 templates/comments/_item.html:21
+msgid "Edit"
+msgstr "Редактировать"
+
+#: djangobb_forum/templates/forum/topic.html:140
+msgid "Unsubscribe"
+msgstr "Отписаться"
+
+#: djangobb_forum/templates/forum/topic.html:142
+msgid "Subscribe"
+msgstr "Подписаться"
+
+#: djangobb_forum/templates/forum/topic.html:150
+msgid "Quick post"
+msgstr "Быстрый отклик"
+
+#: djangobb_forum/templates/forum/topic.html:195
+msgid "Jump to "
+msgstr "Перейти к"
+
+#: djangobb_forum/templates/forum/topic.html:209
+msgid "Moderator control"
+msgstr "Модераторское"
+
+#: djangobb_forum/templates/forum/topic.html:211
+msgid "Delete multiple posts"
+msgstr "Удалить несколько откликов"
+
+#: djangobb_forum/templates/forum/topic.html:214
+msgid "Open topic"
+msgstr "Открыть тему"
+
+#: djangobb_forum/templates/forum/topic.html:216
+msgid "Close topic"
+msgstr "Закрыть тему"
+
+#: djangobb_forum/templates/forum/topic.html:219
+msgid "Unstick topic"
+msgstr "Снять тему"
+
+#: djangobb_forum/templates/forum/topic.html:221
+msgid "Stick topic"
+msgstr "Прикрепить тему"
+
+#: djangobb_forum/templates/forum/upload_avatar.html:7
+msgid "Upload avatar"
+msgstr "Загрузить аватар"
+
+#: djangobb_forum/templates/forum/upload_avatar.html:13
+msgid "Enter an avatar file to upload"
+msgstr "Укажите файл с аватаром для загрузки"
+
+#: djangobb_forum/templates/forum/upload_avatar.html:19
+#, python-format
+msgid ""
+"An avatar is a small image that will be displayed under your username in "
+"your posts. It must not be any bigger than %(avatar_width)s x %"
+"(avatar_height)s pixels "
+msgstr ""
+"Аватаром является небольшое изображение, которое будет отображаться в ваших "
+"откликах. Его размеры не должны превышать %(avatar_width)s x %(avatar_height)"
+"s пикселов "
+
+#: djangobb_forum/templates/forum/upload_avatar.html:23
+msgid "Upload"
+msgstr "Загрузить"
+
+#: djangobb_forum/templates/forum/user.html:12
+#: djangobb_forum/templates/forum/profile/profile_menu.html:8
+#: djangobb_forum/templates/forum/profile/profile_messaging.html:16
+#: djangobb_forum/templates/forum/profile/profile_personal.html:9
+msgid "Personal"
+msgstr "Персональное"
+
+#: djangobb_forum/templates/forum/user.html:15
+msgid "Username:"
+msgstr "Имя пользователя:"
+
+#: djangobb_forum/templates/forum/user.html:17
+#: djangobb_forum/templates/forum/users.html:46
+msgid "Title"
+msgstr "Заголовок"
+
+#: djangobb_forum/templates/forum/user.html:19
+msgid "Real name:"
+msgstr "Настоящее имя:"
+
+#: djangobb_forum/templates/forum/user.html:23
+#: djangobb_forum/templates/forum/user.html:29
+#: djangobb_forum/templates/forum/user.html:35
+#: djangobb_forum/templates/forum/user.html:61
+#: djangobb_forum/templates/forum/user.html:67
+#: djangobb_forum/templates/forum/user.html:73
+#: djangobb_forum/templates/forum/user.html:79
+#: djangobb_forum/templates/forum/user.html:85
+#: djangobb_forum/templates/forum/user.html:107
+#: djangobb_forum/templates/forum/user.html:125
+msgid "(Unknown)"
+msgstr "(Неизвестно)"
+
+#: djangobb_forum/templates/forum/user.html:31
+msgid "Website:"
+msgstr "Сайт:"
+
+#: djangobb_forum/templates/forum/user.html:37
+msgid "E-mail:"
+msgstr "Е-почта:"
+
+#: djangobb_forum/templates/forum/user.html:44
+msgid "(Hidden)"
+msgstr "(Спрятан)"
+
+#: djangobb_forum/templates/forum/user.html:54
+#: djangobb_forum/templates/forum/profile/profile_menu.html:9
+#: djangobb_forum/templates/forum/profile/profile_messaging.html:9
+msgid "Messaging"
+msgstr "Общение"
+
+#: djangobb_forum/templates/forum/user.html:57
+msgid "Jabber:"
+msgstr "Джаббер:"
+
+#: djangobb_forum/templates/forum/user.html:63
+msgid "ICQ:"
+msgstr "ICQ:"
+
+#: djangobb_forum/templates/forum/user.html:69
+msgid "MSN Messenger:"
+msgstr "MSN Messenger:"
+
+#: djangobb_forum/templates/forum/user.html:75
+msgid "AOL IM:"
+msgstr "AOL IM:"
+
+#: djangobb_forum/templates/forum/user.html:81
+msgid "Yahoo! Messenger:"
+msgstr "Yahoo! Messenger:"
+
+#: djangobb_forum/templates/forum/user.html:94
+#: djangobb_forum/templates/forum/profile/profile_menu.html:10
+#: djangobb_forum/templates/forum/profile/profile_personality.html:9
+msgid "Personality"
+msgstr "Понты"
+
+#: djangobb_forum/templates/forum/user.html:97
+msgid "Avatar:"
+msgstr "Аватар:"
+
+#: djangobb_forum/templates/forum/user.html:101
+msgid "(No avatar)"
+msgstr "(Нет аватара)"
+
+#: djangobb_forum/templates/forum/user.html:103
+msgid "Signature:"
+msgstr "Подпись:"
+
+#: djangobb_forum/templates/forum/user.html:116
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:67
+msgid "User activity"
+msgstr "Действия пользователя"
+
+#: djangobb_forum/templates/forum/user.html:120
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:72
+msgid "Show all posts"
+msgstr "Показать все отклики"
+
+#: djangobb_forum/templates/forum/user.html:121
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:70
+msgid "Last post:"
+msgstr "Последний отклик:"
+
+#: djangobb_forum/templates/forum/users.html:7
+msgid "User search"
+msgstr "Поиск пользователя"
+
+#: djangobb_forum/templates/forum/users.html:12
+msgid "Find and sort users"
+msgstr "Найти и отсортировать пользователей"
+
+#: djangobb_forum/templates/forum/users.html:25
+msgid ""
+"Enter a username to search for. The username field can be left blank. Sort "
+"users by name, date registered or number of posts and in ascending/"
+"descending order."
+msgstr ""
+"Введите имя пользователя для поиска. Поле с именем может быть оставлено "
+"пустым. Сортировка пользователей по имени, дате регистрации или количеству "
+"откликов в любом порядке."
+
+#: djangobb_forum/templates/forum/lofi/forum.html:6
+#: djangobb_forum/templates/forum/lofi/index.html:6
+#: djangobb_forum/templates/forum/lofi/topic.html:6
+msgid "Full Version:"
+msgstr "Полная версия:"
+
+#: djangobb_forum/templates/forum/lofi/forum.html:19
+msgid "IMPORTANT:"
+msgstr "ВАЖНО:"
+
+#: djangobb_forum/templates/forum/lofi/forum.html:19
+#: templates/dinette/category_details.html:84
+#: templates/dinette/new_topics.html:24
+#: templates/dinette/topic_detail_frag.html:32
+msgid "replies"
+msgstr "откликов"
+
+#: djangobb_forum/templates/forum/lofi/index.html:18
+#: templates/dinette/mainindex.html:32 templates/dinette/mainindex.html:63
+msgid "posts"
+msgstr "сообщений"
+
+#: djangobb_forum/templates/forum/profile/profile_admin.html:16
+msgid "Delete (administrators only) or ban user"
+msgstr "Удалить (только для администраторов) или забанить пользователя"
+
+#: djangobb_forum/templates/forum/profile/profile_admin.html:18
+msgid "Delete user"
+msgstr "Удалить пользователя"
+
+#: djangobb_forum/templates/forum/profile/profile_admin.html:18
+msgid "Ban user"
+msgstr "Забанить пользователя"
+
+#: djangobb_forum/templates/forum/profile/profile_admin.html:25
+msgid "Set moderator access"
+msgstr "Установить доступ модератора"
+
+#: djangobb_forum/templates/forum/profile/profile_admin.html:27
+msgid ""
+"Choose what forums this user should be allowed to moderate. Note: This only "
+"applies to moderators. Administrators always have full permissions in all "
+"forums."
+msgstr ""
+"Выберите какие форумы этот пользователь сможет модерировать. Отметьте: Это "
+"применимо только к модераторам. Администраторы всегда имеют полный доступ ко "
+"всем форумам."
+
+#: djangobb_forum/templates/forum/profile/profile_admin.html:31
+msgid "Update forums"
+msgstr "Обновить форумы"
+
+#: djangobb_forum/templates/forum/profile/profile_display.html:9
+#: djangobb_forum/templates/forum/profile/profile_menu.html:11
+msgid "Display"
+msgstr "Отображение"
+
+#: djangobb_forum/templates/forum/profile/profile_display.html:15
+msgid "Select your preferred style"
+msgstr "Укажите предпочитаемый стиль"
+
+#: djangobb_forum/templates/forum/profile/profile_display.html:18
+msgid "If you like you can use a different visual style for this forum."
+msgstr "Если желаете, то вы можете выбрать другой стиль для данного форума."
+
+#: djangobb_forum/templates/forum/profile/profile_display.html:35
+msgid "Post display legend"
+msgstr "Легенда отлика"
+
+#: djangobb_forum/templates/forum/profile/profile_display.html:37
+msgid "Post display info"
+msgstr "Информация отклика"
+
+#: djangobb_forum/templates/forum/profile/profile_display.html:45
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:77
+#: djangobb_forum/templates/forum/profile/profile_messaging.html:31
+#: djangobb_forum/templates/forum/profile/profile_personal.html:32
+#: djangobb_forum/templates/forum/profile/profile_personality.html:46
+#: djangobb_forum/templates/forum/profile/profile_privacy.html:26
+msgid "When you update your profile, you will be redirected back to this page."
+msgstr ""
+"После обновления вашего форума вы будете перенаправлены обратно на эту "
+"страницу."
+
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:9
+#: djangobb_forum/templates/forum/profile/profile_menu.html:7
+msgid "Essentials"
+msgstr "Главное"
+
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:15
+msgid "Enter your username and password"
+msgstr "Введите ваш логин и пароль"
+
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:33
+msgid "Enter a valid e-mail address"
+msgstr "Введите адрес вашей Е-почты"
+
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:47
+msgid "Set your localization options"
+msgstr "Укажите локализацию"
+
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:51
+msgid ""
+"Timezone: For the forum to display times correctly you must select your "
+"local timezone."
+msgstr ""
+"Временная зона: Чтобы форум отображал время корректно, следует указать вашу "
+"временную зону."
+
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:57
+msgid ""
+"Language: You can choose which language you wish to use to view the forum"
+msgstr "Язык: Вы можете выбрать предпочитаемый язык"
+
+#: djangobb_forum/templates/forum/profile/profile_menu.html:3
+msgid "Profile menu"
+msgstr "Профиль"
+
+#: djangobb_forum/templates/forum/profile/profile_menu.html:12
+#: djangobb_forum/templates/forum/profile/profile_privacy.html:9
+msgid "Privacy"
+msgstr "Настройки"
+
+#: djangobb_forum/templates/forum/profile/profile_menu.html:13
+msgid "Site profile"
+msgstr "Профиль на сайте"
+
+#: djangobb_forum/templates/forum/profile/profile_personal.html:16
+msgid "Enter your personal details"
+msgstr "Введите данные о вас"
+
+#: djangobb_forum/templates/forum/profile/profile_personal.html:22
+msgid "Leave blank to use forum default."
+msgstr "Оставьте пустым, для отображения информации по-умолчанию."
+
+#: djangobb_forum/templates/forum/profile/profile_personality.html:15
+msgid "Set your avatar display options"
+msgstr "Укажите вариант отображения вашего аватара"
+
+#: djangobb_forum/templates/forum/profile/profile_personality.html:18
+msgid ""
+"An avatar is a small image that will be displayed with all your posts. You "
+"can upload an avatar by clicking the link below. The checkbox 'Use avatar' "
+"below must be checked in order for the avatar to be visible in your posts."
+msgstr ""
+"Аватаром является небольшое изображение, которое отображается во всех ваших "
+"откликах. Вы можете загрузить аватар с помощью ссылки, размещённой ниже. "
+"Отметьте ниже элемент 'Использовать аватар' для отображения вашего аватара в "
+"откликах."
+
+#: djangobb_forum/templates/forum/profile/profile_personality.html:19
+msgid ""
+"We are using <a href='http://gravatar.com/'>gravatar.com</a> for avatar "
+"display."
+msgstr ""
+"Мы используемп <a href='http://gravatar.com/'>gravatar.com</a> для "
+"отображения аватара."
+
+#: djangobb_forum/templates/forum/profile/profile_personality.html:22
+msgid "Use avatar."
+msgstr "Использовать аватар."
+
+#: djangobb_forum/templates/forum/profile/profile_personality.html:29
+msgid "Compose your signature"
+msgstr "Создайте свою подпись"
+
+#: djangobb_forum/templates/forum/profile/profile_personality.html:32
+msgid ""
+"A signature is a small piece of text that is attached to your posts. In it, "
+"you can enter just about anything you like. Perhaps you would like to enter "
+"your favourite quote or your star sign. It's up to you! All linebrackes wiil "
+"be converted to &lt;br/&gt; and URLs will be converted to links."
+msgstr ""
+"Подписью является небольшой кусок текста, который добавляется к вашим "
+"откликам. В подписи вы можете ввести всё, что угодно. Но мы советуем держать "
+"себя в руках ;) Все разрывы строк конвертируются в &lt;br/&gt;, а URL-ы "
+"заменяются ссылками."
+
+#: djangobb_forum/templates/forum/profile/profile_personality.html:41
+msgid "No signature currently stored in profile."
+msgstr "Подпись не создана."
+
+#: djangobb_forum/templates/forum/profile/profile_privacy.html:16
+msgid "Set your privacy options"
+msgstr "Укажите опции защиты информации"
+
+#: djangobb_forum/templates/forum/profile/profile_privacy.html:19
+msgid ""
+"Select whether you want your e-mail address to be viewable to other users or "
+"not and if you want other users to be able to send you e-mail via the forum "
+"(form e-mail) or not."
+msgstr ""
+"Укажите, желаете ли вы показывать адрес своей Е-почты другим пользователям "
+"или нет, а также разрешать или нет отправку вам почты от других "
+"пользователей через форум. "
 
 #: examples/feeds.py:7
 msgid "Russian DjangoBook Examples"
@@ -500,11 +1798,7 @@ msgstr "раздел"
 msgid "Page"
 msgstr "Страница"
 
-#: main/models.py:38
-msgid "Pages"
-msgstr "Страницы"
-
-#: main/views.py:52
+#: main/views.py:54
 msgid "Feedback sent success!"
 msgstr "Отзыв успешно отправлен!"
 
@@ -528,11 +1822,6 @@ msgstr "Потерянная страница..."
 #: templates/_menu.html:4
 msgid "Main"
 msgstr "Главная"
-
-#: templates/_menu.html:6 templates/dinette/base.html:14
-#: templates/dinette/mainindex.html:30
-msgid "Forum"
-msgstr "Форум"
 
 #: templates/_menu.html:7 templates/examples/index.html:5
 #: templates/examples/index.html.py:8
@@ -602,31 +1891,23 @@ msgstr "Изменить профиль"
 msgid "Edit profile"
 msgstr "Изменить профиль"
 
-#: templates/accounts/edit.html:22
-msgid "Save"
-msgstr "Сохранить"
+#: templates/accounts/edit.html:18
+msgid "Edit forum profile"
+msgstr "Изменить профиль форума"
 
-#: templates/accounts/profile.html:5
-msgid "Profile"
-msgstr "Профиль"
-
-#: templates/accounts/profile.html:12
-msgid "edit"
-msgstr "редактировать"
+#: templates/accounts/profile.html:10
+msgid "Forum profile"
+msgstr "Профиль форума"
 
 #: templates/accounts/profile.html:23
-msgid "Userrank"
-msgstr "Карма пользователя"
+msgid "Forum posts count"
+msgstr "Количество откликов в форуме"
 
 #: templates/accounts/profile.html:24
-msgid "Posts count"
-msgstr "Откликов"
-
-#: templates/accounts/profile.html:25
 msgid "Comments count"
 msgstr "Комментариев"
 
-#: templates/accounts/profile.html:29
+#: templates/accounts/profile.html:28
 msgid "Biography"
 msgstr "Биография"
 
@@ -641,18 +1922,6 @@ msgstr "Ответ"
 #: templates/comments/_item.html:16
 msgid "Link"
 msgstr "Ссылка"
-
-#: templates/comments/_item.html:18
-msgid "Delete"
-msgstr "Удалить"
-
-#: templates/comments/_item.html:21
-msgid "Edit"
-msgstr "Редактировать"
-
-#: templates/comments/form.html:13
-msgid "Post"
-msgstr "Отправить"
 
 #: templates/comments/form.html:43
 msgid "Enter comment please."
@@ -700,12 +1969,6 @@ msgstr "Новая тема"
 msgid "Login to start New Topic"
 msgstr "Произведите вход для создания новой темы"
 
-#: templates/dinette/category_details.html:84
-#: templates/dinette/new_topics.html:24
-#: templates/dinette/topic_detail_frag.html:32
-msgid "replies"
-msgstr "откликов"
-
 #: templates/dinette/category_details.html:85
 #: templates/dinette/new_topics.html:25
 #: templates/dinette/topic_detail_frag.html:36
@@ -724,11 +1987,6 @@ msgstr "Проскочить до содержимого"
 #: templates/dinette/header_frag.html:11
 msgid "Home"
 msgstr "Домой"
-
-#: templates/dinette/header_frag.html:14 templates/dinette/search.html:19
-#: templates/main/search.html:5
-msgid "Search"
-msgstr "Поиск"
 
 #: templates/dinette/header_frag.html:18
 msgid "New topics"
@@ -749,19 +2007,6 @@ msgstr "Темы без ответов"
 #: templates/dinette/mainindex.html:31 templates/dinette/mainindex.html:60
 msgid "topics"
 msgstr "темы"
-
-#: templates/dinette/mainindex.html:32 templates/dinette/mainindex.html:63
-msgid "posts"
-msgstr "сообщений"
-
-#: templates/dinette/mainindex.html:49
-msgid "Moderated by"
-msgstr "Администрируется"
-
-#: templates/dinette/mainindex.html:66
-#: templates/dinette/topic_detail_frag.html:39
-msgid "Last post"
-msgstr "Последнее сообщение"
 
 #: templates/dinette/mainindex.html:85
 msgid "Forum statistics"
@@ -790,10 +2035,6 @@ msgstr "Пользователи в сети"
 #: templates/dinette/moderation_frag.html:4
 msgid "Reopen"
 msgstr "Открыть заново"
-
-#: templates/dinette/moderation_frag.html:4
-msgid "Close"
-msgstr "Закрыть"
 
 #: templates/dinette/moderation_frag.html:5
 msgid "Un Stickify"
@@ -828,22 +2069,6 @@ msgstr "Отклик от"
 msgid "Permanent link to this post"
 msgstr "Постоянная ссылка на данный отклик"
 
-#: templates/dinette/replydetail_frag.html:42
-#: templates/dinette/topic_detail.html:116
-msgid "Online"
-msgstr "Онлайн"
-
-#: templates/dinette/replydetail_frag.html:44
-#: templates/dinette/topic_detail.html:118
-msgid "Offline"
-msgstr "Офлайн"
-
-#: templates/dinette/replydetail_frag.html:59
-#: templates/dinette/topic_detail.html:72
-#: templates/dinette/topic_detail.html:124
-msgid "Posts"
-msgstr "Откликов"
-
 #: templates/dinette/search.html:36
 msgid "We do not have any results for this query."
 msgstr "Нам нечем ответить на этот запрос."
@@ -870,23 +2095,6 @@ msgstr "Предыдущий"
 #: templates/dinette/topic_detail.html:69
 msgid "RSS Topic Feed"
 msgstr "RSS раздача тем"
-
-#: templates/dinette/topic_detail_frag.html:18
-msgid "Closed"
-msgstr "Закрыт"
-
-#: templates/dinette/topic_detail_frag.html:22
-msgid "Sticky"
-msgstr "Прикреплен"
-
-#: templates/dinette/topic_detail_frag.html:26
-msgid "by"
-msgstr "от"
-
-#: templates/examples/category.html:15 templates/examples/detail.html:12
-#: templates/examples/index.html:18
-msgid "Author"
-msgstr "Автор"
 
 #: templates/main/_toc.html:2
 msgid "Table of contents"
@@ -928,14 +2136,20 @@ msgstr "или"
 msgid "You are authenticated already"
 msgstr "Вы уже аутентифицированы"
 
+#~ msgid "last session activity"
+#~ msgstr "последняя активность"
+
+#~ msgid "edit"
+#~ msgstr "редактировать"
+
+#~ msgid "Userrank"
+#~ msgstr "Карма пользователя"
+
 #~ msgid "Member"
 #~ msgstr "Член сообщества"
 
 #~ msgid "Senior Member"
 #~ msgstr "Спер член сообщества"
-
-#~ msgid "Unknown"
-#~ msgstr "Неизвестно"
 
 #~ msgid "Claim status"
 #~ msgstr "Статус жалобы"
@@ -948,9 +2162,6 @@ msgstr "Вы уже аутентифицированы"
 
 #~ msgid "Mark selected claims as invalid"
 #~ msgstr "Отметить выделенное как отклоненное"
-
-#~ msgid "Notify"
-#~ msgstr "Уведомление"
 
 #~ msgid "Claim statuses"
 #~ msgstr "Состояния жалобы"

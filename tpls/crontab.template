@@ -6,3 +6,5 @@ MAILTO="${web_admin_email}"
 
 # Everyday dump
 0 5 * * *       ${hosting_code_dir}/conf/dump.sh
+# Forum index every 6 hours
+0 */6 * * *     ${hosting_code_dir}/conf/forum_index.sh
