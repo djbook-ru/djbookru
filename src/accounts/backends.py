@@ -1,5 +1,6 @@
 from django.contrib.auth.backends import ModelBackend
 from accounts.models import User
+from django.contrib.auth.models import User as AuthUser
 from socialauth.lib import oauthtwitter
 from socialauth.models import OpenidProfile as UserAssociation, TwitterUserProfile, FacebookUserProfile, AuthMeta
 from socialauth.lib.facebook import get_user_info, get_facebook_signature
@@ -59,7 +60,7 @@ class OpenIdBackend(object):
                 email =  None #'%s@example.openid.com'%(nickname)
             else:
                 valid_username = True
-            name_count = User.objects.filter(username__startswith = nickname).count()
+            name_count = AuthUser.objects.filter(username__startswith = nickname).count()
             if name_count:
                 username = '%s%s'%(nickname, name_count + 1)
                 user = User.objects.create_user(username,email or '')
@@ -113,7 +114,7 @@ class TwitterBackend(object):
             return user
         except TwitterUserProfile.DoesNotExist:
             #Create new user
-            same_name_count = User.objects.filter(username__startswith = screen_name).count()
+            same_name_count = AuthUser.objects.filter(username__startswith = screen_name).count()
             if same_name_count:
                 username = '%s%s' % (screen_name, same_name_count + 1)
             else:
@@ -162,7 +163,7 @@ class FacebookBackend(object):
                     return profile.user
                 except FacebookUserProfile.DoesNotExist:
                     fb_data = user_info_response[0]
-                    name_count = User.objects.filter(username__istartswith = username).count()
+                    name_count = AuthUser.objects.filter(username__istartswith = username).count()
                     if name_count:
                         username = '%s%s' % (username, name_count + 1)
                     #user_email = '%s@facebookuser.%s.com'%(user_info_response[0]['first_name'], settings.SITE_NAME)
