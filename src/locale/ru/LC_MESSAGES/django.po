@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-22 14:27+0300\n"
+"POT-Creation-Date: 2010-12-24 10:04+0300\n"
 "PO-Revision-Date: 2010-12-22 14:38+0300\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -754,7 +754,7 @@ msgstr "Личные права"
 msgid "Default markup"
 msgstr "Стандартная разметка"
 
-#: djangobb_forum/models.py:283 djangobb_forum/templates/forum/header.html:18
+#: djangobb_forum/models.py:283 djangobb_forum/templates/forum/header.html:19
 #: djangobb_forum/templates/forum/topic.html:65
 #: djangobb_forum/templates/forum/user.html:7
 #: templates/accounts/profile.html:5
@@ -863,7 +863,7 @@ msgstr "Напишите своё сообщение и отправьте"
 #: djangobb_forum/templates/forum/search_form.html:71
 #: djangobb_forum/templates/forum/topic.html:174
 #: djangobb_forum/templates/forum/profile/profile_display.html:45
-#: djangobb_forum/templates/forum/profile/profile_essentials.html:77
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:79
 #: djangobb_forum/templates/forum/profile/profile_messaging.html:31
 #: djangobb_forum/templates/forum/profile/profile_personal.html:32
 #: djangobb_forum/templates/forum/profile/profile_personality.html:46
@@ -998,49 +998,54 @@ msgstr "Пользователи"
 msgid "Search"
 msgstr "Поиск"
 
-#: djangobb_forum/templates/forum/header.html:20
+#: djangobb_forum/templates/forum/header.html:17
+#: templates/main/feedback.html:5
+msgid "Feedback"
+msgstr "Обратная связь"
+
+#: djangobb_forum/templates/forum/header.html:21
 #: djangobb_forum/templates/forum/topic.html:75
 msgid "PM"
 msgstr "PM"
 
-#: djangobb_forum/templates/forum/header.html:22
+#: djangobb_forum/templates/forum/header.html:23
 msgid "Log out"
 msgstr "Выйти"
 
-#: djangobb_forum/templates/forum/header.html:24
+#: djangobb_forum/templates/forum/header.html:25
 msgid "Log in"
 msgstr "Вход"
 
-#: djangobb_forum/templates/forum/header.html:31
+#: djangobb_forum/templates/forum/header.html:32
 msgid "Logged in as"
 msgstr "Вошёл как"
 
-#: djangobb_forum/templates/forum/header.html:32
+#: djangobb_forum/templates/forum/header.html:33
 msgid "Last visit:"
 msgstr "Последнее посещение:"
 
-#: djangobb_forum/templates/forum/header.html:34
+#: djangobb_forum/templates/forum/header.html:35
 #, python-format
 msgid " There are new messages (%(new_msg)s)"
 msgstr " Есть новые сообщения (%(new_msg)s)"
 
-#: djangobb_forum/templates/forum/header.html:37
+#: djangobb_forum/templates/forum/header.html:38
 msgid "You are not logged in."
 msgstr "Вход не произведён."
 
-#: djangobb_forum/templates/forum/header.html:40
+#: djangobb_forum/templates/forum/header.html:41
 msgid "There are new reports"
 msgstr "Есть новые доклады"
 
-#: djangobb_forum/templates/forum/header.html:45
+#: djangobb_forum/templates/forum/header.html:46
 msgid "Show new posts since last visit"
 msgstr "Отобразить новые отклики с момента последнего посещения"
 
-#: djangobb_forum/templates/forum/header.html:46
+#: djangobb_forum/templates/forum/header.html:47
 msgid "Mark all topics as read"
 msgstr "Отметить все темы как прочитанные"
 
-#: djangobb_forum/templates/forum/header.html:56
+#: djangobb_forum/templates/forum/header.html:57
 msgid "Notice"
 msgstr "Уведомление"
 
@@ -1490,7 +1495,7 @@ msgid "User activity"
 msgstr "Действия пользователя"
 
 #: djangobb_forum/templates/forum/user.html:120
-#: djangobb_forum/templates/forum/profile/profile_essentials.html:72
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:73
 msgid "Show all posts"
 msgstr "Показать все отклики"
 
@@ -1591,7 +1596,7 @@ msgid "Post display info"
 msgstr "Информация отклика"
 
 #: djangobb_forum/templates/forum/profile/profile_display.html:45
-#: djangobb_forum/templates/forum/profile/profile_essentials.html:77
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:79
 #: djangobb_forum/templates/forum/profile/profile_messaging.html:31
 #: djangobb_forum/templates/forum/profile/profile_personal.html:32
 #: djangobb_forum/templates/forum/profile/profile_personality.html:46
@@ -2103,10 +2108,6 @@ msgstr "Содержимое"
 #: templates/main/_user_counter.html:4
 msgid "Users number"
 msgstr "Всего пользователей"
-
-#: templates/main/feedback.html:5
-msgid "Feedback"
-msgstr "Обратная связь"
 
 #: templates/main/feedback.html:8
 msgid "You can send message to us"
