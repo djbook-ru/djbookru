@@ -15,7 +15,7 @@ FACEBOOK_API_SECRET = getattr(settings, 'FACEBOOK_API_SECRET', '')
 FACEBOOK_REST_SERVER = getattr(settings, 'FACEBOOK_REST_SERVER', 'http://api.facebook.com/restserver.php')
 
 class CustomUserBackend(ModelBackend):
-    
+
     def authenticate(self, username=None, password=None):
         try:
             user = User.objects.get(username=username)
@@ -23,13 +23,13 @@ class CustomUserBackend(ModelBackend):
                 return user
         except User.DoesNotExist:
             return None
-        
+
     def get_user(self, user_id):
         try:
             return User.objects.get(pk=user_id)
         except User.DoesNotExist:
             return None
-        
+
 class OpenIdBackend(object):
     def authenticate(self, openid_key, request, provider):
         try:
@@ -49,7 +49,7 @@ class OpenIdBackend(object):
                 else:
                     email = request.openid.ax.get('email')
                     nickname = request.openid.ax.get('nickname')
- 
+
             if nickname is None :
                 if email:
                     nickname = email.split('@')[0]
@@ -60,14 +60,9 @@ class OpenIdBackend(object):
                 email =  None #'%s@example.openid.com'%(nickname)
             else:
                 valid_username = True
-            name_count = AuthUser.objects.filter(username__startswith = nickname).count()
-            if name_count:
-                username = '%s%s'%(nickname, name_count + 1)
-                user = User.objects.create_user(username,email or '')
-            else:
-                user = User.objects.create_user(nickname,email or '')
-            user.save()
- 
+
+            user, created = AuthUser.objects.get_or_create(username=nickname.lower(),
+                                                           email=email or '')
             #create openid association
             assoc = UserAssociation()
             assoc.openid_key = openid_key
@@ -79,19 +74,19 @@ class OpenIdBackend(object):
             if valid_username:
                 assoc.is_username_valid = True
             assoc.save()
- 
+
             #Create AuthMeta
             auth_meta = AuthMeta(user = user, provider = provider)
             auth_meta.save()
             return user
- 
+
     def get_user(self, user_id):
         try:
             user = User.objects.get(pk = user_id)
             return user
         except User.DoesNotExist:
             return None
-        
+
 class TwitterBackend(object):
     """
     TwitterBackend for authentication
@@ -107,7 +102,7 @@ class TwitterBackend(object):
             raise
 
         screen_name = userinfo.screen_name
-        
+
         try:
             user_profile = TwitterUserProfile.objects.get(screen_name = screen_name)
             user = user_profile.user
@@ -145,16 +140,16 @@ class TwitterBackend(object):
             return User.objects.get(pk=user_id)
         except:
             return None
-        
+
 
 class FacebookBackend(object):
-    
+
     def authenticate(self, cookies):
         API_KEY = FACEBOOK_API_KEY
-        API_SECRET = FACEBOOK_API_SECRET   
+        API_SECRET = FACEBOOK_API_SECRET
         REST_SERVER = FACEBOOK_REST_SERVER
         if API_KEY in cookies:
-            signature_hash = get_facebook_signature(API_KEY, API_SECRET, cookies, True)                
+            signature_hash = get_facebook_signature(API_KEY, API_SECRET, cookies, True)
             if(signature_hash == cookies[API_KEY]) and (datetime.fromtimestamp(float(cookies[API_KEY+'_expires'])) > datetime.now()):
                 user_info_response  = get_user_info(API_KEY, API_SECRET, cookies)
                 username = user_info_response[0]['first_name']
@@ -178,12 +173,12 @@ class FacebookBackend(object):
                     return user
             else:
                 return None
-                    
+
         else:
             return None
-    
+
     def get_user(self, user_id):
         try:
             return User.objects.get(pk=user_id)
         except:
-            return None                
+            return None
