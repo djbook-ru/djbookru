@@ -9,4 +9,5 @@ whoosh
 django-haystack
 -e git+http://github.com/RaD/django-nezabudka.git/#egg=django-nezabudka
 -e git+http://github.com/clintecker/django-google-analytics.git/#egg=django-google_analytics
+-e git+http://github.com/andrewebdev/django-adzone.git/#egg=django-adzone
 -e hg+http://bitbucket.org/jezdez/django-robots/#egg=django-robots

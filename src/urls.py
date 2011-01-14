@@ -13,6 +13,7 @@ js_info_dict = {
 urlpatterns = patterns('',
     (r'^', include('main.urls', 'main')),
     url(r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict, name='js_i18n_catalog'),
+    (r'^adzone/', include('adzone.urls')),
     (r'^news/', include('news.urls', 'news')),
     (r'^claims/', include('claims.urls', 'claims')),
     (r'^examples/', include('examples.urls', 'examples')),
