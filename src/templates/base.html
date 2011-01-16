@@ -19,6 +19,7 @@
         <link href="/news/feed" rel="alternate" type="application/rss+xml" title="{% trans 'The freshest news about Russian version of DjangoBook' %}"/>
         <link href="/examples/feed" rel="alternate" type="application/rss+xml" title="{% trans 'Newly examples from Russian DjangoBook' %}"/>
 
+        {% if not debug %}{% analytics_async "UA-3919032-6" %}{% endif %}
         <script type="text/javascript" src="{% url js_i18n_catalog %}"></script>
         <script src="{{ MEDIA_URL }}js/jquery-1.4.2.min.js"></script>
         <script src="{{ MEDIA_URL }}js/jquery-ui-1.8.4.custom.min.js"></script>
@@ -71,5 +72,4 @@
 
         {% include '_menu.html' %}
     </body>
-{% if not debug %}{% analytics "UA-3919032-6" %}{% endif %}
 </html>
