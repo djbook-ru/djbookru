@@ -1,3 +1,4 @@
+antfarm_quiet=True
 web_server_name=djbookru
 web_admin_name=Ruslan Popov
 web_admin_email=ruslan.popov@gmail.com

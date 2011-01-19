@@ -38,16 +38,36 @@
             <arg line="${basedir}/env"/>
           </exec>
           <echo message="Install PIP into the virtual environment."/>
-          <exec executable="${basedir}/env/bin/easy_install" failonerror="true">
-            <arg line="-q pip"/>
-          </exec>
+          <if>
+            <equals arg1="${antfarm_quiet}" arg2="True"/>
+            <then>
+              <exec executable="${basedir}/env/bin/easy_install" failonerror="true">
+                <arg line="-q pip"/>
+              </exec>
+            </then>
+            <else>
+              <exec executable="${basedir}/env/bin/easy_install" failonerror="true">
+                <arg line="pip"/>
+              </exec>
+            </else>
+          </if>
           <echo message="Source the virtual environment."/>
           <property name="sysenv.PATH" value="${basedir}/env/lib/python2.6/site-packages:%{sysenv.PATH}"/>
           <property name="sysenv.PYTHON_EGG_CACHE" value="${basedir}/env/.python-eggs:%{sysenv.PYTHON_EGG_CACHE}"/>
           <echo message="Install dependencies into the virtual environment. Please wait..."/>
-          <exec executable="${basedir}/env/bin/pip" failonerror="true">
-            <arg line="install -q -E ${basedir}/env -r ./deps.txt"/>
-          </exec>
+          <if>
+            <equals arg1="${antfarm_quiet}" arg2="True"/>
+            <then>
+              <exec executable="${basedir}/env/bin/pip" failonerror="true">
+                <arg line="install -q -E ${basedir}/env -r ./deps.txt"/>
+              </exec>
+            </then>
+            <else>
+              <exec executable="${basedir}/env/bin/pip" failonerror="true">
+                <arg line="install -E ${basedir}/env -r ./deps.txt"/>
+              </exec>
+            </else>
+          </if>
           <echo message="Source environment with: . ${basedir}/env/bin/activate"/>
           <echo message="Use deactivate to disable virtual environment."/>
         </sequential>
@@ -73,9 +93,19 @@
           <property name="sysenv.PATH" value="${basedir}/env/lib/python2.6/site-packages:%{sysenv.PATH}"/>
           <property name="sysenv.PYTHON_EGG_CACHE" value="${basedir}/env/.python-eggs:%{sysenv.PYTHON_EGG_CACHE}"/>
           <echo message="Update dependencies in the virtual environment. Please wait..."/>
-          <exec executable="${basedir}/env/bin/pip" failonerror="true">
-            <arg line="install -q -E ${basedir}/env -r ./deps.txt"/>
-          </exec>
+          <if>
+            <equals arg1="${antfarm_quiet}" arg2="True"/>
+            <then>
+              <exec executable="${basedir}/env/bin/pip" failonerror="true">
+                <arg line="install -q -E ${basedir}/env -r ./deps.txt"/>
+              </exec>
+            </then>
+            <else>
+              <exec executable="${basedir}/env/bin/pip" failonerror="true">
+                <arg line="install -E ${basedir}/env -r ./deps.txt"/>
+              </exec>
+            </else>
+          </if>
           <echo message="Source environment with: . ${basedir}/env/bin/activate"/>
           <echo message="Use deactivate to disable virtual environment."/>
         </sequential>
