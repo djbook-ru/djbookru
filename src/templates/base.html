@@ -1,4 +1,4 @@
-{% load i18n analytics news_tags components comments_tags %}
+{% load i18n analytics adzone_tags news_tags components comments_tags %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lanh="ru">
     <head>
@@ -55,9 +55,11 @@
                             {% endfor %}
                         </ul>
                     {% endif %}
+                    {% random_zone_ad 'buy_me' 'header' %}
                     <hr/>
                     {% block content %}{% endblock %}
                     <hr/>
+                    {% random_zone_ad 'buy_me' 'footer' %}
                 </td>
                 <td width="116" valign="top">
                     {# правая колонка #}
