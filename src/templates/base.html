@@ -25,9 +25,20 @@
         <script src="{{ MEDIA_URL }}js/jquery-ui-1.8.4.custom.min.js"></script>
         <script src="{{ MEDIA_URL }}js/jquery.form.js"></script>
         <script src="{{ MEDIA_URL }}js/jquery-spelling.js"></script>
+        <script src="{{ MEDIA_URL }}js/addtocopy.js"></script>
         <script src="{{ MEDIA_URL }}js/highlight.pack.js"></script>
         <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
         {% block head %}{% endblock %}
+        <script type="text/javascript">
+          $(document).ready(function() {
+	        $('body').addtocopy({
+		      htmlcopytxt: '<br><br>Читать полностью: <a href="'+window.location.href+'">'+window.location.href+'</a>',
+		      minlen:35,
+		      addcopyfirst: false
+	        });
+          });
+</script>
+
     </head>
     <body style="padding: 0px; margin: 0px;">
 
@@ -67,9 +78,6 @@
                 </td>
             </tr>
         </table>
-
-        {% if not DEBUG %}{{ google_analytics|safe }}{% endif %}
-
         {% include '_footer.html' %}
 
         {% include '_menu.html' %}
