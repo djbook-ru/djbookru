@@ -1,4 +1,4 @@
-# Copyright (C) 2010 Ruslan Popov
+# Copyright (C) 2010-2011 Ruslan Popov
 # This file is distributed under the same license as the translation package.
 # Ruslan Popov <ruslan.popov@gmail.com>, 2010.
 #, fuzzy
@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-24 10:04+0300\n"
+"POT-Creation-Date: 2011-02-07 11:09+0300\n"
 "PO-Revision-Date: 2010-12-22 14:38+0300\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -48,7 +48,6 @@ msgid "Change password"
 msgstr "Изменить пароль"
 
 #: dashboard.py:56 templates/_menu.html:20
-#: templates/dinette/header_frag.html:33
 msgid "Logout"
 msgstr "Выйти"
 
@@ -83,7 +82,7 @@ msgstr ""
 msgid "Advanced options"
 msgstr "Дополнительные возможности"
 
-#: settings.py:153
+#: settings.py:154
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
 
@@ -218,8 +217,6 @@ msgstr "Уведомлять читателя"
 
 #: claims/models.py:22 djangobb_forum/forms.py:22
 #: djangobb_forum/templates/forum/users.html:48
-#: templates/dinette/replydetail_frag.html:54
-#: templates/dinette/topic_detail.html:123
 msgid "Registered"
 msgstr "Зарегистрировано"
 
@@ -282,145 +279,13 @@ msgstr "дата отправки"
 msgid "Comments"
 msgstr "Комментарии"
 
-#: dinette/forms.py:8 dinette/models.py:117
-msgid "subject"
-msgstr "тема"
-
-#: dinette/forms.py:9 dinette/forms.py:17 main/forms.py:14
-msgid "message"
-msgstr "сообщение"
-
-#: dinette/models.py:15 examples/models.py:6 main/models.py:6
-#: main/models.py:27
-msgid "name"
-msgstr "имя"
-
-#: dinette/models.py:16
-msgid "tag line"
-msgstr "строка тегов"
-
-#: dinette/models.py:28
-msgid "Super Category"
-msgstr "Главная категория"
-
-#: dinette/models.py:29
-msgid "Super Categories"
-msgstr "Главные категории"
-
-#: dinette/models.py:48 djangobb_forum/models.py:63
-#: djangobb_forum/models.py:93 examples/models.py:10
-msgid "Category"
-msgstr "Категория"
-
-#: dinette/models.py:49 djangobb_forum/models.py:64 examples/models.py:11
-msgid "Categories"
-msgstr "Категории"
-
-#: dinette/models.py:143 djangobb_forum/models.py:135
-#: djangobb_forum/models.py:178 djangobb_forum/templates/forum/forum.html:27
-#: djangobb_forum/templates/forum/moderate.html:23
-#: djangobb_forum/templates/forum/search_topics.html:21
-msgid "Topic"
-msgstr "Тема"
-
-#: dinette/models.py:144 djangobb_forum/forms.py:39
-#: djangobb_forum/models.py:136 djangobb_forum/templates/forum/index.html:54
-#: templates/dinette/category_details.html:77
-#: templates/dinette/category_details.html:83
-#: templates/dinette/new_topics.html:23
-msgid "Topics"
-msgstr "Темы"
-
-#: dinette/models.py:206 djangobb_forum/templates/forum/topic.html:11
-#: djangobb_forum/templates/forum/topic.html:121
-#: djangobb_forum/templates/forum/topic.html:134
-msgid "Reply"
-msgstr "Отклик"
-
-#: dinette/models.py:207 djangobb_forum/templates/forum/forum.html:28
-#: djangobb_forum/templates/forum/moderate.html:24
-#: djangobb_forum/templates/forum/search_topics.html:23
-msgid "Replies"
-msgstr "Отклики"
-
-#: dinette/models.py:254
-msgid "Navigation Link"
-msgstr "Навигационная ссылка"
-
-#: dinette/models.py:255
-msgid "Navigation Links"
-msgstr "Навигационные ссылки"
-
-#: dinette/views.py:167
-msgid ""
-"You have posted message too recently. Please wait a while before trying "
-"again."
-msgstr "Вы отправляете сообщения очень часто."
-
-#: dinette/views.py:213
-#, python-format
-msgid "Latest topics in category %(name)s"
-msgstr "Последние темы в категории %(name)s"
-
-#: dinette/views.py:275
-#, python-format
-msgid "You have reopened topic %(subject)s"
-msgstr "Вы открыли тему %(subject)s"
-
-#: dinette/views.py:277
-#, python-format
-msgid "You have closed topic %(subject)s"
-msgstr "Вы закрыли %(subject)s"
-
-#: dinette/views.py:281
-#, python-format
-msgid "%(subject)s is no longer an announcement."
-msgstr "%(subject)s убрано из объявлений"
-
-#: dinette/views.py:283
-#, python-format
-msgid "%(subject)s is now an announcement."
-msgstr "%(subject)s отмечен как объявление."
-
-#: dinette/views.py:287
-#, python-format
-msgid "%(subject)s has been unstickied."
-msgstr "%(subject)s откреплена."
-
-#: dinette/views.py:289
-#, python-format
-msgid "%(subject)s has been stickied."
-msgstr "%(subject)s прикреплена."
-
-#: dinette/views.py:293
-#, python-format
-msgid "%(subject)s has been unhidden."
-msgstr "%(subject)s вновь отображается."
-
-#: dinette/views.py:295
-#, python-format
-msgid "%(subject)s has been hidden and won't show up any further."
-msgstr "%(subject)s скрыт и не будет отображаться."
-
-#: dinette/views.py:302
-msgid "This view must be called via post"
-msgstr "Требуется POST запрос"
-
-#: dinette/views.py:319
-msgid "Topics since your last visit"
-msgstr "Со времени вашего последнего посещения было создано тем"
-
-#: dinette/views.py:326
-msgid "Most active Topics"
-msgstr "Наиболее активные темы"
-
 #: djangobb_forum/feeds.py:26 djangobb_forum/feeds.py:27
-#: djangobb_forum/templates/forum/base.html:14
+#: djangobb_forum/templates/forum/base.html:12
 msgid "Latest posts on forum"
 msgstr "Последние отклики в форуме"
 
 #: djangobb_forum/feeds.py:45 djangobb_forum/feeds.py:46
-#: djangobb_forum/templates/forum/base.html:15
+#: djangobb_forum/templates/forum/base.html:13
 msgid "Latest topics on forum"
 msgstr "Последние темы в форуме"
 
@@ -469,7 +334,6 @@ msgstr "Тема"
 #: djangobb_forum/models.py:105 djangobb_forum/models.py:121
 #: djangobb_forum/templates/forum/index.html:53
 #: djangobb_forum/templates/forum/search_topics.html:22 templates/_menu.html:6
-#: templates/dinette/base.html:14 templates/dinette/mainindex.html:30
 msgid "Forum"
 msgstr "Форум"
 
@@ -481,12 +345,14 @@ msgstr "Туда"
 msgid "Descending"
 msgstr "Обратно"
 
+#: djangobb_forum/forms.py:39 djangobb_forum/models.py:136
+#: djangobb_forum/templates/forum/index.html:54
+msgid "Topics"
+msgstr "Темы"
+
 #: djangobb_forum/forms.py:40 djangobb_forum/models.py:193
 #: djangobb_forum/templates/forum/index.html:55
 #: djangobb_forum/templates/forum/users.html:47
-#: templates/dinette/replydetail_frag.html:59
-#: templates/dinette/topic_detail.html:72
-#: templates/dinette/topic_detail.html:124
 msgid "Posts"
 msgstr "Откликов"
 
@@ -589,6 +455,15 @@ msgstr "Только пользователи из этих групп могу�
 msgid "Position"
 msgstr "Позиция"
 
+#: djangobb_forum/models.py:63 djangobb_forum/models.py:93
+#: examples/models.py:10
+msgid "Category"
+msgstr "Категория"
+
+#: djangobb_forum/models.py:64 examples/models.py:11
+msgid "Categories"
+msgstr "Категории"
+
 #: djangobb_forum/models.py:96
 msgid "Description"
 msgstr "Описание"
@@ -624,17 +499,24 @@ msgstr "Создано"
 msgid "Views count"
 msgstr "Просмотров"
 
-#: djangobb_forum/models.py:127 templates/dinette/topic_detail_frag.html:22
+#: djangobb_forum/models.py:127
 msgid "Sticky"
 msgstr "Прикреплён"
 
-#: djangobb_forum/models.py:128 templates/dinette/topic_detail_frag.html:18
+#: djangobb_forum/models.py:128
 msgid "Closed"
 msgstr "Закрыт"
 
 #: djangobb_forum/models.py:129
 msgid "Subscribers"
 msgstr "Подписчики"
+
+#: djangobb_forum/models.py:135 djangobb_forum/models.py:178
+#: djangobb_forum/templates/forum/forum.html:27
+#: djangobb_forum/templates/forum/moderate.html:23
+#: djangobb_forum/templates/forum/search_topics.html:21
+msgid "Topic"
+msgstr "Тема"
 
 #: djangobb_forum/models.py:182
 msgid "Updated by"
@@ -893,7 +775,7 @@ msgstr "Просмотр тем (новые сверху)"
 msgid "Quote"
 msgstr "Цитата"
 
-#: djangobb_forum/templates/forum/base.html:56
+#: djangobb_forum/templates/forum/base.html:55
 msgid "Board footer"
 msgstr "Подвал форума"
 
@@ -928,6 +810,12 @@ msgstr "Изменить отклик и отправить изменения"
 msgid "Save"
 msgstr "Сохранить"
 
+#: djangobb_forum/templates/forum/forum.html:28
+#: djangobb_forum/templates/forum/moderate.html:24
+#: djangobb_forum/templates/forum/search_topics.html:23
+msgid "Replies"
+msgstr "Отклики"
+
 #: djangobb_forum/templates/forum/forum.html:29
 #: djangobb_forum/templates/forum/moderate.html:25
 msgid "Views"
@@ -937,8 +825,6 @@ msgstr "Просмотров"
 #: djangobb_forum/templates/forum/index.html:56
 #: djangobb_forum/templates/forum/moderate.html:26
 #: djangobb_forum/templates/forum/search_topics.html:24
-#: templates/dinette/mainindex.html:66
-#: templates/dinette/topic_detail_frag.html:39
 msgid "Last post"
 msgstr "Последнее сообщение"
 
@@ -957,7 +843,6 @@ msgstr "Прикреплен:"
 #: djangobb_forum/templates/forum/search_topics.html:35
 #: djangobb_forum/templates/forum/search_topics.html:37
 #: djangobb_forum/templates/forum/search_topics.html:44
-#: templates/dinette/topic_detail_frag.html:26
 msgid "by"
 msgstr "от"
 
@@ -993,7 +878,6 @@ msgstr "Пользователи"
 #: djangobb_forum/templates/forum/search_form.html:7
 #: djangobb_forum/templates/forum/users.html:29
 #: djangobb_forum/templates/forum/lofi/header.html:4
-#: templates/dinette/header_frag.html:14 templates/dinette/search.html:19
 #: templates/main/search.html:5
 msgid "Search"
 msgstr "Поиск"
@@ -1145,12 +1029,10 @@ msgid "Open"
 msgstr "Открыть"
 
 #: djangobb_forum/templates/forum/moderate.html:70
-#: templates/dinette/moderation_frag.html:4
 msgid "Close"
 msgstr "Закрыть"
 
 #: djangobb_forum/templates/forum/moderators.html:3
-#: templates/dinette/mainindex.html:49
 msgid "Moderated by"
 msgstr "Администрируется"
 
@@ -1286,6 +1168,12 @@ msgstr "Ничего не найдено."
 msgid "Search results"
 msgstr "Результаты поиска"
 
+#: djangobb_forum/templates/forum/topic.html:11
+#: djangobb_forum/templates/forum/topic.html:121
+#: djangobb_forum/templates/forum/topic.html:134
+msgid "Reply"
+msgstr "Отклик"
+
 #: djangobb_forum/templates/forum/topic.html:49
 msgid "From:"
 msgstr "Из:"
@@ -1317,14 +1205,10 @@ msgid "Attachments:"
 msgstr "Вложения:"
 
 #: djangobb_forum/templates/forum/topic.html:105
-#: templates/dinette/replydetail_frag.html:42
-#: templates/dinette/topic_detail.html:116
 msgid "Online"
 msgstr "Онлайн"
 
 #: djangobb_forum/templates/forum/topic.html:107
-#: templates/dinette/replydetail_frag.html:44
-#: templates/dinette/topic_detail.html:118
 msgid "Offline"
 msgstr "Офлайн"
 
@@ -1533,14 +1417,10 @@ msgid "IMPORTANT:"
 msgstr "ВАЖНО:"
 
 #: djangobb_forum/templates/forum/lofi/forum.html:19
-#: templates/dinette/category_details.html:84
-#: templates/dinette/new_topics.html:24
-#: templates/dinette/topic_detail_frag.html:32
 msgid "replies"
 msgstr "откликов"
 
 #: djangobb_forum/templates/forum/lofi/index.html:18
-#: templates/dinette/mainindex.html:32 templates/dinette/mainindex.html:63
 msgid "posts"
 msgstr "сообщений"
 
@@ -1726,6 +1606,10 @@ msgstr "Примеры с Russian DjangoBook"
 msgid "Newly examples from Russian DjangoBook"
 msgstr "Последние примеры с Russian DjangoBook"
 
+#: examples/models.py:6 main/models.py:6 main/models.py:27
+msgid "name"
+msgstr "имя"
+
 #: examples/models.py:21
 msgid "category"
 msgstr "категория"
@@ -1758,6 +1642,10 @@ msgstr "Примеры"
 #: main/forms.py:13
 msgid "email"
 msgstr "е-почта"
+
+#: main/forms.py:14
+msgid "message"
+msgstr "сообщение"
 
 #: main/forms.py:31
 msgid "archive"
@@ -1837,8 +1725,7 @@ msgstr "Рецепты"
 msgid "About"
 msgstr "О проекте"
 
-#: templates/_menu.html:22 templates/dinette/header_frag.html:35
-#: templates/openid_consumer/signin.html:10
+#: templates/_menu.html:22 templates/openid_consumer/signin.html:10
 #: templates/registration/login.html:16
 msgid "Login"
 msgstr "Вход"
@@ -1940,167 +1827,6 @@ msgstr "Пожалуйста, произведите вход для отпра�
 msgid "Last comments"
 msgstr "Последние комментарии"
 
-#: templates/dinette/announce_frag.html:7
-msgid "New Announcement"
-msgstr "Новые объявления"
-
-#: templates/dinette/attachement_frag.html:6
-msgid "File Attachment"
-msgstr "Вложенный файл"
-
-#: templates/dinette/attachement_frag.html:8
-#: templates/dinette/attachement_frag.html:20
-msgid "Download"
-msgstr "Загрузка"
-
-#: templates/dinette/attachement_frag.html:15
-msgid "Image Attachment"
-msgstr "Вложенное изображение"
-
-#: templates/dinette/category_details.html:35
-#: templates/dinette/topic_detail.html:176
-msgid "close"
-msgstr "закрыть"
-
-#: templates/dinette/category_details.html:50
-msgid "Permanent link to this forum."
-msgstr "Постоянная ссылка на данный форум."
-
-#: templates/dinette/category_details.html:67
-msgid "New Topic"
-msgstr "Новая тема"
-
-#: templates/dinette/category_details.html:69
-msgid "Login to start New Topic"
-msgstr "Произведите вход для создания новой темы"
-
-#: templates/dinette/category_details.html:85
-#: templates/dinette/new_topics.html:25
-#: templates/dinette/topic_detail_frag.html:36
-msgid "views"
-msgstr "просмотров"
-
-#: templates/dinette/category_details.html:86
-#: templates/dinette/mainindex.html:33 templates/dinette/new_topics.html:26
-msgid "last post"
-msgstr "последнее сообщение"
-
-#: templates/dinette/header_frag.html:3
-msgid "Skip to forum content"
-msgstr "Проскочить до содержимого"
-
-#: templates/dinette/header_frag.html:11
-msgid "Home"
-msgstr "Домой"
-
-#: templates/dinette/header_frag.html:18
-msgid "New topics"
-msgstr "Новые темы"
-
-#: templates/dinette/header_frag.html:33
-msgid "Hello"
-msgstr "Привет"
-
-#: templates/dinette/header_frag.html:40
-msgid "Active Topics"
-msgstr "Активные темы"
-
-#: templates/dinette/header_frag.html:41
-msgid "Unanswered Topics"
-msgstr "Темы без ответов"
-
-#: templates/dinette/mainindex.html:31 templates/dinette/mainindex.html:60
-msgid "topics"
-msgstr "темы"
-
-#: templates/dinette/mainindex.html:85
-msgid "Forum statistics"
-msgstr "Статистика форума"
-
-#: templates/dinette/mainindex.html:88
-msgid "Total number of registered users"
-msgstr "Общее количество зарегистрированных пользователей"
-
-#: templates/dinette/mainindex.html:91
-msgid "Newest registered user"
-msgstr "Последний зарегистрированный пользователь"
-
-#: templates/dinette/mainindex.html:100
-msgid "Total number of topics"
-msgstr "Общее количество тем"
-
-#: templates/dinette/mainindex.html:103
-msgid "Total number of posts"
-msgstr "Общее количество откликов"
-
-#: templates/dinette/mainindex.html:106
-msgid "Users Online"
-msgstr "Пользователи в сети"
-
-#: templates/dinette/moderation_frag.html:4
-msgid "Reopen"
-msgstr "Открыть заново"
-
-#: templates/dinette/moderation_frag.html:5
-msgid "Un Stickify"
-msgstr "Открепить"
-
-#: templates/dinette/moderation_frag.html:5
-msgid "Stickify"
-msgstr "Прикрепить"
-
-#: templates/dinette/moderation_frag.html:6
-msgid "Remove from announcement"
-msgstr "Убрать из анонсирования"
-
-#: templates/dinette/moderation_frag.html:6
-msgid "Make announcement"
-msgstr "Создать объявление"
-
-#: templates/dinette/moderation_frag.html:7
-msgid "Hide"
-msgstr "Спрятать"
-
-#: templates/dinette/new_topics.html:34
-msgid "There is no topic with new replies since your last visit."
-msgstr "Со времени вашего последнего посещения не было ни одного отклика."
-
-#: templates/dinette/replydetail_frag.html:12
-#: templates/dinette/topic_detail.html:88
-msgid "Reply by"
-msgstr "Отклик от"
-
-#: templates/dinette/replydetail_frag.html:16
-msgid "Permanent link to this post"
-msgstr "Постоянная ссылка на данный отклик"
-
-#: templates/dinette/search.html:36
-msgid "We do not have any results for this query."
-msgstr "Нам нечем ответить на этот запрос."
-
-#: templates/dinette/topic_detail.html:48
-#: templates/dinette/topic_detail.html:153
-#: templates/dinette/topic_detail.html:175
-msgid "Post Reply"
-msgstr "Отправить отклик"
-
-#: templates/dinette/topic_detail.html:50
-#: templates/dinette/topic_detail.html:155
-msgid "Login to Post Reply"
-msgstr "Произведите вход для отправки отклика"
-
-#: templates/dinette/topic_detail.html:55
-msgid "Next"
-msgstr "Следующий"
-
-#: templates/dinette/topic_detail.html:59
-msgid "Previous"
-msgstr "Предыдущий"
-
-#: templates/dinette/topic_detail.html:69
-msgid "RSS Topic Feed"
-msgstr "RSS раздача тем"
-
 #: templates/main/_toc.html:2
 msgid "Table of contents"
 msgstr "Содержимое"
@@ -2136,54 +1862,3 @@ msgstr "или"
 #: templates/registration/login.html:25
 msgid "You are authenticated already"
 msgstr "Вы уже аутентифицированы"
-
-#~ msgid "last session activity"
-#~ msgstr "последняя активность"
-
-#~ msgid "edit"
-#~ msgstr "редактировать"
-
-#~ msgid "Userrank"
-#~ msgstr "Карма пользователя"
-
-#~ msgid "Member"
-#~ msgstr "Член сообщества"
-
-#~ msgid "Senior Member"
-#~ msgstr "Спер член сообщества"
-
-#~ msgid "Claim status"
-#~ msgstr "Статус жалобы"
-
-#~ msgid "Mark selected claims as assigned"
-#~ msgstr "Отметить выделенное как принятое"
-
-#~ msgid "Mark selected claims as fixed"
-#~ msgstr "Отметить выделенное как исправленное"
-
-#~ msgid "Mark selected claims as invalid"
-#~ msgstr "Отметить выделенное как отклоненное"
-
-#~ msgid "Claim statuses"
-#~ msgstr "Состояния жалобы"
-
-#~ msgid "Label"
-#~ msgstr "Метка"
-
-#~ msgid "Text"
-#~ msgstr "Текст"
-
-#~ msgid "Texts"
-#~ msgstr "Тексты"
-
-#~ msgid "You may visit"
-#~ msgstr "Вы можете посетить"
-
-#~ msgid "my demo shop"
-#~ msgstr "мой демонстрационный магазин"
-
-#~ msgid "my book"
-#~ msgstr "моя книга"
-
-#~ msgid "Platform"
-#~ msgstr "Платформа"

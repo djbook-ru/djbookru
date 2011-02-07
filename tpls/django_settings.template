@@ -133,7 +133,6 @@ INSTALLED_APPS = (
     'pagination',
     'socialauth',
     'openid_consumer',
-    'dinette',
     'haystack',
     'djangobb_forum',
     'accounts',
@@ -189,15 +188,6 @@ TWITTER_CONSUMER_SECRET = ${twitter_consumer_secret}
 TOPIC_PAGE_SIZE = 10
 REPLY_PAGE_SIZE = 20
 FLOOD_TIME = 5
-TEMPLATE_CONTEXT_PROCESSORS += (
-    "dinette.context_processors.get_announcement",
-    #"dinette.context_processors.get_site_config",
-    "dinette.context_processors.get_forumwide_links"
-)
-
-MIDDLEWARE_CLASSES += (
-     "dinette.middleware.UserActivity",
-)
 RANKS_NAMES_DATA = ((30, "Member"), (100, "Senior Member"), (300, 'Star'))
 
 RECAPTCHA_PUBLIC = ${recaptcha_public}
