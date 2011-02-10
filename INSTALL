@@ -30,7 +30,7 @@ Project initialization:
   Fill database with models:
 
     cd src
-    python manage.py syncdb
+    python manage.py syncdb --all && python manage.py migrate --fake
 
   Start the development server:
 

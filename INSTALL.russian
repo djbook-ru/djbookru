@@ -33,7 +33,7 @@
   Заполняем базу данных моделями:
 
     cd src
-    python manage.py syncdb
+    python manage.py syncdb --all && python manage.py migrate --fake
 
   Запускаем сервер разработчика:
 
