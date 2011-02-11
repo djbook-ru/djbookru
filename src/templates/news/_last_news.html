@@ -8,7 +8,7 @@
             {{ item.created|date:'DATETIME_FORMAT' }}
         </div>
         <div class="text">
-            {{ item.content|markdown }}
+            {{ item.content|markdown|truncatewords:15|linebreaksbr }}
         </div>
         <div style="margin: -7px 0 5px 0;">
             <a class="comments-number" style="float: left" href="{{ item.get_absolute_url }}#comments">
