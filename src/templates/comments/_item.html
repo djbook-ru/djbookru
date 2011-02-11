@@ -2,13 +2,13 @@
 
 <div class="comment" comment_id="{{ item.id }}">
     <div class="comment_text">
-        <span class="user_thumb">                                                     
+        <span class="user_thumb">
             <img src="{{ item.user.avatar }}" alt="" />
         </span>
         <div class="table_user_deets">
             <a href="{{ item.user.get_absolute_url }}">{{ item.user }}</a>
             <span class="comment_date">{{ item.submit_date|timesince }} {% trans 'ago' %}</span>
-        </div>        
+        </div>
         <a name="comments-{{ item.id }}"></a>
         <a href="#" class="reply"  comment_id="{{ item.id }}">
             <span>{% trans 'Answer' %}</span>

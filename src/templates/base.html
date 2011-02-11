@@ -31,13 +31,21 @@
         {% block head %}{% endblock %}
         <script type="text/javascript">
           $(document).ready(function() {
-	        $('body').addtocopy({
-		      htmlcopytxt: '<br><br>Читать полностью: <a href="'+window.location.href+'">'+window.location.href+'</a>',
-		      minlen:35,
-		      addcopyfirst: false
-	        });
+              $('body').addtocopy({
+		          htmlcopytxt: '<br><br>Читать полностью: <a href="'+window.location.href+'">'+window.location.href+'</a>',
+		          minlen:35,
+		          addcopyfirst: false
+	          });
+              $.ajaxSetup({
+                  beforeSend: function(xhr, settings) {
+                      if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                          // Only send the token to relative URLs i.e. locally.
+                          xhr.setRequestHeader("X-CSRFToken", $("#csrfmiddlewaretoken").val());
+                      }
+                  }
+              });
           });
-</script>
+        </script>
 
     </head>
     <body style="padding: 0px; margin: 0px;">
