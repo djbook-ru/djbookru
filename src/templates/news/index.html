@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load pagination_tags i18n markup %}
+{% load pagination_tags i18n markup components %}
 
 {% block title %}{% trans 'News' %} | {{ block.super }}{% endblock %}
 
@@ -17,9 +17,11 @@
             <div style="padding-left: 1em;">
                 {{ n.content|markdown|truncatewords_html:20 }}
             </div>
+			<div style="float: left">{% facebook_like n %}</div>
             <div style="padding-left: 1em; text-align: right">
                 <a href="{{ n.get_absolute_url }}">{% trans 'more' %}</a>
             </div>
+			<div style="clear: both"></div>
         </div>
         {% if not forloop.last %}
             <hr size="1" style="color: #94CE4A;"/>

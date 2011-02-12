@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load book_page comments_tags %}
+{% load book_page comments_tags components %}
 
 {% block title %}{{ page.name }}: {{ page.book.name }} | {{ block.super }} {% endblock %}
 
@@ -11,7 +11,8 @@
 {% endblock %}
 
 {% block content %}
-    {{ page.content|safe }}    
+    {{ page.content|safe }}
+	{% facebook_like page %}    
     {% block comments %}
         {% render_comment_list page %}
         {% render_comment_form page %}

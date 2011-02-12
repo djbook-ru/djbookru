@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load i18n comments_tags %}
+{% load i18n comments_tags components %}
 
 {% block title %}{% trans 'Recipes' %} | {{ block.super }}{% endblock %}
 
@@ -14,6 +14,8 @@
                 (<a class="comments-number" href="{{ item.get_absolute_url }}#comments">
                     {% trans 'Comments' %}: {% get_comment_count item %}
                 </a>)
+				<br/>
+				{% facebook_like item %}
                 <br/>
                 {% trans 'Author' %}: <a style="color: #fff" href="{{ item.author.get_absolute_url }}">
                     {{ item.author }}
