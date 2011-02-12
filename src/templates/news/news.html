@@ -11,9 +11,9 @@
         </div>
         <br/>
         <div style="padding-left: 1em;">
-			{% facebook_like object %}
             {{ object.content|markdown }}
         </div>
+	    <div class="sociallinks">{% facebook_like object %}</div>
         <a style="float: right" href="{{ object.author.get_absolute_url }}">{{ object.author }}</a>
     </div>
     <hr style="clear: both"/>
