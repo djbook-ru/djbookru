@@ -16,8 +16,8 @@ class ExampleForm(ModelForm):
         self.fields['content'].widget.attrs['style'] = 'height: 400px'
 
 class ExampleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'author', 'created')
-    list_filter = ('category',)
+    list_display = ('title', 'category', 'author', 'approved', 'created')
+    list_filter = ('category', 'approved')
     form = ExampleForm
     
     def save_model(self, request, obj, form, change):

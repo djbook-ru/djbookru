@@ -30,5 +30,5 @@ def category(request, pk):
 @render_to('examples/detail.html', context_processor)
 def detail(request, pk):
     return {
-        'obj': get_object_or_404(Example, pk=pk)
+        'obj': get_object_or_404(Example.objects.approved(), pk=pk)
     }

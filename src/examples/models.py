@@ -17,18 +17,28 @@ class Category(models.Model):
     def get_absolute_url(self):
         return ('examples:category', [self.pk])
 
+class ExampleManager(models.Manager):
+    use_for_related_fields = True
+    
+    def approved(self):
+        return self.get_query_set().exclude(approved=False)
+
 class Example(models.Model):
     category = models.ForeignKey(Category, related_name='examples', verbose_name=_(u'category'))
     title = models.CharField(_(u'title'), max_length=255)
     content = models.TextField(_(u'content'), help_text=_('Use Markdown and HTML'))
     created = models.DateTimeField(_(u'created'), auto_now=True)
     author = models.ForeignKey(User, editable=False)
+    approved = models.BooleanField(_(u'approved'), default=True, help_text=_(u'Can be used for draft'))
+    note = models.TextField(_(u'note'), blank=True, help_text=_(u'author\'s note, is not visible on site'))
     
     class Meta:
         verbose_name = _(u'Example')
         verbose_name_plural = _(u'Examples')
         ordering = ('-created',)
-
+    
+    objects = ExampleManager()
+    
     def __unicode__(self):
         return self.title
 
