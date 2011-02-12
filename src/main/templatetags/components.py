@@ -3,6 +3,9 @@ from django import template
 from examples.models import Category
 from accounts.models import User
 from django.contrib.sites.models import Site
+from django.template.loader import get_template
+from django.template import Context
+from django.conf import settings
 
 register = template.Library()
 
@@ -26,3 +29,34 @@ def facebook_like(link):
         'link': 'http://%s%s' % (site.domain, link) 
     }
     
+class ShareNode(template.Node):
+    def __init__(self, obj):
+        self.obj = obj
+        self.site = Site.objects.get_current()
+        
+    def render(self, context):
+        resolved = self.obj.resolve(context)
+        
+        return get_template('main/_share_links.html').render(Context({
+            'url': 'http://%s%s' % (self.site.domain, resolved.get_absolute_url()),
+            'content': getattr(resolved, 'get_share_description', lambda: '')(),
+            'title': getattr(resolved, 'get_share_title', resolved.__unicode__)(),
+            'obj': resolved,
+            'MEDIA_URL': settings.MEDIA_URL                                 
+        }))
+    
+@register.tag
+def get_share_links(parser, token):
+    obj = token.split_contents()[1]
+    
+    try:
+        obj = template.Variable(obj)
+    except:
+        raise template.TemplateSyntaxError, 'Unable to resolve %s.' % obj
+    
+    return ShareNode(obj)
+
+@register.filter(name="plus_spaces")
+def plus_spaces(value, *args):
+    return value.replace(' ', '+').replace('%20', '+')
+plus_spaces.is_safe = True

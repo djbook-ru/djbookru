@@ -14,7 +14,7 @@
         </a>
     </p>
     {{ obj.content|markdown }}
-	<div class="sociallinks">{% facebook_like obj %}</div>
+	{% get_share_links obj %}
     {% render_comment_list obj %}
     {% render_comment_form obj %}
 {% endblock %}

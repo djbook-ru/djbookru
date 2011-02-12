@@ -12,7 +12,7 @@
 
 {% block content %}
     {{ page.content|safe }}
-	<div class="sociallinks">{% facebook_like page %}</div>
+	{% get_share_links page %}
     {% block comments %}
         {% render_comment_list page %}
         {% render_comment_form page %}
