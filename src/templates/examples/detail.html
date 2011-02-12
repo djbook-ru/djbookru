@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load i18n comments_tags markup %}
+{% load i18n comments_tags markup components %}
 
 {% block title %}{{ obj }} | {% trans 'Examples' %} |{{ block.super }}{% endblock %}
 
@@ -11,7 +11,8 @@
         <br/>
         {% trans 'Author' %}: <a style="color: #fff" href="{{ obj.author.get_absolute_url }}">
             {{ obj.author }}
-        </a>              
+        </a>
+		<br/>{% facebook_like obj %}              
     </p>
     {{ obj.content|markdown }}
     {% render_comment_list obj %}

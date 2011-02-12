@@ -1,4 +1,4 @@
-{% load i18n markup comments_tags %}
+{% load i18n markup comments_tags components %}
 {% for item in news %}
     <div class="news-inc">
         <a style="font-family: arial; font-size: 12px; font-weight: bold; " href="{{ item.get_absolute_url }}">
@@ -11,6 +11,7 @@
             {{ item.content|markdown|truncatewords:15|linebreaksbr }}
         </div>
         <div style="margin: -7px 0 5px 0;">
+			<div style="float: left; width: 90px">{% facebook_like item %}</div>
             <a class="comments-number" style="float: left" href="{{ item.get_absolute_url }}#comments">
                 {% trans 'Comments' %}: {% get_comment_count item %}
             </a>

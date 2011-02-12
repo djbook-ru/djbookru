@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load pagination_tags comments_tags i18n markup %}
+{% load pagination_tags comments_tags i18n markup components %}
 
 {% block title %}{{ object }} | {% trans 'News' %} | {{ block.super }}{% endblock %}
 
@@ -11,6 +11,7 @@
         </div>
         <br/>
         <div style="padding-left: 1em;">
+			{% facebook_like object %}
             {{ object.content|markdown }}
         </div>
         <a style="float: right" href="{{ object.author.get_absolute_url }}">{{ object.author }}</a>
