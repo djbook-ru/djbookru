@@ -22,7 +22,6 @@ def facebook_like(link):
     site = Site.objects.get_current()
     if hasattr(link, 'get_absolute_url'):
         link = link.get_absolute_url()
-    print link
     return {
         'link': 'http://%s%s' % (site.domain, link) 
     }
