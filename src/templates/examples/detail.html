@@ -12,9 +12,9 @@
         {% trans 'Author' %}: <a style="color: #fff" href="{{ obj.author.get_absolute_url }}">
             {{ obj.author }}
         </a>
-		<br/>{% facebook_like obj %}              
     </p>
     {{ obj.content|markdown }}
+	<div class="sociallinks">{% facebook_like obj %}</div>
     {% render_comment_list obj %}
-    {% render_comment_form obj %}    
+    {% render_comment_form obj %}
 {% endblock %}
