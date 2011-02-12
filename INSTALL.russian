@@ -7,10 +7,12 @@
     easy_install virtualenv
     установить последнюю версию Apache Ant с http://ant.apache.org/
     установить последнюю версию Ant Contrib с http://ant-contrib.sourceforge.net/
+    установить клиенты для SVN, HG, GIT
 
   * Ubuntu Linux:
     apt-get install python-setuptools python-virtualenv
     apt-get install ant ant-contrib
+    apt-get install subversion mercurial git[-core]
 
 Инициализация проекта:
 
