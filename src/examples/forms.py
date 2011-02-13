@@ -6,28 +6,34 @@ from django.contrib.sites.models import Site
 from django.utils.html import escape
 
 class AddExampleForm(forms.ModelForm):
-    
+
     class Meta:
         model = Example
         fields = ('title', 'category', 'content', 'note')
-    
+
     def __init__(self, *args, **kwargs):
         super(AddExampleForm, self).__init__(*args, **kwargs)
-        self.fields['category'].help_text = _(u'''Chose category you think your example should be placed in. 
-If this one does not exist - chose any and write in Note. We will add later.''')
-        self.fields['content'].help_text = _(u'Use Markdown for formating. All HTML will be escaped.')
-        self.fields['note'].help_text = _(u'Left some note. Your email for example, if it does not exist in profile.')
-        
+        self.fields['category'].help_text = _(
+            u'Choose the category for your recipe in which it should be placed in. '
+            'If no category is matching your needs, choose any and write note to us. '
+            'We will add new category as far as we can.')
+        self.fields['content'].help_text = _(
+            u'Use Markdown for formating the content. All HTML will be escaped.')
+        self.fields['note'].help_text = _(
+            u'Left the note for us. For instance, your email for this recipe, '
+            'if it does not exist in your profile.')
+
     def save(self, user):
         obj = super(AddExampleForm, self).save(False)
         obj.content = escape(obj.content)
         obj.approved = False
         obj.author = user
         obj.save()
-        
-        subject = _(u'New recipe was added on djbook.ru by user: %(author)s') % {'author': obj.author} 
-        message = _(u'New recipe was added on djbook.ru. Check please and approve it. %(link)s') % {
-                'link': 'http://%s%s' % (Site.objects.get_current().domain, obj.get_edit_url())
-            }
+
+        subject = _(u'New recipe has been added on djbook.ru')
+        message = _(u'User %(author)s added a new recipe on djbook.ru.\n\n'
+                    'Please check and approve it. URL: %(link)s') % {
+            'link': 'http://%s%s' % (Site.objects.get_current().domain, obj.get_edit_url()),
+            'author': obj.author}
         mail_managers(subject, message, True)
         return obj

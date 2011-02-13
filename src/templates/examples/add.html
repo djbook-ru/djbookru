@@ -2,25 +2,25 @@
 
 {% load i18n markup components %}
 
-{% block title %}{% trans 'Add example' %} | {% trans 'Examples' %} |{{ block.super }}{% endblock %}
+{% block title %}{% trans "Add receipt" %} | {% trans "Receipts" %} |{{ block.super }}{% endblock %}
 
 {% block content %}
-    <h1>{% trans 'Add new example' %}</h1>
-    
+    <h1>{% trans "Add new receipt" %}</h1>
+
     <p>
-        {% blocktrans %}
-            You can add some example for django-society. It can be solution for some simple problem,
-            but your personal, witch you could not find in Google. 
-        {% endblocktrans %}
+      {% blocktrans %}You can share your receipt for
+      django-society. It can be solution for the problem that you have
+      solved right now. Or may be this is a nice trick that Google
+      doesn't even know yet.{% endblocktrans %}
     </p>
-    
+
     <p>
-        {% blocktrans %}
-            We use <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a>
-            to format content. If you use it, it will help quickly review and post your example.
-        {% endblocktrans %}
+      {% blocktrans %}We
+      use <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a>
+      to format the content. Please use it to get your receipt to the
+      community faster.{% endblocktrans %}
     </p>
-    
+
     <form method="post" class="form-as-p">
         {% csrf_token %}
         {{ form.as_p }}

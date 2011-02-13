@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-07 11:09+0300\n"
-"PO-Revision-Date: 2010-12-22 14:38+0300\n"
+"POT-Creation-Date: 2011-02-13 15:01+0300\n"
+"PO-Revision-Date: 2011-02-13 15:02+0300\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -318,7 +318,7 @@ msgid "Post time"
 msgstr "Время отклика"
 
 #: djangobb_forum/forms.py:28 templates/examples/category.html:15
-#: templates/examples/detail.html:12 templates/examples/index.html:18
+#: templates/examples/index.html:18
 msgid "Author"
 msgstr "Автор"
 
@@ -750,6 +750,7 @@ msgstr "Напишите своё сообщение и отправьте"
 #: djangobb_forum/templates/forum/profile/profile_personal.html:32
 #: djangobb_forum/templates/forum/profile/profile_personality.html:46
 #: djangobb_forum/templates/forum/profile/profile_privacy.html:26
+#: templates/examples/add.html:28
 msgid "Submit"
 msgstr "Отправить"
 
@@ -1602,42 +1603,104 @@ msgstr ""
 msgid "Russian DjangoBook Examples"
 msgstr "Примеры с Russian DjangoBook"
 
-#: examples/feeds.py:9 templates/base.html:20
+#: examples/feeds.py:9 templates/base.html:24
 msgid "Newly examples from Russian DjangoBook"
 msgstr "Последние примеры с Russian DjangoBook"
+
+#: examples/forms.py:17
+msgid ""
+"Choose the category for your recipe in which it should be placed in. If no "
+"category is matching your needs, choose any and write note to us. We will "
+"add new category as far as we can."
+msgstr ""
+"Выберите категорию для вашего рецепта, в которой он должен быть размещён. "
+"Если подходящей категории не найдено, укажите любую и напишите нам "
+"сообщение. Мы добавим новую категорию как только сможем."
+
+#: examples/forms.py:21
+msgid "Use Markdown for formating the content. All HTML will be escaped."
+msgstr ""
+"Используйте Markdown для форматирования текста. Весь HTML будет экранирован."
+
+#: examples/forms.py:23
+msgid ""
+"Left the note for us. For instance, your email for this recipe, if it does "
+"not exist in your profile."
+msgstr ""
+"Оставьте нам сообщение. Например, ваш адрес электронной почты, если он "
+"отсутствует в вашем профайле."
+
+#: examples/forms.py:33
+msgid "New recipe has been added on djbook.ru"
+msgstr "Новый рецепт добавлен на djbook.ru"
+
+#: examples/forms.py:34
+#, python-format
+msgid ""
+"User %(author)s added a new recipe on djbook.ru.\n"
+"\n"
+"Please check and approve it. URL: %(link)s"
+msgstr ""
+"Пользователь %(author)s добавил новый рецепт на djbook.ru.\n"
+"\n"
+"Пожалуйста, проверьте и подтвердите его. URL: %(link)s"
 
 #: examples/models.py:6 main/models.py:6 main/models.py:27
 msgid "name"
 msgstr "имя"
 
-#: examples/models.py:21
+#: examples/models.py:27
 msgid "category"
 msgstr "категория"
 
-#: examples/models.py:22 news/models.py:6
+#: examples/models.py:28 news/models.py:6
 msgid "title"
 msgstr "тема"
 
-#: examples/models.py:23 main/models.py:29 news/models.py:7
+#: examples/models.py:29 main/models.py:29 news/models.py:7
 msgid "content"
 msgstr "содержимое"
 
-#: examples/models.py:23 news/models.py:7
+#: examples/models.py:29 news/models.py:7
 msgid "Use Markdown and HTML"
 msgstr "Иcпользуйте Markdown или HTML"
 
-#: examples/models.py:24 main/models.py:7 news/models.py:8
+#: examples/models.py:30 main/models.py:7 news/models.py:8
 msgid "created"
 msgstr "создано"
 
-#: examples/models.py:28
+#: examples/models.py:32
+msgid "approved"
+msgstr "разрешено"
+
+#: examples/models.py:32
+msgid "Can be used for draft"
+msgstr "Может быть использовано для черновиков"
+
+#: examples/models.py:33
+msgid "note"
+msgstr "заметка"
+
+#: examples/models.py:33
+msgid "author's note, is not visible on site"
+msgstr "авторская заметка, не отображается на сайте"
+
+#: examples/models.py:36
 msgid "Example"
 msgstr "Пример"
 
-#: examples/models.py:29 templates/examples/category.html:5
+#: examples/models.py:37 templates/examples/category.html:5
 #: templates/examples/detail.html:5
 msgid "Examples"
 msgstr "Примеры"
+
+#: examples/views.py:24
+msgid ""
+"The recipe has been added successfully and will be reviewed as soon as "
+"possible."
+msgstr ""
+"Рецепт был добавлен успешно и будет проверен, как только появится "
+"возможность."
 
 #: main/forms.py:13
 msgid "email"
@@ -1691,7 +1754,7 @@ msgstr "раздел"
 msgid "Page"
 msgstr "Страница"
 
-#: main/views.py:54
+#: main/views.py:44
 msgid "Feedback sent success!"
 msgstr "Отзыв успешно отправлен!"
 
@@ -1699,7 +1762,7 @@ msgstr "Отзыв успешно отправлен!"
 msgid "Russian DjangoBook"
 msgstr "Russian DjangoBook"
 
-#: news/feeds.py:9 templates/base.html:19
+#: news/feeds.py:9 templates/base.html:23
 msgid "The freshest news about Russian version of DjangoBook"
 msgstr "Последние новости с Russian DjangoBook"
 
@@ -1730,6 +1793,10 @@ msgstr "О проекте"
 msgid "Login"
 msgstr "Вход"
 
+#: templates/_menu.html:25
+msgid "Administrator's Interface"
+msgstr "Интерфейс администратора"
+
 #: templates/_right.html:4
 msgid "Found misprint?"
 msgstr "Нашли опечатку?"
@@ -1738,11 +1805,11 @@ msgstr "Нашли опечатку?"
 msgid "Select it with the mouse and hit Enter"
 msgstr "Выделите её мышкой и нажмите Enter"
 
-#: templates/_right.html:14
-msgid "Processed"
-msgstr "Выполнено"
+#: templates/_right.html:18
+msgid "Now you can add your own recipe."
+msgstr "Теперь вы можете добавить свой собственный рецепт."
 
-#: templates/_right.html:28
+#: templates/_right.html:25
 msgid ""
 "\n"
 "    The full repository of DjangoBook translation you can get on <a href="
@@ -1758,11 +1825,11 @@ msgstr ""
 "    Мы ждём ваших патчей!\n"
 "    "
 
-#: templates/_right.html:40 templates/main/feedback.html:11
+#: templates/_right.html:37 templates/main/feedback.html:11
 msgid "We are glad to hear your questions, comments or suggestions!"
 msgstr "Мы рады получить ваши вопросы, комментарии или предложения!"
 
-#: templates/_right.html:43
+#: templates/_right.html:40
 msgid "Open in new tab"
 msgstr "Открыть новую вкладку"
 
@@ -1803,6 +1870,10 @@ msgstr "Комментариев"
 msgid "Biography"
 msgstr "Биография"
 
+#: templates/claims/_claims_statistic.html:5
+msgid "Processed"
+msgstr "Выполнено"
+
 #: templates/comments/_item.html:10 templates/comments/last_comments.html:12
 msgid "ago"
 msgstr "прошло"
@@ -1826,6 +1897,41 @@ msgstr "Пожалуйста, произведите вход для отпра�
 #: templates/comments/last_comments.html:4
 msgid "Last comments"
 msgstr "Последние комментарии"
+
+#: templates/examples/add.html:5
+msgid "Add receipt"
+msgstr "Добавить рецепт"
+
+#: templates/examples/add.html:5
+msgid "Receipts"
+msgstr "Рецепты"
+
+#: templates/examples/add.html:8
+msgid "Add new receipt"
+msgstr "Добавить новый рецепт"
+
+#: templates/examples/add.html:11
+msgid ""
+"You can share your receipt for\n"
+"      django-society. It can be solution for the problem that you have\n"
+"      solved right now. Or may be this is a nice trick that Google\n"
+"      doesn't even know yet."
+msgstr ""
+"Вы можете поделиться рецептом с сообществом Django. Это может быть только "
+"что найденное решение проблемы. Иди это может быть интересный трюк, о "
+"котором даже Google ещё ничего не знает."
+
+#: templates/examples/add.html:18
+msgid ""
+"We\n"
+"      use <a href=\"http://daringfireball.net/projects/markdown/syntax"
+"\">Markdown</a>\n"
+"      to format the content. Please use it to get your receipt to the\n"
+"      community faster."
+msgstr ""
+"Мы используем <a href=\"http://daringfireball.net/projects/markdown/syntax"
+"\">Markdown</a> для форматирования текста. Пожалуйста, используйте его для "
+"ускорения процесса принятия вашего рецепта."
 
 #: templates/main/_toc.html:2
 msgid "Table of contents"
@@ -1862,3 +1968,7 @@ msgstr "или"
 #: templates/registration/login.html:25
 msgid "You are authenticated already"
 msgstr "Вы уже аутентифицированы"
+
+#, fuzzy
+#~ msgid "Add example"
+#~ msgstr "Пример"

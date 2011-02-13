@@ -18,12 +18,12 @@ def index(request):
 @login_required
 def add(request):
     form = AddExampleForm(request.POST or None)
-    
+
     if form.is_valid():
         form.save(request.user)
-        messages.success(request, _(u'Example was added success and will be reviewed as soon as possible.'))
+        messages.success(request, _(u'The recipe has been added successfully and will be reviewed as soon as possible.'))
         return redirect('/')
-        
+
     return {
         'form': form
     }
