@@ -16,7 +16,7 @@ DIV.box, #adminconsole FIELDSET TH, .rowodd, .roweven {BACKGROUND-COLOR: #f8f8f8
 /* 1. 2 Darker background colours */
 
 TD.tc2, TD.tc3, TD.tcmod, #postpreview, #viewprofile DD, DIV.forminfo,
-#adminconsole FIELDSET TD, DIV.blockmenu DIV.box, #adstats DD, #brdtitle {BACKGROUND-COLOR: #f5f5f5}
+#adminconsole FIELDSET TD, DIV.blockmenu DIV.box, #adstats DD, #brdtitle {BACKGROUND-COLOR: #d6e7c2;}
 
 TH.tc3 {width: 70px}
 
