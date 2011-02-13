@@ -1,0 +1,15 @@
+<script type="text/javascript" src="{{ MEDIA_URL }}markitup/jquery.markitup.js"></script>
+<script type="text/javascript">
+        var MEDIA_URL = "{{ MEDIA_URL }}";
+        var POST_PREVIEW_URL = "{% url main:markdown_preview %}";    
+</script>
+<script type="text/javascript" src="{{ MEDIA_URL }}markitup/sets/markdown/set.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}markitup/skins/markitup/style.css" />
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}markitup/sets/markdown/style.css" />
+<script type="text/javascript" >
+   jQuery(function($) {
+      $("textarea#id_content").markItUp(mySettings);
+   });
+</script>
+
+

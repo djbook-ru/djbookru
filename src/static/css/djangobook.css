@@ -441,6 +441,9 @@ textarea#id_content{
 a img {
     border: none;
 }
+textarea.markItUpEditor{
+    width: 643px;
+}
 /* author-avatar */
 .author-avatar {
     float: right;

@@ -4,6 +4,11 @@
 
 {% block title %}{% trans "Add receipt" %} | {% trans "Receipts" %} |{{ block.super }}{% endblock %}
 
+{% block head %}
+    {{ block.super }}
+    {% include '_markitup.html' %}
+{% endblock %}
+
 {% block content %}
     <h1>{% trans "Add new receipt" %}</h1>
 
