@@ -438,3 +438,15 @@ ul.messages li.success {
 textarea#id_content{
     height: 300px;
 }
+a img {
+    border: none;
+}
+/* author-avatar */
+.author-avatar {
+    float: right;
+    background-color: #cbf6bc;
+    padding: 5px;
+}
+.author-avatar a {
+    color: #326342;
+}
