@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from django.conf import settings
-from decorators import render_to, render_to_json
-from main.models import Page, Book
+from decorators import render_to
+from main.models import Book
 from django.http import Http404
 from django.db.models import ObjectDoesNotExist
 from main.forms import FeedbackForm
@@ -10,16 +9,7 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 
-from claims.models import Claims
-
-def context_processor(request):
-    return {
-        'user': request.user,
-        'debug': settings.DEBUG,
-        'claims': Claims.statistic(),
-        }
-
-@render_to('main/index.html', context_processor)
+@render_to('main/index.html')
 def index(request):
     try:
         book = Book.get()
@@ -30,7 +20,7 @@ def index(request):
         'page': page
     }
 
-@render_to('main/page.html', context_processor)
+@render_to('main/page.html')
 def page(request, slug):
     try:
         book = Book.get()
@@ -41,11 +31,11 @@ def page(request, slug):
         'page': page
     }
 
-@render_to('main/search.html', context_processor)
+@render_to('main/search.html')
 def search(request):
     return {}
 
-@render_to('main/feedback.html', context_processor)
+@render_to('main/feedback.html')
 def feedback(request):
     if request.method == 'POST':
         form = FeedbackForm(request.POST, initial={'captcha': request.META['REMOTE_ADDR']})

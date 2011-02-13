@@ -46,3 +46,6 @@ class Example(models.Model):
     def get_absolute_url(self):
         return ('examples:detail', [self.pk])
 
+    @models.permalink
+    def get_edit_url(self):
+        return ('admin:examples_example_change', [self.pk])

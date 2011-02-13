@@ -6,5 +6,6 @@ def custom(request):
     return {
         'django_version': get_version(),
         'DEBUG': settings.DEBUG,
-        'site': Site.objects.get_current()
+        'site': Site.objects.get_current(),
+        'debug': settings.DEBUG
     }
