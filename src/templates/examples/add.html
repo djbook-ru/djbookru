@@ -4,6 +4,11 @@
 
 {% block title %}{% trans 'Add example' %} | {% trans 'Examples' %} |{{ block.super }}{% endblock %}
 
+{% block head %}
+    {{ block.super }}
+    {% include '_markitup.html' %}
+{% endblock %}
+
 {% block content %}
     <h1>{% trans 'Add new example' %}</h1>
     

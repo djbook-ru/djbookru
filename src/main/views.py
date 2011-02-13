@@ -8,6 +8,8 @@ from main.forms import FeedbackForm
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth.decorators import login_required
+import markdown
 
 @render_to('main/index.html')
 def index(request):
@@ -52,3 +54,10 @@ def feedback(request):
 def test_error_email(request):
     raise Exception('Test!')
     return
+
+@login_required
+@render_to('main/markdown_preview.html')
+def markdown_preview(request):
+    data = request.POST.get('data', '')
+    data = markdown.markdown(data, safe_mode='escape')
+    return {'data': data}
