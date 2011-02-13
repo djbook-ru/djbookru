@@ -20,7 +20,10 @@
                 <a href="{% url accounts:logout %}?next={{ request.path_info|urlencode }}">{% trans 'Logout' %}</a>
             {% else %}
                 <a href="{% url accounts:login %}?next={{ request.path_info|urlencode }}">{% trans 'Login' %}</a>
-            {% endif %}              
+            {% endif %}
+            {% if user.is_staff and user.is_active %}
+                | <a href="{% url admin:index %}">{% trans 'Admin-interface' %}</a>
+            {% endif %}
         </ol>
     </ul>
 </div>

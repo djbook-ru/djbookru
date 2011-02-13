@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load i18n markup components %}
+
+{% block title %}{% trans 'Add example' %} | {% trans 'Examples' %} |{{ block.super }}{% endblock %}
+
+{% block content %}
+    <h1>{% trans 'Add new example' %}</h1>
+    
+    <p>
+        {% blocktrans %}
+            You can add some example for django-society. It can be solution for some simple problem,
+            but your personal, witch you could not find in Google. 
+        {% endblocktrans %}
+    </p>
+    
+    <p>
+        {% blocktrans %}
+            We use <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a>
+            to format content. If you use it, it will help quickly review and post your example.
+        {% endblocktrans %}
+    </p>
+    
+    <form method="post" class="form-as-p">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p>
+            <button>{% trans "Submit" %}</button>
+        </p>
+    </form>
+{% endblock %}

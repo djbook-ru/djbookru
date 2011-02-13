@@ -416,3 +416,25 @@ ul.messages li.success {
 .sociallinks img{
 	border: none;
 }
+
+/* form-as-p */
+.form-as-p label, .form-as-p textarea, .form-as-p input, .form-as-p select{
+    display: block;
+}
+.form-as-p label{
+    color: #fff;
+    font-weight: bold;
+}
+.form-as-p textarea{
+    width: 70%;
+}
+.form-as-p input{
+    width: 70%;
+}
+.form-as-p p{
+    color: #add8e6;
+}
+/*******/
+textarea#id_content{
+    height: 300px;
+}
