@@ -13,6 +13,8 @@
         <div>
             {% for item in texts %}
                 <p>
+                    {{ item.type }}<br/>
+                    {{ item.path }}<br/>
                     <textarea rows=5 cols=80>{{ item }}</textarea>
                 </p>
             {% endfor %}

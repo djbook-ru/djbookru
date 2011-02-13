@@ -1,6 +1,33 @@
 # -*- coding: utf-8 -*-
 from lxml import etree
 
+class TextElement(object):
+    
+    def __init__(self, el, el_type=None, path=[]):
+        
+        self.path = '/'.join(path)
+        
+        if isinstance(el, (unicode, str)):
+            self.text = el
+            self.type = el_type
+        else:
+            self.type = el.tag
+            self.path = '/'.join(get_path(el))
+            
+            if el.tag == 'title':
+                self.text = el.text
+            else:
+                tag_len = len(el.tag)+2
+                self.text = etree.tounicode(el, with_tail=False)[tag_len:-(tag_len+1)]
+            
+        self.text = self.text.strip()
+        
+    def __unicode__(self):
+        return self.text
+    
+    def __nonzero__(self):
+        return bool(self.text)
+    
 def has_el(iterator):
     '''
     Проверяет содержит ли итератор элемент
@@ -43,6 +70,10 @@ def get_containing_el(el, para):
 
 def get_text_berween_tags(parent, first_el, second_el):
     output = []
+    
+    if first_el == second_el:
+        return ''
+    
     for item in second_el.itersiblings(preceding=True):
         if item == second_el:
             continue
@@ -50,12 +81,12 @@ def get_text_berween_tags(parent, first_el, second_el):
             break
         output.append(etree.tounicode(item))
         
-    if first_el is None:
+    if first_el is None: 
         output.append(parent.text)
     else:
         output.append(first_el.tail)
     output.reverse()
-    
+
     return ''.join(output)
 
 def get_tail_with_nodes(el):
@@ -66,44 +97,53 @@ def get_tail_with_nodes(el):
         output.append(etree.tounicode(item))
     return ''.join(output)
 
+def get_previous_title(el):
+    prev_el = el.getprevious()
+    if prev_el is not None and prev_el.tag == 'title':
+        return prev_el
+
 def get_text_list(el):
     text_list = []
     para_list = get_first_lvl_paragrafs(el)
     
     last_cheked_containing_el = None
-    
+
     for para in para_list:
         containing_el = get_containing_el(el, para)
-        text_list.append(get_text_berween_tags(el, last_cheked_containing_el, containing_el))
+        t = get_text_berween_tags(el, last_cheked_containing_el, containing_el)
+        text_list.append(TextElement(t, last_cheked_containing_el is None and 'start_para' or 'text', get_path(el)))
         last_cheked_containing_el = containing_el
         if not has_el(para.iterdescendants('para')):
             #параграф не содержит другие параграфы, тоесть его содержимое можно 
             #включать в списко текстовых елементов
-            t = etree.tounicode(para, with_tail=False)[6:-7]
-            text_list.append(t)
+            title = get_previous_title(para)
+            if title is not None:
+                text_list.append(TextElement(title))   
+            text_list.append(TextElement(para))
         else:
             text_list.extend(get_text_list(para))
-    
-    text_list.append(get_tail_with_nodes(last_cheked_containing_el))
+
+    text_list.append(TextElement(get_tail_with_nodes(last_cheked_containing_el), 'end_para', get_path(el)))
     
     return text_list
 
-def get_test_list_from_chapter(chapter):
+def get_text_list_from_chapter(chapter):
     text_list = []
     para_list = get_first_lvl_paragrafs(chapter)    
     
     for para in para_list:
         if not has_el(para.iterdescendants('para')):
-            t = etree.tounicode(para, with_tail=False)[6:-7]
-            text_list.append(t)
+            title = get_previous_title(para)
+            if title is not None:
+                text_list.append(TextElement(title))            
+            text_list.append(TextElement(para))
         else:      
             text_list.extend(get_text_list(para))
     
     output = []
     for item in text_list:
-        striped_item = item.strip()
-        if striped_item:
-            output.append(striped_item)
+        item and output.append(item)
+            
     return output
 
 
