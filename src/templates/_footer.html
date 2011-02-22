@@ -8,6 +8,7 @@
             <span>Powered by <a href="http://djangoproject.com/">Django</a> {{ django_version }}</span>
               </td>
               <td style="color: #326342; text-align: right;" width="88">
+{% if not debug %}
 <!--LiveInternet counter--><script type="text/javascript"><!--
 document.write("<a href='http://www.liveinternet.ru/click' "+
 "target=_blank><img src='//counter.yadro.ru/hit?t52.6;r"+
@@ -18,7 +19,10 @@ screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
 "' alt='' title='LiveInternet: показано число просмотров и"+
 " посетителей за 24 часа' "+
 "border='0' width='88' height='31'><\/a>")
-//--></script><!--/LiveInternet--> 
+//--></script><!--/LiveInternet-->
+{% else %}
+<div>Disabled in DEBUG mode</div>
+{% endif %}
               </td>
             </tr>
           </table>

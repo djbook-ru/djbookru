@@ -106,8 +106,12 @@
 <br/>
 
 <div style="border: 1px solid green; -moz-border-radius: 4px; padding: 6px; background-color: white; text-align: center;">
+  {% if not debug %}
   <a href="http://docbook.org/">
     <img src="http://docbook.org/graphics/button.jpg" title="Данная книга написана с использованием технологии DocBook" border="0"/></a>
+  {% else %}
+  <div>Disabled in DEBUG mode</div>
+  {% endif %}
 </div>
 
 <br/>
