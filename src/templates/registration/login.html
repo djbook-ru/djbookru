@@ -17,9 +17,30 @@
                 </tr>
             </table>
         </form>
-        <a class="twitter login-link" href="{% url socialauth_twitter_login %}?next={{ next }}">&nbsp;</a> 
+        <a class="twitter login-link" href="{% url socialauth_twitter_login %}?next={{ next }}">&nbsp;</a>
         <a class="open-id login-link" href="{% url socialauth_openid_login %}?next={{ next }}">&nbsp;</a>
         <a class="google login-link" href="{% url socialauth_google_login %}?next={{ next }}">&nbsp;</a>
+        <div style="clear: both"></div>
+        <p>&nbsp;</p>
+
+        <img src="/static/img/securelayer.png"/ align="left"
+             alt="SecureLayer: {% trans "Secured Data Transmittion Service" %}"
+             title="SecureLayer: {% trans "Secured Data Transmittion Service" %}"/>
+        <div style="margin-left: 36px; padding: 0px 8px; border-left: 1px dotted #9AEF3F;">
+          <form method="post" action="{{ action }}">
+            {% csrf_token %}
+            {% if error_desc %}<div style="padding: 4px; background-color: red; border: 1px solid red;">{{ error_desc }}</div>{% endif %}
+            <table width="100%">
+              {{ redirect_form }}
+            </table>
+            <div class="button_panel">
+              <p>{% trans "You will be redirected on SSL protected site to enter login/password." %}</p>
+              {% for button in button_list %}
+              <input type="{{ button.type }}" name="{{ button.name }}" value="{{ button.title }}"/>
+              {% endfor %}
+            </div>
+          </form>
+        </div>
         <div style="clear: both"></div>
     {% else %}
         {% trans 'You are authenticated already' %}
