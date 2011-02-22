@@ -198,9 +198,13 @@ RECAPTCHA_PRIVATE = ${recaptcha_private}
 ###
 
 INSTALLED_APPS += ('securelayer',)
-SECURELAYER_USE_WITH_DEBUG_MODE = True # use SS in DEBUG mode
 SECURELAYER_HOST = '${securelayer_host}'
 SECURELAYER_PORT = ${securelayer_port}
 
 GPG_HOMEDIR = '${gpg_homedir}'
 GPG_PASSPHRASE = '${gpg_passphrase}'
+
+try:
+    from settings_local import *
+except ImportError:
+    pass
