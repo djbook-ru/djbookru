@@ -19,7 +19,7 @@ def custom(request):
     if reverse('accounts:login') == request.path:
         ready, response, cookie = securelayer.secured_request(
             '/api/', {'service': 'check'})
-        if ready and settings.SECURELAYER_USE_WITH_DEBUG_MODE:
+        if ready:
             protocol = request.is_secure() and 'https' or 'http'
             host = request.get_host()
             url = reverse('accounts:slogin')
@@ -35,7 +35,8 @@ def custom(request):
             if error_desc:
                 del request.session['error_desc']
             context.update(
-                {'action': 'http://%s:%s/show/' % (
+                {'action': '%s://%s:%s/show/' % (
+                    settings.DEBUG and 'http' or 'https',
                     settings.SECURELAYER_HOST,
                     settings.SECURELAYER_PORT),
                  'securelayer': True,
