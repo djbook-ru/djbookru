@@ -3,6 +3,7 @@ simplejson==2.1.1
 PIL==1.1.7
 oauth==1.0.1
 python-openid==2.2.5
+python-gnupg
 feedparser
 whoosh
 django-haystack
