@@ -260,6 +260,10 @@
       <arg line="cjf ../${project_name}.tar.bz2 ./${project_name}"/>
     </exec>
 
+    <copy file="${basedir}/src/settings.py"
+          tofile="${basedir}/../${project_name}.settings"
+          overwrite="true" encoding="utf-8"/>
+
     <echo message="Clean temporary directory"/>
     <delete dir="${basedir}/${project_name}" includeemptydirs="true" quiet="yes"/>
   </target>
