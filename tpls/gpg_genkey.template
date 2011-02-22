@@ -1,0 +1,13 @@
+%echo Generating a standard key
+Key-Type: DSA
+Key-Length: ${gpg_bits}
+Subkey-Type: ELG-E
+Subkey-Length: ${gpg_bits}
+Name-Real: ${gpg_name_real}
+Name-Comment: ${gpg_name_comment}
+Name-Email: ${gpg_name_email}
+Expire-Date: 0
+Passphrase: ${gpg_passphrase}
+# Do a commit here, so that we can later print "done" :-)
+%commit
+%echo done

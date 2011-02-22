@@ -13,7 +13,7 @@
 	<link rel="alternate" type="application/atom+xml" href="{% url djangobb:forum_topics_feed %}" title="{% trans "Latest topics on forum" %}" />
 
 	<link rel="shortcut icon" href="{{ MEDIA_URL }}forum/favicon.png" type="image/png" />
-    {% if not debug %}{% analytics_async "UA-3919032-6" %}{% endif %}
+    {% if not settings.DEBUG %}{% analytics_async "UA-3919032-6" %}{% endif %}
 	<script type="text/javascript">
 		var MEDIA_URL = "{{ MEDIA_URL }}";
 		var POST_PREVIEW_URL = "{% url djangobb:post_preview %}";
@@ -59,6 +59,7 @@
 			{% endblock %}
 			<p class="conr">Powered by <a href="http://djangobb.org/">DjangoBB</a></p>
             <p class="conr">
+{% if not settings.DEBUG %}
 <!--LiveInternet counter--><script type="text/javascript"><!--
 document.write("<a href='http://www.liveinternet.ru/click' "+
 "target=_blank><img src='//counter.yadro.ru/hit?t52.6;r"+
@@ -69,7 +70,10 @@ screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
 "' alt='' title='LiveInternet: показано число просмотров и"+
 " посетителей за 24 часа' "+
 "border='0' width='88' height='31'><\/a>")
-//--></script><!--/LiveInternet--> 
+//--></script><!--/LiveInternet-->
+{% else %}
+<div>Disabled in DEBUG mode</div>
+{% endif %}
             </p>
 			<div class="clearer"></div>
 		</div>

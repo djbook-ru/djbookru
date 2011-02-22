@@ -68,7 +68,7 @@ def slogin(request):
         next_url = request.GET.get('next', '/')
         if session_key:
             ready, response, cookie = securelayer.secured_request(
-                '/api/data/', {'service': 'data'}, session_key)
+                '/api/', {'service': 'data'}, session_key)
             form = SSAuth()
             form.import_json(response.get('data', None))
             if 'JSON' == getattr(form, 'source', None):
@@ -79,7 +79,7 @@ def slogin(request):
                     if user and user.is_active:
                         auth.login(request, user)
                         ready, response, cookie = securelayer.secured_request(
-                            '/api/close/', {'service': 'close'}, session_key)
+                            '/api/', {'service': 'close'}, session_key)
                         return redirect(next_url)
                     else:
                         request.session['error_desc'] = _(u'Wrong user\'s credentials.')
