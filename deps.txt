@@ -5,8 +5,8 @@ oauth==1.0.1
 python-openid==2.2.5
 python-gnupg
 feedparser
-whoosh
 django-haystack
+xapian-haystack
 -e git+http://github.com/RaD/django-nezabudka.git/#egg=django-nezabudka
 -e git+http://github.com/RaD/django-securelayer.git/#egg=django-securelayer
 -e git+http://github.com/RaD/django-adzone.git/#egg=django-adzone
