@@ -69,7 +69,7 @@
 <br/>
 
 <div class="yandex-money">
-{% if not debug %}
+{% if not settings.DEBUG %}
   <table width="116" cellpadding="0" cellspacing="0" border="0" style="font: 0.8em Arial, sans-serif; border: 0px;">
     <tr>
       <td width="116" height="77" style="background:url(http://www.yandex.ru/redir?dtype=stred&pid=41&cid=132&url=https://img.yandex.net/i/money/top-1rub-default.gif) repeat-y; text-align:center" align="center" valign="bottom">
@@ -106,8 +106,12 @@
 <br/>
 
 <div style="border: 1px solid green; -moz-border-radius: 4px; padding: 6px; background-color: white; text-align: center;">
+  {% if not settings.DEBUG %}
   <a href="http://docbook.org/">
     <img src="http://docbook.org/graphics/button.jpg" title="Данная книга написана с использованием технологии DocBook" border="0"/></a>
+  {% else %}
+  <div>Disabled in DEBUG mode</div>
+  {% endif %}
 </div>
 
 <br/>

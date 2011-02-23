@@ -3,10 +3,12 @@ simplejson==2.1.1
 PIL==1.1.7
 oauth==1.0.1
 python-openid==2.2.5
+python-gnupg
 feedparser
 whoosh
 django-haystack
 -e git+http://github.com/RaD/django-nezabudka.git/#egg=django-nezabudka
+-e git+http://github.com/RaD/django-securelayer.git/#egg=django-securelayer
 -e git+http://github.com/RaD/django-adzone.git/#egg=django-adzone
 -e git+http://github.com/clintecker/django-google-analytics.git/#egg=django-google_analytics
 -e git+https://github.com/jezdez/django-robots.git/#egg=django-robots

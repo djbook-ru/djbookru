@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-13 15:01+0300\n"
-"PO-Revision-Date: 2011-02-13 15:16+0300\n"
+"POT-Creation-Date: 2011-02-22 18:11+0300\n"
+"PO-Revision-Date: 2011-02-22 18:11+0300\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,22 @@ msgstr ""
 "Language: \n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: context_processors.py:31
+msgid "Secured form to enter your credential."
+msgstr "Защищённая форма для ввода ваших данных."
+
+#: context_processors.py:32
+msgid "We use this service for prevention of interception of your information."
+msgstr ""
+"Мы используем этот сервис для предотвращения возможности перехвата вводимой "
+"информации."
+
+#: context_processors.py:40 templates/_menu.html:22
+#: templates/openid_consumer/signin.html:10
+#: templates/registration/login.html:16
+msgid "Login"
+msgstr "Вход"
 
 #: dashboard.py:18 djangobb_forum/templates/forum/profile/profile_admin.html:9
 #: djangobb_forum/templates/forum/profile/profile_menu.html:15
@@ -86,31 +102,40 @@ msgstr "Дополнительные возможности"
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
 
-#: accounts/forms.py:8 main/forms.py:16
+#: accounts/forms.py:10 main/forms.py:16
 msgid "captcha"
 msgstr "капча"
 
-#: accounts/forms.py:11
+#: accounts/forms.py:13 djangobb_forum/forms.py:21 djangobb_forum/forms.py:142
+#: djangobb_forum/forms.py:253 djangobb_forum/templates/forum/users.html:45
+msgid "Username"
+msgstr "Пользователь"
+
+#: accounts/forms.py:14
+msgid "Password"
+msgstr "Пароль"
+
+#: accounts/forms.py:17
 msgid "Current password"
 msgstr "Текущий пароль"
 
-#: accounts/forms.py:12
+#: accounts/forms.py:18
 msgid "New password"
 msgstr "Новый пароль"
 
-#: accounts/forms.py:13
+#: accounts/forms.py:19
 msgid "Confirm new password"
 msgstr "Подтверждение нового пароля"
 
-#: accounts/forms.py:23
+#: accounts/forms.py:29
 msgid "Invalid password."
 msgstr "Неправильный пароль."
 
-#: accounts/forms.py:25
+#: accounts/forms.py:31
 msgid "The two passwords did not match."
 msgstr "Введённые пароли не совпадают."
 
-#: accounts/forms.py:33
+#: accounts/forms.py:39
 msgid "This email is used already."
 msgstr "Данный адрес электронной почты уже используется."
 
@@ -131,17 +156,21 @@ msgstr "Пользователь"
 msgid "Users"
 msgstr "Пользователи"
 
-#: accounts/views.py:21
+#: accounts/views.py:24
 msgid "Account created success!"
 msgstr "Аккаунт успешно создан!"
 
-#: accounts/views.py:23 accounts/views.py:55
+#: accounts/views.py:26 accounts/views.py:58
 msgid "Please correct the error below."
 msgstr "Пожалуйста, исправьте ошибки перечисленные далее."
 
-#: accounts/views.py:53
+#: accounts/views.py:56
 msgid "Profile changed success!"
 msgstr "Профайл успешно изменён!"
+
+#: accounts/views.py:85
+msgid "Wrong user's credentials."
+msgstr "Логин или пароль были указаны неверно."
 
 #: claims/admin.py:14
 msgid "Meta"
@@ -303,11 +332,6 @@ msgstr "Последние отклики в форуме %s"
 #, python-format
 msgid "Latest posts on %s category"
 msgstr "Последние отклики в категории %s"
-
-#: djangobb_forum/forms.py:21 djangobb_forum/forms.py:142
-#: djangobb_forum/forms.py:253 djangobb_forum/templates/forum/users.html:45
-msgid "Username"
-msgstr "Пользователь"
 
 #: djangobb_forum/forms.py:23
 msgid "No. of posts"
@@ -750,7 +774,7 @@ msgstr "Напишите своё сообщение и отправьте"
 #: djangobb_forum/templates/forum/profile/profile_personal.html:32
 #: djangobb_forum/templates/forum/profile/profile_personality.html:46
 #: djangobb_forum/templates/forum/profile/profile_privacy.html:26
-#: templates/examples/add.html:28
+#: templates/examples/add.html:33
 msgid "Submit"
 msgstr "Отправить"
 
@@ -1754,7 +1778,7 @@ msgstr "раздел"
 msgid "Page"
 msgstr "Страница"
 
-#: main/views.py:44
+#: main/views.py:46
 msgid "Feedback sent success!"
 msgstr "Отзыв успешно отправлен!"
 
@@ -1787,11 +1811,6 @@ msgstr "Рецепты"
 #: templates/_menu.html:16
 msgid "About"
 msgstr "О проекте"
-
-#: templates/_menu.html:22 templates/openid_consumer/signin.html:10
-#: templates/registration/login.html:16
-msgid "Login"
-msgstr "Вход"
 
 #: templates/_menu.html:25
 msgid "Administrator's Interface"
@@ -1906,11 +1925,11 @@ msgstr "Добавить рецепт"
 msgid "Receipts"
 msgstr "Рецепты"
 
-#: templates/examples/add.html:8
+#: templates/examples/add.html:13
 msgid "Add new receipt"
 msgstr "Добавить новый рецепт"
 
-#: templates/examples/add.html:11
+#: templates/examples/add.html:16
 msgid ""
 "You can share your receipt for\n"
 "      django-society. It can be solution for the problem that you have\n"
@@ -1921,7 +1940,7 @@ msgstr ""
 "что найденное решение проблемы. Или это может быть интересный трюк, о "
 "котором даже Google ещё ничего не знает."
 
-#: templates/examples/add.html:18
+#: templates/examples/add.html:23
 msgid ""
 "We\n"
 "      use <a href=\"http://daringfireball.net/projects/markdown/syntax"
@@ -1965,7 +1984,15 @@ msgstr "Аутентификация"
 msgid "or"
 msgstr "или"
 
-#: templates/registration/login.html:25
+#: templates/registration/login.html:28 templates/registration/login.html:29
+msgid "Secured Data Transmittion Service"
+msgstr "Сервис безопасной передачи данных"
+
+#: templates/registration/login.html:38
+msgid "You will be redirected on SSL protected site to enter login/password."
+msgstr "Вы будете перенаправлены на защищённый сайт для ввода логина и пароля."
+
+#: templates/registration/login.html:48
 msgid "You are authenticated already"
 msgstr "Вы уже аутентифицированы"
 

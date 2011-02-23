@@ -192,3 +192,19 @@ RANKS_NAMES_DATA = ((30, "Member"), (100, "Senior Member"), (300, 'Star'))
 
 RECAPTCHA_PUBLIC = ${recaptcha_public}
 RECAPTCHA_PRIVATE = ${recaptcha_private}
+
+###
+# SecureLayer
+###
+
+INSTALLED_APPS += ('securelayer',)
+SECURELAYER_HOST = '${securelayer_host}'
+SECURELAYER_PORT = ${securelayer_port}
+
+GPG_HOMEDIR = '${gpg_homedir}'
+GPG_PASSPHRASE = '${gpg_passphrase}'
+
+try:
+    from settings_local import *
+except ImportError:
+    pass

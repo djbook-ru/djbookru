@@ -1,0 +1,9 @@
+body { font: 14px arial, helvetica, sans-serif; background-color: #326342; margin: 0px; }
+h1 { margin: 16px 8px; font: 32px arial; font-weight: bold; color: #9AEF3F; }
+.form_container, .caption, .desc { margin: 0.5em; padding: 0.5em; -moz-border-radius: 8px; }
+.form_container { border: 1px solid #9AEF3F; }
+.caption { border: 1px solid #326342; background-color: #94CE4A; }
+.desc { border: 1px solid #9AEF3F; color: white; }
+input[type="text"] { border: 1px solid white; }
+td, th { border-width: 0px; }
+th label { color: white; }
