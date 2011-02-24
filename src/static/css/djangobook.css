@@ -457,3 +457,7 @@ textarea.markItUpEditor{
 .author-avatar a {
     color: #326342;
 }
+
+.markItUpPreview p {
+    color: #000;
+}
