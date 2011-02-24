@@ -197,6 +197,8 @@ pre code {
     border: 1px solid #94CE4A;
     padding: 4px;
     white-space: wrap;
+    overflow: auto;
+    max-width: 800px;
 }
 
 .subst, .title {
