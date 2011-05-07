@@ -16,5 +16,3 @@ class TestClass(TestCase):
         
         response = self.client.get('/sitemap.xml')
         self.failUnlessEqual(response.status_code, 200)
-        
-        
