@@ -10,9 +10,15 @@
             <span class="comment_date">{{ item.submit_date|timesince }} {% trans 'ago' %}</span>
         </div>
         <a name="comments-{{ item.id }}"></a>
+        {% if user.is_authenticated %}
         <a href="#" class="reply"  comment_id="{{ item.id }}">
             <span>{% trans 'Answer' %}</span>
         </a>
+        {% else %}
+        <a href="{% url accounts:login %}?next={{ next_page }}" class="reply">
+            <span>{% trans 'Answer' %}</span>
+        </a>        
+        {% endif %}
         <a href="#comments-{{ item.id }}" class="link">{% trans 'Link' %}</a>
         {% if user.is_staff and perms.comments.delete_comment %}
             <a href="{% url admin:comments_comment_delete item.pk %}" class="delete" target="blank">{% trans 'Delete' %}</a>
