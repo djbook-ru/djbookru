@@ -7,6 +7,7 @@ from examples.forms import AddExampleForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
+from django.http import Http404
 
 @render_to('examples/index.html')
 def index(request):
@@ -37,6 +38,13 @@ def category(request, pk):
 
 @render_to('examples/detail.html')
 def detail(request, pk):
+    try:
+        example = Example.objects.get(pk=pk)
+        if not example.approved and not request.user.is_superuser:
+            raise Http404
+    except Example.DoesNotExist:
+        raise Http404
+    
     return {
-        'obj': get_object_or_404(Example.objects.approved(), pk=pk)
+        'obj': example
     }
