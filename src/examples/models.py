@@ -26,7 +26,7 @@ class ExampleManager(models.Manager):
 class Example(models.Model):
     category = models.ForeignKey(Category, related_name='examples', verbose_name=_(u'category'))
     title = models.CharField(_(u'title'), max_length=255)
-    content = models.TextField(_(u'content'), help_text=_('Use Markdown and HTML'))
+    content = models.TextField(_(u'content'), help_text=_('Use <a target="blank" href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> and HTML'))
     created = models.DateTimeField(_(u'created'), auto_now=True)
     author = models.ForeignKey(User, editable=False)
     approved = models.BooleanField(_(u'approved'), default=True, help_text=_(u'Can be used for draft'))
