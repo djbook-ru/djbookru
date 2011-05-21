@@ -389,3 +389,10 @@ div.box {
 div.message {
 	padding:20px 20px 15px;
 }
+
+.djangobb .heresy {
+	margin: 1em 0 1em 12em;
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #f22;
+}

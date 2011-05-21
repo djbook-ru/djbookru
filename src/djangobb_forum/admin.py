@@ -15,10 +15,11 @@ class ForumAdmin(admin.ModelAdmin):
     raw_id_fields = ['moderators', 'last_post']
 
 class TopicAdmin(admin.ModelAdmin):
-    list_display = ['name', 'forum', 'created', 'head', 'post_count']
+    list_display = ['name', 'forum', 'created', 'head', 'post_count', 'heresy', 'closed', 'sticky']
     search_fields = ['name']
     raw_id_fields = ['user', 'subscribers', 'last_post']
-
+    list_filter = ('heresy', 'closed', 'sticky')
+    
 class PostAdmin(admin.ModelAdmin):
     list_display = ['topic', 'user', 'created', 'updated', 'summary']
     search_fields = ['body']

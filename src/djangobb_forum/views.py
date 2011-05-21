@@ -654,6 +654,15 @@ def stick_unstick_topic(request, topic_id):
         topic.save()
     return HttpResponseRedirect(topic.get_absolute_url())
 
+@login_required
+@transaction.commit_on_success
+def make_heresy(request, topic_id):
+
+    topic = get_object_or_404(Topic, pk=topic_id)
+    if forum_moderated_by(topic, request.user):
+        topic.heresy = not topic.heresy
+        topic.save()
+    return HttpResponseRedirect(topic.get_absolute_url())
 
 @login_required
 @transaction.commit_on_success

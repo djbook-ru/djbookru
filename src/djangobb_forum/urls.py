@@ -27,6 +27,7 @@ urlpatterns = patterns('',
     url('^topic/move/$', forum_views.move_topic, name='move_topic'),
     url('^topic/(?P<topic_id>\d+)/stick_unstick/$', forum_views.stick_unstick_topic, name='stick_unstick_topic'),
     url('^topic/(?P<topic_id>\d+)/open_close/$', forum_views.open_close_topic, name='open_close_topic'),
+    url('^topic/(?P<topic_id>\d+)/make_heresy/$', forum_views.make_heresy, name='make_heresy'),
 
     # Post
     url('^topic/(?P<topic_id>\d+)/post/add/$', forum_views.add_post,

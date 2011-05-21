@@ -16,6 +16,12 @@
 			<a href="{% url djangobb:forum_topic_feed topic.id %}"><img src="{{ MEDIA_URL }}forum/img/feed-icon-small.png" alt="[RSS Feed]" title="[RSS Feed]" class="breadcrumb_rss" /></a>
 			</li>
 		</ul>
+		
+		{% if topic.heresy %}
+		<div class="heresy">
+			{% trans "This topic is full of heresy! Don't use code examples represented here. Better read documentation." %}
+		</div>
+		{% endif %}
 		<div class="clearer"></div>
 	</div>
 </div>
@@ -219,6 +225,11 @@
 			<dd><a href="{% url djangobb:stick_unstick_topic topic.id %}">{% trans "Unstick topic" %}</a></dd></dl>
 		{% else %}
 			<dd><a href="{% url djangobb:stick_unstick_topic topic.id %}">{% trans "Stick topic" %}</a></dd></dl>
+		{% endif %}
+		{% if topic.heresy %}
+			<dd><a href="{% url djangobb:make_heresy topic.id %}">{% trans "Mar as not herecy" %}</a></dd></dl>
+		{% else %}
+			<dd><a href="{% url djangobb:make_heresy topic.id %}">{% trans "Mark as herecy" %}</a></dd></dl>
 		{% endif %}
 	{% endif %}
 </div>
