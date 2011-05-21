@@ -605,5 +605,10 @@ fieldset.module .row .column.span-flexible:last-child {
 
 .clear { clear: both; }
 
-
+.alert {
+	margin: 0.5em 0 1em 0em;
+	font-size: 1.2em;
+	color: #f33;
+	font-weight: bold;
+}
 

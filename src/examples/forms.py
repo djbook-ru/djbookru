@@ -25,7 +25,6 @@ class AddExampleForm(forms.ModelForm):
 
     def save(self, user):
         obj = super(AddExampleForm, self).save(False)
-        obj.content = escape(obj.content)
         obj.approved = False
         obj.author = user
         obj.save()
