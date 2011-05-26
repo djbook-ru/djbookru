@@ -1,5 +1,5 @@
 import math
-from datetime import datetime, timedelta 
+from datetime import datetime, timedelta
 
 from django.shortcuts import get_object_or_404
 from django.http import Http404, HttpResponse, HttpResponseRedirect, HttpResponseForbidden
@@ -119,7 +119,7 @@ def search(request):
     # TODO: move to form
     if 'action' in request.GET:
         action = request.GET['action']
-        #FIXME: show_user for anonymous raise exception, 
+        #FIXME: show_user for anonymous raise exception,
         #django bug http://code.djangoproject.com/changeset/14087 :|
         groups = request.user.groups.all() or [] #removed after django > 1.2.3 release
         topics = Topic.objects.filter(
@@ -186,8 +186,8 @@ def search(request):
                     if post.object.topic not in topics:
                         if post.object.topic.forum.category.has_access(request.user):
                             topics.append(post.object.topic)
-                        else:
-                            topics_to_exclude |= SQ(topic=post.object.topic)
+                        #else:
+                        #    topics_to_exclude |= SQ(topic=post.object.topic)
 
                 if topics_to_exclude:
                     posts = posts.exclude(topics_to_exclude)
@@ -389,7 +389,7 @@ def user(request, username):
     if request.user.is_authenticated() and user == request.user or request.user.is_superuser:
         if 'section' in request.GET:
             section = request.GET['section']
-            profile_url = reverse('djangobb:forum_profile', args=[user.username]) + '?section=' + section  
+            profile_url = reverse('djangobb:forum_profile', args=[user.username]) + '?section=' + section
             if section == 'privacy':
                 form = build_form(PrivacyProfileForm, request, instance=user.forum_profile)
                 if request.method == 'POST' and form.is_valid():
