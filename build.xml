@@ -244,7 +244,9 @@
       <fileset dir="${basedir}">
         <include name="conf/**/*"/>
         <include name="src/**/*"/>
+        <exclude name="src/search_index"/>
         <exclude name="src/database.sqlite"/>
+        <exclude name="src/**/*.dump"/>
         <exclude name="src/**/*.sh"/>
         <exclude name="src/**/*.bat"/>
         <exclude name="src/**/*.po"/>
