@@ -126,7 +126,7 @@ class Topic(models.Model):
     views = models.IntegerField(_('Views count'), blank=True, default=0)
     sticky = models.BooleanField(_('Sticky'), blank=True, default=False)
     closed = models.BooleanField(_('Closed'), blank=True, default=False)
-    heresy = models.BooleanField(_('Herecy'), blank=True, default=False)
+    heresy = models.BooleanField(_('Heresy'), blank=True, default=False)
     subscribers = models.ManyToManyField('accounts.User', related_name='subscriptions', verbose_name=_('Subscribers'), blank=True)
     post_count = models.IntegerField(_('Post count'), blank=True, default=0)
     last_post = models.ForeignKey('Post', related_name='last_topic_post', blank=True, null=True)

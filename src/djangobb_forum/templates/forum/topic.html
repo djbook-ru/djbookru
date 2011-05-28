@@ -227,7 +227,7 @@
 			<dd><a href="{% url djangobb:stick_unstick_topic topic.id %}">{% trans "Stick topic" %}</a></dd></dl>
 		{% endif %}
 		{% if topic.heresy %}
-			<dd><a href="{% url djangobb:make_heresy topic.id %}">{% trans "Mar as not herecy" %}</a></dd></dl>
+			<dd><a href="{% url djangobb:make_heresy topic.id %}">{% trans "Mark as useful" %}</a></dd></dl>
 		{% else %}
 			<dd><a href="{% url djangobb:make_heresy topic.id %}">{% trans "Mark as herecy" %}</a></dd></dl>
 		{% endif %}
