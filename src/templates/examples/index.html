@@ -10,7 +10,7 @@
         <h2><a href="{{ category.get_absolute_url }}">{{ category }}</a></h2>
         {% for item in category.examples.approved %}
             <p style="padding-left: 20px;">
-                <a href="{{ item.get_absolute_url }}">{{ item }}</a>
+                <a href="{{ item.get_absolute_url }}" {% if item.url %}class="link"{% endif %}>{{ item }}</a>
                 (<a class="comments-number" href="{{ item.get_absolute_url }}#comments">
                     {% trans 'Comments' %}: {% get_comment_count item %}
                 </a>)

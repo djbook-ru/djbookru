@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from accounts.models import User
+from django.core.urlresolvers import reverse
 
 class Category(models.Model):
     name = models.CharField(_(u'name'), max_length=255)
@@ -31,6 +32,7 @@ class Example(models.Model):
     author = models.ForeignKey(User, editable=False)
     approved = models.BooleanField(_(u'approved'), default=True, help_text=_(u'Can be used for draft'))
     note = models.TextField(_(u'note'), blank=True, help_text=_(u'author\'s note, is not visible on site'))
+    url = models.URLField(_(u'URL'), blank=True)
     
     class Meta:
         verbose_name = _(u'Example')

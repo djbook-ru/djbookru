@@ -463,3 +463,8 @@ textarea.markItUpEditor{
 .markItUpPreview p {
     color: #000;
 }
+
+a.link {
+	background: url(../img/link-overlay-icon.png) no-repeat right top;
+	padding: 0 42px 0 0; 
+}
