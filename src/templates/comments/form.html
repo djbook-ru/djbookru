@@ -1,5 +1,6 @@
 {% load i18n %}
 {% if form %}
+<div class="comment-reply-to"></div>
 <form method="post" action="{% url comments:post %}" id="comment-form">
     {% csrf_token %}
     {% for field in form %}
@@ -50,6 +51,10 @@ jQuery(document).ready(function($){
     $('.reply').live('click', function(){
         $('#id_comment_form_reply_to').val($(this).attr('comment_id'))
         $('#id_comment_form_content').focus();
+        var $comment = $(this).parents('.comment');
+        var username = $comment.find('.table_user_deets a').text();
+        $('.comment-reply-to').html('{% trans "Answering to: " %}'
+            +'<a href="#comments-'+$comment.attr('comment_id')+'">'+username+'</a>');
         return false;
     });
 });

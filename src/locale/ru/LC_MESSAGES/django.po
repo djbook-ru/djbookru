@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-23 11:17+0400\n"
+"POT-Creation-Date: 2011-11-22 19:52+0400\n"
 "PO-Revision-Date: 2011-05-23 11:21+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -76,7 +76,7 @@ msgstr "Свежие новости Django"
 msgid "Recent Actions"
 msgstr "Недавние действия"
 
-#: patch.py:9
+#: patch.py:9 examples/models.py:35
 msgid "URL"
 msgstr "URL"
 
@@ -95,11 +95,11 @@ msgstr ""
 "Данное значение должно содержать только буквы, цифры, символы подчёркивания, "
 "тире или слеши."
 
-#: patch.py:20
+#: patch.py:20 django-robots/robots/admin.py:12
 msgid "Advanced options"
 msgstr "Дополнительные возможности"
 
-#: settings.py:154
+#: settings.py:155
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
 
@@ -148,8 +148,9 @@ msgstr "биография"
 msgid "homepage"
 msgstr "домашняя страница"
 
-#: accounts/models.py:14 djangobb_forum/models.py:125
-#: djangobb_forum/models.py:180 djangobb_forum/models.py:263
+#: accounts/models.py:14 django-nezabudka/nezabudka/models.py:15
+#: djangobb_forum/models.py:125 djangobb_forum/models.py:180
+#: djangobb_forum/models.py:263
 msgid "User"
 msgstr "Пользователь"
 
@@ -182,10 +183,12 @@ msgid "Error"
 msgstr "Ошибка"
 
 #: claims/admin.py:18 comments/forms.py:9 comments/models.py:22
+#: django-nezabudka/nezabudka/models.py:117
 msgid "Comment"
 msgstr "Комментарий"
 
-#: claims/admin.py:26 djangobb_forum/models.py:264
+#: claims/admin.py:26 django-nezabudka/nezabudka/models.py:85
+#: django-nezabudka/nezabudka/models.py:96 djangobb_forum/models.py:264
 msgid "Status"
 msgstr "Состояние"
 
@@ -245,8 +248,8 @@ msgstr "Е-почта читателя"
 msgid "Reader wants the Notify"
 msgstr "Уведомлять читателя"
 
-#: claims/models.py:22 djangobb_forum/forms.py:22
-#: djangobb_forum/templates/forum/users.html:48
+#: claims/models.py:22 django-nezabudka/nezabudka/models.py:17
+#: djangobb_forum/forms.py:22 djangobb_forum/templates/forum/users.html:48
 msgid "Registered"
 msgstr "Зарегистрировано"
 
@@ -304,10 +307,384 @@ msgstr "комментарий"
 msgid "submit date"
 msgstr "дата отправки"
 
-#: comments/models.py:23 templates/examples/category.html:13
-#: templates/examples/index.html:15 templates/news/_last_news.html:15
+#: comments/models.py:23 django-nezabudka/nezabudka/models.py:118
+#: templates/examples/category.html:13 templates/examples/index.html:15
+#: templates/news/_last_news.html:15
 msgid "Comments"
 msgstr "Комментарии"
+
+#: django-adzone/src/adzone/models.py:22
+msgid "Company Name"
+msgstr ""
+
+#: django-adzone/src/adzone/models.py:23
+msgid "Company Site"
+msgstr ""
+
+#: django-adzone/src/adzone/models.py:27
+msgid "Advertiser"
+msgstr ""
+
+#: django-adzone/src/adzone/models.py:28
+msgid "Advertisers"
+msgstr ""
+
+#: django-adzone/src/adzone/models.py:42 django-adzone/src/adzone/models.py:59
+#: django-adzone/src/adzone/models.py:78
+#: django-nezabudka/nezabudka/models.py:36
+#: django-nezabudka/nezabudka/models.py:47
+#: django-nezabudka/nezabudka/models.py:57
+#: django-nezabudka/nezabudka/models.py:65
+#: django-nezabudka/nezabudka/models.py:73
+#: django-nezabudka/nezabudka/models.py:81
+#: django-nezabudka/nezabudka/models.py:97
+#: django-nezabudka/nezabudka/models.py:127
+#: djangobb_forum/templates/forum/user.html:17
+#: djangobb_forum/templates/forum/users.html:46
+msgid "Title"
+msgstr "Заголовок"
+
+#: django-adzone/src/adzone/models.py:43 django-adzone/src/adzone/models.py:60
+msgid "Slug"
+msgstr ""
+
+#: django-adzone/src/adzone/models.py:44 django-adzone/src/adzone/models.py:61
+#: djangobb_forum/models.py:96
+msgid "Description"
+msgstr "Описание"
+
+#: django-adzone/src/adzone/models.py:79
+msgid "Advertised URL"
+msgstr ""
+
+#: django-adzone/src/adzone/models.py:80
+msgid "Enabled"
+msgstr ""
+
+#: django-adzone/src/adzone/models.py:81
+msgid "Since"
+msgstr ""
+
+#: django-adzone/src/adzone/models.py:82 djangobb_forum/models.py:98
+#: djangobb_forum/models.py:124 djangobb_forum/models.py:182
+msgid "Updated"
+msgstr "Обновлено"
+
+#: django-adzone/src/adzone/models.py:108
+#: django-adzone/src/adzone/models.py:121
+msgid "When"
+msgstr ""
+
+#: django-adzone/src/adzone/models.py:109
+#: django-adzone/src/adzone/models.py:122
+msgid "Who"
+msgstr ""
+
+#: django-adzone/src/adzone/models.py:132
+#: django-adzone/src/adzone/models.py:136
+#, fuzzy
+msgid "Content"
+msgstr "содержимое"
+
+#: django-nezabudka/nezabudka/admin.py:26
+msgid "This model consists of projects list."
+msgstr ""
+
+#: django-nezabudka/nezabudka/admin.py:37
+msgid "This model consists of components list."
+msgstr ""
+
+#: django-nezabudka/nezabudka/admin.py:48
+msgid "This model consists of categories list."
+msgstr ""
+
+#: django-nezabudka/nezabudka/admin.py:59
+msgid "This model consists of priorities list."
+msgstr ""
+
+#: django-nezabudka/nezabudka/admin.py:70
+msgid "This model consists of severities list."
+msgstr ""
+
+#: django-nezabudka/nezabudka/admin.py:81
+msgid "This model consists of statuses list."
+msgstr ""
+
+#: django-nezabudka/nezabudka/admin.py:113
+#, python-format
+msgid ""
+"Project: <b>%(project)s</b><br/>Component: <b>%(component)s</b><br/"
+">Category: <b>%(category)s</b>"
+msgstr ""
+
+#: django-nezabudka/nezabudka/admin.py:116
+msgid "Product"
+msgstr ""
+
+#: django-nezabudka/nezabudka/admin.py:121
+#: djangobb_forum/templates/forum/forum.html:28
+#: djangobb_forum/templates/forum/moderate.html:24
+#: djangobb_forum/templates/forum/search_topics.html:23
+msgid "Replies"
+msgstr "Отклики"
+
+#: django-nezabudka/nezabudka/admin.py:132
+msgid "This model consists of tickets list."
+msgstr ""
+
+#: django-nezabudka/nezabudka/admin.py:144
+msgid "This model consists of comments list."
+msgstr ""
+
+#: django-nezabudka/nezabudka/admin.py:155
+msgid "This model consists of media list."
+msgstr ""
+
+#: django-nezabudka/nezabudka/models.py:16
+msgid "Is this record active?"
+msgstr ""
+
+#: django-nezabudka/nezabudka/models.py:37
+msgid "Project Name"
+msgstr ""
+
+#: django-nezabudka/nezabudka/models.py:40
+#: django-nezabudka/nezabudka/models.py:46
+#: django-nezabudka/nezabudka/models.py:90
+#, fuzzy
+msgid "Project"
+msgstr "Идентификатор объекта"
+
+#: django-nezabudka/nezabudka/models.py:41
+msgid "Projects"
+msgstr ""
+
+#: django-nezabudka/nezabudka/models.py:48
+#, fuzzy
+msgid "Component Name"
+msgstr "Тип содержимого"
+
+#: django-nezabudka/nezabudka/models.py:51
+#: django-nezabudka/nezabudka/models.py:56
+#: django-nezabudka/nezabudka/models.py:91
+msgid "Component"
+msgstr ""
+
+#: django-nezabudka/nezabudka/models.py:52
+#, fuzzy
+msgid "Components"
+msgstr "Комментарии"
+
+#: django-nezabudka/nezabudka/models.py:58
+#, fuzzy
+msgid "Category Name"
+msgstr "Категория"
+
+#: django-nezabudka/nezabudka/models.py:61
+#: django-nezabudka/nezabudka/models.py:92 djangobb_forum/models.py:63
+#: djangobb_forum/models.py:93 examples/models.py:11
+msgid "Category"
+msgstr "Категория"
+
+#: django-nezabudka/nezabudka/models.py:62 djangobb_forum/models.py:64
+#: examples/models.py:12
+msgid "Categories"
+msgstr "Категории"
+
+#: django-nezabudka/nezabudka/models.py:66
+msgid "Priority Title"
+msgstr ""
+
+#: django-nezabudka/nezabudka/models.py:69
+#: django-nezabudka/nezabudka/models.py:94
+msgid "Priority"
+msgstr ""
+
+#: django-nezabudka/nezabudka/models.py:70
+msgid "Priorities"
+msgstr ""
+
+#: django-nezabudka/nezabudka/models.py:74
+msgid "Severity Title"
+msgstr ""
+
+#: django-nezabudka/nezabudka/models.py:77
+#: django-nezabudka/nezabudka/models.py:95
+msgid "Severity"
+msgstr ""
+
+#: django-nezabudka/nezabudka/models.py:78
+msgid "Severities"
+msgstr ""
+
+#: django-nezabudka/nezabudka/models.py:82
+#, fuzzy
+msgid "Status Title"
+msgstr "Состояние изменено"
+
+#: django-nezabudka/nezabudka/models.py:86
+#, fuzzy
+msgid "Statuses"
+msgstr "Состояние"
+
+#: django-nezabudka/nezabudka/models.py:89
+msgid "Parent"
+msgstr ""
+
+#: django-nezabudka/nezabudka/models.py:93
+#, fuzzy
+msgid "Assigned To"
+msgstr "Принята"
+
+#: django-nezabudka/nezabudka/models.py:98
+msgid "Ticket Title"
+msgstr ""
+
+#: django-nezabudka/nezabudka/models.py:100
+#: django-nezabudka/nezabudka/models.py:109
+#: django-nezabudka/nezabudka/models.py:126
+msgid "Ticket"
+msgstr ""
+
+#: django-nezabudka/nezabudka/models.py:101
+msgid "Tickets"
+msgstr ""
+
+#: django-nezabudka/nezabudka/models.py:106
+#: django-nezabudka/nezabudka/models.py:123
+#: django-nezabudka/nezabudka/models.py:138
+#, fuzzy
+msgid "Reported By"
+msgstr "Доложил"
+
+#: django-nezabudka/nezabudka/models.py:128
+#, fuzzy
+msgid "Media Title"
+msgstr "Заголовок"
+
+#: django-nezabudka/nezabudka/models.py:129
+#, fuzzy
+msgid "File Name"
+msgstr "Имя"
+
+#: django-nezabudka/nezabudka/models.py:132
+#: django-nezabudka/nezabudka/models.py:133
+msgid "Media"
+msgstr ""
+
+#: django-robots/robots/admin.py:11
+msgid "URL patterns"
+msgstr ""
+
+#: django-robots/robots/forms.py:12
+msgid "Please specify at least one allowed or dissallowed URL."
+msgstr ""
+
+#: django-robots/robots/models.py:11
+msgid "pattern"
+msgstr ""
+
+#: django-robots/robots/models.py:12
+msgid ""
+"Case-sensitive. A missing trailing slash does also match to files which "
+"start with the name of the pattern, e.g., '/admin' matches /admin.html too. "
+"Some major search engines allow an asterisk (*) as a wildcard and a dollar "
+"sign ($) to match the end of the URL, e.g., '/*.jpg$'."
+msgstr ""
+
+#: django-robots/robots/models.py:19 django-robots/robots/models.py:20
+msgid "url"
+msgstr ""
+
+#: django-robots/robots/models.py:37
+msgid "robot"
+msgstr ""
+
+#: django-robots/robots/models.py:38
+msgid ""
+"This should be a user agent string like 'Googlebot'. Enter an asterisk (*) "
+"for all user agents. For a full list look at the <a target=_blank "
+"href='http://www.robotstxt.org/db.html'> database of Web Robots</a>."
+msgstr ""
+
+#: django-robots/robots/models.py:46
+msgid "The URLs which are allowed to be accessed by bots."
+msgstr ""
+
+#: django-robots/robots/models.py:50
+msgid "The URLs which are not allowed to be accessed by bots."
+msgstr ""
+
+#: django-robots/robots/models.py:55
+msgid "crawl delay"
+msgstr ""
+
+#: django-robots/robots/models.py:57
+msgid ""
+"Between 0.1 and 99.0. This field is supported by some search engines and "
+"defines the delay between successive crawler accesses in seconds. If the "
+"crawler rate is a problem for your server, you can set the delay up to 5 or "
+"10 or a comfortable value for your server, but it's suggested to start with "
+"small values (0.5-1), and increase as needed to an acceptable value for your "
+"server. Larger delay values add more delay between successive crawl accesses "
+"and decrease the maximum crawl rate to your web server."
+msgstr ""
+
+#: django-robots/robots/models.py:73
+msgid "rule"
+msgstr ""
+
+#: django-robots/robots/models.py:74
+msgid "rules"
+msgstr ""
+
+#: django-robots/robots/models.py:80 django-robots/robots/models.py:84
+#, fuzzy
+msgid "and"
+msgstr "Бан"
+
+#: django-robots/robots/models.py:81
+msgid "allowed"
+msgstr ""
+
+#: django-robots/robots/models.py:85
+msgid "disallowed"
+msgstr ""
+
+#: django-securelayer/securelayer/__init__.py:30
+#, python-format
+msgid "Field %s is not supported!"
+msgstr ""
+
+#: django-securelayer/securelayer/http.py:78
+msgid "No response."
+msgstr ""
+
+#: django-securelayer/securelayer/http.py:85
+#, fuzzy
+msgid "Authenticate Yourself."
+msgstr "Аутентификация"
+
+#: django-securelayer/securelayer/http.py:88
+msgid "Internal Error."
+msgstr ""
+
+#: django-securelayer/securelayer/views.py:39
+msgid "Request error."
+msgstr ""
+
+#: django-securelayer/securelayer/views.py:57
+msgid "Redirect"
+msgstr ""
+
+#: django-securelayer/securelayer/views.py:59
+#, fuzzy
+msgid "You will be redirected on SecureLayer for secure data entering."
+msgstr "Вы будете перенаправлены на защищённый сайт для ввода логина и пароля."
+
+#: django-securelayer/securelayer/views.py:76
+msgid "The data would be transferred by open channel."
+msgstr ""
 
 #: djangobb_forum/feeds.py:26 djangobb_forum/feeds.py:27
 #: djangobb_forum/templates/forum/base.html:12
@@ -480,27 +857,9 @@ msgstr "Только пользователи из этих групп могу�
 msgid "Position"
 msgstr "Позиция"
 
-#: djangobb_forum/models.py:63 djangobb_forum/models.py:93
-#: examples/models.py:10
-msgid "Category"
-msgstr "Категория"
-
-#: djangobb_forum/models.py:64 examples/models.py:11
-msgid "Categories"
-msgstr "Категории"
-
-#: djangobb_forum/models.py:96
-msgid "Description"
-msgstr "Описание"
-
 #: djangobb_forum/models.py:97
 msgid "Moderators"
 msgstr "Модераторы"
-
-#: djangobb_forum/models.py:98 djangobb_forum/models.py:124
-#: djangobb_forum/models.py:182
-msgid "Updated"
-msgstr "Обновлено"
 
 #: djangobb_forum/models.py:99 djangobb_forum/models.py:131
 #: djangobb_forum/models.py:281
@@ -566,7 +925,7 @@ msgstr "IP пользователя"
 
 #: djangobb_forum/models.py:193 djangobb_forum/models.py:248
 #: djangobb_forum/models.py:325 djangobb_forum/models.py:363
-#: templates/comments/form.html:13
+#: templates/comments/form.html:14
 msgid "Post"
 msgstr "Отправить"
 
@@ -839,12 +1198,6 @@ msgstr "Изменить отклик и отправить изменения"
 #: templates/accounts/edit.html:22
 msgid "Save"
 msgstr "Сохранить"
-
-#: djangobb_forum/templates/forum/forum.html:28
-#: djangobb_forum/templates/forum/moderate.html:24
-#: djangobb_forum/templates/forum/search_topics.html:23
-msgid "Replies"
-msgstr "Отклики"
 
 #: djangobb_forum/templates/forum/forum.html:29
 #: djangobb_forum/templates/forum/moderate.html:25
@@ -1341,11 +1694,6 @@ msgstr "Персональное"
 msgid "Username:"
 msgstr "Имя пользователя:"
 
-#: djangobb_forum/templates/forum/user.html:17
-#: djangobb_forum/templates/forum/users.html:46
-msgid "Title"
-msgstr "Заголовок"
-
 #: djangobb_forum/templates/forum/user.html:19
 msgid "Real name:"
 msgstr "Настоящее имя:"
@@ -1657,8 +2005,8 @@ msgid "This chapter can be translated only by moderators and translators"
 msgstr "Эта глава может быть переведена только модераторами или переводчиками"
 
 #: docbook_translator/models.py:52
-msgid ""
-"The translation is finished. The chapter can be changed only by moderators"
+#, fuzzy
+msgid "This chapter is completed and can be changed only by moderators"
 msgstr "Перевод завершён. Глава может быть изменена только модераторами"
 
 #: docbook_translator/models.py:53
@@ -1745,23 +2093,23 @@ msgstr ""
 "\n"
 "Пожалуйста, проверьте и подтвердите его. URL: %(link)s"
 
-#: examples/models.py:6 main/models.py:6 main/models.py:27
+#: examples/models.py:7 main/models.py:6 main/models.py:27
 msgid "name"
 msgstr "имя"
 
-#: examples/models.py:27
+#: examples/models.py:28
 msgid "category"
 msgstr "категория"
 
-#: examples/models.py:28 news/models.py:6
+#: examples/models.py:29 news/models.py:6
 msgid "title"
 msgstr "тема"
 
-#: examples/models.py:29 main/models.py:29 news/models.py:7
+#: examples/models.py:30 main/models.py:29 news/models.py:7
 msgid "content"
 msgstr "содержимое"
 
-#: examples/models.py:29
+#: examples/models.py:30
 msgid ""
 "Use <a target=\"blank\" href=\"http://daringfireball.net/projects/markdown/"
 "syntax\">Markdown</a> and HTML"
@@ -1769,31 +2117,31 @@ msgstr ""
 "Используйте <a target=\"blank\" href=\"http://daringfireball.net/projects/"
 "markdown/syntax\">Markdown</a> и HTML"
 
-#: examples/models.py:30 main/models.py:7 news/models.py:8
+#: examples/models.py:31 main/models.py:7 news/models.py:8
 msgid "created"
 msgstr "создано"
 
-#: examples/models.py:32
+#: examples/models.py:33
 msgid "approved"
 msgstr "разрешено"
 
-#: examples/models.py:32
+#: examples/models.py:33
 msgid "Can be used for draft"
 msgstr "Может быть использовано для черновиков"
 
-#: examples/models.py:33
+#: examples/models.py:34
 msgid "note"
 msgstr "заметка"
 
-#: examples/models.py:33
+#: examples/models.py:34
 msgid "author's note, is not visible on site"
 msgstr "авторская заметка, не отображается на сайте"
 
-#: examples/models.py:36
+#: examples/models.py:38
 msgid "Example"
 msgstr "Пример"
 
-#: examples/models.py:37 templates/examples/category.html:5
+#: examples/models.py:39 templates/examples/category.html:5
 #: templates/examples/detail.html:5
 msgid "Examples"
 msgstr "Примеры"
@@ -1908,11 +2256,11 @@ msgstr "Нашли опечатку?"
 msgid "Select it with the mouse and hit Enter"
 msgstr "Выделите её мышкой и нажмите Enter"
 
-#: templates/_right.html:30
+#: templates/_right.html:24
 msgid "Now you can add your own recipe."
 msgstr "Теперь вы можете добавить свой собственный рецепт."
 
-#: templates/_right.html:37
+#: templates/_right.html:31
 msgid ""
 "\n"
 "    The full repository of DjangoBook translation you can get on <a href="
@@ -1928,11 +2276,11 @@ msgstr ""
 "    Мы ждём ваших патчей!\n"
 "    "
 
-#: templates/_right.html:49 templates/main/feedback.html:11
+#: templates/_right.html:43 templates/main/feedback.html:11
 msgid "We are glad to hear your questions, comments or suggestions!"
 msgstr "Мы рады получить ваши вопросы, комментарии или предложения!"
 
-#: templates/_right.html:52
+#: templates/_right.html:46
 msgid "Open in new tab"
 msgstr "Открыть новую вкладку"
 
@@ -2003,11 +2351,16 @@ msgstr "Ответ"
 msgid "Link"
 msgstr "Ссылка"
 
-#: templates/comments/form.html:43
+#: templates/comments/form.html:44
 msgid "Enter comment please."
 msgstr "Введите комментарий, пожалуйста."
 
-#: templates/comments/form.html:59
+#: templates/comments/form.html:55
+#, fuzzy
+msgid "Answering to: "
+msgstr "Ответ: "
+
+#: templates/comments/form.html:62
 msgid "Login please to post comment"
 msgstr "Пожалуйста, произведите вход для отправки комментария"
 
@@ -2093,6 +2446,16 @@ msgstr "Вы будете перенаправлены на защищённый
 #: templates/registration/login.html:48
 msgid "You are authenticated already"
 msgstr "Вы уже аутентифицированы"
+
+#: utils/admin.py:79
+#, python-format
+msgid "%(name)s object with primary key %(key)r does not exist."
+msgstr ""
+
+#: utils/admin.py:144
+#, fuzzy, python-format
+msgid "Change %s"
+msgstr "Изменить пароль"
 
 #, fuzzy
 #~ msgid "Add example"
