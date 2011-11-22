@@ -11,6 +11,20 @@
 	LIST-STYLE: none;
 }
 
+.djangobb ol, .djangobb ul {
+	margin: 0 0 0 20px;
+}
+
+.djangobb ol li {
+	list-style: decimal;
+	padding-left: 0em; 
+}
+
+.djangobb ul li {
+	list-style: circle;
+	padding-left: 0em; 
+}
+
 .djangobb IMG {BORDER: none}
 
 .djangobb INPUT, .djangobb SELECT, .djangobb TEXTAREA, .djangobb OPTGROUP {MARGIN: 0}
