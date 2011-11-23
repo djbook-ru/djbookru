@@ -1,13 +1,16 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import get_object_or_404, redirect
-from decorators import render_to
-from examples.models import Category, Example
-from examples.forms import AddExampleForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 from django.http import Http404
+
+from decorators import render_to
+
+from examples.models import Category, Example
+from examples.forms import AddExampleForm
+from djangobb_forum.models import Topic
 
 @render_to('examples/index.html')
 def index(request):
@@ -44,7 +47,8 @@ def detail(request, pk):
             raise Http404
     except Example.DoesNotExist:
         raise Http404
-    
+
     return {
-        'obj': example
+        'obj': example,
+        'topic': Topic.objects.get(pk=example.topic_id),
     }
