@@ -20,7 +20,7 @@ class Category(models.Model):
 
 class ExampleManager(models.Manager):
     use_for_related_fields = True
-    
+
     def approved(self):
         return self.get_query_set().exclude(approved=False)
 
@@ -33,14 +33,15 @@ class Example(models.Model):
     approved = models.BooleanField(_(u'approved'), default=True, help_text=_(u'Can be used for draft'))
     note = models.TextField(_(u'note'), blank=True, help_text=_(u'author\'s note, is not visible on site'))
     url = models.URLField(_(u'URL'), blank=True)
-    
+    topic_id = models.IntegerField(_(u'Topic ID'), default='0')
+
     class Meta:
         verbose_name = _(u'Example')
         verbose_name_plural = _(u'Examples')
         ordering = ('-created',)
-    
+
     objects = ExampleManager()
-    
+
     def __unicode__(self):
         return self.title
 
