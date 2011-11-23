@@ -258,12 +258,14 @@
     </copy>
 
     <echo message="Compilation"/>
-    <fileset id="python_sources" dir="${build_to}">
-      <include name="src/**/*.py"/>
-      <exclude name="src/**/migrations/*.py"/>
-    </fileset>
-    <foreach list="${toString:python_sources}" delimiter=";"
-             target="compileModule" param="filename"/>
+    <apply dir="${build_to}" failonerror="true" executable="py_compilefiles" osfamily="unix">
+      <srcfile/>
+      <fileset dir="${build_to}">
+        <include name="src/**/*.py"/>
+        <exclude name="src/**/migrations/*.py"/>
+        <exclude name="src/**/commands/*.py"/>
+      </fileset>
+    </apply>
 
     <echo message="Copy settings"/>
     <copy file="${basedir}/src/settings.py"
@@ -275,14 +277,9 @@
       <fileset dir="${build_to}/" defaultexcludes="no">
         <include name="src/**/*.py"/>
         <exclude name="src/**/migrations/*.py"/>
+        <exclude name="src/**/commands/*.py"/>
       </fileset>
     </delete>
-  </target>
-  <target name="compileModule">
-    <echo message="Compile ${filename}"/>
-    <exec executable="py_compilefiles" failonerror="true">
-      <arg line="${build_to}/${filename}"/>
-    </exec>
   </target>
 
   <target name="rsync">
