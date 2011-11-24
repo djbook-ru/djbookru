@@ -60,22 +60,26 @@ class Example(models.Model):
         from djangobb_forum.models import Forum, Topic, Post
         from accounts.models import User
 
-        user = User.objects.get(username='rad')
-        forum = Forum.objects.get(name='Обсуждение рецептов')
+        is_create = self.pk is None
 
-        topic = Topic(forum=forum, name=self.title, user=user)
-        topic.save()
+        if is_create:
+            user = User.objects.get(username='rad')
+            forum = Forum.objects.get(name='Обсуждение рецептов')
 
-        self.topic_id = topic.pk
+            topic = Topic(forum=forum, name=self.title, user=user)
+            topic.save()
+
+            self.topic_id = topic.pk
 
         super(Example, self).save()
 
-        body_plain = u"""Обсуждение рецепта "%s" (http://djbook.ru%s)."""
-        body_html = u"""Обсуждение рецепта &laquo;<a href="%s">%s</a>&raquo;."""
-        title = self.title
-        url = self.get_absolute_url()
+        if is_create:
+            body_plain = u"""Обсуждение рецепта "%s" (http://djbook.ru%s)."""
+            body_html = u"""Обсуждение рецепта &laquo;<a href="%s">%s</a>&raquo;."""
+            title = self.title
+            url = self.get_absolute_url()
 
-        post = Post(topic=topic, user=user,
-                    body=body_plain % (title, url),
-                    body_html=body_html % (url, title))
-        post.save()
+            post = Post(topic=topic, user=user,
+                        body=body_plain % (title, url),
+                        body_html=body_html % (url, title))
+            post.save()
