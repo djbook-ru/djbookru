@@ -50,7 +50,7 @@ except ImportError:
     pass
 
 path = os.path.join(settings.MEDIA_ROOT, 'forum', 'themes')
-THEME_CHOICES = [(theme, theme) for theme in os.listdir(path) 
+THEME_CHOICES = [(theme, theme) for theme in os.listdir(path)
                  if os.path.isdir(os.path.join(path, theme))]
 
 class Category(models.Model):
@@ -79,7 +79,7 @@ class Category(models.Model):
 
     def has_access(self, user):
         if self.groups.count() > 0:
-            if user.is_authenticated(): 
+            if user.is_authenticated():
                 try:
                     self.groups.get(user__pk=user.id)
                 except Group.DoesNotExist:
@@ -194,7 +194,7 @@ class Post(models.Model):
         verbose_name_plural = _('Posts')
 
     def save(self, *args, **kwargs):
-        self.body_html = convert_text_to_html(self.body, self.markup) 
+        self.body_html = convert_text_to_html(self.body, self.markup)
         if forum_settings.SMILES_SUPPORT and self.user.forum_profile.show_smilies:
             self.body_html = smiles(self.body_html)
         super(Post, self).save(*args, **kwargs)
@@ -236,7 +236,7 @@ class Post(models.Model):
 
     def summary(self):
         LIMIT = 50
-        tail = len(self.body) > LIMIT and '...' or '' 
+        tail = len(self.body) > LIMIT and '...' or ''
         return self.body[:LIMIT] + tail
 
     __unicode__ = summary
@@ -271,7 +271,7 @@ class Profile(models.Model):
     location = models.CharField(_('Location'), max_length=30, blank=True)
     signature = models.TextField(_('Signature'), blank=True, default='', max_length=forum_settings.SIGNATURE_MAX_LENGTH)
     time_zone = models.FloatField(_('Time zone'), choices=TZ_CHOICES, default=float(forum_settings.DEFAULT_TIME_ZONE))
-    language = models.CharField(_('Language'), max_length=5, default='', choices=settings.LANGUAGES)
+    language = models.CharField(_('Language'), max_length=5, default='ru', choices=settings.LANGUAGES)
     theme = models.CharField(_('Theme'), choices=THEME_CHOICES, max_length=80, default='DjangoBB')
     show_avatar = models.BooleanField(_('Show avatar'), blank=True, default=True)
     show_signatures = models.BooleanField(_('Show signatures'), blank=True, default=True)
@@ -283,11 +283,11 @@ class Profile(models.Model):
     class Meta:
         verbose_name = _('Profile')
         verbose_name_plural = _('Profiles')
-    
+
     @property
     def avatar(self):
         return dict(url=self.user.avatar())
-    
+
     def last_post(self):
         posts = Post.objects.filter(user__id=self.user_id).order_by('-created')
         if posts:

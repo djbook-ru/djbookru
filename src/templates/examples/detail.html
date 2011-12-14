@@ -14,11 +14,15 @@
             <br/>
             <a href="{{ obj.author.get_absolute_url }}">
                 {{ obj.author }}
-            </a>   
+            </a>
         </div>
     </p>
     {{ obj.content|markdown }}
 	{% get_share_links obj %}
     {% render_comment_list obj %}
-    {% render_comment_form obj %}
+    <div style="text-align: right;">
+      <button onclick="document.location='{{ topic.get_absolute_url }}';">
+        {% trans "Discuss this recipe" %}
+      </button>
+    </div>
 {% endblock %}
