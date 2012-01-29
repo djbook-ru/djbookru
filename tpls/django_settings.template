@@ -142,7 +142,8 @@ INSTALLED_APPS = (
     'claims',
     'south',
     'examples',
-    'utils'
+    'utils',
+    'poll'
 )
 
 HAYSTACK_SITECONF = 'search_sites'
