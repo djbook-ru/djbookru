@@ -17,7 +17,7 @@
 		function showResults(data) {
 			var all_points = 0, total = 0, biggest = 0;
 			
-			body.hide('slow', complete=function() {
+			body.fadeOut('slow', complete=function() {
 				body.empty();
 				$.each(data, function(index, value) {
 					if(index != 'total') {
@@ -57,7 +57,7 @@
 				}
 				
 				body.append('<div id="voters_count">' + '{% trans "Total Voters" %}' + ': <span id="total">' + total + '</span> ' + total_points_txt + '</div>');
-			}).show('slow');
+			}).fadeIn('slow');
 		}
 		
 		function RecognizeAndPrepare() {
@@ -108,7 +108,7 @@
 			if(result == '{}') {
 				alert('{% trans "Please, choose anything to vote" %}');
 			} else {
-				body.hide('slow', complete=function() {
+				body.fadeOut('slow', complete=function() {
 					$.get(vote_url, {'chosen_items': result}, function() {
 						doResults();
 					});
