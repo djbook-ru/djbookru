@@ -3,7 +3,7 @@ from haystack import site
 
 import djangobb_forum.models as models
 
-class PostIndex(RealTimeSearchIndex):
+class PostIndex(SearchIndex):
     text = CharField(document=True, use_template=True)
     author = CharField(model_attr='user')
     created = DateTimeField(model_attr='created')
