@@ -3,8 +3,6 @@
 
 {% if poll %}
 <script type="text/javascript">
-	show_points = false;
-
 	$(document).ready(function() {
 		var vote_url = '{% url poll_ajax_vote poll.pk %}';
 		var result_url = '{% url poll_ajax_result poll.pk %}';
@@ -15,6 +13,7 @@
 		var body = $('#poll_content_' + poll_pk + ' #poll_body');
 		
 		function showResults(data) {
+			var show_points = false;
 			var all_points = 0, total = 0, biggest = 0;
 			
 			body.fadeOut('slow', complete=function() {
