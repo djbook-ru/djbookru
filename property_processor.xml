@@ -39,9 +39,6 @@
         <entry key="hosting_env_dir" value="${hosting_env_dir}"/>
         <entry key="hosting_python_ver" value="${hosting_python_ver}"/>
 
-        <entry key="securelayer_host" value="${securelayer_host}"/>
-        <entry key="securelayer_port" value="${securelayer_port}"/>
-
         <entry key="gpg_homedir" value="${gpg_homedir}"/>
         <entry key="gpg_bits" value="${gpg_bits}"/>
         <entry key="gpg_name_real" value="${gpg_name_real}"/>

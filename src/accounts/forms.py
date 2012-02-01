@@ -4,14 +4,9 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 from django.contrib.auth.forms import UserCreationForm
 
 from utils.forms import ReCaptchaField
-from securelayer import SecuredForm
 
 class CreateUserForm(UserCreationForm):
     captcha = ReCaptchaField(label=_(u'captcha'))
-
-class SSAuth(SecuredForm):
-    username = forms.CharField(label=ugettext("Username"), max_length=30)
-    password = forms.CharField(label=ugettext("Password"), widget=forms.PasswordInput)
 
 class UserEditForm(forms.ModelForm):
     current_password = forms.CharField(label=_(u'Current password'), widget=forms.PasswordInput, required=False)

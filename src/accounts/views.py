@@ -7,10 +7,9 @@ from django.contrib import messages
 from django.utils.translation import ugettext, ugettext_lazy as _
 
 from decorators import render_to
-from securelayer import views as securelayer
 
 from accounts.models import User
-from accounts.forms import UserEditForm, CreateUserForm, SSAuth
+from accounts.forms import UserEditForm, CreateUserForm
 
 LOGIN_REDIRECT_URL = getattr(settings, 'LOGIN_REDIRECT_URL', '/')
 LOGOUT_REDIRECT_URL = getattr(settings, 'LOGOUT_REDIRECT_URL', '/')
@@ -61,27 +60,3 @@ def edit(request):
     return {
         'form': form
     }
-
-def slogin(request):
-    if request.method == 'GET':
-        session_key = request.GET.get('ss', None)
-        next_url = request.GET.get('next', '/')
-        if session_key:
-            ready, response, cookie = securelayer.secured_request(
-                '/api/', {'service': 'data'}, session_key)
-            form = SSAuth()
-            form.import_json(response.get('data', None))
-            if 'JSON' == getattr(form, 'source', None):
-                if form.is_valid():
-                    username = form.cleaned_data.get('username', None)
-                    password = form.cleaned_data.get('password', None)
-                    user = auth.authenticate(username=username, password=password)
-                    if user and user.is_active:
-                        auth.login(request, user)
-                        ready, response, cookie = securelayer.secured_request(
-                            '/api/', {'service': 'close'}, session_key)
-                        return redirect(next_url)
-                    else:
-                        request.session['error_desc'] = _(u'Wrong user\'s credentials.')
-                        return redirect(reverse('accounts:login'))
-    return redirect('/')
