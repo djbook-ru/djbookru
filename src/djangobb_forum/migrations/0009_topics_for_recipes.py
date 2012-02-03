@@ -36,7 +36,6 @@ class Migration(DataMigration):
             item.topic_id = topic.pk
             item.save()
 
-
     @transaction.commit_on_success
     def backwards(self, orm):
         u"""Clean all topics for recipes."""
