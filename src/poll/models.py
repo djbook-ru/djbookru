@@ -5,19 +5,6 @@ from django.db.models.manager import Manager
 from django.core.exceptions import ValidationError
 
 
-class PollType(models.Model):
-    title = models.CharField(max_length=150, verbose_name=_('Type title'), help_text=_('It will be used as header of the poll'))
-    index = models.SmallIntegerField(unique=True, verbose_name=_('Index'), help_text=_('Must be unique'))
-
-    def __unicode__(self):
-        return '%s (%d)' % (self.title, self.index)
-
-    class Meta:
-        ordering = ['-index']
-        verbose_name = _('PollType')
-        verbose_name_plural = _('PollTypes')
-
-
 class PublishManager(Manager):
     def get_query_set(self):
         return super(PublishManager, self).get_query_set().filter(publish=True)
@@ -26,13 +13,22 @@ class PublishManager(Manager):
 class Poll(models.Model):
     title = models.CharField(max_length=250, verbose_name=_('Title'), help_text=_('The parameter is used as question to user'))
     queue = models.ForeignKey('Queue', blank=True, null=True, verbose_name=_('Queue'), help_text=_('Do you want to use the poll as a stand alone poll or insert it into the queue?'))
-    polltype = models.ForeignKey(PollType, verbose_name=_('Poll type'), help_text=_('Choose the poll type'))
+    is_multiple = models.BooleanField(_(u'is multiple?'), default=False)
     startdate = models.DateField(verbose_name=_('Start date'), help_text=_('Must be unique'))
     publish = models.BooleanField(default=True, verbose_name=_('Publish'))
     votes = models.ManyToManyField('Vote', related_name='%(app_label)s_%(class)s_related', blank=True, verbose_name=_('Votes'), help_text=_('Choose variants of answers'))
 
     objects = models.Manager()
     publish_manager = PublishManager()
+
+    def __unicode__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['-startdate']
+        verbose_name = _('Poll')
+        verbose_name_plural = _('Polls')
+        permissions = (("can_vote", _("User can vote")),)
 
     def clean(self):
         if self.queue is not None:
@@ -52,15 +48,6 @@ class Poll(models.Model):
 
     def get_cookie_name(self):
         return str('poll_%s' % (self.pk))
-
-    def __unicode__(self):
-        return self.title
-
-    class Meta:
-        ordering = ['-startdate']
-        verbose_name = _('Poll')
-        verbose_name_plural = _('Polls')
-        permissions = (("can_vote", _("User can vote")),)
 
 
 class Queue(models.Model):

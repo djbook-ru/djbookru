@@ -50,10 +50,10 @@ class RenderItemsClass(template.Node):
                 input_type = 'textbox'
                 pattern = pattern1
             else:
-                if poll.polltype.index == 0:
-                    input_type = 'radio'
-                elif poll.polltype.index == 1:
+                if poll.is_multiple:
                     input_type = 'checkbox'
+                else:
+                    input_type = 'radio'
                 pattern = pattern2
 
             result += pattern.format(poll.pk, input_type, item.pk, item.value)

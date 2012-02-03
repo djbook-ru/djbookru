@@ -3,14 +3,14 @@
 
 {% if poll %}
 <script type="text/javascript">
-	$(document).ready(function() {
+	jQuery(document).ready(function($) {
 		var vote_url = '{% url poll_ajax_vote poll.pk %}';
 		var result_url = '{% url poll_ajax_result poll.pk %}';
 		var poll_pk = '{{ poll.pk }}';
 		var poll_type = {% if poll.polltype.index == 0 %}'single'{% else %}'multiple'{% endif %};
 		
-		var path_to_items = '#poll_content_' + poll_pk + ' #poll_body input[name="poll_' + poll_pk + '"]';
-		var body = $('#poll_content_' + poll_pk + ' #poll_body');
+		var path_to_items = '.poll_content_' + poll_pk + ' .poll_body input[name="poll_' + poll_pk + '"]';
+		var body = $('.poll_content_' + poll_pk + ' .poll_body');
 		
 		function showResults(data) {
 			var show_points = false;
@@ -101,7 +101,7 @@
 			});
 		}
 		
-		$("#sendvote_" + poll_pk).click(function() {
+		$(".sendvote_" + poll_pk).click(function() {
 			var result = RecognizeAndPrepare();
 			
 			if(result == '{}') {
@@ -115,41 +115,35 @@
 			}
 		});
 		
-		$("#showresults_" + poll_pk).click(function() {
+		$(".showresults_" + poll_pk).click(function() {
 			doResults();
 		});
+
+		if(!navigator.cookieEnabled) {
+			jQuery('.poll_content_{{ poll.pk }} .warning').append('{% trans "WARNING: Cookies are disabled in your browser. Please, turn it on to vote." %}');
+			jQuery('.sendvote_{{ poll.pk }}').attr('disabled', '');
+		}
 	});
 </script>
 
-<div id="poll_content_{{ poll.pk }}">
-	<p id="warning">
+<div class="poll_content_{{ poll.pk }}">
+	<p class="warning">
 		<noscript>		
 			{% trans "WARNING: JavaScript is disabled in your browser. Please, turn it on to vote." %}
 		</noscript>
 	</p>
 	<form method="post">
 		{% csrf_token %}
-		<h1><span id="poll">{% trans "Poll" %}:</span> {{ poll.title }}</h1>
-		{% if user.is_authenticated %}
-		<div id="poll_userspace">
-			{% trans "User" %}: {{ user }}
-		</div>
-		{% endif %} 
-		<div id="poll_body">
+		<h1><span class="poll">{% trans "Poll" %}:</span> {{ poll.title }}</h1>
+		<div class="poll_body">
 			{% if poll.get_cookie_name in request.COOKIES %}
 				<p>{% trans "You already voted" %}.</p>
-				<p><a id="showresults_{{ poll.pk }}" href="javascript:void(0);">{% trans "Show results" %}</a></p>
+				<p><a class="showresults_{{ poll.pk }}" href="javascript:void(0);">{% trans "Show results" %}</a></p>
 			{% else %}
 				{% render_items poll items %}
-				<p><input id="sendvote_{{ poll.pk }}" type="button" value="{% trans "Vote" %}" /></p>
+				<p><input class="sendvote_{{ poll.pk }}" type="button" value="{% trans "Vote" %}" /></p>
 			{% endif %}
 		</div>
 	</form>
-	<script type="text/javascript">
-		if(!navigator.cookieEnabled) {
-			$('#poll_content_{{ poll.pk }} #warning').append('{% trans "WARNING: Cookies are disabled in your browser. Please, turn it on to vote." %}');
-			$('#sendvote_{{ poll.pk }}').attr('disabled', '');
-		}
-	</script>
 </div>
 {% endif %}
