@@ -1,4 +1,4 @@
-{% load i18n analytics adzone_tags news_tags components comments_tags %}
+{% load i18n analytics adzone_tags news_tags components comments_tags polls_tags %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lang="ru">
     <head>
@@ -79,8 +79,7 @@
                         {% last_news %}
                         {% last_comments %}
                     {% endblock %}
-                    {% load polls_tags %}
-                    {% poll_queue 'Public' %}
+                    {# poll_queue 'Public' #}
                 </td>
                 <td width="*" valign="top" class="content">
                     {% if messages %}
