@@ -9,7 +9,7 @@ __all__ = ('BBCODE_RULES', 'bbcode')
 
 #regexp for url validation from django URLField + added ftp:// and allowing spaces around
 URL_RE = r'\s*((ftp|https?)://(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+[A-Z]{2,6}\.?|'\
-    'localhost|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::\d+)?(?:/?|[/?]\S+))\s*'
+    'localhost|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::\d+)?(?:/?|[/?]\S+)|data:image.*)\s*'
 
 #regexp for email from django + allowing spaces around
 EMAIL_RE = r"""\s*(([-!#$%&'*+/=?^_`{}|~0-9A-Z]+(\.[-!#$%&'*+/=?^_`{}|~0-9A-Z]+)*|^"""\
