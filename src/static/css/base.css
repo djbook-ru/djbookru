@@ -23,6 +23,10 @@ hr {
     float: left;
 }
 
+.content-container .row-fluid .span9 {
+    margin-left: 1.9%;
+}
+
 .left-column a {
     color: #487858;
 }
@@ -95,3 +99,14 @@ hr {
     color: #487858;
 }
 /* content */
+
+/* toc */
+.toc .nav-list .nav-header {
+    margin-top: 0;
+    padding: 1px 15px;
+}
+
+.toc .nav-list li {
+    line-height: 16px;
+}
+/* toc */
