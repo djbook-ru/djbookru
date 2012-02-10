@@ -66,9 +66,9 @@
         {% block menu %}{% menu %}{% endblock %}
         {% block search %}{% include '_search.html' %}{% endblock %}
 
-        <div class="container-fluid">
+        <div class="container-fluid content-container">
             <div class="row-fluid">
-                <div class="span3">
+                <div class="span3 left-column">
                     {% block left %}
                         {% last_news %}
                         {% last_comments %}

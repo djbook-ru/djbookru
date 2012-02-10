@@ -2,6 +2,10 @@
     margin-bottom: 0px;
 }
 
+hr {
+    margin: 15px 0;
+}
+
 .container-fluid {
     padding-left: 10px;
     padding-right: 10px;    
@@ -11,6 +15,10 @@
     padding-left: 0px;
     padding-right: 0px;
     float: left;
+}
+
+.left-column a {
+    color: #487858;
 }
 
 .right-column {
@@ -34,3 +42,18 @@
 .top-container .search {
     padding-top: 12px;
 }
+
+.content-container {
+    margin-top: 10px;
+}
+
+/* sidebar-item */
+.sidebar-item {
+    margin-bottom: 6px;
+    padding: 6px;
+}
+
+.sidebar-item hr {
+    margin: 0 0 2px;
+}
+/* news-item */

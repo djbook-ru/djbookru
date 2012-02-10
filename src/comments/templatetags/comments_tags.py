@@ -6,7 +6,7 @@ from django.conf import settings
 
 register = template.Library()
 
-LAST_COMMENTS_COUNT = getattr(settings, 'LAST_COMMENTS_COUNT', 10)
+LAST_COMMENTS_COUNT = getattr(settings, 'LAST_COMMENTS_COUNT', 8)
 
 @register.inclusion_tag('comments/form.html', takes_context=True)
 def render_comment_form(context, obj):
