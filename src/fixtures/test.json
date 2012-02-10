@@ -21,13 +21,8 @@
         "pk": 1,
         "model": "accounts.user",
         "fields": {
-            "signature": null,
-            "last_activity": "2010-09-15 17:00:41",
             "groups": [],
-            "last_posttime": null,
             "user_permissions": [],
-            "last_session_activity": "2010-09-15 17:00:41",
-            "userrank": "Junior Member",
             "homepage": "",
             "biography": ""
         }

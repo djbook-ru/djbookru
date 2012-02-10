@@ -21,14 +21,14 @@ IMG { behavior: url("/css/png.htc"); }
 .search { padding: 2px 1em; font: 12px arial; vertical-align: middle; }
 .search .soon { position: absolute; top: 130px; left: 250px; }
 .search .field { width: 60%; }
-.searchbutton { color: #9AEF3F; background: #487858; 
+.searchbutton { color: #9AEF3F; background: #487858;
    font-size: 10px;
-   margin: 1px; padding: 1px 2px; border: 1px solid gray; 
+   margin: 1px; padding: 1px 2px; border: 1px solid gray;
    -moz-border-radius: 4px; cursor: default; }
 
 .wide { width: 100%; }
 .claim { position: absolute; top: 100px; left: 100px; z-index: 20;
-   border: 1px solid red; width: 400px; 
+   border: 1px solid red; width: 400px;
    background-color: gray; }
 .claim .padd { padding: 4px; }
 .claim .border { border: 1px solid black; }
@@ -96,8 +96,8 @@ IMG { behavior: url("/css/png.htc"); }
 .toc .appendix A { font: 14px arial; color: white; }
 dt { margin: 4px 0px;}
 
-.area-title { color: white; background-color: #94CE4A; 
-	      font: 14px arial; font-weight: bold; 
+.area-title { color: white; background-color: #94CE4A;
+	      font: 14px arial; font-weight: bold;
 	      padding: 4px; margin-bottom: 0.5em; }
 .tocmini-chapter { margin: 0.4em 0em; overflow: auto; }
 .tocmini-chapter A { font: 12px arial; color: white; }
@@ -150,9 +150,9 @@ dt { margin: 4px 0px;}
 .screenshot { }
 .screenshot IMG { border: 1px solid black; text-align: center }
 
-.guibutton { color: #9AEF3F; background: #487858; 
+.guibutton { color: #9AEF3F; background: #487858;
    font-size: 10px;
-   margin: 1px; padding: 1px 2px; border: 1px solid gray; 
+   margin: 1px; padding: 1px 2px; border: 1px solid gray;
    -moz-border-radius: 4px; cursor: default; }
 
 .guilabel { color: brown; }
@@ -177,12 +177,12 @@ TABLE { font: 12px arial; color: white;border-collapse: collapse; }
 
 
 
-.topic .sections { font: 10px arial; background-color: #487858; 
+.topic .sections { font: 10px arial; background-color: #487858;
    padding: 2px 1em; }
 
 
 .news { margin: 0.5em 0em; }
-.news .title { background-color: #94CE4A; padding: 2px 0.5em; 
+.news .title { background-color: #94CE4A; padding: 2px 0.5em;
    font: 12px arial; }
 .news .body { padding: 0.5em; font: 10px arial; color: white; line-height: 1.5; }
 
@@ -197,6 +197,8 @@ pre code {
     border: 1px solid #94CE4A;
     padding: 4px;
     white-space: wrap;
+    overflow: auto;
+    max-width: 800px;
 }
 
 .subst, .title {
@@ -349,6 +351,10 @@ pre code {
     background: url(../img/login.png) -222px 0px no-repeat;
 }
 
+.login-link.securelayer {
+    background: url(/static/img/securelayer_button.png) 0px 0px no-repeat;
+}
+
 ul.messages, ul.errorlist {
     list-style: none;
     margin-left: 0px;
@@ -408,7 +414,57 @@ ul.messages li.success {
 }
 /* spelling form - END*/
 .comments-number {
-    color: #fff; 
-    text-decoration: none; 
+    color: #fff;
+    text-decoration: none;
     font-size: 0.9em;
+}
+
+.sociallinks img{
+	border: none;
+}
+
+/* form-as-p */
+.form-as-p label, .form-as-p textarea, .form-as-p input, .form-as-p select{
+    display: block;
+}
+.form-as-p label{
+    color: #fff;
+    font-weight: bold;
+}
+.form-as-p textarea{
+    width: 70%;
+}
+.form-as-p input{
+    width: 70%;
+}
+.form-as-p p{
+    color: #add8e6;
+}
+/*******/
+textarea#id_content{
+    height: 300px;
+}
+a img {
+    border: none;
+}
+textarea.markItUpEditor{
+    width: 643px;
+}
+/* author-avatar */
+.author-avatar {
+    float: right;
+    background-color: #cbf6bc;
+    padding: 5px;
+}
+.author-avatar a {
+    color: #326342;
+}
+
+.markItUpPreview p {
+    color: #000;
+}
+
+a.link {
+	background: url(../img/link-overlay-icon.png) no-repeat right top;
+	padding: 0 42px 0 0; 
 }

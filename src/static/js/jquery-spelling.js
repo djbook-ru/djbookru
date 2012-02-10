@@ -2,8 +2,6 @@ var gettext = gettext || function(val){return val}
 
 $(function() {
 
-    spelling.startInformer();
-
     $(document).bind('keydown', function(e) {
         if (e.keyCode == 13 && e.ctrlKey) {
             spelling.showForm();
@@ -13,32 +11,9 @@ $(function() {
 
 var spelling = {
     /**
-     * Запуск обновления статуса информера по таймеру
-     */
-    startInformer: function() {
-        this.updateInformer();
-        setInterval(this.updateInformer, 30000);
-    },
-
-    /**
-     * Обновление статуса перевода
-     */
-    updateInformer: function() {
-
-        $.get('/claims/pending/', function(xml) {
-            var $xml = $(xml);
-            $('#spelling_error_count_pending').html($xml.find('pending').text());
-            $('#spelling_error_count_assigned').html($xml.find('assigned').text());
-            $('#spelling_error_count_fixed').html($xml.find('fixed').text());
-            $('#spelling_error_count_invalid').html($xml.find('invalid').text());
-            //$('#readers_count').html($xml.find('readers').text());
-        }, 'xml');
-
-    },
-    $form: '',
-    /**
      * Форма для заполнения данных об обнаруженной ошибке
      */
+    $form: '',
     showForm: function() {
 
         var selection = this.getErrorSelection()

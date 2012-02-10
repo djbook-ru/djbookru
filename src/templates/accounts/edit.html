@@ -15,7 +15,7 @@
 {% block content %}
 <form action="." method="post" enctype="multipart/form-data" class="edit-form">
     {% csrf_token %}
-    <h3>{% trans 'Edit profile' %}</h3>
+    <h3>{% trans 'Edit profile' %} / <a href="{% url djangobb:forum_profile user.username %}">{% trans "Edit forum profile" %}</a></h3>
     {{ form.non_field_errors }}
     {{ form.as_p }} 
     <p style="text-align:center;">

@@ -1,0 +1,23 @@
+#!/usr/local/bin/bash
+
+echo "Drop links for static."
+
+cd ${hosting_site_dir}/public_html/
+
+rm ./static ./lib
+
+echo "Backup webapp WSGI."
+
+cp \
+    ${hosting_site_dir}/webapp/webapp.wsgi \
+    ${hosting_site_dir}/webapp/webapp.wsgi.old
+
+echo "Drop environment."
+
+rm -rf ${hosting_env_dir}
+
+echo "Clean site."
+
+rm -rf ${hosting_code_dir}
+
+exit 0

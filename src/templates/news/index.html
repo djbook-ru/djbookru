@@ -7,8 +7,8 @@
 {% block content %}
     {% if is_paginated %}
         {% paginate %}<br/><br/>
-    {% endif %} 
-    
+    {% endif %}
+
     {% for n in object_list %}
         <div class="news-block">
             <div>
@@ -20,13 +20,14 @@
             <div style="padding-left: 1em; text-align: right">
                 <a href="{{ n.get_absolute_url }}">{% trans 'more' %}</a>
             </div>
+			<div style="clear: both"></div>
         </div>
         {% if not forloop.last %}
             <hr size="1" style="color: #94CE4A;"/>
         {% endif %}
     {% endfor %}
-    
+
     {% if is_paginated %}
         {% paginate %}
-    {% endif %} 
+    {% endif %}
 {% endblock %}

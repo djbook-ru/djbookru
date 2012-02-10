@@ -6,9 +6,9 @@
 
 {% block content %}
     <h1>{{ category }}</h1>
-    {% for item in category.examples.all %}
+    {% for item in category.examples.approved %}
         <p style="padding-left: 20px;">
-            <a href="{{ item.get_absolute_url }}">{{ item }}</a>
+            <a href="{{ item.get_absolute_url }}" {% if item.url %}class="link"{% endif %}>{{ item }}</a>
             (<a class="comments-number" href="{{ item.get_absolute_url }}#comments">
                 {% trans 'Comments' %}: {% get_comment_count item %}
             </a>)<br/>

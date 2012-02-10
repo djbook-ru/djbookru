@@ -1,10 +1,12 @@
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
 from admin_tools.dashboard import modules, Dashboard, AppIndexDashboard
+from django.conf import settings
 
 # to activate your index dashboard add the following to your settings.py:
 #
 # ADMIN_TOOLS_INDEX_DASHBOARD = 'src.dashboard.CustomIndexDashboard'
+OFFLINE = getattr(settings, 'OFFLINE', False)
 
 class CustomIndexDashboard(Dashboard):
     """
@@ -58,14 +60,15 @@ class CustomIndexDashboard(Dashboard):
                 },
             ]
         ))
-
-        # append a feed module
-        self.children.append(modules.Feed(
-            column=2,
-            title=_('Latest Django News'),
-            feed_url='http://www.djangoproject.com/rss/weblog/',
-            limit=5
-        ))
+        
+        if not OFFLINE:
+            # append a feed module
+            self.children.append(modules.Feed(
+                column=2,
+                title=_('Latest Django News'),
+                feed_url='http://www.djangoproject.com/rss/weblog/',
+                limit=5
+            ))
 
     def init_with_context(self, context):
         """

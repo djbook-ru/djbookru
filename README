@@ -50,10 +50,6 @@ python manage.py loaddata examples.json
 To load flatpages run:
 python manage.py loaddata flatpages.json
 
-#Forum
-
-SuperCategory should belong to "general" auth.Group to be public visible. 
-
 #i18n
 
 python manage.py makemessages -a

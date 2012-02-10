@@ -5,10 +5,12 @@ Base packages installation:
     * easy_install virtualenv
     * install the latest version of Apache Ant from http://ant.apache.org/
     * install the latest version of Ant Contrib from http://ant-contrib.sourceforge.net/
+    * install clients for SVN, HG and GIT
 
   * Ubuntu Linux:
     apt-get install python-setuptools python-virtualenv
     apt-get install ant ant-contrib
+    apt-get install subversion mercurial git[-core]
 
 Project initialization:
 
@@ -30,7 +32,7 @@ Project initialization:
   Fill database with models:
 
     cd src
-    python manage.py syncdb
+    python manage.py syncdb --all && python manage.py migrate --fake
 
   Start the development server:
 

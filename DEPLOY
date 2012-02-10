@@ -1,0 +1,9 @@
+Deployment process is very simple:
+
+1. Place the djbook.tar.bz2 into ~/sites and untar it locally.
+2. Step into the configuration directory and execute installation script:
+        cd djbookru/conf
+        bash ./install.sh
+3. Run project:
+        touch ${django_site_dir}/webapp/webapp.wsgi
+

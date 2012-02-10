@@ -1,0 +1,21 @@
+{% extends "admin/change_form.html" %}
+
+<!-- LOADING -->
+{% load i18n admin_modify adminmedia grp_tags %}
+
+<!-- OBJECT TOOLS -->
+{% block object-tools %}
+    {% if change %}
+        {% if not is_popup %}
+            <ul class="tools">
+                <li><a href="history/">{% trans "History" %}</a></li>
+                {% if has_absolute_url %}<li><a href="../../../r/{{ content_type_id }}/{{ object_id }}/" class="focus" target="_blank">{% trans "View on site" %}</a></li>{% endif%}
+            </ul>
+        {% endif %}
+        {% if not original.approved %}
+        	<div class="alert">
+        		{% trans "Pay attention! This post is not approved and can be from users. It can contain XSS in content, so use 'View on site' carefully." %}
+        	</div>
+        {% endif %}
+    {% endif %}
+{% endblock %}

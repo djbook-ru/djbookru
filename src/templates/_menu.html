@@ -3,7 +3,7 @@
     <ul>
         <li><a href="/" >{% trans 'Main' %}</a></li>
         <li><a href="{% url news:index %}" >{% trans 'News' %}</a></li>
-        <li><a href="{% url dinette_category %}" >{% trans 'Forum' %}</a></li>
+        <li><a href="{% url djangobb:index %}" >{% trans 'Forum' %}</a></li>
         <li><a href="{% url examples:index %}" >{% trans 'Recipes' %}</a>
             {% if example_categories %}
             <ul>
@@ -16,11 +16,14 @@
         <li><a href="/about/">{% trans 'About' %}</a></li>
         <ol>
             {% if user.is_authenticated %}
-                <a href="{{ user.get_absolute_url }}">{{ user.username }}</a> | 
+                <a href="{{ user.get_absolute_url }}">{{ user.username }}</a> |
                 <a href="{% url accounts:logout %}?next={{ request.path_info|urlencode }}">{% trans 'Logout' %}</a>
             {% else %}
                 <a href="{% url accounts:login %}?next={{ request.path_info|urlencode }}">{% trans 'Login' %}</a>
-            {% endif %}              
+            {% endif %}
+            {% if user.is_staff and user.is_active %}
+                | <a href="{% url admin:index %}">{% trans "Administrator's Interface" %}</a>
+            {% endif %}
         </ol>
     </ul>
 </div>

@@ -1,8 +1,0 @@
-{% load i18n %}
-
-<p class="moderation_items">
-    <span><a href="{% url dinette_moderate_close topic.pk %}" class="moderate-post">{% if topic.is_closed %}{% trans 'Reopen' %}{% else %}{% trans 'Close' %}{% endif %}</a></span> 
-    <span><a href="{% url dinette_moderate_sticky topic.pk %}" class="moderate-post">{% if topic.is_sticky %}{% trans 'Un Stickify' %}{% else %}{% trans 'Stickify' %}{% endif %}</a></span> 
-    <span><a href="{% url dinette_moderate_announce topic.pk %}" class="moderate-post">{% if topic.announcement_flag %}{% trans 'Remove from announcement' %}{% else %}{% trans 'Make announcement' %}{% endif %}</a></span> 
-	<span><a href="{% url dinette_moderate_hide topic.pk %}" class="moderate-post">{% trans 'Hide' %}</a></span> 
-</p>

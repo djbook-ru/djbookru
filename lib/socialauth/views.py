@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.contrib.auth.models import UserManager, User
 from django.contrib.auth import authenticate, login
@@ -33,6 +33,8 @@ import random
 from datetime import datetime
 from cgi import parse_qs
 import urllib
+from urllib2 import URLError
+from django.contrib import messages
 
 def get_url_host(request):
 # FIXME: Duplication
@@ -55,7 +57,11 @@ def twitter_login(request, next=None):
 			 reverse("socialauth_twitter_login_done"), 
 		     urllib.quote(next))
     twitter = oauthtwitter.TwitterOAuthClient(settings.TWITTER_CONSUMER_KEY, settings.TWITTER_CONSUMER_SECRET)
-    request_token = twitter.fetch_request_token(callback_url)
+    try:
+        request_token = twitter.fetch_request_token(callback_url)
+    except URLError:
+        messages.error(request, 'Problem with connect to Twitter. Try again.')
+        return redirect('accounts:login')           
     request.session['request_token'] = request_token.to_string()
     signin_url = twitter.authorize_token_url(request_token)
     return HttpResponseRedirect(signin_url)
@@ -81,7 +87,11 @@ def twitter_login_done(request):
             return HttpResponse("Something wrong! Tokens do not match...")
     
     twitter = oauthtwitter.TwitterOAuthClient(settings.TWITTER_CONSUMER_KEY, settings.TWITTER_CONSUMER_SECRET)  
-    access_token = twitter.fetch_access_token(token, oauth_verifier)
+    try:
+        access_token = twitter.fetch_access_token(token, oauth_verifier)
+    except URLError:
+        messages.error(request, 'Problem with connect to Twitter. Try again.')
+        return redirect('accounts:login')
     
     request.session['access_token'] = access_token.to_string()
     user = authenticate(access_token=access_token)

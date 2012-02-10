@@ -16,18 +16,18 @@ class Comment(models.Model):
     reply_to = models.ForeignKey('self', blank=True, null=True, verbose_name=_(u'reply to'))
     content = models.TextField(_(u'comment'), max_length=COMMENT_MAX_LENGTH)
     submit_date = models.DateTimeField(_(u'submit date'), auto_now_add=True)
-    
+
     class Meta:
-        ordering = ('submit_date',)
+        ordering = ('-submit_date',)
         verbose_name = _(u'Comment')
         verbose_name_plural = _(u'Comments')
-        
+
     def __unicode__(self):
         return "%s: %s..." % (self.user.__unicode__(), self.content[:50])
-    
+
     def get_absolute_url(self):
         return '%s#comments' % self.content_object.get_absolute_url()
-    
+
     @classmethod
     def get_for_object(self, obj):
         if obj.pk:

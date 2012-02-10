@@ -1,111 +1,64 @@
 # -*- coding: utf-8 -*-
+
+from django.conf import settings
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from datetime import datetime
+from django.db.models import Count
+
+e = enumerate([_(u'New'), _(u'Assigned'), _(u'Fixed'), _(u'Invalid')], 1)
+CLAIM_STATUSES = tuple([(x, y) for x,y in e])
 
 class Claims(models.Model):
-    ctx_left = models.CharField(max_length=255, blank=True)
-    selected = models.CharField(max_length=255)
-    ctx_right = models.CharField(max_length=255, blank=True)
-    comment = models.TextField()
-    url = models.URLField(verify_exists=False)
-    email = models.EmailField()
-    notify = models.BooleanField(_(u'Notify'))
-    datetime = models.DateTimeField()
+    ctx_left = models.CharField(verbose_name=_(u'Left Context Value'), max_length=255, blank=True)
+    selected = models.CharField(verbose_name=_(u'Selected Text'), max_length=255)
+    ctx_right = models.CharField(verbose_name=_(u'Right Context Value'), max_length=255, blank=True)
+    status = models.IntegerField(verbose_name=_(u'Status of the Claim'), max_length=1, choices=CLAIM_STATUSES)
+    status_applied = models.DateTimeField(verbose_name=_(u'Status Applied'), auto_now_add=True)
+    comment = models.TextField(verbose_name=_(u'Reader\'s Comment'))
+    reply = models.TextField(verbose_name=_(u'Enter here the reply for the Reader'), blank=True)
+    url = models.URLField(verbose_name=_(u'Context URL'), verify_exists=False)
+    email = models.EmailField(verbose_name=_(u'Reader\'s E-mail'))
+    notify = models.BooleanField(verbose_name=_(u'Reader wants the Notify'))
+    reg_datetime = models.DateTimeField(verbose_name=_(u'Registered'), auto_now_add=True)
 
     class Meta:
         verbose_name = _(u'Claim')
         verbose_name_plural = _(u'Claims')
-        ordering=('datetime',)
+        ordering=('-status_applied',)
 
     def __unicode__(self):
         return self.selected
 
-    def get_description(self, code):
-        for i in CLAIM_STATUSES:
-            if int(i[0]) == int(code):
-                return i[1]
-        return _(u'Unknown')
+    def save(self, *args, **kwargs):
+        super(Claims, self).save(*args, **kwargs)
+        self.sendemail()
 
-    def sendemail(self, code):
-        from email.MIMEText import MIMEText
-        from email.MIMEMultipart import MIMEMultipart
+    def sendemail(self):
+        from django.core.mail import send_mail
 
-        claim_desc = self.get_description(code)
-        mail_from = '"Ruslan Popov" <rad@caml.ru>'
-        mail_to = '"DjangoBook Reader" <%s>' % self.email
-        mail_subject = '%s [%s]' % (unicode(_(u'DjangoBook in russian: Claim\'s state was changed to')), unicode(claim_desc))
-        msgRoot = MIMEMultipart('related')
-        msgRoot.set_charset('UTF-8')
-        msgRoot['From'] = mail_from
-        msgRoot['To'] = mail_to
-        msgRoot['Subject'] = mail_subject.encode('utf-8')
-        msgRoot['Mime-version'] = '1.0'
-        msgRoot['Content-type'] = 'text/plain; charset=utf-8'
-        msgRoot['Content-transfer-encoding'] = '8bit'
-        msgRoot.preamble = u'This is a multi-part message in MIME format.'.encode('utf-8')
-        msgText = MIMEText(_(u'This is automatic generated message, you do not need to answer on it.').encode('utf-8'))
-        msgAlternative = MIMEMultipart('alternative')
-        msgAlternative.attach(msgText)
-        msgRoot.attach(msgAlternative)
+        subject = '%s [%s]' % (unicode(_(u'DjangoBook in russian: Claim\'s state was changed to')),
+                               unicode(self.get_status_display()))
+        message = _(u'This is automatic generated message, you do not need to answer on it.')
+        mail_from = '"%s" <%s>' % settings.ADMINS[0]
+        recipient_list = ['"DjangoBook Reader" <%s>' % self.email, ]
+        if self.reply is not None:
+            message = _(u'%(auto)s\n\nThe reply on your comment is:\n%(reply)s') % {
+                'auto': message,
+                'reply': unicode(self.reply)
+                }
+        send_mail(subject.encode('utf-8'), message.encode('utf-8'), mail_from, recipient_list, fail_silently=True)
 
-        import smtplib
-        smtp = smtplib.SMTP()
-        try:
-            smtp.connect('localhost')
-            smtp.sendmail(mail_from, mail_to, msgRoot.as_string())
-            smtp.quit()
-        except:
-            pass # fixme
-
-    def get_status(self):
-        try:
-            status = ClaimStatus.objects.filter(claim=self).order_by('-applied')[0].status
-        except:
-            status = None
-        return status
-
-    def set_status(self, code):
-        self.save() # it is very important
-        try:
-            status_old = ClaimStatus.objects.filter(claim=self).order_by('-applied')[0]
-        except:
-            status_old = None
-        status = ClaimStatus(claim=self, status=code, applied=datetime.now())
-        # there is no previous status or there is but with different status code, then save it
-        if not status_old or status_old and status_old.status != code:
-            status.save()
-            if self.notify == 1:
-                self.sendemail(code)
-
-CLAIM_STATUSES = ((1, _(u'New')), (2, _(u'Assigned')),
-                  (3, _(u'Fixed')), (4, _(u'Invalid')))
-
-class ClaimStatus(models.Model):
-    claim = models.ForeignKey(Claims)
-    status = models.CharField(max_length=1, choices=CLAIM_STATUSES)
-    applied = models.DateTimeField()
-
-    class Meta:
-        verbose_name = _(u'Claim status')
-        verbose_name_plural = _(u'Claim statuses')
-
-    def __unicode__(self):
-        return self.status
-
-class Text(models.Model):
-    label = models.CharField(_(u'Label'), max_length=32, unique=True)
-    text = models.TextField()
-    datetime = models.DateTimeField()
-
-    class Meta:
-        verbose_name = _(u'Text')
-        verbose_name_plural = _(u'Texts')
-
-    def __unicode__(self):
-        return self.label
-
-    def get_absolute_url(self):
-        """ This returns the absolute URL for a record. """
-        return '/djangobook/text/%s/' % self.label # fixme: определять приложение автоматически
-
+    @staticmethod
+    def statistic():
+        statuses = dict(CLAIM_STATUSES)
+        css = ['', 'spelling_error_count_pending', 'spelling_error_count_assigned',
+               'spelling_error_count_fixed', 'spelling_error_count_invalid']
+        result = []
+        for record in Claims.objects.values('status').annotate(count=Count('status')).order_by('status'):
+            id = int(record['status'])
+            result.append( {'title': statuses[id], 'count': record['count'], 'css': css[id],} )
+        return result
+        # [{'status': 4L, 'count': 5},
+        #  {'status': 3L, 'count': 89},
+        #  {'status': 2L, 'count': 7},
+        #  {'status': 1L, 'count': 23}]

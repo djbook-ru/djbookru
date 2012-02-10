@@ -11,9 +11,12 @@
         <entry key="user_project_name" value="${project_name}${developer_suffix}"/>
         <entry key="install_to" value="${install_to}"/>
         <entry key="django_secretkey" value="${django_secretkey}"/>
+        <entry key="debugging" value="${debugging}"/>
         <entry key="web_admin_name" value="${web_admin_name}"/>
         <entry key="web_admin_email" value="${web_admin_email}"/>
         <entry key="web_server_name" value="${web_server_name}"/>
+        <entry key="web_server_url" value="${web_server_url}"/>
+        <entry key="additional_admins" value="${additional_admins}"/>
 
         <entry key="news_onfeed_count" value="${news_onfeed_count}"/>
         <entry key="news_onpage_count" value="${news_onpage_count}"/>
@@ -29,6 +32,20 @@
         <entry key="recaptcha_public" value="${recaptcha_public}"/>
         <entry key="recaptcha_private" value="${recaptcha_private}"/>
 
+        <entry key="hosting_site_dir" value="${hosting_site_dir}"/>
+        <entry key="hosting_code_dir" value="${hosting_code_dir}"/>
+        <entry key="hosting_dump_dir" value="${hosting_dump_dir}"/>
+        <entry key="hosting_sys_dir" value="${hosting_sys_dir}"/>
+        <entry key="hosting_env_dir" value="${hosting_env_dir}"/>
+        <entry key="hosting_python_ver" value="${hosting_python_ver}"/>
+
+        <entry key="gpg_homedir" value="${gpg_homedir}"/>
+        <entry key="gpg_bits" value="${gpg_bits}"/>
+        <entry key="gpg_name_real" value="${gpg_name_real}"/>
+        <entry key="gpg_name_comment" value="${gpg_name_comment}"/>
+        <entry key="gpg_name_email" value="${gpg_name_email}"/>
+        <entry key="gpg_passphrase" value="${gpg_passphrase}"/>
+
         <entry key="db_engine" value="'django.db.backends.${db_engine}'"/>
       </propertyfile>
 
@@ -36,11 +53,11 @@
         <equals arg1="${db_engine}" arg2="sqlite3"/>
         <then>
           <propertyfile file="@{filename}">
-            <entry key="db_name" value="rel('${db_name}')"/>
-            <entry key="db_host" value="''"/>
-            <entry key="db_port" value="''"/>
-            <entry key="db_user" value="''"/>
-            <entry key="db_pass" value="''"/>
+            <entry key="db_name" value="${db_name}"/>
+            <entry key="db_host" value=""/>
+            <entry key="db_port" value=""/>
+            <entry key="db_user" value=""/>
+            <entry key="db_pass" value=""/>
           </propertyfile>
         </then>
       </if>
@@ -49,11 +66,11 @@
         <equals arg1="${db_engine}" arg2="mysql"/>
         <then>
           <propertyfile file="@{filename}">
-            <entry key="db_name" value="'${db_name}'"/>
-            <entry key="db_host" value="'${db_host}'"/>
-            <entry key="db_port" value="'${db_port}'"/>
-            <entry key="db_user" value="'${db_user}'"/>
-            <entry key="db_pass" value="'${db_pass}'"/>
+            <entry key="db_name" value="${db_name}"/>
+            <entry key="db_host" value="${db_host}"/>
+            <entry key="db_port" value="${db_port}"/>
+            <entry key="db_user" value="${db_user}"/>
+            <entry key="db_pass" value="${db_pass}"/>
           </propertyfile>
         </then>
       </if>
@@ -63,10 +80,10 @@
         <then>
           <propertyfile file="@{filename}">
             <entry key="db_name" value="${db_name}${developer_suffix}"/>
-            <entry key="db_host" value="'${db_host}'"/>
-            <entry key="db_port" value="'${db_port}'"/>
-            <entry key="db_user" value="'${db_user}${developer_suffix}'"/>
-            <entry key="db_pass" value="'${db_pass}'"/>
+            <entry key="db_host" value="${db_host}"/>
+            <entry key="db_port" value="${db_port}"/>
+            <entry key="db_user" value="${db_user}${developer_suffix}"/>
+            <entry key="db_pass" value="${db_pass}"/>
           </propertyfile>
         </then>
       </if>

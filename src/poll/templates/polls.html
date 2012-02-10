@@ -1,0 +1,149 @@
+{% load i18n %}
+{% load polls_tags %}
+
+{% if poll %}
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		var vote_url = '{% url poll_ajax_vote poll.pk %}';
+		var result_url = '{% url poll_ajax_result poll.pk %}';
+		var poll_pk = '{{ poll.pk }}';
+		var poll_type = {% if poll.polltype.index == 0 %}'single'{% else %}'multiple'{% endif %};
+		
+		var path_to_items = '.poll_content_' + poll_pk + ' .poll_body input[name="poll_' + poll_pk + '"]';
+		var body = $('.poll_content_' + poll_pk + ' .poll_body');
+		
+		function showResults(data) {
+			var show_points = false;
+			var all_points = 0, total = 0, biggest = 0;
+			
+			body.fadeOut('slow', complete=function() {
+				body.empty();
+				$.each(data, function(index, value) {
+					if(index != 'total') {
+						if(data[index]['count'] > biggest) {
+							biggest = data[index]['count'];
+						}
+						all_points += data[index]['count'];
+					}
+				});
+				
+				$.each(data, function(index, value) {
+					if(index == 'total') {
+						total = value;
+					} else {
+						var percentage = (data[index]['count'] * 100) / all_points;
+						var bar_class = 'normal_bar';
+						
+						if(data[index]['count'] == biggest) {
+							bar_class = 'max_bar';
+						}
+						
+						var points_txt = '';
+						if(show_points) {
+							points_txt = '<sup>(' + data[index]['count'] + ')</sup>'; 
+						}
+						
+						body.append('<dl id="poll_item_dl">');
+						body.append('<dt>' + data[index]['title'] + ': <strong>' + (Math.round(percentage*100)/100) + '%</strong>' + points_txt + '</dt>');
+						body.append('<dd><div id="bar" class="' + bar_class + '" style="width: ' + percentage + '%;"></div></dd>');
+						body.append('</dl>');
+					}
+				});
+				
+				var total_points_txt = '';
+				if(show_points) {
+					total_points_txt = '<sup>(' + all_points + ')</sup>'; 
+				}
+				
+				body.append('<div id="voters_count">' + '{% trans "Total Voters" %}' + ': <span id="total">' + total + '</span> ' + total_points_txt + '</div>');
+			}).fadeIn('slow');
+		}
+		
+		function RecognizeAndPrepare() {
+			var result = '';
+			
+			$(path_to_items).map(function() {
+				if((this.type == 'checkbox' || this.type == 'radio') && this.checked) {
+					result += '"' + this.id + '": ' + '"' + this.type + '",';
+				}
+				if(this.type == 'text' && this.value != '') {
+					result += '"' + this.id + '": ' + '"' + this.value + '",';
+				}
+			})
+			
+			if(result.length > 0)
+				if(result[result.length - 1] == ',')
+					result = result.substring(0, result.length - 1);
+			
+			return '{' + result + '}';
+		}
+		
+		$(path_to_items).bind('focusin click', function() {
+			if(poll_type == 'single') {
+				var selected = this;
+				
+				$(path_to_items).map(function() {
+					if(this != selected) {
+						if((this.type == 'checkbox' || this.type == 'radio') && this.checked) {
+							this.checked = false;
+						}
+						if(this.type == 'text' && this.value != '') {
+							this.value = '';
+						}
+					} 
+				});
+			}
+		});
+		
+		function doResults() {
+			$.get(result_url, function(data) {
+				showResults($.parseJSON(data));
+			});
+		}
+		
+		$(".sendvote_" + poll_pk).click(function() {
+			var result = RecognizeAndPrepare();
+			
+			if(result == '{}') {
+				alert('{% trans "Please, choose anything to vote" %}');
+			} else {
+				body.fadeOut('slow', complete=function() {
+					$.get(vote_url, {'chosen_items': result}, function() {
+						doResults();
+					});
+				});
+			}
+		});
+		
+		$(".showresults_" + poll_pk).click(function() {
+			doResults();
+		});
+
+		if(!navigator.cookieEnabled) {
+			jQuery('.poll_content_{{ poll.pk }} .warning').append('{% trans "WARNING: Cookies are disabled in your browser. Please, turn it on to vote." %}');
+			jQuery('.sendvote_{{ poll.pk }}').attr('disabled', '');
+		}
+	});
+</script>
+
+<div class="poll_content_{{ poll.pk }}">
+	<p class="warning">
+		<noscript>		
+			{% trans "WARNING: JavaScript is disabled in your browser. Please, turn it on to vote." %}
+		</noscript>
+	</p>
+	<form method="post">
+		{% csrf_token %}
+		<h1><span class="poll">{% trans "Poll" %}:</span> {{ poll.title }}</h1>
+		<div class="poll_body">
+			{% if poll.get_cookie_name in request.COOKIES %}
+				<p>{% trans "You already voted" %}.</p>
+				<p><a class="showresults_{{ poll.pk }}" href="javascript:void(0);">{% trans "Show results" %}</a></p>
+			{% else %}
+				{% render_items poll items %}
+				<p><input class="sendvote_{{ poll.pk }}" type="button" value="{% trans "Vote" %}" /></p>
+			{% endif %}
+		</div>
+	</form>
+</div>
+{% endif %}

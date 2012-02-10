@@ -1,0 +1,38 @@
+{% extends 'forum/base.html' %}
+{% load forum_extras %}
+{% load i18n %}
+
+{% block content %}
+<div class="blockform">
+	<h2><span>{% trans "Move topic" %}</span></h2>
+	<div class="box">
+		<form method="POST" action="{% url djangobb:move_topic %}">
+			{% csrf_token %}
+			<div class="inform">
+				{% for topic_id in topic_ids %}
+					<input type="hidden" value="{{ topic_id }}" name="topic_id"/>
+				{% endfor %}
+				<fieldset>
+					<legend>{% trans "Select destination of move" %}</legend>
+					<div class="infldset">
+						<label>{% trans "Move to" %}<br />
+						<select name="to_forum">
+						{% for category in categories %}
+							<optgroup label="{{ category }}">
+							{% for forum in category.forums.all %}
+								{% if forum != exclude_forum %}
+									<option value="{{ forum.id }}">{{ forum.name }}</option>
+								{% endif %}
+							{% endfor %}
+							</optgroup>
+						{% endfor %}
+						</select>
+						<br /></label>
+					</div>
+				</fieldset>
+			</div>
+			<p><input type="submit" value="{% trans "Move" %}" /><a href="javascript:history.go(-1)">{% trans "Go back" %}</a></p>
+		</form>
+	</div>
+</div>
+{% endblock %}

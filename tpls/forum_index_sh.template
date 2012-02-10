@@ -1,0 +1,7 @@
+#!/usr/local/bin/bash
+
+source ${hosting_env_dir}/bin/activate
+
+cd ${hosting_code_dir}/src && python manage.pyc update_index && exit 0
+
+exit 1

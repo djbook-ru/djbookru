@@ -1,18 +1,21 @@
 {% extends 'base.html' %}
 
-{% load book_page comments_tags %}
+{% load book_page comments_tags components %}
 
 {% block title %}{{ page.name }}: {{ page.book.name }} | {{ block.super }} {% endblock %}
+
+{% block description %}{{ page.content|striptags|truncatewords:40 }}{% endblock %}
 
 {% block left %}
     {% toc page %}
 {% endblock %}
 
 {% block content %}
-    {{ page.content|safe }}    
+    {{ page.content|safe }}
+	{% get_share_links page %}
     {% block comments %}
         {% render_comment_list page %}
         {% render_comment_form page %}
-    {% endblock %}    
+    {% endblock %}
 {% endblock %}
 

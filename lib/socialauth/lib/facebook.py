@@ -1,4 +1,4 @@
-import md5
+from django.utils.hashcompat import md5_constructor
 import urllib
 import time
 import simplejson
@@ -72,7 +72,7 @@ def get_facebook_signature(api_key, api_secret, values_dict, is_cookie_check=Fal
             signature_string = ''.join(['%s=%s' % (x, values_dict[x]) for x in signature_keys])
         signature_string = signature_string + API_SECRET
 
-        return md5.new(signature_string).hexdigest()
+        return md5_constructor(signature_string).hexdigest()
     
     
     

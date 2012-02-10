@@ -9,3 +9,6 @@
 /project.user.properties
 /*.antlog.txt
 /src/database.sqlite
+/src/settings.py
+/src/settings_local.py
+/src/seacrh_index

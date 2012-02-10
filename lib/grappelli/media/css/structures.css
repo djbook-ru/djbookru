@@ -273,7 +273,7 @@ div#breadcrumbs {
     top: 30px;
     left: 0;
     z-index: 1000;
-    padding: 5px 10px 5px 20px;
+    padding: 3px 10px 3px 20px;
     width: 100%;
     font-size: 11px;
 /*    font-weight: bold;*/
@@ -286,7 +286,9 @@ body.popup div#breadcrumbs {
     top: 0;
 }
 
-
+div#breadcrumbs.up {
+    top: 0px;
+}
 
 /*  Messages
 ------------------------------------------------------------------------------------------------------ */
@@ -603,5 +605,10 @@ fieldset.module .row .column.span-flexible:last-child {
 
 .clear { clear: both; }
 
-
+.alert {
+	margin: 0.5em 0 1em 0em;
+	font-size: 1.2em;
+	color: #f33;
+	font-weight: bold;
+}
 

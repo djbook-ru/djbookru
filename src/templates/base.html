@@ -1,23 +1,30 @@
-{% load i18n analytics news_tags components comments_tags %}
+{% load i18n analytics adzone_tags news_tags components comments_tags polls_tags %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
-<html lanh="ru">
+<html lang="ru">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta http-equiv="Content-Language" content="ru"/>
         <meta name="ROBOTS" content="ALL"/>
         <meta name="keywords" content="Python, Django, framework, open-source, Питон, Джанго"/>
-        <meta name="description" content="Джанго является высокоуровневой средой разработки основанной на языке Питон, которая нацелена на ускоренный процесс разработки и явный дизайн."/>
+        <meta name="description" content="{% block description %}{% endblock %}"/>
         <meta name="generator" content="Django"/>
+        <meta name="google-site-verification" content="zICpUlONvVLohGcE1oztBD1-qHqkAOuS-Oaim8NFW2s" />
         <meta name='yandex-verification' content='446e96868717e10e' />
+
+		<meta property="og:site_name" content="DjangoBook v2.0"/>
+		<meta property="og:image" content="http://{{ site.domain }}{{ MEDIA_URL }}img/djangobook-title.png"/>
+
         <title>{% block title %}DjangoBook v2.0 beta{% endblock %}</title>
         <link rel="shortcut icon" href="{{ MEDIA_URL }}img/favicon.png"/>
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/djangobook.css" type="text/css"/>
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/djbook/jquery-ui-1.8.4.custom.css" type="text/css"/>
         <link rel="stylesheet" href="{{ MEDIA_URL }}menu/menu_style.css" type="text/css"/>
+        <link rel="stylesheet" href="{{ MEDIA_URL }}polls/css/polls.css" />
 
         <link href="/news/feed" rel="alternate" type="application/rss+xml" title="{% trans 'The freshest news about Russian version of DjangoBook' %}"/>
         <link href="/examples/feed" rel="alternate" type="application/rss+xml" title="{% trans 'Newly examples from Russian DjangoBook' %}"/>
 
+        {% if not settings.DEBUG %}{% analytics_async "UA-3919032-6" %}{% endif %}
         <script type="text/javascript" src="{% url js_i18n_catalog %}"></script>
         <script src="{{ MEDIA_URL }}js/jquery-1.4.2.min.js"></script>
         <script src="{{ MEDIA_URL }}js/jquery-ui-1.8.4.custom.min.js"></script>
@@ -26,6 +33,34 @@
         <script src="{{ MEDIA_URL }}js/highlight.pack.js"></script>
         <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
         {% block head %}{% endblock %}
+        <script type="text/javascript">
+          $(document).ready(function() {
+              $.ajaxSetup({
+                  beforeSend: function(xhr, settings) {
+                      function getCookie(name) {
+                          var cookieValue = null;
+                          if (document.cookie && document.cookie != '') {
+                              var cookies = document.cookie.split(';');
+                              for (var i = 0; i < cookies.length; i++) {
+                                  var cookie = jQuery.trim(cookies[i]);
+                                  // Does this cookie string begin with the name we want?
+                                      if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                                          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                          break;
+                                      }
+                              }
+                          }
+                          return cookieValue;
+                      }
+                      if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                          // Only send the token to relative URLs i.e. locally.
+                          xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+                      }
+                  }
+              });
+          });
+        </script>
+
     </head>
     <body style="padding: 0px; margin: 0px;">
 
@@ -44,6 +79,7 @@
                         {% last_news %}
                         {% last_comments %}
                     {% endblock %}
+                    {# poll_queue 'Public' #}
                 </td>
                 <td width="*" valign="top" class="content">
                     {% if messages %}
@@ -53,9 +89,11 @@
                             {% endfor %}
                         </ul>
                     {% endif %}
+                    {% random_zone_ad 'buy_me' 'header' %}
                     <hr/>
                     {% block content %}{% endblock %}
                     <hr/>
+                    {% random_zone_ad 'buy_me' 'footer' %}
                 </td>
                 <td width="116" valign="top">
                     {# правая колонка #}
@@ -63,12 +101,8 @@
                 </td>
             </tr>
         </table>
-
-        {% if not DEBUG %}{{ google_analytics|safe }}{% endif %}
-
         {% include '_footer.html' %}
 
         {% include '_menu.html' %}
     </body>
-{% if not debug %}{% analytics "UA-3919032-6" %}{% endif %}
 </html>

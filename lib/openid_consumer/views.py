@@ -4,7 +4,7 @@ from django.template import RequestContext
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
-import md5, re, time, urllib
+import re, time, urllib
 
 import openid   
 if openid.__version__ < '2.0.0':
@@ -24,7 +24,7 @@ else:
 from openid.consumer.consumer import Consumer, \
     SUCCESS, CANCEL, FAILURE, SETUP_NEEDED
 from openid.consumer.discover import DiscoveryFailure
-from yadis import xri
+from openid.yadis import xri
 
 from util import OpenID, DjangoOpenIDStore, from_openid_response
 from middleware import OpenIDMiddleware

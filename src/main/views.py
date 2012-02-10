@@ -1,11 +1,15 @@
-from decorators import render_to, render_to_json
-from main.models import Page, Book
+# -*- coding: utf-8 -*-
+
+from decorators import render_to
+from main.models import Book
 from django.http import Http404
 from django.db.models import ObjectDoesNotExist
 from main.forms import FeedbackForm
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth.decorators import login_required
+import markdown
 
 @render_to('main/index.html')
 def index(request):
@@ -18,7 +22,7 @@ def index(request):
         'page': page
     }
 
-@render_to('main/page.html')    
+@render_to('main/page.html')
 def page(request, slug):
     try:
         book = Book.get()
@@ -28,7 +32,7 @@ def page(request, slug):
     return {
         'page': page
     }
-    
+
 @render_to('main/search.html')
 def search(request):
     return {}
@@ -46,7 +50,14 @@ def feedback(request):
     return {
         'form': form
     }
-    
+
 def test_error_email(request):
     raise Exception('Test!')
     return
+
+@login_required
+@render_to('main/markdown_preview.html')
+def markdown_preview(request):
+    data = request.POST.get('data', '')
+    data = markdown.markdown(data, safe_mode='escape')
+    return {'data': data}

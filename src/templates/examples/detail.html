@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load i18n comments_tags markup %}
+{% load i18n comments_tags markup components %}
 
 {% block title %}{{ obj }} | {% trans 'Examples' %} |{{ block.super }}{% endblock %}
 
@@ -9,11 +9,20 @@
     <p style="margin-top: -5px">
         <a href="{{ obj.category.get_absolute_url }}">{{ obj.category }}</a>
         <br/>
-        {% trans 'Author' %}: <a style="color: #fff" href="{{ obj.author.get_absolute_url }}">
-            {{ obj.author }}
-        </a>              
+        <div class="author-avatar">
+            <a href="{{ obj.author.get_absolute_url }}"><img src="{{ obj.author.avatar }}" alt="" /></a>
+            <br/>
+            <a href="{{ obj.author.get_absolute_url }}">
+                {{ obj.author }}
+            </a>
+        </div>
     </p>
     {{ obj.content|markdown }}
+	{% get_share_links obj %}
     {% render_comment_list obj %}
-    {% render_comment_form obj %}    
+    <div style="text-align: right;">
+      <button onclick="document.location='{{ topic.get_absolute_url }}';">
+        {% trans "Discuss this recipe" %}
+      </button>
+    </div>
 {% endblock %}

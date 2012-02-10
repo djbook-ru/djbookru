@@ -1,13 +1,5 @@
 [
     {
-        "pk": 1,
-        "model": "auth.group",
-        "fields": {
-            "name": "general",
-            "permissions": []
-        }
-    },
-    {
         "pk": 2,
         "model": "sites.site",
         "fields": {

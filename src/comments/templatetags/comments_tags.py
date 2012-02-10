@@ -24,6 +24,7 @@ def render_comment_form(context, obj):
 @register.inclusion_tag('comments/list.html', takes_context=True)
 def render_comment_list(context, obj):
     return {
+        'next_page': context['request'].get_full_path(),
         'qs': Comment.get_for_object(obj),
         'content_type': ContentType.objects.get_for_model(obj),
         'obj': obj,

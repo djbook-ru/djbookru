@@ -2,6 +2,7 @@ from django.contrib import admin
 from examples.models import Category, Example
 from django.conf import settings 
 from django.forms import ModelForm
+from utils.admin import LogModelAdmin
 
 class CategoryAdmin(admin.ModelAdmin):
     pass
@@ -15,9 +16,10 @@ class ExampleForm(ModelForm):
         super(ExampleForm, self).__init__(*args, **kwargs)
         self.fields['content'].widget.attrs['style'] = 'height: 400px'
 
-class ExampleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'author', 'created')
-    list_filter = ('category',)
+class ExampleAdmin(LogModelAdmin):
+    list_display = ('title', 'category', 'author', 'approved', 'created')
+    list_filter = ('category', 'approved')
+    readonly_fields = ('author',)
     form = ExampleForm
     
     def save_model(self, request, obj, form, change):
