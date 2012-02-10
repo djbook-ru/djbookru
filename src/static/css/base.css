@@ -1,0 +1,19 @@
+.container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;    
+}
+
+.center-container {
+    padding-left: 0px;
+    padding-right: 0px;
+    float: left;
+}
+
+.right-column {
+    width: 116px;
+    float: right;
+}
+
+.center-column {
+    margin-right: 136px;
+}

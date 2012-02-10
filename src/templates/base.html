@@ -61,48 +61,50 @@
               });
           });
         </script>
-
     </head>
-    <body style="padding: 0px; margin: 0px;">
-
+    <body>
         {% block menu %}
             {% menu %}
         {% endblock %}
-
+        {% comment %}
+        <div class="container-fluid">
         {% block search %}
             {% include '_search.html' %}
         {% endblock %}
-
-        <table width="100%" border="0" cellspacing="0" cellpadding="10">
-            <tr>
-                <td width="25%" valign="top">
+        <div>
+        {% endcomment %}
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3">
                     {% block left %}
                         {% last_news %}
                         {% last_comments %}
                     {% endblock %}
-                </td>
-                <td width="*" valign="top" class="content">
-                    {% if messages %}
-                        <ul class="messages">
-                            {% for message in messages %}
-                            <li class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
-                    {% random_zone_ad 'buy_me' 'header' %}
-                    <hr/>
-                    {% block content %}{% endblock %}
-                    <hr/>
-                    {% random_zone_ad 'buy_me' 'footer' %}
-                </td>
-                <td width="116" valign="top">
-                    {# правая колонка #}
-                    {% include '_right.html' %}
-                </td>
-            </tr>
-        </table>
-        {% include '_footer.html' %}
-
-        {% include '_menu.html' %}
+                </div>
+                <div class="span9">
+                    <div class="center-container">
+                        <div class="right-column">
+                            {% include '_right.html' %}
+                        </div>
+                        <div class="center-column">
+                            {% if messages %}
+                                <ul class="messages">
+                                    {% for message in messages %}
+                                    <li class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                            {% random_zone_ad 'buy_me' 'header' %}
+                            <hr/>
+                            {% block content %}{% endblock %}
+                            <hr/>
+                            {% random_zone_ad 'buy_me' 'footer' %}
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- row-fluid -->
+            <hr>
+            <footer>{% include '_footer.html' %}</footer>
+        </div> <!-- container-fluid -->
     </body>
 </html>
