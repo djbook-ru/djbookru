@@ -63,16 +63,9 @@
         </script>
     </head>
     <body>
-        {% block menu %}
-            {% menu %}
-        {% endblock %}
-        {% comment %}
-        <div class="container-fluid">
-        {% block search %}
-            {% include '_search.html' %}
-        {% endblock %}
-        <div>
-        {% endcomment %}
+        {% block menu %}{% menu %}{% endblock %}
+        {% block search %}{% include '_search.html' %}{% endblock %}
+
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span3">

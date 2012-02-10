@@ -1,3 +1,7 @@
+.navbar {
+    margin-bottom: 0px;
+}
+
 .container-fluid {
     padding-left: 10px;
     padding-right: 10px;    
@@ -16,4 +20,17 @@
 
 .center-column {
     margin-right: 136px;
+}
+
+.top-container {
+    widht: 100%;
+    background-color: #94ce4a;
+}
+
+.top-container .row-fluid {
+    margin-top: 10px;
+}
+
+.top-container .search {
+    padding-top: 12px;
 }
