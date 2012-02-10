@@ -88,16 +88,15 @@
                                 </ul>
                             {% endif %}
                             {% random_zone_ad 'buy_me' 'header' %}
-                            <hr/>
-                            {% block content %}{% endblock %}
-                            <hr/>
+                            <div class="well content">
+                                {% block content %}{% endblock %}
+                            </div>
                             {% random_zone_ad 'buy_me' 'footer' %}
                         </div>
                     </div>
                 </div>
             </div> <!-- row-fluid -->
-            <hr>
-            <footer>{% include '_footer.html' %}</footer>
         </div> <!-- container-fluid -->
+        <footer>{% include '_footer.html' %}</footer>
     </body>
 </html>
