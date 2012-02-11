@@ -3,6 +3,7 @@
 }
 
 .well {
+    border: 1px solid rgba(0, 0, 0, 0.15);
     background-color: #f0f5ea;
     margin-bottom: 6px;
     padding: 6px;
@@ -108,5 +109,26 @@ hr {
 
 .toc .nav-list li {
     line-height: 16px;
+    padding-left: 5px;
 }
 /* toc */
+
+/* comments */
+.comments .user_thumb {
+    margin-right: 10px;
+}
+
+.comments a.link, .comments a.reply, .comments a.delete, .comments a.edit {
+    margin: 0 3px;
+}
+
+.comments .replied {
+    margin-left: 90px;
+    margin-top: 3px;
+    background-color: #d0ecf2;
+}
+
+#comment-form textarea {
+    width: 90%;
+}
+/* comments */

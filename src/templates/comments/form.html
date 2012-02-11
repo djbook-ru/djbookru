@@ -11,7 +11,7 @@
     <div>
         {{ form.content }}
     </div>
-    <button type="submit" class="submit"><span>{% trans 'Post' %}</span></button>
+    <button type="submit" class="submit btn"><span>{% trans 'Post' %}</span></button>
 </form>
 <script type="text/javascript">
 jQuery(document).ready(function($){
@@ -35,7 +35,7 @@ jQuery(document).ready(function($){
                     }
                 };
             }
-            $('.submit', $form).attr('disabled', '');
+            $('.submit', $form).prop('disabled', false);
         },
         beforeSubmit: function(formData, $form, options){
             $('p.error_list', $form).remove();
@@ -44,7 +44,7 @@ jQuery(document).ready(function($){
                 $(form.content).before('<p class="error_list">{% trans "Enter comment please." %}</p>');
                 return false;
             }
-            $('.submit', $form).attr('disabled', 'disabled');
+            $('.submit', $form).prop('disabled', true);
         }
     });
 
