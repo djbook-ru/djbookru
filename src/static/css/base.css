@@ -89,6 +89,31 @@ hr {
 .well.yandex-money h5, .well.yandex-money p {
     margin-left: 5px;
 }
+
+#spelling_error_count_pending,
+#spelling_error_count_assigned,
+#spelling_error_count_fixed,
+#spelling_error_count_invalid {
+    font-weight: bold;
+    padding: 2px;
+    border-radius: 3px;
+}
+
+#spelling_error_count_pending {
+    border: 1px solid yellow;
+}
+
+#spelling_error_count_assigned {
+    border: 1px solid orange;
+}
+
+#spelling_error_count_fixed {
+    border: 1px solid green;
+}
+
+#spelling_error_count_invalid {
+    border: 1px solid red;
+}
 /* right-column */
 
 /* content */

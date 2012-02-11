@@ -6,7 +6,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.db.models import Count
 
 e = enumerate([_(u'New'), _(u'Assigned'), _(u'Fixed'), _(u'Invalid')], 1)
-CLAIM_STATUSES = tuple([(x, y) for x,y in e])
+CLAIM_STATUSES = tuple([(x, y) for x, y in e])
+
 
 class Claims(models.Model):
     ctx_left = models.CharField(verbose_name=_(u'Left Context Value'), max_length=255, blank=True)
@@ -24,7 +25,7 @@ class Claims(models.Model):
     class Meta:
         verbose_name = _(u'Claim')
         verbose_name_plural = _(u'Claims')
-        ordering=('-status_applied',)
+        ordering = ('-status_applied',)
 
     def __unicode__(self):
         return self.selected
@@ -54,9 +55,10 @@ class Claims(models.Model):
         css = ['', 'spelling_error_count_pending', 'spelling_error_count_assigned',
                'spelling_error_count_fixed', 'spelling_error_count_invalid']
         result = []
+
         for record in Claims.objects.values('status').annotate(count=Count('status')).order_by('status'):
             id = int(record['status'])
-            result.append( {'title': statuses[id], 'count': record['count'], 'css': css[id],} )
+            result.append({'title': statuses[id], 'count': record['count'], 'css': css[id]})
         return result
         # [{'status': 4L, 'count': 5},
         #  {'status': 3L, 'count': 89},
