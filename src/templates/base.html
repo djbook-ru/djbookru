@@ -22,7 +22,7 @@
         <link rel="stylesheet" href="{{ MEDIA_URL }}bootstrap/css/bootstrap.min.css" type="text/css"/>
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/base.css" type="text/css"/>
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/djbook/jquery-ui-1.8.4.custom.css" type="text/css"/>
-        <link rel="stylesheet" href="http://yandex.st/highlightjs/6.1/styles/github.min.css">
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/github.min.css">
 
         {% if not settings.DEBUG %}{% analytics_async "UA-3919032-6" %}{% endif %}
         <script type="text/javascript" src="{% url js_i18n_catalog %}"></script>
@@ -31,7 +31,7 @@
         <script src="{{ MEDIA_URL }}js/jquery-ui-1.8.4.custom.min.js"></script>
         <script src="{{ MEDIA_URL }}js/jquery.form.js"></script>
         <script src="{{ MEDIA_URL }}js/jquery-spelling.js"></script>
-        <script src="http://yandex.st/highlightjs/6.1/highlight.min.js"></script>
+        <script src="{{ MEDIA_URL }}js/highlight.min.js"></script>
 
         {% block head %}{% endblock %}
         <script type="text/javascript">
@@ -76,8 +76,8 @@
                         {% last_comments %}
                     {% endblock %}
                 </div>
-                <div class="span9">
-                    <div class="center-container">
+                <div class="span9 center-container">
+
                         <div class="right-column">
                             {% include '_right.html' %}
                         </div>
@@ -95,7 +95,7 @@
                             </div>
                             {% random_zone_ad 'buy_me' 'footer' %}
                         </div>
-                    </div>
+
                 </div>
             </div> <!-- row-fluid -->
         </div> <!-- container-fluid -->

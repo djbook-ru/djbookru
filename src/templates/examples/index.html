@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load i18n comments_tags %}
+{% load i18n %}
 
 {% block title %}{% trans 'Recipes' %} | {{ block.super }}{% endblock %}
 
@@ -11,11 +11,8 @@
         {% for item in category.examples.approved %}
             <p style="padding-left: 20px;">
                 <a href="{{ item.get_absolute_url }}" {% if item.url %}class="link"{% endif %}>{{ item }}</a>
-                (<a class="comments-number" href="{{ item.get_absolute_url }}#comments">
-                    {% trans 'Comments' %}: {% get_comment_count item %}
-                </a>)
                 <br/>
-                {% trans 'Author' %}: <a style="color: #fff" href="{{ item.author.get_absolute_url }}">
+                {% trans 'Author' %}: <a =href="{{ item.author.get_absolute_url }}">
                     {{ item.author }}
                 </a>                                
             </p>

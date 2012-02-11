@@ -6,17 +6,14 @@
 
 {% block content %}
     <h1>{{ obj }}</h1>
-    <p style="margin-top: -5px">
-        <a href="{{ obj.category.get_absolute_url }}">{{ obj.category }}</a>
+    <h4 style="margin: 5px 0"><a href="{{ obj.category.get_absolute_url }}">{{ obj.category }}</a></h4>
+    <div class="author-avatar pull-right well">
+        <a href="{{ obj.author.get_absolute_url }}"><img src="{{ obj.author.avatar }}" alt="" /></a>
         <br/>
-        <div class="author-avatar">
-            <a href="{{ obj.author.get_absolute_url }}"><img src="{{ obj.author.avatar }}" alt="" /></a>
-            <br/>
-            <a href="{{ obj.author.get_absolute_url }}">
-                {{ obj.author }}
-            </a>
-        </div>
-    </p>
+        <a href="{{ obj.author.get_absolute_url }}">
+            {{ obj.author }}
+        </a>
+    </div>
     {{ obj.content|markdown }}
 	{% get_share_links obj %}
     {% render_comment_list obj %}

@@ -62,6 +62,13 @@ hr {
     margin-top: 10px;
 }
 
+.errorlist {
+    color: #B94A48;
+}
+
+form td {
+    color: #999;
+}
 /* sidebar-item */
 .sidebar-item hr {
     margin: 0 0 2px;
@@ -205,3 +212,45 @@ hr {
     margin-left: 2px;
 }
 /* book */
+
+/* edit profile */
+
+.edit-form formset textarea {
+    width: 70%;
+}
+
+.edit-form formset input {
+    width: 40%;
+}
+/* edit profile */
+
+/* login */
+.login-link {
+    display: block;
+    float: left;
+    margin: 3px;
+    width: 113px;
+    height: 32px;
+    text-decoration: none;
+}
+
+.login-link:hover {
+    text-decoration: none;
+}
+
+.login-link.open-id {
+    background: url(../img/login.png) 0 0px no-repeat;
+}
+
+.login-link.twitter {
+    background: url(../img/login.png) -120px 0px no-repeat;
+}
+
+.login-link.google {
+    background: url(../img/login.png) -222px 0px no-repeat;
+}
+
+.login-link.securelayer {
+    background: url(/static/img/securelayer_button.png) 0px 0px no-repeat;
+}
+/* login */
