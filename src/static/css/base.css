@@ -146,6 +146,10 @@ form td {
 /* toc */
 
 /* comments */
+.comments .comment {
+    min-height: 80px;
+}
+
 .comments .user_thumb {
     margin-right: 10px;
 }

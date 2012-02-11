@@ -1,7 +1,6 @@
 {% load thumbnail i18n %}
 
 <div class="comment well" comment_id="{{ item.id }}">
-    <div class="comment_text">
         <span class="user_thumb pull-left">
             <img src="{{ item.user.avatar }}" alt="{{ item.user }}" />
         </span>
@@ -31,7 +30,6 @@
         {% endif %}
         <span class="pull-right">|</span>
         <a href="#comments-{{ item.id }}" class="link pull-right">{% trans 'Link' %}</a>
-        <div style="clear: right"></div>
         {% if item.reply_to %}
             <p class="replied well">
                 <a href="#comments-{{ item.reply_to.id }}">{% trans 'reply to' %} {{ item.reply_to.user }}</a>
@@ -39,7 +37,6 @@
                 {{ item.reply_to.content|linebreaksbr }}
             </p>
         {% endif %}
+        <div style="clear: right"></div>
         <p>{{ item.content|linebreaksbr }}</p>
-    </div>
-    <div style="clear:both"></div>
 </div>
