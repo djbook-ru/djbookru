@@ -2,6 +2,12 @@
     margin-bottom: 0px;
 }
 
+.navbar .navbar-inner {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
 .well {
     border: 1px solid rgba(0, 0, 0, 0.15);
     background-color: #f0f5ea;
@@ -41,7 +47,12 @@ hr {
 }
 
 .top-container {
-    padding-top: 8px;
+    padding: 8px 0 0 0;
+}
+
+.top-container .logo.span4 {
+    margin-left: 10px;
+    margin-right: -10px;
 }
 
 .top-container .search {
