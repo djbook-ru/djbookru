@@ -5,12 +5,11 @@
 {% block title %}{{ object }} | {% trans 'News' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
-    <div>
-        <h4>{{ object }}</h4> <em>{{ object.created|date:'DATETIME_FORMAT' }}</em>
-        {{ object.content|markdown }}
-        <a class="pull-right" href="{{ object.author.get_absolute_url }}">{{ object.author }}</a>
-        {% get_share_links object %}
-    </div>
+    <h4>{{ object }}</h4> <em>{{ object.created|date:'DATETIME_FORMAT' }}</em>
+    {{ object.content|markdown }}
+    <a class="pull-right" href="{{ object.author.get_absolute_url }}">{{ object.author }}</a>
+    {% get_share_links object %}
+    <div style="clear: both"></div>
     {% render_comment_list object %}
     {% render_comment_form object %}
 {% endblock %}

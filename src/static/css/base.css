@@ -34,11 +34,9 @@ hr {
 
 .right-column {
     width: 116px;
-    float: right;
-}
-
-.center-column {
-    margin-right: 136px;
+    position: absolute;
+    right: 10px;
+    top: 0px;
 }
 
 .top-container, footer {
@@ -60,6 +58,13 @@ hr {
 
 .content-container {
     margin-top: 10px;
+    position: relative;
+}
+
+.content {
+    position: absolute;
+    margin-right: 146px;
+    top: 0px;
 }
 
 .errorlist {
