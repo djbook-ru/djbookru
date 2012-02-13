@@ -2,7 +2,7 @@
 <hr>
 {% for item in last_comments %}
     <div class="well sidebar-item">
-        <h4><a href="{{ item.get_absolute_url }}">{{ item.content_object }}</a></h4>   
+        <h5><a href="{{ item.get_absolute_url }}">{{ item.content_object }}</a></h5>   
         <h5><small>{{ item.submit_date|timesince }} {% trans 'ago' %}</small></h5>
         <p>{{ item.content|truncatewords:15|linebreaksbr }}</p>
         <hr>
