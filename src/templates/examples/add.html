@@ -6,7 +6,6 @@
 
 {% block head %}
     {{ block.super }}
-    {% include '_markitup.html' %}
 {% endblock %}
 
 {% block content %}
@@ -28,9 +27,13 @@
 
     <form method="post" class="form-as-p">
         {% csrf_token %}
-        {{ form.as_p }}
+        <formset>
+          <table>
+            {{ form }}
+          </table>
+        </formset>
         <p>
-            <button>{% trans "Submit" %}</button>
+            <button class="btn">{% trans "Submit" %}</button>
         </p>
     </form>
 {% endblock %}

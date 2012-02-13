@@ -68,37 +68,31 @@
         {% block menu %}{% menu %}{% endblock %}
         {% block search %}{% include '_search.html' %}{% endblock %}
 
-        <div class="container-fluid content-container">
-            <div class="row-fluid">
-                <div class="span3 left-column">
-                    {% block left %}
-                        {% last_news %}
-                        {% last_comments %}
-                    {% endblock %}
+        <div class="content-container">
+            <div class="left-column">
+                {% block left %}
+                    {% last_news %}
+                    {% last_comments %}
+                {% endblock %}
+            </div>
+            <div class="right-column">
+                {% include '_right.html' %}
+            </div>
+            <div class="center-column">
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% random_zone_ad 'buy_me' 'header' %}
+                <div class="well content">
+                    {% block content %}{% endblock %}
                 </div>
-                <div class="span9 center-container">
-
-                        <div class="right-column">
-                            {% include '_right.html' %}
-                        </div>
-                        <div class="center-column">
-                            {% if messages %}
-                                <ul class="messages">
-                                    {% for message in messages %}
-                                    <li class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</li>
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}
-                            {% random_zone_ad 'buy_me' 'header' %}
-                            <div class="well content">
-                                {% block content %}{% endblock %}
-                            </div>
-                            {% random_zone_ad 'buy_me' 'footer' %}
-                        </div>
-
-                </div>
-            </div> <!-- row-fluid -->
-        </div> <!-- container-fluid -->
-        <footer>{% include '_footer.html' %}</footer>
+                {% random_zone_ad 'buy_me' 'footer' %}
+            </div>
+            <footer>{% include '_footer.html' %}</footer>
+        </div>
     </body>
 </html>

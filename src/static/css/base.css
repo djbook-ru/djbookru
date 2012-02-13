@@ -13,59 +13,47 @@ hr {
     margin: 15px 0;
 }
 
-.container-fluid {
-    padding-left: 10px;
-    padding-right: 10px;    
-}
-
-.center-container {
-    padding-left: 0px;
-    padding-right: 0px;
-    float: left;
-}
-
-.content-container .row-fluid .span9 {
-    margin-left: 1.9%;
-}
-
 .left-column a {
     color: #487858;
 }
 
+.left-column {
+    width: 23%;
+    margin-left: 0.5%;
+    float: left;
+}
+
 .right-column {
     width: 116px;
-    position: absolute;
-    right: 10px;
-    top: 0px;
+    float: right;
+    margin-right: 0.5%;
+}
+
+.center-column {
+    margin-top: 5px;
+    margin-left: 24%;
+    margin-right: 126px;
 }
 
 .top-container, footer {
-    widht: 100%;
+    width: 100%;
     background-color: #94ce4a;
+}
+
+.top-container {
+    padding-top: 8px;
+}
+
+.top-container .search {
+    margin-top: 17px;
+}
+
+footer {
+    clear: both;
 }
 
 .top-container a, footer a{
     color: #487858;
-}
-
-.top-container .row-fluid {
-    margin-top: 10px;
-}
-
-.top-container .search {
-    padding-top: 12px;
-}
-
-.content-container {
-    margin-top: 10px;
-    position: relative;
-}
-
-.content {
-    position: absolute;
-    right: 140px;
-    left: 25%;
-    top: 0px;
 }
 
 .errorlist {
@@ -75,6 +63,15 @@ hr {
 form td {
     color: #999;
 }
+
+form formset textarea {
+    width: 90%;
+}
+
+form formset p {
+    color: #999;
+}
+
 /* sidebar-item */
 .sidebar-item hr {
     margin: 0 0 2px;
@@ -152,8 +149,16 @@ form td {
 /* toc */
 
 /* comments */
+.comments {
+    margin-top: 5px;
+}
+
 .comments .comment {
     min-height: 80px;
+}
+
+.comments .comment .text {
+    padding-top: 18px;
 }
 
 .comments .user_thumb {
@@ -166,8 +171,9 @@ form td {
 
 .comments .replied {
     margin-left: 90px;
-    margin-top: 3px;
+    margin-top: 20px;
     background-color: #d0ecf2;
+    margin-bottom: -16px;
 }
 
 #comment-form textarea {
