@@ -16,7 +16,9 @@
             {% endcache %}
         </div>
         <div class="content well left">
-            {% random_forum_topics %}
+            {% cache 300 random_forum_topic_page_component %}
+                {% random_forum_topics %}
+            {% endcache %}
         </div>
     </div>
 {% endblock %}
