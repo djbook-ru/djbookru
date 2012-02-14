@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-14 18:44+0400\n"
+"POT-Creation-Date: 2012-02-14 19:14+0400\n"
 "PO-Revision-Date: 2011-11-24 01:56+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -123,8 +123,8 @@ msgstr "биография"
 msgid "homepage"
 msgstr "домашняя страница"
 
-#: accounts/models.py:14 djangobb_forum/models.py:125
-#: djangobb_forum/models.py:180 djangobb_forum/models.py:263
+#: accounts/models.py:14 djangobb_forum/models.py:126
+#: djangobb_forum/models.py:181 djangobb_forum/models.py:262
 msgid "User"
 msgstr "Пользователь"
 
@@ -156,7 +156,7 @@ msgstr "Ошибка"
 msgid "Comment"
 msgstr "Комментарий"
 
-#: claims/admin.py:26 djangobb_forum/models.py:264
+#: claims/admin.py:26 djangobb_forum/models.py:263
 msgid "Status"
 msgstr "Состояние"
 
@@ -317,21 +317,21 @@ msgstr "Количество откликов"
 msgid "Post time"
 msgstr "Время отклика"
 
-#: djangobb_forum/forms.py:28 templates/examples/category.html:14
+#: djangobb_forum/forms.py:28 templates/examples/category.html:13
 #: templates/examples/index.html:14
 msgid "Author"
 msgstr "Автор"
 
 #: djangobb_forum/forms.py:29 djangobb_forum/forms.py:51
 #: djangobb_forum/forms.py:116 djangobb_forum/forms.py:340
-#: djangobb_forum/models.py:122
+#: djangobb_forum/models.py:123
 #: djangobb_forum/templates/forum/add_post.html:27
 #: djangobb_forum/templates/forum/edit_post.html:24
 msgid "Subject"
 msgstr "Тема"
 
 #: djangobb_forum/forms.py:30 djangobb_forum/forms.py:288
-#: djangobb_forum/models.py:105 djangobb_forum/models.py:121
+#: djangobb_forum/models.py:106 djangobb_forum/models.py:122
 #: djangobb_forum/templates/forum/index.html:53
 #: djangobb_forum/templates/forum/search_topics.html:22
 #: templates/_menu.html:18
@@ -346,7 +346,7 @@ msgstr "Туда"
 msgid "Descending"
 msgstr "Обратно"
 
-#: djangobb_forum/forms.py:39 djangobb_forum/models.py:137
+#: djangobb_forum/forms.py:39 djangobb_forum/models.py:138
 #: djangobb_forum/templates/forum/index.html:54
 msgid "Topics"
 msgstr "Темы"
@@ -419,7 +419,7 @@ msgstr "Пользователь с логином %s не существует"
 msgid "You already voted for this post"
 msgstr "Вы уже проголосовали за этот отклик"
 
-#: djangobb_forum/forms.py:342 djangobb_forum/models.py:185
+#: djangobb_forum/forms.py:342 djangobb_forum/models.py:186
 #: djangobb_forum/templates/forum/add_post.html:29
 #: djangobb_forum/templates/forum/edit_post.html:27
 msgid "Message"
@@ -439,276 +439,276 @@ msgid "Hide your e-mail address and disallow form e-mail."
 msgstr ""
 "Спрятать адрес вашей Е-почты и запретить отправку сообщений через форум."
 
-#: djangobb_forum/models.py:57 djangobb_forum/models.py:94
-#: djangobb_forum/models.py:367
+#: djangobb_forum/models.py:58 djangobb_forum/models.py:95
+#: djangobb_forum/models.py:366
 msgid "Name"
 msgstr "Имя"
 
-#: djangobb_forum/models.py:58
+#: djangobb_forum/models.py:59
 msgid "Groups"
 msgstr "Группы"
 
-#: djangobb_forum/models.py:58
+#: djangobb_forum/models.py:59
 msgid "Only users from these groups can see this category"
 msgstr "Только пользователи из этих групп могут читать данную категорию"
 
-#: djangobb_forum/models.py:59 djangobb_forum/models.py:95
+#: djangobb_forum/models.py:60 djangobb_forum/models.py:96
 msgid "Position"
 msgstr "Позиция"
 
-#: djangobb_forum/models.py:63 djangobb_forum/models.py:93
+#: djangobb_forum/models.py:64 djangobb_forum/models.py:94
 #: examples/models.py:13
 msgid "Category"
 msgstr "Категория"
 
-#: djangobb_forum/models.py:64 examples/models.py:14
+#: djangobb_forum/models.py:65 examples/models.py:14
 msgid "Categories"
 msgstr "Категории"
 
-#: djangobb_forum/models.py:96
+#: djangobb_forum/models.py:97
 msgid "Description"
 msgstr "Описание"
 
-#: djangobb_forum/models.py:97
+#: djangobb_forum/models.py:98
 msgid "Moderators"
 msgstr "Модераторы"
 
-#: djangobb_forum/models.py:98 djangobb_forum/models.py:124
-#: djangobb_forum/models.py:182
+#: djangobb_forum/models.py:99 djangobb_forum/models.py:125
+#: djangobb_forum/models.py:183
 msgid "Updated"
 msgstr "Обновлено"
 
-#: djangobb_forum/models.py:99 djangobb_forum/models.py:131
-#: djangobb_forum/models.py:281
+#: djangobb_forum/models.py:100 djangobb_forum/models.py:132
+#: djangobb_forum/models.py:280
 msgid "Post count"
 msgstr "Откликов"
 
-#: djangobb_forum/models.py:100
+#: djangobb_forum/models.py:101
 msgid "Topic count"
 msgstr "Тем"
 
-#: djangobb_forum/models.py:106
+#: djangobb_forum/models.py:107
 msgid "Forums"
 msgstr "Форумов"
 
-#: djangobb_forum/models.py:123 djangobb_forum/models.py:181
-#: djangobb_forum/models.py:328
+#: djangobb_forum/models.py:124 djangobb_forum/models.py:182
+#: djangobb_forum/models.py:327
 msgid "Created"
 msgstr "Создано"
 
-#: djangobb_forum/models.py:126
+#: djangobb_forum/models.py:127
 msgid "Views count"
 msgstr "Просмотров"
 
-#: djangobb_forum/models.py:127
+#: djangobb_forum/models.py:128
 msgid "Sticky"
 msgstr "Прикреплён"
 
-#: djangobb_forum/models.py:128
+#: djangobb_forum/models.py:129
 msgid "Closed"
 msgstr "Закрыт"
 
-#: djangobb_forum/models.py:129
+#: djangobb_forum/models.py:130
 msgid "Heresy"
 msgstr "Ересь"
 
-#: djangobb_forum/models.py:130
+#: djangobb_forum/models.py:131
 msgid "Subscribers"
 msgstr "Подписчики"
 
-#: djangobb_forum/models.py:136 djangobb_forum/models.py:179
+#: djangobb_forum/models.py:137 djangobb_forum/models.py:180
 #: djangobb_forum/templates/forum/forum.html:27
 #: djangobb_forum/templates/forum/moderate.html:23
 #: djangobb_forum/templates/forum/search_topics.html:21
 msgid "Topic"
 msgstr "Тема"
 
-#: djangobb_forum/models.py:183
+#: djangobb_forum/models.py:184
 msgid "Updated by"
 msgstr "Обновлено"
 
-#: djangobb_forum/models.py:184
+#: djangobb_forum/models.py:185
 #: djangobb_forum/templates/forum/profile/profile_display.html:25
 msgid "Markup"
 msgstr "Разметка"
 
-#: djangobb_forum/models.py:186
+#: djangobb_forum/models.py:187
 msgid "HTML version"
 msgstr "HTML версия"
 
-#: djangobb_forum/models.py:187
+#: djangobb_forum/models.py:188
 msgid "User IP"
 msgstr "IP пользователя"
 
-#: djangobb_forum/models.py:193 djangobb_forum/models.py:248
-#: djangobb_forum/models.py:325 djangobb_forum/models.py:363
+#: djangobb_forum/models.py:193 djangobb_forum/models.py:247
+#: djangobb_forum/models.py:324 djangobb_forum/models.py:362
 #: templates/comments/form.html:14
 msgid "Post"
 msgstr "Отправить"
 
-#: djangobb_forum/models.py:246
+#: djangobb_forum/models.py:245
 msgid "From"
 msgstr "От"
 
-#: djangobb_forum/models.py:247
+#: djangobb_forum/models.py:246
 msgid "To"
 msgstr "К"
 
-#: djangobb_forum/models.py:249
+#: djangobb_forum/models.py:248
 msgid "Time"
 msgstr "Время"
 
-#: djangobb_forum/models.py:250
+#: djangobb_forum/models.py:249
 msgid "Sign"
 msgstr "Подпись"
 
-#: djangobb_forum/models.py:251 djangobb_forum/models.py:329
-#: djangobb_forum/models.py:342 djangobb_forum/templates/forum/report.html:16
+#: djangobb_forum/models.py:250 djangobb_forum/models.py:328
+#: djangobb_forum/models.py:341 djangobb_forum/templates/forum/report.html:16
 #: djangobb_forum/templates/forum/reputation.html:24
 msgid "Reason"
 msgstr "Причина"
 
-#: djangobb_forum/models.py:254 djangobb_forum/templates/forum/topic.html:63
+#: djangobb_forum/models.py:253 djangobb_forum/templates/forum/topic.html:63
 msgid "Reputation"
 msgstr "Репутация"
 
-#: djangobb_forum/models.py:255
+#: djangobb_forum/models.py:254
 msgid "Reputations"
 msgstr "Репутации"
 
-#: djangobb_forum/models.py:265
+#: djangobb_forum/models.py:264
 msgid "Site"
 msgstr "Сайт"
 
-#: djangobb_forum/models.py:266
+#: djangobb_forum/models.py:265
 msgid "Jabber"
 msgstr "Джаббер"
 
-#: djangobb_forum/models.py:267
+#: djangobb_forum/models.py:266
 msgid "ICQ"
 msgstr "ICQ"
 
-#: djangobb_forum/models.py:268
+#: djangobb_forum/models.py:267
 msgid "MSN"
 msgstr "MSN"
 
-#: djangobb_forum/models.py:269
+#: djangobb_forum/models.py:268
 msgid "AIM"
 msgstr "AIM"
 
-#: djangobb_forum/models.py:270
+#: djangobb_forum/models.py:269
 msgid "Yahoo"
 msgstr "Yahoo"
 
-#: djangobb_forum/models.py:271 djangobb_forum/templates/forum/user.html:25
+#: djangobb_forum/models.py:270 djangobb_forum/templates/forum/user.html:25
 msgid "Location"
 msgstr "Из"
 
-#: djangobb_forum/models.py:272
+#: djangobb_forum/models.py:271
 msgid "Signature"
 msgstr "Подпись"
 
-#: djangobb_forum/models.py:273
+#: djangobb_forum/models.py:272
 msgid "Time zone"
 msgstr "Временная зона"
 
-#: djangobb_forum/models.py:274
+#: djangobb_forum/models.py:273
 msgid "Language"
 msgstr "Язык"
 
-#: djangobb_forum/models.py:275
+#: djangobb_forum/models.py:274
 msgid "Theme"
 msgstr "Тема"
 
-#: djangobb_forum/models.py:276
+#: djangobb_forum/models.py:275
 msgid "Show avatar"
 msgstr "Отображать аватар"
 
-#: djangobb_forum/models.py:277
+#: djangobb_forum/models.py:276
 msgid "Show signatures"
 msgstr "Отображать подписи"
 
-#: djangobb_forum/models.py:278
+#: djangobb_forum/models.py:277
 #: djangobb_forum/templates/forum/profile/profile_display.html:40
 msgid "Show smilies"
 msgstr "Отображать смайлы"
 
-#: djangobb_forum/models.py:279
+#: djangobb_forum/models.py:278
 msgid "Privacy permission"
 msgstr "Личные права"
 
-#: djangobb_forum/models.py:280
+#: djangobb_forum/models.py:279
 msgid "Default markup"
 msgstr "Стандартная разметка"
 
-#: djangobb_forum/models.py:284 djangobb_forum/templates/forum/header.html:19
+#: djangobb_forum/models.py:283 djangobb_forum/templates/forum/header.html:19
 #: djangobb_forum/templates/forum/topic.html:71
 #: djangobb_forum/templates/forum/user.html:7
 #: templates/accounts/profile.html:5
 msgid "Profile"
 msgstr "Профиль"
 
-#: djangobb_forum/models.py:285
+#: djangobb_forum/models.py:284
 msgid "Profiles"
 msgstr "Профили"
 
-#: djangobb_forum/models.py:316 djangobb_forum/models.py:317
+#: djangobb_forum/models.py:315 djangobb_forum/models.py:316
 msgid "Post tracking"
 msgstr "Отслеживать отклики"
 
-#: djangobb_forum/models.py:324
+#: djangobb_forum/models.py:323
 msgid "Reported by"
 msgstr "Доложил"
 
-#: djangobb_forum/models.py:326
+#: djangobb_forum/models.py:325
 msgid "Zapped"
 msgstr "Затёрто"
 
-#: djangobb_forum/models.py:327
+#: djangobb_forum/models.py:326
 msgid "Zapped by"
 msgstr "Затёрто"
 
-#: djangobb_forum/models.py:332 djangobb_forum/templates/forum/topic.html:118
+#: djangobb_forum/models.py:331 djangobb_forum/templates/forum/topic.html:118
 msgid "Report"
 msgstr "Жалоба"
 
-#: djangobb_forum/models.py:333
+#: djangobb_forum/models.py:332
 msgid "Reports"
 msgstr "Жалобы"
 
-#: djangobb_forum/models.py:339
+#: djangobb_forum/models.py:338
 msgid "Banned user"
 msgstr "Забаненный пользователь"
 
-#: djangobb_forum/models.py:340
+#: djangobb_forum/models.py:339
 msgid "Ban start"
 msgstr "Бан начинается"
 
-#: djangobb_forum/models.py:341
+#: djangobb_forum/models.py:340
 msgid "Ban end"
 msgstr "Бан завершается"
 
-#: djangobb_forum/models.py:345
+#: djangobb_forum/models.py:344
 msgid "Ban"
 msgstr "Бан"
 
-#: djangobb_forum/models.py:346
+#: djangobb_forum/models.py:345
 msgid "Bans"
 msgstr "Баны"
 
-#: djangobb_forum/models.py:364
+#: djangobb_forum/models.py:363
 msgid "Size"
 msgstr "Размер"
 
-#: djangobb_forum/models.py:365
+#: djangobb_forum/models.py:364
 msgid "Content type"
 msgstr "Тип содержимого"
 
-#: djangobb_forum/models.py:366
+#: djangobb_forum/models.py:365
 msgid "Path"
 msgstr "Путь"
 
-#: djangobb_forum/models.py:368
+#: djangobb_forum/models.py:367
 msgid "Hash"
 msgstr "Хэш"
 
@@ -1808,7 +1808,7 @@ msgstr "описание"
 msgid "ToC"
 msgstr "Оглавление"
 
-#: main/models.py:14 templates/_menu.html:16
+#: main/models.py:14
 msgid "Book"
 msgstr "Книга"
 
@@ -1820,7 +1820,7 @@ msgstr "Книги"
 msgid "slug"
 msgstr "метка"
 
-#: main/models.py:32
+#: main/models.py:32 templates/_menu.html:16
 msgid "book"
 msgstr "книга"
 
@@ -1862,6 +1862,7 @@ msgid "Forgotten page..."
 msgstr "Потерянная страница..."
 
 #: templates/_menu.html:21 templates/examples/index.html:5
+#: templates/main/_random_recipes.html:2
 msgid "Recipes"
 msgstr "Рецепты"
 
@@ -1990,7 +1991,6 @@ msgid "Enter comment please."
 msgstr "Введите комментарий, пожалуйста."
 
 #: templates/comments/form.html:56
-#, fuzzy
 msgid "Answering to: "
 msgstr "Ответ: "
 
@@ -2036,6 +2036,10 @@ msgstr ""
 #: templates/examples/detail.html:22
 msgid "Discuss this recipe"
 msgstr "Обсудить рецепт"
+
+#: templates/main/_random_forum_topics.html:2
+msgid "From forum"
+msgstr "Новое на форуме"
 
 #: templates/main/_toc.html:3
 msgid "Table of contents"

@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-from django import template
-from examples.models import Category, Example
 from accounts.models import User
-from django.contrib.sites.models import Site
-from django.template.loader import get_template
-from django.template import Context
+from django import template
 from django.conf import settings
+from django.contrib.sites.models import Site
+from django.template import Context
+from django.template.loader import get_template
+from djangobb_forum.models import Topic
+from examples.models import Category, Example
 from random import shuffle
 
 
@@ -81,4 +82,14 @@ def random_recipes():
     shuffle(ids)
     return {
         'examples': Example.objects.filter(pk__in=ids[:3])
+    }
+
+
+@register.inclusion_tag('main/_random_forum_topics.html')
+def random_forum_topics():
+    ids = list(Topic.objects.filter(forum__category__groups__isnull=True) \
+        .order_by('-updated').values_list('pk', flat=True))
+    shuffle(ids)
+    return {
+        'topics': Topic.objects.filter(pk__in=ids[:3])
     }

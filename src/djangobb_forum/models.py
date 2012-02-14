@@ -53,9 +53,10 @@ path = os.path.join(settings.MEDIA_ROOT, 'forum', 'themes')
 THEME_CHOICES = [(theme, theme) for theme in os.listdir(path)
                  if os.path.isdir(os.path.join(path, theme))]
 
+
 class Category(models.Model):
     name = models.CharField(_('Name'), max_length=80)
-    groups = models.ManyToManyField(Group,blank=True, null=True, verbose_name=_('Groups'), help_text=_('Only users from these groups can see this category'))
+    groups = models.ManyToManyField(Group, blank=True, null=True, verbose_name=_('Groups'), help_text=_('Only users from these groups can see this category'))
     position = models.IntegerField(_('Position'), blank=True, default=0)
 
     class Meta:
@@ -186,7 +187,6 @@ class Post(models.Model):
     body_html = models.TextField(_('HTML version'))
     user_ip = models.IPAddressField(_('User IP'), blank=True, null=True)
 
-
     class Meta:
         ordering = ['created']
         get_latest_by = 'created'
@@ -198,7 +198,6 @@ class Post(models.Model):
         if forum_settings.SMILES_SUPPORT and self.user.forum_profile.show_smilies:
             self.body_html = smiles(self.body_html)
         super(Post, self).save(*args, **kwargs)
-
 
     def delete(self, *args, **kwargs):
         self_id = self.id
