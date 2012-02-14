@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-13 12:54+0400\n"
+"POT-Creation-Date: 2012-02-14 18:44+0400\n"
 "PO-Revision-Date: 2011-11-24 01:56+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -48,7 +48,7 @@ msgstr "Маркдаун: Синтаксис"
 msgid "Change password"
 msgstr "Изменить пароль"
 
-#: dashboard.py:58 templates/_menu.html:37
+#: dashboard.py:58 templates/_menu.html:38
 msgid "Logout"
 msgstr "Выйти"
 
@@ -60,7 +60,7 @@ msgstr "Свежие новости Django"
 msgid "Recent Actions"
 msgstr "Недавние действия"
 
-#: patch.py:9 examples/models.py:37
+#: patch.py:9 examples/models.py:39
 msgid "URL"
 msgstr "URL"
 
@@ -334,7 +334,7 @@ msgstr "Тема"
 #: djangobb_forum/models.py:105 djangobb_forum/models.py:121
 #: djangobb_forum/templates/forum/index.html:53
 #: djangobb_forum/templates/forum/search_topics.html:22
-#: templates/_menu.html:17
+#: templates/_menu.html:18
 msgid "Forum"
 msgstr "Форум"
 
@@ -1054,7 +1054,7 @@ msgstr "Выбрать место для перемещения"
 msgid "Move to"
 msgstr "Перестить"
 
-#: djangobb_forum/templates/forum/pagination.html:3 main/models.py:38
+#: djangobb_forum/templates/forum/pagination.html:3 main/models.py:40
 msgid "Pages"
 msgstr "Страницы"
 
@@ -1719,23 +1719,23 @@ msgstr ""
 "\n"
 "Пожалуйста, проверьте и подтвердите его. URL: %(link)s"
 
-#: examples/models.py:9 main/models.py:6 main/models.py:27
+#: examples/models.py:9 main/models.py:7 main/models.py:29
 msgid "name"
 msgstr "имя"
 
-#: examples/models.py:30
+#: examples/models.py:32
 msgid "category"
 msgstr "категория"
 
-#: examples/models.py:31 news/models.py:6
+#: examples/models.py:33 news/models.py:6
 msgid "title"
 msgstr "тема"
 
-#: examples/models.py:32 main/models.py:29 news/models.py:7
+#: examples/models.py:34 main/models.py:31 news/models.py:7
 msgid "content"
 msgstr "содержимое"
 
-#: examples/models.py:32
+#: examples/models.py:34
 msgid ""
 "Use <a target=\"blank\" href=\"http://daringfireball.net/projects/markdown/"
 "syntax\">Markdown</a> and HTML"
@@ -1743,35 +1743,35 @@ msgstr ""
 "Используйте <a target=\"blank\" href=\"http://daringfireball.net/projects/"
 "markdown/syntax\">Markdown</a> и HTML"
 
-#: examples/models.py:33 main/models.py:7 news/models.py:8
+#: examples/models.py:35 main/models.py:8 news/models.py:8
 msgid "created"
 msgstr "создано"
 
-#: examples/models.py:35
+#: examples/models.py:37
 msgid "approved"
 msgstr "разрешено"
 
-#: examples/models.py:35
+#: examples/models.py:37
 msgid "Can be used for draft"
 msgstr "Может быть использовано для черновиков"
 
-#: examples/models.py:36
+#: examples/models.py:38
 msgid "note"
 msgstr "заметка"
 
-#: examples/models.py:36
+#: examples/models.py:38
 msgid "author's note, is not visible on site"
 msgstr "авторская заметка, не отображается на сайте"
 
-#: examples/models.py:38
+#: examples/models.py:40
 msgid "Topic ID"
 msgstr "Идентификатор темы"
 
-#: examples/models.py:41
+#: examples/models.py:43
 msgid "Example"
 msgstr "Пример"
 
-#: examples/models.py:42 templates/examples/category.html:5
+#: examples/models.py:44 templates/examples/category.html:5
 #: templates/examples/detail.html:5
 msgid "Examples"
 msgstr "Примеры"
@@ -1800,43 +1800,43 @@ msgstr "архив"
 msgid "This should be zip archive"
 msgstr "Хочу zip архив"
 
-#: main/models.py:8
+#: main/models.py:9
 msgid "description"
 msgstr "описание"
 
-#: main/models.py:9
+#: main/models.py:10
 msgid "ToC"
 msgstr "Оглавление"
 
-#: main/models.py:13
+#: main/models.py:14 templates/_menu.html:16
 msgid "Book"
 msgstr "Книга"
 
-#: main/models.py:14
+#: main/models.py:15
 msgid "Books"
 msgstr "Книги"
 
-#: main/models.py:28
+#: main/models.py:30
 msgid "slug"
 msgstr "метка"
 
-#: main/models.py:30
+#: main/models.py:32
 msgid "book"
 msgstr "книга"
 
-#: main/models.py:31
+#: main/models.py:33
 msgid "chapter"
 msgstr "глава"
 
-#: main/models.py:32
+#: main/models.py:34
 msgid "section"
 msgstr "раздел"
 
-#: main/models.py:37
+#: main/models.py:39
 msgid "Page"
 msgstr "Страница"
 
-#: main/views.py:46
+#: main/views.py:58
 msgid "Feedback sent success!"
 msgstr "Отзыв успешно отправлен!"
 
@@ -1852,7 +1852,7 @@ msgstr "Последние новости с Russian DjangoBook"
 msgid "Use Markdown and HTML"
 msgstr "Иcпользуйте Markdown или HTML"
 
-#: news/models.py:13 news/models.py:14 templates/_menu.html:16
+#: news/models.py:13 news/models.py:14 templates/_menu.html:17
 #: templates/news/index.html:5 templates/news/news.html:5
 msgid "News"
 msgstr "Новости"
@@ -1861,24 +1861,24 @@ msgstr "Новости"
 msgid "Forgotten page..."
 msgstr "Потерянная страница..."
 
-#: templates/_menu.html:20 templates/examples/index.html:5
+#: templates/_menu.html:21 templates/examples/index.html:5
 msgid "Recipes"
 msgstr "Рецепты"
 
-#: templates/_menu.html:24
+#: templates/_menu.html:25
 msgid "All"
 msgstr "Все"
 
-#: templates/_menu.html:32
+#: templates/_menu.html:33
 msgid "About"
 msgstr "О проекте"
 
-#: templates/_menu.html:39 templates/openid_consumer/signin.html:10
+#: templates/_menu.html:40 templates/openid_consumer/signin.html:10
 #: templates/registration/login.html:16
 msgid "Login"
 msgstr "Вход"
 
-#: templates/_menu.html:42
+#: templates/_menu.html:43
 msgid "Administrator's Interface"
 msgstr "Интерфейс администратора"
 

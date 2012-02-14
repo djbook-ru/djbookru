@@ -1,19 +1,23 @@
-{% extends 'main/page.html' %}
+{% extends 'base.html' %}
 
-{% load i18n news_tags comments_tags %}
+{% load i18n book_page news_tags comments_tags components cache %}
 
 {% block description %}Джанго является высокоуровневой средой разработки основанной на языке Питон, которая нацелена на ускоренный процесс разработки и явный дизайн.{% endblock %}
 
-{% block head %}
-    {{ block.super }}
-    <style>
-        div.toc dl dd {
-            display: none;
-        }
-    </style>
-{% endblock %}
+{% block content %}
+    {% main_page_toc book %}
 
-{% block comments %}{% endblock %}
+    <div class="row-fluid bottom-container">
+        <div class="content well">
+            {% cache 300 random_recipes_page_component %}
+                {% random_recipes %}
+            {% endcache %}
+        </div>
+        <div class="content well left">
+            <div>Radom post from forum</div>
+        </div>
+    </div>
+{% endblock %}
 
 {% block left %}
     {% last_news %}

@@ -67,6 +67,27 @@ footer {
     color: #487858;
 }
 
+.bottom-container .content {
+    width: 49.5%;
+    padding: 0;
+    margin: 0 -1px;
+    float: left;
+    overflow: hidden;
+}
+
+.bottom-container .content div {
+    margin: 5px;
+}
+
+.bottom-container .content.left {
+    margin-left: 1%;
+}
+
+.bottom-container .example h4,
+.bottom-container .example h5 {
+    display: inline;
+}
+
 .errorlist {
     color: #B94A48;
 }

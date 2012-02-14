@@ -11,8 +11,17 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.decorators import login_required
 import markdown
 
+
 @render_to('main/index.html')
 def index(request):
+    book = Book.get()
+    return {
+        'book': book
+    }
+
+
+@render_to('main/first_page.html')
+def first_page(request):
     try:
         book = Book.get()
         page = book.pages.get(slug='index')
@@ -21,6 +30,7 @@ def index(request):
     return {
         'page': page
     }
+
 
 @render_to('main/page.html')
 def page(request, slug):
@@ -33,9 +43,11 @@ def page(request, slug):
         'page': page
     }
 
+
 @render_to('main/search.html')
 def search(request):
     return {}
+
 
 @render_to('main/feedback.html')
 def feedback(request):
@@ -51,9 +63,11 @@ def feedback(request):
         'form': form
     }
 
+
 def test_error_email(request):
     raise Exception('Test!')
     return
+
 
 @login_required
 @render_to('main/markdown_preview.html')
