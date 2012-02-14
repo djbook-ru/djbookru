@@ -5,16 +5,14 @@
 {% block title %}{{ category }} | {% trans 'Examples' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
-    <div>
-        <h1>{{ category }}</h1>
-        {% for item in category.examples.approved %}
-            <p style="padding-left: 20px;">
-                <a href="{{ item.get_absolute_url }}" {% if item.url %}class="link"{% endif %}>{{ item }}</a>
-                <br/>
-                {% trans 'Author' %}: <a href="{{ item.author.get_absolute_url }}">
-                    {{ item.author }}
-                </a>                           
-            </p>
-        {% endfor %}
-    </div>
+    <h2>{{ category }}</h2>
+    {% for item in category.examples.approved %}
+        <p style="padding-left: 20px;">
+            <a href="{{ item.get_absolute_url }}" {% if item.url %}class="link"{% endif %}>{{ item }}</a>
+            <br/>
+            {% trans 'Author' %}: <a href="{{ item.author.get_absolute_url }}">
+                {{ item.author }}
+            </a>                           
+        </p>
+    {% endfor %}
 {% endblock %}

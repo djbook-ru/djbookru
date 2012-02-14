@@ -87,7 +87,10 @@
                     </ul>
                 {% endif %}
                 {% random_zone_ad 'buy_me' 'header' %}
-                {% block content %}{% endblock %}
+                <div class="well content">
+                    {% block content %}{% endblock %}
+                </div>
+                {% block post_content %}{% endblock %}
                 {% random_zone_ad 'buy_me' 'footer' %}
             </div>
             <footer>{% include '_footer.html' %}</footer>

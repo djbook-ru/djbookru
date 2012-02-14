@@ -75,7 +75,8 @@ footer {
     overflow: hidden;
 }
 
-.bottom-container .content div {
+.bottom-container .content div,
+.bottom-container .content h3 {
     margin: 5px;
 }
 
@@ -169,12 +170,14 @@ form formset p {
 /* content */
 
 /* toc */
-.toc .nav-list .nav-header {
+.toc .nav-list .nav-header,
+.toc.nav-list .nav-header {
     margin-top: 0;
     padding: 1px 15px;
 }
 
-.toc .nav-list li {
+.toc .nav-list li,
+.toc.nav-list li {
     line-height: 16px;
     padding-left: 5px;
 }

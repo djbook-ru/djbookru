@@ -6,7 +6,9 @@
 
 {% block content %}
     {% main_page_toc book %}
+{% endblock %}
 
+{% block post_content %}
     <div class="row-fluid bottom-container">
         <div class="content well">
             {% cache 300 random_recipes_page_component %}

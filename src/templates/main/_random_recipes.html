@@ -1,3 +1,5 @@
+{% load i18n %}
+<h3><a href="{% url examples:index %}">{% trans "Recipes" %}</a></h3>
 {% for item in examples %}{% load markup %}
     <div class="example">
         <h4><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></h4> <span class="spliter">|</span>
