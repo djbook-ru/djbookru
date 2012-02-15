@@ -10,6 +10,10 @@ from examples.models import Category, Example
 from random import shuffle
 
 
+RECIPES_ON_MAIN = getattr(settings, 'RECIPES_ON_MAIN', 4)
+FORUM_TOPIC_ON_MAIN = getattr(settings, 'FORUM_TOPIC_ON_MAIN', 4)
+
+
 register = template.Library()
 
 
@@ -81,7 +85,7 @@ def random_recipes():
     ids = list(Example.objects.approved().values_list('pk', flat=True))
     shuffle(ids)
     return {
-        'examples': Example.objects.filter(pk__in=ids[:3])
+        'examples': Example.objects.filter(pk__in=ids[:RECIPES_ON_MAIN])
     }
 
 
@@ -91,5 +95,5 @@ def random_forum_topics():
         .order_by('-updated').values_list('pk', flat=True))
     shuffle(ids)
     return {
-        'topics': Topic.objects.filter(pk__in=ids[:3])
+        'topics': Topic.objects.filter(pk__in=ids[:FORUM_TOPIC_ON_MAIN])
     }

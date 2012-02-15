@@ -107,9 +107,13 @@ form formset p {
 
 /* sidebar-item */
 .sidebar-item hr {
-    margin: 0 0 2px;
+    margin: 0;
 }
-/* news-item */
+
+.sidebar-item p {
+    margin-bottom: 5px;
+}
+/* sidebar-item */
 
 /* right-column */
 .right-column a {

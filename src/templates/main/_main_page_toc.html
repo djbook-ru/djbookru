@@ -1,7 +1,7 @@
 {% load i18n %}
 <h3>Django Book</h3>
 <ul class="toc nav nav-list">
-{% for c in chapters|slice:":12" %}
+{% for c in chapters|slice:":18" %}
     <li class="nav-header"><a href="{{c.0}}">{{ c.1 }}</a></li>
 {% endfor %}
 </ul>
