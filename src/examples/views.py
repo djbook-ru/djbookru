@@ -48,7 +48,12 @@ def detail(request, pk):
     except Example.DoesNotExist:
         raise Http404
 
+    try:
+        topic = Topic.objects.get(pk=example.topic_id)
+    except Topic.DoesNotExist:
+        topic = None
+
     return {
         'obj': example,
-        'topic': Topic.objects.get(pk=example.topic_id),
+        'topic': topic
     }

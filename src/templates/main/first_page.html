@@ -1,0 +1,21 @@
+{% extends 'main/page.html' %}
+
+{% load i18n news_tags comments_tags %}
+
+{% block description %}Джанго является высокоуровневой средой разработки основанной на языке Питон, которая нацелена на ускоренный процесс разработки и явный дизайн.{% endblock %}
+
+{% block head %}
+    {{ block.super }}
+    <style>
+        div.toc dl dd {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{% block comments %}{% endblock %}
+
+{% block left %}
+    {% last_news %}
+    {% last_comments %}
+{% endblock %}

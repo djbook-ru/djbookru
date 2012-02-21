@@ -3,7 +3,7 @@
 from django.db import models, transaction
 from django.utils.translation import ugettext_lazy as _
 from accounts.models import User
-from django.core.urlresolvers import reverse
+
 
 class Category(models.Model):
     name = models.CharField(_(u'name'), max_length=255)
@@ -20,11 +20,13 @@ class Category(models.Model):
     def get_absolute_url(self):
         return ('examples:category', [self.pk])
 
+
 class ExampleManager(models.Manager):
     use_for_related_fields = True
 
     def approved(self):
         return self.get_query_set().exclude(approved=False)
+
 
 class Example(models.Model):
     category = models.ForeignKey(Category, related_name='examples', verbose_name=_(u'category'))

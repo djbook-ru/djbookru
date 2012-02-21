@@ -13,7 +13,7 @@
                 {{ form }}
                 <tr>
                     <td></td>
-                    <td><button type="submit">{% trans 'Login' %}</button>{% trans 'or' %} <a href="{% url accounts:create %}">{% trans 'Register' %}</a></td>
+                    <td><button type="submit" class="btn">{% trans 'Login' %}</button> {% trans 'or' %} <a href="{% url accounts:create %}">{% trans 'Register' %}</a></td>
                 </tr>
             </table>
         </form>
@@ -37,7 +37,7 @@
             <div class="button_panel">
               <p>{% trans "You will be redirected on SSL protected site to enter login/password." %}</p>
               {% for button in button_list %}
-              <input type="{{ button.type }}" name="{{ button.name }}" value="{{ button.title }}"/>
+              <input type="{{ button.type }}" class="btn" name="{{ button.name }}" value="{{ button.title }}"/>
               {% endfor %}
             </div>
           </form>

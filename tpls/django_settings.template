@@ -145,7 +145,6 @@ INSTALLED_APPS = (
     'south',
     'examples',
     'utils',
-    'poll'
 )
 
 HAYSTACK_SITECONF = 'search_sites'

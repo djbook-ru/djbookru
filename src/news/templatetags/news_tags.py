@@ -4,7 +4,8 @@ from django.conf import settings
 
 register = template.Library()
 
-NEWS_ON_PAGE = getattr(settings, 'NEWS_ON_PAGE', 5)
+NEWS_ON_PAGE = getattr(settings, 'NEWS_ON_PAGE', 3)
+
 
 @register.inclusion_tag('news/_last_news.html')
 def last_news():

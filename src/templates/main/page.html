@@ -11,11 +11,13 @@
 {% endblock %}
 
 {% block content %}
-    {{ page.content|safe }}
-	{% get_share_links page %}
-    {% block comments %}
-        {% render_comment_list page %}
-        {% render_comment_form page %}
-    {% endblock %}
+    <div class="well content">
+        {{ page.content|safe }}
+        {% get_share_links page %}
+        {% block comments %}
+            {% render_comment_list page %}
+            {% render_comment_form page %}
+        {% endblock %}
+    </div>
 {% endblock %}
 

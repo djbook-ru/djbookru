@@ -1,4 +1,4 @@
-{% load i18n analytics adzone_tags news_tags components comments_tags polls_tags %}
+{% load i18n analytics adzone_tags news_tags components comments_tags %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lang="ru">
     <head>
@@ -10,31 +10,34 @@
         <meta name="generator" content="Django"/>
         <meta name="google-site-verification" content="zICpUlONvVLohGcE1oztBD1-qHqkAOuS-Oaim8NFW2s" />
         <meta name='yandex-verification' content='446e96868717e10e' />
-
-		<meta property="og:site_name" content="DjangoBook v2.0"/>
-		<meta property="og:image" content="http://{{ site.domain }}{{ MEDIA_URL }}img/djangobook-title.png"/>
-
-        <title>{% block title %}DjangoBook v2.0 beta{% endblock %}</title>
-        <link rel="shortcut icon" href="{{ MEDIA_URL }}img/favicon.png"/>
-        <link rel="stylesheet" href="{{ MEDIA_URL }}css/djangobook.css" type="text/css"/>
-        <link rel="stylesheet" href="{{ MEDIA_URL }}css/djbook/jquery-ui-1.8.4.custom.css" type="text/css"/>
-        <link rel="stylesheet" href="{{ MEDIA_URL }}menu/menu_style.css" type="text/css"/>
-        <link rel="stylesheet" href="{{ MEDIA_URL }}polls/css/polls.css" />
+        <meta property="og:site_name" content="DjangoBook v2.0"/>
+        <meta property="og:image" content="http://{{ site.domain }}{{ MEDIA_URL }}img/djangobook-title.png"/>
 
         <link href="/news/feed" rel="alternate" type="application/rss+xml" title="{% trans 'The freshest news about Russian version of DjangoBook' %}"/>
         <link href="/examples/feed" rel="alternate" type="application/rss+xml" title="{% trans 'Newly examples from Russian DjangoBook' %}"/>
 
+        <title>{% block title %}Django на русском{% endblock %}</title>
+
+        <link rel="shortcut icon" href="{{ MEDIA_URL }}img/favicon.png"/>
+        <link rel="stylesheet" href="{{ MEDIA_URL }}bootstrap/css/bootstrap.min.css" type="text/css"/>
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/djbook/jquery-ui-1.8.4.custom.css" type="text/css"/>
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/github.min.css">
+
         {% if not settings.DEBUG %}{% analytics_async "UA-3919032-6" %}{% endif %}
         <script type="text/javascript" src="{% url js_i18n_catalog %}"></script>
-        <script src="{{ MEDIA_URL }}js/jquery-1.4.2.min.js"></script>
+        <script src="{{ MEDIA_URL }}js/jquery-1.7.1.min.js"></script>
+        <script src="{{ MEDIA_URL }}bootstrap/js/bootstrap.min.js"></script>
         <script src="{{ MEDIA_URL }}js/jquery-ui-1.8.4.custom.min.js"></script>
         <script src="{{ MEDIA_URL }}js/jquery.form.js"></script>
         <script src="{{ MEDIA_URL }}js/jquery-spelling.js"></script>
-        <script src="{{ MEDIA_URL }}js/highlight.pack.js"></script>
-        <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+        <script src="{{ MEDIA_URL }}js/highlight.min.js"></script>
+
         {% block head %}{% endblock %}
         <script type="text/javascript">
           $(document).ready(function() {
+              hljs.tabReplace = '    ';
+              hljs.initHighlightingOnLoad();
               $.ajaxSetup({
                   beforeSend: function(xhr, settings) {
                       function getCookie(name) {
@@ -60,49 +63,37 @@
               });
           });
         </script>
-
     </head>
-    <body style="padding: 0px; margin: 0px;">
+    <body>
+        {% block menu %}{% menu %}{% endblock %}
+        {% block search %}{% include '_search.html' %}{% endblock %}
 
-        {% block menu %}
-            {% menu %}
-        {% endblock %}
-
-        {% block search %}
-            {% include '_search.html' %}
-        {% endblock %}
-
-        <table width="100%" border="0" cellspacing="0" cellpadding="10">
-            <tr>
-                <td width="25%" valign="top">
-                    {% block left %}
-                        {% last_news %}
-                        {% last_comments %}
-                    {% endblock %}
-                    {# poll_queue 'Public' #}
-                </td>
-                <td width="*" valign="top" class="content">
-                    {% if messages %}
-                        <ul class="messages">
-                            {% for message in messages %}
-                            <li class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
-                    {% random_zone_ad 'buy_me' 'header' %}
-                    <hr/>
+        <div class="content-container">
+            <div class="left-column">
+                {% block left %}
+                    {% last_news %}
+                    {% last_comments %}
+                {% endblock %}
+            </div>
+            <div class="right-column">
+                {% include '_right.html' %}
+            </div>
+            <div class="center-column">
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% random_zone_ad 'buy_me' 'header' %}
+                <div class="well content">
                     {% block content %}{% endblock %}
-                    <hr/>
-                    {% random_zone_ad 'buy_me' 'footer' %}
-                </td>
-                <td width="116" valign="top">
-                    {# правая колонка #}
-                    {% include '_right.html' %}
-                </td>
-            </tr>
-        </table>
-        {% include '_footer.html' %}
-
-        {% include '_menu.html' %}
+                </div>
+                {% block post_content %}{% endblock %}
+                {% random_zone_ad 'buy_me' 'footer' %}
+            </div>
+            <footer>{% include '_footer.html' %}</footer>
+        </div>
     </body>
 </html>

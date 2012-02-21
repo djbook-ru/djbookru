@@ -6,25 +6,15 @@
 
 {% block content %}
     {% if is_paginated %}
-        {% paginate %}<br/><br/>
+        {% paginate %}
     {% endif %}
 
     {% for n in object_list %}
-        <div class="news-block">
-            <div>
-                <span class="title">{{ n.title }}</span> <span>{{ n.created|date:'DATETIME_FORMAT' }}</span>
-            </div>
-            <div style="padding-left: 1em;">
-                {{ n.content|markdown|truncatewords_html:20 }}
-            </div>
-            <div style="padding-left: 1em; text-align: right">
-                <a href="{{ n.get_absolute_url }}">{% trans 'more' %}</a>
-            </div>
-			<div style="clear: both"></div>
+        <div class="well">
+            <h4><a href="{{ n.get_absolute_url }}">{{ n.title }}</a></h4>
+            <em>{{ n.created|date:'DATETIME_FORMAT' }}</em>
+            {{ n.content|markdown|truncatewords_html:30 }}
         </div>
-        {% if not forloop.last %}
-            <hr size="1" style="color: #94CE4A;"/>
-        {% endif %}
     {% endfor %}
 
     {% if is_paginated %}

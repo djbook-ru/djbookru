@@ -26,7 +26,6 @@ urlpatterns = patterns('',
     (r'^admin/filebrowser/', include('filebrowser.urls')),
     (r'^admin/', include(admin.site.urls)),
     (r'^comments/', include('comments.urls', 'comments')),
-    url(r'^poll/', include('poll.urls')),
     url(r'^(?P<path>pics/.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )
 

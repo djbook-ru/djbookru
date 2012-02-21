@@ -1,34 +1,26 @@
 {% load i18n components claims_tags %}
 
-<div style="text-align: center; color: black; background-color: #fff8a0; padding: 8px; -moz-border-radius: 4px; -webkit-border-radius: 4px;">
+<div class="well" style="text-align: center; color: black; background-color: #fff8a0; padding: 8px; -moz-border-radius: 4px; -webkit-border-radius: 4px;">
   <a href="/codeon/"><img src="{{ MEDIA_URL }}img/codeon.png" width="100" height="26" title="Code-on: Your Partner in Development"/></a>
-  <a style="color: blue;" href="/codeon/">Ищем Python программистов</a>
+  <a style="color: #191919;" href="/codeon/">Ищем Python программистов</a>
 </div>
 
-<br/>
-
-<div class="informer">
-  <div style="font-size: 10px; font-weight: bold; margin: 4px 0px;">
-    {% trans 'Found misprint?' %}
-  </div>
-  <div>
-    {% trans 'Select it with the mouse and hit Enter' %}
-    <div style="white-space: nowrap; margin: 4px; ">
-      <span class="guibutton">Ctrl</span>-<span class="guibutton">Enter</span>
+<div class="well">
+    <h5>{% trans 'Found misprint?' %}</h5>
+    <div>
+        <p>{% trans 'Select it with the mouse and hit Enter' %}</p>
+        <div>
+            <span>Ctrl</span>-<span>Enter</span>
+        </div>
     </div>
-  </div>
-  {% claims_statistic %}
+    {% claims_statistic %}
 </div>
 
-<br/>
-
-<div class="informer">
-    <a href="{% url examples:add %}">{% trans "Now you can add your own recipe." %}</a>
+<div class="well">
+    <h5><a href="{% url examples:add %}">{% trans "Now you can add your own recipe." %}</a></h5>
 </div>
 
-<br/>
-
-<div class="informer">
+<div class="well">
   <div style="font-size: 10px; font-weight: bold; margin: 4px 0px;">
     {% blocktrans %}
     The full repository of DjangoBook translation you can get on <a href="http://github.com/RaD/djangobook/">GitHub</a>.
@@ -38,9 +30,7 @@
   </div>
 </div>
 
-<br/>
-
-<div class="informer">
+<div class="well">
   <div style="font-size: 10px; font-weight: bold; margin: 4px 0px;">
     {% trans 'We are glad to hear your questions, comments or suggestions!' %}
     <br/>
@@ -50,22 +40,16 @@
   </div>
 </div>
 
-<br/>
-
 {% user_counter %}
 
-<br/>
-
-<div class="informer">
+<div class="well">
   <div class="title">Русская группа</div>
   <div>
     <a href="http://groups.google.ru/group/django-russian?hl=ru">на Google</a>
   </div>
 </div>
 
-<br/>
-
-<div class="yandex-money">
+<div class="well yandex-money">
 {% if not settings.DEBUG %}
   <table width="116" cellpadding="0" cellspacing="0" border="0" style="font: 0.8em Arial, sans-serif; border: 0px;">
     <tr>
@@ -94,21 +78,13 @@
     </tr>
   </table>
 {% endif %}
-  <div class="title">Ускорить процесс перевода!</div>
-  <div class="webmoney">
-    ЯМ:41001223475816<br/>
-  </div>
+    <h5>Ускорить процесс перевода!</h5>
+    <p>ЯМ:41001223475816</p>
 </div>
 
-<br/>
-
-<div style="border: 1px solid green; -moz-border-radius: 4px; padding: 6px; background-color: white; text-align: center;">
+<div style="-moz-border-radius: 4px; padding: 6px; background-color: white; text-align: center;">
   {% if not settings.DEBUG %}
   <a href="http://docbook.org/">
     <img src="http://docbook.org/graphics/button.jpg" title="Данная книга написана с использованием технологии DocBook" border="0"/></a>
-  {% else %}
-  <div>Disabled in DEBUG mode</div>
   {% endif %}
 </div>
-
-<br/>

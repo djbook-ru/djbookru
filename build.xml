@@ -187,10 +187,6 @@
                     dst="${basedir}/conf/remove.sh"
                     params="${basedir}/${cumulative_config}"/>
 
-    <parse_template src="${basedir}/tpls/gpg_genkey.template"
-                    dst="${basedir}/conf/gen_key.gpg"
-                    params="${basedir}/${cumulative_config}"/>
-
     <parse_template src="${basedir}/tpls/django_settings.template"
                     dst="${basedir}/src/settings.py"
                     params="${basedir}/${cumulative_config}"/>
