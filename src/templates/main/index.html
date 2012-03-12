@@ -1,8 +1,17 @@
 {% extends 'base.html' %}
 
-{% load i18n book_page news_tags comments_tags components cache %}
+{% load i18n book_page news_tags comments_tags components cache chunks %}
 
 {% block description %}Джанго является высокоуровневой средой разработки основанной на языке Питон, которая нацелена на ускоренный процесс разработки и явный дизайн.{% endblock %}
+
+{% block pre_content %}
+    <div class="well content" style="background-color: #c0db8a">
+        <h3><a href="{{ DJANGO_DOCUMENTATION_URL }}">Документация Django на русском</a></h3>
+        <p>
+            {% chunk "django-documentation-description" %}
+        </p>
+    </div>
+{% endblock %}
 
 {% block content %}
     {% main_page_toc book %}
