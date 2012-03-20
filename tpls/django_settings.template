@@ -142,6 +142,7 @@ INSTALLED_APPS = (
     'news',
     'comments',
     'claims',
+    'chunks',
     'south',
     'examples',
     'utils',
@@ -195,6 +196,8 @@ RANKS_NAMES_DATA = ((30, "Member"), (100, "Senior Member"), (300, 'Star'))
 
 RECAPTCHA_PUBLIC = ${recaptcha_public}
 RECAPTCHA_PRIVATE = ${recaptcha_private}
+
+DJANGO_DOCUMENTATION_URL = '/rel1.4/'
 
 try:
     from settings_local import *
