@@ -16,39 +16,6 @@
     {% claims_statistic %}
 </div>
 
-<div class="well">
-    <h5><a href="{% url examples:add %}">{% trans "Now you can add your own recipe." %}</a></h5>
-</div>
-
-<div class="well">
-  <div style="font-size: 10px; font-weight: bold; margin: 4px 0px;">
-    {% blocktrans %}
-    The full repository of DjangoBook translation you can get on <a href="http://github.com/RaD/djangobook/">GitHub</a>.
-    <br/>
-    We appreciate your patches!
-    {% endblocktrans %}
-  </div>
-</div>
-
-<div class="well">
-  <div style="font-size: 10px; font-weight: bold; margin: 4px 0px;">
-    {% trans 'We are glad to hear your questions, comments or suggestions!' %}
-    <br/>
-    <a href="{% url main:feedback %}" target="_blank">
-        ({% trans 'Open in new tab' %})
-    </a>
-  </div>
-</div>
-
-{% user_counter %}
-
-<div class="well">
-  <div class="title">Русская группа</div>
-  <div>
-    <a href="http://groups.google.ru/group/django-russian?hl=ru">на Google</a>
-  </div>
-</div>
-
 <div class="well yandex-money">
 {% if not settings.DEBUG %}
   <table width="116" cellpadding="0" cellspacing="0" border="0" style="font: 0.8em Arial, sans-serif; border: 0px;">
@@ -80,6 +47,44 @@
 {% endif %}
     <h5>Ускорить процесс перевода!</h5>
     <p>ЯМ:41001223475816</p>
+</div>
+
+<div class="well" style="text-align: center; color: black; padding: 8px; -moz-border-radius: 4px; -webkit-border-radius: 4px;">
+    <h5>Редактор ресурсов Gettext для Android</h5>
+    <a href="https://play.google.com/store/apps/details?id=ru.securelayer.rad.ando/"><img src="{{ MEDIA_URL }}img/ando-qr.png" title="Скачать редактор ресурсов Gettext для устройства под управлением Android"/></a>
+</div>
+
+<div class="well">
+    <h5><a href="{% url examples:add %}">{% trans "Now you can add your own recipe." %}</a></h5>
+</div>
+
+<div class="well">
+  <div style="font-size: 10px; font-weight: bold; margin: 4px 0px;">
+    {% blocktrans %}
+    The full repository of DjangoBook translation you can get on <a href="http://github.com/RaD/djangobook/">GitHub</a>.
+    <br/>
+    We appreciate your patches!
+    {% endblocktrans %}
+  </div>
+</div>
+
+<div class="well">
+  <div style="font-size: 10px; font-weight: bold; margin: 4px 0px;">
+    {% trans 'We are glad to hear your questions, comments or suggestions!' %}
+    <br/>
+    <a href="{% url main:feedback %}" target="_blank">
+        ({% trans 'Open in new tab' %})
+    </a>
+  </div>
+</div>
+
+{% user_counter %}
+
+<div class="well">
+  <div class="title">Русская группа</div>
+  <div>
+    <a href="http://groups.google.ru/group/django-russian?hl=ru">на Google</a>
+  </div>
 </div>
 
 <div style="-moz-border-radius: 4px; padding: 6px; background-color: white; text-align: center;">
