@@ -410,3 +410,7 @@ div.message {
 	font-weight: bold;
 	color: #f22;
 }
+
+#brdheader .conr li {
+	list-style: none;
+}
