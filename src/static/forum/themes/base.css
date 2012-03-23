@@ -187,7 +187,11 @@ DIV.postleft, DIV.postfootleft {
 	
 DIV.postright, DIV.postfootright {
 	BORDER-LEFT-WIDTH: 18em;
-	BORDER-LEFT-STYLE: solid
+	BORDER-LEFT-STYLE: solid;
+}
+
+div.postmsg p {
+	padding: 2px 0;
 }
 
 DIV.postfootright, P.multidelete {TEXT-ALIGN: right}

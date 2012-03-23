@@ -194,7 +194,7 @@ P.multidelete {
 
 /* 8.7 Make sure paragraphs in posts don't get any padding */
 
-DIV.postmsg P {PADDING: 0}
+DIV.postmsg P {PADDING: 2px 0}
 
 /****************************************************************/
 /* 9. SPECIAL SPACING FOR FORMS */
