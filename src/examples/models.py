@@ -65,7 +65,7 @@ class Example(models.Model):
         is_create = self.pk is None
 
         if is_create:
-            user = User.objects.get(username='rad')
+            user = self.author
             forum = Forum.objects.get(name='Обсуждение рецептов')
 
             topic = Topic(forum=forum, name=self.title, user=user)
