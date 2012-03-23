@@ -9,6 +9,7 @@ class DashboardPreferences(models.Model):
     """
     user = models.ForeignKey('auth.User')
     data = models.TextField()
+    dashboard_id = models.CharField(max_length=100)
 
     def __unicode__(self):
         return "%s dashboard preferences" % self.user.username
@@ -20,7 +21,7 @@ class DashboardPreferences(models.Model):
 
 # warnings for deprecated imports
 from admin_tools.deprecate_utils import import_path_is_changed
-from admin_tools import dashboard
+from admin_tools.dashboard import dashboards
 from admin_tools.dashboard import modules
 
 class Dashboard(
@@ -28,7 +29,7 @@ class Dashboard(
               'admin_tools.dashboard.models.Dashboard',
               'admin_tools.dashboard.Dashboard'
           ),
-          dashboard.Dashboard
+          dashboards.Dashboard
       ): pass
 
 class DefaultIndexDashboard(
@@ -36,7 +37,7 @@ class DefaultIndexDashboard(
               'admin_tools.dashboard.models.DefaultIndexDashboard',
               'admin_tools.dashboard.DefaultIndexDashboard',
           ),
-          dashboard.DefaultIndexDashboard
+          dashboards.DefaultIndexDashboard
       ):pass
 
 class DefaultAppIndexDashboard(
@@ -44,7 +45,7 @@ class DefaultAppIndexDashboard(
               'admin_tools.dashboard.models.DefaultAppIndexDashboard',
               'admin_tools.dashboard.DefaultAppIndexDashboard'
           ),
-          dashboard.DefaultAppIndexDashboard
+          dashboards.DefaultAppIndexDashboard
       ):pass
 
 class AppIndexDashboard(
@@ -52,7 +53,7 @@ class AppIndexDashboard(
               'admin_tools.dashboard.models.AppIndexDashboard',
               'admin_tools.dashboard.AppIndexDashboard'
           ),
-          dashboard.AppIndexDashboard
+          dashboards.AppIndexDashboard
       ):pass
 
 

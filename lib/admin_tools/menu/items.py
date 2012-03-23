@@ -44,18 +44,28 @@ class MenuItem(object):
         the ``MenuItem`` class.
     """
 
-    def __init__(self, **kwargs):
-        """
-        ``MenuItem`` constructor.
-        """
-        self.title = kwargs.get('title', 'Untitled menu item')
-        self.url = kwargs.get('url', '#')
-        self.css_classes = kwargs.get('css_classes', [])
-        self.accesskey = kwargs.get('accesskey')
-        self.description = kwargs.get('description')
-        self.enabled = kwargs.get('enabled', True)
-        self.template = kwargs.get('template', 'admin_tools/menu/item.html')
-        self.children = kwargs.get('children', [])
+    title = 'Untitled menu item'
+    url = '#'
+    css_classes = None
+    accesskey = None
+    description = None
+    enabled = True
+    template = 'admin_tools/menu/item.html'
+    children = None
+
+    def __init__(self, title=None, url=None, **kwargs):
+
+        if title is not None:
+            self.title = title
+
+        if url is not None:
+            self.url = url
+
+        for key in kwargs:
+            if hasattr(self.__class__, key):
+                setattr(self, key, kwargs[key])
+        self.children = self.children or []
+        self.css_classes = self.css_classes or []
 
     def init_with_context(self, context):
         """
@@ -69,8 +79,9 @@ class MenuItem(object):
             from admin_tools.menu.items import MenuItem
 
             class HistoryMenuItem(MenuItem):
+                title = 'History'
+
                 def init_with_context(self, context):
-                    self.title = 'History'
                     request = context['request']
                     # we use sessions to store the visited pages stack
                     history = request.session.get('history', [])
@@ -107,7 +118,7 @@ class MenuItem(object):
     def is_empty(self):
         """
         Helper method that returns ``True`` if the menu item is empty.
-        This method always returns ``False`` for basic items, but can return 
+        This method always returns ``False`` for basic items, but can return
         ``True`` if the item is an AppList.
         """
         return False
@@ -119,17 +130,18 @@ class AppList(MenuItem, AppListElementMixin):
     In addition to the parent :class:`~admin_tools.menu.items.MenuItem`
     properties, the ``AppList`` has two extra properties:
 
-    ``exclude_list``
-        A list of apps to exclude, if an app name (e.g. "django.contrib.auth"
-        starts with an element of this list (e.g. "django.contrib") it won't
-        appear in the menu item.
+    ``models``
+        A list of models to include, only models whose name (e.g.
+        "blog.comments.Comment") match one of the strings (e.g. "blog.*")
+        in the models list will appear in the menu item.
 
-    ``include_list``
-        A list of apps to include, only apps whose name (e.g.
-        "django.contrib.auth") starts with one of the strings (e.g.
-        "django.contrib") in the list will appear in the menu item.
+    ``exclude``
+        A list of models to exclude, if a model name (e.g.
+        "blog.comments.Comment") match an element of this list (e.g.
+        "blog.comments.*") it won't appear in the menu item.
 
-    If no include/exclude list is provided, **all apps** are shown.
+
+    If no models/exclude list is provided, **all apps** are shown.
 
     Here's a small example of building an app list menu item::
 
@@ -149,21 +161,21 @@ class AppList(MenuItem, AppListElementMixin):
 
     .. note::
 
-        Note that this module takes into account user permissions, as a
+        Note that this menu takes into account user permissions, as a
         consequence, if a user has no rights to change or add a ``Group`` for
         example, the ``django.contrib.auth.Group model`` child item won't be
-        displayed in the menu item.
+        displayed in the menu.
     """
 
-    def __init__(self, **kwargs):
+    def __init__(self, title=None, **kwargs):
         """
         ``AppListMenuItem`` constructor.
         """
-        super(AppList, self).__init__(**kwargs)
-        self.include_list = kwargs.get('include_list', [])
-        self.exclude_list = kwargs.get('exclude_list', [])
-        self.models = list(kwargs.get('models', []))
-        self.exclude = list(kwargs.get('exclude', []))
+        self.models = list(kwargs.pop('models', []))
+        self.exclude = list(kwargs.pop('exclude', []))
+        self.include_list = kwargs.pop('include_list', []) # deprecated
+        self.exclude_list = kwargs.pop('exclude_list', []) # deprecated
+        super(AppList, self).__init__(title, **kwargs)
 
 
     def init_with_context(self, context):
@@ -180,7 +192,7 @@ class AppList(MenuItem, AppListElementMixin):
             if app_label not in apps:
                 apps[app_label] = {
                     'title': capfirst(app_label.title()),
-                    'url': reverse('admin:app_list', args=(app_label,)),
+                    'url': self._get_admin_app_list_url(model, context),
                     'models': []
                 }
             apps[app_label]['models'].append({
@@ -201,11 +213,90 @@ class AppList(MenuItem, AppListElementMixin):
 
     def is_empty(self):
         """
-        Helper method that returns ``True`` if the applist menu item has no 
+        Helper method that returns ``True`` if the applist menu item has no
         children.
 
         >>> from admin_tools.menu.items import MenuItem, AppList
         >>> item = AppList(title='My menu item')
+        >>> item.is_empty()
+        True
+        >>> item.children.append(MenuItem(title='foo'))
+        >>> item.is_empty()
+        False
+        >>> item.children = []
+        >>> item.is_empty()
+        True
+        """
+        return len(self.children) == 0
+
+
+class ModelList(MenuItem, AppListElementMixin):
+    """
+    A menu item that lists a set of models.
+    In addition to the parent :class:`~admin_tools.menu.items.MenuItem`
+    properties, the ``ModelList`` has two extra properties:
+
+    ``models``
+        A list of models to include, only models whose name (e.g.
+        "blog.comments.Comment") match one of the strings (e.g. "blog.*")
+        in the include list will appear in the dashboard module.
+
+    ``exclude``
+        A list of models to exclude, if a model name (e.g.
+        "blog.comments.Comment" match an element of this list (e.g.
+        "blog.comments.*") it won't appear in the dashboard module.
+
+    Here's a small example of building a model list menu item::
+
+        from admin_tools.menu import items, Menu
+
+        class MyMenu(Menu):
+            def __init__(self, **kwargs):
+                super(MyMenu, self).__init__(**kwargs)
+                self.children += [
+                    items.ModelList('Authentication', ['django.contrib.auth.*',])
+                ]
+
+    .. note::
+
+        Note that this menu takes into account user permissions, as a
+        consequence, if a user has no rights to change or add a ``Group`` for
+        example, the ``django.contrib.auth.Group model`` item won't be
+        displayed in the menu.
+    """
+
+    def __init__(self, title=None, models=None, exclude=None, **kwargs):
+        """
+        ``ModelList`` constructor.
+        """
+        self.models = list(models or [])
+        self.exclude = list(exclude or [])
+        self.include_list = kwargs.pop('include_list', []) # deprecated
+        self.exclude_list = kwargs.pop('exclude_list', []) # deprecated
+
+        super(ModelList, self).__init__(title, **kwargs)
+
+    def init_with_context(self, context):
+        """
+        Please refer to the :meth:`~admin_tools.menu.items.MenuItem.init_with_context`
+        documentation from :class:`~admin_tools.menu.items.MenuItem` class.
+        """
+        items = self._visible_models(context['request'])
+        for model, perms in items:
+            if not perms['change']:
+                continue
+            title = capfirst(model._meta.verbose_name_plural)
+            url = self._get_admin_change_url(model, context)
+            item = MenuItem(title=title, url=url)
+            self.children.append(item)
+
+    def is_empty(self):
+        """
+        Helper method that returns ``True`` if the modellist menu item has no
+        children.
+
+        >>> from admin_tools.menu.items import MenuItem, ModelList
+        >>> item = ModelList(title='My menu item')
         >>> item.is_empty()
         True
         >>> item.children.append(MenuItem(title='foo'))
@@ -231,13 +322,13 @@ class Bookmarks(MenuItem, AppListElementMixin):
         class MyMenu(Menu):
             def __init__(self, **kwargs):
                 super(MyMenu, self).__init__(**kwargs)
-                self.children.append(items.Bookmarks(title='My bookmarks'))
+                self.children.append(items.Bookmarks('My bookmarks'))
 
     """
+    title = _('Bookmarks')
 
-    def __init__(self, **kwargs):
-        super(Bookmarks, self).__init__(**kwargs)
-        self.title = kwargs.get('title', _('Bookmarks'))
+    def __init__(self, title=None, **kwargs):
+        super(Bookmarks, self).__init__(title, **kwargs)
         if 'bookmark' not in self.css_classes:
             self.css_classes.append('bookmark')
 
@@ -247,11 +338,10 @@ class Bookmarks(MenuItem, AppListElementMixin):
         documentation from :class:`~admin_tools.menu.items.MenuItem` class.
         """
         from admin_tools.menu.models import Bookmark
+
         for b in Bookmark.objects.filter(user=context['request'].user):
-            self.children.append(MenuItem(
-                url=b.url,
-                title=mark_safe(b.title)
-            ))
+            self.children.append(MenuItem(mark_safe(b.title), b.url))
+
         if not len(self.children):
             self.enabled = False
 

@@ -57,7 +57,7 @@ MEDIA_ROOT = rel('static')
 
 MEDIA_URL = '/static/'
 
-ADMIN_MEDIA_PREFIX = '/lib/grappelli/media/'
+ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '${django_secretkey}'
@@ -116,9 +116,10 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'admin_tools',
+    'admin_tools.theming',
+    'admin_tools.menu',
     'admin_tools.dashboard',
-    'grappelli',
-    'filebrowser',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -161,18 +162,9 @@ FEEDBACK_EMAIL = 'djbook.feedback@gmail.com'
 SKIP_SOUTH_TESTS = True
 SOUTH_TESTS_MIGRATE = False
 
-#grappelli settings
-GRAPPELLI_ADMIN_TITLE = 'Djbook.ru'
-
-FILEBROWSER_URL_FILEBROWSER_MEDIA = MEDIA_URL+'filebrowser/'
-FILEBROWSER_PATH_TINYMCE = os.path.join(MEDIA_ROOT, 'tinymce/jscripts/tiny_mce/')
-FILEBROWSER_URL_TINYMCE = ADMIN_MEDIA_PREFIX + "tinymce/jscripts/tiny_mce/"
-FILEBROWSER_STRICT_PIL = True
-FILEBROWSER_DIRECTORY = 'uploads/'
-FILEBROWSER_VERSIONS_BASEDIR = 'fb_thumbnails/'
-
 ADMIN_TOOLS_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
 ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'dashboard.CustomAppIndexDashboard'
+ADMIN_TOOLS_MENU = 'menu.CustomMenu'
 
 #authentication settings
 LOGIN_REDIRECT_URL = '/'

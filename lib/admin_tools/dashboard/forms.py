@@ -9,9 +9,10 @@ class DashboardPreferencesForm(forms.ModelForm):
     the user field. It expects the user to be passed in from the view.
     """
 
-    def __init__(self, user, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user', None)
+        self.dashboard_id = kwargs.pop('dashboard_id', None)
         super(DashboardPreferencesForm, self).__init__(*args, **kwargs)
-        self.user = user
 
     def save(self, *args, **kwargs):
         preferences = super(DashboardPreferencesForm, self).save(
@@ -20,6 +21,7 @@ class DashboardPreferencesForm(forms.ModelForm):
             **kwargs
         )
         preferences.user = self.user
+        preferences.dashboard_id = self.dashboard_id
         preferences.save()
         return preferences
 

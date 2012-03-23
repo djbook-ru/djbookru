@@ -7,9 +7,9 @@ from django.utils.importlib import import_module
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
 from django.contrib.contenttypes.models import ContentType
-from django.contrib import admin
 
 from admin_tools.dashboard import modules
+from admin_tools.utils import get_admin_site_name, uniquify
 
 
 class Dashboard(object):
@@ -32,14 +32,15 @@ class Dashboard(object):
 
     If you want to customize the look of your dashboard and it's modules, you
     can declare css stylesheets and/or javascript files to include when
-    rendering the dashboard, for example::
+    rendering the dashboard (these files should be placed in your
+    media path), for example::
 
         from admin_tools.dashboard import Dashboard
 
         class MyDashboard(Dashboard):
             class Media:
-                css = ('/media/css/mydashboard.css',)
-                js = ('/media/js/mydashboard.js',)
+                css = ('css/mydashboard.css',)
+                js = ('js/mydashboard.js',)
 
     Here's an example of a custom dashboard::
 
@@ -48,20 +49,22 @@ class Dashboard(object):
         from admin_tools.dashboard import modules, Dashboard
 
         class MyDashboard(Dashboard):
+
+            # we want a 3 columns layout
+            columns = 3
+
             def __init__(self, **kwargs):
-                # we want a 3 columns layout
-                self.columns = 3
 
                 # append an app list module for "Applications"
                 self.children.append(modules.AppList(
                     title=_('Applications'),
-                    exclude_list=('django.contrib',),
+                    exclude=('django.contrib.*',),
                 ))
 
                 # append an app list module for "Administration"
                 self.children.append(modules.AppList(
                     title=_('Administration'),
-                    include_list=('django.contrib',),
+                    models=('django.contrib.*',),
                 ))
 
                 # append a recent actions module
@@ -74,19 +77,21 @@ class Dashboard(object):
 
     .. image:: images/dashboard_example.png
     """
+
+    title = _('Dashboard')
+    template = 'admin_tools/dashboard/dashboard.html'
+    columns = 2
+    children = None
+
     class Media:
         css = ()
         js  = ()
 
     def __init__(self, **kwargs):
-        """
-        Dashboard constructor.
-        """
-        self.title = kwargs.get('title', _('Dashboard'))
-        self.template = kwargs.get('template', 'admin_tools/dashboard/dashboard.html')
-        self.columns = kwargs.get('columns', 2)
-        self.children = kwargs.get('children', [])
-        self.admin_site = kwargs.get('admin_site', admin.site)
+        for key in kwargs:
+            if hasattr(self.__class__, key):
+                setattr(self, key, kwargs[key])
+        self.children = self.children or []
 
     def init_with_context(self, context):
         """
@@ -103,6 +108,13 @@ class Dashboard(object):
         Internal method used to distinguish different dashboards in js code.
         """
         return 'dashboard'
+
+    def _prepare_children(self):
+        """ Enumerates children without explicit id """
+        seen = set()
+        for id, module in enumerate(self.children):
+            module.id = uniquify(module.id or str(id+1), seen)
+            module._prepare_children()
 
 
 class AppIndexDashboard(Dashboard):
@@ -140,33 +152,34 @@ class AppIndexDashboard(Dashboard):
         from admin_tools.dashboard import modules, AppIndexDashboard
 
         class MyAppIndexDashboard(AppIndexDashboard):
-            def __init__(self, **kwargs):
-                AppIndexDashboard.__init__(self, **kwargs)
-                # we don't want a title, it's redundant
-                self.title = ''
+
+            # we don't want a title, it's redundant
+            title = ''
+
+            def __init__(self, app_title, models, **kwargs):
+                AppIndexDashboard.__init__(self, app_title, models, **kwargs)
 
                 # append a model list module that lists all models
-                # for the app
-                self.children.append(modules.ModelList(
-                    title=self.app_title,
-                    include_list=self.models,
-                ))
-
-                # append a recent actions module for the current app
-                self.children.append(modules.RecentActions(
-                    title=_('Recent Actions'),
-                    include_list=self.models,
-                    limit=5
-                ))
+                # for the app and a recent actions module for the current app
+                self.children += [
+                    modules.ModelList(self.app_title, self.models),
+                    modules.RecentActions(
+                        include_list=self.models,
+                        limit=5
+                    )
+                ]
 
     Below is a screenshot of the resulting dashboard:
 
     .. image:: images/dashboard_app_index_example.png
     """
+
+    models = None
+    app_title = None
+
     def __init__(self, app_title, models, **kwargs):
+        kwargs.update({'app_title': app_title, 'models': models})
         super(AppIndexDashboard, self).__init__(**kwargs)
-        self.app_title = app_title
-        self.models = models
 
     def get_app_model_classes(self):
         """
@@ -204,60 +217,48 @@ class DefaultIndexDashboard(Dashboard):
     And then set the ``ADMIN_TOOLS_INDEX_DASHBOARD`` settings variable to
     point to your custom index dashboard class.
     """
-    def __init__(self, **kwargs):
-        Dashboard.__init__(self, **kwargs)
-        
+    def init_with_context(self, context):
+        site_name = get_admin_site_name(context)
         # append a link list module for "quick links"
         self.children.append(modules.LinkList(
-            title=_('Quick links'),
+            _('Quick links'),
             layout='inline',
             draggable=False,
             deletable=False,
             collapsible=False,
             children=[
-                {
-                    'title': _('Return to site'),
-                    'url': '/',
-                },
-                {
-                    'title': _('Change password'),
-                    'url': reverse('admin:password_change'),
-                },
-                {
-                    'title': _('Log out'),
-                    'url': reverse('admin:logout')
-                },
+                [_('Return to site'), '/'],
+                [_('Change password'),
+                 reverse('%s:password_change' % site_name)],
+                [_('Log out'), reverse('%s:logout' % site_name)],
             ]
         ))
 
         # append an app list module for "Applications"
         self.children.append(modules.AppList(
-            title=_('Applications'),
-            exclude_list=('django.contrib',),
+            _('Applications'),
+            exclude=('django.contrib.*',),
         ))
 
         # append an app list module for "Administration"
         self.children.append(modules.AppList(
-            title=_('Administration'),
-            include_list=('django.contrib',),
+            _('Administration'),
+            models=('django.contrib.*',),
         ))
 
         # append a recent actions module
-        self.children.append(modules.RecentActions(
-            title=_('Recent Actions'),
-            limit=5
-        ))
+        self.children.append(modules.RecentActions(_('Recent Actions'), 5))
 
         # append a feed module
         self.children.append(modules.Feed(
-            title=_('Latest Django News'),
+            _('Latest Django News'),
             feed_url='http://www.djangoproject.com/rss/weblog/',
             limit=5
         ))
 
         # append another link list module for "support".
         self.children.append(modules.LinkList(
-            title=_('Support'),
+            _('Support'),
             children=[
                 {
                     'title': _('Django documentation'),
@@ -289,21 +290,19 @@ class DefaultAppIndexDashboard(AppIndexDashboard):
     And then set the ``ADMIN_TOOLS_APP_INDEX_DASHBOARD`` settings variable to
     point to your custom app index dashboard class.
     """
+
+    # we disable title because its redundant with the model list module
+    title = ''
+
     def __init__(self, *args, **kwargs):
         AppIndexDashboard.__init__(self, *args, **kwargs)
 
-        # we disable title because its redundant with the model list module
-        self.title = ''
-
-        # append a model list module
-        self.children.append(modules.ModelList(
-            title=self.app_title,
-            include_list=self.models,
-        ))
-
-        # append a recent actions module
-        self.children.append(modules.RecentActions(
-            title=_('Recent Actions'),
-            include_list=self.get_app_content_types(),
-            limit=5
-        ))
+        # append a model list module and a recent actions module
+        self.children += [
+            modules.ModelList( self.app_title,self.models),
+            modules.RecentActions(
+                _('Recent Actions'),
+                include_list=self.get_app_content_types(),
+                limit=5
+            )
+        ]

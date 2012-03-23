@@ -1,7 +1,6 @@
 """
 Admin ui common utilities.
 """
-
 import types
 from fnmatch import fnmatch
 
@@ -9,41 +8,48 @@ from django.conf import settings
 from django.contrib import admin
 from django.core.urlresolvers import reverse
 from django.utils.importlib import import_module
+import warnings
 
+def uniquify(value, seen_values):
+    """ Adds value to seen_values set and ensures it is unique """
+    id = 1
+    new_value = value
+    while new_value in seen_values:
+        new_value = "%s%s" % (value, id)
+        id += 1
+    seen_values.add(new_value)
+    return new_value
 
 def get_admin_site(context=None, request=None):
     dashboard_cls = getattr(
         settings,
         'ADMIN_TOOLS_INDEX_DASHBOARD',
-        'admin_tools.dashboard.DefaultIndexDashboard'
+        'admin_tools.dashboard.dashboards.DefaultIndexDashboard'
     )
-    
+
     if type(dashboard_cls) is types.DictType:
         if context:
-            curr_url = context.get('request').META['PATH_INFO']
-        else:
-            curr_url = request.META['PATH_INFO']
-        
+            request = context.get('request')
+        curr_url = request.META['PATH_INFO']
         for key in dashboard_cls:
             mod, inst = key.rsplit('.', 1)
-            admin_url = reverse('%s:index' % inst)
+            mod = import_module(mod)
+            admin_site = getattr(mod, inst)
+            admin_url = reverse('%s:index' % admin_site.name)
             if curr_url.startswith(admin_url):
-                mod = import_module(mod)
-                return getattr(mod, inst)
+                return admin_site
     else:
         return admin.site
-
+    raise ValueError('Admin site matching "%s" not found' % dashboard_cls)
 
 def get_admin_site_name(context):
     return get_admin_site(context).name
 
-
 def get_avail_models(request):
     """ Returns (model, perm,) for all models user can possibly see """
     items = []
-    
     admin_site = get_admin_site(request=request)
-    
+
     for model, model_admin in admin_site._registry.items():
         perms = model_admin.get_model_perms(request)
         if True not in perms.values():
@@ -51,10 +57,10 @@ def get_avail_models(request):
         items.append((model, perms,))
     return items
 
-
 def filter_models(request, models, exclude):
-    """ Returns (model, perm,) for all models that match
-        models/exclude patterns and are visible by current user.
+    """
+    Returns (model, perm,) for all models that match models/exclude patterns
+    and are visible by current user.
     """
     items = get_avail_models(request)
     included = []
@@ -89,40 +95,25 @@ class AppListElementMixin(object):
     Mixin class used by both the AppListDashboardModule and the
     AppListMenuItem (to honor the DRY concept).
     """
-    def _check_perms(self, request, model, model_admin):
-        mod = '%s.%s' % (model.__module__, model.__name__)
-        
-        if type(self).__name__ == 'ModelListDashboardModule':
-            if len(self.models):
-                found = False
-                for pattern in self.models:
-                    if mod.startswith(pattern):
-                        found = True
-                if not found:
-                    return False
-        
-        elif type(self).__name__ == 'AppListDashboardModule':
-            if len(self.apps):
-                found = False
-                for pattern in self.apps:
-                    if mod.startswith(pattern):
-                        found = True
-                if not found:
-                    return False
-        
-        # check that the user has module perms
-        if not request.user.has_module_perms(model._meta.app_label):
-            return False
 
-        # check whether user has any perm for this module
-        perms = model_admin.get_model_perms(request)
-        if True not in perms.values():
-            return False
-        return perms
-    
     def _visible_models(self, request):
         # compatibility layer: generate models/exclude patterns
         # from include_list/exclude_list args
+
+        if self.include_list:
+            warnings.warn(
+               "`include_list` is deprecated for ModelList and AppList and "
+               "will be removed in future releases. Please use `models` instead.",
+               DeprecationWarning
+            )
+
+        if self.exclude_list:
+            warnings.warn(
+               "`exclude_list` is deprecated for ModelList and AppList and "
+               "will be removed in future releases. Please use `exclude` instead.",
+               DeprecationWarning
+            )
+
         included = self.models[:]
         included.extend([elem+"*" for elem in self.include_list])
 
@@ -132,6 +123,13 @@ class AppListElementMixin(object):
             included = ["*"]
         return filter_models(request, included, excluded)
 
+    def _get_admin_app_list_url(self, model, context):
+        """
+        Returns the admin change url.
+        """
+        app_label = model._meta.app_label
+        return reverse('%s:app_list' % get_admin_site_name(context),
+                       args=(app_label,))
 
     def _get_admin_change_url(self, model, context):
         """
@@ -142,23 +140,22 @@ class AppListElementMixin(object):
                                                 app_label,
                                                 model.__name__.lower()))
 
-
     def _get_admin_add_url(self, model, context):
         """
         Returns the admin add url.
         """
         app_label = model._meta.app_label
         return reverse('%s:%s_%s_add' % (get_admin_site_name(context),
-                                            app_label,
-                                            model.__name__.lower()))
-
+                                         app_label,
+                                         model.__name__.lower()))
 
 def get_media_url():
     """
     Returns the django admin tools media URL.
     """
-    return getattr(
-        settings,
-        'ADMIN_TOOLS_MEDIA_URL',
-        getattr(settings, 'STATIC_URL', settings.MEDIA_URL)
-    ).rstrip('/')
+    media_url = getattr(settings, 'ADMIN_TOOLS_MEDIA_URL', None)
+    if media_url is None:
+        media_url = getattr(settings, 'STATIC_URL', None)
+    if media_url is None:
+        media_url = getattr(settings, 'MEDIA_URL')
+    return media_url.rstrip('/')

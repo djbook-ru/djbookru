@@ -13,17 +13,21 @@ from models import DashboardPreferences
 
 @login_required
 @csrf_exempt
-def set_preferences(request):
+def set_preferences(request, dashboard_id):
     """
     This view serves and validates a preferences form.
     """
     try:
-        preferences = DashboardPreferences.objects.get(user=request.user)
+        preferences = DashboardPreferences.objects.get(
+            user=request.user,
+            dashboard_id=dashboard_id
+        )
     except DashboardPreferences.DoesNotExist:
         preferences = None
     if request.method == "POST":
         form = DashboardPreferencesForm(
             user=request.user,
+            dashboard_id=dashboard_id,
             data=request.POST,
             instance=preferences
         )
@@ -35,7 +39,11 @@ def set_preferences(request):
         elif request.is_ajax():
             return HttpResponse('false')
     else:
-        form = DashboardPreferencesForm(user=request.user, instance=preferences)
+        form = DashboardPreferencesForm(
+            user=request.user,
+            dashboard_id=dashboard_id,
+            instance=preferences
+        )
     return direct_to_template(request, 'admin_tools/dashboard/preferences_form.html', {
         'form': form,   
     })
