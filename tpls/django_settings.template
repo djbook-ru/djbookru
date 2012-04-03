@@ -147,6 +147,9 @@ INSTALLED_APPS = (
     'south',
     'examples',
     'utils',
+    'tagging',
+    'videos',
+    'oembed'
 )
 
 HAYSTACK_SITECONF = 'search_sites'

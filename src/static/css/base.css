@@ -70,7 +70,7 @@ footer {
 .bottom-container .content {
     width: 49.5%;
     padding: 0;
-    margin: 0 -2px;
+    margin: 0 -2px 5px;
     float: left;
     overflow: hidden;
 }
@@ -87,6 +87,35 @@ footer {
 .bottom-container .example h4,
 .bottom-container .example h5 {
     display: inline;
+}
+
+.content.video .row {
+    margin: 0 auto;
+    width: 620px;
+    height: 200px;
+}
+
+.content.video .span301px {
+    width: 310px;
+    margin: 0;
+    height: 200px;
+    overflow: hidden;
+}
+
+.content.video .span301px p, .content.video .span301px h4 {
+    padding: 0 4px;
+}
+
+.content.video h4 {
+    color: #487858;
+}
+
+.content.video.list .row {
+    height: 255px;
+}
+
+.content.video.list .span301px {
+    height: 235px;
 }
 
 .errorlist {
