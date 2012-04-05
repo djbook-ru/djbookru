@@ -242,6 +242,7 @@
         <include name="src/**/*"/>
         <exclude name="src/search_index"/>
         <exclude name="src/database.sqlite"/>
+        <exclude name="src/static/rel1.4"/>
         <exclude name="src/**/*.dump"/>
         <exclude name="src/**/*.sh"/>
         <exclude name="src/**/*.bat"/>
