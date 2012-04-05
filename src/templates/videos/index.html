@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load pagination_tags i18n %}
+{% load pagination_tags i18n tagging_tags %}
 
 {% block title %}{% trans 'Videos' %} | {{ block.super }}{% endblock %}
 
@@ -15,6 +15,12 @@
             {% if forloop.counter|divisibleby:2 %}
                 <div class="span301px">
                     <h4>{{ video }}</h4>
+                    <p class="tags">
+                        {% tags_for_object video as video_tags %}
+                        {% for video_tag in video_tags %}
+                            <a href="?tag={{ video_tag|urlencode }}" {% if tag == video_tag %}class="active"{% endif %}>{{ video_tag }}</a>
+                        {% endfor %}
+                    </p>
                     {{ video.description|linebreaks }}
                 </div>
                 <div class="span301px">
@@ -26,6 +32,12 @@
                 </div>
                 <div class="span301px">
                     <h4>{{ video }}</h4>
+                    <p class="tags">
+                        {% tags_for_object video as video_tags %}
+                        {% for video_tag in video_tags %}
+                            <a href="?tag={{ video_tag|urlencode }}" {% if tag == video_tag %}class="active"{% endif %}>{{ video_tag }}</a>
+                        {% endfor %}
+                    </p>                    
                     {{ video.description|linebreaks }}
                 </div>
             {% endif %}

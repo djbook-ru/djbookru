@@ -134,6 +134,10 @@ form formset p {
     color: #999;
 }
 
+.tags .active {
+    color: #00a1ff;
+}
+
 /* sidebar-item */
 .sidebar-item hr {
     margin: 0;
