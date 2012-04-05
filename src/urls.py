@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     (r'^admin_tools/', include('admin_tools.urls')),
     (r'^admin/', include(admin.site.urls)),
     (r'^comments/', include('comments.urls', 'comments')),
+    (r'^tagging_autocomplete/', include('tagging_autocomplete.urls')),
     url(r'^(?P<path>pics/.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )
 

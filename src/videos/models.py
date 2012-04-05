@@ -1,6 +1,7 @@
 from django.db import models
 from tagging.fields import TagField
 from django.utils.translation import ugettext_lazy as _
+from tagging_autocomplete.models import TagAutocompleteField
 import oembed
 
 
@@ -8,7 +9,7 @@ class Video(models.Model):
     title = models.CharField(_(u'title'), max_length=500)
     video = models.URLField(_(u'video URL'))
     description = models.TextField()
-    tags = TagField(verbose_name=_(u'tags'))
+    tags = TagAutocompleteField(verbose_name=_(u'tags'))
     created = models.DateTimeField(_(u'created'), auto_now_add=True)
 
     class Meta:
