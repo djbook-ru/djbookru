@@ -183,7 +183,7 @@ def search(request):
                 topics = []
                 topics_to_exclude = None
                 for post in posts:
-                    if post.object.topic not in topics:
+                    if post.object and post.object.topic not in topics:
                         if post.object.topic.forum.category.has_access(request.user):
                             topics.append(post.object.topic)
                         else:

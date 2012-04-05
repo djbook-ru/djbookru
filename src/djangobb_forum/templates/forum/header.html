@@ -12,6 +12,7 @@
 		<div id="brdmenu" class="inbox">
 			<ul>
 				<li id="navindex"><a href="{% url djangobb:index %}">{% trans "Index" %}</a></li>
+				<li id="navindex"><a href="{{ DJANGO_DOCUMENTATION_URL }}">Документация Django</a></li>
 				<li id="navuserlist"><a href="{% url djangobb:forum_users %}">{% trans "User list" %}</a></li>
 				<li id="navsearch"><a href="{% url djangobb:search %}">{% trans "Search" %}</a></li>
                 <li id="navsearch"><a href="{% url main:feedback %}">{% trans "Feedback" %}</a></li>

@@ -10,4 +10,3 @@ xapian-haystack
 -e git+http://github.com/RaD/django-nezabudka.git/#egg=django-nezabudka
 -e git+http://github.com/RaD/django-adzone.git/#egg=django-adzone
 -e git+http://github.com/clintecker/django-google-analytics.git/#egg=django-google_analytics
--e git+https://github.com/jezdez/django-robots.git/#egg=django-robots

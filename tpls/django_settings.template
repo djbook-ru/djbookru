@@ -131,7 +131,6 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'google_analytics',
     'adzone',
-    'robots',
     'sorl.thumbnail',
     'pagination',
     'socialauth',
@@ -147,6 +146,9 @@ INSTALLED_APPS = (
     'south',
     'examples',
     'utils',
+    'tagging',
+    'videos',
+    'oembed'
 )
 
 HAYSTACK_SITECONF = 'search_sites'
