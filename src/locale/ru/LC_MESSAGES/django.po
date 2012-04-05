@@ -1,14 +1,14 @@
 # Copyright (C) 2010-2011 Ruslan Popov
 # This file is distributed under the same license as the translation package.
 # Ruslan Popov <ruslan.popov@gmail.com>, 2010.
-# Ruslan Popob <ruslan.popov@gmail.com>, 2011.
+# Ruslan Popob <ruslan.popov@gmail.com>, 2011, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-05 11:51+0400\n"
-"PO-Revision-Date: 2011-11-24 01:56+0400\n"
+"POT-Creation-Date: 2012-04-06 00:13+0400\n"
+"PO-Revision-Date: 2012-04-06 00:14+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -18,57 +18,19 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: dashboard.py:28
-msgid "Quick links"
-msgstr "Быстрые ссылки"
-
-#: dashboard.py:34
-msgid "Return to site"
-msgstr "Вернуться на сайт"
-
-#: dashboard.py:35
-#: djangobb_forum/templates/forum/profile/profile_essentials.html:25
-msgid "Change password"
-msgstr "Изменить пароль"
-
-#: dashboard.py:37 djangobb_forum/templates/forum/header.html:24
-msgid "Log out"
-msgstr "Выйти"
-
-#: dashboard.py:43 menu.py:25
+#: dashboard.py:26 menu.py:25
 msgid "Applications"
 msgstr "Приложения"
 
-#: dashboard.py:49 menu.py:29
+#: dashboard.py:32 menu.py:29
 #: djangobb_forum/templates/forum/profile/profile_admin.html:9
 #: djangobb_forum/templates/forum/profile/profile_menu.html:15
 msgid "Administration"
 msgstr "Управление"
 
-#: dashboard.py:54 dashboard.py:101
+#: dashboard.py:36 dashboard.py:54
 msgid "Recent Actions"
 msgstr "Недавние действия"
-
-#: dashboard.py:58
-msgid "Latest Django News"
-msgstr "Свежие новости Django"
-
-#: dashboard.py:65
-#, fuzzy
-msgid "Support"
-msgstr "Жалоба"
-
-#: dashboard.py:68
-msgid "Django documentation"
-msgstr ""
-
-#: dashboard.py:73
-msgid "Django \"django-users\" mailing list"
-msgstr ""
-
-#: dashboard.py:78
-msgid "Django irc channel"
-msgstr ""
 
 #: menu.py:22
 msgid "Dashboard"
@@ -97,7 +59,7 @@ msgstr ""
 msgid "Advanced options"
 msgstr "Дополнительные возможности"
 
-#: settings.py:162
+#: settings.py:161
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
 
@@ -911,6 +873,10 @@ msgstr "Обратная связь"
 msgid "PM"
 msgstr "PM"
 
+#: djangobb_forum/templates/forum/header.html:24
+msgid "Log out"
+msgstr "Выйти"
+
 #: djangobb_forum/templates/forum/header.html:26
 msgid "Log in"
 msgstr "Вход"
@@ -1526,6 +1492,10 @@ msgstr "Главное"
 msgid "Enter your username and password"
 msgstr "Введите ваш логин и пароль"
 
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:25
+msgid "Change password"
+msgstr "Изменить пароль"
+
 #: djangobb_forum/templates/forum/profile/profile_essentials.html:33
 msgid "Enter a valid e-mail address"
 msgstr "Введите адрес вашей Е-почты"
@@ -1629,60 +1599,6 @@ msgstr ""
 "или нет, а также разрешать или нет отправку вам почты от других "
 "пользователей через форум. "
 
-#: docbook_translator/models.py:7
-msgid "Language code in ISO 693-1 or other"
-msgstr "Код языка по ISO 693-1"
-
-#: docbook_translator/models.py:27
-msgid "This book can be translated only by moderators and translators"
-msgstr "Эта книга может быть переведена только модераторами или переводчиками"
-
-#: docbook_translator/models.py:51 docbook_translator/models.py:79
-msgid "This chapter can be translated only by moderators and translators"
-msgstr "Эта глава может быть переведена только модераторами или переводчиками"
-
-#: docbook_translator/models.py:52
-msgid "This chapter is completed and can be changed only by moderators"
-msgstr "Перевод главы завершён и она может быть изменена только модераторами"
-
-#: docbook_translator/models.py:53
-msgid "This chapter is visible on site"
-msgstr "Глава отображается на сайте"
-
-#: docbook_translator/models.py:67
-msgid "<title>"
-msgstr "<title>"
-
-#: docbook_translator/models.py:68
-msgid "<para>"
-msgstr "<para>"
-
-#: docbook_translator/models.py:69
-msgid "End <para>"
-msgstr "Конец <para>"
-
-#: docbook_translator/models.py:70
-msgid "Start <para>"
-msgstr "Начало <para>"
-
-#: docbook_translator/models.py:75
-msgid "Order number in XML tree"
-msgstr "Порядковый номер в дереве XML"
-
-#: docbook_translator/models.py:77
-msgid "Path in XML tree"
-msgstr "Путь в дереве XML"
-
-#: docbook_translator/models.py:80
-msgid ""
-"This chapter can be changed only by moderators and text is filed with "
-"tanslation"
-msgstr ""
-
-#: docbook_translator/models.py:87
-msgid "This version is marked as the best translation"
-msgstr "Эта версия помечена как лучший перевод"
-
 #: examples/feeds.py:7
 msgid "Russian DjangoBook Examples"
 msgstr "Примеры с Russian DjangoBook"
@@ -1737,7 +1653,7 @@ msgstr "имя"
 msgid "category"
 msgstr "категория"
 
-#: examples/models.py:33 news/models.py:6 videos/models.py:8
+#: examples/models.py:33 news/models.py:6 videos/models.py:9
 msgid "title"
 msgstr "тема"
 
@@ -1753,7 +1669,7 @@ msgstr ""
 "Используйте <a target=\"blank\" href=\"http://daringfireball.net/projects/"
 "markdown/syntax\">Markdown</a> и HTML"
 
-#: examples/models.py:35 main/models.py:8 news/models.py:8 videos/models.py:12
+#: examples/models.py:35 main/models.py:8 news/models.py:8 videos/models.py:13
 msgid "created"
 msgstr "создано"
 
@@ -1871,10 +1787,10 @@ msgstr "Новости"
 msgid "Forgotten page..."
 msgstr "Потерянная страница..."
 
-#: templates/_menu.html:19 templates/videos/_last_videos.html:2
+#: templates/_menu.html:19 templates/videos/_last_videos.html:3
 #: templates/videos/index.html:5
 msgid "Videos"
-msgstr ""
+msgstr "Видео"
 
 #: templates/_menu.html:23 templates/examples/index.html:5
 #: templates/main/_random_recipes.html:2
@@ -2106,29 +2022,81 @@ msgid "%(name)s object with primary key %(key)r does not exist."
 msgstr ""
 
 #: utils/admin.py:144
-#, fuzzy, python-format
+#, python-format
 msgid "Change %s"
-msgstr "Изменить пароль"
+msgstr "Изменить %s"
 
 #: videos/forms.py:19
 msgid "Incorrect video URL"
-msgstr ""
+msgstr "Неправильный URL видео"
 
-#: videos/models.py:9
+#: videos/models.py:10
 msgid "video URL"
-msgstr ""
+msgstr "URL видео"
 
-#: videos/models.py:11
+#: videos/models.py:12
 msgid "tags"
-msgstr ""
-
-#: videos/models.py:16
-msgid "video"
-msgstr ""
+msgstr "таги"
 
 #: videos/models.py:17
+msgid "video"
+msgstr "видео"
+
+#: videos/models.py:18
 msgid "videos"
-msgstr ""
+msgstr "видео"
+
+#~ msgid "Quick links"
+#~ msgstr "Быстрые ссылки"
+
+#~ msgid "Return to site"
+#~ msgstr "Вернуться на сайт"
+
+#~ msgid "Latest Django News"
+#~ msgstr "Свежие новости Django"
+
+#, fuzzy
+#~ msgid "Support"
+#~ msgstr "Жалоба"
+
+#~ msgid "Language code in ISO 693-1 or other"
+#~ msgstr "Код языка по ISO 693-1"
+
+#~ msgid "This book can be translated only by moderators and translators"
+#~ msgstr ""
+#~ "Эта книга может быть переведена только модераторами или переводчиками"
+
+#~ msgid "This chapter can be translated only by moderators and translators"
+#~ msgstr ""
+#~ "Эта глава может быть переведена только модераторами или переводчиками"
+
+#~ msgid "This chapter is completed and can be changed only by moderators"
+#~ msgstr ""
+#~ "Перевод главы завершён и она может быть изменена только модераторами"
+
+#~ msgid "This chapter is visible on site"
+#~ msgstr "Глава отображается на сайте"
+
+#~ msgid "<title>"
+#~ msgstr "<title>"
+
+#~ msgid "<para>"
+#~ msgstr "<para>"
+
+#~ msgid "End <para>"
+#~ msgstr "Конец <para>"
+
+#~ msgid "Start <para>"
+#~ msgstr "Начало <para>"
+
+#~ msgid "Order number in XML tree"
+#~ msgstr "Порядковый номер в дереве XML"
+
+#~ msgid "Path in XML tree"
+#~ msgstr "Путь в дереве XML"
+
+#~ msgid "This version is marked as the best translation"
+#~ msgstr "Эта версия помечена как лучший перевод"
 
 #~ msgid "Filebrowser"
 #~ msgstr "Файлоглядун"
