@@ -25,5 +25,5 @@ class StoredOEmbedAdmin(admin.ModelAdmin):
     list_display = ('match', 'date_added')
 
 
-admin.site.register(StoredProvider, StoredProviderAdmin)
-admin.site.register(StoredOEmbed, StoredOEmbedAdmin)
+#admin.site.register(StoredProvider, StoredProviderAdmin)
+#admin.site.register(StoredOEmbed, StoredOEmbedAdmin)
