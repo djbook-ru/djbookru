@@ -57,7 +57,7 @@ MEDIA_ROOT = rel('static')
 
 MEDIA_URL = '/static/'
 
-ADMIN_MEDIA_PREFIX = '/static/admin/'
+ADMIN_MEDIA_PREFIX = '/admin/media/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '${django_secretkey}'
