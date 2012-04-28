@@ -146,6 +146,10 @@ form formset p {
 .sidebar-item p {
     margin-bottom: 5px;
 }
+
+.sidebar-item {
+    overflow: hidden;
+}
 /* sidebar-item */
 
 /* right-column */
