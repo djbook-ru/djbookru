@@ -1,10 +1,9 @@
-from django.contrib import auth
 from django.conf import settings
-from django.shortcuts import get_object_or_404, redirect
-from django.core.urlresolvers import reverse
-from django.contrib.auth.decorators import login_required
+from django.contrib import auth
 from django.contrib import messages
-from django.utils.translation import ugettext, ugettext_lazy as _
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, redirect
+from django.utils.translation import ugettext_lazy as _
 
 from decorators import render_to
 
@@ -13,6 +12,7 @@ from accounts.forms import UserEditForm, CreateUserForm
 
 LOGIN_REDIRECT_URL = getattr(settings, 'LOGIN_REDIRECT_URL', '/')
 LOGOUT_REDIRECT_URL = getattr(settings, 'LOGOUT_REDIRECT_URL', '/')
+
 
 @render_to('accounts/create.html')
 def create(request):
@@ -29,6 +29,7 @@ def create(request):
         'form': form
     }
 
+
 def logout(request):
     from django.contrib.auth import logout
     from openid_consumer.views import signout as oid_signout
@@ -38,12 +39,14 @@ def logout(request):
     redirect_to = request.REQUEST.get(auth.REDIRECT_FIELD_NAME, LOGOUT_REDIRECT_URL)
     return redirect(redirect_to)
 
+
 @render_to('accounts/profile.html')
 def profile(request, pk):
     user_obj = get_object_or_404(User, pk=pk)
     return {
         'user_obj': user_obj
     }
+
 
 @render_to('accounts/edit.html')
 @login_required

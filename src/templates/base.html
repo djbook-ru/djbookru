@@ -78,11 +78,12 @@
             </div>
             <div class="center-column">
                 {% if messages %}
-                    <ul class="messages">
-                        {% for message in messages %}
-                        <li class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</li>
-                        {% endfor %}
-                    </ul>
+                    {% for message in messages %}
+                    <div class="alert message {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                      {{ message }}
+                      <a class="close" data-dismiss="alert" href="#">&times;</a>
+                    </div>
+                    {% endfor %}
                 {% endif %}
                 {% random_zone_ad 'buy_me' 'header' %}
                 {% block pre_content %}{% endblock %}

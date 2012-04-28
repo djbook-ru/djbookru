@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load i18n %}
+{% load i18n bootstrap %}
 
 {% block title %}{% trans 'Feedback' %} | {{ block.super }}{% endblock %}
 
@@ -11,16 +11,13 @@
         {% trans "We are glad to hear your questions, comments or suggestions!" %} 
     </p>
     
-    <form method="post" action=".">
-        <table>
-        {{ form }}
+    <form method="post" action="." class="form-horizontal">
         {% csrf_token %}
-        <tr>
-            <td></td>
-            <td style="text-align: right;">
-                <input type="submit" value="{% trans 'Send' %}"/>
-            </td>
-        </tr>
-        </table>
+        <fieldset>
+            {{ form|bootstrap }}
+        </fieldset>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">{% trans "Send" %}</button>
+        </div>
     </form>
 {% endblock %}

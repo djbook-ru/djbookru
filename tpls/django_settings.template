@@ -149,7 +149,8 @@ INSTALLED_APPS = (
     'tagging',
     'videos',
     'oembed',
-    'robots'
+    'robots',
+    'bootstrapform'
 )
 
 HAYSTACK_SITECONF = 'search_sites'

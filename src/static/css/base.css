@@ -346,3 +346,11 @@ form formset p {
     background: url(/static/img/securelayer_button.png) 0px 0px no-repeat;
 }
 /* login */
+
+form textarea {
+    width: 400px;
+}
+
+.alert.message {
+    margin-bottom: 4px;
+}

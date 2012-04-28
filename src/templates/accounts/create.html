@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
 
-{% load i18n %}
+{% load i18n bootstrap %}
 
 {% block title %}{% trans 'Register' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
     <h1>{% trans 'Register' %}</h1>
-    <form method="post">
+    <form method="post" class="form-horizontal">
         {% csrf_token %}
-        <table>
-            {{ form }}
-            <tr>
-                <td></td>
-                <td><button type="submit">{% trans 'Create' %}</button></td>
-            </tr>
-        </table>
+        <fieldset>
+            {{ form|bootstrap }}
+        </fieldset>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">{% trans "Create" %}</button>
+        </div>
     </form>
 {% endblock %}
