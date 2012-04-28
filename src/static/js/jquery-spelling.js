@@ -106,7 +106,7 @@ var spelling = {
             return;
 
         var context_error = '<span>' + this.selection.context_left + '</span>'+
-            '<span class="selected">' + this.selection.context_error+
+            '<span style="background-color: #c0db8a;">' + this.selection.context_error+
             '</span>' + '<span>' + this.selection.context_right + '</span>';
 
         $('.context-error', this.$form).html(context_error);
