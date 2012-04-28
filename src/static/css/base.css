@@ -342,3 +342,7 @@ form formset p {
     background: url(/static/img/securelayer_button.png) 0px 0px no-repeat;
 }
 /* login */
+
+.context-error .selected {
+    background-color: #c0db8a;
+}

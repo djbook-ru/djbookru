@@ -21,14 +21,12 @@
         <link rel="shortcut icon" href="{{ MEDIA_URL }}img/favicon.png"/>
         <link rel="stylesheet" href="{{ MEDIA_URL }}bootstrap/css/bootstrap.min.css" type="text/css"/>
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/base.css" type="text/css"/>
-        <link rel="stylesheet" href="{{ MEDIA_URL }}css/djbook/jquery-ui-1.8.4.custom.css" type="text/css"/>
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/github.min.css">
 
         {% if not settings.DEBUG %}{% analytics_async "UA-3919032-6" %}{% endif %}
         <script type="text/javascript" src="{% url js_i18n_catalog %}"></script>
         <script src="{{ MEDIA_URL }}js/jquery-1.7.1.min.js"></script>
         <script src="{{ MEDIA_URL }}bootstrap/js/bootstrap.min.js"></script>
-        <script src="{{ MEDIA_URL }}js/jquery-ui-1.8.4.custom.min.js"></script>
         <script src="{{ MEDIA_URL }}js/jquery.form.js"></script>
         <script src="{{ MEDIA_URL }}js/jquery-spelling.js"></script>
         <script src="{{ MEDIA_URL }}js/highlight.min.js"></script>
