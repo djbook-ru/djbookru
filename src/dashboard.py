@@ -1,14 +1,6 @@
-"""
-This file was generated with the customdashboard management command, it
-contains the two classes for the main dashboard and app index dashboard.
-You can customize these classes as you want.
-
-To activate your index dashboard add the following to your settings.py::
-    ADMIN_TOOLS_INDEX_DASHBOARD = 'src.dashboard.CustomIndexDashboard'
-
-And to activate the app index dashboard::
-    ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'src.dashboard.CustomAppIndexDashboard'
-"""
+# -*- coding: utf-8 -*-
+# (c) 2012 Dmitry Kostochko <alerion.um@gmail.com>
+# (c) 2012 Ruslan Popov <ruslan.popov@gmail.com>
 
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
@@ -22,18 +14,65 @@ class CustomIndexDashboard(Dashboard):
     Custom index dashboard for src.
     """
     def init_with_context(self, context):
-        self.children.append(modules.AppList(
-            _('Applications'),
-            exclude=('django.contrib.*', 'socialauth.*', 'adzone.*', 'chunks.*',
-                'google_analytics.*', 'oembed.*', 'robots.*', 'tagging.*'),
-        ))
+        site_name = get_admin_site_name(context)
 
-        self.children.append(modules.AppList(
-            _('Administration'),
-            models=('django.contrib.*', 'adzone.*',),
-        ))
+        self.children.append(
+            modules.LinkList(
+                _(u'Quick Links'),
+                layout='inline',
+                draggable=False,
+                deletable=False,
+                collapsable=False,
+                children=[
+                    (_(u'Go to Site'), reverse('main:index')),
+                    [_('Change password'), reverse('%s:password_change' % site_name)],
+                    [_('Log out'), reverse('%s:logout' % site_name)],
+                ]))
 
-        self.children.append(modules.RecentActions(_('Recent Actions'), 5))
+        self.children.append(
+            modules.Group(
+                _(u'Administration'),
+                children=[
+                modules.ModelList(_(u'Credentials'), [
+                    'accounts.models.User',
+                    'django.contrib.auth.models.Group',
+                    ]),
+                modules.AppList(_(u'Control'), models=(
+                    'google_analytics.*', 'django.contrib.*',
+
+                    ))
+                ]))
+
+        self.children.append(
+            modules.Group(
+                _(u'Applications'),
+                children=[
+                modules.ModelList(_(u'Content'), [
+                    'news.models.News',
+                    'claims.models.Claims',
+                    'django.contrib.comments.models.Comment',
+                    'videos.models.Video',
+                    ]),
+                modules.ModelList(_(u'Book'), [
+                    'main.models.Book',
+                    'main.models.Page',
+                    ]),
+                modules.ModelList(_(u'Receipts'), [
+                    'examples.models.Example',
+                    'examples.models.Category',
+                    ]),
+                modules.ModelList(_(u'Advertisment'), [
+                    'adzone.models.Advertiser',
+                    'adzone.models.AdCategory',
+                    'adzone.models.AdZone',
+                    'adzone.models.TextAd',
+                    'adzone.models.BannerAd',
+                    'adzone.models.AdClick',
+                    'adzone.models.Impression',
+                    ])
+                ]))
+
+        self.children.append(modules.RecentActions(_('Recent Actions'), 15))
 
 
 class CustomAppIndexDashboard(AppIndexDashboard):

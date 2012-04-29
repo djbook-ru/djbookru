@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-28 13:25+0400\n"
-"PO-Revision-Date: 2012-04-06 00:14+0400\n"
+"POT-Creation-Date: 2012-04-29 20:29+0400\n"
+"PO-Revision-Date: 2012-04-29 20:30+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -18,23 +18,64 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: dashboard.py:26 menu.py:25
-msgid "Applications"
-msgstr "Приложения"
+#: dashboard.py:21
+msgid "Quick Links"
+msgstr "Быстрые ссылки"
 
-#: dashboard.py:32 menu.py:29
+#: dashboard.py:27
+msgid "Go to Site"
+msgstr "Перейти к сайту"
+
+#: dashboard.py:28
+#: djangobb_forum/templates/forum/profile/profile_essentials.html:25
+msgid "Change password"
+msgstr "Изменить пароль"
+
+#: dashboard.py:29 djangobb_forum/templates/forum/header.html:24
+msgid "Log out"
+msgstr "Выйти"
+
+#: dashboard.py:34 menu.py:29
 #: djangobb_forum/templates/forum/profile/profile_admin.html:9
 #: djangobb_forum/templates/forum/profile/profile_menu.html:15
 msgid "Administration"
 msgstr "Управление"
 
-#: dashboard.py:36 dashboard.py:54
+#: dashboard.py:36
+msgid "Credentials"
+msgstr "Учётные данные"
+
+#: dashboard.py:40
+msgid "Control"
+msgstr "Контроль"
+
+#: dashboard.py:48 menu.py:25
+msgid "Applications"
+msgstr "Приложения"
+
+#: dashboard.py:50
+msgid "Content"
+msgstr "Содержимое"
+
+#: dashboard.py:56 main/models.py:14
+msgid "Book"
+msgstr "Книга"
+
+#: dashboard.py:60 templates/examples/add.html:5
+msgid "Receipts"
+msgstr "Рецепты"
+
+#: dashboard.py:64
+msgid "Advertisment"
+msgstr "Реклама"
+
+#: dashboard.py:75 dashboard.py:93
 msgid "Recent Actions"
 msgstr "Недавние действия"
 
 #: menu.py:22
 msgid "Dashboard"
-msgstr ""
+msgstr "Доска"
 
 #: patch.py:9 examples/models.py:39
 msgid "URL"
@@ -59,7 +100,7 @@ msgstr ""
 msgid "Advanced options"
 msgstr "Дополнительные возможности"
 
-#: settings.py:162
+#: settings.py:163
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
 
@@ -112,11 +153,11 @@ msgstr "Пользователи"
 msgid "Account created success!"
 msgstr "Аккаунт успешно создан!"
 
-#: accounts/views.py:25 accounts/views.py:57
+#: accounts/views.py:25 accounts/views.py:60
 msgid "Please correct the error below."
 msgstr "Пожалуйста, исправьте ошибки перечисленные далее."
 
-#: accounts/views.py:55
+#: accounts/views.py:58
 msgid "Profile changed success!"
 msgstr "Профайл успешно изменён!"
 
@@ -132,7 +173,7 @@ msgstr "Ошибка"
 msgid "Comment"
 msgstr "Комментарий"
 
-#: claims/admin.py:26 djangobb_forum/models.py:263
+#: claims/admin.py:31 djangobb_forum/models.py:263
 msgid "Status"
 msgstr "Состояние"
 
@@ -787,7 +828,6 @@ msgid "Edit the post and submit changes"
 msgstr "Изменить отклик и отправить изменения"
 
 #: djangobb_forum/templates/forum/edit_post.html:34
-#: templates/accounts/edit.html:19
 msgid "Save"
 msgstr "Сохранить"
 
@@ -872,10 +912,6 @@ msgstr "Обратная связь"
 #: djangobb_forum/templates/forum/topic.html:81
 msgid "PM"
 msgstr "PM"
-
-#: djangobb_forum/templates/forum/header.html:24
-msgid "Log out"
-msgstr "Выйти"
 
 #: djangobb_forum/templates/forum/header.html:26
 msgid "Log in"
@@ -1492,10 +1528,6 @@ msgstr "Главное"
 msgid "Enter your username and password"
 msgstr "Введите ваш логин и пароль"
 
-#: djangobb_forum/templates/forum/profile/profile_essentials.html:25
-msgid "Change password"
-msgstr "Изменить пароль"
-
 #: djangobb_forum/templates/forum/profile/profile_essentials.html:33
 msgid "Enter a valid e-mail address"
 msgstr "Введите адрес вашей Е-почты"
@@ -1734,10 +1766,6 @@ msgstr "описание"
 msgid "ToC"
 msgstr "Оглавление"
 
-#: main/models.py:14
-msgid "Book"
-msgstr "Книга"
-
 #: main/models.py:15
 msgid "Books"
 msgstr "Книги"
@@ -1859,7 +1887,7 @@ msgstr "Открыть новую вкладку"
 msgid "Register"
 msgstr "Регистрация"
 
-#: templates/accounts/create.html:15
+#: templates/accounts/create.html:15 templates/accounts/edit.html:19
 msgid "Create"
 msgstr "Создать"
 
@@ -1897,7 +1925,7 @@ msgstr "История"
 
 #: templates/admin/examples/change_form.html:12
 msgid "View on site"
-msgstr ""
+msgstr "Посмотреть на сайте"
 
 #: templates/admin/examples/change_form.html:17
 msgid ""
@@ -1936,10 +1964,6 @@ msgstr "Пожалуйста, произведите вход для отпра�
 #: templates/examples/add.html:5
 msgid "Add receipt"
 msgstr "Добавить рецепт"
-
-#: templates/examples/add.html:5
-msgid "Receipts"
-msgstr "Рецепты"
 
 #: templates/examples/add.html:12
 msgid "Add new receipt"
@@ -1988,7 +2012,7 @@ msgstr "Всего пользователей"
 msgid "You can send message to us"
 msgstr "Вы можете отправить нам сообщение"
 
-#: templates/main/feedback.html:21
+#: templates/main/feedback.html:20
 msgid "Send"
 msgstr "Отправить"
 
@@ -2045,9 +2069,6 @@ msgstr "видео"
 #: videos/models.py:18
 msgid "videos"
 msgstr "видео"
-
-#~ msgid "Quick links"
-#~ msgstr "Быстрые ссылки"
 
 #~ msgid "Return to site"
 #~ msgstr "Вернуться на сайт"
@@ -2127,10 +2148,6 @@ msgstr "видео"
 
 #~ msgid "more"
 #~ msgstr "ещё"
-
-#, fuzzy
-#~ msgid "Content"
-#~ msgstr "содержимое"
 
 #, fuzzy
 #~ msgid "Project"
