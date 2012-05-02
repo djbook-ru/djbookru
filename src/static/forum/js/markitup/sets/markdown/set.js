@@ -26,7 +26,13 @@ mySettings = {
 		}},
 		{separator:'---------------'},	
 		{name:'Quotes', openWith:'> '},
-		{name:'Code Block / Code', openWith:'(!(\t|!|`)!)', closeWith:'(!(`)!)'},
+		{name:'Code Block / Code', replaceWith:function(markItUp){
+            var rows = markItUp.selection.split(/\r\n|\r|\n/);
+            for (var i = 0, len = rows.length; i < len; i++){
+                rows[i] = '    ' + rows[i];
+            }
+            return rows.join('\n');
+        }},
 		{name:'Smiles', openWith:'', closeWith:'', dropMenu:[
             {name:'Smile', openWith:':)'}, 
             {name:'Neutral', openWith:':|'}, 
