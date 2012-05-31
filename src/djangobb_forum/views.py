@@ -117,18 +117,19 @@ def moderate(request, forum_id):
 @paged('results', forum_settings.SEARCH_PAGE_SIZE)
 def search(request):
     # TODO: move to form
+    user = request.user
     if 'action' in request.GET:
         action = request.GET['action']
         #FIXME: show_user for anonymous raise exception,
         #django bug http://code.djangoproject.com/changeset/14087 :|
-        groups = request.user.groups.all() or [] #removed after django > 1.2.3 release
+        groups = request.user.groups.all() or []  # removed after django > 1.2.3 release
         topics = Topic.objects.filter(
                    Q(forum__category__groups__in=groups) | \
                    Q(forum__category__groups__isnull=True))
         if action == 'show_24h':
             date = datetime.today() - timedelta(1)
             topics = topics.filter(created__gte=date)
-        elif action == 'show_new':
+        elif action == 'show_new' and user.is_authenticated():
             last_read = PostTracking.objects.get(user=request.user).last_read
             if last_read:
                 topics = topics.filter(last_post__updated__gte=last_read).all()
@@ -137,12 +138,13 @@ def search(request):
                 topics = [topic for topic in topics[:forum_settings.SEARCH_PAGE_SIZE] if forum_extras.has_unreads(topic, request.user)]
         elif action == 'show_unanswered':
             topics = topics.filter(post_count=1)
-        elif action == 'show_subscriptions':
+        elif action == 'show_subscriptions' and user.is_authenticated():
             topics = topics.filter(subscribers=request.user)
         elif action == 'show_user':
-            user_id = request.GET['user_id']
-            posts = Post.objects.filter(user__id=user_id)
-            topics = [post.topic for post in posts if post.topic in topics]
+            user_id = request.GET.get('user_id')
+            if user_id:
+                posts = Post.objects.filter(user__id=user_id)
+                topics = [post.topic for post in posts if post.topic in topics]
         elif action == 'search':
             keywords = request.GET.get('keywords')
             author = request.GET.get('author')
@@ -179,7 +181,7 @@ def search(request):
 
             posts = query.order_by(order)
 
-            if 'topics' in request.GET['show_as']:
+            if 'topics' == request.GET.get('show_as'):
                 topics = []
                 topics_to_exclude = None
                 for post in posts:
@@ -195,7 +197,7 @@ def search(request):
                 if topics_to_exclude:
                     posts = posts.exclude(topics_to_exclude)
                 return {'paged_qs': topics}
-            elif 'posts' in request.GET['show_as']:
+            elif 'posts' == request.GET.get('show_as'):
                 return {'paged_qs': posts,
                         'TEMPLATE': 'forum/search_posts.html'
                         }
