@@ -1,4 +1,4 @@
-{% load i18n analytics adzone_tags news_tags components comments_tags %}
+{% load i18n analytics adzone_tags news_tags components comments_tags chunks %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lang="ru">
     <head>
@@ -86,7 +86,14 @@
                     {% endfor %}
                 {% endif %}
                 {% random_zone_ad 'buy_me' 'header' %}
-                {% block pre_content %}{% endblock %}
+                {% block pre_content %}
+                <div class="well content" style="background-color: #c0db8a">
+                    <h3><a href="{{ DJANGO_DOCUMENTATION_URL }}">Документация Django на русском</a></h3>
+                    <p>
+                        {% chunk "django-documentation-description" %}
+                    </p>
+                </div>
+                {% endblock %}
                 <div class="well content">
                     {% block content %}{% endblock %}
                 </div>
