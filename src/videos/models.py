@@ -1,5 +1,4 @@
 from django.db import models
-from tagging.fields import TagField
 from django.utils.translation import ugettext_lazy as _
 from tagging_autocomplete.models import TagAutocompleteField
 import oembed

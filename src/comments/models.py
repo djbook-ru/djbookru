@@ -5,7 +5,8 @@ from accounts.models import User
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
-COMMENT_MAX_LENGTH = getattr(settings,'COMMENT_MAX_LENGTH', 1000)
+COMMENT_MAX_LENGTH = getattr(settings, 'COMMENT_MAX_LENGTH', 1000)
+
 
 class Comment(models.Model):
     content_type = models.ForeignKey(ContentType,

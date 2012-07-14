@@ -5,9 +5,9 @@ from decorators import render_to
 from django.conf import settings
 from django.contrib import auth
 from django.contrib import messages
-from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import login as auth_login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import login as auth_login_view, password_change as auth_password_change, password_reset as auth_password_reset, password_reset_confirm as auth_password_reset_confirm
+from django.contrib.auth.views import password_reset as auth_password_reset, password_reset_confirm as auth_password_reset_confirm
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect
@@ -88,14 +88,17 @@ def confirm_email(request, confirmation_key):
 
 @login_required
 def resend_confirmation_email(request):
-    EmailConfirmation.objects.delete_expired_confirmations()
-    if EmailConfirmation.objects.filter(user=request.user).exists():
-        messages.error(request, _(u'We have sent you confirmation email. New one you can get in %(days)s days') % {
-            'days': EMAIL_CONFIRMATION_DAYS
-        })
+    if request.user.is_valid_email:
+        messages.error(request, _(u'Your email is already comfirmed.'))
     else:
-        EmailConfirmation.objects.send_confirmation(request.user)
-        messages.success(request, _(u'Confirmation email is sent.'))
+        EmailConfirmation.objects.delete_expired_confirmations()
+        if EmailConfirmation.objects.filter(user=request.user).exists():
+            messages.error(request, _(u'We have sent you confirmation email. New one you can get in %(days)s days') % {
+                'days': EMAIL_CONFIRMATION_DAYS
+            })
+        else:
+            EmailConfirmation.objects.send_confirmation(request.user)
+            messages.success(request, _(u'Confirmation email is sent.'))
     return redirect(request.META.get('HTTP_REFERER', '/'))
 
 

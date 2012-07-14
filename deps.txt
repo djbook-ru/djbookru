@@ -7,6 +7,7 @@ python-gnupg
 feedparser
 django-haystack
 xapian-haystack
+factory_boy==1.1.5
 -e git+http://github.com/RaD/django-nezabudka.git/#egg=django-nezabudka
 -e git+http://github.com/RaD/django-adzone.git/#egg=django-adzone
 -e git+http://github.com/clintecker/django-google-analytics.git/#egg=django-google_analytics

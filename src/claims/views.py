@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-
 from claims.models import Claims
-from django.db.models import Count, Max
 from django.http import HttpResponse
+
 
 def index(request):
     CLAIM_STATUS_NEW = 1

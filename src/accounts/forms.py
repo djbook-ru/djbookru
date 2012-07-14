@@ -68,7 +68,7 @@ class PasswordResetForm(AuthPasswordResetForm):
             raise forms.ValidationError(_("That e-mail address doesn't have an associated active user account. Are you sure you've registered and e-mail is confirmed?"))
         return email
 
-    def save(self, domain_override=None, email_template_name='registration/password_reset_email.html',
+    def save(self, domain_override=None, email_template_name='accounts/password_reset_email.html',
              use_https=False, token_generator=default_token_generator, from_email=None, request=None):
         """
         Generates a one-use only link for resetting password and sends to the user

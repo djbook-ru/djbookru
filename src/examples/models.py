@@ -60,7 +60,6 @@ class Example(models.Model):
     @transaction.commit_on_success
     def save(self):
         from djangobb_forum.models import Forum, Topic, Post
-        from accounts.models import User
 
         is_create = self.pk is None
 

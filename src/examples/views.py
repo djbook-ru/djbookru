@@ -12,11 +12,13 @@ from examples.models import Category, Example
 from examples.forms import AddExampleForm
 from djangobb_forum.models import Topic
 
+
 @render_to('examples/index.html')
 def index(request):
     return {
         'categories': Category.objects.all()
     }
+
 
 @render_to('examples/add.html')
 @login_required
@@ -32,12 +34,14 @@ def add(request):
         'form': form
     }
 
-@render_to('examples/category.html',)
+
+@render_to('examples/category.html')
 def category(request, pk):
     obj = get_object_or_404(Category, pk=pk)
     return {
         'category': obj
     }
+
 
 @render_to('examples/detail.html')
 def detail(request, pk):
