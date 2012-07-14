@@ -3,58 +3,15 @@ import datetime
 from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
-from _mysql_exceptions import OperationalError
 
 
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-
-        # Deleting field 'User.last_activity'
-        db.delete_column('accounts_user', 'last_activity')
-
-        # Deleting field 'User.last_posttime'
-        db.delete_column('accounts_user', 'last_posttime')
-
-        # Deleting field 'User.last_session_activity'
-        db.delete_column('accounts_user', 'last_session_activity')
-
-        # Deleting field 'User.signature'
-        db.delete_column('accounts_user', 'signature')
-
-        # Deleting field 'User.posts_count'
-        db.delete_column('accounts_user', 'posts_count')
+        db.create_unique('auth_user', ['email'])
 
     def backwards(self, orm):
-        try:
-            # Adding field 'User.last_activity'
-            db.add_column('accounts_user', 'last_activity', self.gf('django.db.models.fields.DateTimeField')(null=True), keep_default=False)
-        except OperationalError:
-            pass
-
-        try:
-            # Adding field 'User.last_posttime'
-            db.add_column('accounts_user', 'last_posttime', self.gf('django.db.models.fields.DateTimeField')(null=True), keep_default=False)
-        except OperationalError:
-            pass
-
-        try:
-            # Adding field 'User.last_session_activity'
-            db.add_column('accounts_user', 'last_session_activity', self.gf('django.db.models.fields.DateTimeField')(null=True), keep_default=False)
-        except OperationalError:
-            pass
-
-        try:
-            # Adding field 'User.signature'
-            db.add_column('accounts_user', 'signature', self.gf('django.db.models.fields.CharField')(max_length=1000, null=True, blank=True), keep_default=False)
-        except OperationalError:
-            pass
-
-        try:
-            # Adding field 'User.posts_count'
-            db.add_column('accounts_user', 'posts_count', self.gf('django.db.models.fields.IntegerField')(default=0), keep_default=False)
-        except OperationalError:
-            pass
+        db.delete_unique('auth_user', ['email'])
 
     models = {
         'accounts.user': {
@@ -79,7 +36,7 @@ class Migration(SchemaMigration):
         'auth.user': {
             'Meta': {'object_name': 'User'},
             'date_joined': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
-            'email': ('django.db.models.fields.EmailField', [], {'max_length': '75', 'blank': 'True'}),
+            'email': ('django.db.models.fields.EmailField', [], {'unique': 'True', 'max_length': '75'}),
             'first_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
             'groups': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Group']", 'symmetrical': 'False', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),

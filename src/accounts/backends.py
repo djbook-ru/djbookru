@@ -14,6 +14,7 @@ FACEBOOK_API_KEY = getattr(settings, 'FACEBOOK_API_KEY', '')
 FACEBOOK_API_SECRET = getattr(settings, 'FACEBOOK_API_SECRET', '')
 FACEBOOK_REST_SERVER = getattr(settings, 'FACEBOOK_REST_SERVER', 'http://api.facebook.com/restserver.php')
 
+
 class CustomUserBackend(ModelBackend):
 
     def authenticate(self, username=None, password=None):
@@ -30,10 +31,11 @@ class CustomUserBackend(ModelBackend):
         except User.DoesNotExist:
             return None
 
+
 class OpenIdBackend(object):
     def authenticate(self, openid_key, request, provider):
         try:
-            assoc = UserAssociation.objects.get(openid_key = openid_key)
+            assoc = UserAssociation.objects.get(openid_key=openid_key)
             return assoc.user
         except UserAssociation.DoesNotExist:
             #fetch if openid provider provides any simple registration fields
@@ -50,7 +52,7 @@ class OpenIdBackend(object):
                     email = request.openid.ax.get('email')
                     nickname = request.openid.ax.get('nickname')
 
-            if nickname is None :
+            if nickname is None:
                 if email:
                     nickname = email.split('@')[0]
                 else:

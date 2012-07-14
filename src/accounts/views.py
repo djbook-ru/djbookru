@@ -1,14 +1,15 @@
+from accounts.forms import UserEditForm, CreateUserForm
+from accounts.models import User, EmailConfirmation
+from decorators import render_to
 from django.conf import settings
 from django.contrib import auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect
 from django.utils.translation import ugettext_lazy as _
-
-from decorators import render_to
-
-from accounts.models import User
-from accounts.forms import UserEditForm, CreateUserForm
+from django.contrib.auth.views import login as auth_login_view, password_change as auth_password_change, password_reset as auth_password_reset, password_reset_confirm as auth_password_reset_confirm
+from accounts.backends import CustomUserBackend
+from django.contrib.auth import authenticate, login as auth_login
 
 LOGIN_REDIRECT_URL = getattr(settings, 'LOGIN_REDIRECT_URL', '/')
 LOGOUT_REDIRECT_URL = getattr(settings, 'LOGOUT_REDIRECT_URL', '/')
@@ -20,7 +21,7 @@ def create(request):
         form = CreateUserForm(request.POST, initial={'captcha': request.META['REMOTE_ADDR']})
         if form.is_valid():
             form.save()
-            messages.success(request, _(u'Account created success!'))
+            messages.success(request, _(u'Account created success! Confirm your email.'))
             return redirect('accounts:login')
         messages.error(request, _(u'Please correct the error below.'))
     else:
@@ -55,7 +56,7 @@ def edit(request):
         form = UserEditForm(request.POST, request.FILES, instance=request.user)
         if form.is_valid():
             form.save()
-            messages.success(request, _(u'Profile changed success!'))
+            messages.success(request, _(u'Profile changed success! Confirm your email if it was changed.'))
             return redirect(request.user)
         messages.error(request, _(u'Please correct the error below.'))
     else:
@@ -63,3 +64,21 @@ def edit(request):
     return {
         'form': form
     }
+
+
+def confirm_email(request, confirmation_key):
+    confirmation_key = confirmation_key.lower()
+    user = EmailConfirmation.objects.confirm_email(confirmation_key)
+
+    if not user:
+        messages.error(request, _(u'Confirmation key expired.'))
+    else:
+        messages.success(request, _(u'Email is confirmed.'))
+
+    user.backend = "%s.%s" % (CustomUserBackend.__module__, CustomUserBackend.__name__)
+    user = auth_login(request, user)
+
+    if request.user.is_authenticated():
+        return redirect('accounts:edit')
+
+    return redirect('/')

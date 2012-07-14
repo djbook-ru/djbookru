@@ -1,18 +1,25 @@
 from django import forms
 from accounts.models import User
-from django.utils.translation import ugettext, ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.forms import UserCreationForm
 
 from utils.forms import ReCaptchaField
 
+
 class CreateUserForm(UserCreationForm):
     captcha = ReCaptchaField(label=_(u'captcha'))
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password1', 'password2', 'captcha')
+
 
 class UserEditForm(forms.ModelForm):
     current_password = forms.CharField(label=_(u'Current password'), widget=forms.PasswordInput, required=False)
     new_password = forms.CharField(label=_(u'New password'), widget=forms.PasswordInput, required=False)
     new_password_verify = forms.CharField(label=_(u'Confirm new password'), widget=forms.PasswordInput,
                                           required=False)
+
     class Meta:
         model = User
         fields = ('biography', 'email')

@@ -6,9 +6,9 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('accounts.views',
-    url('^logout/$', 'logout', name='logout'),
-    url('^edit/$', 'edit', name='edit'),
-    url('^create/$', 'create', name='create'),
-    url('^(?P<pk>\d+)/$', 'profile', name='profile')
+    url(r'^(?P<pk>\d+)/$', 'profile', name='profile'),
+    url(r'^create/$', 'create', name='create'),
+    url(r'^edit/$', 'edit', name='edit'),
+    url(r'^logout/$', 'logout', name='logout'),
+    url(r'^confirm_email/(?P<confirmation_key>\w+)/$', 'confirm_email', name='confirm_email'),
 )
-

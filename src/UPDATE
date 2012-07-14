@@ -1,0 +1,4 @@
+# Run migrations:
+
+$ ./manage.py migrate accounts 0001
+$ ./manage.py migrate accounts
