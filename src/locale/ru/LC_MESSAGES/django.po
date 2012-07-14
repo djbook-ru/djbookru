@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-29 20:29+0400\n"
+"POT-Creation-Date: 2012-07-14 15:50+0400\n"
 "PO-Revision-Date: 2012-04-29 20:30+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -104,62 +104,119 @@ msgstr "Дополнительные возможности"
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
 
-#: accounts/forms.py:9 main/forms.py:16
+#: accounts/forms.py:14 main/forms.py:16
 msgid "captcha"
 msgstr "капча"
 
-#: accounts/forms.py:12
+#: accounts/forms.py:22
 msgid "Current password"
 msgstr "Текущий пароль"
 
-#: accounts/forms.py:13
+#: accounts/forms.py:23
+msgid "Ignore if you do not have one yet."
+msgstr ""
+
+#: accounts/forms.py:24
 msgid "New password"
 msgstr "Новый пароль"
 
-#: accounts/forms.py:14
+#: accounts/forms.py:25
 msgid "Confirm new password"
 msgstr "Подтверждение нового пароля"
 
-#: accounts/forms.py:24
+#: accounts/forms.py:36
 msgid "Invalid password."
 msgstr "Неправильный пароль."
 
-#: accounts/forms.py:26
+#: accounts/forms.py:38
 msgid "The two passwords did not match."
 msgstr "Введённые пароли не совпадают."
 
-#: accounts/forms.py:34
+#: accounts/forms.py:46
 msgid "This email is used already."
 msgstr "Данный адрес электронной почты уже используется."
 
-#: accounts/models.py:8
+#: accounts/forms.py:68
+msgid ""
+"That e-mail address doesn't have an associated active user account. Are you "
+"sure you've registered and e-mail is confirmed?"
+msgstr ""
+
+#: accounts/forms.py:93
+#, python-format
+msgid "Password reset on %s"
+msgstr ""
+
+#: accounts/models.py:21
 msgid "biography"
 msgstr "биография"
 
-#: accounts/models.py:9
+#: accounts/models.py:22
 msgid "homepage"
 msgstr "домашняя страница"
 
-#: accounts/models.py:14 djangobb_forum/models.py:126
+#: accounts/models.py:23
+msgid "is valid email?"
+msgstr ""
+
+#: accounts/models.py:28 djangobb_forum/models.py:126
 #: djangobb_forum/models.py:181 djangobb_forum/models.py:262
 msgid "User"
 msgstr "Пользователь"
 
-#: accounts/models.py:15
+#: accounts/models.py:29
 msgid "Users"
 msgstr "Пользователи"
 
-#: accounts/views.py:23
-msgid "Account created success!"
+#: accounts/models.py:124
+#, python-format
+msgid "Please confirm your email address for %(site)s"
+msgstr ""
+
+#: accounts/models.py:147
+#, fuzzy
+msgid "e-mail confirmation"
+msgstr "Информация о пользователе"
+
+#: accounts/models.py:148
+#, fuzzy
+msgid "e-mail confirmations"
+msgstr "Информация о пользователе"
+
+#: accounts/views.py:26
+#, fuzzy
+msgid "Account created success! Confirm your email."
 msgstr "Аккаунт успешно создан!"
 
-#: accounts/views.py:25 accounts/views.py:60
+#: accounts/views.py:28 accounts/views.py:63
 msgid "Please correct the error below."
 msgstr "Пожалуйста, исправьте ошибки перечисленные далее."
 
-#: accounts/views.py:58
-msgid "Profile changed success!"
-msgstr "Профайл успешно изменён!"
+#: accounts/views.py:61
+msgid "Profile changed success! Confirm your email if it was changed."
+msgstr ""
+
+#: accounts/views.py:76
+msgid "Confirmation key expired."
+msgstr ""
+
+#: accounts/views.py:78
+msgid "Email is confirmed."
+msgstr ""
+
+#: accounts/views.py:93
+#, python-format
+msgid ""
+"We have sent you confirmation email. New one you can get in %(days)s days"
+msgstr ""
+
+#: accounts/views.py:98
+msgid "Confirmation email is sent."
+msgstr ""
+
+#: accounts/views.py:110
+msgid "Email with instruction how reset password is sent."
+msgstr ""
 
 #: claims/admin.py:14
 msgid "Meta"
@@ -914,6 +971,7 @@ msgid "PM"
 msgstr "PM"
 
 #: djangobb_forum/templates/forum/header.html:26
+#: templates/accounts/password_reset_complete.html:12
 msgid "Log in"
 msgstr "Вход"
 
@@ -1837,8 +1895,8 @@ msgstr "О проекте"
 msgid "Logout"
 msgstr "Выйти"
 
-#: templates/_menu.html:42 templates/openid_consumer/signin.html:10
-#: templates/registration/login.html:16
+#: templates/_menu.html:42 templates/accounts/login.html:16
+#: templates/openid_consumer/signin.html:10
 msgid "Login"
 msgstr "Вход"
 
@@ -1882,8 +1940,43 @@ msgstr "Мы рады получить ваши вопросы, коммента
 msgid "Open in new tab"
 msgstr "Открыть новую вкладку"
 
+#: templates/base.html:98
+msgid "Set your password please"
+msgstr ""
+
+#: templates/base.html:100
+msgid ""
+"\n"
+"                              We are going update authentication system. You "
+"account does not have useable password.\n"
+"                              You should set it or you can lost your account "
+"after next update.\n"
+"                          "
+msgstr ""
+
+#: templates/base.html:109
+msgid "Confirm you email"
+msgstr ""
+
+#: templates/base.html:111
+msgid ""
+"\n"
+"                              You account does not have confirmed email.\n"
+"                              You should edit email if your profile has "
+"incorrect one and confirm it.\n"
+"                          "
+msgstr ""
+
+#: templates/base.html:117
+msgid "Your current email is:"
+msgstr ""
+
+#: templates/base.html:118
+msgid "Send confirmation email"
+msgstr ""
+
 #: templates/accounts/create.html:5 templates/accounts/create.html.py:8
-#: templates/registration/login.html:16
+#: templates/accounts/login.html:16
 msgid "Register"
 msgstr "Регистрация"
 
@@ -1902,6 +1995,86 @@ msgstr "Изменить профиль"
 #: templates/accounts/edit.html:12
 msgid "Edit forum profile"
 msgstr "Изменить профиль форума"
+
+#: templates/accounts/email_confirmation_message.html:1
+#, python-format
+msgid ""
+"\n"
+"<p>You just registred on %(site_name)s.</p>\n"
+"\n"
+"<p>Confirm your email visting link <a href=\"%(activate_url)s\">"
+"%(activate_url)s</a>.</p>\n"
+"\n"
+"<p>If you do not know what happen, just ignore this email.</p>\n"
+"\n"
+"<p>With best regards, %(site_name)s team.</p>\n"
+msgstr ""
+
+#: templates/accounts/email_password_reset.html:3
+msgid "You are going reset password for"
+msgstr ""
+
+#: templates/accounts/login.html:5 templates/accounts/login.html.py:8
+msgid "Authentication"
+msgstr "Аутентификация"
+
+#: templates/accounts/login.html:16
+msgid "or"
+msgstr "или"
+
+#: templates/accounts/login.html:20
+#, fuzzy
+msgid "Forgot password?"
+msgstr "Текущий пароль"
+
+#: templates/accounts/login.html:32 templates/accounts/login.html.py:33
+msgid "Secured Data Transmittion Service"
+msgstr "Сервис безопасной передачи данных"
+
+#: templates/accounts/login.html:42
+msgid "You will be redirected on SSL protected site to enter login/password."
+msgstr "Вы будете перенаправлены на защищённый сайт для ввода логина и пароля."
+
+#: templates/accounts/login.html:52
+msgid "You are authenticated already"
+msgstr "Вы уже аутентифицированы"
+
+#: templates/accounts/password_reset.html:5
+#: templates/accounts/password_reset.html:11
+#: templates/accounts/password_reset_complete.html:5
+#: templates/accounts/password_reset_confirm.html:5
+#, fuzzy
+msgid "Reset password"
+msgstr "Новый пароль"
+
+#: templates/accounts/password_reset.html:18
+#: templates/accounts/password_reset_confirm.html:19
+#: templates/main/feedback.html:20
+msgid "Send"
+msgstr "Отправить"
+
+#: templates/accounts/password_reset_complete.html:8
+msgid "Password reset complete"
+msgstr ""
+
+#: templates/accounts/password_reset_complete.html:10
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr ""
+
+#: templates/accounts/password_reset_confirm.html:12
+#, fuzzy
+msgid "Enter new password"
+msgstr "Подтверждение нового пароля"
+
+#: templates/accounts/password_reset_confirm.html:23
+msgid "Password reset unsuccessful"
+msgstr ""
+
+#: templates/accounts/password_reset_confirm.html:25
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset."
+msgstr ""
 
 #: templates/accounts/profile.html:10
 msgid "Forum profile"
@@ -2012,33 +2185,9 @@ msgstr "Всего пользователей"
 msgid "You can send message to us"
 msgstr "Вы можете отправить нам сообщение"
 
-#: templates/main/feedback.html:20
-msgid "Send"
-msgstr "Отправить"
-
 #: templates/openid_consumer/signin.html:5
 msgid "Sign in with your OpenID"
 msgstr "Вход с помощью OpenID"
-
-#: templates/registration/login.html:5 templates/registration/login.html:8
-msgid "Authentication"
-msgstr "Аутентификация"
-
-#: templates/registration/login.html:16
-msgid "or"
-msgstr "или"
-
-#: templates/registration/login.html:28 templates/registration/login.html:29
-msgid "Secured Data Transmittion Service"
-msgstr "Сервис безопасной передачи данных"
-
-#: templates/registration/login.html:38
-msgid "You will be redirected on SSL protected site to enter login/password."
-msgstr "Вы будете перенаправлены на защищённый сайт для ввода логина и пароля."
-
-#: templates/registration/login.html:48
-msgid "You are authenticated already"
-msgstr "Вы уже аутентифицированы"
 
 #: utils/admin.py:79
 #, python-format
@@ -2069,6 +2218,9 @@ msgstr "видео"
 #: videos/models.py:18
 msgid "videos"
 msgstr "видео"
+
+#~ msgid "Profile changed success!"
+#~ msgstr "Профайл успешно изменён!"
 
 #~ msgid "Return to site"
 #~ msgstr "Вернуться на сайт"

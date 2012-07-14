@@ -93,6 +93,32 @@
                         {% chunk "django-documentation-description" %}
                     </p>
                 </div>
+                {% if user.is_authenticated and not user.has_usable_password %}
+                  <div class="alert alert-error">
+                      <h3><a href="{% url accounts:edit %}">{% trans "Set your password please" %}</a></h3>
+                      <p>
+                          {% blocktrans %}
+                              We are going update authentication system. You account does not have useable password.
+                              You should set it or you can lost your account after next update.
+                          {% endblocktrans %}
+                      </p>
+                  </div>
+                {% endif %}
+                {% if user.is_authenticated and not user.is_valid_email %}
+                  <div class="alert alert-error">
+                      <h3><a href="{% url accounts:edit %}">{% trans "Confirm you email" %}</a></h3>
+                      <p>
+                          {% blocktrans %}
+                              You account does not have confirmed email.
+                              You should edit email if your profile has incorrect one and confirm it.
+                          {% endblocktrans %}
+                      </p>
+                      <p>
+                          {% trans "Your current email is:" %} {{ user.email }}<br>
+                          <strong><a href="{% url accounts:resend_confirmation_email %}">{% trans "Send confirmation email" %}</a></strong>
+                      </p>
+                  </div>
+                {% endif %}
                 {% endblock %}
                 <div class="well content">
                     {% block content %}{% endblock %}

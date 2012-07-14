@@ -1,7 +1,9 @@
 {% load i18n %}{% blocktrans with current_site.name as site_name and user.email as email %}
-You just registred on {{ site_name }}.
+<p>You just registred on {{ site_name }}.</p>
 
-Confirm your email visting link <a href="{{ activate_url }}">{{ activate_url }}</a>.
+<p>Confirm your email visting link <a href="{{ activate_url }}">{{ activate_url }}</a>.</p>
 
-With best regards, {{ site_name }} team.
+<p>If you do not know what happen, just ignore this email.</p>
+
+<p>With best regards, {{ site_name }} team.</p>
 {% endblocktrans %}

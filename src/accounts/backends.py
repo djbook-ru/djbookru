@@ -65,6 +65,9 @@ class OpenIdBackend(object):
 
             user, created = AuthUser.objects.get_or_create(username=nickname.lower(),
                                                            email=email or '')
+            if not user.password:
+                user.set_unusable_password()
+                user.save()
             #create openid association
             assoc = UserAssociation()
             assoc.openid_key = openid_key
@@ -127,6 +130,9 @@ class TwitterBackend(object):
             user.first_name, user.last_name = first_name, last_name
             #user.email = '%s@twitteruser.%s.com'%(userinfo.screen_name, settings.SITE_NAME)
             user.save()
+            if not user.password:
+                user.set_unusable_password()
+                user.save()
             userprofile = TwitterUserProfile(user = user, screen_name = screen_name)
             userprofile.access_token = access_token.key
             userprofile.url = userinfo.url

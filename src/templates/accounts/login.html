@@ -15,6 +15,10 @@
                     <td></td>
                     <td><button type="submit" class="btn">{% trans 'Login' %}</button> {% trans 'or' %} <a href="{% url accounts:create %}">{% trans 'Register' %}</a></td>
                 </tr>
+                <tr>
+                    <td></td>
+                    <td><a href="{% url accounts:password_reset %}">{% trans 'Forgot password?' %}</a></td>
+                </tr>                
             </table>
         </form>
         <a class="twitter login-link" href="{% url socialauth_twitter_login %}?next={{ next }}">&nbsp;</a>
