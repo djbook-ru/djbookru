@@ -10,12 +10,8 @@ class Migration(DataMigration):
     def forwards(self, orm):
         qs = orm.User.objects.all()
         for obj in qs:
-            if not obj.email:
-                obj.email = '%s.%s@example.org' % (obj.username, obj.pk)
-                obj.save()
-            while qs.exclude(pk=obj.pk).filter(email=obj.email).exists():
-                obj.email = 'dj%s' % obj.email
-                obj.save()
+            obj.email = '%s.%s@example.org' % (obj.username, obj.pk)
+            obj.save()
 
     def backwards(self, orm):
         "Write your backwards methods here."
