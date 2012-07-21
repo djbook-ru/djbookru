@@ -56,14 +56,15 @@ class OpenIdBackend(object):
                 if email:
                     nickname = email.split('@')[0]
                 else:
-                    nickname =  ''.join([random.choice('abcdefghijklmnopqrstuvwxyz') for i in xrange(10)])
-            if email is None :
+                    nickname = ''.join([random.choice('abcdefghijklmnopqrstuvwxyz') for i in xrange(10)])
+            if email is None:
                 valid_username = False
-                email =  None #'%s@example.openid.com'%(nickname)
+                email = None  # '%s@example.openid.com'%(nickname)
             else:
                 valid_username = True
 
-            user, created = AuthUser.objects.get_or_create(username=nickname.lower(),
+            num = AuthUser.objects.filter(username=nickname.lower()).count()
+            user, created = AuthUser.objects.get_or_create(username='%s%s' % (nickname.lower(), num),
                                                            email=email or '')
             if not user.password:
                 user.set_unusable_password()
@@ -71,7 +72,7 @@ class OpenIdBackend(object):
             #create openid association
             assoc = UserAssociation()
             assoc.openid_key = openid_key
-            assoc.user = user#AuthUser.objects.get(pk=user.pk)
+            assoc.user = user  # AuthUser.objects.get(pk=user.pk)
             if email:
                 assoc.email = email
             if nickname:
@@ -81,13 +82,13 @@ class OpenIdBackend(object):
             assoc.save()
 
             #Create AuthMeta
-            auth_meta = AuthMeta(user = user, provider = provider)
+            auth_meta = AuthMeta(user=user, provider=provider)
             auth_meta.save()
             return user
 
     def get_user(self, user_id):
         try:
-            user = User.objects.get(pk = user_id)
+            user = User.objects.get(pk=user_id)
             return user
         except User.DoesNotExist:
             return None
