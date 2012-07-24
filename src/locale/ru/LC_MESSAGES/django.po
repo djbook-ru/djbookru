@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-14 15:50+0400\n"
-"PO-Revision-Date: 2012-04-29 20:30+0400\n"
+"POT-Creation-Date: 2012-07-24 11:36+0400\n"
+"PO-Revision-Date: 2012-07-24 11:51+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -104,7 +104,7 @@ msgstr "Дополнительные возможности"
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
 
-#: accounts/forms.py:14 main/forms.py:16
+#: accounts/forms.py:14 main/forms.py:17
 msgid "captcha"
 msgstr "капча"
 
@@ -114,7 +114,7 @@ msgstr "Текущий пароль"
 
 #: accounts/forms.py:23
 msgid "Ignore if you do not have one yet."
-msgstr ""
+msgstr "Игнорируйте, если этого ещё нет."
 
 #: accounts/forms.py:24
 msgid "New password"
@@ -141,11 +141,13 @@ msgid ""
 "That e-mail address doesn't have an associated active user account. Are you "
 "sure you've registered and e-mail is confirmed?"
 msgstr ""
+"Эта почта не привязана к активному аккаунту. Вы уверены, что вы у нас "
+"зарегистрированы и ввели адрес почты правильно?"
 
 #: accounts/forms.py:93
 #, python-format
 msgid "Password reset on %s"
-msgstr ""
+msgstr "Сброшен пароль для %s"
 
 #: accounts/models.py:21
 msgid "biography"
@@ -157,7 +159,7 @@ msgstr "домашняя страница"
 
 #: accounts/models.py:23
 msgid "is valid email?"
-msgstr ""
+msgstr "почта верна?"
 
 #: accounts/models.py:28 djangobb_forum/models.py:126
 #: djangobb_forum/models.py:181 djangobb_forum/models.py:262
@@ -171,22 +173,19 @@ msgstr "Пользователи"
 #: accounts/models.py:124
 #, python-format
 msgid "Please confirm your email address for %(site)s"
-msgstr ""
+msgstr "Пожалуйста, подтвердите адрес вашей электронной почты для %(site)s"
 
 #: accounts/models.py:147
-#, fuzzy
 msgid "e-mail confirmation"
-msgstr "Информация о пользователе"
+msgstr "подтверждение почты"
 
 #: accounts/models.py:148
-#, fuzzy
 msgid "e-mail confirmations"
-msgstr "Информация о пользователе"
+msgstr "подтверждения почты"
 
 #: accounts/views.py:26
-#, fuzzy
 msgid "Account created success! Confirm your email."
-msgstr "Аккаунт успешно создан!"
+msgstr "Аккаунт успешно создан! Подтвердите свою почту."
 
 #: accounts/views.py:28 accounts/views.py:63
 msgid "Please correct the error below."
@@ -194,29 +193,35 @@ msgstr "Пожалуйста, исправьте ошибки перечисле
 
 #: accounts/views.py:61
 msgid "Profile changed success! Confirm your email if it was changed."
-msgstr ""
+msgstr "Профиль успешно изменён! Подтвердите адрес вашей электронной почты."
 
 #: accounts/views.py:76
 msgid "Confirmation key expired."
-msgstr ""
+msgstr "Ключ подтверждения почты просрочен."
 
 #: accounts/views.py:78
 msgid "Email is confirmed."
-msgstr ""
+msgstr "Адрес электронной почты подтверждён."
 
-#: accounts/views.py:93
+#: accounts/views.py:92
+msgid "Your email is already comfirmed."
+msgstr "Данный адрес электронной почты уже используется."
+
+#: accounts/views.py:96
 #, python-format
 msgid ""
 "We have sent you confirmation email. New one you can get in %(days)s days"
 msgstr ""
+"Мы отправили вам письмо для подтверждения адреса электронной почты. "
+"Следующий запрос вы сможете сделать через  %(days)s дня."
 
-#: accounts/views.py:98
+#: accounts/views.py:101
 msgid "Confirmation email is sent."
-msgstr ""
+msgstr "Отправлено письмо для подтверждения адреса электронной почты."
 
-#: accounts/views.py:110
+#: accounts/views.py:113
 msgid "Email with instruction how reset password is sent."
-msgstr ""
+msgstr "Выслано письмо с инструкцией для сброса вашего пароля."
 
 #: claims/admin.py:14
 msgid "Meta"
@@ -226,7 +231,7 @@ msgstr "Мета"
 msgid "Error"
 msgstr "Ошибка"
 
-#: claims/admin.py:18 comments/forms.py:10 comments/models.py:22
+#: claims/admin.py:18 comments/forms.py:10 comments/models.py:23
 msgid "Comment"
 msgstr "Комментарий"
 
@@ -329,27 +334,27 @@ msgstr ""
 msgid "You car reply only comments for same object"
 msgstr "Отвечать можно только на комментарии с этой страници"
 
-#: comments/models.py:13
+#: comments/models.py:14
 msgid "object ID"
 msgstr "Идентификатор объекта"
 
-#: comments/models.py:15
+#: comments/models.py:16
 msgid "user"
 msgstr "пользователь"
 
-#: comments/models.py:16 templates/comments/_item.html:35
+#: comments/models.py:17 templates/comments/_item.html:35
 msgid "reply to"
 msgstr "ответить"
 
-#: comments/models.py:17
+#: comments/models.py:18
 msgid "comment"
 msgstr "комментарий"
 
-#: comments/models.py:18
+#: comments/models.py:19
 msgid "submit date"
 msgstr "дата отправки"
 
-#: comments/models.py:23 templates/news/_last_news.html:9
+#: comments/models.py:24 templates/news/_last_news.html:9
 msgid "Comments"
 msgstr "Комментарии"
 
@@ -1124,7 +1129,7 @@ msgstr "Выбрать место для перемещения"
 msgid "Move to"
 msgstr "Перестить"
 
-#: djangobb_forum/templates/forum/pagination.html:3 main/models.py:40
+#: djangobb_forum/templates/forum/pagination.html:3 main/models.py:43
 msgid "Pages"
 msgstr "Страницы"
 
@@ -1735,7 +1740,7 @@ msgstr ""
 "\n"
 "Пожалуйста, проверьте и подтвердите его. URL: %(link)s"
 
-#: examples/models.py:9 main/models.py:7 main/models.py:29
+#: examples/models.py:9 main/models.py:7 main/models.py:32
 msgid "name"
 msgstr "имя"
 
@@ -1743,11 +1748,11 @@ msgstr "имя"
 msgid "category"
 msgstr "категория"
 
-#: examples/models.py:33 news/models.py:6 videos/models.py:9
+#: examples/models.py:33 news/models.py:7 videos/models.py:8
 msgid "title"
 msgstr "тема"
 
-#: examples/models.py:34 main/models.py:31 news/models.py:7
+#: examples/models.py:34 main/models.py:34 news/models.py:8
 msgid "content"
 msgstr "содержимое"
 
@@ -1759,7 +1764,7 @@ msgstr ""
 "Используйте <a target=\"blank\" href=\"http://daringfireball.net/projects/"
 "markdown/syntax\">Markdown</a> и HTML"
 
-#: examples/models.py:35 main/models.py:8 news/models.py:8 videos/models.py:13
+#: examples/models.py:35 main/models.py:8 news/models.py:9 videos/models.py:12
 msgid "created"
 msgstr "создано"
 
@@ -1792,7 +1797,7 @@ msgstr "Пример"
 msgid "Examples"
 msgstr "Примеры"
 
-#: examples/views.py:28
+#: examples/views.py:30
 msgid ""
 "The recipe has been added successfully and will be reviewed as soon as "
 "possible."
@@ -1800,19 +1805,19 @@ msgstr ""
 "Рецепт был добавлен успешно и будет проверен, как только появится "
 "возможность."
 
-#: main/forms.py:13
+#: main/forms.py:14
 msgid "email"
 msgstr "е-почта"
 
-#: main/forms.py:14
+#: main/forms.py:15
 msgid "message"
 msgstr "сообщение"
 
-#: main/forms.py:31
+#: main/forms.py:33
 msgid "archive"
 msgstr "архив"
 
-#: main/forms.py:47
+#: main/forms.py:49
 msgid "This should be zip archive"
 msgstr "Хочу zip архив"
 
@@ -1828,23 +1833,23 @@ msgstr "Оглавление"
 msgid "Books"
 msgstr "Книги"
 
-#: main/models.py:30
+#: main/models.py:33
 msgid "slug"
 msgstr "метка"
 
-#: main/models.py:32 templates/_menu.html:17
+#: main/models.py:35 templates/_menu.html:17
 msgid "book"
 msgstr "книга"
 
-#: main/models.py:33
+#: main/models.py:36
 msgid "chapter"
 msgstr "глава"
 
-#: main/models.py:34
+#: main/models.py:37
 msgid "section"
 msgstr "раздел"
 
-#: main/models.py:39
+#: main/models.py:42
 msgid "Page"
 msgstr "Страница"
 
@@ -1860,11 +1865,11 @@ msgstr "Russian DjangoBook"
 msgid "The freshest news about Russian version of DjangoBook"
 msgstr "Последние новости с Russian DjangoBook"
 
-#: news/models.py:7
+#: news/models.py:8
 msgid "Use Markdown and HTML"
 msgstr "Иcпользуйте Markdown или HTML"
 
-#: news/models.py:13 news/models.py:14 templates/_menu.html:18
+#: news/models.py:14 news/models.py:15 templates/_menu.html:18
 #: templates/news/index.html:5 templates/news/news.html:5
 msgid "News"
 msgstr "Новости"
@@ -1942,7 +1947,7 @@ msgstr "Открыть новую вкладку"
 
 #: templates/base.html:98
 msgid "Set your password please"
-msgstr ""
+msgstr "Установите ваш пароль, пожалуйста."
 
 #: templates/base.html:100
 msgid ""
@@ -1953,10 +1958,15 @@ msgid ""
 "after next update.\n"
 "                          "
 msgstr ""
+"\n"
+"Мы обновляем систему аутентификации. Вам следует сменить пароль для вашего "
+"аккаунта.\n"
+"Вы должны установить пароль, в противном случае вы потеряете ваш аккаунт "
+"после следующего обновления сайта."
 
 #: templates/base.html:109
 msgid "Confirm you email"
-msgstr ""
+msgstr "Подтвердите адрес вашей электронной почты"
 
 #: templates/base.html:111
 msgid ""
@@ -1966,14 +1976,17 @@ msgid ""
 "incorrect one and confirm it.\n"
 "                          "
 msgstr ""
+"\n"
+"Ваш аккаунт использует неподтверждённый адрес электронной почты.\n"
+"Вы должны ввести правильный адрес электронной почты и подтвердить его."
 
 #: templates/base.html:117
 msgid "Your current email is:"
-msgstr ""
+msgstr "Текущий адрес электронной почты:"
 
 #: templates/base.html:118
 msgid "Send confirmation email"
-msgstr ""
+msgstr "Отправить письмо для подтверждение адреса электронной почты"
 
 #: templates/accounts/create.html:5 templates/accounts/create.html.py:8
 #: templates/accounts/login.html:16
@@ -2009,10 +2022,20 @@ msgid ""
 "\n"
 "<p>With best regards, %(site_name)s team.</p>\n"
 msgstr ""
+"\n"
+"<p>You just registred on %(site_name)s.</p>\n"
+"\n"
+"<p>Confirm your email visting link <a href=\"%(activate_url)s\">"
+"%(activate_url)s</a>.</p>\n"
+"\n"
+"<p>Если вы не понимаете, что происходит, просто проигнорируйте это письмо.</"
+"p>\n"
+"\n"
+"<p>С наилучшими пожеланиями, команда %(site_name)s.</p>\n"
 
 #: templates/accounts/email_password_reset.html:3
 msgid "You are going reset password for"
-msgstr ""
+msgstr "Вы сбрасываете пароль для"
 
 #: templates/accounts/login.html:5 templates/accounts/login.html.py:8
 msgid "Authentication"
@@ -2023,9 +2046,8 @@ msgid "or"
 msgstr "или"
 
 #: templates/accounts/login.html:20
-#, fuzzy
 msgid "Forgot password?"
-msgstr "Текущий пароль"
+msgstr "Забыли пароль?"
 
 #: templates/accounts/login.html:32 templates/accounts/login.html.py:33
 msgid "Secured Data Transmittion Service"
@@ -2043,9 +2065,8 @@ msgstr "Вы уже аутентифицированы"
 #: templates/accounts/password_reset.html:11
 #: templates/accounts/password_reset_complete.html:5
 #: templates/accounts/password_reset_confirm.html:5
-#, fuzzy
 msgid "Reset password"
-msgstr "Новый пароль"
+msgstr "Сброс пароля"
 
 #: templates/accounts/password_reset.html:18
 #: templates/accounts/password_reset_confirm.html:19
@@ -2055,26 +2076,27 @@ msgstr "Отправить"
 
 #: templates/accounts/password_reset_complete.html:8
 msgid "Password reset complete"
-msgstr ""
+msgstr "Сброс пароля завершён"
 
 #: templates/accounts/password_reset_complete.html:10
 msgid "Your password has been set.  You may go ahead and log in now."
-msgstr ""
+msgstr "Ваш пароль установлен. Вы можете войти на сайт."
 
 #: templates/accounts/password_reset_confirm.html:12
-#, fuzzy
 msgid "Enter new password"
-msgstr "Подтверждение нового пароля"
+msgstr "Введите новый пароль"
 
 #: templates/accounts/password_reset_confirm.html:23
 msgid "Password reset unsuccessful"
-msgstr ""
+msgstr "Сброс пароля не прошёл"
 
 #: templates/accounts/password_reset_confirm.html:25
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used. Please request a new password reset."
 msgstr ""
+"Ссылка для сброса пароля неверна, возможно, потому что она уже была "
+"использована. Пожалуйста, запросите ссылку ещё раз."
 
 #: templates/accounts/profile.html:10
 msgid "Forum profile"
@@ -2105,6 +2127,9 @@ msgid ""
 "Pay attention! This post is not approved and can be from users. It can "
 "contain XSS in content, so use 'View on site' carefully."
 msgstr ""
+"Обратите внимание! Это сообщение не подтверждено и может идти от "
+"пользователей. Оно может содержать XSS, т.е. используйте \"Посмотреть на "
+"сайте\" аккуратно."
 
 #: templates/claims/_claims_statistic.html:5
 msgid "Processed"
@@ -2192,7 +2217,7 @@ msgstr "Вход с помощью OpenID"
 #: utils/admin.py:79
 #, python-format
 msgid "%(name)s object with primary key %(key)r does not exist."
-msgstr ""
+msgstr "объект %(name)s с первичным ключом %(key)r не существует."
 
 #: utils/admin.py:144
 #, python-format
@@ -2203,19 +2228,19 @@ msgstr "Изменить %s"
 msgid "Incorrect video URL"
 msgstr "Неправильный URL видео"
 
-#: videos/models.py:10
+#: videos/models.py:9
 msgid "video URL"
 msgstr "URL видео"
 
-#: videos/models.py:12
+#: videos/models.py:11
 msgid "tags"
 msgstr "таги"
 
-#: videos/models.py:17
+#: videos/models.py:16
 msgid "video"
 msgstr "видео"
 
-#: videos/models.py:18
+#: videos/models.py:17
 msgid "videos"
 msgstr "видео"
 
