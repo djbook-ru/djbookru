@@ -192,7 +192,7 @@
                     params="${basedir}/${cumulative_config}"/>
 
     <if>
-      <equals arg1="${db_engine}" arg2="django.db.backends.mysql"/>
+      <equals arg1="${db_engine}" arg2="mysql"/>
       <then>
         <parse_template src="${basedir}/tpls/db_mysql_create.template"
                         dst="${basedir}/conf/db_mysql_create.sql"
