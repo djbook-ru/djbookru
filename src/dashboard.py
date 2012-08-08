@@ -1,111 +1,103 @@
+# -*- coding: utf-8 -*-
+# (c) 2012 Dmitry Kostochko <alerion.um@gmail.com>
+# (c) 2012 Ruslan Popov <ruslan.popov@gmail.com>
+
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
-from admin_tools.dashboard import modules, Dashboard, AppIndexDashboard
-from django.conf import settings
 
-# to activate your index dashboard add the following to your settings.py:
-#
-# ADMIN_TOOLS_INDEX_DASHBOARD = 'src.dashboard.CustomIndexDashboard'
-OFFLINE = getattr(settings, 'OFFLINE', False)
+from admin_tools.dashboard import modules, Dashboard, AppIndexDashboard
+from admin_tools.utils import get_admin_site_name
+
 
 class CustomIndexDashboard(Dashboard):
     """
     Custom index dashboard for src.
     """
-    def __init__(self, **kwargs):
-        Dashboard.__init__(self, **kwargs)
-
-        # append an app list module for "Administration"
-        self.children.append(modules.AppList(
-            title=_('Administration'),
-            include_list=('django.contrib',),
-            css_classes=['collapse', 'open'],
-        ))
-        
-        # append an app list module for "Applications"
-        self.children.append(modules.AppList(
-            title=_('Applications'),
-            exclude_list=('django.contrib',),
-            css_classes=['collapse', 'open'],
-        ))
-
-        #append a link list module for "quick links"
-        self.children.append(modules.LinkList(
-            column=2,
-            title=_('Quick links'),
-            layout='inline',
-            draggable=False,
-            deletable=False,
-            collapsible=False,
-            children=[
-                {
-                    'title': _('Filebrowser'),
-                    'url': reverse('fb_browse'),
-                },                      
-                {
-                    'title': _('Return to site'),
-                    'url': '/',
-                },
-                {
-                    'title': _('Markdown: Syntax'),
-                    'url': 'http://daringfireball.net/projects/markdown/syntax',                
-                },
-                {
-                    'title': _('Change password'),
-                    'url': reverse('admin:password_change'),
-                },
-                {
-                    'title': _('Logout'),
-                    'url': reverse('admin:logout')
-                },
-            ]
-        ))
-        
-        if not OFFLINE:
-            # append a feed module
-            self.children.append(modules.Feed(
-                column=2,
-                title=_('Latest Django News'),
-                feed_url='http://www.djangoproject.com/rss/weblog/',
-                limit=5
-            ))
-
     def init_with_context(self, context):
-        """
-        Use this method if you need to access the request context.
-        """
-        pass
+        site_name = get_admin_site_name(context)
 
+        self.children.append(
+            modules.LinkList(
+                _(u'Quick Links'),
+                layout='inline',
+                draggable=False,
+                deletable=False,
+                collapsable=False,
+                children=[
+                    (_(u'Go to Site'), reverse('main:index')),
+                    [_('Change password'), reverse('%s:password_change' % site_name)],
+                    [_('Log out'), reverse('%s:logout' % site_name)],
+                ]))
 
-# to activate your app index dashboard add the following to your settings.py:
-#
-# ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'src.dashboard.CustomAppIndexDashboard'
+        self.children.append(
+            modules.Group(
+                _(u'Administration'),
+                children=[
+                modules.ModelList(_(u'Credentials'), [
+                    'accounts.models.User',
+                    'django.contrib.auth.models.Group',
+                    ]),
+                modules.AppList(_(u'Control'), models=(
+                    'google_analytics.*', 'django.contrib.*',
+
+                    ))
+                ]))
+
+        self.children.append(
+            modules.Group(
+                _(u'Applications'),
+                children=[
+                modules.ModelList(_(u'Content'), [
+                    'news.models.News',
+                    'claims.models.Claims',
+                    'django.contrib.comments.models.Comment',
+                    'videos.models.Video',
+                    ]),
+                modules.ModelList(_(u'Book'), [
+                    'main.models.Book',
+                    'main.models.Page',
+                    ]),
+                modules.ModelList(_(u'Receipts'), [
+                    'examples.models.Example',
+                    'examples.models.Category',
+                    ]),
+                modules.ModelList(_(u'Advertisment'), [
+                    'adzone.models.Advertiser',
+                    'adzone.models.AdCategory',
+                    'adzone.models.AdZone',
+                    'adzone.models.TextAd',
+                    'adzone.models.BannerAd',
+                    'adzone.models.AdClick',
+                    'adzone.models.Impression',
+                    ])
+                ]))
+
+        self.children.append(modules.RecentActions(_('Recent Actions'), 15))
+
 
 class CustomAppIndexDashboard(AppIndexDashboard):
     """
     Custom app index dashboard for src.
     """
+
+    # we disable title because its redundant with the model list module
+    title = ''
+
     def __init__(self, *args, **kwargs):
         AppIndexDashboard.__init__(self, *args, **kwargs)
 
-        # we disable title because its redundant with the model list module
-        self.title = ''
-
-        # append a model list module
-        self.children.append(modules.ModelList(
-            title=self.app_title,
-            models=self.models,
-        ))
-
-        # append a recent actions module
-        self.children.append(modules.RecentActions(
-            column=2,
-            title=_('Recent Actions'),
-            include_list=self.get_app_content_types(),
-        ))
+        # append a model list module and a recent actions module
+        self.children += [
+            modules.ModelList(self.app_title, self.models),
+            modules.RecentActions(
+                _('Recent Actions'),
+                include_list=self.get_app_content_types(),
+                limit=5
+            )
+        ]
 
     def init_with_context(self, context):
         """
         Use this method if you need to access the request context.
         """
-        pass
+        return super(CustomAppIndexDashboard, self).init_with_context(context)

@@ -1,4 +1,4 @@
-{% load i18n analytics adzone_tags news_tags components comments_tags %}
+{% load i18n analytics adzone_tags news_tags components comments_tags chunks %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lang="ru">
     <head>
@@ -21,14 +21,12 @@
         <link rel="shortcut icon" href="{{ MEDIA_URL }}img/favicon.png"/>
         <link rel="stylesheet" href="{{ MEDIA_URL }}bootstrap/css/bootstrap.min.css" type="text/css"/>
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/base.css" type="text/css"/>
-        <link rel="stylesheet" href="{{ MEDIA_URL }}css/djbook/jquery-ui-1.8.4.custom.css" type="text/css"/>
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/github.min.css">
 
         {% if not settings.DEBUG %}{% analytics_async "UA-3919032-6" %}{% endif %}
         <script type="text/javascript" src="{% url js_i18n_catalog %}"></script>
         <script src="{{ MEDIA_URL }}js/jquery-1.7.1.min.js"></script>
         <script src="{{ MEDIA_URL }}bootstrap/js/bootstrap.min.js"></script>
-        <script src="{{ MEDIA_URL }}js/jquery-ui-1.8.4.custom.min.js"></script>
         <script src="{{ MEDIA_URL }}js/jquery.form.js"></script>
         <script src="{{ MEDIA_URL }}js/jquery-spelling.js"></script>
         <script src="{{ MEDIA_URL }}js/highlight.min.js"></script>
@@ -80,13 +78,48 @@
             </div>
             <div class="center-column">
                 {% if messages %}
-                    <ul class="messages">
-                        {% for message in messages %}
-                        <li class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</li>
-                        {% endfor %}
-                    </ul>
+                    {% for message in messages %}
+                    <div class="alert message {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                      {{ message }}
+                      <a class="close" data-dismiss="alert" href="#">&times;</a>
+                    </div>
+                    {% endfor %}
                 {% endif %}
                 {% random_zone_ad 'buy_me' 'header' %}
+                {% block pre_content %}
+                <div class="well content" style="background-color: #c0db8a">
+                    <h3><a href="{{ DJANGO_DOCUMENTATION_URL }}">Документация Django на русском</a></h3>
+                    <p>
+                        {% chunk "django-documentation-description" %}
+                    </p>
+                </div>
+                {% if user.is_authenticated and not user.has_usable_password %}
+                  <div class="alert alert-error">
+                      <h3><a href="{% url accounts:edit %}">{% trans "Set your password please" %}</a></h3>
+                      <p>
+                          {% blocktrans %}
+                              We are going update authentication system. You account does not have useable password.
+                              You should set it or you can lost your account after next update.
+                          {% endblocktrans %}
+                      </p>
+                  </div>
+                {% endif %}
+                {% if user.is_authenticated and not user.is_valid_email %}
+                  <div class="alert alert-error">
+                      <h3><a href="{% url accounts:edit %}">{% trans "Confirm you email" %}</a></h3>
+                      <p>
+                          {% blocktrans %}
+                              You account does not have confirmed email.
+                              You should edit email if your profile has incorrect one and confirm it.
+                          {% endblocktrans %}
+                      </p>
+                      <p>
+                          {% trans "Your current email is:" %} {{ user.email }}<br>
+                          <strong><a href="{% url accounts:resend_confirmation_email %}">{% trans "Send confirmation email" %}</a></strong>
+                      </p>
+                  </div>
+                {% endif %}
+                {% endblock %}
                 <div class="well content">
                     {% block content %}{% endblock %}
                 </div>

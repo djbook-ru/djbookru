@@ -3,7 +3,7 @@ from examples.models import Example
 from django.core.mail import mail_managers
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.sites.models import Site
-from django.utils.html import escape
+
 
 class AddExampleForm(forms.ModelForm):
 

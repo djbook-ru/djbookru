@@ -6,8 +6,9 @@ from django.utils.text import capfirst
 from django.core.urlresolvers import reverse
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext_lazy as _
+from django.utils.itercompat import is_iterable
 
-from admin_tools.utils import AppListElementMixin, get_admin_site_name
+from admin_tools.utils import AppListElementMixin, uniquify
 
 
 class DashboardModule(object):
@@ -59,20 +60,33 @@ class DashboardModule(object):
         The template to use to render the module.
         Default value: 'admin_tools/dashboard/module.html'.
     """
-    def __init__(self, **kwargs):
-        self.enabled = kwargs.get('enabled', True)
-        self.draggable = kwargs.get('draggable', True)
-        self.collapsible = kwargs.get('collapsible', True)
-        self.deletable = kwargs.get('deletable', True)
-        self.show_title = kwargs.get('show_title', True)
-        self.title = kwargs.get('title', '')
-        self.title_url = kwargs.get('title_url', None)
-        self.css_classes = kwargs.get('css_classes', [])
-        self.pre_content = kwargs.get('pre_content')
-        self.post_content = kwargs.get('post_content')
-        self.template = kwargs.get('template', 'admin_tools/dashboard/module.html')
-        self.children = kwargs.get('children', [])
-        self.column = kwargs.get('column', 1)
+
+    template = 'admin_tools/dashboard/module.html'
+    enabled = True
+    draggable = True
+    collapsible = True
+    deletable = True
+    show_title = True
+    title = ''
+    title_url = None
+    css_classes = None
+    pre_content = None
+    post_content = None
+    children = None
+    id = None
+
+    def __init__(self, title=None, **kwargs):
+        if title is not None:
+            self.title = title
+
+        for key in kwargs:
+            if hasattr(self.__class__, key):
+                setattr(self, key, kwargs[key])
+
+        self.children = self.children or []
+        self.css_classes = self.css_classes or []
+        # boolean flag to ensure that the module is initialized only once
+        self._initialized = False
 
     def init_with_context(self, context):
         """
@@ -87,8 +101,9 @@ class DashboardModule(object):
             from admin_tools.dashboard import modules
 
             class HistoryDashboardModule(modules.LinkList):
+                title = 'History'
+
                 def init_with_context(self, context):
-                    self.title = 'History'
                     request = context['request']
                     # we use sessions to store the visited pages stack
                     history = request.session.get('history', [])
@@ -160,6 +175,9 @@ class DashboardModule(object):
         ret += self.css_classes
         return ' '.join(ret)
 
+    def _prepare_children(self):
+        pass
+
 
 class Group(DashboardModule):
     """
@@ -167,14 +185,21 @@ class Group(DashboardModule):
     accordion, or just stacked (default).
     As well as the :class:`~admin_tools.dashboard.modules.DashboardModule`
     properties, the :class:`~admin_tools.dashboard.modules.Group`
-    has one extra property:
+    has two extra properties:
 
     ``display``
         A string determining how the group should be rendered, this can be one
         of the following values: 'tabs' (default), 'accordion' or 'stacked'.
 
+    ``force_show_title``
+        Default behaviour for Group module is to force children to always show
+        the title if Group has ``display`` = ``stacked``. If this flag is set
+        to ``False``, children title is shown according to their``show_title``
+        property. Note that in this case is children responsibility to have
+        meaningful content if no title is shown.
+
     Here's an example of modules group::
-        
+
         from admin_tools.dashboard import modules, Dashboard
 
         class MyDashboard(Dashboard):
@@ -186,11 +211,11 @@ class Group(DashboardModule):
                     children=[
                         modules.AppList(
                             title='Administration',
-                            include_list=('django.contrib',)
+                            models=('django.contrib.*',)
                         ),
                         modules.AppList(
                             title='Applications',
-                            exclude_list=('django.contrib',)
+                            exclude=('django.contrib.*',)
                         )
                     ]
                 ))
@@ -200,20 +225,58 @@ class Group(DashboardModule):
     .. image:: images/dashboard_module_group.png
     """
 
-    def __init__(self, **kwargs):
-        super(Group, self).__init__(**kwargs)
-        self.template = kwargs.get('template',
-                                   'admin_tools/dashboard/modules/group.html')
-        self.display = kwargs.get('display', 'tabs')
-        
+    force_show_title = True
+    template = 'admin_tools/dashboard/modules/group.html'
+    display = 'tabs'
+
     def init_with_context(self, context):
+        if self._initialized:
+            return
         for module in self.children:
-            # to simplify the whole stuff, modules have some limitations, 
+            # to simplify the whole stuff, modules have some limitations,
             # they cannot be dragged, collapsed or closed
             module.collapsible = False
             module.draggable = False
             module.deletable = False
-            module.show_title = (self.display == 'stacked')
+            if self.force_show_title:
+                module.show_title = (self.display == 'stacked')
+            module.init_with_context(context)
+        self._initialized = True
+
+    def is_empty(self):
+        """
+        A group of modules is considered empty if it has no children or if
+        all its children are empty.
+
+        >>> from admin_tools.dashboard.modules import DashboardModule, LinkList
+        >>> mod = Group()
+        >>> mod.is_empty()
+        True
+        >>> mod.children.append(DashboardModule())
+        >>> mod.is_empty()
+        True
+        >>> mod.children.append(LinkList('links', children=[
+        ...    {'title': 'example1', 'url': 'http://example.com'},
+        ...    {'title': 'example2', 'url': 'http://example.com'},
+        ... ]))
+        >>> mod.is_empty()
+        False
+        """
+        if super(Group, self).is_empty():
+            return True
+        for child in self.children:
+            if not child.is_empty():
+                return False
+        return True
+
+    def _prepare_children(self):
+        # computes ids for children: generates them if they are not set
+        # and then prepends them with this group's id
+        seen = set()
+        for id, module in enumerate(self.children):
+            proposed_id = "%s_%s" % (self.id, module.id or id+1)
+            module.id = uniquify(proposed_id, seen)
+            module._prepare_children()
 
 
 class LinkList(DashboardModule):
@@ -243,6 +306,8 @@ class LinkList(DashboardModule):
         A string describing the link, it will be the ``title`` attribute of
         the html ``a`` tag.
 
+    Children can also be iterables (lists or tuples) of length 2, 3 or 4.
+
     Here's a small example of building a link list module::
 
         from admin_tools.dashboard import modules, Dashboard
@@ -260,16 +325,8 @@ class LinkList(DashboardModule):
                             'external': True,
                             'description': 'Python programming language rocks !',
                         },
-                        {
-                            'title': 'Django website',
-                            'url': 'http://www.djangoproject.com',
-                            'external': True
-                        },
-                        {
-                            'title': 'Some internal link',
-                            'url': '/some/internal/link/',
-                            'external': False
-                        },
+                        ['Django website', 'http://www.djangoproject.com', True],
+                        ['Some internal link', '/some/internal/link/'],
                     )
                 ))
 
@@ -278,12 +335,26 @@ class LinkList(DashboardModule):
     .. image:: images/linklist_dashboard_module.png
     """
 
-    def __init__(self, **kwargs):
-        super(LinkList, self).__init__(**kwargs)
-        self.title = kwargs.get('title', _('Links'))
-        self.template = kwargs.get('template',
-                                   'admin_tools/dashboard/modules/link_list.html')
-        self.layout = kwargs.get('layout', 'stacked')
+    title = _('Links')
+    template = 'admin_tools/dashboard/modules/link_list.html'
+    layout = 'stacked'
+
+    def init_with_context(self, context):
+        if self._initialized:
+            return
+        new_children = []
+        for link in self.children:
+            if isinstance(link, (tuple, list,)):
+                link_dict = {'title': link[0], 'url': link[1]}
+                if len(link) >= 3:
+                    link_dict['external'] = link[2]
+                if len(link) >= 4:
+                    link_dict['description'] = link[3]
+                new_children.append(link_dict)
+            else:
+                new_children.append(link)
+        self.children = new_children
+        self._initialized = True
 
 
 class AppList(DashboardModule, AppListElementMixin):
@@ -293,17 +364,17 @@ class AppList(DashboardModule, AppListElementMixin):
     properties, the :class:`~admin_tools.dashboard.modules.AppList`
     has two extra properties:
 
-    ``exclude_list``
-        A list of apps to exclude, if an app name (e.g. "django.contrib.auth"
-        starts with an element of this list (e.g. "django.contrib") it won't
-        appear in the dashboard module.
+    ``models``
+        A list of models to include, only models whose name (e.g.
+        "blog.comments.Comment") match one of the strings (e.g. "blog.*")
+        in the models list will appear in the dashboard module.
 
-    ``include_list``
-        A list of apps to include, only apps whose name (e.g.
-        "django.contrib.auth") starts with one of the strings (e.g.
-        "django.contrib") in the list will appear in the dashboard module.
+    ``exclude``
+        A list of models to exclude, if a model name (e.g.
+        "blog.comments.Comment") match an element of this list (e.g.
+        "blog.comments.*") it won't appear in the dashboard module.
 
-    If no include/exclude list is provided, **all apps** are shown.
+    If no models/exclude list is provided, **all apps** are shown.
 
     Here's a small example of building an app list module::
 
@@ -316,12 +387,12 @@ class AppList(DashboardModule, AppListElementMixin):
                 # will only list the django.contrib apps
                 self.children.append(modules.AppList(
                     title='Administration',
-                    include_list=('django.contrib',)
+                    models=('django.contrib.*',)
                 ))
                 # will list all apps except the django.contrib ones
                 self.children.append(modules.AppList(
                     title='Applications',
-                    exclude_list=('django.contrib',)
+                    exclude=('django.contrib.*',)
                 ))
 
     The screenshot of what this code produces:
@@ -335,19 +406,23 @@ class AppList(DashboardModule, AppListElementMixin):
         the django.contrib.auth.Group model line will not be displayed.
     """
 
-    def __init__(self, **kwargs):
-        super(AppList, self).__init__(**kwargs)
-        self.title = kwargs.get('title', _('Applications'))
-        self.template = kwargs.get('template',
-                                   'admin_tools/dashboard/modules/app_list.html')
-        self.include_list = kwargs.get('include_list', [])
-        self.exclude_list = kwargs.get('exclude_list', [])
+    title = _('Applications')
+    template = 'admin_tools/dashboard/modules/app_list.html'
+    models = None
+    exclude = None
+    include_list = None
+    exclude_list = None
 
-        self.models = list(kwargs.get('models', []))
-        self.exclude = list(kwargs.get('exclude', []))
-
+    def __init__(self, title=None, **kwargs):
+        self.models = list(kwargs.pop('models', []))
+        self.exclude = list(kwargs.pop('exclude', []))
+        self.include_list = kwargs.pop('include_list', []) # deprecated
+        self.exclude_list = kwargs.pop('exclude_list', []) # deprecated
+        super(AppList, self).__init__(title, **kwargs)
 
     def init_with_context(self, context):
+        if self._initialized:
+            return
         items = self._visible_models(context['request'])
         apps = {}
         for model, perms in items:
@@ -355,7 +430,7 @@ class AppList(DashboardModule, AppListElementMixin):
             if app_label not in apps:
                 apps[app_label] = {
                     'title': capfirst(app_label.title()),
-                    'url': reverse('%s:app_list' % get_admin_site_name(context), args=(app_label,)),
+                    'url': self._get_admin_app_list_url(model, context),
                     'models': []
                 }
             model_dict = {}
@@ -372,6 +447,7 @@ class AppList(DashboardModule, AppListElementMixin):
             # sort model list alphabetically
             apps[app]['models'].sort(lambda x, y: cmp(x['title'], y['title']))
             self.children.append(apps[app])
+        self._initialized = True
 
 
 class ModelList(DashboardModule, AppListElementMixin):
@@ -379,17 +455,17 @@ class ModelList(DashboardModule, AppListElementMixin):
     Module that lists a set of models.
     As well as the :class:`~admin_tools.dashboard.modules.DashboardModule`
     properties, the :class:`~admin_tools.dashboard.modules.ModelList` takes
-    two extra keyword arguments:
+    two extra arguments:
 
-    ``include_list``
+    ``models``
         A list of models to include, only models whose name (e.g.
-        "blog.comments.Comment") starts with one of the strings (e.g. "blog")
-        in the include list will appear in the dashboard module.
+        "blog.comments.Comment") match one of the strings (e.g. "blog.*")
+        in the models list will appear in the dashboard module.
 
-    ``exclude_list``
+    ``exclude``
         A list of models to exclude, if a model name (e.g.
-        "blog.comments.Comment" starts with an element of this list (e.g.
-        "blog.comments") it won't appear in the dashboard module.
+        "blog.comments.Comment") match an element of this list (e.g.
+        "blog.comments.*") it won't appear in the dashboard module.
 
     Here's a small example of building a model list module::
 
@@ -400,10 +476,9 @@ class ModelList(DashboardModule, AppListElementMixin):
                 Dashboard.__init__(self, **kwargs)
 
                 # will only list the django.contrib.auth models
-                self.children.append(modules.ModelList(
-                    title='Authentication',
-                    include_list=('django.contrib.auth',)
-                ))
+                self.children += [
+                    modules.ModelList('Authentication', ['django.contrib.auth.*',])
+                ]
 
     The screenshot of what this code produces:
 
@@ -416,17 +491,22 @@ class ModelList(DashboardModule, AppListElementMixin):
         the django.contrib.auth.Group model line will not be displayed.
     """
 
-    def __init__(self, **kwargs):
-        super(ModelList, self).__init__(**kwargs)
-        self.title = kwargs.get('title', '')
-        self.template = kwargs.get('template',
-                                   'admin_tools/dashboard/modules/model_list.html')
-        self.include_list = kwargs.get('include_list', [])
-        self.exclude_list = kwargs.get('exclude_list', [])
-        self.models = list(kwargs.get('models', []))
-        self.exclude = list(kwargs.get('exclude', []))
+    template = 'admin_tools/dashboard/modules/model_list.html'
+    models = None
+    exclude = None
+    include_list = None
+    exclude_list = None
+
+    def __init__(self, title=None, models=None, exclude=None, **kwargs):
+        self.models = list(models or [])
+        self.exclude = list(exclude or [])
+        self.include_list = kwargs.pop('include_list', []) # deprecated
+        self.exclude_list = kwargs.pop('exclude_list', []) # deprecated
+        super(ModelList, self).__init__(title, **kwargs)
 
     def init_with_context(self, context):
+        if self._initialized:
+            return
         items = self._visible_models(context['request'])
         if not items:
             return
@@ -438,6 +518,7 @@ class ModelList(DashboardModule, AppListElementMixin):
             if perms['add']:
                 model_dict['add_url'] = self._get_admin_add_url(model, context)
             self.children.append(model_dict)
+        self._initialized = True
 
 
 class RecentActions(DashboardModule):
@@ -478,17 +559,22 @@ class RecentActions(DashboardModule):
 
     .. image:: images/recentactions_dashboard_module.png
     """
+    title = _('Recent Actions')
+    template = 'admin_tools/dashboard/modules/recent_actions.html'
+    limit = 10
+    include_list = None
+    exclude_list = None
 
-    def __init__(self, **kwargs):
-        super(RecentActions, self).__init__(**kwargs)
-        self.title = kwargs.get('title', _('Recent Actions'))
-        self.template = kwargs.get('template',
-                                   'admin_tools/dashboard/modules/recent_actions.html')
-        self.include_list = kwargs.get('include_list', [])
-        self.exclude_list = kwargs.get('exclude_list', [])
-        self.limit = kwargs.get('limit', 10)
+    def __init__(self, title=None, limit=10, include_list=None,
+                 exclude_list=None, **kwargs):
+        self.include_list = include_list or []
+        self.exclude_list = exclude_list or []
+        kwargs.update({'limit': limit})
+        super(RecentActions, self).__init__(title, **kwargs)
 
     def init_with_context(self, context):
+        if self._initialized:
+            return
         from django.db.models import Q
         from django.contrib.admin.models import LogEntry
 
@@ -527,6 +613,7 @@ class RecentActions(DashboardModule):
         self.children = qs.select_related('content_type', 'user')[:self.limit]
         if not len(self.children):
             self.pre_content = _('No recent actions.')
+        self._initialized = True
 
 
 class Feed(DashboardModule):
@@ -570,14 +657,19 @@ class Feed(DashboardModule):
 
     .. image:: images/feed_dashboard_module.png
     """
-    def __init__(self, **kwargs):
-        super(Feed, self).__init__(**kwargs)
-        self.title = kwargs.get('title', _('RSS Feed'))
-        self.template = kwargs.get('template', 'admin_tools/dashboard/modules/feed.html')
-        self.feed_url = kwargs.get('feed_url')
-        self.limit = kwargs.get('limit')
+
+    title = _('RSS Feed')
+    template = 'admin_tools/dashboard/modules/feed.html'
+    feed_url = None
+    limit = None
+
+    def __init__(self, title=None, feed_url=None, limit=None, **kwargs):
+        kwargs.update({'feed_url': feed_url, 'limit': limit})
+        super(Feed, self).__init__(title, **kwargs)
 
     def init_with_context(self, context):
+        if self._initialized:
+            return
         import datetime
         if self.feed_url is None:
             raise ValueError('You must provide a valid feed URL')
@@ -603,3 +695,4 @@ class Feed(DashboardModule):
                 # no date for certain feeds
                 pass
             self.children.append(entry)
+        self._initialized = True

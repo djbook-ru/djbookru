@@ -11,5 +11,6 @@ def custom(request):
         'settings': settings,
         'site': Site.objects.get_current(),
         'securelayer': False,
+        'DJANGO_DOCUMENTATION_URL': settings.DJANGO_DOCUMENTATION_URL
     }
     return context

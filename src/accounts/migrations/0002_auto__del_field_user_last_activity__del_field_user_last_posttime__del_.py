@@ -3,11 +3,13 @@ import datetime
 from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
+from _mysql_exceptions import OperationalError
+
 
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        
+
         # Deleting field 'User.last_activity'
         db.delete_column('accounts_user', 'last_activity')
 
@@ -23,24 +25,36 @@ class Migration(SchemaMigration):
         # Deleting field 'User.posts_count'
         db.delete_column('accounts_user', 'posts_count')
 
-
     def backwards(self, orm):
-        
-        # Adding field 'User.last_activity'
-        db.add_column('accounts_user', 'last_activity', self.gf('django.db.models.fields.DateTimeField')(null=True), keep_default=False)
+        try:
+            # Adding field 'User.last_activity'
+            db.add_column('accounts_user', 'last_activity', self.gf('django.db.models.fields.DateTimeField')(null=True), keep_default=False)
+        except OperationalError:
+            pass
 
-        # Adding field 'User.last_posttime'
-        db.add_column('accounts_user', 'last_posttime', self.gf('django.db.models.fields.DateTimeField')(null=True), keep_default=False)
+        try:
+            # Adding field 'User.last_posttime'
+            db.add_column('accounts_user', 'last_posttime', self.gf('django.db.models.fields.DateTimeField')(null=True), keep_default=False)
+        except OperationalError:
+            pass
 
-        # Adding field 'User.last_session_activity'
-        db.add_column('accounts_user', 'last_session_activity', self.gf('django.db.models.fields.DateTimeField')(null=True), keep_default=False)
+        try:
+            # Adding field 'User.last_session_activity'
+            db.add_column('accounts_user', 'last_session_activity', self.gf('django.db.models.fields.DateTimeField')(null=True), keep_default=False)
+        except OperationalError:
+            pass
 
-        # Adding field 'User.signature'
-        db.add_column('accounts_user', 'signature', self.gf('django.db.models.fields.CharField')(max_length=1000, null=True, blank=True), keep_default=False)
+        try:
+            # Adding field 'User.signature'
+            db.add_column('accounts_user', 'signature', self.gf('django.db.models.fields.CharField')(max_length=1000, null=True, blank=True), keep_default=False)
+        except OperationalError:
+            pass
 
-        # Adding field 'User.posts_count'
-        db.add_column('accounts_user', 'posts_count', self.gf('django.db.models.fields.IntegerField')(default=0), keep_default=False)
-
+        try:
+            # Adding field 'User.posts_count'
+            db.add_column('accounts_user', 'posts_count', self.gf('django.db.models.fields.IntegerField')(default=0), keep_default=False)
+        except OperationalError:
+            pass
 
     models = {
         'accounts.user': {

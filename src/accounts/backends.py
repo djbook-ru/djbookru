@@ -14,6 +14,7 @@ FACEBOOK_API_KEY = getattr(settings, 'FACEBOOK_API_KEY', '')
 FACEBOOK_API_SECRET = getattr(settings, 'FACEBOOK_API_SECRET', '')
 FACEBOOK_REST_SERVER = getattr(settings, 'FACEBOOK_REST_SERVER', 'http://api.facebook.com/restserver.php')
 
+
 class CustomUserBackend(ModelBackend):
 
     def authenticate(self, username=None, password=None):
@@ -30,10 +31,11 @@ class CustomUserBackend(ModelBackend):
         except User.DoesNotExist:
             return None
 
+
 class OpenIdBackend(object):
     def authenticate(self, openid_key, request, provider):
         try:
-            assoc = UserAssociation.objects.get(openid_key = openid_key)
+            assoc = UserAssociation.objects.get(openid_key=openid_key)
             return assoc.user
         except UserAssociation.DoesNotExist:
             #fetch if openid provider provides any simple registration fields
@@ -50,23 +52,27 @@ class OpenIdBackend(object):
                     email = request.openid.ax.get('email')
                     nickname = request.openid.ax.get('nickname')
 
-            if nickname is None :
+            if nickname is None:
                 if email:
                     nickname = email.split('@')[0]
                 else:
-                    nickname =  ''.join([random.choice('abcdefghijklmnopqrstuvwxyz') for i in xrange(10)])
-            if email is None :
+                    nickname = ''.join([random.choice('abcdefghijklmnopqrstuvwxyz') for i in xrange(10)])
+            if email is None:
                 valid_username = False
-                email =  None #'%s@example.openid.com'%(nickname)
+                email = None  # '%s@example.openid.com'%(nickname)
             else:
                 valid_username = True
 
-            user, created = AuthUser.objects.get_or_create(username=nickname.lower(),
+            num = AuthUser.objects.filter(username=nickname.lower()).count()
+            user, created = AuthUser.objects.get_or_create(username='%s%s' % (nickname.lower(), num),
                                                            email=email or '')
+            if not user.password:
+                user.set_unusable_password()
+                user.save()
             #create openid association
             assoc = UserAssociation()
             assoc.openid_key = openid_key
-            assoc.user = user#AuthUser.objects.get(pk=user.pk)
+            assoc.user = user  # AuthUser.objects.get(pk=user.pk)
             if email:
                 assoc.email = email
             if nickname:
@@ -76,13 +82,13 @@ class OpenIdBackend(object):
             assoc.save()
 
             #Create AuthMeta
-            auth_meta = AuthMeta(user = user, provider = provider)
+            auth_meta = AuthMeta(user=user, provider=provider)
             auth_meta.save()
             return user
 
     def get_user(self, user_id):
         try:
-            user = User.objects.get(pk = user_id)
+            user = User.objects.get(pk=user_id)
             return user
         except User.DoesNotExist:
             return None
@@ -125,6 +131,9 @@ class TwitterBackend(object):
             user.first_name, user.last_name = first_name, last_name
             #user.email = '%s@twitteruser.%s.com'%(userinfo.screen_name, settings.SITE_NAME)
             user.save()
+            if not user.password:
+                user.set_unusable_password()
+                user.save()
             userprofile = TwitterUserProfile(user = user, screen_name = screen_name)
             userprofile.access_token = access_token.key
             userprofile.url = userinfo.url

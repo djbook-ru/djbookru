@@ -19,7 +19,10 @@ class Book(models.Model):
 
     @classmethod
     def get(cls):
-        return cls.objects.latest('created')
+        try:
+            return cls.objects.latest('created')
+        except Book.DoesNotExist:
+            return
 
     def get_toc(self):
         return simplejson.loads(self.toc)

@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from models import Comment
 from django.shortcuts import render_to_response
 
+
 @login_required
 def post(request):
     output = dict(success=False)
@@ -15,6 +16,7 @@ def post(request):
     else:
         output['errors'] = form.get_errors()
     return HttpResponse(json.dumps(output), "text/javascript")
+
 
 def update_comments(request):
     last_comment_id = request.POST.get('last_comment_id')
@@ -27,9 +29,9 @@ def update_comments(request):
                 last_comment = Comment.objects.get(pk=last_comment_id)
                 qs = qs.filter(submit_date__gt=last_comment.submit_date)
             except Comment.DoesNotExist:
-                pass        
+                pass
     else:
         qs = Comment.objects.none()
-    return render_to_response('comments/update_comments.html',{
+    return render_to_response('comments/update_comments.html', {
             'qs': qs
         })

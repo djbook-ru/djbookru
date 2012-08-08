@@ -1,23 +1,22 @@
 {% extends 'base.html' %}
 
-{% load i18n thumbnail %}
+{% load i18n thumbnail bootstrap %}
 
 {% block title %}{% trans 'Edit Profile' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
-<form action="." method="post" enctype="multipart/form-data" class="edit-form">
+<form action="." method="post" enctype="multipart/form-data" class="edit-form form-horizontal">
     {% csrf_token %}
     <h3>
         {% trans 'Edit profile' %} / 
         <a href="{% url djangobb:forum_profile user.username %}">{% trans "Edit forum profile" %}</a>
     </h3>
-    <formset>
-    {{ form.non_field_errors }}
-    {{ form.as_p }} 
-    </formset>
-    <p style="text-align:center;">
-        <input type="submit" class="btn" value='{% trans "Save" %}'>
-    </p>
-    <div style="clear: both"></div>
+    {% csrf_token %}
+    <fieldset>
+        {{ form|bootstrap }}
+    </fieldset>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">{% trans "Create" %}</button>
+    </div>
 </form>
 {% endblock %}

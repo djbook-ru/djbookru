@@ -15,7 +15,10 @@ def toc(page):
 
 @register.inclusion_tag('main/_main_page_toc.html')
 def main_page_toc(book):
-    chapters = prepare_toc(book.get_toc())['chapters']
+    if book:
+        chapters = prepare_toc(book.get_toc())['chapters']
+    else:
+        chapters = []
     return {
         'chapters': chapters
     }

@@ -12,20 +12,20 @@ js_info_dict = {
 
 urlpatterns = patterns('',
     (r'^', include('main.urls', 'main')),
+    url(r'^admin_tools/', include('admin_tools.urls')),
     url(r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict, name='js_i18n_catalog'),
     (r'^adzone/', include('adzone.urls')),
     (r'^news/', include('news.urls', 'news')),
+    (r'^videos/', include('videos.urls', 'videos')),
     (r'^claims/', include('claims.urls', 'claims')),
     (r'^examples/', include('examples.urls', 'examples')),
     (r'^auth/', include('accounts.urls', 'accounts')),
     (r'^socialauth/', include('socialauth.urls')),
     (r'^forum/', include('djangobb_forum.urls', 'djangobb')),
-    (r'^docbook_translator/', include('docbook_translator.urls')),
-    (r'^grappelli/', include('grappelli.urls')),
     (r'^admin_tools/', include('admin_tools.urls')),
-    (r'^admin/filebrowser/', include('filebrowser.urls')),
     (r'^admin/', include(admin.site.urls)),
     (r'^comments/', include('comments.urls', 'comments')),
+    (r'^tagging_autocomplete/', include('tagging_autocomplete.urls')),
     url(r'^(?P<path>pics/.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )
 

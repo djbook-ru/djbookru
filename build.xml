@@ -192,7 +192,7 @@
                     params="${basedir}/${cumulative_config}"/>
 
     <if>
-      <equals arg1="${db_engine}" arg2="django.db.backends.mysql"/>
+      <equals arg1="${db_engine}" arg2="mysql"/>
       <then>
         <parse_template src="${basedir}/tpls/db_mysql_create.template"
                         dst="${basedir}/conf/db_mysql_create.sql"
@@ -242,6 +242,7 @@
         <include name="src/**/*"/>
         <exclude name="src/search_index"/>
         <exclude name="src/database.sqlite"/>
+        <exclude name="src/static/rel1.4"/>
         <exclude name="src/**/*.dump"/>
         <exclude name="src/**/*.sh"/>
         <exclude name="src/**/*.bat"/>

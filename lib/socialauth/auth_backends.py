@@ -34,7 +34,7 @@ class CustomUserBackend(ModelBackend):
 class OpenIdBackend:
     def authenticate(self, openid_key, request, provider):
         try:
-            assoc = UserAssociation.objects.get(openid_key = openid_key)
+            assoc = UserAssociation.objects.get(openid_key=openid_key)
             return User.objects.get(pk=assoc.user.pk)
         except (UserAssociation.DoesNotExist, User.DoesNotExist):
             #fetch if openid provider provides any simple registration fields
@@ -46,21 +46,21 @@ class OpenIdBackend:
             elif request.openid and request.openid.ax:
                 email = request.openid.ax.get('email')
                 nickname = request.openid.ax.get('nickname')
-            if nickname is None :
-                nickname =  ''.join([random.choice('abcdefghijklmnopqrstuvwxyz') for i in xrange(10)])
-            if email is None :
+            if nickname is None:
+                nickname = ''.join([random.choice('abcdefghijklmnopqrstuvwxyz') for i in xrange(10)])
+            if email is None:
                 valid_username = False
-                email =  '%s@%s.%s.com'%(nickname, provider, settings.SITE_NAME)
+                email = '%s@%s.%s.com' % (nickname, provider, settings.SITE_NAME)
             else:
-                valid_username = True                
-            name_count = User.objects.filter(username__startswith = nickname).count()
+                valid_username = True
+            name_count = User.objects.filter(username__startswith=nickname).count()
             if name_count:
-                username = '%s%s'%(nickname, name_count + 1)
-                user = User.objects.create_user(username,email)
+                username = '%s%s' % (nickname, name_count + 1)
+                user = User.objects.create_user(username, email)
             else:
-                user = User.objects.create_user(nickname,email)
+                user = User.objects.create_user(nickname, email)
             user.save()
-    
+
             #create openid association
             assoc = UserAssociation()
             assoc.openid_key = openid_key
