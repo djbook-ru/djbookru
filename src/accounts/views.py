@@ -74,6 +74,7 @@ def confirm_email(request, confirmation_key):
 
     if not user:
         messages.error(request, _(u'Confirmation key expired.'))
+        return redirect('/')
     else:
         messages.success(request, _(u'Email is confirmed.'))
 
