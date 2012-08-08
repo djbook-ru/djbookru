@@ -90,7 +90,9 @@ def confirm_email(request, confirmation_key):
 @login_required
 def resend_confirmation_email(request):
     if request.user.is_valid_email:
-        messages.error(request, _(u'Your email is already comfirmed.'))
+        messages.error(request, _(u'Your email is already confirmed.'))
+    elif not request.user.email:
+        messages.error(request, _(u'Add email to your profile.'))
     else:
         EmailConfirmation.objects.delete_expired_confirmations()
         if EmailConfirmation.objects.filter(user=request.user).exists():

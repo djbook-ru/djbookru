@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-24 11:36+0400\n"
-"PO-Revision-Date: 2012-07-24 11:51+0400\n"
+"POT-Creation-Date: 2012-08-08 10:56+0400\n"
+"PO-Revision-Date: 2012-08-08 09:57+0300\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -199,15 +199,19 @@ msgstr "Профиль успешно изменён! Подтвердите а�
 msgid "Confirmation key expired."
 msgstr "Ключ подтверждения почты просрочен."
 
-#: accounts/views.py:78
+#: accounts/views.py:79
 msgid "Email is confirmed."
 msgstr "Адрес электронной почты подтверждён."
 
-#: accounts/views.py:92
-msgid "Your email is already comfirmed."
+#: accounts/views.py:93
+msgid "Your email is already confirmed."
 msgstr "Данный адрес электронной почты уже используется."
 
-#: accounts/views.py:96
+#: accounts/views.py:95
+msgid "Add email to your profile."
+msgstr "Добавьте электронный адрес в свой профиль"
+
+#: accounts/views.py:99
 #, python-format
 msgid ""
 "We have sent you confirmation email. New one you can get in %(days)s days"
@@ -215,11 +219,11 @@ msgstr ""
 "Мы отправили вам письмо для подтверждения адреса электронной почты. "
 "Следующий запрос вы сможете сделать через  %(days)s дня."
 
-#: accounts/views.py:101
+#: accounts/views.py:104
 msgid "Confirmation email is sent."
 msgstr "Отправлено письмо для подтверждения адреса электронной почты."
 
-#: accounts/views.py:113
+#: accounts/views.py:116
 msgid "Email with instruction how reset password is sent."
 msgstr "Выслано письмо с инструкцией для сброса вашего пароля."
 
