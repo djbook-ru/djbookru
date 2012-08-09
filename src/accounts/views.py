@@ -35,9 +35,7 @@ def create(request):
 
 def logout(request):
     from django.contrib.auth import logout
-    from openid_consumer.views import signout as oid_signout
 
-    oid_signout(request)
     logout(request)
     redirect_to = request.REQUEST.get(auth.REDIRECT_FIELD_NAME, LOGOUT_REDIRECT_URL)
     return redirect(redirect_to)
@@ -64,7 +62,7 @@ def edit(request):
     else:
         form = UserEditForm(instance=request.user)
     return {
-        'form': form
+        'form': form,
     }
 
 

@@ -21,9 +21,9 @@
                 </tr>                
             </table>
         </form>
-        <a class="twitter login-link" href="{% url socialauth_twitter_login %}?next={{ next }}">&nbsp;</a>
-        <a class="open-id login-link" href="{% url socialauth_openid_login %}?next={{ next }}">&nbsp;</a>
-        <a class="google login-link" href="{% url socialauth_google_login %}?next={{ next }}">&nbsp;</a>
+        {% for backend in social_auth.backends %}
+          <a class="{{ backend }} login-link" href="{% url socialauth_begin backend %}?next={{ next }}">&nbsp; {{ backend }}</a>
+        {% endfor %}
         <div style="clear: both"></div>
         <p>&nbsp;</p>
 

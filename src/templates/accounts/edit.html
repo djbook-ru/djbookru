@@ -5,6 +5,19 @@
 {% block title %}{% trans 'Edit Profile' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
+<div class="social-accounts">
+    <h3>{% trans "Connect accounts" %}</h3>
+    {% for backend in social_auth.associated %} 
+        <a href="{% url socialauth_disconnect backend.provider %}?next={{ request.path_info|urlencode }}" class="btn btn-success" title="{% trans 'Disconnect account' %}">
+            {{ backend.provider.title }}
+        </a>
+    {% endfor %}
+    {% for backend in social_auth.not_associated %} 
+        <a href="{% url socialauth_begin backend %}?next={{ request.path_info|urlencode }}" class="btn" title="{% trans 'Connect account' %}">
+            {{ backend.title }}
+        </a>
+    {% endfor %}
+</div>
 <form action="." method="post" enctype="multipart/form-data" class="edit-form form-horizontal">
     {% csrf_token %}
     <h3>
