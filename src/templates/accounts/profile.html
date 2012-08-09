@@ -9,7 +9,7 @@
         <h3>
             {{ user_obj.username }}{% if user == user_obj %}<a href="{% url accounts:edit %}" style="font-size: 0.8em">({% trans 'edit' %})</a>
             {% endif %}
-            | <a href="{% url djangobb:forum_profile user.username %}">{% trans "Forum profile" %}</a>      
+            | <a href="{% url djangobb:forum_profile user_obj.username %}">{% trans "Forum profile" %}</a>      
         </h3>
         
         <p>

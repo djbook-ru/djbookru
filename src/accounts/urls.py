@@ -1,7 +1,8 @@
 from django.conf.urls.defaults import *
+from .forms import AuthenticationForm
 
 urlpatterns = patterns('django.contrib.auth.views',
-    url('^login/$', 'login', {'template_name': 'accounts/login.html'}, 'login'),
+    url('^login/$', 'login', {'template_name': 'accounts/login.html', 'authentication_form': AuthenticationForm}, 'login'),
     url(r'^password_reset_complete/$', 'password_reset_complete', {
         'template_name': 'accounts/password_reset_complete.html'
     }, 'password_reset_complete'),
