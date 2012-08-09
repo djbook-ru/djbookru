@@ -362,3 +362,7 @@ form textarea {
 a.btn-success {
     color: #fff;
 }
+
+.alert {
+    margin-bottom: 6px;
+}
