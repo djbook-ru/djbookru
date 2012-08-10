@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import os, sys
+import os, sys, glob
 #from django.utils.translation import ugettext_lazy as _
 
 def rel(*x):
@@ -135,7 +135,6 @@ INSTALLED_APPS = (
     'pagination',
     'socialauth',
     'openid_consumer',
-    'haystack',
     'djangobb_forum',
     'accounts',
     'main',
@@ -153,9 +152,25 @@ INSTALLED_APPS = (
     'bootstrapform'
 )
 
+
+def get_doc_pages(path, ext):
+    for directory, dirnames, filenames in os.walk(path):
+        for item in glob.glob('%s/*.%s' % (directory, ext)):
+            yield item
+
+INSTALLED_APPS += ('haystack', 'haystack_static_pages')
 HAYSTACK_SITECONF = 'search_sites'
 HAYSTACK_SEARCH_ENGINE = 'xapian'
 HAYSTACK_XAPIAN_PATH = rel('search_index')
+HAYSTACK_STATIC_PAGES = tuple(
+    get_doc_pages(
+        os.path.expanduser('~/www/site1/public_html/rel1.4'),
+        'html'))
+if DEBUG:
+    HAYSTACK_STATIC_PAGES = tuple(
+        get_doc_pages(
+            os.path.expanduser('~/devel/django_documentation/_build/html'),
+            'html'))
 
 EMAIL_SUBJECT_PREFIX = '[Djbook.ru]'
 
@@ -199,3 +214,4 @@ try:
     from settings_local import *
 except ImportError:
     pass
+
