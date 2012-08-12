@@ -13,11 +13,26 @@ div.comment-indicator {
     cursor: pointer;
 }
 
-dl.docutils dd div.comment-indicator {
-    left: -60px; 
+dd div.comment-indicator {
+    left: -59px; 
+}
+dd dd div.comment-indicator, dd dd div.comment-indicator {
+    left: -74px; 
 }
 ul li div.comment-indicator {
     left: -73px; 
+}
+dd ul li div.comment-indicator {
+    left: -89px; 
+}
+ul ul li div.comment-indicator {
+    left: -88px; 
+}
+dd dd ul li div.comment-indicator {
+    left: -104px; 
+}
+blockquote li div.comment-indicator {
+    left: -91px; 
 }
 ol li div.comment-indicator,
 ol li div.comment-indicator,

@@ -2,10 +2,10 @@ jQuery.noConflict();
 
 (function($){
     jQuery(function($){
-        var $elements = $('.section > p, .section > div.highlight, .section > div.highlight-python, '+
-                '.section > div.highlight-bash, .section > div.highlight-sql, '+
-                ' .section dl.docutils dd, .section ul li, .section ol li, .section > .admonition')
-            .not('.admonition-title, #s-django-documentation p, #s-django-documentation ul li');
+        var $elements = $('.section > p, div[class*=highlight], '+
+                ' .section dd, .section ul li, .section ol li, .section > .admonition')
+            .not('.admonition-title, #s-django-documentation p, #s-django-documentation ul li,'+
+                ' .admonition div[class*=highlight], dl div[class*=highlight], .admonition *, td li');
         var comments = new Comments($elements);
     });
 

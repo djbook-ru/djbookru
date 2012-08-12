@@ -3,6 +3,6 @@ from .models import Comment
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ['page', 'xpath', 'author', 'created']
+    list_display = ['__unicode__', 'page', 'author', 'created']
 
 admin.site.register(Comment, CommentAdmin)

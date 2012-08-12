@@ -14,6 +14,15 @@ class Comment(models.Model):
     class Meta:
         verbose_name = _(u'comment')
         verbose_name_plural = _(u'comments')
+        ordering = ['-created']
+
+    def __unicode__(self):
+        if len(self.content) > 50:
+            return self.content[:50] + '...'
+        return self.content
 
     def get_content(self):
         return linebreaksbr(self.content, autoescape=True)
+
+    def get_absolute_url(self):
+        return self.page
