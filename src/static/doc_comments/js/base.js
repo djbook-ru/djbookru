@@ -19,7 +19,8 @@ jQuery.noConflict();
             getLoginStatus: '/doc_comments/get_login_status/',
             login: '/auth/login/?next='+this.page,
             loadCommentsInfo: '/doc_comments/load_comments_info/',
-            loadComments: '/doc_comments/load_comments/'
+            loadComments: '/doc_comments/load_comments/',
+            forum: '/forum/'
         };
         this.$elements = $elements;
 
@@ -40,6 +41,7 @@ jQuery.noConflict();
                       '<div class="tab-pane active" id="commentsModalAdd">'+
                         '<form class="form-inline" method="post" action="'+this.urls.add+'">'+
                           '<input type="hidden" name="page">'+
+                          '<input type="hidden" name="page_title">'+
                           '<input type="hidden" name="xpath">'+
                           '<fieldset>'+
                             '<div class="control-group">'+
@@ -54,6 +56,8 @@ jQuery.noConflict();
                     '</div>'+
                   '</div>'+
                   '<div class="modal-footer">'+
+                    '<p class="info">Вопросы задавать на <a href="'+this.urls.forum+'" target="blank">форуме</a>.<br> Здесь обсуждаем перевод.</p>'+
+                    '<a href="#" class="btn refresh">Обновить</a>'+
                     '<a href="#" class="btn" data-dismiss="modal">Отмена</a>'+
                     '<a href="#" class="btn submit btn-primary">Добавить</a>'+
                   '</div>'+
@@ -61,6 +65,12 @@ jQuery.noConflict();
 
             this.$modal = $('#commentsModal');
             this.$form = $('#commentsModalAdd form');
+
+            this.$modal.find('.refresh').click(function(){
+                self.loadCommentsInfo();
+                self.loadComments();
+                return false;
+            });
 
             this.$modal.find('.submit').click(function(){
                 if ( ! self.isAuthenticated){
@@ -107,9 +117,9 @@ jQuery.noConflict();
             $('.comment-indicator').click(function(){
                 var xpath = self.getElementXPath($(this).parent()[0]);
                 self.xpath = xpath;
-
                 self.$form.find('input[name=xpath]').val(xpath);
                 self.$form.find('input[name=page]').val(self.page);
+                self.$form.find('input[name=page_title]').val(document.title);
 
                 self.cleanFormMessages();
                 self.checkLogin();
@@ -120,6 +130,22 @@ jQuery.noConflict();
             });
 
             this.loadCommentsInfo();
+            this.jumpToComments();
+        };
+
+        this.jumpToComments = function(){
+            var url = $.url(document.location.href);
+            var xpath = url.param('xpath');
+            if (xpath){
+                var $el = $(self.getElementsByXPath(xpath));
+
+                if ($el.length && $el.find('.comment-indicator').length){
+                    $('html, body').animate({
+                        scrollTop: $el.offset().top - 30
+                    });
+                    $el.find('.comment-indicator').addClass('current');
+                }
+            }
         };
 
         this.loadComments = function(){
@@ -149,7 +175,7 @@ jQuery.noConflict();
                 'page': this.page
             }, function(resp){
                 for (var i=0, len=resp.data.length; i<len; i++){
-                    var el = self.getElementsByXPath(window.document, resp.data[i].xpath)[0];
+                    var el = self.getElementsByXPath(resp.data[i].xpath)[0];
                     if(el){
                         self.updateCommentsCount(el, resp.data[i].count);
                     }
@@ -228,9 +254,10 @@ jQuery.noConflict();
             return paths.length ? "/" + paths.join("/") : null;
         };
 
-        this.getElementsByXPath = function(doc, xpath)
+        this.getElementsByXPath = function(xpath)
         {
             var nodes = [];
+            var doc = window.document;
 
             try {
                 var result = doc.evaluate(xpath, doc, null, XPathResult.ANY_TYPE, null);

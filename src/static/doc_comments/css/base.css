@@ -22,8 +22,14 @@ dd dd div.comment-indicator, dd dd div.comment-indicator {
 ul li div.comment-indicator {
     left: -73px; 
 }
-dd ul li div.comment-indicator {
+dd ul li div.comment-indicator, dd ol li div.comment-indicator {
     left: -89px; 
+}
+ol li ol li div.comment-indicator {
+    left: -102px; 
+}
+ol li ul li div.comment-indicator {
+    left: -103px; 
 }
 ul ul li div.comment-indicator {
     left: -88px; 
@@ -56,8 +62,14 @@ div.comment-indicator:hover span {
 div.has-comments > span, div.has-comments:hover > span { 
     background-image: url(../img/comment-active.png); 
 }
+div.current > span, div.has-comments.current:hover > span{ 
+    background-image: url(../img/comment-current.png); 
+}
 
 /* Fix bootstrap */
+.modal .modal-footer {
+    
+}
 .modal a {
     color: #487858;
 }
@@ -72,6 +84,12 @@ div.has-comments > span, div.has-comments:hover > span {
 }
 .modal {
     color: black;
+    text-align: left;
+}
+.modal .info {
+    float: left;
+    font-size: 0.8em;
+    color: #aaa;
     text-align: left;
 }
 .nav {
