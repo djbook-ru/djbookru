@@ -65,3 +65,9 @@ python manage.py compilemessages
 
 User is comment moderator if User.is_staff == True and user has permission to
 edit or delete comments.
+
+#Documentation comments
+
+Clone and build last documentation version. Create symlink for _build/html in /static/ folder,
+so you can open documentation on the same domain. Run server and open: 
+http://127.0.0.1:8000/static/html/index.html

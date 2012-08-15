@@ -20,7 +20,8 @@ BaseUser._meta.get_field('email').blank = False
 class User(BaseUser):
     biography = models.TextField(_(u'biography'), blank=True)
     homepage = models.URLField(_(u'homepage'), verify_exists=False, blank=True)
-    is_valid_email = models.BooleanField(_(u'is valid email?'), default=False)
+    is_valid_email = models.BooleanField(_(u'is valid email?'), default=False, editable=False)
+    achievements = models.ManyToManyField('Achievement', verbose_name=_(u'achievements'), through='UserAchievement')
 
     objects = UserManager()
 
@@ -87,6 +88,31 @@ def create_custom_user(sender, instance, created, **kwargs):
         user.save()
 
 post_save.connect(create_custom_user, BaseUser)
+
+
+class UserAchievement(models.Model):
+    user = models.ForeignKey(User, verbose_name=_(u'user'))
+    achievement = models.ForeignKey('Achievement', verbose_name=_(u'achievement'))
+    note = models.TextField(_(u'note'), blank=True)
+
+    class Meta:
+        verbose_name = _(u'user achievement')
+        verbose_name_plural = _(u'user achievements')
+        unique_together = (('user', 'achievement'),)
+
+
+class Achievement(models.Model):
+    title = models.CharField(_(u'name'), max_length=500)
+    description = models.TextField(_(u'description'), blank=True)
+    active_icon = models.ImageField(_(u'active icon'), upload_to='uploads/Achievement/')
+    inactive_icon = models.ImageField(u'inactive icon', upload_to='uploads/Achievement/')
+
+    class Meta:
+        verbose_name = _(u'achievement')
+        verbose_name_plural = _(u'achievements')
+
+    def __unicode__(self):
+        return self.title
 
 
 class EmailConfirmationManager(models.Manager):

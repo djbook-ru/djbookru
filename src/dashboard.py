@@ -50,7 +50,7 @@ class CustomIndexDashboard(Dashboard):
                 modules.ModelList(_(u'Content'), [
                     'news.models.News',
                     'claims.models.Claims',
-                    'django.contrib.comments.models.Comment',
+                    'comments.models.Comment',
                     'videos.models.Video',
                     ]),
                 modules.ModelList(_(u'Book'), [
@@ -60,6 +60,9 @@ class CustomIndexDashboard(Dashboard):
                 modules.ModelList(_(u'Receipts'), [
                     'examples.models.Example',
                     'examples.models.Category',
+                    ]),
+                modules.ModelList(_(u'Documentation'), [
+                    'doc_comments.models.Comment',
                     ]),
                 modules.ModelList(_(u'Advertisment'), [
                     'adzone.models.Advertiser',

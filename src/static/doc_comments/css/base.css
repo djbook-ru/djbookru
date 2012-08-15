@@ -1,0 +1,123 @@
+.block-with-comment { 
+    position: relative
+}
+div.comment-indicator {
+    position: absolute; 
+    width: 20px; 
+    z-index: 999; 
+    text-align: center; 
+    color: black; 
+    font-size: 11px; 
+    left: -44px; 
+    top: 0;
+    cursor: pointer;
+}
+
+dd div.comment-indicator {
+    left: -59px; 
+}
+dd dd div.comment-indicator, dd dd div.comment-indicator {
+    left: -74px; 
+}
+ul li div.comment-indicator {
+    left: -73px; 
+}
+dd ul li div.comment-indicator, dd ol li div.comment-indicator {
+    left: -89px; 
+}
+ol li ol li div.comment-indicator {
+    left: -102px; 
+}
+ol li ul li div.comment-indicator {
+    left: -103px; 
+}
+ul ul li div.comment-indicator {
+    left: -88px; 
+}
+dd dd ul li div.comment-indicator {
+    left: -104px; 
+}
+blockquote li div.comment-indicator {
+    left: -91px; 
+}
+ol li div.comment-indicator,
+ol li div.comment-indicator,
+ol li div.comment-indicator {
+    left: -73px; 
+}
+
+div.comment-indicator:hover { 
+    background-color: #406b4e; 
+}
+div.comment-indicator span { 
+    position: absolute; 
+    top: -10px; 
+    left: -10px; 
+    width: 25px; 
+    height: 25px; 
+}
+div.comment-indicator:hover span { 
+    background-image: url(../img/comment-hover.png); 
+}
+div.has-comments > span, div.has-comments:hover > span { 
+    background-image: url(../img/comment-active.png); 
+}
+div.current > span, div.has-comments.current:hover > span{ 
+    background-image: url(../img/comment-current.png); 
+}
+
+/* Fix bootstrap */
+.modal .modal-footer {
+    
+}
+.modal a {
+    color: #487858;
+}
+.modal a.btn {
+    color: #000;
+}
+.modal a.btn.btn-primary {
+    color: #fff;
+}
+.modal h3 {
+    margin: 0;
+}
+.modal {
+    color: black;
+    text-align: left;
+}
+.modal .info {
+    float: left;
+    font-size: 0.8em;
+    color: #aaa;
+    text-align: left;
+}
+.nav {
+    padding: 0;
+    margin: 0;
+}
+.nav li {
+    list-style-type: none;
+}
+#commentsModalAdd textarea {
+    width: 515px;
+    height: 150px;
+}
+#commentsModalAdd .form-inline {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+#commentsModalComments {
+    padding-top: 10px;
+}
+#commentsModalComments .comment {
+    border-bottom: 1px solid #DDD;
+    margin-bottom: 5px;
+}
+#commentsModalComments .comment .created {
+    color: #555;
+}
+#commentsModalComments .thumbnail {
+    float: left;
+    margin: 0 5px 5px 0;
+}
