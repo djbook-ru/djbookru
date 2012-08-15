@@ -140,6 +140,7 @@ INSTALLED_APPS = (
     'main',
     'news',
     'comments',
+    'doc_comments',
     'claims',
     'chunks',
     'south',
