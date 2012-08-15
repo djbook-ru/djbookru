@@ -106,12 +106,15 @@ jQuery.noConflict();
             });
 
             //add comment idicator
-            this.$elements.each(function(){
+            this.$elements.each(function(index){
                 var $this = $(this);
                 var $indicator = $('<div class="comment-indicator"><span></span></div>');
                 $indicator.css('height', $this.outerHeight());
                 $this.addClass('block-with-comment');
                 $this.prepend($indicator);
+                if (index === 0){
+                    $indicator.addClass('has-comments');
+                }
             });
 
             $('.comment-indicator').click(function(){
