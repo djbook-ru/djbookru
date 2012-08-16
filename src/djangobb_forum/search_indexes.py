@@ -1,7 +1,10 @@
+# encoding: utf-8
+
 from haystack.indexes import *
 from haystack import site
 
 import djangobb_forum.models as models
+
 
 class PostIndex(SearchIndex):
     text = CharField(document=True, use_template=True)
