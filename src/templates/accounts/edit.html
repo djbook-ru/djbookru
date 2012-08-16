@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
-{% load i18n thumbnail bootstrap %}
+{% load i18n thumbnail bootstrap accounts_tags %}
 
 {% block title %}{% trans 'Edit Profile' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
+{% profile_menu "edit" %}
 <div class="social-accounts">
     <h3>{% trans "Connect accounts" %}</h3>
     {% for backend in social_auth.associated %} 
@@ -21,8 +22,7 @@
 <form action="." method="post" enctype="multipart/form-data" class="edit-form form-horizontal">
     {% csrf_token %}
     <h3>
-        {% trans 'Edit profile' %} / 
-        <a href="{% url djangobb:forum_profile user.username %}">{% trans "Edit forum profile" %}</a>
+        {% trans 'Edit' %}
     </h3>
     {% csrf_token %}
     <fieldset>

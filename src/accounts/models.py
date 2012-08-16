@@ -23,6 +23,10 @@ class User(BaseUser):
     is_valid_email = models.BooleanField(_(u'is valid email?'), default=False)
     achievements = models.ManyToManyField('Achievement', verbose_name=_(u'achievements'), through='UserAchievement')
 
+    # for notification
+    last_comments_read = models.DateTimeField(_(u'last comments read'), default=datetime.now)
+    last_doc_comments_read = models.DateTimeField(_(u'last doc. comments read'), default=datetime.now)
+
     objects = UserManager()
 
     class Meta:

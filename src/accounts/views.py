@@ -12,6 +12,8 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect
 from django.utils.translation import ugettext_lazy as _
+from comments.models import Comment
+
 
 LOGIN_REDIRECT_URL = getattr(settings, 'LOGIN_REDIRECT_URL', '/')
 LOGOUT_REDIRECT_URL = getattr(settings, 'LOGOUT_REDIRECT_URL', '/')
@@ -63,6 +65,16 @@ def edit(request):
         form = UserEditForm(instance=request.user)
     return {
         'form': form,
+    }
+
+
+@render_to('accounts/notifications.html')
+@login_required
+def notifications(request):
+    user = request.user
+    your_comments = Comment.objects.filter(user=user)
+    return {
+        'reply_comments': Comment.objects.filter(reply_to__in=your_comments).exclude(user=user)
     }
 
 

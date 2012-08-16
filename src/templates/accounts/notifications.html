@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load thumbnail i18n accounts_tags %}
+
+{% block title %}{% trans 'Notifications' %} | {{ block.super }}{% endblock %}
+
+{% block content %}
+    {% profile_menu "notifications" %}
+    <div class="tabbable tabs-left">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#comments_tab" data-toggle="tab">{% trans "Comments" %}</a></li>
+            <li><a href="#doc_comments_tab" data-toggle="tab">{% trans "Doc. comments" %}</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active comments" id="comments_tab">
+                {% for item in reply_comments %}
+                    {% include "comments/_display_item.html" %}
+                {% endfor %}
+            </div>
+            <div class="tab-pane" id="doc_comments_tab">{% trans "Doc. comments" %}</div>
+        </div>
+    </div>
+{% endblock %}

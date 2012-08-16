@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
 
-{% load thumbnail i18n %}
+{% load thumbnail i18n accounts_tags %}
 
 {% block title %}{{ user_obj }} | {% trans 'Profile' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
+    {% if user == user_obj %}
+        {% profile_menu "profile" %}
+    {% endif %}
     <div style="float:left; width: 300px;">
-        <h3>
-            {{ user_obj.username }}{% if user == user_obj %}<a href="{% url accounts:edit %}" style="font-size: 0.8em">({% trans 'edit' %})</a>
-            {% endif %}
-            | <a href="{% url djangobb:forum_profile user_obj.username %}">{% trans "Forum profile" %}</a>      
-        </h3>
+        <h2>{{ user_obj.username }}</h2>
         
         <p>
         {% if user_obj.first_name or user_obj.last_name %}
