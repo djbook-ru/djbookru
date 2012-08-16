@@ -51,3 +51,8 @@
   Очистка окружения:
 
     ant dropenv
+
+Поиск:
+
+    python manage.py crawl_static_pages -l ru_RU
+    python manage.py rebuild_index|update_index

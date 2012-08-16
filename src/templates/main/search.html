@@ -5,6 +5,24 @@
 {% block title %}{% trans 'Search' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
+    {% spaceless %}
+    <div class="search_results">
+        {% for item in search_qs %}
+            <div class="item">
+                <div class="title">
+                    <a href="{{ item.object.get_absolute_url }}">{{ item.object.search.title|default:'No title'|safe }}</a>
+                </div>
+                <div class="desc">{{ item.object.search.desc|default:'No description'|safe|truncatewords_html:10  }}</div>
+            </div>
+        {% empty %}
+            <div>
+                <div class="title">No results</div>
+                <div class="desc">Try to change search query.</div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% comment %}
     <div id="cse-search-results"></div>
       <script type="text/javascript">
         var googleSearchIframeName = "cse-search-results";
@@ -13,5 +31,7 @@
         var googleSearchDomain = "www.google.ru";
         var googleSearchPath = "/cse";
       </script>
-    <script type="text/javascript" src="http://www.google.com/afsonline/show_afs_search.js"></script>      
+    <script type="text/javascript" src="http://www.google.com/afsonline/show_afs_search.js"></script>
+       {% endcomment %}
+    {% endspaceless %}
 {% endblock %}

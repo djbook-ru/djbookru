@@ -32,6 +32,9 @@
         <entry key="recaptcha_public" value="${recaptcha_public}"/>
         <entry key="recaptcha_private" value="${recaptcha_private}"/>
 
+        <entry key="haystack_static_path" value="${haystack_static_path}"/>
+        <entry key="haystack_static_map" value="${haystack_static_map}"/>
+
         <entry key="hosting_site_dir" value="${hosting_site_dir}"/>
         <entry key="hosting_code_dir" value="${hosting_code_dir}"/>
         <entry key="hosting_dump_dir" value="${hosting_dump_dir}"/>

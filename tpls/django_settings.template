@@ -165,13 +165,11 @@ HAYSTACK_SEARCH_ENGINE = 'xapian'
 HAYSTACK_XAPIAN_PATH = rel('search_index')
 HAYSTACK_STATIC_PAGES = tuple(
     get_doc_pages(
-        os.path.expanduser('~/www/site1/public_html/rel1.4'),
+        os.path.expanduser(${haystack_static_path}),
         'html'))
-if DEBUG:
-    HAYSTACK_STATIC_PAGES = tuple(
-        get_doc_pages(
-            os.path.expanduser('~/devel/django_documentation/_build/html'),
-            'html'))
+HAYSTACK_STATIC_MAPPING = {
+    os.path.expanduser(${haystack_static_path}): ${haystack_static_map}
+    }
 
 EMAIL_SUBJECT_PREFIX = '[Djbook.ru]'
 
@@ -193,9 +191,9 @@ LOGIN_URL = '/auth/login/'
 
 OPENID_REDIRECT_NEXT = '/socialauth/openid/done/'
 
-OPENID_SREG = {"required": "nickname, email", "optional":"postcode, country", "policy_url": ""}
+OPENID_SREG = {"required": "nickname, email", "optional": "postcode, country", "policy_url": ""}
 OPENID_AX = [{"type_uri": "http://axschema.org/contact/email", "count": 1, "required": True, "alias": "email"},
-             {"type_uri": "fullname", "count": 1 , "required": False, "alias": "fullname"}]
+             {"type_uri": "fullname", "count": 1, "required": False, "alias": "fullname"}]
 
 TWITTER_CONSUMER_KEY = ${twitter_consumer_key}
 TWITTER_CONSUMER_SECRET = ${twitter_consumer_secret}

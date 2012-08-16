@@ -233,6 +233,9 @@ class Post(models.Model):
     def get_absolute_url(self):
         return ('djangobb:post', [self.id])
 
+    def search(self):
+        return dict(title=self.topic.name, desc=self.body_html)
+
     def summary(self):
         LIMIT = 50
         tail = len(self.body) > LIMIT and '...' or ''

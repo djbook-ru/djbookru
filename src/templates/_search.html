@@ -6,6 +6,7 @@
             </a>
         </div>
         <div class="span6 search">
+            {% comment %}
             {# Начало поиска от Google #}
             <form action="{% url main:search %}" id="cse-search-box">
                 <input type="hidden" name="cx" value="partner-pub-2091160070233929:hgadcucfsly" />
@@ -16,6 +17,12 @@
             </form>
             <script type="text/javascript" src="http://www.google.ru/coop/cse/brand?form=cse-search-box&amp;lang=ru"></script>
             {# Конец поиска от Google #}
+            {% endcomment %}
+
+            {# Встроенный поиск #}
+            <form method="get" action="{% url main:search %}">
+                <input type="text" name="query" value="{{ searching_for }}"/>
+            </form>
         </div>
         <div class="span2">
             {% if not settings.DEBUG %}
