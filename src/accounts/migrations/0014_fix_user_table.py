@@ -3,16 +3,32 @@ import datetime
 from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
+import MySQLdb
 
 
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        db.delete_column('accounts_user', 'last_activity')
-        db.delete_column('accounts_user', 'last_session_activity')
-        db.delete_column('accounts_user', 'posts_count')
-        db.delete_column('accounts_user', 'last_posttime')
-        db.delete_column('accounts_user', 'signature')
+        try:
+            db.delete_column('accounts_user', 'last_activity')
+        except MySQLdb.OperationalError:
+            pass
+        try:
+            db.delete_column('accounts_user', 'last_session_activity')
+        except MySQLdb.OperationalError:
+            pass
+        try:
+            db.delete_column('accounts_user', 'posts_count')
+        except MySQLdb.OperationalError:
+            pass
+        try:
+            db.delete_column('accounts_user', 'last_posttime')
+        except MySQLdb.OperationalError:
+            pass
+        try:
+            db.delete_column('accounts_user', 'signature')
+        except MySQLdb.OperationalError:
+            pass
 
     def backwards(self, orm):
         pass
