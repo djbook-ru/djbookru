@@ -1,6 +1,6 @@
 {% load thumbnail i18n %}
 
-<div class="comment well">
+<div class="comment well {% if item.submit_date > last_comments_read %}new{% endif %}">
     <span class="user_thumb pull-left">
         <img src="{{ item.user.avatar }}" alt="{{ item.user }}" />
     </span>

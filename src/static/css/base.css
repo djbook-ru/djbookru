@@ -233,6 +233,10 @@ form formset p {
     min-height: 80px;
 }
 
+.comments .comment.new {
+    border: 2px solid #94ce4a; 
+}
+
 .comments .comment .text {
     padding-top: 18px;
 }

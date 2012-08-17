@@ -1,6 +1,8 @@
 from accounts.backends import CustomUserBackend
 from accounts.forms import UserEditForm, CreateUserForm, PasswordResetForm
 from accounts.models import User, EmailConfirmation, EMAIL_CONFIRMATION_DAYS
+from comments.models import Comment
+from datetime import datetime, timedelta
 from decorators import render_to
 from django.conf import settings
 from django.contrib import auth
@@ -12,7 +14,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect
 from django.utils.translation import ugettext_lazy as _
-from comments.models import Comment
+from doc_comments.models import Comment as DocComment
 
 
 LOGIN_REDIRECT_URL = getattr(settings, 'LOGIN_REDIRECT_URL', '/')
@@ -72,9 +74,25 @@ def edit(request):
 @login_required
 def notifications(request):
     user = request.user
-    your_comments = Comment.objects.filter(user=user)
+    reply_comments = list(Comment.get_reply_comments(user, only_new=False)[:30])
+    reply_comments_count = Comment.get_reply_comments(user).count()
+
+    doc_comments = list(DocComment.get_reply_comments(user, only_new=False)[:30])
+    doc_comments_count = DocComment.get_reply_comments(user).count()
+
+    last_comments_read = user.last_comments_read
+    last_doc_comments_read = user.last_doc_comments_read
+
+    user.last_comments_read = datetime.now()
+    user.last_doc_comments_read = datetime.now()
+    user.save()
     return {
-        'reply_comments': Comment.objects.filter(reply_to__in=your_comments).exclude(user=user)
+        'reply_comments': reply_comments,
+        'reply_comments_count': reply_comments_count,
+        'doc_comments': doc_comments,
+        'doc_comments_count': doc_comments_count,
+        'last_comments_read': last_comments_read,
+        'last_doc_comments_read': last_doc_comments_read
     }
 
 

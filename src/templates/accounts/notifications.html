@@ -8,8 +8,8 @@
     {% profile_menu "notifications" %}
     <div class="tabbable tabs-left">
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#comments_tab" data-toggle="tab">{% trans "Comments" %}</a></li>
-            <li><a href="#doc_comments_tab" data-toggle="tab">{% trans "Doc. comments" %}</a></li>
+            <li class="active"><a href="#comments_tab" data-toggle="tab">{% trans "Comments" %} {% if reply_comments_count %}<span class="label label-warning">{{ reply_comments_count }}</span>{% endif %}</a></li>
+            <li><a href="#doc_comments_tab" data-toggle="tab">{% trans "Doc. comments" %} {% if doc_comments_count %}<span class="label label-warning">{{ doc_comments_count }}</span>{% endif %}</a></li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane active comments" id="comments_tab">
@@ -17,7 +17,11 @@
                     {% include "comments/_display_item.html" %}
                 {% endfor %}
             </div>
-            <div class="tab-pane" id="doc_comments_tab">{% trans "Doc. comments" %}</div>
+            <div class="tab-pane comments" id="doc_comments_tab">
+                {% for item in doc_comments %}
+                    {% include "doc_comments/_display_item.html" %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

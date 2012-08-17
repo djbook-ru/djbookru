@@ -28,3 +28,24 @@ class Comment(models.Model):
 
     def get_absolute_url(self):
         return self.page + '?xpath=' + urlquote(self.xpath)
+
+    @classmethod
+    def get_reply_comments(cls, user, only_new=True):
+        your_comments = cls.objects.filter(author=user)
+
+        if not your_comments.exists():
+            return cls.objects.none()
+
+        f = None
+        for c in your_comments:
+            if f:
+                f |= models.Q(page=c.page, xpath=c.xpath)
+            else:
+                f = models.Q(page=c.page, xpath=c.xpath)
+
+        qs = cls.objects.filter(f).exclude(author=user)
+
+        if only_new and user.last_doc_comments_read:
+            qs = qs.filter(created__gt=user.last_doc_comments_read)
+
+        return qs

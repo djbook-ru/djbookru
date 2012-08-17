@@ -36,3 +36,13 @@ class Comment(models.Model):
             return self.objects.filter(content_type=ct, object_pk=obj.pk)
         else:
             return self.objects.none()
+
+    @classmethod
+    def get_reply_comments(cls, user, only_new=True):
+        your_comments = cls.objects.filter(user=user)
+        qs = cls.objects.filter(reply_to__in=your_comments).exclude(user=user)
+
+        if only_new and user.last_comments_read:
+            qs = qs.filter(submit_date__gt=user.last_comments_read)
+
+        return qs
