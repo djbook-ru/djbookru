@@ -8,7 +8,7 @@
     {% if user == user_obj %}
         {% profile_menu "profile" %}
     {% endif %}
-    <div style="float:left; width: 300px;">
+    <div style="float:left; width: 500px;">
         <h2>{{ user_obj.username }}</h2>
         
         <p>
@@ -23,14 +23,13 @@
         </p>
         
         {% if user_obj.biography %}
-        <h4 style="margin-bottom: -5px;">{% trans 'Biography' %}:</h4>
-        <p>
+        <p class="well" style="margin-top: 5px">
             {{ user_obj.biography|linebreaksbr }}
         </p>
         {% endif %}
     </div>
     
-    <div style="float: left">
+    <div style="float: left" class="thumbnail">
         <img src="{{ user_obj.avatar }}"/>
     </div>    
     <div style="clear: both"></div>
