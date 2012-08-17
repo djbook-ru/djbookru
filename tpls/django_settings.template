@@ -223,8 +223,8 @@ SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.social.load_extra_data',
 )
 
-GITHUB_APP_ID = '123'
-GITHUB_API_SECRET = '123'
+GITHUB_APP_ID = '${github_client_id}'
+GITHUB_API_SECRET = '${github_client_secret}'
 
 try:
     from settings_local import *
