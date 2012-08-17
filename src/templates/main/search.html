@@ -16,8 +16,9 @@
             <div class="item">
                 <div class="title">
                     <a href="{{ item.object.get_absolute_url }}">{{ item.object.search.title|default:'No title'|safe }}</a>
+                    <div class="source">{{ item.object.search.source }}</div>
                 </div>
-                <div class="desc">{{ item.object.search.desc|default:'No description'|safe|truncatewords_html:10  }}</div>
+                <div class="desc">{{ item.object.search.desc|default:'No description'|safe|truncatewords:50  }}</div>
             </div>
         {% empty %}
             <p>{% trans "No search results" %}</p>

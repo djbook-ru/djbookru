@@ -22,4 +22,4 @@ class News(models.Model):
         return ('news:news', [self.pk], {})
 
     def search(self):
-        return dict(title=self.title, desc=self.content)
+        return dict(source=_(u'News'), title=self.title, desc=self.content)
