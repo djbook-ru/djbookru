@@ -234,7 +234,7 @@ class Post(models.Model):
         return ('djangobb:post', [self.id])
 
     def search(self):
-        return dict(title=self.topic.name, desc=self.body_html)
+        return dict(source=_(u'Forum'), title=self.topic.name, desc=self.body_html)
 
     def summary(self):
         LIMIT = 50

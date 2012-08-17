@@ -86,5 +86,5 @@ class Example(models.Model):
             post.save()
 
     def search(self):
-        return dict(title=self.title, desc=self.content)
+        return dict(source=_(u'Example'), title=self.title, desc=self.content)
 

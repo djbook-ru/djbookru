@@ -69,8 +69,12 @@ hr {
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
 }
-.search_results .title {
+.search_results .item .title {
+    position: relative;
+    height: 18px;
     padding: 4px 8px;
+    color: white;
+    font-weight: bold;
     background-color: #696;
     border-top-left-radius: 8px;
     -moz-border-top-left-radius: 8px;
@@ -79,11 +83,20 @@ hr {
     -moz-border-top-right-radius: 8px;
     -webkit-border-top-right-radius: 8px;
 }
-.search_results .title a{
+.search_results .item .title .source {
+    position: absolute;
+    right: 10px;
+    width: 25%;
+    text-align: right;
+}
+.search_results .item .title a{
+    position: absolute;
+    left: 10px;
+    width: 70%;
     color: white;
     font-weight: bold;
  }
-.search_results .desc {
+.search_results .item .desc {
     padding: 4px;
     margin-left: 1em;
 }
