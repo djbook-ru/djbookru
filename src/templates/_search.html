@@ -6,8 +6,9 @@
             </a>
         </div>
         <div class="span6 search">
-            <form method="get" action="{% url main:search %}">
-                <input type="text" name="q" value="{{ searching_for }}" style="width: 100%" placeholder="{% trans 'Search' %}"/>
+            <form method="get" action="{% url main:search %}" class="search-form" >
+                <input type="text" name="q" value="{{ searching_for }}" style="width: 80%" placeholder="{% trans 'Search' %}"/>
+                <input type="submit" class="btn" name="" value="{% trans 'Search' %}" style="margin-top: -4px">
             </form>
         </div>
         <div class="span2">

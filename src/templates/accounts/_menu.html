@@ -2,11 +2,11 @@
     <li {% if current == 'notifications' %}class="active"{% endif %}>
         <a href="{% url accounts:notifications %}">{% trans "Notifications" %}</a>
     </li>
-    <li {% if current == 'profile' %}class="active"{% endif %}>
-        <a href="{% url accounts:profile user.pk %}">{% trans "Profile" %}</a>
-    </li>
     <li {% if current == 'edit' %}class="active"{% endif %}>
         <a href="{% url accounts:edit %}">{% trans "Edit" %}</a>
+    </li>
+    <li {% if current == 'profile' %}class="active"{% endif %}>
+        <a href="{% url accounts:profile user.pk %}">{% trans "Profile" %}</a>
     </li>
     <li>
         <a href="{% url djangobb:forum_profile user.username %}">{% trans "Forum profile" %}</a>
