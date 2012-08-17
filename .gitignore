@@ -11,6 +11,6 @@
 /src/database.sqlite
 /src/settings.py
 /src/settings_local.py
-/src/seacrh_index
+/src/search_index
 /src/coverage
 /src/static/uploads/*

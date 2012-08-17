@@ -116,7 +116,3 @@ class BookAdminForm(forms.ModelForm):
             self.update_from_archive(archive, obj)
 
         return obj
-
-
-class MainSearchForm(SearchForm):
-    query = forms.CharField(required=False)

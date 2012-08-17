@@ -1,37 +1,32 @@
 {% extends 'base.html' %}
 
-{% load i18n %}
+{% load i18n pagination_tags %}
 
 {% block title %}{% trans 'Search' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
+    {% if is_paginated %}
+        {% paginate %}
+    {% endif %}
+
     {% spaceless %}
     <div class="search_results">
-        {% for item in search_qs %}
+        <h3>{% trans "Search for" %}: "{{ searching_for }}"</h3>
+
+        {% for item in object_list %}
             <div class="item">
-                <div class="title">
+                <div class="title">{{ item.object.get_absolute_url }}
                     <a href="{{ item.object.get_absolute_url }}">{{ item.object.search.title|default:'No title'|safe }}</a>
                 </div>
                 <div class="desc">{{ item.object.search.desc|default:'No description'|safe|truncatewords_html:10  }}</div>
             </div>
         {% empty %}
-            <div>
-                <div class="title">No results</div>
-                <div class="desc">Try to change search query.</div>
-            </div>
+            <p>{% trans "No results" %}</p>
         {% endfor %}
     </div>
-
-    {% comment %}
-    <div id="cse-search-results"></div>
-      <script type="text/javascript">
-        var googleSearchIframeName = "cse-search-results";
-        var googleSearchFormName = "cse-search-box";
-        var googleSearchFrameWidth = 800;
-        var googleSearchDomain = "www.google.ru";
-        var googleSearchPath = "/cse";
-      </script>
-    <script type="text/javascript" src="http://www.google.com/afsonline/show_afs_search.js"></script>
-       {% endcomment %}
     {% endspaceless %}
+
+    {% if is_paginated %}
+        {% paginate %}
+    {% endif %}
 {% endblock %}
