@@ -1,16 +1,5 @@
 *.pyc
 *.mo
 *~
-/conf
-/docs
 /env
-/cumulative.conf
-/distribute-0.6.10.tar.gz
-/project.user.properties
-/*.antlog.txt
-/src/database.sqlite
-/src/settings.py
-/src/settings_local.py
 /src/search_index
-/src/coverage
-/src/static/uploads/*

@@ -1,0 +1,10 @@
+# Configuration parameters for deploying and backups
+
+USER=djbookru
+HOST=production.ru
+CODE_DIR=djbookru
+
+DBHOST=mysql.production.ru
+DBNAME=djbookru
+DBUSER=djbookru
+DBPASS=topsecret

@@ -1,0 +1,53 @@
+# -*- coding: utf-8 -*-
+
+LOCAL_SETTINGS = True
+from settings import *
+
+DEBUG = True
+TEMPLATE_DEBUG = True
+
+ADMINS = (
+    ('Ruslan Popov', 'ruslan.popov@gmail.com'),
+)
+MANAGERS = ADMINS
+SENTRY_ADMINS = ADMINS
+
+DATABASES = {
+    'default': dict(
+        ENGINE='django.db.backends.mysql',
+        NAME='djbookru',
+        USER='djbookru',
+        PASSWORD='q1',
+        HOST='localhost',
+        PORT='',
+        )
+}
+
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = '012345689ABCDEF'
+
+SERVER_URL = 'djbookru@production.ru:22'
+
+if DEBUG:
+    # Show emails in the console during developement.
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+###
+# devserver
+if DEBUG:
+    INSTALLED_APPS += ('devserver', )
+
+
+# WARNING
+#    The following settings are for deploying and backup processes.
+#    So there is no need to copy this part to prod_settings.py.
+
+PROJECT_DIR = '~/project'
+ENV_DIR = '%s/env' % PROJECT_DIR
+
+DB_HOST = 'mysql.production.ru'
+DB_NAME = 'djbookru'
+DB_USER = 'djbookru'
+DB_PASS = 'topsecret'
+
+PRE_MIGRATE_DUMP = '%s/pre_migrate.sql' % PROJECT_DIR
