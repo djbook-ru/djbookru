@@ -1,5 +1,7 @@
-from django.conf.urls.defaults import *
+# -*- coding: utf-8 -*-
 
-urlpatterns = patterns('claims.views',
+from django.conf.urls.defaults import url, patterns
+
+urlpatterns = patterns('src.claims.views',
     url(r'^$', 'index', name='index'),
 )

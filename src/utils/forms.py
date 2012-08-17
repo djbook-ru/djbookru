@@ -1,19 +1,24 @@
-from recaptcha.client import captcha
+# -*- coding: utf-8 -*-
+
 from django.conf import settings
 from django import forms
 from django.utils.safestring import mark_safe
 
+from recaptcha.client import captcha
+
+
 class AjaxForm(object):
-    
+
     def get_errors(self):
-        from django.utils.encoding import force_unicode        
+        from django.utils.encoding import force_unicode
         output = {}
         for key, value in self.errors.items():
             output[key] = '/n'.join([force_unicode(i) for i in value])
         return output
-    
+
+
 class ReCaptcha(forms.Widget):
-    input_type = None # Subclasses must define this.
+    input_type = None  # Subclasses must define this.
 
     def render(self, name, value, attrs=None):
         final_attrs = self.build_attrs(attrs, type=self.input_type, name=name)
@@ -27,6 +32,7 @@ class ReCaptcha(forms.Widget):
             'recaptcha_challenge_field': data.get('recaptcha_challenge_field', None),
             'recaptcha_response_field': data.get('recaptcha_response_field', None),
         }
+
 
 # hack: Inherit from FileField so a hack in Django passes us the
 # initial value for our field, which should be set to the IP
@@ -51,4 +57,4 @@ class ReCaptchaField(forms.FileField):
                               settings.RECAPTCHA_PRIVATE, ip)
         if not resp.is_valid:
             raise forms.ValidationError(self.default_error_messages.get(
-                    resp.error_code, "Unknown error: %s" % (resp.error_code)))    
+                    resp.error_code, "Unknown error: %s" % (resp.error_code)))

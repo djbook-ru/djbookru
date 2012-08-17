@@ -1,17 +1,21 @@
+# -*- coding: utf-8 -*-
+
 from django import forms
-from comments.models import Comment, COMMENT_MAX_LENGTH
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext_lazy as _
-from utils.forms import AjaxForm
+
+from .. utils.forms import AjaxForm
+
+from . import models
 
 
 class CommentForm(forms.ModelForm, AjaxForm):
     honeypot = forms.CharField(required=False, widget=forms.HiddenInput)
     content = forms.CharField(label=_('Comment'), widget=forms.Textarea,
-                                    max_length=COMMENT_MAX_LENGTH)
+                                    max_length=models.COMMENT_MAX_LENGTH)
 
     class Meta:
-        model = Comment
+        model = models.Comment
         fields = ('content', 'reply_to', 'object_pk', 'content_type')
 
     def __init__(self, obj, *args, **kwargs):

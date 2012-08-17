@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
-from django.contrib import admin
-from django.contrib.auth import admin as auth_admin
-from django.contrib.auth.models import User
 
-from djangobb_forum.models import Category, Forum, Topic, Post, Profile, Reputation,\
-    Report, Ban, PostTracking
+from django.contrib import admin
+
+from . models import Category, Forum, Topic, Post, Reputation, Report, Ban
 
 
 class CategoryAdmin(admin.ModelAdmin):

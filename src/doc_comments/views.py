@@ -1,9 +1,13 @@
-from .forms import CommentForm
-from decorators import render_to_json, render_to
+# -*- coding: utf-8 -*-
+
 from django.utils.translation import ugettext
 from django.views.decorators.csrf import csrf_exempt
-from .models import Comment
 from django.db.models import Count
+
+from decorators import render_to_json
+
+from . import models
+from . import forms
 
 
 @csrf_exempt
@@ -13,7 +17,7 @@ def close_comment(request):
     user = request.user
 
     if id and user.is_authenticated() and user.has_perm('doc_comments.change_comment'):
-        Comment.objects.filter(pk=id).update(status=Comment.CLOSED)
+        models.Comment.objects.filter(pk=id).update(status=models.Comment.CLOSED)
 
     return {}
 
@@ -25,7 +29,7 @@ def accept_comment(request):
     user = request.user
 
     if id and user.is_authenticated() and user.has_perm('doc_comments.change_comment'):
-        Comment.objects.filter(pk=id).update(status=Comment.ACCEPTED)
+        models.Comment.objects.filter(pk=id).update(status=models.Comment.ACCEPTED)
 
     return {}
 
@@ -38,7 +42,7 @@ def load_comments(request):
     output = []
 
     if page and xpath:
-        qs = Comment.objects.filter(page=page, xpath=xpath)
+        qs = models.Comment.objects.filter(page=page, xpath=xpath)
         for obj in qs:
             output.append({
                 'id': obj.pk,
@@ -61,7 +65,7 @@ def load_comments_info(request):
     output = []
 
     if page:
-        output = list(Comment.objects.filter(page=page).values('xpath').annotate(count=Count('id')))
+        output = list(models.Comment.objects.filter(page=page).values('xpath').annotate(count=Count('id')))
 
     return {
         'data': output
@@ -76,7 +80,7 @@ def add(request):
             'error': ugettext(u'You are not authenticated.')
         }
 
-    form = CommentForm(request.POST or None)
+    form = models.CommentForm(request.POST or None)
     if form.is_valid():
         obj = form.save(commit=False)
         obj.author = request.user

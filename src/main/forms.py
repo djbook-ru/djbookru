@@ -1,19 +1,23 @@
 # -*- coding: utf-8 -*-
-from datetime import datetime
+
+import re
+
 from django import forms
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from django.core.mail import EmailMessage
 from django.utils.translation import ugettext_lazy as _
-from djangobb_forum.models import Post
-from examples.models import Example
+from django.utils import timezone
+
 from haystack.forms import SearchForm as HaystackSearchForm
 from haystack_static_pages.models import StaticPage
-from main.models import Page, Book
-from news.models import News
-from utils.forms import ReCaptchaField
 from zipfile import ZipFile, BadZipfile
-import re
+
+from .. djangobb_forum.models import Post
+from .. examples.models import Example
+from .. news.models import News
+from .. utils.forms import ReCaptchaField
+from . import models
 
 
 class FeedbackForm(forms.Form):
@@ -26,7 +30,7 @@ class FeedbackForm(forms.Form):
         email = self.cleaned_data['email']
         message = self.cleaned_data['message']
         user_agent_data = 'User agent: %s' % request.META.get('HTTP_USER_AGENT')
-        timestamp = 'Time: %s' % datetime.now().strftime('%H:%M:%S %m-%d-%Y')
+        timestamp = 'Time: %s' % timezone.now().strftime('%H:%M:%S %m-%d-%Y')
         referer = 'Referer: %s' % self.cleaned_data['referer']
         message = '%s\n\n%s\n%s\n%s' % (message, user_agent_data, timestamp, referer)
         headers = {'Reply-To': email} if email else None
@@ -39,7 +43,7 @@ class BookAdminForm(forms.ModelForm):
     archive = forms.FileField(label=_(u'archive'), required=False)
 
     class Meta:
-        model = Book
+        model = models.Book
         fields = ('name', 'description', 'archive', 'toc')
 
     def clean_archive(self):
@@ -57,7 +61,7 @@ class BookAdminForm(forms.ModelForm):
         return archive
 
     def update_from_archive(self, archive, obj):
-        old_pks = list(Page.objects.filter(book=obj).values_list('id', flat=True))
+        old_pks = list(models.Page.objects.filter(book=obj).values_list('id', flat=True))
         archive = ZipFile(archive)
 
         toc = archive.read('toc.py')
@@ -79,10 +83,10 @@ class BookAdminForm(forms.ModelForm):
             slug = filename[:-5]
 
             try:
-                page = Page.objects.get(slug=slug, book=obj)
+                page = models.Page.objects.get(slug=slug, book=obj)
                 old_pks.remove(page.pk)
-            except Page.DoesNotExist:
-                page = Page(slug=slug, book=obj)
+            except models.Page.DoesNotExist:
+                page = models.Page(slug=slug, book=obj)
                 #create name if page is new
                 if filename == 'index.html':
                     name = u'Первая страница'
@@ -106,7 +110,7 @@ class BookAdminForm(forms.ModelForm):
 
             page.content = archive.read(filename)
             page.save()
-        Page.objects.filter(pk__in=old_pks).delete()
+        models.Page.objects.filter(pk__in=old_pks).delete()
         archive.close()
 
     def save(self, commit=True):

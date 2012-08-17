@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Details about AutoOneToOneField:
     http://softwaremaniacs.org/blog/2007/03/07/auto-one-to-one-field/
@@ -9,7 +11,7 @@ except ImportError:
 import random
 
 from django.db.models import OneToOneField
-from django.db.models.fields.related import SingleRelatedObjectDescriptor 
+from django.db.models.fields.related import SingleRelatedObjectDescriptor
 from django.db import models
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.core.serializers.json import DjangoJSONEncoder
@@ -54,7 +56,7 @@ class ExtendedImageField(models.ImageField):
         if data and self.width and self.height:
             content = self.resize_image(data.read(), width=self.width, height=self.height)
             salt = sha_constructor(str(random.random())).hexdigest()[:5]
-            fname =  sha_constructor(salt + settings.SECRET_KEY).hexdigest() + '.png'
+            fname = sha_constructor(salt + settings.SECRET_KEY).hexdigest() + '.png'
             data = SimpleUploadedFile(fname, content, data.content_type)
         super(ExtendedImageField, self).save_form_data(instance, data)
 
@@ -75,7 +77,6 @@ class ExtendedImageField(models.ImageField):
             y = int(round((oldh - oldw) / 2.0))
             image = image.crop((0, y, oldw - 1, (y + oldw) - 1))
         image = image.resize((width, height), resample=Image.ANTIALIAS)
-
 
         string = StringIO()
         image.save(string, format='PNG')

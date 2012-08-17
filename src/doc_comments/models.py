@@ -1,8 +1,11 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from accounts.models import User
 from django.template.defaultfilters import linebreaksbr
 from django.utils.http import urlquote
+
+from .. accounts.models import User
 
 
 class Comment(models.Model):

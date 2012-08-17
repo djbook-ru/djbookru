@@ -1,6 +1,8 @@
-from django.conf.urls.defaults import *
+# -*- coding: utf-8 -*-
 
-urlpatterns = patterns('comments.views',
+from django.conf.urls.defaults import url, patterns
+
+urlpatterns = patterns('src.comments.views',
     url('post/$', 'post', name='post'),
     url('update_comments/$', 'update_comments', name='update_comments'),
 )

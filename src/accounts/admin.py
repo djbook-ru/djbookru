@@ -1,20 +1,23 @@
+# -*- coding: utf-8 -*-
+
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserChangeForm
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User as DjangoUser
 from django.utils.translation import ugettext_lazy as _
-from models import User as CustomUser, EmailConfirmation, UserAchievement, Achievement
+
+from . import models
 
 
 class UserAchievementInline(admin.TabularInline):
-    model = UserAchievement
+    model = models.UserAchievement
     extra = 1
 
 
 class CustomUserChangeForm(UserChangeForm):
 
     class Meta:
-        model = CustomUser
+        model = models.User
 
 
 class CustomUserAdmin(UserAdmin):
@@ -31,6 +34,6 @@ class CustomUserAdmin(UserAdmin):
     inlines = [UserAchievementInline]
 
 
-admin.site.unregister(User)
-admin.site.register(CustomUser, CustomUserAdmin)
-admin.site.register(EmailConfirmation)
+admin.site.unregister(DjangoUser)
+admin.site.register(models.User, CustomUserAdmin)
+admin.site.register(models.EmailConfirmation)

@@ -1,5 +1,7 @@
-from django.conf.urls.defaults import *
+# -*- coding: utf-8 -*-
 
-urlpatterns = patterns('videos.views',
+from django.conf.urls.defaults import url, patterns
+
+urlpatterns = patterns('src.videos.views',
     url(r'^$', 'index', name='index'),
 )

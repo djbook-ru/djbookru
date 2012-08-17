@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
+
 from django import template
-from comments.models import Comment
-from doc_comments.models import Comment as DocComment
+
+from ... doc_comments.models import Comment as DocComment
+from .. import models
 
 register = template.Library()
 
@@ -16,7 +19,7 @@ def profile_menu(context, current):
 @register.inclusion_tag('accounts/_notification_indicator.html', takes_context=True)
 def notification_indicator(context):
     user = context['user']
-    new_count = Comment.get_reply_comments(user).count()
+    new_count = models.Comment.get_reply_comments(user).count()
     new_count += DocComment.get_reply_comments(user).count()
     return {
         'new_count': new_count

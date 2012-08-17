@@ -1,8 +1,9 @@
+{% load staticfiles %}
 <div class="top-container container-fluid">{% load i18n %}
     <div class="row-fluid">
         <div class="span4 logo">
             <a href="/">
-                <img src="{{ MEDIA_URL }}img/djangobook-title.png" border="0"/>
+                <img src="{% static "img/djangobook-title.png" %}" border="0"/>
             </a>
         </div>
         <div class="span6 search">
@@ -14,7 +15,7 @@
         <div class="span2">
             {% if not settings.DEBUG %}
             <a href="http://www.jino.ru/services/hosting_django.html">
-                <img src="{{ MEDIA_URL }}img/jino_175x56.png" border="0"
+                <img src="{% static "img/jino_175x56.png" %}" border="0"
                    alt="Хостинг Django от «Джино»"
                    title="Хостинг Django от «Джино»"/>
             </a>

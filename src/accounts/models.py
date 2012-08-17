@@ -1,4 +1,9 @@
+# -*- coding: utf-8 -*-
+
+import hashlib
+import random
 from datetime import datetime, timedelta
+
 from django.conf import settings
 from django.contrib.auth.models import UserManager, User as BaseUser
 from django.contrib.sites.models import Site
@@ -7,9 +12,8 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.utils.hashcompat import sha_constructor
 from django.utils.translation import ugettext_lazy as _
-from utils.mail import send_templated_email
-import hashlib
-import random
+
+from .. utils.mail import send_templated_email
 
 EMAIL_CONFIRMATION_DAYS = getattr(settings, 'EMAIL_CONFIRMATION_DAYS', 3)
 

@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from accounts.models import User
+
+from .. accounts.models import User
 
 
 class News(models.Model):

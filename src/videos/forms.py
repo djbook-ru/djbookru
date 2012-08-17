@@ -1,13 +1,17 @@
-from .models import Video
+# -*- coding: utf-8 -*-
+
 from django import forms
 from django.utils.translation import ugettext_lazy as _
+
 import oembed
+
+from . import models
 
 
 class VideoAdminForm(forms.ModelForm):
 
     class Meta:
-        model = Video
+        model = models.Video
 
     def clean_video(self):
         video_link = self.cleaned_data.get('video')

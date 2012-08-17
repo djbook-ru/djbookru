@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.contrib import admin
 from django.forms.formsets import all_valid
 from django.contrib.contenttypes.models import ContentType
@@ -10,21 +12,24 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
 from django.utils.encoding import force_unicode, smart_unicode
 from django.http import Http404
-from utils.models import LogEntryExtend
 from django.contrib.admin.models import LogEntry, CHANGE
+
 from copy import deepcopy
+
+from . import models
+
 
 class LogEntryAdmin(admin.ModelAdmin):
     list_display = ('object_repr', 'content_type', 'user', 'change_message', 'action_time')
     list_filter = ('content_type',)
     readonly_fields = ('version',)
-    
+
     def version(self, obj):
         if not obj.more:
             return ''
-        
+
         data_obj = obj.more.data
-        
+
         output = []
         output.append(u'<table>')
         row = u'<tr><td>%s</td><td><pre>%s</pre></td></tr>'
@@ -32,15 +37,16 @@ class LogEntryAdmin(admin.ModelAdmin):
             val = getattr(data_obj, f.get_attname())
             output.append(row % (f.verbose_name, val))
         output.append(u'</table>')
-        
+
         return u''.join(output)
-    
+
     version.allow_tags = True
-    
-admin.site.register(LogEntry, LogEntryAdmin)
+
+admin.site.register(models.LogEntry, LogEntryAdmin)
+
 
 class LogModelAdmin(admin.ModelAdmin):
-    
+
     def log_change(self, request, object, message, old_object=None):
         """
         Log that an object has been successfully changed.
@@ -55,13 +61,13 @@ class LogModelAdmin(admin.ModelAdmin):
         entry.action_flag = CHANGE
         entry.change_message = message
         entry.save()
-        
+
         if old_object:
-            entry_extend = LogEntryExtend()
+            entry_extend = models.LogEntryExtend()
             entry_extend.entry = entry
             entry_extend.data = old_object
             entry_extend.save()
-        
+
     @admin.options.csrf_protect_m
     @transaction.commit_on_success
     def change_view(self, request, object_id, extra_context=None):
@@ -71,14 +77,14 @@ class LogModelAdmin(admin.ModelAdmin):
 
         obj = self.get_object(request, unquote(object_id))
         old_object = deepcopy(obj)
-        
+
         if not self.has_change_permission(request, obj):
             raise PermissionDenied
 
         if obj is None:
             raise Http404(_('%(name)s object with primary key %(key)r does not exist.') % {'name': force_unicode(opts.verbose_name), 'key': escape(object_id)})
 
-        if request.method == 'POST' and request.POST.has_key("_saveasnew"):
+        if request.method == 'POST' and '_saveasnew' in request.POST:
             return self.add_view(request, form_url='../add/')
 
         ModelForm = self.get_form(request, obj)
@@ -145,7 +151,7 @@ class LogModelAdmin(admin.ModelAdmin):
             'adminform': adminForm,
             'object_id': object_id,
             'original': obj,
-            'is_popup': request.REQUEST.has_key('_popup'),
+            'is_popup': '_popup' in request.REQUEST,
             'media': mark_safe(media),
             'inline_admin_formsets': inline_admin_formsets,
             'errors': helpers.AdminErrorList(form, formsets),
@@ -153,4 +159,4 @@ class LogModelAdmin(admin.ModelAdmin):
             'app_label': opts.app_label,
         }
         context.update(extra_context or {})
-        return self.render_change_form(request, context, change=True, obj=obj)    
+        return self.render_change_form(request, context, change=True, obj=obj)

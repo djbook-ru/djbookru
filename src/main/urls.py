@@ -1,6 +1,8 @@
-from django.conf.urls.defaults import *
+# -*- coding: utf-8 -*-
 
-urlpatterns = patterns('main.views',
+from django.conf.urls.defaults import url, patterns
+
+urlpatterns = patterns('src.main.views',
     url(r'^$', 'index', name='index'),
     url(r'^index/$', 'first_page', name='first_page'),
     url(r'^search/$', 'search', name='search'),

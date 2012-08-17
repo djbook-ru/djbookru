@@ -1,6 +1,10 @@
-from django.conf.urls.defaults import *
+# -*- coding: utf-8 -*-
+
+from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 from patch import sites_flatpages_patch
 
 admin.autodiscover()
@@ -11,35 +15,44 @@ js_info_dict = {
 }
 
 urlpatterns = patterns('',
-    (r'^', include('main.urls', 'main')),
+    url(r'^', include('src.main.urls', 'main')),
     url(r'^', include('social_auth.urls')),
     url(r'^admin_tools/', include('admin_tools.urls')),
     url(r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict, name='js_i18n_catalog'),
-    (r'^adzone/', include('adzone.urls')),
-    (r'^news/', include('news.urls', 'news')),
-    (r'^videos/', include('videos.urls', 'videos')),
-    (r'^claims/', include('claims.urls', 'claims')),
-    (r'^examples/', include('examples.urls', 'examples')),
-    (r'^auth/', include('accounts.urls', 'accounts')),
-    (r'^forum/', include('djangobb_forum.urls', 'djangobb')),
-    (r'^admin_tools/', include('admin_tools.urls')),
-    (r'^admin/', include(admin.site.urls)),
-    (r'^doc_comments/', include('doc_comments.urls', 'doc_comments')),
-    (r'^comments/', include('comments.urls', 'comments')),
-    (r'^tagging_autocomplete/', include('tagging_autocomplete.urls')),
-    url(r'^(?P<path>pics/.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+    url(r'^adzone/', include('adzone.urls')),
+    url(r'^news/', include('src.news.urls', 'news')),
+    url(r'^videos/', include('src.videos.urls', 'videos')),
+    url(r'^claims/', include('src.claims.urls', 'claims')),
+    url(r'^examples/', include('src.examples.urls', 'examples')),
+    url(r'^auth/', include('src.accounts.urls', 'accounts')),
+    url(r'^forum/', include('src.djangobb_forum.urls', 'djangobb')),
+    url(r'^admin_tools/', include('admin_tools.urls')),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^doc_comments/', include('src.doc_comments.urls', 'doc_comments')),
+    url(r'^comments/', include('src.comments.urls', 'comments')),
+    url(r'^tagging_autocomplete/', include('tagging_autocomplete.urls')),
+    #url(r'^(?P<path>pics/.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )
+
+urlpatterns += staticfiles_urlpatterns()
 
 if settings.DEBUG:
     urlpatterns += patterns('',
-        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
-    )
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.MEDIA_ROOT,
+        }),
+   )
 
-from django.contrib.sitemaps import Sitemap, FlatPageSitemap, GenericSitemap
-from examples import models as r_models
-from news import models as n_models
-from comments import models as c_models
-from djangobb_forum import models as f_models
+# if settings.DEBUG:
+#     urlpatterns += patterns('',
+#         url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+#     )
+
+from django.contrib.sitemaps import FlatPageSitemap, GenericSitemap
+from . examples import models as r_models
+from . news import models as n_models
+from . comments import models as c_models
+from . djangobb_forum import models as f_models
 
 sitemap_forum = {
     'queryset': f_models.Topic.objects.all(),
@@ -72,6 +85,7 @@ urlpatterns += patterns(
 
 from django import http
 from django.template import RequestContext, loader
+
 
 def handler500(request, template_name='500.html'):
     t = loader.get_template(template_name)

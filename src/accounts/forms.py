@@ -1,4 +1,5 @@
-from accounts.models import User
+# -*- coding: utf-8 -*-
+
 from django import forms
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import PasswordResetForm as AuthPasswordResetForm
@@ -7,8 +8,11 @@ from django.contrib.auth.tokens import default_token_generator
 from django.contrib.sites.models import get_current_site
 from django.utils.http import int_to_base36
 from django.utils.translation import ugettext_lazy as _
-from utils.forms import ReCaptchaField
-from utils.mail import send_templated_email
+
+from .. utils.forms import ReCaptchaField
+from .. utils.mail import send_templated_email
+
+from . import models
 
 
 class AuthenticationForm(forms.Form):
@@ -60,7 +64,7 @@ class CreateUserForm(UserCreationForm):
     captcha = ReCaptchaField(label=_(u'captcha'))
 
     class Meta:
-        model = User
+        model = models.User
         fields = ('username', 'email', 'password1', 'password2', 'captcha')
 
 
@@ -72,7 +76,7 @@ class UserEditForm(forms.ModelForm):
                                           required=False)
 
     class Meta:
-        model = User
+        model = models.User
         fields = ('biography', 'email')
 
     def clean(self):
@@ -88,9 +92,9 @@ class UserEditForm(forms.ModelForm):
         value = self.cleaned_data['email']
         if value:
             try:
-                User.objects.exclude(pk=self.instance.pk).get(email=value)
+                models.User.objects.exclude(pk=self.instance.pk).get(email=value)
                 raise forms.ValidationError(_(u'This email is used already.'))
-            except User.DoesNotExist:
+            except models.User.DoesNotExist:
                 pass
         return value
 
@@ -105,7 +109,7 @@ class PasswordResetForm(AuthPasswordResetForm):
 
     def clean_email(self):
         email = self.cleaned_data["email"]
-        self.users_cache = User.objects.filter(
+        self.users_cache = models.User.objects.filter(
                                 email__iexact=email,
                                 is_active=True,
                                 is_valid_email=True

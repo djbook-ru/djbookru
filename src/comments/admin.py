@@ -1,12 +1,15 @@
+# -*- coding: utf-8 -*-
+
 from django.contrib import admin
 from django import forms
-from comments.models import Comment
+
+from . import models
 
 
 class CommentAdminForm(forms.ModelForm):
 
     class Meta:
-        model = Comment
+        model = models.Comment
         fields = ['content']
 
 
@@ -15,4 +18,4 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ['content', 'content_type', 'user', 'submit_date']
     search_fields = ('content',)
 
-admin.site.register(Comment, CommentAdmin)
+admin.site.register(models.Comment, CommentAdmin)

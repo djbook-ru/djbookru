@@ -1,24 +1,24 @@
-from datetime import datetime
+# -*- coding: utf-8 -*-
+
 import os
 import os.path
 
 from django.db import models
 from django.contrib.auth.models import Group
-#from accounts.models import User
-from django.utils.html import escape
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from django.utils.hashcompat import sha_constructor
+from django.utils import timezone
 
-from djangobb_forum.fields import AutoOneToOneField, ExtendedImageField, JSONField
-from djangobb_forum.util import smiles, convert_text_to_html
-from djangobb_forum import settings as forum_settings
+from . fields import AutoOneToOneField, JSONField
+from . util import smiles, convert_text_to_html
+from . import settings as forum_settings
 
 if 'south' in settings.INSTALLED_APPS:
     from south.modelsinspector import add_introspection_rules
-    add_introspection_rules([], ['^djangobb_forum\.fields\.AutoOneToOneField',
-                                 '^djangobb_forum\.fields\.JSONField',
-                                 '^djangobb_forum\.fields\.ExtendedImageField'])
+    add_introspection_rules([], ['^src\.djangobb_forum\.fields\.AutoOneToOneField',
+                                 '^src\.djangobb_forum\.fields\.JSONField',
+                                 '^src\.djangobb_forum\.fields\.ExtendedImageField'])
 
 TZ_CHOICES = [(float(x[0]), x[1]) for x in (
     (-12, '-12'), (-11, '-11'), (-10, '-10'), (-9.5, '-09.5'), (-9, '-09'),
@@ -164,7 +164,7 @@ class Topic(models.Model):
             #clear topics if len > 5Kb and set last_read to current time
             if len(tracking.topics) > 5120:
                 tracking.topics = None
-                tracking.last_read = datetime.now()
+                tracking.last_read = timezone.now()
                 tracking.save()
             #update topics if exist new post or does't exist in dict
             if self.last_post.id > tracking.topics.get(str(self.id), 0):
@@ -335,11 +335,12 @@ class Report(models.Model):
         verbose_name_plural = _('Reports')
 
     def __unicode__(self):
-        return u'%s %s' % (self.reported_by ,self.zapped)
+        return u'%s %s' % (self.reported_by, self.zapped)
+
 
 class Ban(models.Model):
     user = models.OneToOneField('accounts.User', verbose_name=_('Banned user'), related_name='ban_users')
-    ban_start = models.DateTimeField(_('Ban start'), default=datetime.now)
+    ban_start = models.DateTimeField(_('Ban start'), default=timezone.now)
     ban_end = models.DateTimeField(_('Ban end'), blank=True, null=True)
     reason = models.TextField(_('Reason'))
 

@@ -1,10 +1,13 @@
-from .forms import VideoAdminForm
-from .models import Video
+# -*- coding: utf-8 -*-
+
 from django.contrib import admin
+
+from . import forms
+from . import models
 
 
 class VideoAdmin(admin.ModelAdmin):
-    form = VideoAdminForm
+    form = forms.VideoAdminForm
     list_display = ['title', 'tags']
 
-admin.site.register(Video, VideoAdmin)
+admin.site.register(models.Video, VideoAdmin)

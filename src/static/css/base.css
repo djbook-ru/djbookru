@@ -381,15 +381,15 @@ form formset p {
 }
 
 .login-link.open-id {
-    background: url(../img/login.png) 0 0px no-repeat;
+    background: url(/static/img/login.png) 0 0px no-repeat;
 }
 
 .login-link.twitter {
-    background: url(../img/login.png) -120px 0px no-repeat;
+    background: url(/static/img/login.png) -120px 0px no-repeat;
 }
 
 .login-link.google {
-    background: url(../img/login.png) -222px 0px no-repeat;
+    background: url(/static/img/login.png) -222px 0px no-repeat;
 }
 
 .login-link.securelayer {

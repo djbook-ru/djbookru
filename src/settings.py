@@ -6,7 +6,7 @@ import os, sys, glob
 def PROJECT_DIR(*x):
     return os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
 
-PUBLIC_DIR = PROJECT_DIR('public')
+PUBLIC_DIR = lambda *x: PROJECT_DIR('public', *x)
 
 
 # get local software repositories
@@ -81,7 +81,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_DIR, 'static'),
+    PROJECT_DIR('static'),
 )
 
 # List of finder classes that know how to find static files in
@@ -102,8 +102,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 
     'pagination.middleware.PaginationMiddleware',
-    'djangobb_forum.middleware.LastLoginMiddleware',
-    'djangobb_forum.middleware.UsersOnline',
 )
 
 ROOT_URLCONF = 'src.urls'
@@ -120,9 +118,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.core.context_processors.request',
 
-    'context_processors.custom',
     'adzone.context_processors.get_source_ip',
     'social_auth.context_processors.social_auth_backends',
+
+    'src.context_processors.custom',
 )
 
 # List of callables that know how to import templates from various sources.
@@ -219,7 +218,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
 
     'adzone',
-    'bootstrapform'
+    'bootstrapform',
     'chunks',
     'google_analytics',
     'oembed',
@@ -228,15 +227,15 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'tagging',
 
-    'accounts',
-    'claims',
-    'comments',
-    'doc_comments',
-    'examples',
-    'main',
-    'news',
-    'utils',
-    'videos',
+    'src.accounts',
+    'src.claims',
+    'src.comments',
+    'src.doc_comments',
+    'src.examples',
+    'src.main',
+    'src.news',
+    'src.utils',
+    'src.videos',
 )
 
 
@@ -298,9 +297,9 @@ def get_doc_pages(path, ext):
 DJANGO_DOCUMENTATION_URL = '/rel1.4/'
 
 INSTALLED_APPS += ('haystack', 'haystack_static_pages')
-HAYSTACK_SITECONF = 'search_sites'
+HAYSTACK_SITECONF = 'src.search'
 HAYSTACK_SEARCH_ENGINE = 'xapian'
-HAYSTACK_XAPIAN_PATH = PROJECT_DIR('search_index')
+HAYSTACK_XAPIAN_PATH = PROJECT_DIR('search', 'xapian_index')
 HAYSTACK_STATIC_PAGES = tuple(
     get_doc_pages(
         os.path.expanduser('~/devel/django_documentation/_build/html'),
@@ -327,9 +326,21 @@ SOUTH_TESTS_MIGRATE = False
 
 
 ### FORUM: BEGIN
-INSTALLED_APPS += ('djangobb_forum', )
+INSTALLED_APPS += ('src.djangobb_forum', )
 TOPIC_PAGE_SIZE = 10
 REPLY_PAGE_SIZE = 20
 FLOOD_TIME = 5
 RANKS_NAMES_DATA = ((30, "Member"), (100, "Senior Member"), (300, 'Star'))
+MIDDLEWARE_CLASSES += (
+    'src.djangobb_forum.middleware.LastLoginMiddleware',
+    'src.djangobb_forum.middleware.UsersOnline',
+)
 ### FORUM: BEGIN
+
+try:
+    LOCAL_SETTINGS
+except NameError:
+    try:
+        from local_settings import *
+    except ImportError:
+        pass

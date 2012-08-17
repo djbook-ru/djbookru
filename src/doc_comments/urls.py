@@ -1,7 +1,8 @@
-from django.views.generic.simple import direct_to_template
-from django.conf.urls.defaults import *
+# -*- coding: utf-8 -*-
 
-urlpatterns = patterns('doc_comments.views',
+from django.conf.urls.defaults import  url, patterns
+
+urlpatterns = patterns('src.doc_comments.views',
     url(r'^add/$', 'add', name='add'),
     url(r'^close_comment/$', 'close_comment', name='close_comment'),
     url(r'^accept_comment/$', 'accept_comment', name='accept_comment'),

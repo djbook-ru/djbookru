@@ -1,7 +1,7 @@
-from datetime import datetime
-import os.path
-import random
+# -*- coding: utf-8 -*-
+
 import re
+
 from HTMLParser import HTMLParser
 try:
     import markdown
@@ -14,14 +14,13 @@ from django.http import HttpResponse, Http404
 from django.utils.functional import Promise
 from django.utils.translation import force_unicode, check_for_language
 from django.utils.simplejson import JSONEncoder
-from django import forms
 from django.template.defaultfilters import urlize as django_urlize
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 from django.contrib.sites.models import Site
-from django.conf import settings
+from django.utils.html import escape
 
-from djangobb_forum import settings as forum_settings
-from djangobb_forum.markups import bbmarkup
+from . import settings as forum_settings
+from . markups import bbmarkup
 
 #compile smiles regexp
 _SMILES = [(re.compile(smile_re), path) for smile_re, path in forum_settings.SMILES]
@@ -43,14 +42,14 @@ def render_to(template):
 
     @render_to('template.html')
     def foo(request):
-        bar = Bar.object.all()  
+        bar = Bar.object.all()
         return {'bar': bar}
 
-    # equals to 
+    # equals to
     def foo(request):
-        bar = Bar.object.all()  
-        return render_to_response('template.html', 
-                                  {'bar': bar}, 
+        bar = Bar.object.all()
+        return render_to_response('template.html',
+                                  {'bar': bar},
                                   context_instance=RequestContext(request))
 
     # 2. Template name as TEMPLATE item value in return dictionary
@@ -59,12 +58,12 @@ def render_to(template):
     def foo(request, category):
         template_name = '%s.html' % category
         return {'bar': bar, 'TEMPLATE': template_name}
-    
+
     #equals to
     def foo(request, category):
         template_name = '%s.html' % category
-        return render_to_response(template_name, 
-                                  {'bar': bar}, 
+        return render_to_response(template_name,
+                                  {'bar': bar},
                                   context_instance=RequestContext(request))
     """
 
@@ -208,7 +207,7 @@ class ExcludeTagsHTMLParser(HTMLParser):
             self.html.append(data)
 
         def handle_startendtag(self, tag, attrs):
-            self.html.append('<%s%s/>' % (tag, self.__html_attrs(attrs))) 
+            self.html.append('<%s%s/>' % (tag, self.__html_attrs(attrs)))
 
         def handle_endtag(self, tag):
             self.is_ignored = False
@@ -227,7 +226,7 @@ class ExcludeTagsHTMLParser(HTMLParser):
         def __html_attrs(self, attrs):
             _attrs = ''
             if attrs:
-                _attrs = ' %s' % (' '.join([('%s="%s"' % (k,v)) for k,v in attrs]))
+                _attrs = ' %s' % (' '.join([('%s="%s"' % (k, v)) for k, v in attrs]))
             return _attrs
 
         def feed(self, data):
@@ -238,7 +237,7 @@ class ExcludeTagsHTMLParser(HTMLParser):
 def urlize(data):
     """
     Urlize plain text links in the HTML contents.
-   
+
     Do not urlize content of A and CODE tags.
     """
 
@@ -248,10 +247,12 @@ def urlize(data):
     parser.close()
     return urlized_html
 
+
 def _smile_replacer(data):
     for smile, path in _SMILES:
         data = smile.sub(path, data)
     return data
+
 
 def smiles(data):
     """
@@ -263,6 +264,7 @@ def smiles(data):
     smiled_html = parser.html
     parser.close()
     return smiled_html
+
 
 def paginate(items, request, per_page, total_count=None):
     try:
@@ -276,7 +278,8 @@ def paginate(items, request, per_page, total_count=None):
         paged_list_name = paginator.page(page_number).object_list
     except (InvalidPage, EmptyPage):
         raise Http404
-    return pages, paginator, paged_list_name 
+    return pages, paginator, paged_list_name
+
 
 def set_language(request, language):
     """
@@ -287,14 +290,13 @@ def set_language(request, language):
         if hasattr(request, 'session'):
             request.session['django_language'] = language
         #else:
-        #    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language) 
+        #    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language)
 
-from django.utils.html import linebreaks, escape
 
 def convert_text_to_html(text, markup):
     if markup == 'bbcode':
         text = bbmarkup.bbcode(text)
-    elif markup == 'markdown':            
+    elif markup == 'markdown':
         text = markdown.markdown(text, safe_mode='escape')
     else:
         text = escape(text).replace('\n', '<br/>')

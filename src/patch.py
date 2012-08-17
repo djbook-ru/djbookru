@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django import forms
 from django.conf import settings
 from django.contrib import admin
@@ -5,13 +7,15 @@ from django.contrib.sites.models import Site
 from django.contrib.flatpages.models import FlatPage
 from django.utils.translation import ugettext_lazy as _
 
+
 class FlatpageForm(forms.ModelForm):
     url = forms.RegexField(label=_("URL"), max_length=100, regex=r'^[-\w/]+$',
-        help_text = _("Example: '/about/contact/'. Make sure to have leading and trailing slashes."),
-        error_message = _("This value must contain only letters, numbers, underscores, dashes or slashes."))
+        help_text=_("Example: '/about/contact/'. Make sure to have leading and trailing slashes."),
+        error_message=_("This value must contain only letters, numbers, underscores, dashes or slashes."))
 
     class Meta:
         model = FlatPage
+
 
 class FlatPageAdmin(admin.ModelAdmin):
     form = FlatpageForm
@@ -24,18 +28,23 @@ class FlatPageAdmin(admin.ModelAdmin):
     list_filter = ('enable_comments', 'registration_required')
     search_fields = ('url', 'title')
     save_on_top = True
-    
+
     class Media:
         js = [
-            settings.ADMIN_MEDIA_PREFIX+'tinymce/jscripts/tiny_mce/tiny_mce.js', 
+            settings.ADMIN_MEDIA_PREFIX + 'tinymce/jscripts/tiny_mce/tiny_mce.js',
             'js/tinymce_setup.js'
         ]
-        
+
     def save_model(self, request, new_object, form, change=False):
         super(FlatPageAdmin, self).save_model(request, new_object, form, change)
         new_object.sites.add(settings.SITE_ID)
 
+
 def sites_flatpages_patch():
-    admin.site.unregister(Site)
+    try:
+        admin.site.unregister(Site)
+    except admin.sites.NotRegistered:
+        print 'Model Site is not registered. See patch.py in projects root.'
+
     admin.site.unregister(FlatPage)
     admin.site.register(FlatPage, FlatPageAdmin)

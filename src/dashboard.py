@@ -48,21 +48,21 @@ class CustomIndexDashboard(Dashboard):
                 _(u'Applications'),
                 children=[
                 modules.ModelList(_(u'Content'), [
-                    'news.models.News',
-                    'claims.models.Claims',
-                    'comments.models.Comment',
-                    'videos.models.Video',
+                    'src.news.models.News',
+                    'src.claims.models.Claims',
+                    'src.comments.models.Comment',
+                    'src.videos.models.Video',
                     ]),
                 modules.ModelList(_(u'Book'), [
-                    'main.models.Book',
-                    'main.models.Page',
+                    'src.main.models.Book',
+                    'src.main.models.Page',
                     ]),
                 modules.ModelList(_(u'Receipts'), [
-                    'examples.models.Example',
-                    'examples.models.Category',
+                    'src.examples.models.Example',
+                    'src.examples.models.Category',
                     ]),
                 modules.ModelList(_(u'Documentation'), [
-                    'doc_comments.models.Comment',
+                    'src.doc_comments.models.Comment',
                     ]),
                 modules.ModelList(_(u'Advertisment'), [
                     'adzone.models.Advertiser',
@@ -74,11 +74,11 @@ class CustomIndexDashboard(Dashboard):
                     'adzone.models.Impression',
                     ]),
                 modules.ModelList(_(u'Forum'), [
-                    'djangobb_forum.models.Category',
-                    'djangobb_forum.models.Forum',
-                    'djangobb_forum.models.Topic',
-                    'djangobb_forum.models.Post',
-                    'djangobb_forum.models.PostTracking',
+                    'src.djangobb_forum.models.Category',
+                    'src.djangobb_forum.models.Forum',
+                    'src.djangobb_forum.models.Topic',
+                    'src.djangobb_forum.models.Post',
+                    'src.djangobb_forum.models.PostTracking',
                     ])
                 ]))
 

@@ -1,13 +1,15 @@
+# -*- coding: utf-8 -*-
+
 from django.contrib.syndication.views import Feed, FeedDoesNotExist
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.feedgenerator import Atom1Feed
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.models import User
 from django.db.models import Q
 from django.http import Http404
 
-from djangobb_forum.models import Post, Topic, Forum, Category
+from . models import Post, Topic, Forum, Category
+
 
 class ForumFeed(Feed):
     feed_type = Atom1Feed
@@ -63,7 +65,7 @@ class LastTopics(ForumFeed):
 class LastPostsOnTopic(ForumFeed):
     title_template = 'forum/feeds/posts_title.html'
     description_template = 'forum/feeds/posts_description.html'
-    
+
     def get_object(self, request, topics):
         if len(topics) != 1:
             raise ObjectDoesNotExist
@@ -117,7 +119,7 @@ class LastPostsOnForum(ForumFeed):
 class LastPostsOnCategory(ForumFeed):
     title_template = 'forum/feeds/posts_title.html'
     description_template = 'forum/feeds/posts_description.html'
-    
+
     def get_object(self, request, categories):
         if len(categories) != 1:
             raise ObjectDoesNotExist

@@ -1,11 +1,13 @@
+# -*- coding: utf-8 -*-
+
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 from django.utils.html import strip_tags
 
-from djangobb_forum import settings as forum_settings
-from djangobb_forum.util import absolute_url
+from . import settings as forum_settings
+from . util import absolute_url
 
 if "mailer" in settings.INSTALLED_APPS:
     from mailer import send_mail
@@ -15,7 +17,7 @@ else:
         """
         Shortcut for sending email.
         """
-    
+
         msg = EmailMultiAlternatives(subject, text, from_email, rec_list)
         if html:
             msg.attach_alternative(html, "text/html")
@@ -27,7 +29,7 @@ else:
             print '---end---'
         else:
             msg.send(fail_silently=True)
-    
+
 
 TOPIC_SUBSCRIPTION_TEXT_TEMPLATE = (u"""New reply from %(username)s to topic that you have subscribed on.
 ---
@@ -37,9 +39,8 @@ See topic: %(post_url)s
 Unsubscribe %(unsubscribe_url)s""")
 
 
-
 def notify_topic_subscribers(post):
-    from djangobb_forum.models import Post
+    from . models import Post
 
     topic = post.topic
     post_body_text = strip_tags(post.body_html)

@@ -6,24 +6,24 @@ from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 from django.http import Http404
 
-from decorators import render_to
+from .. decorators import render_to
 
-from examples.models import Category, Example
-from examples.forms import AddExampleForm
-from djangobb_forum.models import Topic
+from .. djangobb_forum.models import Topic
+from . import models
+from . import forms
 
 
 @render_to('examples/index.html')
 def index(request):
     return {
-        'categories': Category.objects.all()
+        'categories': models.Category.objects.all()
     }
 
 
 @render_to('examples/add.html')
 @login_required
 def add(request):
-    form = AddExampleForm(request.POST or None)
+    form = forms.AddExampleForm(request.POST or None)
 
     if form.is_valid():
         form.save(request.user)
@@ -37,7 +37,7 @@ def add(request):
 
 @render_to('examples/category.html')
 def category(request, pk):
-    obj = get_object_or_404(Category, pk=pk)
+    obj = get_object_or_404(models.Category, pk=pk)
     return {
         'category': obj
     }
@@ -45,11 +45,8 @@ def category(request, pk):
 
 @render_to('examples/detail.html')
 def detail(request, pk):
-    try:
-        example = Example.objects.get(pk=pk)
-        if not example.approved and not request.user.is_superuser:
-            raise Http404
-    except Example.DoesNotExist:
+    example = get_object_or_404(models.Example, pk=pk)
+    if not example.approved and not request.user.is_superuser:
         raise Http404
 
     try:

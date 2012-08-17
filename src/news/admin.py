@@ -1,5 +1,8 @@
+# -*- coding: utf-8 -*-
+
 from django.contrib import admin
-from news.models import News
+
+from . import models
 
 
 class NewsAdmin(admin.ModelAdmin):
@@ -10,4 +13,4 @@ class NewsAdmin(admin.ModelAdmin):
             obj.author = request.user
         obj.save()
 
-admin.site.register(News, NewsAdmin)
+admin.site.register(models.News, NewsAdmin)

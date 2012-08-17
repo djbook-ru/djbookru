@@ -1,13 +1,16 @@
 # -*- coding: utf-8 -*-
-from accounts.models import User
+
+from random import shuffle
+
 from django import template
 from django.conf import settings
 from django.contrib.sites.models import Site
 from django.template import Context
 from django.template.loader import get_template
-from djangobb_forum.models import Topic
-from examples.models import Category, Example
-from random import shuffle
+
+from ... djangobb_forum.models import Topic
+from ... examples.models import Category, Example
+from ... accounts.models import User
 
 
 RECIPES_ON_MAIN = getattr(settings, 'RECIPES_ON_MAIN', 4)
@@ -58,7 +61,6 @@ class ShareNode(template.Node):
             'content': getattr(resolved, 'get_share_description', lambda: u'')(),
             'title': getattr(resolved, 'get_share_title', title)(),
             'obj': resolved,
-            'MEDIA_URL': settings.MEDIA_URL
         }))
 
 

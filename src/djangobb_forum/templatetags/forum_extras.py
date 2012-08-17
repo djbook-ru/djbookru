@@ -1,22 +1,19 @@
-# -*- coding: utf-8
-from datetime import datetime, timedelta
+# -*- coding: utf-8 -*-
+
 import urllib
 
 from django import template
 from django.core.urlresolvers import reverse
 from django.core.cache import cache
 from django.utils.safestring import mark_safe
-from django.template import RequestContext
 from django.utils.encoding import smart_unicode
 from django.db import settings
 from django.utils.html import escape
-from django.utils.translation import ugettext as _
-from django.utils import dateformat
 from django.utils.hashcompat import md5_constructor
 from django.contrib.humanize.templatetags.humanize import naturalday
 
-from djangobb_forum.models import Forum, Topic, Post, PostTracking, Report
-from djangobb_forum import settings as forum_settings
+from .. import models
+from .. import settings as forum_settings
 
 if forum_settings.PM_SUPPORT:
     from messages.models import inbox_count_for
@@ -25,6 +22,7 @@ register = template.Library()
 
 # TODO:
 # * rename all tags with forum_ prefix
+
 
 @register.filter
 def profile_link(user):
@@ -55,7 +53,7 @@ class ForumTimeNode(template.Node):
 
 
 # TODO: this old code requires refactoring
-@register.inclusion_tag('forum/pagination.html',takes_context=True)
+@register.inclusion_tag('forum/pagination.html', takes_context=True)
 def pagination(context, adjacent_pages=1):
     """
     Return the list of A tags with links to pages.
@@ -71,9 +69,9 @@ def pagination(context, adjacent_pages=1):
         lower_page = context['page'] - 1
 
     if not 1 in page_list:
-        page_list.insert(0,1)
+        page_list.insert(0, 1)
         if not 2 in page_list:
-            page_list.insert(1,'.')
+            page_list.insert(1, '.')
 
     if not context['pages'] == context['page']:
         higher_page = context['page'] + 1
@@ -100,23 +98,23 @@ def pagination(context, adjacent_pages=1):
         }
 
 
-@register.inclusion_tag('forum/lofi/pagination.html',takes_context=True)
+@register.inclusion_tag('forum/lofi/pagination.html', takes_context=True)
 def lofi_pagination(context):
     page_list = range(1, context['pages'] + 1)
     paginator = context['paginator']
-    
-    get_params = '&'.join(['%s=%s' % (x[0],','.join(x[1])) for x in
+
+    get_params = '&'.join(['%s=%s' % (x[0], ','.join(x[1])) for x in
         context['request'].GET.iteritems() if (not x[0] == 'page' and not x[0] == 'per_page')])
     if get_params:
         get_params = '?%s&' % get_params
     else:
         get_params = '?'
-        
+
     return {
             'get_params': get_params,
             'page_list': page_list,
             'paginator': paginator,
-            } 
+            }
 
 
 @register.simple_tag
@@ -125,7 +123,7 @@ def link(object, anchor=u''):
     Return A tag with link to object.
     """
 
-    url = hasattr(object,'get_absolute_url') and object.get_absolute_url() or None
+    url = hasattr(object, 'get_absolute_url') and object.get_absolute_url() or None
     anchor = anchor or smart_unicode(object)
     return mark_safe('<a href="%s">%s</a>' % (url, escape(anchor)))
 
@@ -136,7 +134,7 @@ def lofi_link(object, anchor=u''):
     Return A tag with lofi_link to object.
     """
 
-    url = hasattr(object,'get_absolute_url') and object.get_absolute_url() or None   
+    url = hasattr(object, 'get_absolute_url') and object.get_absolute_url() or None
     anchor = anchor or smart_unicode(object)
     return mark_safe('<a href="%slofi">%s</a>' % (url, escape(anchor)))
 
@@ -204,30 +202,30 @@ def forum_equal_to(obj1, obj2):
 @register.filter
 def forum_authority(user):
     posts = user.forum_profile.post_count
-    if posts >= forum_settings.AUTHORITY_STEP_10: 
+    if posts >= forum_settings.AUTHORITY_STEP_10:
         return mark_safe('<img src="%sforum/img/authority/vote10.gif" alt="" >' % (settings.MEDIA_URL))
-    elif posts >= forum_settings.AUTHORITY_STEP_9: 
+    elif posts >= forum_settings.AUTHORITY_STEP_9:
         return mark_safe('<img src="%sforum/img/authority/vote9.gif" alt="" >' % (settings.MEDIA_URL))
-    elif posts >= forum_settings.AUTHORITY_STEP_8: 
+    elif posts >= forum_settings.AUTHORITY_STEP_8:
         return mark_safe('<img src="%sforum/img/authority/vote8.gif" alt="" >' % (settings.MEDIA_URL))
-    elif posts >= forum_settings.AUTHORITY_STEP_7: 
+    elif posts >= forum_settings.AUTHORITY_STEP_7:
         return mark_safe('<img src="%sforum/img/authority/vote7.gif" alt="" >' % (settings.MEDIA_URL))
-    elif posts >= forum_settings.AUTHORITY_STEP_6: 
+    elif posts >= forum_settings.AUTHORITY_STEP_6:
         return mark_safe('<img src="%sforum/img/authority/vote6.gif" alt="" >' % (settings.MEDIA_URL))
-    elif posts >= forum_settings.AUTHORITY_STEP_5: 
+    elif posts >= forum_settings.AUTHORITY_STEP_5:
         return mark_safe('<img src="%sforum/img/authority/vote5.gif" alt="" >' % (settings.MEDIA_URL))
-    elif posts >= forum_settings.AUTHORITY_STEP_4: 
+    elif posts >= forum_settings.AUTHORITY_STEP_4:
         return mark_safe('<img src="%sforum/img/authority/vote4.gif" alt="" >' % (settings.MEDIA_URL))
-    elif posts >= forum_settings.AUTHORITY_STEP_3: 
+    elif posts >= forum_settings.AUTHORITY_STEP_3:
         return mark_safe('<img src="%sforum/img/authority/vote3.gif" alt="" >' % (settings.MEDIA_URL))
-    elif posts >= forum_settings.AUTHORITY_STEP_2: 
+    elif posts >= forum_settings.AUTHORITY_STEP_2:
         return mark_safe('<img src="%sforum/img/authority/vote2.gif" alt="" >' % (settings.MEDIA_URL))
-    elif posts >= forum_settings.AUTHORITY_STEP_1: 
+    elif posts >= forum_settings.AUTHORITY_STEP_1:
         return mark_safe('<img src="%sforum/img/authority/vote1.gif" alt="" >' % (settings.MEDIA_URL))
     else:
         return mark_safe('<img src="%sforum/img/authority/vote0.gif" alt="" >' % (settings.MEDIA_URL))
 
-    
+
 @register.filter
 def online(user):
     return cache.get(str(user.id))
@@ -238,6 +236,7 @@ def pm_unreads(user):
     if forum_settings.PM_SUPPORT:
         return inbox_count_for(user)
     return None
+
 
 @register.filter
 def attachment_link(attach):
@@ -258,7 +257,7 @@ def attachment_link(attach):
 
 @register.simple_tag
 def new_reports():
-    return Report.objects.filter(zapped=False).count()
+    return models.Report.objects.filter(zapped=False).count()
 
 
 @register.simple_tag
@@ -275,24 +274,26 @@ def gravatar(email):
     else:
         return ''
 
+
 @register.simple_tag
 def set_theme_style(user):
     theme_style = ''
-    selected_theme = '' 
+    selected_theme = ''
     if user.is_authenticated():
         selected_theme = user.forum_profile.theme
-        theme_style = '<link rel="stylesheet" type="text/css" href="%(media_url)sforum/themes/%(theme)s/style.css" />' 
+        theme_style = '<link rel="stylesheet" type="text/css" href="%(media_url)sforum/themes/%(theme)s/style.css" />'
     else:
         theme_style = '<link rel="stylesheet" type="text/css" href="%(media_url)sforum/themes/DjangoBB/style.css" />'
-        
+
     return theme_style % dict(
         media_url=settings.MEDIA_URL,
         theme=selected_theme
     )
 
+
 @register.simple_tag
 def set_markup_editor(user, markup=None):
-    markup_style = '' 
+    markup_style = ''
     if user.is_authenticated():
         markup_style = '''
             <link rel="stylesheet" type="text/css" href="%(media_url)sforum/js/markitup/skins/markitup/style.css" />

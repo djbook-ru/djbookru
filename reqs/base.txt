@@ -4,6 +4,9 @@ Django == 1.4.1
 South
 -e hg+https://bitbucket.org/ruslanpopov/django-sentry#egg=sentry
 
+python_openid>=2.2
+oauth2 >= 1.5.167
+
 django-extensions
 django-salmonella == 0.5.1
 django-autoslug-field

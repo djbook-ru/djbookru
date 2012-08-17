@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
+
 import re
 from types import NoneType
+
 from django import template
 
 register = template.Library()

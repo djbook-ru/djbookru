@@ -1,10 +1,12 @@
-from django.conf.urls.defaults import *
+# -*- coding: utf-8 -*-
 
-from djangobb_forum import settings as forum_settings
-from djangobb_forum import views as forum_views
-from djangobb_forum.feeds import LastPosts, LastTopics, LastPostsOnForum,\
+from django.conf.urls.defaults import patterns, url
+
+from . import settings as forum_settings
+from . import views as forum_views
+from . feeds import LastPosts, LastTopics, LastPostsOnForum,\
      LastPostsOnCategory, LastPostsOnTopic
-     
+
 
 urlpatterns = patterns('',
 
@@ -41,7 +43,7 @@ urlpatterns = patterns('',
     # Subscription
     url('^subscription/topic/(?P<topic_id>\d+)/delete/$', forum_views.delete_subscription, name='forum_delete_subscription'),
     url('^subscription/topic/(?P<topic_id>\d+)/add/$', forum_views.add_subscription, name='forum_add_subscription'),
-    
+
     # Feeds
     url(r'^feeds/posts/$', LastPosts(), name='forum_posts_feed'),
     url(r'^feeds/topics/$', LastTopics(), name='forum_topics_feed'),
@@ -55,9 +57,9 @@ urlpatterns = patterns('',
 # LOFI Extension
 if (forum_settings.LOFI_SUPPORT):
     urlpatterns += patterns('',
-        url('^lofi/$', forum_views.index, {'full':False}, name='lofi_index'),
-        url('^(?P<forum_id>\d+)/lofi/$', forum_views.show_forum, {'full':False}, name='lofi_forum'),
-        url('^topic/(?P<topic_id>\d+)/lofi/$', forum_views.show_topic, {'full':False}, name='lofi_topic'),
+        url('^lofi/$', forum_views.index, {'full': False}, name='lofi_index'),
+        url('^(?P<forum_id>\d+)/lofi/$', forum_views.show_forum, {'full': False}, name='lofi_forum'),
+        url('^topic/(?P<topic_id>\d+)/lofi/$', forum_views.show_topic, {'full': False}, name='lofi_topic'),
     )
 
 # REPUTATION Extension

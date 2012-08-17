@@ -1,7 +1,10 @@
+# -*- coding: utf-8 -*-
+
 from django.contrib import admin
-from examples.models import Category, Example
 from django.forms import ModelForm
-from utils.admin import LogModelAdmin
+
+from .. utils.admin import LogModelAdmin
+from . import models
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -11,7 +14,7 @@ class CategoryAdmin(admin.ModelAdmin):
 class ExampleForm(ModelForm):
 
     class Meta:
-        model = Example
+        model = models.Example
 
     def __init__(self, *args, **kwargs):
         super(ExampleForm, self).__init__(*args, **kwargs)
@@ -29,5 +32,5 @@ class ExampleAdmin(LogModelAdmin):
             obj.author = request.user
         obj.save()
 
-admin.site.register(Category, CategoryAdmin)
-admin.site.register(Example, ExampleAdmin)
+admin.site.register(models.Category, CategoryAdmin)
+admin.site.register(models.Example, ExampleAdmin)

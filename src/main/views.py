@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from decorators import render_to
+import markdown
+
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import ObjectDoesNotExist
@@ -8,47 +9,39 @@ from django.http import Http404
 from django.shortcuts import redirect
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic.list_detail import object_list
-from haystack.query import SearchQuerySet
-from main.forms import FeedbackForm, SearchForm
-from main.models import Book
-import markdown
+
+from .. decorators import render_to
+
+from . import forms
+from . import models
 
 
 @render_to('main/index.html')
 def index(request):
-    book = Book.get()
-    return {
-        'book': book
-    }
+    return dict(book=models.Book.get())
 
 
 @render_to('main/first_page.html')
 def first_page(request):
     try:
-        book = Book.get()
-        page = book.pages.get(slug='index')
+        page = models.Book.get().pages.get(slug='index')
     except ObjectDoesNotExist:
         page = None
-    return {
-        'page': page
-    }
+    return dict(page=page)
 
 
 @render_to('main/page.html')
 def page(request, slug):
     try:
-        book = Book.get()
-        page = book.pages.get(slug=slug)
+        page = models.Book.get().pages.get(slug=slug)
     except ObjectDoesNotExist:
         raise Http404
-    return {
-        'page': page
-    }
+    return dict(page=page)
 
 
 def search(request):
     q = request.GET.get('q', '')
-    form = SearchForm(request.GET)
+    form = forms.SearchForm(request.GET)
     search_qs = form.search()
 
     extra_context = {
@@ -63,13 +56,13 @@ def search(request):
 @render_to('main/feedback.html')
 def feedback(request):
     if request.method == 'POST':
-        form = FeedbackForm(request.POST, initial={'captcha': request.META['REMOTE_ADDR']})
+        form = forms.FeedbackForm(request.POST, initial={'captcha': request.META['REMOTE_ADDR']})
         if form.is_valid():
             form.send(request)
             messages.success(request, _(u'Feedback sent success!'))
             return redirect('main:feedback')
     else:
-        form = FeedbackForm(initial={'referer': request.META.get('HTTP_REFERER', '')})
+        form = forms.FeedbackForm(initial={'referer': request.META.get('HTTP_REFERER', '')})
     return {
         'form': form
     }

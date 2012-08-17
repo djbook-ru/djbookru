@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
+
 from django.conf import settings
-import re
+
 
 def get(key, default):
     return getattr(settings, key, default)
@@ -73,14 +75,16 @@ EMOTION_LOL = get('DJANGOBB_EMOTION_LOL', '<img src="%sforum/img/smilies/lol.png
 EMOTION_MAD = get('DJANGOBB_EMOTION_MAD', '<img src="%sforum/img/smilies/mad.png">' % settings.MEDIA_URL)
 EMOTION_ROLL = get('DJANGOBB_EMOTION_ROLL', '<img src="%sforum/img/smilies/roll.png">' % settings.MEDIA_URL)
 EMOTION_COOL = get('DJANGOBB_EMOTION_COOL', '<img src="%sforum/img/smilies/cool.png">' % settings.MEDIA_URL)
-SMILES = ((r'(:|=)\)', EMOTION_SMILE), #:), =)
-          (r'(:|=)\|',  EMOTION_NEUTRAL), #:|, =| 
-          (r'(:|=)\(', EMOTION_SAD), #:(, =(
-          (r'(:|=)D', EMOTION_BIG_SMILE), #:D, =D
-          (r':o', EMOTION_YIKES), # :o, :O
-          (r';\)', EMOTION_WINK), # ;\ 
-          (r':/', EMOTION_HMM), #:/
-          (r':P', EMOTION_TONGUE), # :P
+
+
+SMILES = ((r'(:|=)\)', EMOTION_SMILE),  # :), =)
+          (r'(:|=)\|',  EMOTION_NEUTRAL),  # :|, =|
+          (r'(:|=)\(', EMOTION_SAD),  # :(, =(
+          (r'(:|=)D', EMOTION_BIG_SMILE),  # :D, =D
+          (r':o', EMOTION_YIKES),  # :o, :O
+          (r';\)', EMOTION_WINK),  # ;\
+          (r':/', EMOTION_HMM),  # :/
+          (r':P', EMOTION_TONGUE),  # :P
           (r':lol:', EMOTION_LOL),
           (r':mad:', EMOTION_MAD),
           (r':rolleyes:', EMOTION_ROLL),

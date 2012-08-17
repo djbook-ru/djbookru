@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
+
 from django.contrib import admin
-from .models import Comment
+from . import models
 
 
 class CommentAdmin(admin.ModelAdmin):
@@ -13,4 +15,4 @@ class CommentAdmin(admin.ModelAdmin):
         return obj.get_content()
     comment.allow_tags = True
 
-admin.site.register(Comment, CommentAdmin)
+admin.site.register(models.Comment, CommentAdmin)

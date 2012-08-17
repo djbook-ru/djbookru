@@ -1,9 +1,12 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
-from accounts.models import User
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
+
+from .. accounts.models import User
 
 COMMENT_MAX_LENGTH = getattr(settings, 'COMMENT_MAX_LENGTH', 1000)
 

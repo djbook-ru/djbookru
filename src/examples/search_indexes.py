@@ -1,9 +1,9 @@
-# encoding: utf-8
+# -*- coding: utf-8 -*-
 
 from haystack.indexes import *
 from haystack import site
 
-import examples.models as models
+from . import models
 
 
 class ExampleIndex(SearchIndex):

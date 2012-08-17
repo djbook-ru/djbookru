@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
+
 import re
 from django.conf import settings
 from django.utils.html import escape
 from django.template.defaultfilters import linebreaksbr
-from django.utils.safestring import mark_safe 
+from django.utils.safestring import mark_safe
 
 
 __all__ = ('BBCODE_RULES', 'bbcode')
@@ -70,6 +72,7 @@ for bbset in (getattr(settings, 'BBMARKUP_CUSTOM_RULES', []) or BBCODE_RULES):
     bbset.setdefault('sortkey', 0)
     bbset.setdefault('nested', 0)
     BBCODE_RULES_COMPILED.append(bbset)
+
 
 def bbcode(value, code_parser=code_parser):
     """

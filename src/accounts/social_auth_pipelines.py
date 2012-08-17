@@ -1,7 +1,10 @@
+# -*- coding: utf-8 -*-
+
 from django.core.exceptions import ObjectDoesNotExist
-from social_auth.backends.exceptions import AuthException, StopPipeline
-from social_auth.models import UserSocialAuth
 from django.utils.translation import ugettext_lazy as _
+
+from social_auth.backends.exceptions import AuthException
+from social_auth.models import UserSocialAuth
 
 
 def create_user(backend, details, response, uid, username, user=None, *args,

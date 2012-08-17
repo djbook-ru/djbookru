@@ -1,9 +1,5 @@
-from accounts.backends import CustomUserBackend
-from accounts.forms import UserEditForm, CreateUserForm, PasswordResetForm
-from accounts.models import User, EmailConfirmation, EMAIL_CONFIRMATION_DAYS
-from comments.models import Comment
-from datetime import datetime, timedelta
-from decorators import render_to
+# -*- coding: utf-8 -*-
+
 from django.conf import settings
 from django.contrib import auth
 from django.contrib import messages
@@ -14,7 +10,14 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect
 from django.utils.translation import ugettext_lazy as _
-from doc_comments.models import Comment as DocComment
+from django.utils import timezone
+
+from .. decorators import render_to
+from .. comments.models import Comment
+from .. doc_comments.models import Comment as DocComment
+from . backends import CustomUserBackend
+from . forms import UserEditForm, CreateUserForm, PasswordResetForm
+from . models import User, EmailConfirmation, EMAIL_CONFIRMATION_DAYS
 
 
 LOGIN_REDIRECT_URL = getattr(settings, 'LOGIN_REDIRECT_URL', '/')
@@ -83,8 +86,8 @@ def notifications(request):
     last_comments_read = user.last_comments_read
     last_doc_comments_read = user.last_doc_comments_read
 
-    user.last_comments_read = datetime.now()
-    user.last_doc_comments_read = datetime.now()
+    user.last_comments_read = timezone.now()
+    user.last_doc_comments_read = timezone.now()
     user.save()
     return {
         'reply_comments': reply_comments,

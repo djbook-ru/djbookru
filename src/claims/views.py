@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
-from claims.models import Claims
+
 from django.http import HttpResponse
+
+from . import models
 
 
 def index(request):
@@ -9,7 +11,7 @@ def index(request):
     It saves all information into Claims model. It doesn't check
     the fields' length. """
     if (request.is_ajax()):
-        record = Claims(ctx_left=request.POST.get('ctx_left', ''),
+        record = models.Claims(ctx_left=request.POST.get('ctx_left', ''),
                         selected=request.POST.get('selected', 'None'),
                         ctx_right=request.POST.get('ctx_right', ''),
                         email=request.POST.get('email', 'unknown@hz.ru'),

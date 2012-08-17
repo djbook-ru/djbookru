@@ -1,14 +1,17 @@
+# -*- coding: utf-8 -*-
+
 from django import forms
-from examples.models import Example
 from django.core.mail import mail_managers
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.sites.models import Site
+
+from . import models
 
 
 class AddExampleForm(forms.ModelForm):
 
     class Meta:
-        model = Example
+        model = models.Example
         fields = ('title', 'category', 'content', 'note')
 
     def __init__(self, *args, **kwargs):

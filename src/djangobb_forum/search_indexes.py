@@ -3,7 +3,7 @@
 from haystack.indexes import *
 from haystack import site
 
-import djangobb_forum.models as models
+from . import models
 
 
 class PostIndex(SearchIndex):

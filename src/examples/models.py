@@ -1,8 +1,9 @@
-# encoding: utf-8
+# -*- coding: utf-8 -*-
 
 from django.db import models, transaction
 from django.utils.translation import ugettext_lazy as _
-from accounts.models import User
+
+from .. accounts.models import User
 
 
 class Category(models.Model):

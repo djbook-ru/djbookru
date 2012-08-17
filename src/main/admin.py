@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
+
 from django.contrib import admin
-from main.models import Book, Page
-from main.forms import BookAdminForm
+
+from . import models
+from . import forms
 
 
 class BookAdmin(admin.ModelAdmin):
     list_display = ['name', 'created']
-    form = BookAdminForm
+    form = forms.BookAdminForm
+
+admin.site.register(models.Book, BookAdmin)
 
 
 class PageAdmin(admin.ModelAdmin):
@@ -14,5 +18,4 @@ class PageAdmin(admin.ModelAdmin):
     list_filter = ['book']
     search_fields = ('name', 'content')
 
-admin.site.register(Book, BookAdmin)
-admin.site.register(Page, PageAdmin)
+admin.site.register(models.Page, PageAdmin)

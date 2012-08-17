@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
+
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.syndication.views import Feed
-from news.models import News
+
+from . import models
 
 
 class LatestNewsFeed(Feed):
@@ -9,7 +12,7 @@ class LatestNewsFeed(Feed):
     description = _("The freshest news about Russian version of DjangoBook")
 
     def items(self):
-        return News.objects.order_by('-created')[:10]
+        return models.News.objects.order_by('-created')[:10]
 
     def item_title(self, item):
         return item.title

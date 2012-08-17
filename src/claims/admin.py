@@ -2,7 +2,8 @@
 
 from django.contrib import admin
 from django.utils.translation import ugettext as _
-from claims import models
+
+from . import models
 
 
 class __Claims(admin.ModelAdmin):
