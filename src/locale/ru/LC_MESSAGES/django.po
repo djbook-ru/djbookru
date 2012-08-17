@@ -114,7 +114,7 @@ msgstr "Текущий пароль"
 
 #: accounts/forms.py:23
 msgid "Ignore if you do not have one yet."
-msgstr "Игнорируйте, если этого ещё нет."
+msgstr "Игнорируйте, если у вас его нет."
 
 #: accounts/forms.py:24
 msgid "New password"

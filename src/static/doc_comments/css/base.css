@@ -121,3 +121,16 @@ div.current > span, div.has-comments.current:hover > span{
     float: left;
     margin: 0 5px 5px 0;
 }
+.comment .status-button {
+    padding: 1px 4px 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #fff;
+}
+.comment .status-button.accept {
+    background-color: #468847;
+}
+.comment .status-button.closed {
+    background-color: #F89406;
+}
