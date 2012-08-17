@@ -412,3 +412,6 @@ a.btn-success {
     color: #487858;
     font-weight: bold;
 }
+.search-form * {
+    margin: 2px;
+}

@@ -1,18 +1,19 @@
 # -*- coding: utf-8 -*-
-
-import re
 from datetime import datetime
-from zipfile import ZipFile, BadZipfile
-
 from django import forms
-from django.core.mail import EmailMessage
 from django.conf import settings
+from django.contrib.contenttypes.models import ContentType
+from django.core.mail import EmailMessage
 from django.utils.translation import ugettext_lazy as _
-
-from utils.forms import ReCaptchaField
-from haystack.forms import SearchForm
-
+from djangobb_forum.models import Post
+from examples.models import Example
+from haystack.forms import SearchForm as HaystackSearchForm
+from haystack_static_pages.models import StaticPage
 from main.models import Page, Book
+from news.models import News
+from utils.forms import ReCaptchaField
+from zipfile import ZipFile, BadZipfile
+import re
 
 
 class FeedbackForm(forms.Form):
@@ -116,3 +117,32 @@ class BookAdminForm(forms.ModelForm):
             self.update_from_archive(archive, obj)
 
         return obj
+
+
+class SearchForm(HaystackSearchForm):
+    CONTENT_CHOICES = (
+        ('', _(u'All')),
+        (ContentType.objects.get_for_model(Example).pk, _(u'Recipes')),
+        (ContentType.objects.get_for_model(Post).pk, _(u'Forum')),
+        (ContentType.objects.get_for_model(News).pk, _(u'News')),
+        (ContentType.objects.get_for_model(StaticPage).pk, _(u'Documentation')),
+    )
+    content = forms.ChoiceField(choices=CONTENT_CHOICES, label=_(u'Search by'), required=False)
+
+    def search(self):
+        if not self.is_valid():
+            return self.no_query_found()
+
+        if not self.cleaned_data['q']:
+            return self.no_query_found()
+
+        content_type_id = self.cleaned_data.get('content', '')
+        sqs = self.searchqueryset.auto_query(self.cleaned_data['q'])
+
+        if content_type_id:
+            sqs = sqs.models(ContentType.objects.get(pk=content_type_id).model_class())
+
+        if self.load_all:
+            sqs = sqs.load_all()
+
+        return sqs

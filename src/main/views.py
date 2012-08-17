@@ -9,7 +9,7 @@ from django.shortcuts import redirect
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic.list_detail import object_list
 from haystack.query import SearchQuerySet
-from main.forms import FeedbackForm
+from main.forms import FeedbackForm, SearchForm
 from main.models import Book
 import markdown
 
@@ -48,12 +48,12 @@ def page(request, slug):
 
 def search(request):
     q = request.GET.get('q', '')
-    if q:
-        search_qs = SearchQuerySet().auto_query(q)
-    else:
-        search_qs = SearchQuerySet().none()
+    form = SearchForm(request.GET)
+    search_qs = form.search()
+
     extra_context = {
         'searching_for': q,
+        'form': form
     }
     return object_list(request, search_qs, 30,
                        template_name='main/search.html',
