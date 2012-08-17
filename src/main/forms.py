@@ -1,13 +1,18 @@
 # -*- coding: utf-8 -*-
-from django import forms
+
+import re
 from datetime import datetime
+from zipfile import ZipFile, BadZipfile
+
+from django import forms
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
-from main.models import Page, Book
-from zipfile import ZipFile, BadZipfile
+
 from utils.forms import ReCaptchaField
-import re
+from haystack.forms import SearchForm
+
+from main.models import Page, Book
 
 
 class FeedbackForm(forms.Form):
@@ -111,3 +116,7 @@ class BookAdminForm(forms.ModelForm):
             self.update_from_archive(archive, obj)
 
         return obj
+
+
+class MainSearchForm(SearchForm):
+    query = forms.CharField(required=False)

@@ -59,6 +59,36 @@ hr {
     margin-top: 17px;
 }
 
+.search_results {
+
+}
+.search_results .item {
+    margin: 4px 0px;
+    border: 1px solid #ddd;
+    -border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+}
+.search_results .title {
+    padding: 4px 8px;
+    background-color: #696;
+    border-top-left-radius: 8px;
+    -moz-border-top-left-radius: 8px;
+    -webkit-border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    -moz-border-top-right-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+}
+.search_results .title a{
+    color: white;
+    font-weight: bold;
+ }
+.search_results .desc {
+    padding: 4px;
+    margin-left: 1em;
+}
+
+
 footer {
     clear: both;
 }

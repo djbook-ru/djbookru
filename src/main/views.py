@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
 
-from decorators import render_to
-from main.models import Book
 from django.http import Http404
 from django.db.models import ObjectDoesNotExist
-from main.forms import FeedbackForm
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.decorators import login_required
+
 import markdown
+from haystack.query import SearchQuerySet
+
+from decorators import render_to
+from main.models import Book
+from main.forms import FeedbackForm, MainSearchForm
 
 
 @render_to('main/index.html')
@@ -46,7 +49,15 @@ def page(request, slug):
 
 @render_to('main/search.html')
 def search(request):
-    return {}
+    form = MainSearchForm(request.GET or None)
+
+    context = dict(form=form)
+
+    if form.is_valid():
+        query = form.cleaned_data.get('query', '')
+        return dict(context,
+            search_qs=SearchQuerySet().auto_query(query),
+            searching_for=query)
 
 
 @render_to('main/feedback.html')
