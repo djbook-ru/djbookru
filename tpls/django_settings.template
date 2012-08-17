@@ -84,14 +84,13 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     'context_processors.custom',
     'adzone.context_processors.get_source_ip',
-)
+    'social_auth.context_processors.social_auth_backends',
 
 AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.google.GoogleBackend',
+    'social_auth.backends.contrib.github.GithubBackend',
+    'social_auth.backends.contrib.yandex.YandexBackend',
     'accounts.backends.CustomUserBackend',
-    'accounts.backends.OpenIdBackend',
-    'accounts.backends.TwitterBackend',
-    'accounts.backends.FacebookBackend',
-    #'django.contrib.auth.backends.ModelBackend',
 )
 
 
@@ -185,9 +184,10 @@ ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'dashboard.CustomAppIndexDashboard'
 ADMIN_TOOLS_MENU = 'menu.CustomMenu'
 
 #authentication settings
+LOGIN_URL = '/auth/login/'
+LOGIN_ERROR_URL = LOGIN_URL
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-LOGIN_URL = '/auth/login/'
 
 OPENID_REDIRECT_NEXT = '/socialauth/openid/done/'
 
@@ -208,6 +208,23 @@ RECAPTCHA_PUBLIC = ${recaptcha_public}
 RECAPTCHA_PRIVATE = ${recaptcha_private}
 
 DJANGO_DOCUMENTATION_URL = '/rel1.4/'
+
+########################
+# social_auth settings #
+########################
+SOCIAL_AUTH_USER_MODEL = 'accounts.User'
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+SOCIAL_AUTH_PROCESS_EXCEPTIONS = 'social_auth.utils.log_exceptions_to_messages'
+SOCIAL_AUTH_PIPELINE = (
+    'social_auth.backends.pipeline.social.social_auth_user',
+    'social_auth.backends.pipeline.user.get_username',
+    'accounts.social_auth_pipelines.create_user',
+    'social_auth.backends.pipeline.social.associate_user',
+    'social_auth.backends.pipeline.social.load_extra_data',
+)
+
+GITHUB_APP_ID = '123'
+GITHUB_API_SECRET = '123'
 
 try:
     from settings_local import *
