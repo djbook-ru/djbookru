@@ -133,7 +133,7 @@ INSTALLED_APPS = (
     'adzone',
     'sorl.thumbnail',
     'pagination',
-    'socialauth',
+    'social_auth',
     'openid_consumer',
     'djangobb_forum',
     'accounts',
