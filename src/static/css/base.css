@@ -25,20 +25,20 @@ hr {
 
 .left-column {
     width: 23%;
-    margin-left: 0.5%;
     float: left;
+    margin-right: 6px;
 }
 
 .right-column {
     width: 116px;
     float: right;
-    margin-right: 0.5%;
 }
 
 .center-column {
     margin-top: 5px;
     margin-left: 24%;
-    margin-right: 126px;
+    margin-right: 116px;
+    overflow: hidden;
 }
 
 .top-container, footer {
@@ -263,6 +263,10 @@ form formset p {
     min-height: 80px;
 }
 
+.comments .comment.new {
+    border: 2px solid #94ce4a; 
+}
+
 .comments .comment .text {
     padding-top: 18px;
 }
@@ -387,4 +391,24 @@ form textarea {
 
 .alert-error a {
     color: #B94A48;
+}
+
+a.btn-success {
+    color: #fff;
+}
+
+.alert {
+    margin-bottom: 6px;
+}
+
+.nav-pills > .active > a, .nav-pills > .active > a:hover {
+    background-color: #C0DB8A;
+    color: #487858;
+    font-weight: bold;
+}
+
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover {
+    background-color: #f5f5f5;
+    color: #487858;
+    font-weight: bold;
 }

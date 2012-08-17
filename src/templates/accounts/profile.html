@@ -1,17 +1,15 @@
 {% extends 'base.html' %}
 
-{% load thumbnail i18n %}
+{% load thumbnail i18n accounts_tags %}
 
 {% block title %}{{ user_obj }} | {% trans 'Profile' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
-    <div style="float:left; width: 300px;">
-        <h3>
-            {{ user_obj.username }} / <a href="{% url djangobb:forum_profile user.username %}">{% trans "Forum profile" %}</a>      
-            {% if user == user_obj %}
-                / <a href="{% url accounts:edit %}">{% trans 'Edit' %}</a>
-            {% endif %}
-        </h3>
+    {% if user == user_obj %}
+        {% profile_menu "profile" %}
+    {% endif %}
+    <div style="float:left; width: 500px;">
+        <h2>{{ user_obj.username }}</h2>
         
         <p>
         {% if user_obj.first_name or user_obj.last_name %}
@@ -25,14 +23,13 @@
         </p>
         
         {% if user_obj.biography %}
-        <h4 style="margin-bottom: -5px;">{% trans 'Biography' %}:</h4>
-        <p>
+        <p class="well" style="margin-top: 5px">
             {{ user_obj.biography|linebreaksbr }}
         </p>
         {% endif %}
     </div>
     
-    <div style="float: left">
+    <div style="float: left" class="thumbnail">
         <img src="{{ user_obj.avatar }}"/>
     </div>    
     <div style="clear: both"></div>

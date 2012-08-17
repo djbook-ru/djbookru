@@ -1,43 +1,43 @@
 {% load thumbnail i18n %}
 
 <div class="comment well" comment_id="{{ item.id }}">
-        <span class="user_thumb pull-left">
-            <img src="{{ item.user.avatar }}" alt="{{ item.user }}" />
-        </span>
-        <div class="table_user_deets pull-left">
-            <a href="{{ item.user.get_absolute_url }}">{{ item.user }}</a>
-            <span class="comment_date"><em>{{ item.submit_date|timesince }} {% trans 'ago' %}</em></span>
-        </div>
-        <a name="comments-{{ item.id }}"></a>
-        {% if user.is_staff and perms.comments.delete_comment %}
-            <a href="{% url admin:comments_comment_delete item.pk %}" class="delete pull-right" target="blank">
-                <i class="icon-remove"></i>
-            </a>
-        {% endif %}
-        {% if user.is_staff and perms.comments.change_comment %}
-            <a href="{% url admin:comments_comment_change item.pk %}" class="edit pull-right" target="blank">
-                <i class="icon-edit"></i>
-            </a>
-        {% endif %}
-        {% if user.is_authenticated %}
-        <a href="#" class="reply unit pull-right"  comment_id="{{ item.id }}">
-            <span>{% trans 'Answer' %}</span>
+    <span class="user_thumb pull-left">
+        <img src="{{ item.user.avatar }}" alt="{{ item.user }}" />
+    </span>
+    <div class="table_user_deets pull-left">
+        <a href="{{ item.user.get_absolute_url }}">{{ item.user }}</a>
+        <span class="comment_date"><em>{{ item.submit_date|timesince }} {% trans 'ago' %}</em></span>
+    </div>
+    <a name="comments-{{ item.id }}"></a>
+    {% if user.is_staff and perms.comments.delete_comment %}
+        <a href="{% url admin:comments_comment_delete item.pk %}" class="delete pull-right" target="blank">
+            <i class="icon-remove"></i>
         </a>
-        {% else %}
-        <a href="{% url accounts:login %}?next={{ next_page }}" class="reply pull-right">
-            <span>{% trans 'Answer' %}</span>
-        </a>        
-        {% endif %}
-        <span class="pull-right">|</span>
-        <a href="#comments-{{ item.id }}" class="link pull-right">{% trans 'Link' %}</a>
-        {% if item.reply_to %}
-            <p class="replied well">
-                <a href="#comments-{{ item.reply_to.id }}">{% trans 'reply to' %} {{ item.reply_to.user }}</a>
-                <br/>
-                {{ item.reply_to.content|linebreaksbr }}
-            </p>
-        {% endif %}
-        <div class="text">
-            <p>{{ item.content|linebreaksbr }}</p>
-        </div>
+    {% endif %}
+    {% if user.is_staff and perms.comments.change_comment %}
+        <a href="{% url admin:comments_comment_change item.pk %}" class="edit pull-right" target="blank">
+            <i class="icon-edit"></i>
+        </a>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <a href="#" class="reply unit pull-right"  comment_id="{{ item.id }}">
+        <span>{% trans 'Answer' %}</span>
+    </a>
+    {% else %}
+    <a href="{% url accounts:login %}?next={{ next_page }}" class="reply pull-right">
+        <span>{% trans 'Answer' %}</span>
+    </a>        
+    {% endif %}
+    <span class="pull-right">|</span>
+    <a href="#comments-{{ item.id }}" class="link pull-right">{% trans 'Link' %}</a>
+    {% if item.reply_to %}
+        <p class="replied well">
+            <a href="#comments-{{ item.reply_to.id }}">{% trans 'answer to' %} {{ item.reply_to.user }}</a>
+            <br/>
+            {{ item.reply_to.content|linebreaksbr }}
+        </p>
+    {% endif %}
+    <div class="text">
+        <p>{{ item.content|linebreaksbr }}</p>
+    </div>
 </div>

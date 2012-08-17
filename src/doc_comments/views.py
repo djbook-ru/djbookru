@@ -8,6 +8,30 @@ from django.db.models import Count
 
 @csrf_exempt
 @render_to_json
+def close_comment(request):
+    id = request.POST.get('id')
+    user = request.user
+
+    if id and user.is_authenticated() and user.has_perm('doc_comments.change_comment'):
+        Comment.objects.filter(pk=id).update(status=Comment.CLOSED)
+
+    return {}
+
+
+@csrf_exempt
+@render_to_json
+def accept_comment(request):
+    id = request.POST.get('id')
+    user = request.user
+
+    if id and user.is_authenticated() and user.has_perm('doc_comments.change_comment'):
+        Comment.objects.filter(pk=id).update(status=Comment.ACCEPTED)
+
+    return {}
+
+
+@csrf_exempt
+@render_to_json
 def load_comments(request):
     page = request.POST.get('page')
     xpath = request.POST.get('xpath')
@@ -17,11 +41,13 @@ def load_comments(request):
         qs = Comment.objects.filter(page=page, xpath=xpath)
         for obj in qs:
             output.append({
+                'id': obj.pk,
                 'content': obj.get_content(),
                 'created': obj.created,
                 'author': unicode(obj.author),
                 'avatar': obj.author.avatar(),
-                'author_url': obj.author.get_absolute_url()
+                'author_url': obj.author.get_absolute_url(),
+                'status': obj.status
             })
     return {
         'data': output
@@ -65,6 +91,8 @@ def add(request):
 @csrf_exempt
 @render_to_json
 def get_login_status(request):
+    user = request.user
     return {
-        'isAuthenticated': request.user.is_authenticated()
+        'isAuthenticated': user.is_authenticated(),
+        'canChangeStatus': user.is_authenticated() and user.has_perm('doc_comments.change_comment')
     }

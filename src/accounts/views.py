@@ -1,6 +1,8 @@
 from accounts.backends import CustomUserBackend
 from accounts.forms import UserEditForm, CreateUserForm, PasswordResetForm
 from accounts.models import User, EmailConfirmation, EMAIL_CONFIRMATION_DAYS
+from comments.models import Comment
+from datetime import datetime, timedelta
 from decorators import render_to
 from django.conf import settings
 from django.contrib import auth
@@ -12,6 +14,8 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect
 from django.utils.translation import ugettext_lazy as _
+from doc_comments.models import Comment as DocComment
+
 
 LOGIN_REDIRECT_URL = getattr(settings, 'LOGIN_REDIRECT_URL', '/')
 LOGOUT_REDIRECT_URL = getattr(settings, 'LOGOUT_REDIRECT_URL', '/')
@@ -35,9 +39,7 @@ def create(request):
 
 def logout(request):
     from django.contrib.auth import logout
-    from openid_consumer.views import signout as oid_signout
 
-    oid_signout(request)
     logout(request)
     redirect_to = request.REQUEST.get(auth.REDIRECT_FIELD_NAME, LOGOUT_REDIRECT_URL)
     return redirect(redirect_to)
@@ -64,7 +66,33 @@ def edit(request):
     else:
         form = UserEditForm(instance=request.user)
     return {
-        'form': form
+        'form': form,
+    }
+
+
+@render_to('accounts/notifications.html')
+@login_required
+def notifications(request):
+    user = request.user
+    reply_comments = list(Comment.get_reply_comments(user, only_new=False)[:30])
+    reply_comments_count = Comment.get_reply_comments(user).count()
+
+    doc_comments = list(DocComment.get_reply_comments(user, only_new=False)[:30])
+    doc_comments_count = DocComment.get_reply_comments(user).count()
+
+    last_comments_read = user.last_comments_read
+    last_doc_comments_read = user.last_doc_comments_read
+
+    user.last_comments_read = datetime.now()
+    user.last_doc_comments_read = datetime.now()
+    user.save()
+    return {
+        'reply_comments': reply_comments,
+        'reply_comments_count': reply_comments_count,
+        'doc_comments': doc_comments,
+        'doc_comments_count': doc_comments_count,
+        'last_comments_read': last_comments_read,
+        'last_doc_comments_read': last_doc_comments_read
     }
 
 

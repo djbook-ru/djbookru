@@ -1,53 +1,27 @@
 {% extends 'base.html' %}
 
-{% load i18n %}
+{% load i18n bootstrap %}
 
 {% block title %}{% trans 'Authentication' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
-    <h1>{% trans "Authentication" %}</h1>
     {% if not user.is_authenticated %}
-        <form method="post">
+        <form method="post" class="form-horizontal">
             {% csrf_token %}
-            <table>
-                {{ form }}
-                <tr>
-                    <td></td>
-                    <td><button type="submit" class="btn">{% trans 'Login' %}</button> {% trans 'or' %} <a href="{% url accounts:create %}">{% trans 'Register' %}</a></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><a href="{% url accounts:password_reset %}">{% trans 'Forgot password?' %}</a></td>
-                </tr>                
-            </table>
-        </form>
-        <a class="twitter login-link" href="{% url socialauth_twitter_login %}?next={{ next }}">&nbsp;</a>
-        <a class="open-id login-link" href="{% url socialauth_openid_login %}?next={{ next }}">&nbsp;</a>
-        <a class="google login-link" href="{% url socialauth_google_login %}?next={{ next }}">&nbsp;</a>
-        <div style="clear: both"></div>
-        <p>&nbsp;</p>
-
-        {% if securelayer %}
-        <img src="/static/img/securelayer.png"/ align="left"
-             alt="SecureLayer: {% trans "Secured Data Transmittion Service" %}"
-             title="SecureLayer: {% trans "Secured Data Transmittion Service" %}"/>
-        <div style="margin-left: 36px; padding: 0px 8px; border-left: 1px dotted #9AEF3F;">
-          <form method="post" action="{{ action }}">
-            {% csrf_token %}
-            {% if error_desc %}<div style="padding: 4px; background-color: red; border: 1px solid red;">{{ error_desc }}</div>{% endif %}
-            <table width="100%">
-              {{ redirect_form }}
-            </table>
-            <div class="button_panel">
-              <p>{% trans "You will be redirected on SSL protected site to enter login/password." %}</p>
-              {% for button in button_list %}
-              <input type="{{ button.type }}" class="btn" name="{{ button.name }}" value="{{ button.title }}"/>
-              {% endfor %}
+            <fieldset>
+                {{ form|bootstrap }}
+            </fieldset>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">{% trans "Login" %}</button> 
+                <a class="btn" href="{% url accounts:create %}">{% trans 'Register' %}</a> 
+                <a class="btn" href="{% url accounts:password_reset %}">{% trans 'Forgot password?' %}</a>
+                <div style="margin-top: 5px">
+                {% for backend in social_auth.backends %}
+                  <a class="btn" href="{% url socialauth_begin backend %}?next={{ next }}">{{ backend.title }}</a>
+                {% endfor %}
+                </div>
             </div>
-          </form>
-        </div>
-        {% endif %}
-        <div style="clear: both"></div>
+        </form>
     {% else %}
         {% trans 'You are authenticated already' %}
     {% endif %}

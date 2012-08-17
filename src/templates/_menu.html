@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n accounts_tags %}
 
 <div class="navbar navbar-static">
   <div class="navbar-inner">
@@ -36,13 +36,14 @@
             </ul>
             <p class="navbar-text pull-right">
                 {% if user.is_authenticated %}
-                    <a href="{{ user.get_absolute_url }}">{{ user.username }}</a> |
-                    <a href="{% url accounts:logout %}?next={{ request.path_info|urlencode }}">{% trans 'Logout' %}</a>
+                    <a href="{{ user.get_absolute_url }}"><i class="icon-user icon-white"></i>{{ user.username }}</a> 
+                    {% notification_indicator %} |
+                    <a href="{% url accounts:logout %}?next={{ request.path_info|urlencode }}"><i class="icon-share icon-white"></i>{% trans 'Logout' %}</a>
                 {% else %}
-                    <a href="{% url accounts:login %}?next={{ request.path_info|urlencode }}">{% trans 'Login' %}</a>
+                    <a href="{% url accounts:login %}?next={{ request.path_info|urlencode }}"><i class="icon-share icon-white"></i>{% trans 'Login' %}</a>
                 {% endif %}
                 {% if user.is_staff and user.is_active %}
-                    | <a href="{% url admin:index %}">{% trans "Administrator's Interface" %}</a>
+                    | <a href="{% url admin:index %}"><i class="icon-cog icon-white"></i>{% trans "Admin UI" %}</a>
                 {% endif %}
             </p>
         </div>
