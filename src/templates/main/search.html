@@ -5,10 +5,6 @@
 {% block title %}{% trans 'Search' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
-    {% if is_paginated %}
-        {% paginate %}
-    {% endif %}
-
     {% spaceless %}
     <form class="well form-search search-form" method="get" action=".">
         {{ form.q }}
