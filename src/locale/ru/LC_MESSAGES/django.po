@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-08 10:56+0400\n"
-"PO-Revision-Date: 2012-08-08 09:57+0300\n"
+"POT-Creation-Date: 2012-08-17 16:22+0400\n"
+"PO-Revision-Date: 2012-08-17 15:31+0300\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -65,11 +65,23 @@ msgstr "Книга"
 msgid "Receipts"
 msgstr "Рецепты"
 
-#: dashboard.py:64
+#: dashboard.py:64 main/forms.py:128
+msgid "Documentation"
+msgstr "Документация"
+
+#: dashboard.py:67
 msgid "Advertisment"
 msgstr "Реклама"
 
-#: dashboard.py:75 dashboard.py:93
+#: dashboard.py:76 djangobb_forum/forms.py:30 djangobb_forum/forms.py:288
+#: djangobb_forum/models.py:106 djangobb_forum/models.py:122
+#: djangobb_forum/templates/forum/index.html:53
+#: djangobb_forum/templates/forum/search_topics.html:22 main/forms.py:126
+#: templates/_menu.html:20
+msgid "Forum"
+msgstr "Форум"
+
+#: dashboard.py:85 dashboard.py:103
 msgid "Recent Actions"
 msgstr "Недавние действия"
 
@@ -100,43 +112,81 @@ msgstr ""
 msgid "Advanced options"
 msgstr "Дополнительные возможности"
 
-#: settings.py:163
+#: settings.py:176
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
 
-#: accounts/forms.py:14 main/forms.py:17
+#: accounts/admin.py:26
+msgid "Personal info"
+msgstr "Персональные данные"
+
+#: accounts/admin.py:27
+msgid "Permissions"
+msgstr "Права доступа"
+
+#: accounts/admin.py:29
+msgid "Important dates"
+msgstr "Важные даты"
+
+#: accounts/forms.py:15
+msgid "Email"
+msgstr "Е-почта"
+
+#: accounts/forms.py:16
+msgid "Password"
+msgstr "Пароль"
+
+#: accounts/forms.py:19
+msgid ""
+"Please enter a correct username and password. Note that both fields are case-"
+"sensitive."
+msgstr ""
+"Пожалуйста введите правильные пароль и имя пользователя. Оба поля "
+"чувствительны к регистру."
+
+#: accounts/forms.py:21
+msgid ""
+"Your Web browser doesn't appear to have cookies enabled. Cookies are "
+"required for logging in."
+msgstr "Ваш браузер не поддерживает куки, которые необходимы для авторизации."
+
+#: accounts/forms.py:23
+msgid "This account is inactive."
+msgstr "Аккаунт не активен."
+
+#: accounts/forms.py:60 main/forms.py:23
 msgid "captcha"
 msgstr "капча"
 
-#: accounts/forms.py:22
+#: accounts/forms.py:68
 msgid "Current password"
 msgstr "Текущий пароль"
 
-#: accounts/forms.py:23
+#: accounts/forms.py:69
 msgid "Ignore if you do not have one yet."
 msgstr "Игнорируйте, если у вас его нет."
 
-#: accounts/forms.py:24
+#: accounts/forms.py:70
 msgid "New password"
 msgstr "Новый пароль"
 
-#: accounts/forms.py:25
+#: accounts/forms.py:71
 msgid "Confirm new password"
 msgstr "Подтверждение нового пароля"
 
-#: accounts/forms.py:36
+#: accounts/forms.py:82
 msgid "Invalid password."
 msgstr "Неправильный пароль."
 
-#: accounts/forms.py:38
+#: accounts/forms.py:84
 msgid "The two passwords did not match."
 msgstr "Введённые пароли не совпадают."
 
-#: accounts/forms.py:46
+#: accounts/forms.py:92
 msgid "This email is used already."
 msgstr "Данный адрес электронной почты уже используется."
 
-#: accounts/forms.py:68
+#: accounts/forms.py:114
 msgid ""
 "That e-mail address doesn't have an associated active user account. Are you "
 "sure you've registered and e-mail is confirmed?"
@@ -144,7 +194,7 @@ msgstr ""
 "Эта почта не привязана к активному аккаунту. Вы уверены, что вы у нас "
 "зарегистрированы и ввели адрес почты правильно?"
 
-#: accounts/forms.py:93
+#: accounts/forms.py:139
 #, python-format
 msgid "Password reset on %s"
 msgstr "Сброшен пароль для %s"
@@ -161,57 +211,111 @@ msgstr "домашняя страница"
 msgid "is valid email?"
 msgstr "почта верна?"
 
-#: accounts/models.py:28 djangobb_forum/models.py:126
-#: djangobb_forum/models.py:181 djangobb_forum/models.py:262
+#: accounts/models.py:24 accounts/models.py:116
+msgid "achievements"
+msgstr "Достижения"
+
+#: accounts/models.py:27
+msgid "last comments read"
+msgstr "Последний просмотр комментариев"
+
+#: accounts/models.py:28
+msgid "last doc. comments read"
+msgstr "Последний просмотр комментариев к документации"
+
+#: accounts/models.py:33 djangobb_forum/models.py:126
+#: djangobb_forum/models.py:181 djangobb_forum/models.py:265
 msgid "User"
 msgstr "Пользователь"
 
-#: accounts/models.py:29
+#: accounts/models.py:34
 msgid "Users"
 msgstr "Пользователи"
 
-#: accounts/models.py:124
+#: accounts/models.py:98 comments/models.py:16
+msgid "user"
+msgstr "пользователь"
+
+#: accounts/models.py:99 accounts/models.py:115
+msgid "achievement"
+msgstr "Достижение"
+
+#: accounts/models.py:100 examples/models.py:38
+msgid "note"
+msgstr "заметка"
+
+#: accounts/models.py:103
+msgid "user achievement"
+msgstr "Достижение пользователя"
+
+#: accounts/models.py:104
+msgid "user achievements"
+msgstr "Достижения пользователя"
+
+#: accounts/models.py:109 examples/models.py:9 main/models.py:7
+#: main/models.py:32
+msgid "name"
+msgstr "имя"
+
+#: accounts/models.py:110 main/models.py:9
+msgid "description"
+msgstr "описание"
+
+#: accounts/models.py:111
+msgid "active icon"
+msgstr "Активная иконка"
+
+#: accounts/models.py:154
 #, python-format
 msgid "Please confirm your email address for %(site)s"
 msgstr "Пожалуйста, подтвердите адрес вашей электронной почты для %(site)s"
 
-#: accounts/models.py:147
+#: accounts/models.py:177
 msgid "e-mail confirmation"
 msgstr "подтверждение почты"
 
-#: accounts/models.py:148
+#: accounts/models.py:178
 msgid "e-mail confirmations"
 msgstr "подтверждения почты"
 
-#: accounts/views.py:26
+#: accounts/social_auth_pipelines.py:19
+msgid ""
+"This email is already used by other account. If it is your account, login "
+"and connect it on profile edit page."
+msgstr ""
+"Этот электронный адрес используется для другого аккаунта. Если это ваш "
+"аккаунт, войдите и подключите сторонний аккаунт на странице редактирования "
+"профиля."
+
+#: accounts/views.py:30
 msgid "Account created success! Confirm your email."
 msgstr "Аккаунт успешно создан! Подтвердите свою почту."
 
-#: accounts/views.py:28 accounts/views.py:63
+#: accounts/views.py:32 accounts/views.py:65
 msgid "Please correct the error below."
 msgstr "Пожалуйста, исправьте ошибки перечисленные далее."
 
-#: accounts/views.py:61
+#: accounts/views.py:63
 msgid "Profile changed success! Confirm your email if it was changed."
 msgstr "Профиль успешно изменён! Подтвердите адрес вашей электронной почты."
 
-#: accounts/views.py:76
+#: accounts/views.py:104
 msgid "Confirmation key expired."
 msgstr "Ключ подтверждения почты просрочен."
 
-#: accounts/views.py:79
+#: accounts/views.py:107
 msgid "Email is confirmed."
 msgstr "Адрес электронной почты подтверждён."
 
-#: accounts/views.py:93
+#: accounts/views.py:121
 msgid "Your email is already confirmed."
 msgstr "Данный адрес электронной почты уже используется."
 
-#: accounts/views.py:95
+#: accounts/views.py:123
 msgid "Add email to your profile."
 msgstr "Добавьте электронный адрес в свой профиль"
 
-#: accounts/views.py:99
+#: accounts/views.py:127
 #, python-format
 msgid ""
 "We have sent you confirmation email. New one you can get in %(days)s days"
@@ -219,11 +323,11 @@ msgstr ""
 "Мы отправили вам письмо для подтверждения адреса электронной почты. "
 "Следующий запрос вы сможете сделать через  %(days)s дня."
 
-#: accounts/views.py:104
+#: accounts/views.py:132
 msgid "Confirmation email is sent."
 msgstr "Отправлено письмо для подтверждения адреса электронной почты."
 
-#: accounts/views.py:116
+#: accounts/views.py:144
 msgid "Email with instruction how reset password is sent."
 msgstr "Выслано письмо с инструкцией для сброса вашего пароля."
 
@@ -239,7 +343,7 @@ msgstr "Ошибка"
 msgid "Comment"
 msgstr "Комментарий"
 
-#: claims/admin.py:31 djangobb_forum/models.py:263
+#: claims/admin.py:31 djangobb_forum/models.py:266
 msgid "Status"
 msgstr "Состояние"
 
@@ -342,15 +446,11 @@ msgstr "Отвечать можно только на комментарии с 
 msgid "object ID"
 msgstr "Идентификатор объекта"
 
-#: comments/models.py:16
-msgid "user"
-msgstr "пользователь"
-
-#: comments/models.py:17 templates/comments/_item.html:35
+#: comments/models.py:17
 msgid "reply to"
 msgstr "ответить"
 
-#: comments/models.py:18
+#: comments/models.py:18 doc_comments/models.py:24
 msgid "comment"
 msgstr "комментарий"
 
@@ -358,7 +458,8 @@ msgstr "комментарий"
 msgid "submit date"
 msgstr "дата отправки"
 
-#: comments/models.py:24 templates/news/_last_news.html:9
+#: comments/models.py:24 templates/accounts/notifications.html:11
+#: templates/news/_last_news.html:9
 msgid "Comments"
 msgstr "Комментарии"
 
@@ -412,14 +513,6 @@ msgstr "Автор"
 #: djangobb_forum/templates/forum/edit_post.html:24
 msgid "Subject"
 msgstr "Тема"
-
-#: djangobb_forum/forms.py:30 djangobb_forum/forms.py:288
-#: djangobb_forum/models.py:106 djangobb_forum/models.py:122
-#: djangobb_forum/templates/forum/index.html:53
-#: djangobb_forum/templates/forum/search_topics.html:22
-#: templates/_menu.html:20
-msgid "Forum"
-msgstr "Форум"
 
 #: djangobb_forum/forms.py:34
 msgid "Ascending"
@@ -523,7 +616,7 @@ msgstr ""
 "Спрятать адрес вашей Е-почты и запретить отправку сообщений через форум."
 
 #: djangobb_forum/models.py:58 djangobb_forum/models.py:95
-#: djangobb_forum/models.py:366
+#: djangobb_forum/models.py:369
 msgid "Name"
 msgstr "Имя"
 
@@ -562,7 +655,7 @@ msgid "Updated"
 msgstr "Обновлено"
 
 #: djangobb_forum/models.py:100 djangobb_forum/models.py:132
-#: djangobb_forum/models.py:280
+#: djangobb_forum/models.py:283
 msgid "Post count"
 msgstr "Откликов"
 
@@ -575,7 +668,7 @@ msgid "Forums"
 msgstr "Форумов"
 
 #: djangobb_forum/models.py:124 djangobb_forum/models.py:182
-#: djangobb_forum/models.py:327
+#: djangobb_forum/models.py:330
 msgid "Created"
 msgstr "Создано"
 
@@ -623,175 +716,175 @@ msgstr "HTML версия"
 msgid "User IP"
 msgstr "IP пользователя"
 
-#: djangobb_forum/models.py:193 djangobb_forum/models.py:247
-#: djangobb_forum/models.py:324 djangobb_forum/models.py:362
+#: djangobb_forum/models.py:193 djangobb_forum/models.py:250
+#: djangobb_forum/models.py:327 djangobb_forum/models.py:365
 #: templates/comments/form.html:14
 msgid "Post"
 msgstr "Отправить"
 
-#: djangobb_forum/models.py:245
+#: djangobb_forum/models.py:248
 msgid "From"
 msgstr "От"
 
-#: djangobb_forum/models.py:246
+#: djangobb_forum/models.py:249
 msgid "To"
 msgstr "К"
 
-#: djangobb_forum/models.py:248
+#: djangobb_forum/models.py:251
 msgid "Time"
 msgstr "Время"
 
-#: djangobb_forum/models.py:249
+#: djangobb_forum/models.py:252
 msgid "Sign"
 msgstr "Подпись"
 
-#: djangobb_forum/models.py:250 djangobb_forum/models.py:328
-#: djangobb_forum/models.py:341 djangobb_forum/templates/forum/report.html:16
+#: djangobb_forum/models.py:253 djangobb_forum/models.py:331
+#: djangobb_forum/models.py:344 djangobb_forum/templates/forum/report.html:16
 #: djangobb_forum/templates/forum/reputation.html:24
 msgid "Reason"
 msgstr "Причина"
 
-#: djangobb_forum/models.py:253 djangobb_forum/templates/forum/topic.html:63
+#: djangobb_forum/models.py:256 djangobb_forum/templates/forum/topic.html:63
 msgid "Reputation"
 msgstr "Репутация"
 
-#: djangobb_forum/models.py:254
+#: djangobb_forum/models.py:257
 msgid "Reputations"
 msgstr "Репутации"
 
-#: djangobb_forum/models.py:264
+#: djangobb_forum/models.py:267
 msgid "Site"
 msgstr "Сайт"
 
-#: djangobb_forum/models.py:265
+#: djangobb_forum/models.py:268
 msgid "Jabber"
 msgstr "Джаббер"
 
-#: djangobb_forum/models.py:266
+#: djangobb_forum/models.py:269
 msgid "ICQ"
 msgstr "ICQ"
 
-#: djangobb_forum/models.py:267
+#: djangobb_forum/models.py:270
 msgid "MSN"
 msgstr "MSN"
 
-#: djangobb_forum/models.py:268
+#: djangobb_forum/models.py:271
 msgid "AIM"
 msgstr "AIM"
 
-#: djangobb_forum/models.py:269
+#: djangobb_forum/models.py:272
 msgid "Yahoo"
 msgstr "Yahoo"
 
-#: djangobb_forum/models.py:270 djangobb_forum/templates/forum/user.html:25
+#: djangobb_forum/models.py:273 djangobb_forum/templates/forum/user.html:25
 msgid "Location"
 msgstr "Из"
 
-#: djangobb_forum/models.py:271
+#: djangobb_forum/models.py:274
 msgid "Signature"
 msgstr "Подпись"
 
-#: djangobb_forum/models.py:272
+#: djangobb_forum/models.py:275
 msgid "Time zone"
 msgstr "Временная зона"
 
-#: djangobb_forum/models.py:273
+#: djangobb_forum/models.py:276
 msgid "Language"
 msgstr "Язык"
 
-#: djangobb_forum/models.py:274
+#: djangobb_forum/models.py:277
 msgid "Theme"
 msgstr "Тема"
 
-#: djangobb_forum/models.py:275
+#: djangobb_forum/models.py:278
 msgid "Show avatar"
 msgstr "Отображать аватар"
 
-#: djangobb_forum/models.py:276
+#: djangobb_forum/models.py:279
 msgid "Show signatures"
 msgstr "Отображать подписи"
 
-#: djangobb_forum/models.py:277
+#: djangobb_forum/models.py:280
 #: djangobb_forum/templates/forum/profile/profile_display.html:40
 msgid "Show smilies"
 msgstr "Отображать смайлы"
 
-#: djangobb_forum/models.py:278
+#: djangobb_forum/models.py:281
 msgid "Privacy permission"
 msgstr "Личные права"
 
-#: djangobb_forum/models.py:279
+#: djangobb_forum/models.py:282
 msgid "Default markup"
 msgstr "Стандартная разметка"
 
-#: djangobb_forum/models.py:283 djangobb_forum/templates/forum/header.html:20
+#: djangobb_forum/models.py:286 djangobb_forum/templates/forum/header.html:20
 #: djangobb_forum/templates/forum/topic.html:71
-#: djangobb_forum/templates/forum/user.html:7
+#: djangobb_forum/templates/forum/user.html:7 templates/accounts/_menu.html:6
 #: templates/accounts/profile.html:5
 msgid "Profile"
 msgstr "Профиль"
 
-#: djangobb_forum/models.py:284
+#: djangobb_forum/models.py:287
 msgid "Profiles"
 msgstr "Профили"
 
-#: djangobb_forum/models.py:315 djangobb_forum/models.py:316
+#: djangobb_forum/models.py:318 djangobb_forum/models.py:319
 msgid "Post tracking"
 msgstr "Отслеживать отклики"
 
-#: djangobb_forum/models.py:323
+#: djangobb_forum/models.py:326
 msgid "Reported by"
 msgstr "Доложил"
 
-#: djangobb_forum/models.py:325
+#: djangobb_forum/models.py:328
 msgid "Zapped"
 msgstr "Затёрто"
 
-#: djangobb_forum/models.py:326
+#: djangobb_forum/models.py:329
 msgid "Zapped by"
 msgstr "Затёрто"
 
-#: djangobb_forum/models.py:331 djangobb_forum/templates/forum/topic.html:118
+#: djangobb_forum/models.py:334 djangobb_forum/templates/forum/topic.html:118
 msgid "Report"
 msgstr "Жалоба"
 
-#: djangobb_forum/models.py:332
+#: djangobb_forum/models.py:335
 msgid "Reports"
 msgstr "Жалобы"
 
-#: djangobb_forum/models.py:338
+#: djangobb_forum/models.py:341
 msgid "Banned user"
 msgstr "Забаненный пользователь"
 
-#: djangobb_forum/models.py:339
+#: djangobb_forum/models.py:342
 msgid "Ban start"
 msgstr "Бан начинается"
 
-#: djangobb_forum/models.py:340
+#: djangobb_forum/models.py:343
 msgid "Ban end"
 msgstr "Бан завершается"
 
-#: djangobb_forum/models.py:344
+#: djangobb_forum/models.py:347
 msgid "Ban"
 msgstr "Бан"
 
-#: djangobb_forum/models.py:345
+#: djangobb_forum/models.py:348
 msgid "Bans"
 msgstr "Баны"
 
-#: djangobb_forum/models.py:363
+#: djangobb_forum/models.py:366
 msgid "Size"
 msgstr "Размер"
 
-#: djangobb_forum/models.py:364
+#: djangobb_forum/models.py:367
 msgid "Content type"
 msgstr "Тип содержимого"
 
-#: djangobb_forum/models.py:365
+#: djangobb_forum/models.py:368
 msgid "Path"
 msgstr "Путь"
 
-#: djangobb_forum/models.py:367
+#: djangobb_forum/models.py:370
 msgid "Hash"
 msgstr "Хэш"
 
@@ -964,8 +1057,8 @@ msgstr "Пользователи"
 #: djangobb_forum/templates/forum/header.html:17
 #: djangobb_forum/templates/forum/search_form.html:7
 #: djangobb_forum/templates/forum/users.html:29
-#: djangobb_forum/templates/forum/lofi/header.html:4
-#: templates/main/search.html:5
+#: djangobb_forum/templates/forum/lofi/header.html:4 templates/_search.html:10
+#: templates/main/search.html:5 templates/main/search.html.py:12
 msgid "Search"
 msgstr "Поиск"
 
@@ -1309,7 +1402,7 @@ msgid "Are you sure you want to delete this post?"
 msgstr "Вы уверены, что этот отклик надо удалить?"
 
 #: djangobb_forum/templates/forum/topic.html:125
-#: templates/accounts/profile.html:12
+#: templates/accounts/_menu.html:9 templates/accounts/edit.html:25
 msgid "Edit"
 msgstr "Редактировать"
 
@@ -1698,6 +1791,51 @@ msgstr ""
 "или нет, а также разрешать или нет отправку вам почты от других "
 "пользователей через форум. "
 
+#: doc_comments/models.py:11
+msgid "none"
+msgstr "none"
+
+#: doc_comments/models.py:12
+msgid "accepted"
+msgstr "принят"
+
+#: doc_comments/models.py:13
+msgid "closed"
+msgstr "закрыт"
+
+#: doc_comments/models.py:15 examples/models.py:34 main/models.py:34
+#: news/models.py:8
+msgid "content"
+msgstr "содержимое"
+
+#: doc_comments/models.py:16
+msgid "author"
+msgstr "автор"
+
+#: doc_comments/models.py:17
+msgid "path to page"
+msgstr "путь к странице"
+
+#: doc_comments/models.py:18
+msgid "page title"
+msgstr "заголовок станицы"
+
+#: doc_comments/models.py:19
+msgid "xpath"
+msgstr "xpath"
+
+#: doc_comments/models.py:21
+msgid "status"
+msgstr "статус"
+
+#: doc_comments/models.py:25
+msgid "comments"
+msgstr "комментарии"
+
+#: doc_comments/views.py:76
+msgid "You are not authenticated."
+msgstr "Вы не авторизированы"
+
 #: examples/feeds.py:7
 msgid "Russian DjangoBook Examples"
 msgstr "Примеры с Russian DjangoBook"
@@ -1744,10 +1882,6 @@ msgstr ""
 "\n"
 "Пожалуйста, проверьте и подтвердите его. URL: %(link)s"
 
-#: examples/models.py:9 main/models.py:7 main/models.py:32
-msgid "name"
-msgstr "имя"
-
 #: examples/models.py:32
 msgid "category"
 msgstr "категория"
@@ -1755,10 +1889,6 @@ msgstr "категория"
 #: examples/models.py:33 news/models.py:7 videos/models.py:8
 msgid "title"
 msgstr "тема"
-
-#: examples/models.py:34 main/models.py:34 news/models.py:8
-msgid "content"
-msgstr "содержимое"
 
 #: examples/models.py:34
 msgid ""
@@ -1779,10 +1909,6 @@ msgstr "разрешено"
 #: examples/models.py:37
 msgid "Can be used for draft"
 msgstr "Может быть использовано для черновиков"
-
-#: examples/models.py:38
-msgid "note"
-msgstr "заметка"
 
 #: examples/models.py:38
 msgid "author's note, is not visible on site"
@@ -1809,25 +1935,40 @@ msgstr ""
 "Рецепт был добавлен успешно и будет проверен, как только появится "
 "возможность."
 
-#: main/forms.py:14
+#: main/forms.py:20
 msgid "email"
 msgstr "е-почта"
 
-#: main/forms.py:15
+#: main/forms.py:21
 msgid "message"
 msgstr "сообщение"
 
-#: main/forms.py:33
+#: main/forms.py:39
 msgid "archive"
 msgstr "архив"
 
-#: main/forms.py:49
+#: main/forms.py:55
 msgid "This should be zip archive"
 msgstr "Хочу zip архив"
 
-#: main/models.py:9
-msgid "description"
-msgstr "описание"
+#: main/forms.py:124 templates/_menu.html:27
+msgid "All"
+msgstr "Все"
+
+#: main/forms.py:125 templates/_menu.html:23 templates/examples/index.html:5
+#: templates/main/_random_recipes.html:2
+msgid "Recipes"
+msgstr "Рецепты"
+
+#: main/forms.py:127 news/models.py:14 news/models.py:15
+#: templates/_menu.html:18 templates/news/index.html:5
+#: templates/news/news.html:5
+msgid "News"
+msgstr "Новости"
+
+#: main/forms.py:130
+msgid "Search by"
+msgstr "Поиск по"
 
 #: main/models.py:10
 msgid "ToC"
@@ -1857,7 +1998,7 @@ msgstr "раздел"
 msgid "Page"
 msgstr "Страница"
 
-#: main/views.py:58
+#: main/views.py:69
 msgid "Feedback sent success!"
 msgstr "Отзыв успешно отправлен!"
 
@@ -1873,11 +2014,6 @@ msgstr "Последние новости с Russian DjangoBook"
 msgid "Use Markdown and HTML"
 msgstr "Иcпользуйте Markdown или HTML"
 
-#: news/models.py:14 news/models.py:15 templates/_menu.html:18
-#: templates/news/index.html:5 templates/news/news.html:5
-msgid "News"
-msgstr "Новости"
-
 #: templates/404.html:7 templates/500.html:7
 msgid "Forgotten page..."
 msgstr "Потерянная страница..."
@@ -1887,31 +2023,22 @@ msgstr "Потерянная страница..."
 msgid "Videos"
 msgstr "Видео"
 
-#: templates/_menu.html:23 templates/examples/index.html:5
-#: templates/main/_random_recipes.html:2
-msgid "Recipes"
-msgstr "Рецепты"
-
-#: templates/_menu.html:27
-msgid "All"
-msgstr "Все"
-
 #: templates/_menu.html:35
 msgid "About"
 msgstr "О проекте"
 
-#: templates/_menu.html:40
+#: templates/_menu.html:41
 msgid "Logout"
 msgstr "Выйти"
 
-#: templates/_menu.html:42 templates/accounts/login.html:16
+#: templates/_menu.html:43 templates/accounts/login.html:15
 #: templates/openid_consumer/signin.html:10
 msgid "Login"
 msgstr "Вход"
 
-#: templates/_menu.html:45
-msgid "Administrator's Interface"
-msgstr "Интерфейс администратора"
+#: templates/_menu.html:46
+msgid "Admin UI"
+msgstr "Админка"
 
 #: templates/_right.html:9
 msgid "Found misprint?"
@@ -1950,29 +2077,10 @@ msgid "Open in new tab"
 msgstr "Открыть новую вкладку"
 
 #: templates/base.html:98
-msgid "Set your password please"
-msgstr "Установите ваш пароль, пожалуйста."
-
-#: templates/base.html:100
-msgid ""
-"\n"
-"                              We are going update authentication system. You "
-"account does not have useable password.\n"
-"                              You should set it or you can lost your account "
-"after next update.\n"
-"                          "
-msgstr ""
-"\n"
-"Мы обновляем систему аутентификации. Вам следует сменить пароль для вашего "
-"аккаунта.\n"
-"Вы должны установить пароль, в противном случае вы потеряете ваш аккаунт "
-"после следующего обновления сайта."
-
-#: templates/base.html:109
 msgid "Confirm you email"
 msgstr "Подтвердите адрес вашей электронной почты"
 
-#: templates/base.html:111
+#: templates/base.html:100
 msgid ""
 "\n"
 "                              You account does not have confirmed email.\n"
@@ -1984,20 +2092,28 @@ msgstr ""
 "Ваш аккаунт использует неподтверждённый адрес электронной почты.\n"
 "Вы должны ввести правильный адрес электронной почты и подтвердить его."
 
-#: templates/base.html:117
+#: templates/base.html:106
 msgid "Your current email is:"
 msgstr "Текущий адрес электронной почты:"
 
-#: templates/base.html:118
+#: templates/base.html:107
 msgid "Send confirmation email"
 msgstr "Отправить письмо для подтверждение адреса электронной почты"
+
+#: templates/accounts/_menu.html:3 templates/accounts/notifications.html:5
+msgid "Notifications"
+msgstr "События"
+
+#: templates/accounts/_menu.html:12
+msgid "Forum profile"
+msgstr "Профиль форума"
 
 #: templates/accounts/create.html:5 templates/accounts/create.html.py:8
 #: templates/accounts/login.html:16
 msgid "Register"
 msgstr "Регистрация"
 
-#: templates/accounts/create.html:15 templates/accounts/edit.html:19
+#: templates/accounts/create.html:15 templates/accounts/edit.html:32
 msgid "Create"
 msgstr "Создать"
 
@@ -2005,13 +2121,17 @@ msgstr "Создать"
 msgid "Edit Profile"
 msgstr "Изменить профиль"
 
-#: templates/accounts/edit.html:11
-msgid "Edit profile"
-msgstr "Изменить профиль"
+#: templates/accounts/edit.html:10
+msgid "Connect accounts"
+msgstr "Связанные аккаунты"
 
 #: templates/accounts/edit.html:12
-msgid "Edit forum profile"
-msgstr "Изменить профиль форума"
+msgid "Disconnect account"
+msgstr "Отвязать аккаунт"
+
+#: templates/accounts/edit.html:17
+msgid "Connect account"
+msgstr "Привязать аккаунт"
 
 #: templates/accounts/email_confirmation_message.html:1
 #, python-format
@@ -2041,29 +2161,21 @@ msgstr ""
 msgid "You are going reset password for"
 msgstr "Вы сбрасываете пароль для"
 
-#: templates/accounts/login.html:5 templates/accounts/login.html.py:8
+#: templates/accounts/login.html:5
 msgid "Authentication"
 msgstr "Аутентификация"
 
-#: templates/accounts/login.html:16
-msgid "or"
-msgstr "или"
-
-#: templates/accounts/login.html:20
+#: templates/accounts/login.html:17
 msgid "Forgot password?"
 msgstr "Забыли пароль?"
 
-#: templates/accounts/login.html:32 templates/accounts/login.html.py:33
-msgid "Secured Data Transmittion Service"
-msgstr "Сервис безопасной передачи данных"
-
-#: templates/accounts/login.html:42
-msgid "You will be redirected on SSL protected site to enter login/password."
-msgstr "Вы будете перенаправлены на защищённый сайт для ввода логина и пароля."
-
-#: templates/accounts/login.html:52
+#: templates/accounts/login.html:26
 msgid "You are authenticated already"
 msgstr "Вы уже аутентифицированы"
+
+#: templates/accounts/notifications.html:12
+msgid "Doc. comments"
+msgstr "Док. комментарии"
 
 #: templates/accounts/password_reset.html:5
 #: templates/accounts/password_reset.html:11
@@ -2102,21 +2214,13 @@ msgstr ""
 "Ссылка для сброса пароля неверна, возможно, потому что она уже была "
 "использована. Пожалуйста, запросите ссылку ещё раз."
 
-#: templates/accounts/profile.html:10
-msgid "Forum profile"
-msgstr "Профиль форума"
-
-#: templates/accounts/profile.html:23
+#: templates/accounts/profile.html:21
 msgid "Forum posts count"
 msgstr "Количество откликов в форуме"
 
-#: templates/accounts/profile.html:24
+#: templates/accounts/profile.html:22
 msgid "Comments count"
 msgstr "Комментариев"
-
-#: templates/accounts/profile.html:28
-msgid "Biography"
-msgstr "Биография"
 
 #: templates/admin/examples/change_form.html:11
 msgid "History"
@@ -2139,9 +2243,20 @@ msgstr ""
 msgid "Processed"
 msgstr "Выполнено"
 
-#: templates/comments/_item.html:9 templates/comments/last_comments.html:5
+#: templates/comments/_display_item.html:9 templates/comments/_item.html:9
+#: templates/comments/last_comments.html:5
+#: templates/doc_comments/_display_item.html:9
 msgid "ago"
 msgstr "прошло"
+
+#: templates/comments/_display_item.html:23
+#: templates/doc_comments/_display_item.html:23
+msgid "View comment"
+msgstr "Просмотреть комментарий"
+
+#: templates/comments/_display_item.html:26 templates/comments/_item.html:35
+msgid "answer to"
+msgstr "Ответ на"
 
 #: templates/comments/_item.html:24 templates/comments/_item.html.py:28
 msgid "Answer"
@@ -2214,6 +2329,10 @@ msgstr "Всего пользователей"
 msgid "You can send message to us"
 msgstr "Вы можете отправить нам сообщение"
 
+#: templates/main/search.html:23
+msgid "No search results"
+msgstr "Ничего не найдено"
+
 #: templates/openid_consumer/signin.html:5
 msgid "Sign in with your OpenID"
 msgstr "Вход с помощью OpenID"
@@ -2247,6 +2366,46 @@ msgstr "видео"
 #: videos/models.py:17
 msgid "videos"
 msgstr "видео"
+
+#~ msgid "Administrator's Interface"
+#~ msgstr "Интерфейс администратора"
+
+#~ msgid "Set your password please"
+#~ msgstr "Установите ваш пароль, пожалуйста."
+
+#~ msgid ""
+#~ "\n"
+#~ "                              We are going update authentication system. "
+#~ "You account does not have useable password.\n"
+#~ "                              You should set it or you can lost your "
+#~ "account after next update.\n"
+#~ "                          "
+#~ msgstr ""
+#~ "\n"
+#~ "Мы обновляем систему аутентификации. Вам следует сменить пароль для "
+#~ "вашего аккаунта.\n"
+#~ "Вы должны установить пароль, в противном случае вы потеряете ваш аккаунт "
+#~ "после следующего обновления сайта."
+
+#~ msgid "Edit profile"
+#~ msgstr "Изменить профиль"
+
+#~ msgid "Edit forum profile"
+#~ msgstr "Изменить профиль форума"
+
+#~ msgid "or"
+#~ msgstr "или"
+
+#~ msgid "Secured Data Transmittion Service"
+#~ msgstr "Сервис безопасной передачи данных"
+
+#~ msgid ""
+#~ "You will be redirected on SSL protected site to enter login/password."
+#~ msgstr ""
+#~ "Вы будете перенаправлены на защищённый сайт для ввода логина и пароля."
+
+#~ msgid "Biography"
+#~ msgstr "Биография"
 
 #~ msgid "Profile changed success!"
 #~ msgstr "Профайл успешно изменён!"
@@ -2315,17 +2474,11 @@ msgstr "видео"
 #~ "Мы используем этот сервис для предотвращения возможности перехвата "
 #~ "вводимой информации."
 
-#~ msgid "Password"
-#~ msgstr "Пароль"
-
 #~ msgid "Wrong user's credentials."
 #~ msgstr "Логин или пароль были указаны неверно."
 
 #~ msgid "Main"
 #~ msgstr "Главная"
-
-#~ msgid "Last comments"
-#~ msgstr "Последние комментарии"
 
 #~ msgid "more"
 #~ msgstr "ещё"
