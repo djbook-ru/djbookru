@@ -1,3 +1,0 @@
-drop user ${db_user}@${db_host};
-drop database ${db_name};
-exit

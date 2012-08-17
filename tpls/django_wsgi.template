@@ -1,9 +1,0 @@
-# -*- coding: utf-8 -*-
-
-import os, sys, site
-sys.stdout = sys.stderr
-sys.path.insert(0, '${hosting_code_dir}/src')
-site.addsitedir('${hosting_env_dir}/lib/${hosting_python_ver}/site-packages')
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
-from django.core.handlers.wsgi import WSGIHandler
-application = WSGIHandler()
