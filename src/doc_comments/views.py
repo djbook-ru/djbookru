@@ -10,8 +10,9 @@ from django.db.models import Count
 @render_to_json
 def close_comment(request):
     id = request.POST.get('id')
+    user = request.user
 
-    if id:
+    if id and user.is_authenticated() and user.has_perm('doc_comments.change_comment'):
         Comment.objects.filter(pk=id).update(status=Comment.CLOSED)
 
     return {}
@@ -21,8 +22,9 @@ def close_comment(request):
 @render_to_json
 def accept_comment(request):
     id = request.POST.get('id')
+    user = request.user
 
-    if id:
+    if id and user.is_authenticated() and user.has_perm('doc_comments.change_comment'):
         Comment.objects.filter(pk=id).update(status=Comment.ACCEPTED)
 
     return {}
