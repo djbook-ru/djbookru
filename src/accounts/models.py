@@ -94,6 +94,31 @@ def create_custom_user(sender, instance, created, **kwargs):
 post_save.connect(create_custom_user, BaseUser)
 
 
+class UserAchievement(models.Model):
+    user = models.ForeignKey(User, verbose_name=_(u'user'))
+    achievement = models.ForeignKey('Achievement', verbose_name=_(u'achievement'))
+    note = models.TextField(_(u'note'), blank=True)
+
+    class Meta:
+        verbose_name = _(u'user achievement')
+        verbose_name_plural = _(u'user achievements')
+        unique_together = (('user', 'achievement'),)
+
+
+class Achievement(models.Model):
+    title = models.CharField(_(u'name'), max_length=500)
+    description = models.TextField(_(u'description'), blank=True)
+    active_icon = models.ImageField(_(u'active icon'), upload_to='uploads/Achievement/')
+    inactive_icon = models.ImageField(u'inactive icon', upload_to='uploads/Achievement/')
+
+    class Meta:
+        verbose_name = _(u'achievement')
+        verbose_name_plural = _(u'achievements')
+
+    def __unicode__(self):
+        return self.title
+
+
 class EmailConfirmationManager(models.Manager):
 
     def confirm_email(self, confirmation_key):
