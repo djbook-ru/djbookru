@@ -6,12 +6,19 @@ from django.utils.http import urlquote
 
 
 class Comment(models.Model):
+    NONE, ACCEPTED, CLOSED = 0, 1, 2
+    STATUS_CHOICES = (
+        (NONE, _(u'none')),
+        (ACCEPTED, _(u'accepted')),
+        (CLOSED, _(u'closed'))
+    )
     content = models.TextField(_(u'content'))
     author = models.ForeignKey(User, verbose_name=_('author'), related_name='doc_comments')
     page = models.CharField(_(u'path to page'), max_length=500)
     page_title = models.CharField(_(u'page title'), max_length=500)
     xpath = models.CharField(_(u'xpath'), max_length=500)
     created = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(_(u'status'), choices=STATUS_CHOICES, default=0)
 
     class Meta:
         verbose_name = _(u'comment')

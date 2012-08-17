@@ -11,7 +11,10 @@ jQuery.noConflict();
 
     function Comments($elements){
         var self = this;
+        this.ACCEPTED = 1;
+        this.CLOSED = 2;
         this.isAuthenticated = false;
+        this.canChangeStatus = false;
         this.page = window.location.pathname;
         this.xpath = '';
         this.urls = {
@@ -20,7 +23,9 @@ jQuery.noConflict();
             login: '/auth/login/?next='+this.page,
             loadCommentsInfo: '/doc_comments/load_comments_info/',
             loadComments: '/doc_comments/load_comments/',
-            forum: '/forum/'
+            forum: '/forum/',
+            close: '/doc_comments/close_comment/',
+            accept: '/doc_comments/accept_comment/'
         };
         this.$elements = $elements;
 
@@ -99,10 +104,27 @@ jQuery.noConflict();
                 return false;
             });
 
+            this.$modal.find('.comment .status-button').live('click', function(){
+                var $this = $(this);
+                var id = $this.parents('.comment').data('id');
+                if ($this.hasClass('closed')){
+                    $.post(self.urls.close, {'id': id}, function(){
+                        $this.removeClass('closed').addClass('accept').text('Принять');
+                    });
+                }else if($this.hasClass('accept')) {
+                    $.post(self.urls.accept, {'id': id}, function(){
+                        $this.removeClass('accept').addClass('closed').text('Закрыть');
+                    });
+                }
+                return false;
+            });
+
             //check login status
             jQuery.post(this.urls.getLoginStatus, function(resp){
                 self.isAuthenticated = resp.isAuthenticated;
+                self.canChangeStatus = resp.canChangeStatus;
                 self.checkLogin();
+                self.jumpToComments();
             });
 
             //add comment idicator
@@ -133,7 +155,6 @@ jQuery.noConflict();
             });
 
             this.loadCommentsInfo();
-            this.jumpToComments();
         };
 
         this.jumpToComments = function(){
@@ -147,6 +168,8 @@ jQuery.noConflict();
                         scrollTop: $el.offset().top - 30
                     });
                     $el.find('.comment-indicator').addClass('current');
+                    $el.find('.comment-indicator').trigger('click');
+                    $('#commentsModal a[href="#commentsModalComments"]').tab('show');
                 }
             }
         };
@@ -160,15 +183,23 @@ jQuery.noConflict();
                 $container.html('');
                 for (var i=0, len=resp.data.length; i<len; i++){
                     var obj = resp.data[i];
+                    var status_button = '';
+                    if (self.canChangeStatus){
+                        if (obj.status == self.ACCEPTED){
+                            status_button = ' | <a href="#" class="status-button closed">Закрыть</a>';
+                        }else{
+                            status_button = ' | <a href="#" class="status-button accept">Принять</a>';
+                        }
+                    }
                     $container.append(
-                        '<div class="comment">'+
+                        '<div class="comment" data-id="'+obj.id+'">'+
                             '<a class="thumbnail" href="'+obj.author_url+'"><img src="'+obj.avatar+'"></a>'+
                             '<a href="'+obj.author_url+'">'+obj.author+'</a> | '+
-                            '<span class="created">'+obj.created+'</span><br>'+
+                            '<span class="created">'+obj.created+'</span>'+
+                            status_button+'<br>'+
                             '<p>'+obj.content+'</p>'+
                             '<div style="clear: both"></div>'+
-                        '</div>'+
-                        '');
+                        '</div>');
                 }
             });
         };
