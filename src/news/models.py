@@ -20,3 +20,6 @@ class News(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('news:news', [self.pk], {})
+
+    def search(self):
+        return dict(title=self.title, desc=self.content)

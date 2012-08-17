@@ -84,3 +84,7 @@ class Example(models.Model):
                         body=body_plain % (title, url),
                         body_html=body_html % (url, title))
             post.save()
+
+    def search(self):
+        return dict(title=self.title, desc=self.content)
+
