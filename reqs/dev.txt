@@ -1,0 +1,11 @@
+# Список зависимостей, которые должен поставить разработчик.
+
+Fabric >= 1.3.2
+django-fab-deploy >= 0.7.2
+
+-e git+git://github.com/dcramer/django-devserver#egg=django-devserver
+sqlparse        # pretty SQL formatting
+werkzeug        # interactive debugger
+guppy           # tracks memory usage (required for MemoryUseModule)
+
+Whoosh == 1.8.4 # pretty easy search backend for xapian

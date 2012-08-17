@@ -1,0 +1,35 @@
+# Список зависимостей для работы проекта.
+
+Django == 1.4.1
+South
+-e hg+https://bitbucket.org/ruslanpopov/django-sentry#egg=sentry
+
+django-extensions
+django-salmonella == 0.5.1
+django-autoslug-field
+django-markitup
+
+easy_thumbnails
+
+Markdown >= 2.0
+python-dateutil == 1.5
+pytz
+pytils
+simplejson
+
+django-modeltranslation
+django-model-utils == 1.0.0
+django-tastypie == 0.9.11
+django-tagging == 0.3.1
+
+django-haystack
+xapian-haystack
+
+-e hg+https://bitbucket.org/rsalmaso/django-admin-tools#egg=admin_tools
+feedparser
+
+-e git+git://github.com/RaD/django-chunks.git@rel2.3#egg=django-chunks
+-e git+https://github.com/RaD/haystack-static-pages.git/#egg=haystack-static-pages
+-e git+http://github.com/RaD/django-adzone.git/#egg=django-adzone
+-e git+http://github.com/clintecker/django-google-analytics.git/#egg=django-google_analytics
+-e git+https://github.com/jezdez/django-robots.git/#egg=django-robots
