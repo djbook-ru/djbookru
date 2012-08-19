@@ -160,10 +160,12 @@ jQuery.noConflict();
         this.jumpToComments = function(){
             var url = $.url(document.location.href);
             var xpath = url.param('xpath');
+
             if (xpath){
                 var $el = $(self.getElementsByXPath(xpath));
 
                 if ($el.length && $el.find('.comment-indicator').length){
+                    $el = $($el[0]);
                     $('html, body').animate({
                         scrollTop: $el.offset().top - 30
                     });
@@ -195,7 +197,8 @@ jQuery.noConflict();
                         '<div class="comment" data-id="'+obj.id+'">'+
                             '<a class="thumbnail" href="'+obj.author_url+'"><img src="'+obj.avatar+'"></a>'+
                             '<a href="'+obj.author_url+'">'+obj.author+'</a> | '+
-                            '<span class="created">'+obj.created+'</span>'+
+                            '<span class="created">'+obj.created+'</span> | '+
+                            '<a href="'+obj.link+'">Ссылка</a>'+
                             status_button+'<br>'+
                             '<p>'+obj.content+'</p>'+
                             '<div style="clear: both"></div>'+
