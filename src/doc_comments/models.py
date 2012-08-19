@@ -46,9 +46,9 @@ class Comment(models.Model):
         f = None
         for c in your_comments:
             if f:
-                f |= models.Q(page=c.page, xpath=c.xpath)
+                f |= models.Q(page=c.page, xpath=c.xpath, created__gt=c.created)
             else:
-                f = models.Q(page=c.page, xpath=c.xpath)
+                f = models.Q(page=c.page, xpath=c.xpath, created__gt=c.created)
 
         qs = cls.objects.filter(f).exclude(author=user)
 
