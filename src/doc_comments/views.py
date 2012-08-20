@@ -51,7 +51,8 @@ def load_comments(request):
                 'author': unicode(obj.author),
                 'avatar': obj.author.avatar(),
                 'author_url': obj.author.get_absolute_url(),
-                'status': obj.status
+                'status': obj.status,
+                'link': obj.get_absolute_url()
             })
     return {
         'data': output

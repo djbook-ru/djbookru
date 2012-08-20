@@ -13,7 +13,6 @@ from . models import Topic, Post, Profile, Reputation, Report, Attachment
 from . import settings as forum_settings
 from . util import convert_text_to_html
 
-
 SORT_USER_BY_CHOICES = (
     ('username', _(u'Username')),
     ('registered', _(u'Registered')),
@@ -135,7 +134,6 @@ class EditPostForm(forms.ModelForm):
 
 class EssentialsProfileForm(forms.ModelForm):
     username = forms.CharField(label=_('Username'))
-    email = forms.CharField(label=_('E-mail'))
 
     class Meta:
         model = Profile
@@ -149,13 +147,11 @@ class EssentialsProfileForm(forms.ModelForm):
         self.fields['username'].initial = self.user_view.username
         if not self.user_request.is_superuser:
             self.fields['username'].widget = forms.HiddenInput()
-        self.fields['email'].initial = self.user_view.email
 
     def save(self, commit=True):
         if self.cleaned_data:
             if self.user_request.is_superuser:
                 self.user_view.username = self.cleaned_data['username']
-            self.user_view.email = self.cleaned_data['email']
             self.profile.time_zone = self.cleaned_data['time_zone']
             self.profile.language = self.cleaned_data['language']
             self.user_view.save()
