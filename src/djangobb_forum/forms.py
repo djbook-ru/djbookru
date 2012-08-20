@@ -16,7 +16,6 @@ from djangobb_forum import settings as forum_settings
 from djangobb_forum.util import convert_text_to_html
 
 
-
 SORT_USER_BY_CHOICES = (
     ('username', _(u'Username')),
     ('registered', _(u'Registered')),
@@ -49,7 +48,7 @@ SEARCH_IN_CHOICES = (
 
 class AddPostForm(forms.ModelForm):
     name = forms.CharField(label=_('Subject'), max_length=255,
-                           widget=forms.TextInput(attrs={'size':'115'}))
+                           widget=forms.TextInput(attrs={'size': '115'}))
     attachment = forms.FileField(label=_('Attachment'), required=False)
 
     class Meta:
@@ -67,7 +66,7 @@ class AddPostForm(forms.ModelForm):
             self.fields['name'].widget = forms.HiddenInput()
             self.fields['name'].required = False
 
-        self.fields['body'].widget = forms.Textarea(attrs={'class':'markup', 'rows':'20', 'cols':'95'})
+        self.fields['body'].widget = forms.Textarea(attrs={'class': 'markup', 'rows': '20', 'cols': '95'})
 
         if not forum_settings.ATTACHMENT_SUPPORT:
             self.fields['attachment'].widget = forms.HiddenInput()
@@ -79,7 +78,6 @@ class AddPostForm(forms.ModelForm):
             if memfile.size > forum_settings.ATTACHMENT_SIZE_LIMIT:
                 raise forms.ValidationError(_('Attachment is too big'))
             return self.cleaned_data['attachment']
-
 
     def save(self):
         if self.forum:
@@ -99,7 +97,6 @@ class AddPostForm(forms.ModelForm):
             self.save_attachment(post, self.cleaned_data['attachment'])
         return post
 
-
     def save_attachment(self, post, memfile):
         if memfile:
             obj = Attachment(size=memfile.size, content_type=memfile.content_type,
@@ -114,7 +111,7 @@ class AddPostForm(forms.ModelForm):
 
 class EditPostForm(forms.ModelForm):
     name = forms.CharField(required=False, label=_('Subject'),
-                           widget=forms.TextInput(attrs={'size':'115'}))
+                           widget=forms.TextInput(attrs={'size': '115'}))
 
     class Meta:
         model = Post
@@ -124,7 +121,7 @@ class EditPostForm(forms.ModelForm):
         self.topic = kwargs.pop('topic', None)
         super(EditPostForm, self).__init__(*args, **kwargs)
         self.fields['name'].initial = self.topic
-        self.fields['body'].widget = forms.Textarea(attrs={'class':'markup'})
+        self.fields['body'].widget = forms.Textarea(attrs={'class': 'markup'})
 
     def save(self, commit=True):
         post = super(EditPostForm, self).save(commit=False)
@@ -140,7 +137,6 @@ class EditPostForm(forms.ModelForm):
 
 class EssentialsProfileForm(forms.ModelForm):
     username = forms.CharField(label=_('Username'))
-    email = forms.CharField(label=_('E-mail'))
 
     class Meta:
         model = Profile
@@ -154,13 +150,11 @@ class EssentialsProfileForm(forms.ModelForm):
         self.fields['username'].initial = self.user_view.username
         if not self.user_request.is_superuser:
             self.fields['username'].widget = forms.HiddenInput()
-        self.fields['email'].initial = self.user_view.email
 
     def save(self, commit=True):
         if self.cleaned_data:
             if self.user_request.is_superuser:
                 self.user_view.username = self.cleaned_data['username']
-            self.user_view.email = self.cleaned_data['email']
             self.profile.time_zone = self.cleaned_data['time_zone']
             self.profile.language = self.cleaned_data['language']
             self.user_view.save()
@@ -206,15 +200,16 @@ class MessagingProfileForm(forms.ModelForm):
 
 from django.utils.html import strip_tags
 
+
 class PersonalityProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['show_avatar', 'signature']
-        
+
     def __init__(self, *args, **kwargs):
         self.markup = kwargs.pop('markup', None)
         super(PersonalityProfileForm, self).__init__(*args, **kwargs)
-        self.fields['signature'].widget = forms.Textarea(attrs={'rows':'10', 'cols':'75'})
+        self.fields['signature'].widget = forms.Textarea(attrs={'rows': '10', 'cols': '75'})
         if 'signature' in self.initial:
             self.initial['signature'] = strip_tags(self.initial['signature'].replace('<br/>', '\n'))
 
@@ -224,6 +219,7 @@ class PersonalityProfileForm(forms.ModelForm):
         if commit:
             profile.save()
         return profile
+
 
 class DisplayProfileForm(forms.ModelForm):
     class Meta:
@@ -238,7 +234,7 @@ class PrivacyProfileForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(PrivacyProfileForm, self).__init__(*args, **kwargs)
-        self.fields['privacy_permission'].widget = forms.RadioSelect(  
+        self.fields['privacy_permission'].widget = forms.RadioSelect(
                                                     choices=self.fields['privacy_permission'].choices
                                                     )
 
@@ -292,7 +288,6 @@ class PostSearchForm(forms.Form):
     show_as = forms.ChoiceField(choices=SHOW_AS_CHOICES, label=_('Show results as'))
 
 
-
 class ReputationForm(forms.ModelForm):
 
     class Meta:
@@ -327,7 +322,6 @@ class ReputationForm(forms.ModelForm):
             raise forms.ValidationError(_('You already voted for this post'))
         return self.cleaned_data
 
-
     def save(self, commit=True):
         reputation = super(ReputationForm, self).save(commit=False)
         reputation.from_user = self.from_user
@@ -335,6 +329,7 @@ class ReputationForm(forms.ModelForm):
         if commit:
             reputation.save()
         return reputation
+
 
 class MailToForm(forms.Form):
     subject = forms.CharField(label=_('Subject'),

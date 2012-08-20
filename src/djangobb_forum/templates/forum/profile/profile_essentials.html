@@ -30,20 +30,6 @@
 				</div>
 				<div class="inform">
 					<fieldset>
-						<legend>{% trans "Enter a valid e-mail address" %}</legend>
-						<div class="infldset">
-							{{ form.email.errors }}
-							<label><strong>{{ form.email.label }}</strong><br>
-							{{ form.email }}<br></label>
-							{% if request.user.is_superuser %}
-							<p><a href="{% url djangobb:misc %}?mail_to={{ profile }}">{% trans "Send e-mail" %}</a></p>
-							{% endif %}
-
-						</div>
-					</fieldset>
-				</div>
-				<div class="inform">
-					<fieldset>
 						<legend>{% trans "Set your localization options" %}</legend>
 						<div class="infldset">
 							{{ form.time_zone.errors }}
