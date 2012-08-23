@@ -7,7 +7,7 @@ mkdir -p ${BUILD}
 
 ./po_compile.sh
 
-cp -r ./addon ./reqs ./src ./manage.py ./logs ${BUILD}
+cp -r ./addon ./lib ./reqs ./src ./manage.py ./logs ${BUILD}
 
 rm -rf ${SRC}/{fixtures,legacy,public,search/whoosh_index,local_settings.py,*sqlite}
 rm -rf ${BUILD}/logs/*

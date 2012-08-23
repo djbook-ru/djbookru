@@ -126,14 +126,6 @@
     RewriteRule ^(.*)$ /webapp/$1 [L,QSA]
 
 
-Настройка статики::
-
-    cd ${PATH_TO_SITE}
-    python manage.pyc collectstatic
-    ln -s ~/site1/src/public/static/ ~/www/site1/public_html/static
-    ln -s ~/site1/src/public/media/ ~/www/site1/public_html/media
-
-
 Дополнительное ПО
 -----------------
 
@@ -143,6 +135,15 @@
     nice -n 19 bash ${PATH_TO_SITE}/addon/xapian_install.sh
     rm -rf ./xapian*
     cd -
+
+
+Настройка статики::
+
+    cd ${PATH_TO_SITE}
+    . ./env/bin/activate
+    python manage.pyc collectstatic
+    ln -s ~/site1/src/public/static/ ~/www/site1/public_html/static
+    ln -s ~/site1/src/public/media/ ~/www/site1/public_html/media
 
 
 База данных
