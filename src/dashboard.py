@@ -25,6 +25,7 @@ class CustomIndexDashboard(Dashboard):
                 collapsable=False,
                 children=[
                     (_(u'Go to Site'), reverse('main:index')),
+                    [_(u'Error Console'), reverse('sentry')],
                     [_('Change password'), reverse('%s:password_change' % site_name)],
                     [_('Log out'), reverse('%s:logout' % site_name)],
                 ]))

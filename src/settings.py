@@ -315,6 +315,20 @@ HAYSTACK_STATIC_MAPPING = {
 ### HAYSTACK: END
 
 
+### SENTRY: BEGIN
+INSTALLED_APPS += (
+    'indexer',
+    'paging',
+    'sentry',
+    'sentry.client',
+    'sentry.plugins.sentry_servers',
+    'sentry.plugins.sentry_sites',
+    'sentry.plugins.sentry_urls',
+)
+MIDDLEWARE_CLASSES += ('sentry.client.middleware.SentryResponseErrorIdMiddleware', )
+### SENTRY: END
+
+
 ### FEEDBACK: BEGIN
 EMAIL_SUBJECT_PREFIX = '[Djbook.ru]'
 DATETIME_FORMAT = 'j N Y, G:i'
