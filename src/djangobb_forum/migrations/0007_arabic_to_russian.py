@@ -1,10 +1,9 @@
 # encoding: utf-8
-import datetime
-from south.db import db
-from south.v2 import DataMigration
-from django.db import models
 
-from djangobb_forum.models import Profile
+from south.v2 import DataMigration
+
+from .. models import Profile
+
 
 class Migration(DataMigration):
 
@@ -13,8 +12,7 @@ class Migration(DataMigration):
         Profile.objects.filter(language='').update(language='ru')
 
     def backwards(self, orm):
-        pass # no backwards
-
+        pass  # no backwards
 
     models = {
         'accounts.user': {

@@ -1,11 +1,11 @@
 # encoding: utf-8
-import datetime
-from south.db import db
+
 from south.v2 import DataMigration
-from django.db import models, transaction
+from django.db import transaction
 from django.contrib.auth.models import User
 
-from djangobb_forum.models import Category, Forum
+from .. models import Category, Forum
+
 
 class Migration(DataMigration):
 
