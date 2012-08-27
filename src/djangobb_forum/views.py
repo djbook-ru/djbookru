@@ -11,6 +11,7 @@ from django.core.urlresolvers import reverse
 from django.core.cache import cache
 from django.db.models import Q, F, Sum
 from django.utils.encoding import smart_str
+from django.utils import timezone
 from django.db import transaction
 
 from haystack.query import SearchQuerySet, SQ
@@ -210,7 +211,7 @@ def misc(request):
         action = request.GET['action']
         if action == 'markread':
             user = request.user
-            models.PostTracking.objects.filter(user__id=user.id).update(last_read=datetime.now(), topics=None)
+            models.PostTracking.objects.filter(user__id=user.id).update(last_read=timezone.now(), topics=None)
             return HttpResponseRedirect(reverse('djangobb:index'))
 
         elif action == 'report':

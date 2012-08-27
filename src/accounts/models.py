@@ -2,7 +2,7 @@
 
 import hashlib
 import random
-from datetime import datetime, timedelta
+from datetime import timedelta
 
 from django.conf import settings
 from django.contrib.auth.models import UserManager, User as BaseUser
@@ -12,6 +12,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.utils.hashcompat import sha_constructor
 from django.utils.translation import ugettext_lazy as _
+from django.utils import timezone
 
 from .. utils.mail import send_templated_email
 
@@ -28,8 +29,8 @@ class User(BaseUser):
     achievements = models.ManyToManyField('Achievement', verbose_name=_(u'achievements'), through='UserAchievement')
 
     # for notification
-    last_comments_read = models.DateTimeField(_(u'last comments read'), default=datetime.now)
-    last_doc_comments_read = models.DateTimeField(_(u'last doc. comments read'), default=datetime.now)
+    last_comments_read = models.DateTimeField(_(u'last comments read'), default=timezone.now)
+    last_doc_comments_read = models.DateTimeField(_(u'last doc. comments read'), default=timezone.now)
 
     objects = UserManager()
 
@@ -159,11 +160,11 @@ class EmailConfirmationManager(models.Manager):
         send_templated_email(user.email, subject, 'accounts/email_confirmation_message.html', context, fail_silently=settings.DEBUG)
         return self.create(
             user=user,
-            sent=datetime.now(),
+            sent=timezone.now(),
             confirmation_key=confirmation_key)
 
     def delete_expired_confirmations(self):
-        d = datetime.now() - timedelta(days=EMAIL_CONFIRMATION_DAYS)
+        d = timezone.now() - timedelta(days=EMAIL_CONFIRMATION_DAYS)
         self.filter(sent__lt=d).delete()
 
 
@@ -183,5 +184,5 @@ class EmailConfirmation(models.Model):
 
     def key_expired(self):
         expiration_date = self.sent + timedelta(days=EMAIL_CONFIRMATION_DAYS)
-        return expiration_date <= datetime.now()
+        return expiration_date <= timezone.now()
     key_expired.boolean = True
