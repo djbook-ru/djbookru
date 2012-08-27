@@ -1,12 +1,13 @@
 {% load forum_extras %}
 {% load i18n %}
+{% load staticfiles %}
 
 <div id="djangobbwrap">
 <div id="djangobbindex" class="djangobb">
 <div id="brdheader" class="block">
 	<div class="box">
 		<div id="brdtitle" class="inbox">
-            <p style="margin: 4px"><a href="/"><img src="{{ MEDIA_URL }}img/djangobook-title.png" border="0"/></a></p>		    
+            <p style="margin: 4px"><a href="/"><img src="{% static "img/djangobook-title.png" %}" border="0"/></a></p>
 			<p><span>{{ forum_settings.TAGLINE|safe }}</span></p>
 		</div>
 		<div id="brdmenu" class="inbox">
@@ -19,7 +20,7 @@
 				{% if user.is_authenticated %}
 					<li id="navprofile"><a href="{% url djangobb:forum_profile request.user %}">{% trans "Profile" %}</a></li>
 				{% if forum_settings.PM_SUPPORT %}
-					<li id="navpm"><a href="{% url messages_inbox %}">{% trans "PM" %}</a></li> 
+					<li id="navpm"><a href="{% url messages_inbox %}">{% trans "PM" %}</a></li>
 				{% endif %}
 					<li id="navlogout"><a href="{% url accounts:logout %}?next={{ request.path }}">{% trans "Log out" %}</a></li>
 				{% else %}

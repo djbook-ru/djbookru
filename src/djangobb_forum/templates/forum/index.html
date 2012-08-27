@@ -1,21 +1,22 @@
 {% extends 'forum/base.html' %}
 {% load forum_extras %}
 {% load i18n %}
+{% load staticfiles %}
 
 {% block extra_meta %}
-<script type="text/javascript" src="{{ MEDIA_URL }}forum/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="{% static "forum/js/jquery.cookie.js" %}"></script>
 <script type="text/javascript">
-	
+
 	function set_collapser(cat_id) {
 		category_body_id = "category_body_" + cat_id;
 		if($.cookie(category_body_id)){
-			item_id = "#" + category_body_id; 
+			item_id = "#" + category_body_id;
 			head_id = item_id.replace("body", "head");
 			$(head_id).addClass("collapsed");
 			$(item_id).hide()
 		}
 	}
-	$(document).ready(function(){	
+	$(document).ready(function(){
 		$("a.toggle").click(function(){
 			header_id = $(this).parent().attr('id');
 			body_id = header_id.replace("head", "body");
@@ -87,7 +88,7 @@
 				{% if online_count %}
 					<dt><strong>{% trans "Online:" %} </strong></dt>
 					{% for online in users_online %}
-						<dd>{{ online|profile_link }}</dd> 
+						<dd>{{ online|profile_link }}</dd>
 					{% endfor %}
 				{% endif %}
 			</dl>

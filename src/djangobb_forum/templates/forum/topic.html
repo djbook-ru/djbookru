@@ -1,6 +1,7 @@
 {% extends 'forum/base.html' %}
 {% load forum_extras %}
 {% load i18n %}
+{% load staticfiles %}
 
 {% block title %} / {{ topic.forum.name }} / {{ topic.name }}{% endblock %}
 {% block content %}
@@ -13,10 +14,10 @@
 		<ul>
 			<li>
 			<a href="{% url djangobb:index %}">{% trans "Root" %} </a></li><li>&raquo; {% link topic.forum %} </li><li>&raquo; {{ topic.name }}
-			<a href="{% url djangobb:forum_topic_feed topic.id %}"><img src="{{ MEDIA_URL }}forum/img/feed-icon-small.png" alt="[RSS Feed]" title="[RSS Feed]" class="breadcrumb_rss" /></a>
+			<a href="{% url djangobb:forum_topic_feed topic.id %}"><img src="{% static "forum/img/feed-icon-small.png" %}" alt="[RSS Feed]" title="[RSS Feed]" class="breadcrumb_rss" /></a>
 			</li>
 		</ul>
-		
+
 		{% if topic.heresy %}
 		<div class="heresy">
 			{% trans "This topic is full of heresy! Don't use code examples represented here. Better read documentation." %}
@@ -60,9 +61,9 @@
 							<dd>{% trans "IP:" %} {{ post.user_ip }}</dd>
 						{% endif %}
 						{% if forum_settings.REPUTATION_SUPPORT %}
-								<dd><a href="{% url djangobb:reputation post.user %}">{% trans "Reputation" %}</a>: 
+								<dd><a href="{% url djangobb:reputation post.user %}">{% trans "Reputation" %}</a>:
 								{% if request.user != post.user %} {# TODO: and user.is_authenticated #}
-									<a href="{% url djangobb:reputation post.user %}?action=plus&post_id={{ post.id }}"><img src="{{ MEDIA_URL }}forum/img/reputation/warn_add.gif" alt="+" border="0"></a>&nbsp;&nbsp;<strong>{{ post.user.forum_profile.reply_total }}&nbsp;&nbsp;</strong><a href="{% url djangobb:reputation post.user %}?action=minus&post_id={{ post.id }}"><img src="{{ MEDIA_URL }}forum/img/reputation/warn_minus.gif" alt="-" border="0"></a>
+									<a href="{% url djangobb:reputation post.user %}?action=plus&post_id={{ post.id }}"><img src="{% static "forum/img/reputation/warn_add.gif" %}" title="+" border="0"></a>&nbsp;&nbsp;<strong>{{ post.user.forum_profile.reply_total }}&nbsp;&nbsp;</strong><a href="{% url djangobb:reputation post.user %}?action=minus&post_id={{ post.id }}"><img src="{% static "forum/img/reputation/warn_minus.gif" %}" title="-" border="0"></a>
 								{% else %}
 									<strong>{{ post.user.forum_profile.reply_total }}</strong>
 								{% endif %}
@@ -138,8 +139,8 @@
 	<div class="inbox">
 		<p class="pagelink conl">{% pagination %}</p>
 		<p class="postlink conr"><a href="{% url djangobb:add_post topic.id %}">{% trans "Reply" %}</a></p>
-				<ul><li><a href="{% url djangobb:index %}">{% trans "Root" %} </a></li><li>&raquo; {% link topic.forum %} </li><li>&raquo; {{ topic }} 
-				<a href="{% url djangobb:forum_topic_feed topic.id %}"><img src="{{ MEDIA_URL }}/forum/img/feed-icon-small.png"  alt="[RSS Feed]" title="[RSS Feed]" class="breadcrumb_rss" /></a>
+				<ul><li><a href="{% url djangobb:index %}">{% trans "Root" %} </a></li><li>&raquo; {% link topic.forum %} </li><li>&raquo; {{ topic }}
+				<a href="{% url djangobb:forum_topic_feed topic.id %}"><img src="{% static "forum/img/feed-icon-small.png" %}" alt="[RSS Feed]" title="[RSS Feed]" class="breadcrumb_rss" /></a>
 				</li></ul>
 		{% if user.is_authenticated %}
 			{% if subscribed %}

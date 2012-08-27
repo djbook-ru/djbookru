@@ -1,4 +1,5 @@
 {% load i18n analytics forum_extras %}
+{% load staticfiles %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -12,13 +13,13 @@
 	<link rel="alternate" type="application/atom+xml" href="{% url djangobb:forum_posts_feed %}" title="{% trans "Latest posts on forum" %}" />
 	<link rel="alternate" type="application/atom+xml" href="{% url djangobb:forum_topics_feed %}" title="{% trans "Latest topics on forum" %}" />
 
-	<link rel="shortcut icon" href="{{ MEDIA_URL }}forum/favicon.png" type="image/png" />
+	<link rel="shortcut icon" href="{% static "forum/favicon.png" %}" type="image/png" />
     {% if not settings.DEBUG %}{% analytics_async "UA-3919032-6" %}{% endif %}
 	<script type="text/javascript">
-		var MEDIA_URL = "{{ MEDIA_URL }}";
+		var MEDIA_URL = "{{ STATIC_URL }}";
 		var POST_PREVIEW_URL = "{% url djangobb:post_preview %}";
 	</script>
-    <script src="{{ MEDIA_URL }}js/jquery-1.7.1.min.js"></script>
+    <script src="{% static "js/jquery-1.7.1.min.js" %}"></script>
     {% if post %}
 		{% set_markup_editor request.user post.markup %}
 	{% else %}
@@ -57,13 +58,13 @@
 	{% endif %}
 
     <!-- Highlightjs goodies -->
-	<script type="text/javascript" src="{{ MEDIA_URL }}forum/js/highlight.pack.js"></script>
+	<script type="text/javascript" src="{% static "forum/js/highlight.pack.js" %}"></script>
 	<script type="text/javascript">
 		hljs.initHighlightingOnLoad();
 	</script>
-	<link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}forum/css/hljs_styles/djangobb.css" />
+	<link type="text/css" rel="stylesheet" href="{ % static "forum/css/hljs_styles/djangobb.css" %}"/>
 	{% if highlight_word %}
-		<script type="text/javascript" src="{{ MEDIA_URL }}forum/js/jquery.highlight-3.pack.js"></script>
+		<script type="text/javascript" src="{% static "forum/js/jquery.highlight-3.pack.js" %}"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
 				$("div.postmsg").highlight("{{ highlight_word }}");
