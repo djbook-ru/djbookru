@@ -4,7 +4,7 @@ from django.utils.translation import ugettext
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Count
 
-from decorators import render_to_json
+from .. decorators import render_to_json
 
 from . import models
 from . import forms
