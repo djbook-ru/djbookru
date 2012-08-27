@@ -2,13 +2,15 @@
 
 import markdown
 
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import ObjectDoesNotExist
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import redirect
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic.list_detail import object_list
+from django.utils import translation
 
 from .. decorators import render_to
 
@@ -79,3 +81,15 @@ def markdown_preview(request):
     data = request.POST.get('data', '')
     data = markdown.markdown(data, safe_mode='escape')
     return {'data': data}
+
+
+def lang(request, code):
+    next = request.META.get('HTTP_REFERER', '/')
+    response = HttpResponseRedirect(next)
+    if code and translation.check_for_language(code):
+        if hasattr(request, 'session'):
+            request.session['django_language'] = code
+        else:
+            response.set_cookie(settings.LANGUAGE_COOKIE_NAME, code)
+        translation.activate(code)
+    return response

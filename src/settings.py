@@ -55,7 +55,9 @@ USE_I18N = True
 USE_L10N = True
 USE_THOUSAND_SEPARATOR = True
 LOCALE_PATHS = (
+    PROJECT_DIR('locale'),
     PROJECT_DIR('main', 'locale'),
+    PROJECT_DIR('djangobb_forum', 'locale'),
 )
 
 SITE_ID = 1
