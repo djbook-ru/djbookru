@@ -91,6 +91,10 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -245,8 +249,6 @@ LOGIN_ERROR_URL = LOGIN_URL
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-OPENID_REDIRECT_NEXT = '/socialauth/openid/done/'
-
 OPENID_SREG = {"required": "nickname, email", "optional": "postcode, country", "policy_url": ""}
 OPENID_AX = [{"type_uri": "http://axschema.org/contact/email", "count": 1, "required": True, "alias": "email"},
              {"type_uri": "fullname", "count": 1, "required": False, "alias": "fullname"}]
@@ -268,10 +270,11 @@ SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.social.associate_user',
     'social_auth.backends.pipeline.social.load_extra_data',
 )
+OPENID_REDIRECT_NEXT = '/socialauth/openid/done/'
 GITHUB_APP_ID = 'see production settings'
 GITHUB_API_SECRET = 'see production settings'
-
-### SOCIAL_AUTH: BEGIN
+AUTHENTICATION_BACKENDS += ('src.accounts.backends.CustomUserBackend', )
+### SOCIAL_AUTH: END
 
 
 ### ADMIN-TOOLS: BEGIN
