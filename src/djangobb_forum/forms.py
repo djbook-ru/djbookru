@@ -9,7 +9,6 @@ from django.utils import timezone
 from django.utils.translation import ugettext as _
 
 from . models import Topic, Post, Profile, Reputation, Report, Attachment
-#from . markups import bbmarkup
 from . import settings as forum_settings
 from . util import convert_text_to_html
 
