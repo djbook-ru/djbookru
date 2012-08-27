@@ -302,7 +302,7 @@ def get_doc_pages(path, ext):
 DJANGO_DOCUMENTATION_URL = '/rel1.4/'
 
 INSTALLED_APPS += ('haystack', 'haystack_static_pages')
-HAYSTACK_SITECONF = 'src.search'
+HAYSTACK_SITECONF = 'src.search_sites'
 HAYSTACK_SEARCH_ENGINE = 'xapian'
 HAYSTACK_XAPIAN_PATH = PROJECT_DIR('search', 'xapian_index')
 HAYSTACK_STATIC_PAGES = tuple(

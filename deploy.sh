@@ -9,7 +9,7 @@ mkdir -p ${BUILD}
 
 cp -r ./addon ./lib ./reqs ./src ./manage.py ./logs ${BUILD}
 
-rm -rf ${SRC}/{fixtures,legacy,public,search/whoosh_index,local_settings.py,*sqlite}
+rm -rf ${SRC}/{fixtures,legacy,public,search/{whoosh,xapian}_index,local_settings.py,*sqlite}
 rm -rf ${BUILD}/logs/*
 
 mv ${SRC}/prod_settings.py ${SRC}/local_settings.py
@@ -36,6 +36,14 @@ for param in $@; do
     fi
     if test 'static' = ${param}; then
         FAB="${FAB}${DELIM}static=True"
+        DELIM=","
+    fi
+    if test 'i18n' = ${param}; then
+        FAB="${FAB}${DELIM}i18n=True"
+        DELIM=","
+    fi
+    if test 'haystack' = ${param}; then
+        FAB="${FAB}${DELIM}haystack=True"
         DELIM=","
     fi
     if test 'noapply' = ${param}; then
