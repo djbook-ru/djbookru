@@ -275,7 +275,12 @@ SOCIAL_AUTH_PIPELINE = (
 OPENID_REDIRECT_NEXT = '/socialauth/openid/done/'
 GITHUB_APP_ID = 'see production settings'
 GITHUB_API_SECRET = 'see production settings'
-AUTHENTICATION_BACKENDS += ('src.accounts.backends.CustomUserBackend', )
+AUTHENTICATION_BACKENDS += (
+    'social_auth.backends.google.GoogleBackend',
+    'social_auth.backends.contrib.github.GithubBackend',
+    'social_auth.backends.contrib.yandex.YandexBackend',
+    'src.accounts.backends.CustomUserBackend',
+)
 ### SOCIAL_AUTH: END
 
 
