@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-31 14:56+0400\n"
-"PO-Revision-Date: 2012-08-17 15:31+0300\n"
+"POT-Creation-Date: 2012-08-31 15:08+0400\n"
+"PO-Revision-Date: 2012-08-31 15:14+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -230,3 +230,144 @@ msgstr "Отправлено письмо для подтверждения ад
 #: views.py:147
 msgid "Email with instruction how reset password is sent."
 msgstr "Выслано письмо с инструкцией для сброса вашего пароля."
+
+#: templates/accounts/_menu.html:3 templates/accounts/notifications.html:5
+msgid "Notifications"
+msgstr "Уведомения"
+
+#: templates/accounts/_menu.html:6 templates/accounts/edit.html:25
+msgid "Edit"
+msgstr "Изменить"
+
+#: templates/accounts/_menu.html:9 templates/accounts/profile.html:5
+msgid "Profile"
+msgstr "Профиль"
+
+#: templates/accounts/_menu.html:12
+msgid "Forum profile"
+msgstr "Профиль форума"
+
+#: templates/accounts/create.html:5 templates/accounts/create.html.py:8
+#: templates/accounts/login.html:16
+msgid "Register"
+msgstr "Зарегистрировать"
+
+#: templates/accounts/create.html:15 templates/accounts/edit.html:32
+msgid "Create"
+msgstr "Создать"
+
+#: templates/accounts/edit.html:5
+msgid "Edit Profile"
+msgstr "Изменить профиль"
+
+#: templates/accounts/edit.html:10
+msgid "Connect accounts"
+msgstr "Подкючить аккаунты"
+
+#: templates/accounts/edit.html:12
+msgid "Disconnect account"
+msgstr "Отключить аккаунт"
+
+#: templates/accounts/edit.html:17
+msgid "Connect account"
+msgstr "Подключить аккаунт"
+
+#: templates/accounts/email_confirmation_message.html:1
+#, python-format
+msgid ""
+"\n"
+"<p>You just registred on %(site_name)s.</p>\n"
+"\n"
+"<p>Confirm your email visting link <a href=\"%(activate_url)s\">"
+"%(activate_url)s</a>.</p>\n"
+"\n"
+"<p>If you do not know what happen, just ignore this email.</p>\n"
+"\n"
+"<p>With best regards, %(site_name)s team.</p>\n"
+msgstr ""
+"\n"
+"<p>Вы зарегистрировались на %(site_name)s.</p>\n"
+"\n"
+"<p>Подтвердите адрес вашей электронной почты, нажав на ссылку <a href="
+"\"%(activate_url)s\">%(activate_url)s</a>.</p>\n"
+"\n"
+"<p>Если вы не понимаете, что происходит, то просто проигнорируйте это "
+"сообщение.</p>\n"
+"\n"
+"<p>С уважением, команда %(site_name)s.</p>\n"
+
+#: templates/accounts/email_password_reset.html:3
+msgid "You are going reset password for"
+msgstr "Вы сбрасываете пароль для"
+
+#: templates/accounts/login.html:5
+msgid "Authentication"
+msgstr "Аутентификация"
+
+#: templates/accounts/login.html:15
+msgid "Login"
+msgstr "Вход"
+
+#: templates/accounts/login.html:17
+msgid "Forgot password?"
+msgstr "Забыли пароль?"
+
+#: templates/accounts/login.html:26
+msgid "You are authenticated already"
+msgstr "Вы уже аутентифицированы"
+
+#: templates/accounts/notifications.html:11
+msgid "Comments"
+msgstr "Комментарии"
+
+#: templates/accounts/notifications.html:12
+msgid "Doc. comments"
+msgstr "Комментарии к документации"
+
+#: templates/accounts/password_reset.html:5
+#: templates/accounts/password_reset.html:11
+#: templates/accounts/password_reset_complete.html:5
+#: templates/accounts/password_reset_confirm.html:5
+msgid "Reset password"
+msgstr "Сбросить пароль"
+
+#: templates/accounts/password_reset.html:18
+#: templates/accounts/password_reset_confirm.html:19
+msgid "Send"
+msgstr "Отправить"
+
+#: templates/accounts/password_reset_complete.html:8
+msgid "Password reset complete"
+msgstr "Пароль сброшен"
+
+#: templates/accounts/password_reset_complete.html:10
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr "Ваш пароль установлен. Вы можете войти."
+
+#: templates/accounts/password_reset_complete.html:12
+msgid "Log in"
+msgstr "Вход"
+
+#: templates/accounts/password_reset_confirm.html:12
+msgid "Enter new password"
+msgstr "Введите новый пароль"
+
+#: templates/accounts/password_reset_confirm.html:23
+msgid "Password reset unsuccessful"
+msgstr "Пароль не сброшен"
+
+#: templates/accounts/password_reset_confirm.html:25
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset."
+msgstr ""
+"Ссылка для сброса пароля была неверной, возможно ей уже воспользовались. "
+"Пожалуйста, запросите сброс пароля заново."
+
+#: templates/accounts/profile.html:21
+msgid "Forum posts count"
+msgstr "Количество постов на форуме"
+
+#: templates/accounts/profile.html:22
+msgid "Comments count"
+msgstr "Количество комментариев"
