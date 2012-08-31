@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-31 14:57+0400\n"
-"PO-Revision-Date: 2012-08-17 15:31+0300\n"
+"POT-Creation-Date: 2012-08-31 15:41+0400\n"
+"PO-Revision-Date: 2012-08-31 15:47+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -49,3 +49,40 @@ msgstr "дата отправки"
 #: models.py:27
 msgid "Comments"
 msgstr "Комментарии"
+
+#: templates/comments/_display_item.html:9 templates/comments/_item.html:9
+#: templates/comments/last_comments.html:5
+msgid "ago"
+msgstr "прошло"
+
+#: templates/comments/_display_item.html:23
+msgid "View comment"
+msgstr "Просмотреть комментарий"
+
+#: templates/comments/_display_item.html:26 templates/comments/_item.html:35
+msgid "answer to"
+msgstr "ответить"
+
+#: templates/comments/_item.html:24 templates/comments/_item.html.py:28
+msgid "Answer"
+msgstr "Ответить"
+
+#: templates/comments/_item.html:32
+msgid "Link"
+msgstr "Ссылка"
+
+#: templates/comments/form.html:14
+msgid "Post"
+msgstr "Пост"
+
+#: templates/comments/form.html:44
+msgid "Enter comment please."
+msgstr "Введите комментарий, пожалуйста."
+
+#: templates/comments/form.html:56
+msgid "Answering to: "
+msgstr "Ответ для:"
+
+#: templates/comments/form.html:64
+msgid "Login please to post comment"
+msgstr "Пожалуйста, войдите для отправки комментария"
