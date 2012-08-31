@@ -1,0 +1,125 @@
+# Copyright (C) 2010-2011 Ruslan Popov
+# This file is distributed under the same license as the translation package.
+# Ruslan Popov <ruslan.popov@gmail.com>, 2010.
+# Ruslan Popob <ruslan.popov@gmail.com>, 2011, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: release\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-31 14:53+0400\n"
+"PO-Revision-Date: 2012-08-17 15:31+0300\n"
+"Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
+"Language-Team: ru <ru@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: admin.py:15
+msgid "Meta"
+msgstr "Мета"
+
+#: admin.py:17
+msgid "Error"
+msgstr "Ошибка"
+
+#: admin.py:19
+msgid "Comment"
+msgstr "Комментарий"
+
+#: admin.py:32
+msgid "Status"
+msgstr "Состояние"
+
+#: models.py:8
+msgid "New"
+msgstr "Новая"
+
+#: models.py:8
+msgid "Assigned"
+msgstr "Принята"
+
+#: models.py:8
+msgid "Fixed"
+msgstr "Исправлена"
+
+#: models.py:8
+msgid "Invalid"
+msgstr "Отклонена"
+
+#: models.py:13
+msgid "Left Context Value"
+msgstr "Контекст слева"
+
+#: models.py:14
+msgid "Selected Text"
+msgstr "Выделенные текст"
+
+#: models.py:15
+msgid "Right Context Value"
+msgstr "Контекст справа"
+
+#: models.py:16
+msgid "Status of the Claim"
+msgstr "Состояние жалобы"
+
+#: models.py:17
+msgid "Status Applied"
+msgstr "Состояние изменено"
+
+#: models.py:18
+msgid "Reader's Comment"
+msgstr "Комментарий читателя"
+
+#: models.py:19
+msgid "Enter here the reply for the Reader"
+msgstr "Введите здесь сообщение для читателя"
+
+#: models.py:20
+msgid "Context URL"
+msgstr "URL контекста"
+
+#: models.py:21
+msgid "Reader's E-mail"
+msgstr "Е-почта читателя"
+
+#: models.py:22
+msgid "Reader wants the Notify"
+msgstr "Уведомлять читателя"
+
+#: models.py:23
+msgid "Registered"
+msgstr "Зарегистрировано"
+
+#: models.py:26
+msgid "Claim"
+msgstr "Жалоба"
+
+#: models.py:27
+msgid "Claims"
+msgstr "Жалобы"
+
+#: models.py:40
+msgid "DjangoBook in russian: Claim's state was changed to"
+msgstr "DjangoBook по-русски: Состояние жалобы было изменено на"
+
+#: models.py:42
+msgid "This is automatic generated message, you do not need to answer on it."
+msgstr ""
+"Это сообщение сгенерировано автоматически, вам не требуется отвечать на него."
+
+#: models.py:46
+#, python-format
+msgid ""
+"%(auto)s\n"
+"\n"
+"The reply on your comment is:\n"
+"%(reply)s"
+msgstr ""
+"%(auto)s\n"
+"\n"
+"Ответ на ваш комментарий:\n"
+"%(reply)s"
