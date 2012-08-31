@@ -3,7 +3,7 @@
 # Скрипт предназначен для компиляции переводов.
 
 PROJECTS="src"
-APPS="claims main djangobb_forum"
+APPS="accounts claims main djangobb_forum"
 
 if test $# -gt 0; then
     APPS=$@
