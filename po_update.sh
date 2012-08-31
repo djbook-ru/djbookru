@@ -5,7 +5,7 @@
 
 LANGUAGES="ru"
 PROJECTS="src"
-APPS="accounts claims main djangobb_forum"
+APPS="accounts claims comments main djangobb_forum"
 
 if test $# -gt 0; then
     APPS=$@
