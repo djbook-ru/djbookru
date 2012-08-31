@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-31 15:00+0400\n"
-"PO-Revision-Date: 2012-08-17 15:31+0300\n"
+"POT-Creation-Date: 2012-08-31 15:49+0400\n"
+"PO-Revision-Date: 2012-08-31 15:50+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -65,3 +65,11 @@ msgstr "комментарии"
 #: views.py:81
 msgid "You are not authenticated."
 msgstr "Вы не авторизированы"
+
+#: templates/doc_comments/_display_item.html:9
+msgid "ago"
+msgstr "прошло"
+
+#: templates/doc_comments/_display_item.html:23
+msgid "View comment"
+msgstr "Просмотреть комментарий"
