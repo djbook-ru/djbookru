@@ -1,4 +1,4 @@
-# Copyright (C) 2010 Ruslan Popov
+# Copyright (C) 2010-2011 Ruslan Popov
 # This file is distributed under the same license as the translation package.
 # Ruslan Popov <ruslan.popov@gmail.com>, 2010.
 #, fuzzy
