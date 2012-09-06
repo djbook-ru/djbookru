@@ -49,7 +49,7 @@ try:
 except ImportError:
     pass
 
-path = os.path.join(settings.MEDIA_ROOT, 'forum', 'themes')
+path = os.path.join(settings.PROJECT_DIR('static'), 'forum', 'themes')
 THEME_CHOICES = [(theme, theme) for theme in os.listdir(path)
                  if os.path.isdir(os.path.join(path, theme))]
 
