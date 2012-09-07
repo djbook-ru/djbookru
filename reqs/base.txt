@@ -25,7 +25,7 @@ django-model-utils == 1.0.0
 django-tastypie == 0.9.11
 django-tagging == 0.3.1
 
-django-haystack
+django-haystack==1.2.7
 xapian-haystack
 
 -e hg+https://bitbucket.org/rsalmaso/django-admin-tools#egg=admin_tools

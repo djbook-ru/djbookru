@@ -302,7 +302,7 @@ def set_markup_editor(user, markup=None):
             <script type="text/javascript" src="%(media_url)sforum/js/markitup/sets/%(markup)s/set.js"></script>
             <script type="text/javascript" src="%(media_url)sforum/js/markup/%(markup)s/board.js"></script>
         ''' % dict(
-            media_url=settings.MEDIA_URL,
+            media_url=settings.STATIC_URL,
             markup=markup if markup else user.forum_profile.markup
         )
     return markup_style
