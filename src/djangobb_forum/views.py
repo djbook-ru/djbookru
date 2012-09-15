@@ -622,7 +622,7 @@ def move_topic(request):
         for topic_id in topic_ids:
             topic = get_object_or_404(models.Topic, pk=topic_id)
             if topic.forum != to_forum:
-                if templatetags.forum_extrasforum_moderated_by(topic, request.user):
+                if templatetags.forum_extras.forum_moderated_by(topic, request.user):
                     topic.forum = to_forum
                     topic.save()
 
@@ -648,7 +648,7 @@ def move_topic(request):
 def stick_unstick_topic(request, topic_id):
 
     topic = get_object_or_404(models.Topic, pk=topic_id)
-    if templatetags.forum_extrasforum_moderated_by(topic, request.user):
+    if templatetags.forum_extras.forum_moderated_by(topic, request.user):
         topic.sticky = not topic.sticky
         topic.save()
     return HttpResponseRedirect(topic.get_absolute_url())
@@ -659,7 +659,7 @@ def stick_unstick_topic(request, topic_id):
 def make_heresy(request, topic_id):
 
     topic = get_object_or_404(models.Topic, pk=topic_id)
-    if templatetags.forum_extrasforum_moderated_by(topic, request.user):
+    if templatetags.forum_extras.forum_moderated_by(topic, request.user):
         topic.heresy = not topic.heresy
         topic.save()
     return HttpResponseRedirect(topic.get_absolute_url())
@@ -699,7 +699,7 @@ def delete_post(request, post_id):
 def open_close_topic(request, topic_id):
 
     topic = get_object_or_404(models.Topic, pk=topic_id)
-    if templatetags.forum_extrasforum_moderated_by(topic, request.user):
+    if templatetags.forum_extras.forum_moderated_by(topic, request.user):
         topic.closed = not topic.closed
         topic.save()
     return HttpResponseRedirect(topic.get_absolute_url())
