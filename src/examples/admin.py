@@ -21,7 +21,7 @@ class ExampleForm(ModelForm):
         self.fields['content'].widget.attrs['style'] = 'height: 400px'
 
 
-class ExampleAdmin(LogModelAdmin):
+class ExampleAdmin(admin.ModelAdmin):
     list_display = ('title', 'category', 'author', 'approved', 'created')
     list_filter = ('category', 'approved')
     readonly_fields = ('author',)
