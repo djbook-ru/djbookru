@@ -22,6 +22,7 @@ from . import models
 from . import util
 from . import forms
 from . import templatetags
+from .templatetags import forum_extras
 
 
 @util.render_to('forum/index.html')
@@ -124,12 +125,13 @@ def search(request):
             topics = topics.filter(created__gte=date)
         elif action == 'show_new' and user.is_authenticated():
             last_read = models.PostTracking.objects.get(user=request.user).last_read
+            last_read = None
             if last_read:
                 topics = topics.filter(last_post__updated__gte=last_read).all()
             else:
                 #searching more than forum_settings.SEARCH_PAGE_SIZE in this way - not good idea :]
                 topics = [topic for topic in topics[:forum_settings.SEARCH_PAGE_SIZE] \
-                    if templatetags.forum_extras.has_unreads(topic, request.user)]
+                    if forum_extras.has_unreads(topic, request.user)]
         elif action == 'show_unanswered':
             topics = topics.filter(post_count=1)
         elif action == 'show_subscriptions' and user.is_authenticated():
@@ -534,7 +536,7 @@ def show_post(request, post_id):
 @transaction.commit_on_success
 @util.render_to('forum/edit_post.html')
 def edit_post(request, post_id):
-    from . templatetags.forum_extras import forum_editable_by
+    from . forum_extras import forum_editable_by
 
     post = get_object_or_404(models.Post, pk=post_id)
     topic = post.topic
@@ -560,7 +562,7 @@ def delete_posts(request, topic_id):
 
     topic = models.Topic.objects.select_related().get(pk=topic_id)
 
-    if templatetags.forum_extras.forum_moderated_by(topic, request.user):
+    if forum_extras.forum_moderated_by(topic, request.user):
         deleted = False
         post_list = request.POST.getlist('post')
         for post_id in post_list:
@@ -622,7 +624,7 @@ def move_topic(request):
         for topic_id in topic_ids:
             topic = get_object_or_404(models.Topic, pk=topic_id)
             if topic.forum != to_forum:
-                if templatetags.forum_extras.forum_moderated_by(topic, request.user):
+                if forum_extras.forum_moderated_by(topic, request.user):
                     topic.forum = to_forum
                     topic.save()
 
@@ -648,7 +650,7 @@ def move_topic(request):
 def stick_unstick_topic(request, topic_id):
 
     topic = get_object_or_404(models.Topic, pk=topic_id)
-    if templatetags.forum_extras.forum_moderated_by(topic, request.user):
+    if forum_extras.forum_moderated_by(topic, request.user):
         topic.sticky = not topic.sticky
         topic.save()
     return HttpResponseRedirect(topic.get_absolute_url())
@@ -659,7 +661,7 @@ def stick_unstick_topic(request, topic_id):
 def make_heresy(request, topic_id):
 
     topic = get_object_or_404(models.Topic, pk=topic_id)
-    if templatetags.forum_extras.forum_moderated_by(topic, request.user):
+    if forum_extras.forum_moderated_by(topic, request.user):
         topic.heresy = not topic.heresy
         topic.save()
     return HttpResponseRedirect(topic.get_absolute_url())
@@ -699,7 +701,7 @@ def delete_post(request, post_id):
 def open_close_topic(request, topic_id):
 
     topic = get_object_or_404(models.Topic, pk=topic_id)
-    if templatetags.forum_extras.forum_moderated_by(topic, request.user):
+    if forum_extras.forum_moderated_by(topic, request.user):
         topic.closed = not topic.closed
         topic.save()
     return HttpResponseRedirect(topic.get_absolute_url())
