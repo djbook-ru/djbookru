@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
-
+from . import models
+from .. decorators import render_to_json
+from .forms import CommentForm
+from django.db.models import Count
 from django.utils.translation import ugettext
 from django.views.decorators.csrf import csrf_exempt
-from django.db.models import Count
-
-from .. decorators import render_to_json
-
-from . import models
-from . import forms
 
 
 @csrf_exempt
@@ -81,7 +78,7 @@ def add(request):
             'error': ugettext(u'You are not authenticated.')
         }
 
-    form = models.CommentForm(request.POST or None)
+    form = CommentForm(request.POST or None)
     if form.is_valid():
         obj = form.save(commit=False)
         obj.author = request.user
