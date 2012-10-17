@@ -60,7 +60,7 @@ class Example(models.Model):
 
     @transaction.commit_on_success
     def save(self):
-        from djangobb_forum.models import Forum, Topic, Post
+        from ..djangobb_forum.models import Forum, Topic, Post
 
         is_create = self.pk is None
 
@@ -88,4 +88,3 @@ class Example(models.Model):
 
     def search(self):
         return dict(source=_(u'Example'), title=self.title, desc=self.content)
-
