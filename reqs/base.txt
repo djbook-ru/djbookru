@@ -1,7 +1,8 @@
 # Список зависимостей для работы проекта.
 
-Django == 1.4.1
+Django == 1.4.2
 South
+mysql-python
 -e hg+https://bitbucket.org/ruslanpopov/django-sentry#egg=sentry
 
 python_openid>=2.2

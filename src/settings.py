@@ -3,14 +3,19 @@
 import os, sys, glob
 
 
-def PROJECT_DIR(*x):
+def rel_project(*x):
     return os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
 
-PUBLIC_DIR = lambda *x: PROJECT_DIR('public', *x)
+
+def REL(*x):
+    u"""Django's settings module exports only uppercase object."""
+    return rel_project(*x)
+
+rel_public = lambda *x: rel_project('public', *x)
 
 
 # get local software repositories
-sys.path.insert(0, PROJECT_DIR('..', 'lib'))
+sys.path.insert(0, rel_project('..', 'lib'))
 gettext_noop = lambda s: s
 
 
@@ -55,9 +60,9 @@ USE_I18N = True
 USE_L10N = True
 USE_THOUSAND_SEPARATOR = False
 LOCALE_PATHS = (
-    PROJECT_DIR('locale'),
-    PROJECT_DIR('main', 'locale'),
-    PROJECT_DIR('djangobb_forum', 'locale'),
+    rel_project('locale'),
+    rel_project('main', 'locale'),
+    rel_project('djangobb_forum', 'locale'),
 )
 
 SITE_ID = 1
@@ -65,7 +70,7 @@ SITE_URL = 'http://djbook.ru/'
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = PUBLIC_DIR('media')
+MEDIA_ROOT = rel_public('media')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
@@ -74,7 +79,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = PUBLIC_DIR('static')
+STATIC_ROOT = rel_public('static')
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
@@ -83,7 +88,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    PROJECT_DIR('static'),
+    rel_project('static'),
 )
 
 # List of finder classes that know how to find static files in
@@ -140,11 +145,11 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    PROJECT_DIR('templates'),
+    rel_project('templates'),
 )
 
 FIXTURE_DIRS = (
-    PROJECT_DIR('fixtures'),
+    rel_project('fixtures'),
 )
 
 # A sample logging configuration. The only tangible logging
@@ -183,7 +188,7 @@ LOGGING = {
         'main_log': {
             'level': 'ERROR',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': PROJECT_DIR('..', 'logs', 'main.log'),
+            'filename': rel_project('..', 'logs', 'main.log'),
             'maxBytes': 1024 * 1024 * 1,
             'backupCount': 10,
             'formatter': 'verbose',
@@ -191,7 +196,7 @@ LOGGING = {
         'haystack_log': {
             'level': 'ERROR',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': PROJECT_DIR('..', 'logs', 'haystack.log'),
+            'filename': rel_project('..', 'logs', 'haystack.log'),
             'maxBytes': 1024 * 1024 * 1,
             'backupCount': 5,
             'formatter': 'verbose',
@@ -309,7 +314,7 @@ DJANGO_DOCUMENTATION_URL = '/rel1.4/'
 INSTALLED_APPS += ('haystack', 'haystack_static_pages')
 HAYSTACK_SITECONF = 'src.search_sites'
 HAYSTACK_SEARCH_ENGINE = 'xapian'
-HAYSTACK_XAPIAN_PATH = PROJECT_DIR('search', 'xapian_index')
+HAYSTACK_XAPIAN_PATH = rel_project('search', 'xapian_index')
 HAYSTACK_STATIC_PAGES = tuple(
     get_doc_pages(
         os.path.expanduser('~/devel/django_documentation/_build/html'),
