@@ -1,7 +1,7 @@
 Требования
 ==========
 
-Руками надо поставить: ``python2.6``, ``virtualenv``, ``sqlite3``.
+Руками надо поставить: ``python2.7``, ``virtualenv``, ``sqlite3``.
 
 Установка
 =========
@@ -18,9 +18,14 @@
     virtualenv --python=python2.6 --system-site-packages env    # начиная с версии 1.7
     virtualenv --python=python2.6 env                           # до версии 1.7
 
-    ./env/bin/pip install -E ./env -r ./reqs/base.txt
-    ./env/bin/pip install -E ./env -r ./reqs/dev.txt
-    . ./env/bin/activate
+    PIP_CACHE="~/cache/pip"
+    mkdir -p ${PIP_CACHE}
+    alias pipi="pip install --download-cache=${PIP_CACHE}"
+    alias pipu="pip install -U --download-cache=${PIP_CACHE}"
+
+    easy_install --prefix=./env -U distribute
+    pipi -r ./reqs/base.txt
+    pipi -r ./reqs/dev.txt
 
 Конфигурация проекта
 --------------------
