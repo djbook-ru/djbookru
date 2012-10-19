@@ -1,6 +1,7 @@
 {% load forum_extras %}
 {% load cache %}
 {% load i18n %}
+{% load humanize %}
 {% load staticfiles %}
 
 {% if forum.last_post.topic %}
@@ -31,7 +32,7 @@
 	<td class="tcr">
 		{% if forum.updated %}
 			{% if forum.last_post.topic %}
-				<a href="{{ forum.last_post.get_absolute_url }}">{% forum_time forum.last_post.created %}</a>
+				<a href="{{ forum.last_post.get_absolute_url }}"title="{{ forum.last_post.created|naturaltime }}">{{ forum.last_post.created|date:"d.m.Y H:i:s" }}</a>
 				<span class="byuser">{% trans "by" %} {{ forum.last_post.user }}</span>
 			{% endif %}
 		{% endif %}

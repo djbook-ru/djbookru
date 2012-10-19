@@ -1,6 +1,7 @@
 {% extends 'forum/lofi/base.html' %}
 {% load forum_extras %}
 {% load i18n %}
+{% load humanize %}
 
 {% block content %}
 <div id='largetext'>{% trans "Full Version:" %} {% link topic %}</div>
@@ -17,7 +18,7 @@
 		<div class='postwrapper'>
 			<div class='posttopbar'>
 			  <div class='postname'>{{ post.user }}</div>
-			  <div class='postdate'>{% forum_time post.created %}</div>
+			  <div class='postdate' title="{{ post.created|naturaltime }}">{{ post.created|date:"d.m.Y H:i:s" }}</div>
 		 	</div>
 			<div class='postcontent'>
 				{{ post.body_html|safe }}

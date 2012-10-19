@@ -1,5 +1,6 @@
 {% load forum_extras %}
 {% load i18n %}
+{% load humanize %}
 {% load staticfiles %}
 
 <div id="djangobbwrap">
@@ -32,7 +33,7 @@
 			<ul class="conl">
 				{% if user.is_authenticated %}
 					<li>{% trans "Logged in as" %} <strong>{{ user.username }}</strong></li>
-					<li>{% trans "Last visit:" %} {% forum_time user.last_login %}</li>
+					<li>{% trans "Last visit:" %} <span title="{{ user.last_login|naturaltime }}">{{ user.last_login|date:"d.m.Y H:i:s" }}<span></li>
 					{% if forum_settings.PM_SUPPORT and request.user|pm_unreads %}
 						<ul><li class="pmlink"><strong><a href="{% url messages_inbox %}">{% blocktrans with request.user|pm_unreads as new_msg %} There are new messages ({{ new_msg }}){% endblocktrans %}</a></strong></li></ul>
 					{% endif %}

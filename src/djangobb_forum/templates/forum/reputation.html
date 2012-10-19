@@ -1,6 +1,7 @@
 {% extends 'forum/base.html' %}
 {% load forum_extras %}
 {% load i18n %}
+{% load humanize %}
 {% load staticfiles %}
 
 {% block content %}
@@ -43,7 +44,7 @@
 							<img src="{% static "forum/img/reputation/warn_minus.gif" %}" title="-" border="0">
 						{% endif %}
 						</td>
-						<td>{% forum_time reputation.time %}</td>
+						<td title="{{ reputation.time|naturaltime }}">{{ reputation.time|date:"d.m.Y H:i:s" }}</td>
 						{% if request.user.is_superuser %}
 							<td style="text-align: center;"><input type="checkbox" name="reputation_id" value="{{ reputation.id }}"></td>
 						{% endif %}

@@ -1,6 +1,7 @@
 {% extends 'forum/base.html' %}
 {% load forum_extras %}
 {% load i18n %}
+{% load humanize %}
 
 {% block content %}
 <div class="linkst">
@@ -48,7 +49,10 @@
 						</td>
 						<td class="tc2">{{ topic.reply_count }}</td>
 						<td class="tc3">{{ topic.views }}</td>
-						<td class="tcr"><a href="{{ topic.get_absolute_url }}">{% forum_time topic.updated %}</a> <span class="byuser">{% trans "by" %} {{ topic.last_post.user.username }}</span></td>
+						<td class="tcr">
+							<a href="{{ topic.get_absolute_url }}" title="topic.updated|naturaltime">{{ topic.updated|date:"d.m.Y H:i:s" }}</a>
+							<span class="byuser">{% trans "by" %} {{ topic.last_post.user.username }}</span>
+						</td>
 						<td class="tcmod"><input type="checkbox" name="topic_id" value="{{ topic.id }}" /></td>
 					</tr>
 				{% endfor %}

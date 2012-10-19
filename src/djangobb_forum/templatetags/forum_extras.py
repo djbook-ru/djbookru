@@ -10,7 +10,6 @@ from django.utils.encoding import smart_unicode
 from django.db import settings
 from django.utils.html import escape
 from django.utils.hashcompat import md5_constructor
-from django.contrib.humanize.templatetags.humanize import naturalday
 
 from .. import models
 from .. import settings as forum_settings
@@ -29,27 +28,6 @@ def profile_link(user):
     data = u'<a href="%s">%s</a>' % (\
         reverse('djangobb:forum_profile', args=[user.username]), user.username)
     return mark_safe(data)
-
-
-@register.tag
-def forum_time(parser, token):
-    try:
-        tag, time = token.split_contents()
-    except ValueError:
-        raise template.TemplateSyntaxError('forum_time requires single argument')
-    else:
-        return ForumTimeNode(time)
-
-
-class ForumTimeNode(template.Node):
-    def __init__(self, time):
-        self.time = template.Variable(time)
-
-    def render(self, context):
-        time = self.time.resolve(context)
-        formated_time = u'%s %s' % (naturalday(time), time.strftime('%H:%M:%S'))
-        formated_time = mark_safe(formated_time)
-        return formated_time
 
 
 # TODO: this old code requires refactoring
