@@ -53,12 +53,12 @@
 							<dd class="postavatar"><img src="{% gravatar post.user.email %}" /></dd>
 						{% endif %}
 						{% if post.user.forum_profile.location %}
-							<dd>{% trans "From:" %} {{ post.user.forum_profile.location }}</dd>
+							<dd>{% trans "From" context "location" %}: {{ post.user.forum_profile.location }}</dd>
 						{% endif %}
-						<dd>{% trans "Registered:" %} {{ post.user.date_joined|date:"Y-m-d" }}</dd>
-						<dd>{% trans "Posts:" %} {{ post.user.forum_profile.post_count }}</dd>
+						<dd>{% trans "Registered" %}: {{ post.user.date_joined|date:"Y-m-d" }}</dd>
+						<dd>{% trans "Posts" %}: {{ post.user.forum_profile.post_count }}</dd>
 						{% if moderator %}
-							<dd>{% trans "IP:" %} {{ post.user_ip }}</dd>
+							<dd>{% trans "IP" %}: {{ post.user_ip }}</dd>
 						{% endif %}
 						{% if forum_settings.REPUTATION_SUPPORT %}
 								<dd><a href="{% url djangobb:reputation post.user %}">{% trans "Reputation" %}</a>:
@@ -101,7 +101,7 @@
 					{% endif %}
 					{% if post.attachments.all %}
 						{% for attach in post.attachments.all %}
-							<p class="postedit"><em>{% trans "Attachments:" %} <div>{{ attach|attachment_link }}</div></em></p>
+							<p class="postedit"><em>{% trans "Attachments" %}: <div>{{ attach|attachment_link }}</div></em></p>
 						{% endfor %}
 					{% endif %}
 				</div>
@@ -199,7 +199,7 @@
 {% block controls %}
 <div class="conl">
 	<form id="qjump" method="GET" action="forum">
-		<div><label>{% trans "Jump to " %}
+		<div><label>{% trans "Jump to" %}
 		<br />
 		<select name="id" id="forum_id" onchange="window.location=('{% url djangobb:index %}'+this.options[this.selectedIndex].value)">
 			{% for category in categories %}
@@ -230,7 +230,7 @@
 		{% if topic.heresy %}
 			<dd><a href="{% url djangobb:make_heresy topic.id %}">{% trans "Mark as useful" %}</a></dd></dl>
 		{% else %}
-			<dd><a href="{% url djangobb:make_heresy topic.id %}">{% trans "Mark as herecy" %}</a></dd></dl>
+			<dd><a href="{% url djangobb:make_heresy topic.id %}">{% trans "Mark as heresy" %}</a></dd></dl>
 		{% endif %}
 	{% endif %}
 </div>
