@@ -6,3 +6,4 @@
 /src/coverage
 *.sqlite
 /src/local_settings.py
+*.sublime-*
