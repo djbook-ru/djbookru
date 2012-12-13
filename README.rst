@@ -31,7 +31,7 @@
 --------------------
 
 Изучите файл ``src/settings.py``. Необходимые правки выполните в файле
-``src/settings_local.py``, который будет подгружаться при чтении
+``src/local_settings.py``, который будет подгружаться при чтении
 настроек проекта.
 
 Подготовка базы данных
@@ -40,14 +40,14 @@
 По умолчанию, в качестве базы данных используется SQLite3::
 
     python manage.py syncdb --migrate --noinput
-    echo "delete from django_content_type;" | python manage.py dbshell
-    echo "delete from auth_permission;" | python manage.py dbshell
-    python manage.py loaddata ./src/fixtures/demo_database.json
 
 Дамп демонстрационной базы данных можно обновить так::
 
     python manage.py dumpdata --indent=2 --all > ./src/fixtures/demo_database.json
-
+    python manage.py loaddata examples.json
+    python manage.py loaddata flatpages.json
+    python manage.py loaddata initial_chunks.json
+    python manage.py loaddata news.json
 
 Запуск
 ------
