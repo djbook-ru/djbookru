@@ -1,0 +1,51 @@
+[
+  {
+    "pk": 5,
+    "model": "examples.category",
+    "fields": {
+      "name": "Django ORM "
+    }
+  },
+  {
+    "pk": 2,
+    "model": "examples.category",
+    "fields": {
+      "name": "\u0414\u0435\u043a\u043e\u0440\u0430\u0442\u043e\u0440\u044b "
+    }
+  },
+  {
+    "pk": 4,
+    "model": "examples.category",
+    "fields": {
+      "name": "\u0414\u0436\u0430\u0431\u0431\u0435\u0440 "
+    }
+  },
+  {
+    "pk": 7,
+    "model": "examples.category",
+    "fields": {
+      "name": "\u0418\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441 \u0430\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0442\u043e\u0440\u0430 "
+    }
+  },
+  {
+    "pk": 3,
+    "model": "examples.category",
+    "fields": {
+      "name": "\u0418\u0441\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f "
+    }
+  },
+  {
+    "pk": 1,
+    "model": "examples.category",
+    "fields": {
+      "name": "\u041e\u0441\u043d\u043e\u0432\u044b "
+    }
+  },
+  {
+    "pk": 6,
+    "model": "examples.category",
+    "fields": {
+      "name": "\u0424\u043e\u0440\u043c\u044b "
+    }
+  }
+]

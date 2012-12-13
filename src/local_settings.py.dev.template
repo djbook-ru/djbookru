@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+LOCAL_SETTINGS = True
+from settings import *
+
+SITE_ID = 2
+DEBUG = True
+TEMPLATE_DEBUG = True
+
+DATABASES = {
+    'default': dict(
+        ENGINE='django.db.backends.sqlite3',
+        NAME=REL('db.sqlite'),
+    )
+}
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

@@ -8,19 +8,20 @@ from . models import Topic, Post
 
 
 def post_saved(instance, **kwargs):
-    created = kwargs.get('created')
-    post = instance
-    topic = post.topic
+    if not kwargs.get('raw'):
+        created = kwargs.get('created')
+        post = instance
+        topic = post.topic
 
-    if created:
-        topic.last_post = post
-        topic.post_count = topic.posts.count()
-        topic.updated = timezone.now()
-        profile = post.user.forum_profile
-        profile.post_count = post.user.posts.count()
-        profile.save(force_update=True)
-        notify_topic_subscribers(post)
-    topic.save(force_update=True)
+        if created:
+            topic.last_post = post
+            topic.post_count = topic.posts.count()
+            topic.updated = timezone.now()
+            profile = post.user.forum_profile
+            profile.post_count = post.user.posts.count()
+            profile.save(force_update=True)
+            notify_topic_subscribers(post)
+        topic.save(force_update=True)
 
 
 def topic_saved(instance, **kwargs):

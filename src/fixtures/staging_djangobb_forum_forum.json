@@ -1,0 +1,17 @@
+[
+  {
+    "pk": 1,
+    "model": "djangobb_forum.forum",
+    "fields": {
+      "category": 1,
+      "updated": "2012-12-13T11:43:34.801Z",
+      "name": "Django",
+      "post_count": 1,
+      "topic_count": 1,
+      "moderators": [],
+      "position": 0,
+      "last_post": 1,
+      "description": ""
+    }
+  }
+]

@@ -30,6 +30,8 @@
 Конфигурация проекта
 --------------------
 
+Скопируйте найстройки из ``src/local_settings.py.dev.template`` в ``local_settings.py``.
+
 Изучите файл ``src/settings.py``. Необходимые правки выполните в файле
 ``src/local_settings.py``, который будет подгружаться при чтении
 настроек проекта.
@@ -37,17 +39,11 @@
 Подготовка базы данных
 ----------------------
 
-По умолчанию, в качестве базы данных используется SQLite3::
+Для создания/сброса SQLite базы данных для разработки используйте::
 
-    python manage.py syncdb --migrate --noinput
+    python manage.py reset_staging
 
-Дамп демонстрационной базы данных можно обновить так::
-
-    python manage.py dumpdata --indent=2 --all > ./src/fixtures/demo_database.json
-    python manage.py loaddata examples.json
-    python manage.py loaddata flatpages.json
-    python manage.py loaddata initial_chunks.json
-    python manage.py loaddata news.json
+Будет создана база данных, загружены тестовые данные, создан суперпользователь с логин/email/пароль - admin/admin@admin.com/admin
 
 Запуск
 ------

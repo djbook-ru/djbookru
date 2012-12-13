@@ -240,6 +240,7 @@ INSTALLED_APPS = (
     'robots',
     'sorl.thumbnail',
     'tagging',
+    'staging',
 
     'src.accounts',
     'src.claims',
