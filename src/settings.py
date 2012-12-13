@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import os, sys, glob
+import os
+import sys
+import glob
 
 
 def rel_project(*x):
@@ -99,7 +101,7 @@ STATICFILES_FINDERS = (
 )
 
 AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
+    'src.accounts.backends.CustomUserBackend',
 )
 
 MIDDLEWARE_CLASSES = (
