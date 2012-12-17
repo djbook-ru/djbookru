@@ -1,0 +1,11 @@
+{% load i18n markup %}
+{% for obj in announcements %}
+<div class="well content" style="background-color: #c0db8a">
+    {% if obj.link %}
+    <h3><a href="{{ obj.link }}">{{ obj }}</a></h3>
+    {% else %}
+    <h3>{{ obj }}</h3>
+    {% endif %}
+    {{ obj.content|markdown }}
+</div>
+{% endfor %}

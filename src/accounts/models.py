@@ -99,6 +99,17 @@ def create_custom_user(sender, instance, created, **kwargs):
 post_save.connect(create_custom_user, BaseUser)
 
 
+class Announcement(models.Model):
+    title = models.CharField(_(u'title'), max_length=300)
+    link = models.URLField(_(u'link'), blank=True)
+    content = models.TextField(_(u'content'), help_text=_('Use Markdown and HTML'))
+    is_active = models.BooleanField(_(u'is active?'), default=True)
+    created = models.DateTimeField(_(u'created'), auto_now_add=True)
+
+    def __unicode__(self):
+        return self.title
+
+
 class UserAchievement(models.Model):
     user = models.ForeignKey(User, verbose_name=_(u'user'))
     achievement = models.ForeignKey('Achievement', verbose_name=_(u'achievement'))

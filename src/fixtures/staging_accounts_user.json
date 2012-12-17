@@ -4,12 +4,25 @@
     "model": "accounts.user",
     "fields": {
       "homepage": "",
-      "last_doc_comments_read": "2012-12-13T09:21:13.035Z",
+      "last_doc_comments_read": "2012-12-17T09:45:00.581Z",
       "biography": "",
       "groups": [],
       "user_permissions": [],
-      "is_valid_email": true,
-      "last_comments_read": "2012-12-13T09:21:13.035Z"
+      "is_valid_email": false,
+      "last_comments_read": "2012-12-17T09:45:00.581Z"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "accounts.user",
+    "fields": {
+      "homepage": "",
+      "last_doc_comments_read": "2012-12-17T09:45:28.362Z",
+      "biography": "",
+      "groups": [],
+      "user_permissions": [],
+      "is_valid_email": false,
+      "last_comments_read": "2012-12-17T09:45:28.362Z"
     }
   }
 ]

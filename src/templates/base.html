@@ -1,5 +1,5 @@
 {% load staticfiles %}
-{% load i18n analytics adzone_tags news_tags components comments_tags chunks %}
+{% load i18n analytics adzone_tags news_tags components comments_tags chunks accounts_tags %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lang="ru">
     <head>
@@ -88,12 +88,7 @@
                 {% endif %}
                 {% random_zone_ad 'buy_me' 'header' %}
                 {% block pre_content %}
-                <div class="well content" style="background-color: #c0db8a">
-                    <h3><a href="{{ DJANGO_DOCUMENTATION_URL }}">Документация Django на русском</a></h3>
-                    <p>
-                        {% chunk "django-documentation-description" %}
-                    </p>
-                </div>
+                {% announcements %}
                 {% if user.is_authenticated and not user.is_valid_email %}
                   <div class="alert alert-error">
                       <h3><a href="{% url accounts:edit %}">{% trans "Confirm you email" %}</a></h3>

@@ -34,6 +34,10 @@ class CustomUserAdmin(UserAdmin):
     inlines = [UserAchievementInline]
 
 
+class AnnouncementAdmin(admin.ModelAdmin):
+    list_display = ('__unicode__', 'link', 'is_active', 'created')
+
+admin.site.register(models.Announcement, AnnouncementAdmin)
 admin.site.unregister(DjangoUser)
 admin.site.register(models.User, CustomUserAdmin)
 admin.site.register(models.EmailConfirmation)

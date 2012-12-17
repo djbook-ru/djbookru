@@ -53,6 +53,7 @@ class CustomIndexDashboard(Dashboard):
                     'src.claims.models.Claims',
                     'src.comments.models.Comment',
                     'src.videos.models.Video',
+                    'src.accounts.Announcement'
                     ]),
                 modules.ModelList(_(u'Book'), [
                     'src.main.models.Book',

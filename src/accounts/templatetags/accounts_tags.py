@@ -4,6 +4,7 @@ from django import template
 
 from ... doc_comments.models import Comment as DocComment
 from ... comments.models import Comment
+from ..models import Announcement
 
 register = template.Library()
 
@@ -23,4 +24,11 @@ def notification_indicator(context):
     new_count += DocComment.get_reply_comments(user).count()
     return {
         'new_count': new_count
+    }
+
+
+@register.inclusion_tag('accounts/_announcements.html', takes_context=True)
+def announcements(context):
+    return {
+        'announcements': Announcement.objects.filter(is_active=True)
     }
