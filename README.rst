@@ -43,7 +43,8 @@
 
     python manage.py reset_staging
 
-Будет создана база данных, загружены тестовые данные, создан суперпользователь с логин/email/пароль - admin/admin@admin.com/admin
+Будет создана база данных, загружены тестовые данные, создан суперпользователь с логин/email/пароль - admin/admin@admin.com/admin,
+также пользователь test/test@test.com/test
 
 Запуск
 ------
@@ -56,6 +57,20 @@
 Разработка
 ==========
 
+Миграции
+--------
+
+Новое приложение регистрируется так::
+
+    python manage.py schemamigration APP_NAME --initial
+    python manage.py migrate APP_NAME --fake 0001
+
+Обновление тестовых фикстур
+---------------------------
+
+Если необходимо обновить тестовые(staging) фикстуры, внесите необходимые изменения и сохраните необходимые модели используя
+команду ``save_staging``, пример смотрите в документации https://github.com/code-on/django-staging
+
 Тестирование
 ------------
 
@@ -65,6 +80,16 @@
     ./testing.sh APP_NAME
     ./testing.sh APP_NAME.CLASS_NAME.METHOD_NAME
 
+Добавить документацию и комментарии к ней
+-----------------------------------------
+
+Для этого клонируем репозиторий документации https://github.com/Alerion/django_documentation.
+Собираем ее и создаем симлинк в папку static проекта, настройки уже указаны в local_settings.py.dev.template.
+Пример команды::
+
+    ln -s ~/Workspace/django_documentation/_build/html/ ~/Workspace/djbookru/src/static/html
+
+
 База данных
 -----------
 
@@ -73,14 +98,6 @@
     python manage.py graph_models -e -a -g > models.dot
     dot -Tsvg models.dot > models.svg
     google-chrome models.svg
-
-Миграции
---------
-
-Новое приложение регистрируется так::
-
-    python manage.py schemamigration APP_NAME --initial
-    python manage.py migrate APP_NAME --fake 0001
 
 
 Продуктив
