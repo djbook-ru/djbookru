@@ -14,7 +14,7 @@
 /* 2.1 This sets the default Font Group */
 
 .djangobb, .djangobb INPUT, .djangobb SELECT, .djangobb TEXTAREA, .djangobb OPTGROUP {
-	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
 }
 
 .djangobb {FONT-SIZE: 11px; LINE-HEIGHT: normal}
@@ -58,7 +58,7 @@ DIV.linksb LI, DIV.postlinksb LI, .blockmenu LI, #brdtitle H1, .djangobb SPAN.wa
 #brdmenu A:link, #brdmenu A:visited, .blockpost DT A:link, .blockpost DT A:visited, .blockpost H2 A:link,
 .blockpost H2 A:visited, .postlink A:link, .postlink A:visited, .postfootright A:link, .postfootright A:visited,
 .blockmenu A:link, .blockmenu A:visited {
-	TEXT-DECORATION: none
+    TEXT-DECORATION: none
 }
 
 /* 3.2 Underline on hover for links in headers and main menu */
@@ -73,8 +73,8 @@ DIV.linksb LI, DIV.postlinksb LI, .blockmenu LI, #brdtitle H1, .djangobb SPAN.wa
 /* 4.1 By default borders are 1px solid */
 
 DIV.box, .djangobb TD, .djangobb TH, .djangobb BLOCKQUOTE, DIV.codebox, DIV.forminfo, DIV.blockpost LABEL {
-	BORDER-STYLE: solid;
-	BORDER-WIDTH: 1px
+    BORDER-STYLE: solid;
+    BORDER-WIDTH: 1px
 }
 
 .djangobb TH {border-top: 0px}
@@ -86,8 +86,8 @@ DIV.box, .djangobb TD, .djangobb TH, .djangobb BLOCKQUOTE, DIV.codebox, DIV.form
 /* 4.3 Borders for table cells */
 
 .djangobb TD, .djangobb TH {
-	BORDER-BOTTOM: none;
-	BORDER-RIGHT: none
+    BORDER-BOTTOM: none;
+    BORDER-RIGHT: none
 }
 
 .djangobb .tcl {BORDER-LEFT: none}
@@ -95,8 +95,8 @@ DIV.box, .djangobb TD, .djangobb TH, .djangobb BLOCKQUOTE, DIV.codebox, DIV.form
 /* 4.4 Special setting for fieldsets to preserve IE defaults */
 
 DIV>FIELDSET {
-	BORDER-STYLE: solid;
-	BORDER-WIDTH: 1px
+    BORDER-STYLE: solid;
+    BORDER-WIDTH: 1px
 }
 
 /****************************************************************/
@@ -183,13 +183,13 @@ DIV.postfootleft P, DIV.postfootright UL, DIV.postfootright DIV {PADDING: 10px 6
 /* 8.6 This is the input on moderators multi-delete view */
 
 DIV.blockpost INPUT, DIV.blockpost LABEL {
-	PADDING: 3px;
-	DISPLAY: inline
+    PADDING: 3px;
+    DISPLAY: inline
 }
 
 P.multidelete {
-	PADDING-TOP: 15px;
-	PADDING-BOTTOM: 5px
+    PADDING-TOP: 15px;
+    PADDING-BOTTOM: 5px
 }
 
 /* 8.7 Make sure paragraphs in posts don't get any padding */
@@ -214,8 +214,8 @@ DIV.infldset {PADDING: 9px 0px 12px 0}
 /* 9.3 The information box at the top of the registration form and elsewhere */
 
 DIV.forminfo {
-	MARGIN-BOTTOM: 12px;
-	PADDING: 9px 10px
+    MARGIN-BOTTOM: 12px;
+    PADDING: 9px 10px
 }
 
 /* 9.4 BBCode help links in post forms */
@@ -237,14 +237,14 @@ DIV.blockform P INPUT {MARGIN-LEFT: 12px}
 .isticky = sticky topics. By default only .inew is different from the default.*/
 
 DIV.icon,DIV.inew, DIV.sticky, DIV.closed {
-	FLOAT: left;
-	MARGIN-TOP: 0.1em;
-	MARGIN-right: 0.4em;
-	DISPLAY: block;
-/*	BORDER-WIDTH: 0.6em 0.6em 0.6em 0.6em;
-	BORDER-STYLE: solid*/
-	HEIGHT: 16px;
-	WIDTH: 16px;
+    FLOAT: left;
+    MARGIN-TOP: 0.1em;
+    MARGIN-right: 0.4em;
+    DISPLAY: block;
+/*  BORDER-WIDTH: 0.6em 0.6em 0.6em 0.6em;
+    BORDER-STYLE: solid*/
+    HEIGHT: 16px;
+    WIDTH: 16px;
 }
 
 
@@ -261,20 +261,20 @@ TD DIV.tclcon {MARGIN-LEFT: 2.3em}
 
 #brdmenu {height:20px;padding-top:1px;padding-left:8px}
 #djangobbwrap {
-	width: auto;
-	margin-left: 25px;
-	margin-right: 25px;
-	text-align: left;
-	background-repeat: repeat-y;
+    width: auto;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: left;
+    background-repeat: repeat-y;
 }
 .djangobb {
-	background-repeat: no-repeat;
+    background-repeat: no-repeat;
 }
 
 
 #brdfooter {
-	width: auto;
-	margin-bottom: 10px;
-	background-repeat:  no-repeat;
-	background-position: bottom left;
+    width: auto;
+    margin-bottom: 10px;
+    background-repeat:  no-repeat;
+    background-position: bottom left;
 }

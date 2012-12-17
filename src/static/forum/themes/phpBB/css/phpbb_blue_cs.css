@@ -382,14 +382,14 @@ right : 20px;
 /****************************************************************/
 
 a.quotehint:hover .infobox {
-	border: 1px solid #bec8ce; 
-	background: #ecf0f6 url(../img/QuickQuote/hint_bg_cornflower.gif) no-repeat right bottom;
-	color: #333; 
+    border: 1px solid #bec8ce; 
+    background: #ecf0f6 url(../img/QuickQuote/hint_bg_cornflower.gif) no-repeat right bottom;
+    color: #333; 
 }
 
 a.quotehint:hover .infobox u {
-	color: #006699;
-	text-decoration: none;
+    color: #006699;
+    text-decoration: none;
 }
 
 

@@ -13,9 +13,9 @@
             </ul>
         {% endif %}
         {% if not original.approved %}
-        	<div class="alert">
-        		{% trans "Pay attention! This post is not approved and can be from users. It can contain XSS in content, so use 'View on site' carefully." %}
-        	</div>
+            <div class="alert">
+                {% trans "Pay attention! This post is not approved and can be from users. It can contain XSS in content, so use 'View on site' carefully." %}
+            </div>
         {% endif %}
     {% endif %}
 {% endblock %}
