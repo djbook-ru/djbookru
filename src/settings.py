@@ -370,6 +370,8 @@ MIDDLEWARE_CLASSES += (
 )
 ### FORUM: BEGIN
 
+RECAPTCHA_PUBLIC = ''
+
 try:
     LOCAL_SETTINGS
 except NameError:
