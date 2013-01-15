@@ -62,7 +62,13 @@ CodeReview.AppView = Backbone.View.extend({
 
     sendForm: function(e){
         var $form = $(e.target).parents('.comment-form');
+        var content = $form.find('textarea').val();
 
+        this.comments.create({
+            content: content
+        }, {wait: true});
+
+        $form.find('.close').trigger('click');
     },
 
     hideForm: function(e){
@@ -93,6 +99,7 @@ CodeReview.AppView = Backbone.View.extend({
     },
 
     addOne: function(comment){
+        console.log(comment)
         var view = new CodeReview.CommentView({
             model: comment
         });

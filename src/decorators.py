@@ -5,6 +5,7 @@ from django.utils import simplejson
 from django.core.serializers.json import DjangoJSONEncoder
 from django.utils.functional import update_wrapper
 
+
 def render_to(template, processor=None):
     def renderer(func):
         def wrapper(request, *args, **kw):
@@ -20,6 +21,7 @@ def render_to(template, processor=None):
             return output
         return wrapper
     return renderer
+
 
 def render_to_json(func):
     def wrapper(request, *args, **kwargs):

@@ -30,6 +30,12 @@ class CommentsApi(View):
         f = get_object_or_404(File, pk=file_id)
         return self.response([comment.get_json() for comment in f.comment_set.all()])
 
+    def post(self, request, file_id):
+        f = get_object_or_404(File, pk=file_id)
+        obj = f.comment_set.all()[0].get_json()
+        obj['id'] = 100
+        return self.response(obj)
+
     def response(self, content):
         json = simplejson.dumps(content, cls=DjangoJSONEncoder)
         return HttpResponse(json, mimetype="application/json")
