@@ -1,6 +1,6 @@
 {% load i18n accounts_tags %}
 
-<div class="navbar navbar-static">
+<div class="navbar navbar-static navbar-inverse">
   <div class="navbar-inner">
     <div class="container-fluid">
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -18,6 +18,7 @@
                 <li><a href="{% url news:index %}" >{% trans 'News' %}</a></li>
                 <li><a href="{% url videos:index %}" >{% trans 'Videos' %}</a></li>
                 <li><a href="{% url djangobb:index %}" >{% trans 'Forum' %}</a></li>
+                <li><a href="{% url code_review:index %}" >{% trans 'Code Review' %}</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
                         {% trans 'Recipes' %}<b class="caret"></b>

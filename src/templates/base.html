@@ -1,5 +1,4 @@
-{% load staticfiles %}
-{% load i18n analytics adzone_tags news_tags components comments_tags chunks accounts_tags %}
+{% load staticfiles i18n analytics adzone_tags news_tags components comments_tags chunks accounts_tags %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lang="ru">
     <head>
@@ -30,13 +29,20 @@
         <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
         <script src="{% static "js/jquery.form.js" %}"></script>
         <script src="{% static "js/jquery-spelling.js" %}"></script>
+
+        {% block highlightjs %}
         <script src="{% static "js/highlight.min.js" %}"></script>
+        <script type="text/javascript">
+            jQuery(function($){
+                hljs.tabReplace = '    ';
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+        {% endblock %}
 
         {% block head %}{% endblock %}
         <script type="text/javascript">
           $(document).ready(function() {
-              hljs.tabReplace = '    ';
-              hljs.initHighlightingOnLoad();
               $.ajaxSetup({
                   beforeSend: function(xhr, settings) {
                       function getCookie(name) {

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load i18n pagination_tags %}
+
+{% block title %}{% trans 'Code Review' %} | {{ block.super }}{% endblock %}
+
+{% block content %}
+    {% if is_paginated %}
+        {% paginate %}
+    {% endif %}
+
+    {% for obj in object_list %}
+        <div class="well">
+            <h4><a href="{{ obj.get_absolute_url }}">{{ obj }}</a></h4>
+            <em>{{ obj.created|date:'DATETIME_FORMAT' }}</em>
+            {% if obj.description %}
+                <p>{{ obj.description }}</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+    {% if is_paginated %}
+        {% paginate %}
+    {% endif %}
+{% endblock %}
