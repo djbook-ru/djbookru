@@ -13,6 +13,7 @@ urlpatterns = patterns('django.contrib.auth.views',
 
 urlpatterns += patterns('src.accounts.views',
     url(r'^(?P<pk>\d+)/$', 'profile', name='profile'),
+    url(r'^map/$', 'map', name='map'),
     url(r'^create/$', 'create', name='create'),
     url(r'^notifications/$', 'notifications', name='notifications'),
     url(r'^edit/$', 'edit', name='edit'),

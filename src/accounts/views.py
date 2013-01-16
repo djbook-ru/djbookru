@@ -24,6 +24,11 @@ LOGIN_REDIRECT_URL = getattr(settings, 'LOGIN_REDIRECT_URL', '/')
 LOGOUT_REDIRECT_URL = getattr(settings, 'LOGOUT_REDIRECT_URL', '/')
 
 
+@render_to('accounts/map.html')
+def map(request):
+    return {}
+
+
 @render_to('accounts/create.html')
 def create(request):
     if request.method == 'POST':
