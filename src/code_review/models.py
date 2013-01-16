@@ -1,6 +1,8 @@
+from ..accounts.models import User
 from django.db import models
+from django.utils.html import escape
+from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
-from .. accounts.models import User
 import markdown
 
 
@@ -45,11 +47,14 @@ class Comment(models.Model):
     def __unicode__(self):
         return u"%s: %s..." % (self.author, self.content[:50])
 
+    def get_content(self):
+        return mark_safe(markdown.markdown(escape(self.content)))
+
     def get_json(self):
         return {
             'id': self.pk,
             'row': self.row,
-            'content': markdown.markdown(self.content),
+            'content': self.get_content(),
             'author': unicode(self.author),
             'created': self.created,
             'author_avatar': self.author.avatar()

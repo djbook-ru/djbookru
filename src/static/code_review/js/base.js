@@ -23,7 +23,7 @@ CodeReview.CommentView = Backbone.View.extend({
 
     initialize: function(options) {
         this.listenTo(this.model, 'destroy', this.remove);
-        this.$placeholder = $('<div class="placeholder"></div>');
+        this.$placeholder = $('<div class="comment-placeholder"></div>');
     },
 
     getPlaceholder: function(){
@@ -43,11 +43,16 @@ CodeReview.AppView = Backbone.View.extend({
         'mouseleave .gutter .line': 'unhighlightRow',
         'click .gutter .line': 'showForm',
         'click .comment-form .close': 'hideForm',
-        'click .comment-form .send': 'sendForm'
+        'click .comment-form .send': 'sendForm',
+        'click .toolbar .toggle-comments': 'toggleComments',
+        'click .toolbar .show-help': 'showHelp'
     },
 
     initialize: function(options) {
+        this.$helpWindow = options.helpWindow;
+        this.commentsHidden = false;
         this.comments = options.comments;
+        this.iaAuthenticated = options.iaAuthenticated;
 
         this.listenTo(this.comments, 'add', this.addOne);
         this.listenTo(this.comments, 'reset', this.addAll);
@@ -60,12 +65,31 @@ CodeReview.AppView = Backbone.View.extend({
 
     },
 
+    showHelp: function(){
+        this.$helpWindow.modal('show');
+    },
+
+    toggleComments: function(e){
+        if (this.commentsHidden){
+            this.commentsHidden = false;
+            $(e.target).find('span').attr('class', 'icon-minus-sign');
+            this.$('.comment').show();
+            this.$('.comment-placeholder').show();
+        } else {
+            this.commentsHidden = true;
+            $(e.target).find('span').attr('class', 'icon-plus-sign');
+            this.$('.comment').hide();
+            this.$('.comment-placeholder').hide();
+        }
+    },
+
     sendForm: function(e){
         var $form = $(e.target).parents('.comment-form');
         var content = $form.find('textarea').val();
 
         this.comments.create({
-            content: content
+            content: content,
+            row: $form.data('row-number')
         }, {wait: true});
 
         $form.find('.close').trigger('click');
@@ -79,10 +103,21 @@ CodeReview.AppView = Backbone.View.extend({
     },
 
     showForm: function(e){
-        var $el = $(e.target);
-        var $row = this._getRow($el);
+        if ( ! this.iaAuthenticated){
+            alert('Authenticate please!');
+            return;
+        }
 
-        $row.after(this._renderForm());
+        var $el = $(e.target);
+        if ($el.next().hasClass('form-placeholder')){
+            return;
+        }
+        var $row = this._getRow($el);
+        var $form = $(this._renderForm());
+
+        $form.data('row-number', this.getRowNumber($el));
+
+        $row.after($form);
         $el.after('<div class="form-placeholder"></div>');
     },
 
@@ -99,7 +134,6 @@ CodeReview.AppView = Backbone.View.extend({
     },
 
     addOne: function(comment){
-        console.log(comment)
         var view = new CodeReview.CommentView({
             model: comment
         });
@@ -111,6 +145,11 @@ CodeReview.AppView = Backbone.View.extend({
 
     addAll: function(){
         this.comments.each(this.addOne, this);
+    },
+
+    getRowNumber: function($el){
+        var cls = this._rowIndexCls($el);
+        return cls.match(/\d+/g)[0];
     },
 
     _renderForm: function(){

@@ -22,6 +22,20 @@
 
     <script type="text/javascript">
         jQuery(function($){
+            IS_AUTHENTICATED = {% if user.is_authenticated %}true{% else %}false{% endif %};
+
+            SyntaxHighlighter.toolbar.items.list = ['help', 'hideComments'];
+            SyntaxHighlighter.toolbar.items.help = {
+                getHtml: function(){
+                    return '<a href="#" class="btn show-help"><i class="icon-question-sign"></i></a>'
+                }
+            }
+            SyntaxHighlighter.toolbar.items.hideComments = {
+                getHtml: function(){
+                    return '<a href="#" class="btn toggle-comments"><i class="icon-minus-sign"></i></a>'
+                }
+            }
+
             SyntaxHighlighter.highlight();
 
             $('div.syntaxhighlighter').each(function(){
@@ -33,17 +47,29 @@
                 });
 
                 var app = new CodeReview.AppView({
+                    helpWindow: $('#code-review-help'),
                     el: $el,
-                    comments: comments
+                    comments: comments,
+                    iaAuthenticated: IS_AUTHENTICATED
                 });
             });
-
-
         });
     </script>
 {% endblock %}
 
 {% block content %}
+    <div class="modal hide" id="code-review-help">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>{% trans "Help" %}</h3>
+        </div>
+        <div class="modal-body">
+            <p>1. {% trans "Click on row number to add comment." %}</p>
+            <p>2. {% trans "There is button on toolbar to show/hide comments. This can be usefull while code copying." %}</p>
+            <p>3. {% trans "You can use Markdown in comments." %}</p>
+        </div>
+    </div>
+
     <h2>{{ object }}</h2>
 
     {% if object.description %}
