@@ -72,12 +72,12 @@ CodeReview.AppView = Backbone.View.extend({
     toggleComments: function(e){
         if (this.commentsHidden){
             this.commentsHidden = false;
-            $(e.target).find('span').attr('class', 'icon-minus-sign');
+            $(e.target).attr('class', 'icon-minus-sign');
             this.$('.comment').show();
             this.$('.comment-placeholder').show();
         } else {
             this.commentsHidden = true;
-            $(e.target).find('span').attr('class', 'icon-plus-sign');
+            $(e.target).attr('class', 'icon-plus-sign');
             this.$('.comment').hide();
             this.$('.comment-placeholder').hide();
         }
