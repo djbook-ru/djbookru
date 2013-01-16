@@ -1,0 +1,124 @@
+.syntaxhighlighter .gutter .line, .syntaxhighlighter .code .container .line {
+    max-height : 13px;
+}
+
+.syntaxhighlighter .gutter .line {
+    cursor: pointer;
+}
+
+.syntaxhighlighter .comment-form {
+    height: 79px !important;
+    padding-top: 1px !important;
+}
+
+.syntaxhighlighter .form-placeholder, .syntaxhighlighter .comment-placeholder {
+    border-right: 3px solid #6CE26C !important;
+}
+
+.syntaxhighlighter .form-placeholder {
+    height: 80px !important;
+}
+
+.syntaxhighlighter table td.code .container .comment-form textarea {
+    overflow: auto !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    height: 76px !important;
+    background-color: white !important;
+    border: 1px solid #CCC !important;
+    margin: 2px 0 0 -14px !important;
+    width: 85% !important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) !important;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) !important;
+    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s !important;
+    -moz-transition: border linear 0.2s, box-shadow linear 0.2s !important;
+    -o-transition: border linear 0.2s, box-shadow linear 0.2s !important;
+    transition: border linear 0.2s, box-shadow linear 0.2s !important;
+    -webkit-border-radius: 4px !important;
+    -moz-border-radius: 4px !important;
+    border-radius: 4px !important;
+}
+
+.syntaxhighlighter table td.code .container .comment-form button.send {
+    margin: -85px 0 0 3px;
+}
+
+.syntaxhighlighter table td.code .container .comment-form button.close {
+    margin-left: 10px;
+}
+
+.syntaxhighlighter .pull-left {
+    float: left !important;
+}
+
+.syntaxhighlighter .media, .syntaxhighlighter .media .media {
+    margin-top: 15px !important;
+}
+
+.syntaxhighlighter .media, .syntaxhighlighter .media-body {
+    overflow: hidden !important;
+}
+
+.syntaxhighlighter .toolbar {
+    background: none !important;
+    width: 23px !important;
+}
+
+.syntaxhighlighter .toolbar .btn {
+    border-color: #c5c5c5 !important;
+    display: inline-block !important;
+    padding: 1px 3px 0px 3px !important;
+    margin-bottom: 0 !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    color: #333 !important;
+    text-align: center !important;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.75) !important;
+    vertical-align: middle !important;
+    cursor: pointer !important;
+    background-color: #f5f5f5 !important;
+    background-image: -moz-linear-gradient(top,#fff,#e6e6e6) !important;
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e6e6e6)) !important;
+    background-image: -webkit-linear-gradient(top,#fff,#e6e6e6) !important;
+    background-image: -o-linear-gradient(top,#fff,#e6e6e6) !important;
+    background-image: linear-gradient(to bottom,#fff,#e6e6e6) !important;
+    background-repeat: repeat-x !important;
+    border: 1px solid #bbb !important;
+    border-color: #e6e6e6 #e6e6e6 #bfbfbf !important;
+    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25) !important;
+    border-bottom-color: #a2a2a2 !important;
+    -webkit-border-radius: 4px !important;
+    -moz-border-radius: 4px !important;
+    border-radius: 4px !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false) !important;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05) !important;
+    -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05) !important;
+}
+
+.syntaxhighlighter img {
+    width: auto 9 !important;
+    height: auto !important;
+    max-width: 100% !important;
+    vertical-align: middle !important;
+    border: 0 !important;
+    -ms-interpolation-mode: bicubic !important;
+}
+
+.syntaxhighlighter .media .pull-left {
+    margin-right: 10px !important;
+}
+
+.syntaxhighlighter .comment {
+    padding: 5px 0 5px 15px !important;
+    margin: 0 !important;
+
+}
+
+.syntaxhighlighter .comment img {
+    width: 64px !important;
+    height: 64px !important;
+}

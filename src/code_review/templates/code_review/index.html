@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load i18n pagination_tags %}
+
+{% block title %}{% trans 'Code Review' %} | {{ block.super }}{% endblock %}
+
+{% block pre_content %}
+    {{ block.super }}
+    <div class="alert alert-info">
+        <h4>{% trans "Welcome to our new application: Code review and snippets!" %}</h4>
+        {% trans "Here you can post your code to share experience and solutions, or get feedback from comunity how improve it." %}
+        {% trans "Try post working code and small enought. More code, less chance someone review it." %}
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% if is_paginated %}
+        {% paginate %}
+    {% endif %}
+
+    {% for obj in object_list %}
+        <div class="well">
+            <h4><a href="{{ obj.get_absolute_url }}">{{ obj }}</a></h4>
+            <em>{{ obj.created|date:'DATETIME_FORMAT' }}</em> | <a href="{{ obj.author.get_absolute_url }}">{{ obj.author }}</a>
+            {% if obj.description %}
+                <p>{{ obj.description }}</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+    {% if is_paginated %}
+        {% paginate %}
+    {% endif %}
+{% endblock %}

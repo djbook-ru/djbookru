@@ -251,6 +251,7 @@ INSTALLED_APPS = (
     'src.news',
     'src.utils',
     'src.videos',
+    'src.code_review'
 )
 
 

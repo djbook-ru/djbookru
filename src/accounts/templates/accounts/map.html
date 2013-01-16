@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load i18n staticfiles %}
+
+{% block title %}{% trans 'Register' %} | {{ block.super }}{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "leeflet_0.4.5/dist/leaflet.css" %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static "leeflet_0.4.5/plugins/draw/leaflet.draw.css" %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static "leeflet_0.4.5/plugins/markercluster/MarkerCluster.Default.css" %}" type="text/css"/>
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="{% static "leeflet_0.4.5/dist/leaflet.ie.css" %}" type="text/css"/>
+        <link rel="stylesheet" href="{% static "leeflet_0.4.5/plugins/draw/leaflet.draw.ie.css" %}" type="text/css"/>
+        <link rel="stylesheet" href="{% static "leeflet_0.4.5/plugins/markercluster/MarkerCluster.Default.ie.css" %}" type="text/css"/>
+    <![endif]-->
+    <script src="{% static "leeflet_0.4.5/dist/leaflet.js" %}"></script>
+    <script src="{% static "leeflet_0.4.5/plugins/draw/leaflet.draw.js" %}"></script>
+    <script src="{% static "leeflet_0.4.5/plugins/markercluster/leaflet.markercluster.js" %}"></script>
+    <style>
+        #map {
+            height: 600px;
+        }
+    </style>
+    <script>
+    jQuery(function($){
+        // create a map in the "map" div, set the view to a given place and zoom
+        var map = L.map('map').setView([55.779120, 37.615807], 5);
+
+        // add an OpenStreetMap tile layer
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var drawControl = new L.Control.Draw({
+            polyline: false,
+            polygon: false,
+            circle: false,
+            rectangle: false
+        });
+        map.addControl(drawControl);
+
+        var markers = new L.MarkerClusterGroup();
+
+        map.on('draw:marker-created', function (e) {
+            e.marker.bindPopup('A popup!');
+            markers.addLayer(e.marker);
+        });
+
+        map.addLayer(markers);
+    });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div id="map"></div>
+{% endblock %}
