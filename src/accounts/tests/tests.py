@@ -1,11 +1,13 @@
-from .factories import *
-from accounts.models import User, EmailConfirmation
+from django.core import mail
 from django.core.urlresolvers import reverse
 from django.test import TestCase
-from django.core import mail
-import utils.forms
 
-utils.forms.ReCaptchaField.clean = lambda self, data, initial: data
+from ... utils import forms
+from .. models import User, EmailConfirmation
+
+from . factories import *
+
+forms.ReCaptchaField.clean = lambda self, data, initial: data
 
 
 class ViewsTest(TestCase):
