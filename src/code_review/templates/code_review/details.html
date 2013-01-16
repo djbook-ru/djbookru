@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load i18n staticfiles %}
+{% load i18n staticfiles comments_tags %}
 {% load url from future %}
 
 {% block title %}{{ object }} | {% trans 'Code Review' %} | {{ block.super }}{% endblock %}
@@ -67,10 +67,21 @@
             <p>1. {% trans "Click on row number to add comment." %}</p>
             <p>2. {% trans "There is button on toolbar to show/hide comments. This can be usefull while code copying." %}</p>
             <p>3. {% trans "You can use Markdown in comments." %}</p>
+            <p>4. {% trans "At the bottom you can left comment related to whole snippet." %}</p>
         </div>
     </div>
 
-    <h2>{{ object }}</h2>
+    <div class="author-avatar pull-right well">
+        <a href="{{ object.author.get_absolute_url }}"><img src="{{ object.author.avatar }}" alt="" /></a>
+        <br/>
+        <a href="{{ object.author.get_absolute_url }}">
+            {{ object.author }}
+        </a>
+    </div>
+
+    <h4>{{ object }}</h4>
+
+    <em>{{ object.created|date:'DATETIME_FORMAT' }}</em>
 
     {% if object.description %}
     <p>{{ object.description }}</p>
@@ -80,4 +91,7 @@
     <h4>{{ file }}</h4>
     <pre class="brush: {{ file.language }}" id="file-{{ file.pk }}">{{ file.content }}</pre>
     {% endfor %}
+
+    {% render_comment_list object %}
+    {% render_comment_form object %}
 {% endblock %}

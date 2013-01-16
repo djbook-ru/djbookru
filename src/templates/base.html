@@ -97,7 +97,7 @@
                 {% announcements %}
                 {% if user.is_authenticated and not user.is_valid_email %}
                   <div class="alert alert-error">
-                      <h3><a href="{% url accounts:edit %}">{% trans "Confirm you email" %}</a></h3>
+                      <h4><a href="{% url accounts:edit %}">{% trans "Confirm you email" %}</a></h4>
                       <p>
                           {% blocktrans %}
                               You account does not have confirmed email.
