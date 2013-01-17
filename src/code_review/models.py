@@ -3,6 +3,8 @@ from django.db import models
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
+from django.utils import dateformat
+from django.conf import settings
 import markdown
 
 
@@ -54,7 +56,7 @@ class Comment(models.Model):
         return u"%s: %s..." % (self.author, self.content[:50])
 
     def get_content(self):
-        return mark_safe(markdown.markdown(escape(self.content)))
+        return mark_safe(markdown.markdown(escape(self.content)).replace('\n', '<br />'))
 
     def get_json(self):
         return {
@@ -62,6 +64,6 @@ class Comment(models.Model):
             'row': self.row,
             'content': self.get_content(),
             'author': unicode(self.author),
-            'created': self.created,
+            'created': dateformat.format(self.created, settings.DATETIME_FORMAT),
             'author_avatar': self.author.avatar()
         }

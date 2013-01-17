@@ -35,6 +35,7 @@
                     {% if example_categories %}
                     <ul class="dropdown-menu">
                         <li><a href="{% url examples:index %}">{% trans "All" %}</a></li>
+                        <li><a href="{% url examples:add %}">{% trans "Add" %}</a></li>
                         <li class="divider"></li>
                         {% for item in example_categories %}
                             <li><a href="{{ item.get_absolute_url }}">{{ item }}</a></li>

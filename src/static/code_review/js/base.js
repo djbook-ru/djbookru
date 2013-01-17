@@ -18,7 +18,7 @@ CodeReview.CommentView = Backbone.View.extend({
     className: 'comment media',
     template: _.template(
         '<a class="pull-left" href="#"><img class="media-object" src="<%= author_avatar %>"></a>'+
-        '<div class="media-body"><%= content %></div>'
+        '<div class="media-body"><em class="created"><%= created %></em><br><%= content %></div>'
     ),
 
     initialize: function(options) {
@@ -27,7 +27,7 @@ CodeReview.CommentView = Backbone.View.extend({
     },
 
     getPlaceholder: function(){
-        this.$placeholder.attr('style', 'height: '+this.$el.outerHeight()+'px !important');
+        this.$placeholder.attr('style', 'height: '+(this.$el.outerHeight()+1)+'px !important');
         return this.$placeholder;
     },
 
