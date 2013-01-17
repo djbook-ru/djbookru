@@ -20,6 +20,9 @@ class Snipet(models.Model):
     author = models.ForeignKey(User, verbose_name=_(u'author'))
     created = models.DateTimeField(_(u'created'), auto_now_add=True)
 
+    class Meta:
+        ordering = ['-created']
+
     def __unicode__(self):
         return self.title
 

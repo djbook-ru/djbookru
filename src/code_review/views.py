@@ -26,15 +26,16 @@ def add(request):
     form = AddSnipetForm(request.user, request.POST or None)
 
     if form.is_valid():
-        obj = form.save()
+        obj = form.save(commit=False)
         form_validated = True
     else:
         obj = Snipet()
         form_validated = False
 
     file_formset = FileFormset(request.POST or None, instance=obj)
+
     if file_formset.is_valid() and form_validated:
-        if not len(file_formset.save_new_objects(commit=False)):
+        if not any(f.has_changed() for f in file_formset.forms):
             form._errors['__all__'] = form.error_class([_(u'Add at least one file')])
         else:
             obj.save()
