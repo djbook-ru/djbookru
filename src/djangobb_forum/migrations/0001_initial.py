@@ -7,7 +7,7 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        
+
         # Adding model 'Category'
         db.create_table('djangobb_forum_category', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
@@ -103,7 +103,7 @@ class Migration(SchemaMigration):
         # Adding model 'Profile'
         db.create_table('djangobb_forum_profile', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('user', self.gf('djangobb_forum.fields.AutoOneToOneField')(related_name='forum_profile', unique=True, to=orm['auth.User'])),
+            ('user', self.gf('src.djangobb_forum.fields.AutoOneToOneField')(related_name='forum_profile', unique=True, to=orm['auth.User'])),
             ('status', self.gf('django.db.models.fields.CharField')(max_length=30, blank=True)),
             ('site', self.gf('django.db.models.fields.URLField')(max_length=200, blank=True)),
             ('jabber', self.gf('django.db.models.fields.CharField')(max_length=80, blank=True)),
@@ -115,7 +115,7 @@ class Migration(SchemaMigration):
             ('signature', self.gf('django.db.models.fields.TextField')(default='', max_length=1024, blank=True)),
             ('time_zone', self.gf('django.db.models.fields.FloatField')(default=3.0)),
             ('language', self.gf('django.db.models.fields.CharField')(default='', max_length=5)),
-            ('avatar', self.gf('djangobb_forum.fields.ExtendedImageField')(default='', max_length=100, blank=True)),
+            ('avatar', self.gf('src.djangobb_forum.fields.ExtendedImageField')(default='', max_length=100, blank=True)),
             ('theme', self.gf('django.db.models.fields.CharField')(default='default', max_length=80)),
             ('show_avatar', self.gf('django.db.models.fields.BooleanField')(default=True)),
             ('show_signatures', self.gf('django.db.models.fields.BooleanField')(default=True)),
@@ -128,8 +128,8 @@ class Migration(SchemaMigration):
         # Adding model 'PostTracking'
         db.create_table('djangobb_forum_posttracking', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('user', self.gf('djangobb_forum.fields.AutoOneToOneField')(to=orm['auth.User'], unique=True)),
-            ('topics', self.gf('djangobb_forum.fields.JSONField')(null=True)),
+            ('user', self.gf('src.djangobb_forum.fields.AutoOneToOneField')(to=orm['auth.User'], unique=True)),
+            ('topics', self.gf('src.djangobb_forum.fields.JSONField')(null=True)),
             ('last_read', self.gf('django.db.models.fields.DateTimeField')(null=True)),
         ))
         db.send_create_signal('djangobb_forum', ['PostTracking'])
@@ -170,7 +170,7 @@ class Migration(SchemaMigration):
 
 
     def backwards(self, orm):
-        
+
         # Removing unique constraint on 'Reputation', fields ['from_user', 'post']
         db.delete_unique('djangobb_forum_reputation', ['from_user_id', 'post_id'])
 
@@ -306,13 +306,13 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'PostTracking'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_read': ('django.db.models.fields.DateTimeField', [], {'null': 'True'}),
-            'topics': ('djangobb_forum.fields.JSONField', [], {'null': 'True'}),
-            'user': ('djangobb_forum.fields.AutoOneToOneField', [], {'to': "orm['auth.User']", 'unique': 'True'})
+            'topics': ('src.djangobb_forum.fields.JSONField', [], {'null': 'True'}),
+            'user': ('src.djangobb_forum.fields.AutoOneToOneField', [], {'to': "orm['auth.User']", 'unique': 'True'})
         },
         'djangobb_forum.profile': {
             'Meta': {'object_name': 'Profile'},
             'aim': ('django.db.models.fields.CharField', [], {'max_length': '80', 'blank': 'True'}),
-            'avatar': ('djangobb_forum.fields.ExtendedImageField', [], {'default': "''", 'max_length': '100', 'blank': 'True'}),
+            'avatar': ('src.djangobb_forum.fields.ExtendedImageField', [], {'default': "''", 'max_length': '100', 'blank': 'True'}),
             'icq': ('django.db.models.fields.CharField', [], {'max_length': '12', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'jabber': ('django.db.models.fields.CharField', [], {'max_length': '80', 'blank': 'True'}),
@@ -329,7 +329,7 @@ class Migration(SchemaMigration):
             'status': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
             'theme': ('django.db.models.fields.CharField', [], {'default': "'default'", 'max_length': '80'}),
             'time_zone': ('django.db.models.fields.FloatField', [], {'default': '3.0'}),
-            'user': ('djangobb_forum.fields.AutoOneToOneField', [], {'related_name': "'forum_profile'", 'unique': 'True', 'to': "orm['auth.User']"}),
+            'user': ('src.djangobb_forum.fields.AutoOneToOneField', [], {'related_name': "'forum_profile'", 'unique': 'True', 'to': "orm['auth.User']"}),
             'yahoo': ('django.db.models.fields.CharField', [], {'max_length': '80', 'blank': 'True'})
         },
         'djangobb_forum.report': {

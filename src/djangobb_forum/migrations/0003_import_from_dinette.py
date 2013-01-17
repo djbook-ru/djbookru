@@ -4,91 +4,96 @@ from south.db import db
 from south.v2 import DataMigration
 from django.db import models
 from django.utils.html import strip_tags, linebreaks
+from django.db.utils import DatabaseError
+
 
 class Migration(DataMigration):
 
     def forwards(self, orm):
         if db.dry_run:
             return
-        
+
         print '>>> Migrate dinette.SuperCategory...'
-        
-        for sc in orm['dinette.SuperCategory'].objects.all():
-            new_sc = orm.Category()
-            new_sc.pk = sc.pk
-            new_sc.name = sc.name
-            new_sc.position = sc.ordering
-            new_sc.save()
-        
-        print '>>> Migrate dinette.Category'
-        
-        for category in orm['dinette.Category'].objects.all():
-            new_forum = orm.Forum()
-            new_forum.pk = category.pk
-            new_forum.category_id = category.super_category_id
-            new_forum.name = category.name
-            new_forum.position = category.ordering
-            new_forum.description = category.description
-            new_forum.save()
-            new_forum.moderators = category.moderated_by.all()
-         
-        print '>>> Migrate dinette.Ftopics'
-         
-        for topic in orm['dinette.Ftopics'].objects.all():
-            new_topic = orm.Topic()
-            new_topic.pk = topic.pk
-            new_topic.forum_id = topic.category_id
-            new_topic.user = topic.posted_by
-            new_topic.name = topic.subject
-            new_topic.views = topic.viewcount
-            new_topic.sticky = topic.is_sticky
-            new_topic.closed = topic.is_closed
-            new_topic.created = topic.created_on
-            new_topic.updated = topic.updated_on
-            new_topic.save()
-            
-            topic_post = orm.Post()
-            topic_post.topic = new_topic
-            topic_post.user = new_topic.user
-            topic_post.body = topic.message
-            topic_post.body_html = linebreaks(strip_tags(topic.message))
-            topic_post.save()
-            
-            topic_post.topic.forum.last_post = topic_post
-            topic_post.topic.forum.save()
-            topic_post.topic.last_post = topic_post
-            topic_post.topic.save()                        
-        
-        print '>>> Migrate dinette.Reply'
-        
-        for reply in orm['dinette.Reply'].objects.order_by('created_on'):
-            new_post = orm.Post()
-            new_post.topic_id = reply.topic_id
-            new_post.user = reply.posted_by
-            new_post.body = reply.message
-            new_post.body_html = linebreaks(strip_tags(reply.message))
-            new_post.created = reply.created_on
-            new_post.updated = reply.updated_on
-            new_post.save()
-            
-            new_post.topic.forum.last_post = new_post
-            new_post.topic.forum.save()
-            new_post.topic.last_post = new_post
-            new_post.topic.save()
-            
-        print '>>> Fix Forum.post_count and Forum.topic_count'
-        
-        for forum in orm.Forum.objects.all():
-            forum.post_count = orm.Post.objects.filter(topic__forum=forum).count()
-            forum.topic_count = forum.topics.count()
-            forum.save()
-        
-        print '>>> Fix Topic.post_count'
-        
-        for topic in orm.Topic.objects.all():
-            topic.post_count = topic.posts.count()
-            topic.save()
-        
+
+        try:
+            for sc in orm['dinette.SuperCategory'].objects.all():
+                new_sc = orm.Category()
+                new_sc.pk = sc.pk
+                new_sc.name = sc.name
+                new_sc.position = sc.ordering
+                new_sc.save()
+
+            print '>>> Migrate dinette.Category'
+
+            for category in orm['dinette.Category'].objects.all():
+                new_forum = orm.Forum()
+                new_forum.pk = category.pk
+                new_forum.category_id = category.super_category_id
+                new_forum.name = category.name
+                new_forum.position = category.ordering
+                new_forum.description = category.description
+                new_forum.save()
+                new_forum.moderators = category.moderated_by.all()
+
+            print '>>> Migrate dinette.Ftopics'
+
+            for topic in orm['dinette.Ftopics'].objects.all():
+                new_topic = orm.Topic()
+                new_topic.pk = topic.pk
+                new_topic.forum_id = topic.category_id
+                new_topic.user = topic.posted_by
+                new_topic.name = topic.subject
+                new_topic.views = topic.viewcount
+                new_topic.sticky = topic.is_sticky
+                new_topic.closed = topic.is_closed
+                new_topic.created = topic.created_on
+                new_topic.updated = topic.updated_on
+                new_topic.save()
+
+                topic_post = orm.Post()
+                topic_post.topic = new_topic
+                topic_post.user = new_topic.user
+                topic_post.body = topic.message
+                topic_post.body_html = linebreaks(strip_tags(topic.message))
+                topic_post.save()
+
+                topic_post.topic.forum.last_post = topic_post
+                topic_post.topic.forum.save()
+                topic_post.topic.last_post = topic_post
+                topic_post.topic.save()
+
+            print '>>> Migrate dinette.Reply'
+
+            for reply in orm['dinette.Reply'].objects.order_by('created_on'):
+                new_post = orm.Post()
+                new_post.topic_id = reply.topic_id
+                new_post.user = reply.posted_by
+                new_post.body = reply.message
+                new_post.body_html = linebreaks(strip_tags(reply.message))
+                new_post.created = reply.created_on
+                new_post.updated = reply.updated_on
+                new_post.save()
+
+                new_post.topic.forum.last_post = new_post
+                new_post.topic.forum.save()
+                new_post.topic.last_post = new_post
+                new_post.topic.save()
+
+            print '>>> Fix Forum.post_count and Forum.topic_count'
+
+            for forum in orm.Forum.objects.all():
+                forum.post_count = orm.Post.objects.filter(topic__forum=forum).count()
+                forum.topic_count = forum.topics.count()
+                forum.save()
+
+            print '>>> Fix Topic.post_count'
+
+            for topic in orm.Topic.objects.all():
+                topic.post_count = topic.posts.count()
+                topic.save()
+        except DatabaseError:
+            pass
+
     def backwards(self, orm):
         "Write your backwards methods here."
 
@@ -262,8 +267,8 @@ class Migration(DataMigration):
             'Meta': {'object_name': 'PostTracking'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_read': ('django.db.models.fields.DateTimeField', [], {'null': 'True'}),
-            'topics': ('djangobb_forum.fields.JSONField', [], {'null': 'True'}),
-            'user': ('djangobb_forum.fields.AutoOneToOneField', [], {'to': "orm['accounts.User']", 'unique': 'True'})
+            'topics': ('src.djangobb_forum.fields.JSONField', [], {'null': 'True'}),
+            'user': ('src.djangobb_forum.fields.AutoOneToOneField', [], {'to': "orm['accounts.User']", 'unique': 'True'})
         },
         'djangobb_forum.profile': {
             'Meta': {'object_name': 'Profile'},
@@ -285,7 +290,7 @@ class Migration(DataMigration):
             'status': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
             'theme': ('django.db.models.fields.CharField', [], {'default': "'default'", 'max_length': '80'}),
             'time_zone': ('django.db.models.fields.FloatField', [], {'default': '3.0'}),
-            'user': ('djangobb_forum.fields.AutoOneToOneField', [], {'related_name': "'forum_profile'", 'unique': 'True', 'to': "orm['accounts.User']"}),
+            'user': ('src.djangobb_forum.fields.AutoOneToOneField', [], {'related_name': "'forum_profile'", 'unique': 'True', 'to': "orm['accounts.User']"}),
             'yahoo': ('django.db.models.fields.CharField', [], {'max_length': '80', 'blank': 'True'})
         },
         'djangobb_forum.report': {

@@ -3,69 +3,84 @@ import datetime
 from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
+from django.conf import settings
+from django.db.utils import DatabaseError
 
 
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Deleting model 'OpenidProfile'
-        db.delete_table('socialauth_openidprofile')
+        try:
+            # Deleting model 'OpenidProfile'
+            db.delete_table('socialauth_openidprofile')
+        except DatabaseError:
+            pass
 
-        # Deleting model 'TwitterUserProfile'
-        db.delete_table('socialauth_twitteruserprofile')
+        try:
+            # Deleting model 'TwitterUserProfile'
+            db.delete_table('socialauth_twitteruserprofile')
+        except DatabaseError:
+            pass
 
-        # Deleting model 'FacebookUserProfile'
-        db.delete_table('socialauth_facebookuserprofile')
+        try:
+            # Deleting model 'FacebookUserProfile'
+            db.delete_table('socialauth_facebookuserprofile')
+        except DatabaseError:
+            pass
 
-        # Deleting model 'AuthMeta'
-        db.delete_table('socialauth_authmeta')
+        try:
+            # Deleting model 'AuthMeta'
+            db.delete_table('socialauth_authmeta')
+        except DatabaseError:
+            pass
 
     def backwards(self, orm):
-        # Adding model 'OpenidProfile'
-        db.create_table('socialauth_openidprofile', (
-            ('is_username_valid', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('email', self.gf('django.db.models.fields.EmailField')(max_length=75)),
-            ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('nickname', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('openid_key', self.gf('django.db.models.fields.CharField')(max_length=200, unique=True)),
-        ))
-        db.send_create_signal('socialauth', ['OpenidProfile'])
+        if 'socialauth' in settings.INSTALLED_APPS:
+            # Adding model 'OpenidProfile'
+            db.create_table('socialauth_openidprofile', (
+                ('is_username_valid', self.gf('django.db.models.fields.BooleanField')(default=False)),
+                ('email', self.gf('django.db.models.fields.EmailField')(max_length=75)),
+                ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
+                ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+                ('nickname', self.gf('django.db.models.fields.CharField')(max_length=100)),
+                ('openid_key', self.gf('django.db.models.fields.CharField')(max_length=200, unique=True)),
+            ))
+            db.send_create_signal('socialauth', ['OpenidProfile'])
 
-        # Adding model 'TwitterUserProfile'
-        db.create_table('socialauth_twitteruserprofile', (
-            ('url', self.gf('django.db.models.fields.URLField')(max_length=200, null=True, blank=True)),
-            ('screen_name', self.gf('django.db.models.fields.CharField')(max_length=200, unique=True)),
-            ('description', self.gf('django.db.models.fields.CharField')(max_length=160, null=True, blank=True)),
-            ('access_token', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
-            ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('profile_image_url', self.gf('django.db.models.fields.URLField')(max_length=200, null=True, blank=True)),
-            ('location', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
-        ))
-        db.send_create_signal('socialauth', ['TwitterUserProfile'])
+            # Adding model 'TwitterUserProfile'
+            db.create_table('socialauth_twitteruserprofile', (
+                ('url', self.gf('django.db.models.fields.URLField')(max_length=200, null=True, blank=True)),
+                ('screen_name', self.gf('django.db.models.fields.CharField')(max_length=200, unique=True)),
+                ('description', self.gf('django.db.models.fields.CharField')(max_length=160, null=True, blank=True)),
+                ('access_token', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
+                ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
+                ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+                ('profile_image_url', self.gf('django.db.models.fields.URLField')(max_length=200, null=True, blank=True)),
+                ('location', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
+            ))
+            db.send_create_signal('socialauth', ['TwitterUserProfile'])
 
-        # Adding model 'FacebookUserProfile'
-        db.create_table('socialauth_facebookuserprofile', (
-            ('about_me', self.gf('django.db.models.fields.CharField')(max_length=160, null=True, blank=True)),
-            ('location', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
-            ('facebook_uid', self.gf('django.db.models.fields.CharField')(max_length=20, unique=True)),
-            ('url', self.gf('django.db.models.fields.URLField')(max_length=200, null=True, blank=True)),
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('profile_image_url', self.gf('django.db.models.fields.URLField')(max_length=200, null=True, blank=True)),
-            ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
-        ))
-        db.send_create_signal('socialauth', ['FacebookUserProfile'])
+            # Adding model 'FacebookUserProfile'
+            db.create_table('socialauth_facebookuserprofile', (
+                ('about_me', self.gf('django.db.models.fields.CharField')(max_length=160, null=True, blank=True)),
+                ('location', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
+                ('facebook_uid', self.gf('django.db.models.fields.CharField')(max_length=20, unique=True)),
+                ('url', self.gf('django.db.models.fields.URLField')(max_length=200, null=True, blank=True)),
+                ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+                ('profile_image_url', self.gf('django.db.models.fields.URLField')(max_length=200, null=True, blank=True)),
+                ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
+            ))
+            db.send_create_signal('socialauth', ['FacebookUserProfile'])
 
-        # Adding model 'AuthMeta'
-        db.create_table('socialauth_authmeta', (
-            ('is_profile_modified', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('is_email_filled', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('user', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['auth.User'], unique=True)),
-            ('provider', self.gf('django.db.models.fields.CharField')(max_length=30)),
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-        ))
-        db.send_create_signal('socialauth', ['AuthMeta'])
+            # Adding model 'AuthMeta'
+            db.create_table('socialauth_authmeta', (
+                ('is_profile_modified', self.gf('django.db.models.fields.BooleanField')(default=False)),
+                ('is_email_filled', self.gf('django.db.models.fields.BooleanField')(default=False)),
+                ('user', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['auth.User'], unique=True)),
+                ('provider', self.gf('django.db.models.fields.CharField')(max_length=30)),
+                ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ))
+            db.send_create_signal('socialauth', ['AuthMeta'])
 
     models = {
         'accounts.emailconfirmation': {

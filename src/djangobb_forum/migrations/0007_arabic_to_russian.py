@@ -112,8 +112,8 @@ class Migration(DataMigration):
             'Meta': {'object_name': 'PostTracking'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_read': ('django.db.models.fields.DateTimeField', [], {'null': 'True'}),
-            'topics': ('djangobb_forum.fields.JSONField', [], {'null': 'True'}),
-            'user': ('djangobb_forum.fields.AutoOneToOneField', [], {'to': "orm['accounts.User']", 'unique': 'True'})
+            'topics': ('src.djangobb_forum.fields.JSONField', [], {'null': 'True'}),
+            'user': ('src.djangobb_forum.fields.AutoOneToOneField', [], {'to': "orm['accounts.User']", 'unique': 'True'})
         },
         'djangobb_forum.profile': {
             'Meta': {'object_name': 'Profile'},
@@ -135,7 +135,7 @@ class Migration(DataMigration):
             'status': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
             'theme': ('django.db.models.fields.CharField', [], {'default': "'DjangoBB'", 'max_length': '80'}),
             'time_zone': ('django.db.models.fields.FloatField', [], {'default': '3.0'}),
-            'user': ('djangobb_forum.fields.AutoOneToOneField', [], {'related_name': "'forum_profile'", 'unique': 'True', 'to': "orm['accounts.User']"}),
+            'user': ('src.djangobb_forum.fields.AutoOneToOneField', [], {'related_name': "'forum_profile'", 'unique': 'True', 'to': "orm['accounts.User']"}),
             'yahoo': ('django.db.models.fields.CharField', [], {'max_length': '80', 'blank': 'True'})
         },
         'djangobb_forum.report': {

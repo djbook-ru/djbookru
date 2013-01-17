@@ -3,8 +3,7 @@
 from south.v2 import DataMigration
 from django.db import transaction
 from django.contrib.auth.models import User
-
-from .. models import Category, Forum
+from django.db import models
 
 
 class Migration(DataMigration):
@@ -12,21 +11,24 @@ class Migration(DataMigration):
     @transaction.commit_on_success
     def forwards(self, orm):
         u"""Create a forum for recipe."""
-        category = Category.objects.get(name='Djbook.ru')
-        forum = Forum(category=category,
-                      name=u'Обсуждение рецептов',
-                      description=u'Комментарии и вопросы к рецептам, опубликованным на сайте.',
-                      position=20)
-        forum.save()
+        try:
+            category = orm.Category.objects.get(name='Djbook.ru')
+            forum = orm.Forum(category=category,
+                          name=u'Обсуждение рецептов',
+                          description=u'Комментарии и вопросы к рецептам, опубликованным на сайте.',
+                          position=20)
+            forum.save()
 
-        users = User.objects.filter(username__in=('rad', 'alerion'))
-        forum.moderators.add = users
-        forum.save()
+            users = User.objects.filter(username__in=('rad', 'alerion'))
+            forum.moderators.add = users
+            forum.save()
+        except models.ObjectDoesNotExist:
+            pass
 
     @transaction.commit_on_success
     def backwards(self, orm):
         u"""Drop recipe's forum."""
-        Forum.objects.filter(name='Обсуждение рецептов').delete()
+        orm['Forum'].objects.filter(name='Обсуждение рецептов').delete()
 
     models = {
         'accounts.user': {
@@ -126,8 +128,8 @@ class Migration(DataMigration):
             'Meta': {'object_name': 'PostTracking'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_read': ('django.db.models.fields.DateTimeField', [], {'null': 'True'}),
-            'topics': ('djangobb_forum.fields.JSONField', [], {'null': 'True'}),
-            'user': ('djangobb_forum.fields.AutoOneToOneField', [], {'to': "orm['accounts.User']", 'unique': 'True'})
+            'topics': ('src.djangobb_forum.fields.JSONField', [], {'null': 'True'}),
+            'user': ('src.djangobb_forum.fields.AutoOneToOneField', [], {'to': "orm['accounts.User']", 'unique': 'True'})
         },
         'djangobb_forum.profile': {
             'Meta': {'object_name': 'Profile'},
@@ -149,7 +151,7 @@ class Migration(DataMigration):
             'status': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
             'theme': ('django.db.models.fields.CharField', [], {'default': "'DjangoBB'", 'max_length': '80'}),
             'time_zone': ('django.db.models.fields.FloatField', [], {'default': '3.0'}),
-            'user': ('djangobb_forum.fields.AutoOneToOneField', [], {'related_name': "'forum_profile'", 'unique': 'True', 'to': "orm['accounts.User']"}),
+            'user': ('src.djangobb_forum.fields.AutoOneToOneField', [], {'related_name': "'forum_profile'", 'unique': 'True', 'to': "orm['accounts.User']"}),
             'yahoo': ('django.db.models.fields.CharField', [], {'max_length': '80', 'blank': 'True'})
         },
         'djangobb_forum.report': {

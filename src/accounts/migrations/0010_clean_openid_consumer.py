@@ -3,38 +3,47 @@ import datetime
 from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
+from django.conf import settings
+from django.db.utils import DatabaseError
 
 
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Deleting model 'Nonce'
-        db.delete_table('openid_consumer_nonce')
+        try:
+            # Deleting model 'Nonce'
+            db.delete_table('openid_consumer_nonce')
+        except DatabaseError:
+            pass
 
-        # Deleting model 'Association'
-        db.delete_table('openid_consumer_association')
+        try:
+            # Deleting model 'Association'
+            db.delete_table('openid_consumer_association')
+        except DatabaseError:
+            pass
 
     def backwards(self, orm):
-        # Adding model 'Nonce'
-        db.create_table('openid_consumer_nonce', (
-            ('timestamp', self.gf('django.db.models.fields.IntegerField')()),
-            ('salt', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('server_url', self.gf('django.db.models.fields.URLField')(max_length=200)),
-        ))
-        db.send_create_signal('openid_consumer', ['Nonce'])
+        if 'openid_consumer' in settings.INSTALLED_APPS:
+            # Adding model 'Nonce'
+            db.create_table('openid_consumer_nonce', (
+                ('timestamp', self.gf('django.db.models.fields.IntegerField')()),
+                ('salt', self.gf('django.db.models.fields.CharField')(max_length=50)),
+                ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+                ('server_url', self.gf('django.db.models.fields.URLField')(max_length=200)),
+            ))
+            db.send_create_signal('openid_consumer', ['Nonce'])
 
-        # Adding model 'Association'
-        db.create_table('openid_consumer_association', (
-            ('secret', self.gf('django.db.models.fields.TextField')(max_length=255)),
-            ('handle', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('lifetime', self.gf('django.db.models.fields.IntegerField')()),
-            ('issued', self.gf('django.db.models.fields.IntegerField')()),
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('assoc_type', self.gf('django.db.models.fields.TextField')(max_length=64)),
-            ('server_url', self.gf('django.db.models.fields.TextField')(max_length=2047)),
-        ))
-        db.send_create_signal('openid_consumer', ['Association'])
+            # Adding model 'Association'
+            db.create_table('openid_consumer_association', (
+                ('secret', self.gf('django.db.models.fields.TextField')(max_length=255)),
+                ('handle', self.gf('django.db.models.fields.CharField')(max_length=255)),
+                ('lifetime', self.gf('django.db.models.fields.IntegerField')()),
+                ('issued', self.gf('django.db.models.fields.IntegerField')()),
+                ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+                ('assoc_type', self.gf('django.db.models.fields.TextField')(max_length=64)),
+                ('server_url', self.gf('django.db.models.fields.TextField')(max_length=2047)),
+            ))
+            db.send_create_signal('openid_consumer', ['Association'])
 
     models = {
         'accounts.emailconfirmation': {

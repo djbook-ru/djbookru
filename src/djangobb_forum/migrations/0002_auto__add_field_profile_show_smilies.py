@@ -7,13 +7,13 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        
+
         # Adding field 'Profile.show_smilies'
         db.add_column('djangobb_forum_profile', 'show_smilies', self.gf('django.db.models.fields.BooleanField')(default=True), keep_default=False)
 
 
     def backwards(self, orm):
-        
+
         # Deleting field 'Profile.show_smilies'
         db.delete_column('djangobb_forum_profile', 'show_smilies')
 
@@ -110,13 +110,13 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'PostTracking'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_read': ('django.db.models.fields.DateTimeField', [], {'null': 'True'}),
-            'topics': ('djangobb_forum.fields.JSONField', [], {'null': 'True'}),
-            'user': ('djangobb_forum.fields.AutoOneToOneField', [], {'to': "orm['auth.User']", 'unique': 'True'})
+            'topics': ('src.djangobb_forum.fields.JSONField', [], {'null': 'True'}),
+            'user': ('src.djangobb_forum.fields.AutoOneToOneField', [], {'to': "orm['auth.User']", 'unique': 'True'})
         },
         'djangobb_forum.profile': {
             'Meta': {'object_name': 'Profile'},
             'aim': ('django.db.models.fields.CharField', [], {'max_length': '80', 'blank': 'True'}),
-            'avatar': ('djangobb_forum.fields.ExtendedImageField', [], {'default': "''", 'max_length': '100', 'blank': 'True'}),
+            'avatar': ('src.djangobb_forum.fields.ExtendedImageField', [], {'default': "''", 'max_length': '100', 'blank': 'True'}),
             'icq': ('django.db.models.fields.CharField', [], {'max_length': '12', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'jabber': ('django.db.models.fields.CharField', [], {'max_length': '80', 'blank': 'True'}),
@@ -134,7 +134,7 @@ class Migration(SchemaMigration):
             'status': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
             'theme': ('django.db.models.fields.CharField', [], {'default': "'default'", 'max_length': '80'}),
             'time_zone': ('django.db.models.fields.FloatField', [], {'default': '3.0'}),
-            'user': ('djangobb_forum.fields.AutoOneToOneField', [], {'related_name': "'forum_profile'", 'unique': 'True', 'to': "orm['auth.User']"}),
+            'user': ('src.djangobb_forum.fields.AutoOneToOneField', [], {'related_name': "'forum_profile'", 'unique': 'True', 'to': "orm['auth.User']"}),
             'yahoo': ('django.db.models.fields.CharField', [], {'max_length': '80', 'blank': 'True'})
         },
         'djangobb_forum.report': {

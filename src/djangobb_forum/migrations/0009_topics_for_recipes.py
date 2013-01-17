@@ -5,8 +5,7 @@ from django.db import transaction
 
 from ... examples.models import Example
 from ... accounts.models import User
-
-from .. models import Forum, Topic, Post
+from django.db import models
 
 
 class Migration(DataMigration):
@@ -14,34 +13,40 @@ class Migration(DataMigration):
     @transaction.commit_on_success
     def forwards(self, orm):
         u"""Create topic for each recipe that already exists."""
-        user = User.objects.get(username='rad')
-        forum = Forum.objects.get(name='Обсуждение рецептов')
-        examples = Example.objects.all()
+        try:
+            user = orm['accounts.User'].objects.get(username='rad')
+            forum = orm.Forum.objects.get(name='Обсуждение рецептов')
+            examples = orm.Example.objects.all()
 
-        for item in examples:
-            topic = Topic(forum=forum,
-                          name=item.title,
-                          user=user)
-            topic.save()
+            for item in examples:
+                topic = orm.Topic(forum=forum,
+                              name=item.title,
+                              user=user)
+                topic.save()
 
-            body_plain = u"""Обсуждение рецепта "%s" (http://djbook.ru%s)."""
-            body_html = u"""Обсуждение рецепта &laquo;<a href="%s">%s</a>&raquo;."""
-            title = item.title
-            url = item.get_absolute_url()
-            post = Post(topic=topic,
-                        user=user,
-                        body=body_plain % (title, url),
-                        body_html=body_html % (url, title))
-            post.save()
+                body_plain = u"""Обсуждение рецепта "%s" (http://djbook.ru%s)."""
+                body_html = u"""Обсуждение рецепта &laquo;<a href="%s">%s</a>&raquo;."""
+                title = item.title
+                url = item.get_absolute_url()
+                post = orm.Post(topic=topic,
+                            user=user,
+                            body=body_plain % (title, url),
+                            body_html=body_html % (url, title))
+                post.save()
 
-            item.topic_id = topic.pk
-            item.save()
+                item.topic_id = topic.pk
+                item.save()
+        except models.ObjectDoesNotExist:
+            pass
 
     @transaction.commit_on_success
     def backwards(self, orm):
         u"""Clean all topics for recipes."""
-        forum = Forum.objects.get(name='Обсуждение рецептов')
-        Topic.objects.filter(forum=forum).delete()
+        try:
+            forum = orm.Forum.objects.get(name='Обсуждение рецептов')
+            orm.Topic.objects.filter(forum=forum).delete()
+        except models.ObjectDoesNotExist:
+            pass
 
     models = {
         'accounts.user': {
@@ -141,8 +146,8 @@ class Migration(DataMigration):
             'Meta': {'object_name': 'PostTracking'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_read': ('django.db.models.fields.DateTimeField', [], {'null': 'True'}),
-            'topics': ('djangobb_forum.fields.JSONField', [], {'null': 'True'}),
-            'user': ('djangobb_forum.fields.AutoOneToOneField', [], {'to': "orm['accounts.User']", 'unique': 'True'})
+            'topics': ('src.djangobb_forum.fields.JSONField', [], {'null': 'True'}),
+            'user': ('src.djangobb_forum.fields.AutoOneToOneField', [], {'to': "orm['accounts.User']", 'unique': 'True'})
         },
         'djangobb_forum.profile': {
             'Meta': {'object_name': 'Profile'},
@@ -164,7 +169,7 @@ class Migration(DataMigration):
             'status': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
             'theme': ('django.db.models.fields.CharField', [], {'default': "'DjangoBB'", 'max_length': '80'}),
             'time_zone': ('django.db.models.fields.FloatField', [], {'default': '3.0'}),
-            'user': ('djangobb_forum.fields.AutoOneToOneField', [], {'related_name': "'forum_profile'", 'unique': 'True', 'to': "orm['accounts.User']"}),
+            'user': ('src.djangobb_forum.fields.AutoOneToOneField', [], {'related_name': "'forum_profile'", 'unique': 'True', 'to': "orm['accounts.User']"}),
             'yahoo': ('django.db.models.fields.CharField', [], {'max_length': '80', 'blank': 'True'})
         },
         'djangobb_forum.report': {
