@@ -2405,7 +2405,7 @@ msgstr ""
 
 #: templates/_menu.html:47
 msgid "Map"
-msgstr "Карты"
+msgstr "Карта"
 
 #: templates/_menu.html:50
 msgid "About"
