@@ -57,16 +57,6 @@
     </script>
 {% endblock %}
 
-{% block pre_content %}
-    {{ block.super }}
-    <div class="alert alert-info">
-        <h4>{% trans "Add yourself on map!" %}</h4>
-        {% trans "This is just for fun." %}
-        {% trans "You should be authenticated." %}
-        {% trans "Put marker on map to mark you position." %}
-    </div>
-{% endblock %}
-
 {% block content %}
     <div class="modal hide" id="code-review-help">
         <div class="modal-header">

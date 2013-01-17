@@ -428,3 +428,7 @@ a.btn-success {
     color: #487858;
     font-weight: bold;
 }
+
+.navbar .nav > li > a {
+    padding: 10px 8px 10px;
+}

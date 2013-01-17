@@ -1,9 +1,9 @@
 {% load staticfiles %}
 {% load i18n components claims_tags %}
 
-<div class="well" style="text-align: center; color: black; background-color: #fff8a0; padding: 8px; -moz-border-radius: 4px; -webkit-border-radius: 4px;">
-  <a href="/codeon/"><img src="{% static "img/codeon.png" %}" width="100" height="26" title="Code-on: Your Partner in Development"/></a>
-  <a style="color: #191919;" href="/codeon/">Ищем Python программистов</a>
+<div class="well">
+    <a href="{% url accounts:map %}"><img src="{% static 'img/map.png' %}"/></a>
+    <h5 style="margin-top: -12px"><a href="{% url accounts:map %}">{% trans "Add yourself on map!" %}</a></h5>
 </div>
 
 <div class="well">
@@ -60,22 +60,14 @@
 </div>
 
 <div class="well">
-  <div style="font-size: 10px; font-weight: bold; margin: 4px 0px;">
+  <div style="font-size: 9px; font-weight: bold; margin: 4px 0px;">
     {% blocktrans %}
-    The full repository of DjangoBook translation you can get on <a href="http://github.com/RaD/djangobook/">GitHub</a>.
+    <a href="https://github.com/RaD/djbookru/">Our site source code</a>
+    <br/>
+    <a href="https://github.com/Alerion/django_documentation/">Documentation translation</a>
     <br/>
     We appreciate your patches!
     {% endblocktrans %}
-  </div>
-</div>
-
-<div class="well">
-  <div style="font-size: 10px; font-weight: bold; margin: 4px 0px;">
-    {% trans 'We are glad to hear your questions, comments or suggestions!' %}
-    <br/>
-    <a href="{% url main:feedback %}" target="_blank">
-        ({% trans 'Open in new tab' %})
-    </a>
   </div>
 </div>
 
