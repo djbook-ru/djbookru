@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load i18n staticfiles %}
+{% load url from future %}
 
 {% block title %}{% trans 'Register' %} | {{ block.super }}{% endblock %}
 
@@ -23,6 +24,11 @@
     </style>
     <script>
     jQuery(function($){
+        var IS_AUTHENTICATED = {% if user.is_authenticated %}true{% else %}false{% endif %};
+        var SAVE_URL = '{% url "accounts:save_user_position" %}';
+        var USER_POSITION = {{ user_position_json|safe }};
+        var OTHER_POSITIONS = {{ other_positions_json|safe }};
+
         // create a map in the "map" div, set the view to a given place and zoom
         var map = L.map('map').setView([55.779120, 37.615807], 5);
 
@@ -31,22 +37,84 @@
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
+        // define markers
+        var UserMarker = L.Icon.extend({
+            options: {
+                shadowUrl: null,
+                iconAnchor: new L.Point(16, 36),
+                iconSize: new L.Point(32, 37),
+                iconUrl: '{% static "leeflet_0.4.5/icons/snakes.png" %}'
+            }
+        });
+
+        var OtherUserMarker = L.Icon.extend({
+            options: {
+                shadowUrl: null,
+                iconAnchor: new L.Point(16, 36),
+                iconSize: new L.Point(32, 37),
+                iconUrl: '{% static "leeflet_0.4.5/icons/snakes_blue.png" %}'
+            }
+        });
+
+        // configure draw control
         var drawControl = new L.Control.Draw({
             polyline: false,
             polygon: false,
             circle: false,
-            rectangle: false
+            rectangle: false,
+            marker: {
+                icon: new UserMarker()
+            }
         });
         map.addControl(drawControl);
 
-        var markers = new L.MarkerClusterGroup();
-
-        map.on('draw:marker-created', function (e) {
-            e.marker.bindPopup('A popup!');
-            markers.addLayer(e.marker);
+        // add markers
+        var markers = new L.MarkerClusterGroup({
+            disableClusteringAtZoom: 8
         });
+        var userMarker = null;
+
+        if (USER_POSITION){
+            userMarker = L.marker([USER_POSITION.lat, USER_POSITION.lng], {icon: new UserMarker()})
+            markers.addLayer(userMarker);
+        }
+
+        for (var i=0; i<OTHER_POSITIONS.length; i++){
+            var p = OTHER_POSITIONS[i];
+            var m = L.marker([p.lat, p.lng], {icon: new OtherUserMarker()});
+            m.bindPopup('<a href="'+p.url+'" target="blank"><img src="'+p.avatar+'"></img></a><br><a href="'+p.url+'" target="blank">'+p.username+'</a>', {
+                offset: new L.Point(0, -25)
+            });
+            markers.addLayer(m);
+        }
 
         map.addLayer(markers);
+
+        // add draw handler
+        map.on('draw:marker-created', function (e) {
+            if (userMarker){
+                markers.removeLayer(userMarker);
+            }
+
+            userMarker = e.marker;
+            markers.addLayer(userMarker);
+
+            if (IS_AUTHENTICATED){
+                var data = {
+                    lat: userMarker.getLatLng().lat,
+                    lng: userMarker.getLatLng().lng
+                }
+                $.post(SAVE_URL, data, function(data){
+                    if (data.error){
+                        markers.removeLayer(userMarker);
+                        alert(data.error);
+                    }
+                });
+            } else {
+                markers.removeLayer(userMarker);
+                alert('{% trans "Authenticate please!" %}');
+            }
+        });
     });
     </script>
 {% endblock %}

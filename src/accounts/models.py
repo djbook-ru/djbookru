@@ -28,6 +28,9 @@ class User(BaseUser):
     is_valid_email = models.BooleanField(_(u'is valid email?'), default=False)
     achievements = models.ManyToManyField('Achievement', verbose_name=_(u'achievements'), through='UserAchievement')
 
+    lng = models.FloatField(_(u'longitude'), blank=True, null=True)
+    lat = models.FloatField(_(u'latitude'), blank=True, null=True)
+
     # for notification
     last_comments_read = models.DateTimeField(_(u'last comments read'), default=timezone.now)
     last_doc_comments_read = models.DateTimeField(_(u'last doc. comments read'), default=timezone.now)
@@ -37,6 +40,16 @@ class User(BaseUser):
     class Meta:
         verbose_name = _(u'User')
         verbose_name_plural = _(u'Users')
+
+    def get_position(self):
+        if not self.lng is None and not self.lat is None:
+            return {
+                'lat': self.lat,
+                'lng': self.lng,
+                'url': self.get_absolute_url(),
+                'username': unicode(self),
+                'avatar': self.avatar()
+            }
 
     def save(self, *args, **kwargs):
         send_confirmation = False

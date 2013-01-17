@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 
+from . backends import CustomUserBackend
+from . forms import UserEditForm, CreateUserForm, PasswordResetForm, SavePositionForm
+from . models import User, EmailConfirmation, EMAIL_CONFIRMATION_DAYS
+from .. comments.models import Comment
+from .. decorators import render_to, render_to_json
+from .. doc_comments.models import Comment as DocComment
 from django.conf import settings
 from django.contrib import auth
 from django.contrib import messages
@@ -9,15 +15,9 @@ from django.contrib.auth.views import password_reset as auth_password_reset, pas
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect
-from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
-
-from .. decorators import render_to
-from .. comments.models import Comment
-from .. doc_comments.models import Comment as DocComment
-from . backends import CustomUserBackend
-from . forms import UserEditForm, CreateUserForm, PasswordResetForm
-from . models import User, EmailConfirmation, EMAIL_CONFIRMATION_DAYS
+from django.utils.translation import ugettext_lazy as _, ugettext
+import simplejson
 
 
 LOGIN_REDIRECT_URL = getattr(settings, 'LOGIN_REDIRECT_URL', '/')
@@ -26,7 +26,41 @@ LOGOUT_REDIRECT_URL = getattr(settings, 'LOGOUT_REDIRECT_URL', '/')
 
 @render_to('accounts/map.html')
 def map(request):
-    return {}
+    user = request.user
+    other_users = User.objects.all()
+
+    if user.is_authenticated():
+        user_position = user.get_position()
+        other_users = other_users.exclude(pk=user.pk)
+    else:
+        user_position = None
+
+    other_positions = (u.get_position() for u in other_users)
+    other_positions = [p for p in other_positions if p]
+
+    return {
+        'user_position_json': simplejson.dumps(user_position),
+        'other_positions_json': simplejson.dumps(other_positions)
+    }
+
+
+@render_to_json
+def save_user_position(request):
+    user = request.user
+
+    if not user.is_authenticated():
+        return {
+            'error': ugettext(u'Authenticate please!')
+        }
+
+    form = SavePositionForm(request.POST, instance=user)
+    if form.is_valid():
+        form.save()
+        return {}
+    else:
+        return {
+            'error': ugettext(u'invalid form')
+        }
 
 
 @render_to('accounts/create.html')

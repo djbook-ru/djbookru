@@ -15,6 +15,13 @@ from .. utils.mail import send_templated_email
 from . import models
 
 
+class SavePositionForm(forms.ModelForm):
+
+    class Meta:
+        model = models.User
+        fields = ('lng', 'lat')
+
+
 class AuthenticationForm(forms.Form):
     email = forms.EmailField(label=_("Email"), max_length=30)
     password = forms.CharField(label=_("Password"), widget=forms.PasswordInput)
