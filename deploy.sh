@@ -1,4 +1,5 @@
 source ./.production
+export DBHOST DBNAME DBUSER DBPASS
 
 BUILD=./build
 SRC=${BUILD}/src
