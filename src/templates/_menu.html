@@ -1,4 +1,4 @@
-{% load i18n accounts_tags %}
+{% load i18n accounts_tags staticfiles %}
 
 <div class="navbar navbar-static navbar-inverse">
   <div class="navbar-inner">
@@ -17,8 +17,17 @@
                 <li><a href="{% url news:index %}" >{% trans 'News' %}</a></li>
                 <li><a href="{% url videos:index %}" >{% trans 'Videos' %}</a></li>
                 <li><a href="{% url djangobb:index %}" >{% trans 'Forum' %}</a></li>
-                <li><a href="{% url code_review:index %}" >{% trans 'Code Review' %}</a></li>
-                <li><a href="{% url accounts:map %}" >{% trans 'Map' %}</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+                        {% trans 'Code Review' %}
+                        <img style="width: 24px; height: 24px; margin: -13px 0 0 -8px" src="{% static 'img/beta.png' %}"/>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url code_review:index %}">{% trans "View snipets" %}</a></li>
+                        <li><a href="{% url code_review:add %}">{% trans "Add snipet" %}</a></li>
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
                         {% trans 'Recipes' %}<b class="caret"></b>
@@ -33,6 +42,10 @@
                     </ul>
                     {% endif %}
                 </li>
+                <li><a href="{% url accounts:map %}" >
+                    {% trans 'Map' %}
+                    <img style="width: 24px; height: 24px; margin: -13px 0 0 -8px" src="{% static 'img/beta.png' %}"/>
+                </a></li>
                 <li><a href="/about/">{% trans 'About' %}</a></li>
             </ul>
             <p class="navbar-text pull-right">

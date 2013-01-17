@@ -10,6 +10,8 @@
 {% block head %}
     <script src="{% static "syntaxhighlighter_3.0.83/scripts/shCore.js" %}"></script>
     <script src="{% static "syntaxhighlighter_3.0.83/scripts/shBrushPython.js" %}"></script>
+    <script src="{% static "syntaxhighlighter_3.0.83/scripts/shBrushJScript.js" %}"></script>
+    <script src="{% static "syntaxhighlighter_3.0.83/scripts/shBrushPlain.js" %}"></script>
 
     <link rel="stylesheet" href="{% static "syntaxhighlighter_3.0.83/styles/shCore.css" %}" type="text/css"/>
     <link rel="stylesheet" href="{% static "syntaxhighlighter_3.0.83/styles/shThemeDefault.css" %}" type="text/css"/>
@@ -79,6 +81,7 @@
         </a>
     </div>
 
+    <a href="{% url 'code_review:index' %}">&lt;&lt;&lt; {% trans "back" %}</a>
     <h4>{{ object }}</h4>
 
     <em>{{ object.created|date:'DATETIME_FORMAT' }}</em>
@@ -89,7 +92,7 @@
 
     {% for file in object.file_set.all %}
     <h4>{{ file }}</h4>
-    <pre class="brush: {{ file.language }}" id="file-{{ file.pk }}">{{ file.content }}</pre>
+    <pre class="brush: {{ file.language|default:'text' }}" id="file-{{ file.pk }}">{{ file.content }}</pre>
     {% endfor %}
 
     {% render_comment_list object %}

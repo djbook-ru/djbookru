@@ -8,11 +8,13 @@ import markdown
 
 class Snipet(models.Model):
     LANGUAGE_CHOICES = (
-        ('python', u'python'),
+        ('python', u'Python'),
+        ('javascript', u'JavaScript')
     )
     title = models.CharField(_(u'title'), max_length=255)
     description = models.TextField(_(u'description'), blank=True)
-    language = models.CharField(_(u'language'), default='python', choices=LANGUAGE_CHOICES, max_length=100)
+    language = models.CharField(_(u'language'), default='python', choices=LANGUAGE_CHOICES, max_length=100,
+        help_text=_(u'Main snippet language'))
     author = models.ForeignKey(User, verbose_name=_(u'author'))
     created = models.DateTimeField(_(u'created'), auto_now_add=True)
 
@@ -25,10 +27,14 @@ class Snipet(models.Model):
 
 
 class File(models.Model):
-    name = models.CharField(_(u'name'), max_length=1000)
+    LANGUAGE_CHOICES = (
+        ('python', u'Python'),
+        ('javascript', u'JavaScript')
+    )
+    name = models.CharField(_(u'file name'), max_length=1000)
     content = models.TextField(_(u'content'))
     snipet = models.ForeignKey(Snipet)
-    language = models.CharField(_(u'language'), default='python', max_length=100)
+    language = models.CharField(_(u'language'), blank=True, max_length=100, choices=LANGUAGE_CHOICES)
 
     def __unicode__(self):
         return self.name

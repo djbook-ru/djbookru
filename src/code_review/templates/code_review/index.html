@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load i18n pagination_tags %}
+{% load url from future %}
 
 {% block title %}{% trans 'Code Review' %} | {{ block.super }}{% endblock %}
 
@@ -14,6 +15,8 @@
 {% endblock %}
 
 {% block content %}
+    <a href="{% url 'code_review:add' %}" class="btn">{% trans "Add snipet" %}</a><br><br>
+
     {% if is_paginated %}
         {% paginate %}
     {% endif %}

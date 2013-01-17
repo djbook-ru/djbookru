@@ -12,6 +12,7 @@
         <meta name='yandex-verification' content='446e96868717e10e' />
         <meta property="og:site_name" content="DjangoBook v2.0"/>
         <meta property="og:image" content="{% static "img/djangobook-title.png" %}"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link href="/news/feed" rel="alternate" type="application/rss+xml" title="{% trans 'The freshest news about Russian version of DjangoBook' %}"/>
         <link href="/examples/feed" rel="alternate" type="application/rss+xml" title="{% trans 'Newly examples from Russian DjangoBook' %}"/>
@@ -81,7 +82,7 @@
                     {% last_comments %}
                 {% endblock %}
             </div>
-            <div class="right-column">
+            <div class="right-column visible-desktop">
                 {% include '_right.html' %}
             </div>
             <div class="center-column">
