@@ -1,19 +1,20 @@
 # -*- coding: utf-8 -*-
-from django.test import TestCase, Client
-from django.contrib.auth.models import User
 
-from djangobb_forum.models import Post, Reputation
+from django.contrib.auth.models import User
+from django.test import TestCase
+
+from .. models import Post, Reputation
 
 
 class TestReputation(TestCase):
     fixtures = ['test_forum.json']
-    
+
     def setUp(self):
         self.from_user = User.objects.get(pk=1)
         self.to_user = User.objects.get(pk=2)
         self.post = Post.objects.get(pk=1)
         self.reason = 'Test Reason'
-    
+
     def test_reputation_plus(self):
         reputation = Reputation.objects.create(
             from_user=self.from_user, to_user=self.to_user, post=self.post,

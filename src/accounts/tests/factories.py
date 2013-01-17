@@ -1,5 +1,5 @@
 import factory
-from accounts.models import User
+from .. models import User
 
 
 class UserFactory(factory.Factory):
