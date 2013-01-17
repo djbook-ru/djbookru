@@ -4,7 +4,6 @@ Django == 1.4.2
 #South == 0.7.6
 mysql-python
 -e hg+https://bitbucket.org/ruslanpopov/django-sentry#egg=sentry
--e hg+https://bitbucket.org/andrewgodwin/south@0c4cfc9405416916e16ff890f102180464faab85#egg=south
 
 python_openid>=2.2
 oauth2 >= 1.5.167
