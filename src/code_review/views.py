@@ -9,6 +9,7 @@ from django.shortcuts import redirect
 from django.utils import simplejson
 from django.views.generic.base import View
 from django.views.generic.list_detail import object_list
+from django.utils.translation import ugettext_lazy as _
 
 
 def index(request):
@@ -33,9 +34,12 @@ def add(request):
 
     file_formset = FileFormset(request.POST or None, instance=obj)
     if file_formset.is_valid() and form_validated:
-        obj.save()
-        file_formset.save()
-        return redirect(obj)
+        if not len(file_formset.save_new_objects(commit=False)):
+            form._errors['__all__'] = form.error_class([_(u'Add at least one file')])
+        else:
+            obj.save()
+            file_formset.save()
+            return redirect(obj)
 
     return {
         'form': form,
