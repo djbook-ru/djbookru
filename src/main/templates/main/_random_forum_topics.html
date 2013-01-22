@@ -5,7 +5,7 @@
         <h4><a href="{{ item.get_absolute_url }}">{{ item }}</a></h4> <span class="spliter">|</span>
         <h5><a href="{{ item.forum.get_absolute_url }}">{{ item.forum }}</a></h5>
         <p>
-            {{ item.head.body|markdown|striptags|truncatewords:20 }}
+            {{ item.head.body_html|striptags|truncatewords:20 }}
         </p>
     </div>
     {% if not forloop.last %}<hr>{% endif %}

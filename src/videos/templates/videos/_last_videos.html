@@ -1,6 +1,5 @@
 {% if index_video %}
-<div class="well content video">{% load i18n %}
-    <h3><a href="{% url videos:index %}">{% trans "Videos" %}</a></h3>
+<div class="well content video" style="padding: 12px">{% load i18n %}
     <div class="row">
         <div class="span301px">
             {{ index_video.video_preview_code|safe }}
