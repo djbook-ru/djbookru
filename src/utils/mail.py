@@ -6,7 +6,7 @@ from django.core.mail import EmailMessage
 
 
 def send_templated_email(to, subject, body_template, context,
-                         from_email='support@djbook.ru', ct="html", fail_silently=False):
+                         from_email=None, ct="html", fail_silently=False):
 
     if not isinstance(to, list):
         to = [to]
