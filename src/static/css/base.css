@@ -436,3 +436,7 @@ a.btn-success {
 .navbar .nav > li > a {
     padding: 10px 8px 10px;
 }
+
+.feedback-link {
+    font-size: 0.8em;
+}

@@ -36,7 +36,7 @@ class FeedbackForm(forms.Form):
         headers = {'Reply-To': email} if email else None
 
         EmailMessage(settings.FEEDBACK_SUBJECT, message, email, \
-                     [settings.FEEDBACK_EMAIL], headers=headers).send()
+                    [a[1] for a in settings.ADMINS], headers=headers).send()
 
 
 class BookAdminForm(forms.ModelForm):

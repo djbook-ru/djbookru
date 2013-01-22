@@ -12,9 +12,10 @@
                 {{ form|bootstrap }}
             </fieldset>
             <div class="form-actions">
-                <button type="submit" class="btn btn-primary">{% trans "Login" %}</button> 
-                <a class="btn" href="{% url accounts:create %}">{% trans 'Register' %}</a> 
+                <button type="submit" class="btn btn-primary">{% trans "Login" %}</button>
+                <a class="btn" href="{% url accounts:create %}">{% trans 'Register' %}</a>
                 <a class="btn" href="{% url accounts:password_reset %}">{% trans 'Forgot password?' %}</a>
+
                 <div style="margin-top: 5px">
                 {% for backend in social_auth.backends %}
                   <a class="btn" href="{% url socialauth_begin backend %}?next={{ next }}">{{ backend.title }}</a>

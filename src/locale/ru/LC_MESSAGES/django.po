@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-17 19:14+0400\n"
+"POT-Creation-Date: 2013-01-22 19:19+0400\n"
 "PO-Revision-Date: 2013-01-17 15:49+0300\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -253,7 +253,7 @@ msgstr "тема"
 msgid "link"
 msgstr "ссылка"
 
-#: accounts/models.py:118 code_review/models.py:37 doc_comments/models.py:18
+#: accounts/models.py:118 code_review/models.py:40 doc_comments/models.py:18
 #: examples/models.py:35 main/models.py:36 news/models.py:11
 msgid "content"
 msgstr "содержимое"
@@ -266,7 +266,7 @@ msgstr "Иcпользуйте Markdown или HTML"
 msgid "is active?"
 msgstr "активно?"
 
-#: accounts/models.py:120 code_review/models.py:21 code_review/models.py:50
+#: accounts/models.py:120 code_review/models.py:21 code_review/models.py:53
 #: examples/models.py:36 main/models.py:10 news/models.py:12
 #: videos/models.py:15
 msgid "created"
@@ -327,7 +327,7 @@ msgstr ""
 "аккаунт, войдите и подключите сторонний аккаунт на странице редактирования "
 "профиля."
 
-#: accounts/views.py:53 accounts/templates/accounts/map.html:115
+#: accounts/views.py:53 accounts/templates/accounts/map.html:123
 msgid "Authenticate please!"
 msgstr "Вы должны быть авторизированы."
 
@@ -472,25 +472,30 @@ msgstr "Вход"
 msgid "Forgot password?"
 msgstr "Забыли пароль?"
 
-#: accounts/templates/accounts/login.html:26
+#: accounts/templates/accounts/login.html:27
 msgid "You are authenticated already"
 msgstr "Вы уже аутентифицированы"
 
-#: accounts/templates/accounts/map.html:125 templates/_right.html:6
+#: accounts/templates/accounts/map.html:136 templates/_right.html:6
 msgid "Add yourself on map!"
 msgstr "Добавь себя на карту!"
 
-#: accounts/templates/accounts/map.html:126
+#: accounts/templates/accounts/map.html:137
 msgid "This is just for fun."
 msgstr "Это все просто для фана."
 
-#: accounts/templates/accounts/map.html:127
+#: accounts/templates/accounts/map.html:138
 msgid "You should be authenticated."
 msgstr "Вы должны быть авторизированы."
 
-#: accounts/templates/accounts/map.html:128
-msgid "Put marker on map to mark you position."
-msgstr "Поставь маркер на карте, что бы отметить свое местоположение."
+#: accounts/templates/accounts/map.html:139
+msgid ""
+"Green marker should appear on your position, otherwise put marker on map to "
+"mark you position."
+msgstr ""
+"Зеленый маркер появится там, где вы находитесь. Если ваш барузер не "
+"пооддерживает geolocation, добавите маркер просто перетащив его с панельки "
+"на карту."
 
 #: accounts/templates/accounts/notifications.html:11 comments/models.py:27
 #: news/templates/news/_last_news.html:9
@@ -663,7 +668,7 @@ msgstr ""
 msgid "Processed"
 msgstr "Выполнено"
 
-#: code_review/models.py:18 code_review/models.py:39
+#: code_review/models.py:18 code_review/models.py:42
 msgid "language"
 msgstr "язык"
 
@@ -671,27 +676,27 @@ msgstr "язык"
 msgid "Main snippet language"
 msgstr "Язык сниппета"
 
-#: code_review/models.py:20 code_review/models.py:49 doc_comments/models.py:19
+#: code_review/models.py:20 code_review/models.py:52 doc_comments/models.py:19
 msgid "author"
 msgstr "автор"
 
-#: code_review/models.py:36
+#: code_review/models.py:39
 msgid "file name"
 msgstr "имя файла"
 
-#: code_review/models.py:46
+#: code_review/models.py:49
 msgid "file"
 msgstr "файл"
 
-#: code_review/models.py:47
+#: code_review/models.py:50
 msgid "row"
 msgstr "строка"
 
-#: code_review/models.py:48 comments/models.py:21 doc_comments/models.py:27
+#: code_review/models.py:51 comments/models.py:21 doc_comments/models.py:27
 msgid "comment"
 msgstr "комментарий"
 
-#: code_review/views.py:38
+#: code_review/views.py:39
 msgid "Add at least one file"
 msgstr "Добавьте файл"
 
@@ -702,6 +707,7 @@ msgid "Code Review"
 msgstr "Code Review"
 
 #: code_review/templates/code_review/add.html:22
+#: code_review/templates/code_review/index.html:18
 msgid "Add snippet"
 msgstr "Добавить сниппет"
 
@@ -762,10 +768,6 @@ msgid ""
 msgstr ""
 "Старайтесь добавлять рабочий код и не слишком большой. Чем больше и сложнее "
 "код, тем меньше шанс, что его кто-то будет смотреть."
-
-#: code_review/templates/code_review/index.html:18 templates/_menu.html:28
-msgid "Add snipet"
-msgstr "Добавить сниппет"
 
 #: comments/forms.py:38
 msgid "You car reply only comments for same object"
@@ -2390,14 +2392,17 @@ msgstr "Последние новости с Russian DjangoBook"
 msgid "Forgotten page..."
 msgstr "Потерянная страница..."
 
-#: templates/_menu.html:18 videos/templates/videos/_last_videos.html:3
-#: videos/templates/videos/index.html:5
+#: templates/_menu.html:18 videos/templates/videos/index.html:5
 msgid "Videos"
 msgstr "Видео"
 
 #: templates/_menu.html:27
 msgid "View snipets"
 msgstr "Просмотреть сниппеты"
+
+#: templates/_menu.html:28
+msgid "Add snipet"
+msgstr "Добавить сниппет"
 
 #: templates/_menu.html:38
 msgid "Add"
@@ -2450,11 +2455,11 @@ msgstr ""
 "    <br/>    Ждем ваших патчей!\n"
 "    "
 
-#: templates/base.html:102
+#: templates/base.html:108
 msgid "Confirm you email"
 msgstr "Подтвердите адрес вашей электронной почты"
 
-#: templates/base.html:104
+#: templates/base.html:110
 msgid ""
 "\n"
 "                              You account does not have confirmed email.\n"
@@ -2466,13 +2471,17 @@ msgstr ""
 "Ваш аккаунт использует неподтверждённый адрес электронной почты.\n"
 "Вы должны ввести правильный адрес электронной почты и подтвердить его."
 
-#: templates/base.html:110
+#: templates/base.html:116
 msgid "Your current email is:"
 msgstr "Текущий адрес электронной почты:"
 
-#: templates/base.html:111
+#: templates/base.html:117
 msgid "Send confirmation email"
 msgstr "Отправить письмо для подтверждение адреса электронной почты"
+
+#: templates/base.html:125
+msgid "Please, write feedback if something does not work"
+msgstr "Пожалуйста, дайте нам знать, если что-то не работает."
 
 #: templates/admin/examples/change_form.html:11
 msgid "History"
@@ -2524,6 +2533,9 @@ msgstr "видео"
 #: videos/models.py:20
 msgid "videos"
 msgstr "видео"
+
+#~ msgid "Put marker on map to mark you position."
+#~ msgstr "Поставь маркер на карте, что бы отметить свое местоположение."
 
 #~ msgid "From:"
 #~ msgstr "Из:"

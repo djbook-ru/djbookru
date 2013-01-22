@@ -121,6 +121,9 @@
                 {% endblock %}
                 <div class="well content">
                     {% block content %}{% endblock %}
+                    {% block feedback_link %}
+                    <a class="feedback-link" href="{% url main:feedback %}" target="_blank">{% trans 'Please, write feedback if something does not work' %}</a>
+                    {% endblock %}
                 </div>
                 {% block post_content %}{% endblock %}
                 {% random_zone_ad 'buy_me' 'footer' %}

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-22 15:02+0200\n"
+"POT-Creation-Date: 2013-01-22 17:18+0200\n"
 "PO-Revision-Date: 2012-08-31 15:14+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -355,7 +355,7 @@ msgstr "Вход"
 msgid "Forgot password?"
 msgstr "Забыли пароль?"
 
-#: templates/accounts/login.html:26
+#: templates/accounts/login.html:27
 msgid "You are authenticated already"
 msgstr "Вы уже аутентифицированы"
 
@@ -376,7 +376,10 @@ msgstr "Вы уже аутентифицированы"
 msgid ""
 "Green marker should appear on your position, otherwise put marker on map to "
 "mark you position."
-msgstr "Зеленый маркер появится там, где вы находитесь. Если ваш барузер не пооддерживает geolocation, добавите маркер просто перетащив его с панельки на карту."
+msgstr ""
+"Зеленый маркер появится там, где вы находитесь. Если ваш барузер не "
+"пооддерживает geolocation, добавите маркер просто перетащив его с панельки "
+"на карту."
 
 #: templates/accounts/notifications.html:11
 msgid "Comments"
