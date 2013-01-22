@@ -57,6 +57,13 @@
 Разработка
 ==========
 
+Настройка отправки писем в консоль
+----------------------------------
+
+Добавляем в local_settings.py:
+
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 Миграции
 --------
 
