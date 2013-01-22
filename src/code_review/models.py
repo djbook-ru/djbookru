@@ -59,7 +59,7 @@ class Comment(models.Model):
         return u"%s: %s..." % (self.author, self.content[:50])
 
     def get_content(self):
-        return mark_safe(markdown.markdown(escape(self.content)).replace('\n', '<br />'))
+        return mark_safe(markdown.markdown(self.content, safe_mode='escape').replace('\n', '<br />'))
 
     def get_json(self):
         return {

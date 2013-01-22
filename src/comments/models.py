@@ -22,7 +22,7 @@ class Comment(models.Model):
     submit_date = models.DateTimeField(_(u'submit date'), auto_now_add=True)
 
     class Meta:
-        ordering = ('-submit_date',)
+        ordering = ('submit_date',)
         verbose_name = _(u'Comment')
         verbose_name_plural = _(u'Comments')
 
