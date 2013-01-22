@@ -75,7 +75,7 @@
         var userMarker = null;
 
         if (USER_POSITION){
-            userMarker = L.marker([USER_POSITION.lat, USER_POSITION.lng], {icon: new UserMarker()})
+            userMarker = L.marker([USER_POSITION.lat, USER_POSITION.lng], {icon: new UserMarker()});
             markers.addLayer(userMarker);
         }
 
@@ -90,8 +90,16 @@
 
         map.addLayer(markers);
 
-        // add draw handler
-        map.on('draw:marker-created', function (e) {
+        if (navigator.geolocation && ! userMarker)
+        {
+            navigator.geolocation.getCurrentPosition(function(position){
+                saveMarker({
+                    marker: L.marker([position.coords.latitude, position.coords.longitude], {icon: new UserMarker()})
+                });
+            });
+        }
+
+        function saveMarker(e){
             if (userMarker){
                 markers.removeLayer(userMarker);
             }
@@ -114,7 +122,10 @@
                 markers.removeLayer(userMarker);
                 alert('{% trans "Authenticate please!" %}');
             }
-        });
+        }
+
+        // add draw handler
+        map.on('draw:marker-created', saveMarker);
     });
     </script>
 {% endblock %}
@@ -125,7 +136,7 @@
         <h4>{% trans "Add yourself on map!" %}</h4>
         {% trans "This is just for fun." %}
         {% trans "You should be authenticated." %}
-        {% trans "Put marker on map to mark you position." %}
+        {% trans "Green marker should appear on your position, otherwise put marker on map to mark you position." %}
     </div>
 {% endblock %}
 

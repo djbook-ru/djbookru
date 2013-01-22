@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-31 15:08+0400\n"
+"POT-Creation-Date: 2013-01-22 15:02+0200\n"
 "PO-Revision-Date: 2012-08-31 15:14+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -30,15 +30,15 @@ msgstr "Права доступа"
 msgid "Important dates"
 msgstr "Важные даты"
 
-#: forms.py:19
+#: forms.py:26
 msgid "Email"
 msgstr "Е-почта"
 
-#: forms.py:20
+#: forms.py:27
 msgid "Password"
 msgstr "Пароль"
 
-#: forms.py:23
+#: forms.py:30
 msgid ""
 "Please enter a correct username and password. Note that both fields are case-"
 "sensitive."
@@ -46,49 +46,49 @@ msgstr ""
 "Пожалуйста введите правильные пароль и имя пользователя. Оба поля "
 "чувствительны к регистру."
 
-#: forms.py:25
+#: forms.py:32
 msgid ""
 "Your Web browser doesn't appear to have cookies enabled. Cookies are "
 "required for logging in."
 msgstr "Ваш браузер не поддерживает куки, которые необходимы для авторизации."
 
-#: forms.py:27
+#: forms.py:34
 msgid "This account is inactive."
 msgstr "Аккаунт не активен."
 
-#: forms.py:64
+#: forms.py:71
 msgid "captcha"
 msgstr "капча"
 
-#: forms.py:72
+#: forms.py:79
 msgid "Current password"
 msgstr "Текущий пароль"
 
-#: forms.py:73
+#: forms.py:80
 msgid "Ignore if you do not have one yet."
 msgstr "Игнорируйте, если у вас его нет."
 
-#: forms.py:74
+#: forms.py:81
 msgid "New password"
 msgstr "Новый пароль"
 
-#: forms.py:75
+#: forms.py:82
 msgid "Confirm new password"
 msgstr "Подтверждение нового пароля"
 
-#: forms.py:86
+#: forms.py:93
 msgid "Invalid password."
 msgstr "Неправильный пароль."
 
-#: forms.py:88
+#: forms.py:95
 msgid "The two passwords did not match."
 msgstr "Введённые пароли не совпадают."
 
-#: forms.py:96
+#: forms.py:103
 msgid "This email is used already."
 msgstr "Данный адрес электронной почты уже используется."
 
-#: forms.py:118
+#: forms.py:125
 msgid ""
 "That e-mail address doesn't have an associated active user account. Are you "
 "sure you've registered and e-mail is confirmed?"
@@ -96,7 +96,7 @@ msgstr ""
 "Эта почта не привязана к активному аккаунту. Вы уверены, что вы у нас "
 "зарегистрированы и ввели адрес почты правильно?"
 
-#: forms.py:143
+#: forms.py:150
 #, python-format
 msgid "Password reset on %s"
 msgstr "Сброшен пароль для %s"
@@ -113,68 +113,101 @@ msgstr "домашняя страница"
 msgid "is valid email?"
 msgstr "почта верна?"
 
-#: models.py:29 models.py:121
+#: models.py:29 models.py:145
 msgid "achievements"
 msgstr "Достижения"
 
+#: models.py:31
+msgid "longitude"
+msgstr ""
+
 #: models.py:32
+msgid "latitude"
+msgstr ""
+
+#: models.py:35
 msgid "last comments read"
 msgstr "Последний просмотр комментариев"
 
-#: models.py:33
+#: models.py:36
 msgid "last doc. comments read"
 msgstr "Последний просмотр комментариев к документации"
 
-#: models.py:38
+#: models.py:41
 msgid "User"
 msgstr "Пользователь"
 
-#: models.py:39
+#: models.py:42
 msgid "Users"
 msgstr "Пользователи"
 
-#: models.py:103
+#: models.py:116
+msgid "title"
+msgstr ""
+
+#: models.py:117
+msgid "link"
+msgstr ""
+
+#: models.py:118
+msgid "content"
+msgstr ""
+
+#: models.py:118
+msgid "Use Markdown and HTML"
+msgstr ""
+
+#: models.py:119
+msgid "is active?"
+msgstr ""
+
+#: models.py:120
+#, fuzzy
+msgid "created"
+msgstr "Создать"
+
+#: models.py:127
 msgid "user"
 msgstr "пользователь"
 
-#: models.py:104 models.py:120
+#: models.py:128 models.py:144
 msgid "achievement"
 msgstr "Достижение"
 
-#: models.py:105
+#: models.py:129
 msgid "note"
 msgstr "заметка"
 
-#: models.py:108
+#: models.py:132
 msgid "user achievement"
 msgstr "Достижение пользователя"
 
-#: models.py:109
+#: models.py:133
 msgid "user achievements"
 msgstr "Достижения пользователя"
 
-#: models.py:114
+#: models.py:138
 msgid "name"
 msgstr "имя"
 
-#: models.py:115
+#: models.py:139
 msgid "description"
 msgstr "описание"
 
-#: models.py:116
+#: models.py:140
 msgid "active icon"
 msgstr "Активная иконка"
 
-#: models.py:159
+#: models.py:183
 #, python-format
 msgid "Please confirm your email address for %(site)s"
 msgstr "Пожалуйста, подтвердите адрес вашей электронной почты для %(site)s"
 
-#: models.py:182
+#: models.py:206
 msgid "e-mail confirmation"
 msgstr "подтверждение почты"
 
-#: models.py:183
+#: models.py:207
 msgid "e-mail confirmations"
 msgstr "подтверждения почты"
 
@@ -187,35 +220,45 @@ msgstr ""
 "аккаунт, войдите и подключите сторонний аккаунт на странице редактирования "
 "профиля."
 
-#: views.py:33
+#: views.py:53 templates/accounts/map.html:123
+#, fuzzy
+msgid "Authenticate please!"
+msgstr "Аутентификация"
+
+#: views.py:62
+#, fuzzy
+msgid "invalid form"
+msgstr "Неправильный пароль."
+
+#: views.py:72
 msgid "Account created success! Confirm your email."
 msgstr "Аккаунт успешно создан! Подтвердите свою почту."
 
-#: views.py:35 views.py:68
+#: views.py:74 views.py:107
 msgid "Please correct the error below."
 msgstr "Пожалуйста, исправьте ошибки перечисленные далее."
 
-#: views.py:66
+#: views.py:105
 msgid "Profile changed success! Confirm your email if it was changed."
 msgstr "Профиль успешно изменён! Подтвердите адрес вашей электронной почты."
 
-#: views.py:107
+#: views.py:146
 msgid "Confirmation key expired."
 msgstr "Ключ подтверждения почты просрочен."
 
-#: views.py:110
+#: views.py:149
 msgid "Email is confirmed."
 msgstr "Адрес электронной почты подтверждён."
 
-#: views.py:124
+#: views.py:163
 msgid "Your email is already confirmed."
 msgstr "Данный адрес электронной почты уже используется."
 
-#: views.py:126
+#: views.py:165
 msgid "Add email to your profile."
 msgstr "Добавьте электронный адрес в свой профиль"
 
-#: views.py:130
+#: views.py:169
 #, python-format
 msgid ""
 "We have sent you confirmation email. New one you can get in %(days)s days"
@@ -223,11 +266,11 @@ msgstr ""
 "Мы отправили вам письмо для подтверждения адреса электронной почты. "
 "Следующий запрос вы сможете сделать через  %(days)s дня."
 
-#: views.py:135
+#: views.py:174
 msgid "Confirmation email is sent."
 msgstr "Отправлено письмо для подтверждения адреса электронной почты."
 
-#: views.py:147
+#: views.py:186
 msgid "Email with instruction how reset password is sent."
 msgstr "Выслано письмо с инструкцией для сброса вашего пароля."
 
@@ -248,7 +291,7 @@ msgid "Forum profile"
 msgstr "Профиль форума"
 
 #: templates/accounts/create.html:5 templates/accounts/create.html.py:8
-#: templates/accounts/login.html:16
+#: templates/accounts/login.html:16 templates/accounts/map.html:6
 msgid "Register"
 msgstr "Зарегистрировать"
 
@@ -315,6 +358,25 @@ msgstr "Забыли пароль?"
 #: templates/accounts/login.html:26
 msgid "You are authenticated already"
 msgstr "Вы уже аутентифицированы"
+
+#: templates/accounts/map.html:136
+msgid "Add yourself on map!"
+msgstr ""
+
+#: templates/accounts/map.html:137
+msgid "This is just for fun."
+msgstr ""
+
+#: templates/accounts/map.html:138
+#, fuzzy
+msgid "You should be authenticated."
+msgstr "Вы уже аутентифицированы"
+
+#: templates/accounts/map.html:139
+msgid ""
+"Green marker should appear on your position, otherwise put marker on map to "
+"mark you position."
+msgstr "Зеленый маркер появится там, где вы находитесь. Если ваш барузер не пооддерживает geolocation, добавите маркер просто перетащив его с панельки на карту."
 
 #: templates/accounts/notifications.html:11
 msgid "Comments"

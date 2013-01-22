@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-31 15:49+0400\n"
+"POT-Creation-Date: 2013-01-22 15:02+0200\n"
 "PO-Revision-Date: 2012-08-31 15:50+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -62,7 +62,7 @@ msgstr "комментарий"
 msgid "comments"
 msgstr "комментарии"
 
-#: views.py:81
+#: views.py:78
 msgid "You are not authenticated."
 msgstr "Вы не авторизированы"
 

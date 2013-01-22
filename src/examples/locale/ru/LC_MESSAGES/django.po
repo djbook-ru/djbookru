@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-31 15:01+0400\n"
+"POT-Creation-Date: 2013-01-22 15:02+0200\n"
 "PO-Revision-Date: 2012-08-17 15:31+0300\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -128,7 +128,8 @@ msgstr "Идентификатор темы"
 msgid "Example"
 msgstr "Пример"
 
-#: models.py:45
+#: models.py:45 templates/examples/category.html:5
+#: templates/examples/detail.html:5
 msgid "Examples"
 msgstr "Примеры"
 
@@ -140,3 +141,47 @@ msgstr ""
 "Рецепт был добавлен успешно и будет проверен, как только появится "
 "возможность."
 
+#: templates/examples/add.html:5
+msgid "Add receipt"
+msgstr ""
+
+#: templates/examples/add.html:5
+msgid "Receipts"
+msgstr ""
+
+#: templates/examples/add.html:12
+msgid "Add new receipt"
+msgstr ""
+
+#: templates/examples/add.html:15
+msgid ""
+"You can share your receipt for\n"
+"      django-society. It can be solution for the problem that you have\n"
+"      solved right now. Or may be this is a nice trick that Google\n"
+"      doesn't even know yet."
+msgstr ""
+
+#: templates/examples/add.html:22
+msgid ""
+"We\n"
+"      use <a href=\"http://daringfireball.net/projects/markdown/syntax"
+"\">Markdown</a>\n"
+"      to format the content. Please use it to get your receipt to the\n"
+"      community faster."
+msgstr ""
+
+#: templates/examples/add.html:36
+msgid "Submit"
+msgstr ""
+
+#: templates/examples/category.html:13 templates/examples/index.html:14
+msgid "Author"
+msgstr ""
+
+#: templates/examples/detail.html:22
+msgid "Discuss this recipe"
+msgstr ""
+
+#: templates/examples/index.html:5
+msgid "Recipes"
+msgstr ""
