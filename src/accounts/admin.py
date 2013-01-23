@@ -21,9 +21,16 @@ class CustomUserChangeForm(UserChangeForm):
 
 
 class CustomUserAdmin(UserAdmin):
+    save_on_top = True
     form = CustomUserChangeForm
     list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'is_valid_email', 'password')
-
+    list_filter = ('is_valid_email', 'is_staff', 'is_active', 'is_superuser')
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('username', 'email', 'password1', 'password2')}
+        ),
+    )
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
         (_('Personal info'), {'fields': ('first_name', 'last_name', 'email', 'homepage', 'biography', 'lng', 'lat')}),

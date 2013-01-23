@@ -137,8 +137,8 @@ class UserAchievement(models.Model):
 class Achievement(models.Model):
     title = models.CharField(_(u'name'), max_length=500)
     description = models.TextField(_(u'description'), blank=True)
-    active_icon = models.ImageField(_(u'active icon'), upload_to='uploads/Achievement/', help_text='http://mapicons.nicolasmollet.com/ #487858')
-    inactive_icon = models.ImageField(u'inactive icon', upload_to='uploads/Achievement/', help_text='http://mapicons.nicolasmollet.com/ #d1e3ad')
+    active_icon = models.ImageField(_(u'active icon'), upload_to='uploads/Achievement/', help_text='http://mapicons.nicolasmollet.com/ #95ce4a')
+    inactive_icon = models.ImageField(u'inactive icon', upload_to='uploads/Achievement/', help_text='http://mapicons.nicolasmollet.com/ #d5d5d5')
 
     class Meta:
         verbose_name = _(u'achievement')
