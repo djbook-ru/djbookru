@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load i18n staticfiles comments_tags %}
+{% load i18n staticfiles comments_tags tagging_tags %}
 {% load url from future %}
 
 {% block title %}{{ object }} | {% trans 'Code Review' %} | {{ block.super }}{% endblock %}
@@ -92,6 +92,13 @@
     {% if object.description %}
     <p>{{ object.description }}</p>
     {% endif %}
+
+    <p class="tags">
+        {% tags_for_object object as object_tags %}
+        {% for obj_tag in object_tags %}
+            <a href="{% url 'code_review:index' %}?tag={{ obj_tag|urlencode }}">{{ obj_tag }}</a>
+        {% endfor %}
+    </p>
 
     {% for file in object.file_set.all %}
     <h4>{{ file }}</h4>

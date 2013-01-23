@@ -1,9 +1,10 @@
 from ..accounts.models import User
+from django.conf import settings
 from django.db import models
+from django.utils import dateformat
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
-from django.utils import dateformat
-from django.conf import settings
+from tagging_autocomplete.models import TagAutocompleteField
 import markdown
 
 
@@ -18,6 +19,7 @@ class Snipet(models.Model):
         help_text=_(u'Main snippet language'))
     author = models.ForeignKey(User, verbose_name=_(u'author'))
     created = models.DateTimeField(_(u'created'), auto_now_add=True)
+    tags = TagAutocompleteField(verbose_name=_(u'tags'))
 
     class Meta:
         ordering = ['-created']

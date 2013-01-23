@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load i18n pagination_tags %}
+{% load i18n pagination_tags tagging_tags %}
 {% load url from future %}
 
 {% block title %}{% trans 'Code Review' %} | {{ block.super }}{% endblock %}
@@ -15,7 +15,11 @@
 {% endblock %}
 
 {% block content %}
-    <a href="{% url 'code_review:add' %}" class="btn">{% trans "Add snippet" %}</a><br><br>
+    <a href="{% url 'code_review:add' %}" class="btn">{% trans "Add snippet" %}</a>
+    {% if tag %}
+    <a href="?" class="btn">{% trans "Show all" %}</a>
+    {% endif %}
+    <br><br>
 
     {% if is_paginated %}
         {% paginate %}
@@ -28,6 +32,13 @@
             {% if obj.description %}
                 <p>{{ obj.description }}</p>
             {% endif %}
+
+            <p class="tags">
+                {% tags_for_object obj as object_tags %}
+                {% for obj_tag in object_tags %}
+                    <a href="?tag={{ obj_tag|urlencode }}" {% if tag == obj_tag %}class="active"{% endif %}>{{ obj_tag }}</a>
+                {% endfor %}
+            </p>
         </div>
     {% endfor %}
 

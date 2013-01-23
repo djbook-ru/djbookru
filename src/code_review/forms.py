@@ -9,7 +9,7 @@ class AddSnipetForm(forms.ModelForm):
 
     class Meta:
         model = Snipet
-        fields = ('title', 'description', 'language')
+        fields = ('title', 'description', 'language', 'tags')
 
     def __init__(self, author, *args, **kwargs):
         self.author = author

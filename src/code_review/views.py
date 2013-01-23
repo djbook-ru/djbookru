@@ -10,11 +10,20 @@ from django.utils import simplejson
 from django.views.generic.base import View
 from django.views.generic.list_detail import object_list
 from django.utils.translation import ugettext_lazy as _
+from tagging.models import TaggedItem, Tag
 
 
 def index(request):
     qs = Snipet.objects.all()
-    extra_context = {}
+    tag_name = request.GET.get('tag', None)
+    tag = None
+    if tag_name:
+        tag = get_object_or_404(Tag, name=tag_name)
+        qs = TaggedItem.objects.get_by_model(qs, tag)
+
+    extra_context = {
+        'tag': tag
+    }
     return object_list(request, qs, 20,
                        template_name='code_review/index.html',
                        extra_context=extra_context)
