@@ -35,7 +35,7 @@ def announcements(context):
 
 
 @register.inclusion_tag('accounts/_achievements.html', takes_context=True)
-def achievements(context, user, theme):
+def achievements(context, user, theme=None):
     return {
         'theme': theme,
         'user_achivements': Achievement.objects.filter(userachievement__user=user),
