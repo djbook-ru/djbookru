@@ -156,6 +156,9 @@ FIXTURE_DIRS = (
     rel_project('fixtures'),
 )
 
+DJANGOBB_FORUM_PAGE_SIZE = 40
+DJANGOBB_TOPIC_PAGE_SIZE = 50
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
