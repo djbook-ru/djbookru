@@ -34,7 +34,10 @@ class Snipet(models.Model):
 class File(models.Model):
     LANGUAGE_CHOICES = (
         ('python', u'Python'),
-        ('javascript', u'JavaScript')
+        ('javascript', u'JavaScript'),
+        ('bash', u'Bash'),
+        ('sql', u'SQL'),
+        ('xml', u'XML/HTML')
     )
     name = models.CharField(_(u'file name'), max_length=1000)
     content = models.TextField(_(u'content'))

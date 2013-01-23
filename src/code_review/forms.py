@@ -2,7 +2,7 @@ from django import forms
 from django.forms.models import inlineformset_factory
 from .models import Comment, Snipet, File
 
-FileFormset = inlineformset_factory(Snipet, File,can_delete=False)
+FileFormset = inlineformset_factory(Snipet, File, can_delete=False, extra=5)
 
 
 class AddSnipetForm(forms.ModelForm):
