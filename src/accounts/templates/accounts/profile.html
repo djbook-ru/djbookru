@@ -10,27 +10,29 @@
     {% endif %}
     <div style="float:left; width: 500px;">
         <h2>{{ user_obj.username }}</h2>
-        
+
         <p>
         {% if user_obj.first_name or user_obj.last_name %}
             <h4>{{ user_obj.first_name }} {{ user_obj.last_name }}</h4>
         {% endif %}
         </p>
-        
+
         <p>
             <strong>{% trans 'Forum posts count' %}:</strong> {{ user_obj.forum_profile.post_count }}<br/>
             <strong>{% trans 'Comments count' %}:</strong> {{ user_obj.comments_count }}
         </p>
-        
+
         {% if user_obj.biography %}
         <p class="well" style="margin-top: 5px">
             {{ user_obj.biography|linebreaksbr }}
         </p>
         {% endif %}
+
+        {% achievements user_obj %}
     </div>
-    
+
     <div style="float: left" class="thumbnail">
         <img src="{{ user_obj.avatar }}"/>
-    </div>    
+    </div>
     <div style="clear: both"></div>
 {% endblock %}

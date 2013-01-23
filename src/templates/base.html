@@ -36,6 +36,8 @@
         <script src="{% static "js/highlight.min.js" %}"></script>
         <script type="text/javascript">
             jQuery(function($){
+                $('[rel=popover]').popover();
+
                 hljs.tabReplace = '    ';
                 hljs.initHighlightingOnLoad();
             });

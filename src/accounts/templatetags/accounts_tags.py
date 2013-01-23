@@ -4,7 +4,7 @@ from django import template
 
 from ... doc_comments.models import Comment as DocComment
 from ... comments.models import Comment
-from ..models import Announcement
+from ..models import Announcement, Achievement
 
 register = template.Library()
 
@@ -31,4 +31,14 @@ def notification_indicator(context):
 def announcements(context):
     return {
         'announcements': Announcement.objects.filter(is_active=True)
+    }
+
+
+@register.inclusion_tag('accounts/_achievements.html', takes_context=True)
+def achievements(context, user, theme):
+    return {
+        'theme': theme,
+        'user_achivements': Achievement.objects.filter(userachievement__user=user),
+        'user_obj': user,
+        'achivements': Achievement.objects.all()
     }

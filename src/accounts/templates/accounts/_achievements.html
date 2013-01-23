@@ -1,0 +1,23 @@
+{% load i18n %}
+
+{% if theme == 'forum' %}
+    {% for obj in user_achivements %}
+        <img src="{{ obj.active_icon.url }}"
+        rel="popover"
+        title="{{ obj }}"
+        data-placement="top"
+        data-trigger="hover"
+        data-content="{{ obj.description }}"
+        data-original-title="{{ obj }}">
+    {% endfor %}
+{% else %}
+    {% for obj in achivements %}
+        <img src="{% if obj in user_achivements %}{{ obj.active_icon.url }}{% else %}{{ obj.inactive_icon.url }}{% endif %}"
+        rel="popover"
+        title="{{ obj }}"
+        data-placement="top"
+        data-trigger="hover"
+        data-content="{{ obj.description }}"
+        data-original-title="{{ obj }}">
+    {% endfor %}
+{% endif %}

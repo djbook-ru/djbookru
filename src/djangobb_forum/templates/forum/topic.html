@@ -1,5 +1,5 @@
 {% extends 'forum/base.html' %}
-{% load forum_extras %}
+{% load forum_extras accounts_tags %}
 {% load i18n %}
 {% load humanize %}
 {% load staticfiles %}
@@ -66,16 +66,7 @@
 						{% if moderator %}
 							<dd>{% trans "IP" %}: {{ post.user_ip }}</dd>
 						{% endif %}
-						{% if forum_settings.REPUTATION_SUPPORT %}
-								<dd><a href="{% url djangobb:reputation post.user %}">{% trans "Reputation" %}</a>:
-								{% if request.user != post.user %} {# TODO: and user.is_authenticated #}
-									<a href="{% url djangobb:reputation post.user %}?action=plus&post_id={{ post.id }}"><img src="{% static "forum/img/reputation/warn_add.gif" %}" title="+" border="0"></a>&nbsp;&nbsp;<strong>{{ post.user.forum_profile.reply_total }}&nbsp;&nbsp;</strong><a href="{% url djangobb:reputation post.user %}?action=minus&post_id={{ post.id }}"><img src="{% static "forum/img/reputation/warn_minus.gif" %}" title="-" border="0"></a>
-								{% else %}
-									<strong>{{ post.user.forum_profile.reply_total }}</strong>
-								{% endif %}
-								</dd>
-						{% endif %}
-						<dd class="usercontacts"><a href="{% url djangobb:forum_profile post.user %}">{% trans "Profile" %}</a>&nbsp;&nbsp;
+						<dd class="usercontacts"><a href="{{ post.user.get_absolute_url }}">{% trans "Profile" %}</a>&nbsp;&nbsp;
 						{% if post.user.forum_profile.privacy_permission == 0 %}
 							<a href="mailto:{{ post.user.email }}">{% trans "E-mail" %}</a>&nbsp;&nbsp;
 						{% else %}
@@ -102,6 +93,9 @@
 						</div>
 						{% endif %}
 					{% endif %}
+					<div>
+						{% achievements post.user 'forum' %}
+					</div>
 					{% if post.updated %}
 						<p class="postedit"><em>{% trans "Edited" %} {{ post.updated_by }} (<span title="{{ post.updated|naturaltime }}">{{ post.updated|date:"d.m.Y H:i:s" }}</span>)</em></p>
 					{% endif %}

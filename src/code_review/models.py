@@ -1,6 +1,5 @@
 from ..accounts.models import User
 from django.db import models
-from django.utils.html import escape
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 from django.utils import dateformat
