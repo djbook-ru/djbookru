@@ -7,10 +7,11 @@ SRC=${BUILD}/src
 mkdir -p ${BUILD}
 
 ./po_compile.sh
+cd src; django-admin.py compilemessages; cd -
 
 cp -r ./addon ./lib ./reqs ./src ./manage.py ./logs ${BUILD}
 
-rm -rf ${SRC}/{fixtures,legacy,public,search/{whoosh,xapian}_index,local_settings.py,*sqlite}
+rm -rf ${SRC}/{legacy,public,search/{whoosh,xapian}_index,local_settings.py,*sqlite}
 rm -rf ${BUILD}/logs/*
 
 mv ${SRC}/prod_settings.py ${SRC}/local_settings.py
