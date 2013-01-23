@@ -20,6 +20,7 @@ class Snipet(models.Model):
     author = models.ForeignKey(User, verbose_name=_(u'author'))
     created = models.DateTimeField(_(u'created'), auto_now_add=True)
     tags = TagAutocompleteField(verbose_name=_(u'tags'))
+    rating = models.PositiveIntegerField(_(u'rating'), default=0)
 
     class Meta:
         ordering = ['-created']

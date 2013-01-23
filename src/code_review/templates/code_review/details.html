@@ -94,7 +94,9 @@
     {% endif %}
 
     <p class="tags">
+        {% trans "rating" %}: <span class="label">{{ object.rating }}</span> <a href="#"><i class="icon-thumbs-up"></i></a>
         {% tags_for_object object as object_tags %}
+        {% if object_tags %}| {% trans "tags:" %}{% endif %}
         {% for obj_tag in object_tags %}
             <a href="{% url 'code_review:index' %}?tag={{ obj_tag|urlencode }}">{{ obj_tag }}</a>
         {% endfor %}
