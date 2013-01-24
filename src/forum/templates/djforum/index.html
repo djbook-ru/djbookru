@@ -1,0 +1,45 @@
+{% extends "djforum/base.html" %}
+
+{% load i18n staticfiles %}
+{% load url from future %}
+
+{% block content %}
+    {% for category in categories %}
+    <div class="well">
+        <h4 class="title">{{ category }}</h4>
+
+        {% with forums=category.forums.all %}
+        {% if forums %}
+        <table class="table table-condensed forums">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="number-column">{% trans "Topics" %}</th>
+                    <th class="number-column">{% trans "Posts" %}</th>
+                    <th class="last-post">{% trans "Last post" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for forum in forums %}
+                <tr>
+                    <td>
+                        <a href="{{ forum.get_absolute_url }}" class="forum-title">{{ forum }}</a>
+                        {% if forum.description %}
+                        <p class="description">{{ forum.description }}</p>
+                        {% endif %}
+                    </td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>
+                        <a href="">24.01.2013 14:02:00</a><br>
+                        by Alerion
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+        {% endwith %}
+    </div>
+    {% endfor %}
+{% endblock %}

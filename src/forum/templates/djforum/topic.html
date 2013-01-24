@@ -1,0 +1,38 @@
+{% extends "djforum/base.html" %}
+
+{% load i18n staticfiles pagination_tags bootstrap %}
+{% load url from future %}
+
+{% block content %}
+    <div class="well">
+        <ul class="breadcrumb">
+            <li><a class="title" href="{{ forum.category.get_absolute_url }}">{{ forum.category }}</a> <span class="divider">/</span></li>
+            <li><a class="title forum" href="{{ forum.get_absolute_url }}">{{ forum }}</a> <span class="divider">/</span></li>
+            <li class="active">{{ topic }}</li>
+        </ul>
+
+        <div class="pull-right top-panel">
+            <a href="{% url 'forum:add_post' topic.pk %}" class="btn btn-small">{% trans "Answer" %}</a>
+        </div>
+
+        {% if is_paginated %}
+            {% paginate %}
+        {% endif %}
+
+        {% for post in object_list %}
+            {% include "djforum/_post.html" %}
+        {% endfor %}
+
+        {% if form %}
+        <form action="{% url 'forum:add_post' topic.pk %}" method="post" class="form-horizontal">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            <button style="margin: -90px 0 0 70px" type="submit" class="btn btn-primary btn-small">{% trans "Submit" %}</button>
+        </form>
+        {% endif %}
+
+        {% if is_paginated %}
+            {% paginate %}
+        {% endif %}
+    </div>
+{% endblock %}

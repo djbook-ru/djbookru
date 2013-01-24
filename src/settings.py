@@ -250,6 +250,7 @@ INSTALLED_APPS = (
     'tagging',
     'staging',
 
+    'src.forum',
     'src.accounts',
     'src.claims',
     'src.comments',

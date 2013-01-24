@@ -1,0 +1,47 @@
+{% extends "djforum/base.html" %}
+
+{% load i18n staticfiles %}
+{% load url from future %}
+
+{% block content %}
+    <div class="well">
+        <div class="pull-right top-panel">
+            <a href="{% url 'forum:add_topic' forum.pk %}" class="btn btn-small">{% trans "New topic" %}</a>
+        </div>
+
+        <ul class="breadcrumb">
+            <li><a class="title" href="{{ forum.category.get_absolute_url }}">{{ forum.category }}</a> <span class="divider">/</span></li>
+            <li class="active">{{ forum }}</li>
+        </ul>
+
+        {% if topics %}
+        <table class="table table-condensed forums">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="number-column">{% trans "Replies" %}</th>
+                    <th class="number-column">{% trans "Views" %}</th>
+                    <th class="last-post">{% trans "Last post" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for topic in topics %}
+                <tr>
+                    <td>
+                        <a href="{{ topic.get_absolute_url }}" class="forum-title">{{ topic }}</a>
+                    </td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>
+                        <a href="">24.01.2013 14:02:00</a><br>
+                        by Alerion
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p style="margin-left: 4px">{% trans "No topics" %}</p>
+        {% endif %}
+    </div>
+{% endblock %}
