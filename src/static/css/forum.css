@@ -80,3 +80,13 @@
     width: 100px;
     margin: 0 0 -35px 601px;
 }
+
+hr {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #eee;
+    margin: 10px 0;
+}
+
+.signature {
+    font-size: 0.9em;
+}
