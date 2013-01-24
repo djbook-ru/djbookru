@@ -210,6 +210,9 @@ LOGGING = {
         }
     },
     'loggers': {
+        'SocialAuth': {
+            'handlers': ['mail_admins'],
+        },
         'django.request': {
             'handlers': ['mail_admins'],
             'level': 'ERROR',
@@ -283,7 +286,7 @@ SOCIAL_AUTH_PROCESS_EXCEPTIONS = 'social_auth.utils.log_exceptions_to_messages'
 SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.social.social_auth_user',
     'social_auth.backends.pipeline.user.get_username',
-    'accounts.social_auth_pipelines.create_user',
+    'src.accounts.social_auth_pipelines.create_user',
     'social_auth.backends.pipeline.social.associate_user',
     'social_auth.backends.pipeline.social.load_extra_data',
 )
