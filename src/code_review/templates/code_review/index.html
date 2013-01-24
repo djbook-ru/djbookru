@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load i18n pagination_tags %}
+{% load i18n pagination_tags tagging_tags %}
 {% load url from future %}
 
 {% block title %}{% trans 'Code Review' %} | {{ block.super }}{% endblock %}
@@ -15,7 +15,12 @@
 {% endblock %}
 
 {% block content %}
-    <a href="{% url 'code_review:add' %}" class="btn">{% trans "Add snippet" %}</a><br><br>
+    <a href="{% url 'code_review:add' %}" class="btn">{% trans "Add snippet" %}</a>
+    <a href="{% url 'code_review:comments' %}" class="btn">{% trans "Comments" %}</a>
+    {% if tag %}
+    <a href="?" class="btn">{% trans "Show all" %}</a>
+    {% endif %}
+    <br><br>
 
     {% if is_paginated %}
         {% paginate %}
@@ -25,9 +30,18 @@
         <div class="well">
             <h4><a href="{{ obj.get_absolute_url }}">{{ obj }}</a></h4>
             <em>{{ obj.created|date:'DATETIME_FORMAT' }}</em> | <a href="{{ obj.author.get_absolute_url }}">{{ obj.author }}</a>
+                | {% trans "rating" %}: <span class="label">{{ obj.rating }}</span>
             {% if obj.description %}
                 <p>{{ obj.description }}</p>
             {% endif %}
+
+            <p class="tags">
+                {% tags_for_object obj as object_tags %}
+                {% if object_tags %}{% trans "tags:" %}{% endif %}
+                {% for obj_tag in object_tags %}
+                    <a href="?tag={{ obj_tag|urlencode }}" {% if tag == obj_tag %}class="active"{% endif %}>{{ obj_tag }}</a>
+                {% endfor %}
+            </p>
         </div>
     {% endfor %}
 

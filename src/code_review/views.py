@@ -10,14 +10,33 @@ from django.utils import simplejson
 from django.views.generic.base import View
 from django.views.generic.list_detail import object_list
 from django.utils.translation import ugettext_lazy as _
+from tagging.models import TaggedItem, Tag
+from django.db.models import F
 
 
 def index(request):
     qs = Snipet.objects.all()
-    extra_context = {}
+    tag_name = request.GET.get('tag')
+    tag = None
+    if tag_name:
+        tag = get_object_or_404(Tag, name=tag_name)
+        qs = TaggedItem.objects.get_by_model(qs, tag)
+
+    extra_context = {
+        'tag': tag
+    }
     return object_list(request, qs, 20,
                        template_name='code_review/index.html',
                        extra_context=extra_context)
+
+
+@login_required
+def rate(request, pk):
+    obj = get_object_or_404(Snipet, pk=pk)
+    if obj.can_rate(request.user):
+        Snipet.objects.filter(pk=obj.pk).update(rating=F('rating') + 1)
+        obj.rated_by.add(request.user)
+    return redirect(obj)
 
 
 @login_required
@@ -52,8 +71,22 @@ def add(request):
 def details(request, pk):
     obj = get_object_or_404(Snipet, pk=pk)
     return {
-        'object': obj
+        'object': obj,
+        'can_rate': obj.can_rate(request.user)
     }
+
+
+def comments(request):
+    qs = Comment.objects.all()
+    my_comments = request.GET.get('my') and request.user.is_authenticated()
+    if my_comments:
+        qs = qs.filter(file__snipet__author=request.user)
+    extra_context = {
+        'my_comments': my_comments
+    }
+    return object_list(request, qs, 20,
+                       template_name='code_review/comments.html',
+                       extra_context=extra_context)
 
 
 class CommentsApi(View):

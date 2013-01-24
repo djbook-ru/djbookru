@@ -1,9 +1,10 @@
 from ..accounts.models import User
+from django.conf import settings
 from django.db import models
+from django.utils import dateformat
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
-from django.utils import dateformat
-from django.conf import settings
+from tagging_autocomplete.models import TagAutocompleteField
 import markdown
 
 
@@ -18,6 +19,9 @@ class Snipet(models.Model):
         help_text=_(u'Main snippet language'))
     author = models.ForeignKey(User, verbose_name=_(u'author'))
     created = models.DateTimeField(_(u'created'), auto_now_add=True)
+    tags = TagAutocompleteField(verbose_name=_(u'tags'))
+    rating = models.PositiveIntegerField(_(u'rating'), default=0)
+    rated_by = models.ManyToManyField(User, verbose_name=_(u'rated by'), editable=False, related_name='rated_snippets')
 
     class Meta:
         ordering = ['-created']
@@ -28,6 +32,12 @@ class Snipet(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('code_review:details', [self.pk], {})
+
+    def can_rate(self, user):
+        if not user.is_authenticated():
+            return False
+
+        return not self.rated_by.filter(pk=user.pk).exists()
 
 
 class File(models.Model):

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load i18n staticfiles comments_tags %}
+{% load i18n staticfiles comments_tags tagging_tags %}
 {% load url from future %}
 
 {% block title %}{{ object }} | {% trans 'Code Review' %} | {{ block.super }}{% endblock %}
@@ -8,6 +8,17 @@
 {% block highlightjs %}{% endblock %}
 
 {% block head %}
+    <style>
+    .add-rating {
+        opacity: 0.8;
+    }
+    .add-rating i {
+        margin-top: 3px;
+    }
+    .add-rating:hover {
+        opacity: 1;
+    }
+    </style>
     <script src="{% static "syntaxhighlighter_3.0.83/scripts/shCore.js" %}"></script>
     <script src="{% static "syntaxhighlighter_3.0.83/scripts/shBrushPython.js" %}"></script>
     <script src="{% static "syntaxhighlighter_3.0.83/scripts/shBrushJScript.js" %}"></script>
@@ -92,6 +103,16 @@
     {% if object.description %}
     <p>{{ object.description }}</p>
     {% endif %}
+
+    <p class="tags">
+        {% trans "rating" %}: <span class="label">{{ object.rating }}</span>
+        {% if can_rate %}<a href="{% url 'code_review:rate' object.pk %}" class="add-rating"><i class="icon-thumbs-up"></i></a>{% endif %}
+        {% tags_for_object object as object_tags %}
+        {% if object_tags %}| {% trans "tags:" %}{% endif %}
+        {% for obj_tag in object_tags %}
+            <a href="{% url 'code_review:index' %}?tag={{ obj_tag|urlencode }}">{{ obj_tag }}</a>
+        {% endfor %}
+    </p>
 
     {% for file in object.file_set.all %}
     <h4>{{ file }}</h4>

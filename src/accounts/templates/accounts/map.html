@@ -83,7 +83,8 @@
             var p = OTHER_POSITIONS[i];
             var m = L.marker([p.lat, p.lng], {icon: new OtherUserMarker()});
             m.bindPopup('<a href="'+p.url+'" target="blank"><img src="'+p.avatar+'"></img></a><br><a href="'+p.url+'" target="blank">'+p.username+'</a>', {
-                offset: new L.Point(0, -25)
+                offset: new L.Point(0, -25),
+                minWidth: 80
             });
             markers.addLayer(m);
         }
