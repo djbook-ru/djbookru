@@ -11,6 +11,7 @@ from django.views.generic.base import View
 from django.views.generic.list_detail import object_list
 from django.utils.translation import ugettext_lazy as _
 from tagging.models import TaggedItem, Tag
+from django.db.models import F
 
 
 def index(request):
@@ -27,6 +28,15 @@ def index(request):
     return object_list(request, qs, 20,
                        template_name='code_review/index.html',
                        extra_context=extra_context)
+
+
+@login_required
+def rate(request, pk):
+    obj = get_object_or_404(Snipet, pk=pk)
+    if obj.can_rate(request.user):
+        Snipet.objects.filter(pk=obj.pk).update(rating=F('rating') + 1)
+        obj.rated_by.add(request.user)
+    return redirect(obj)
 
 
 @login_required
@@ -61,7 +71,8 @@ def add(request):
 def details(request, pk):
     obj = get_object_or_404(Snipet, pk=pk)
     return {
-        'object': obj
+        'object': obj,
+        'can_rate': obj.can_rate(request.user)
     }
 
 

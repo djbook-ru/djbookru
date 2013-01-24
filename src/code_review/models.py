@@ -21,6 +21,7 @@ class Snipet(models.Model):
     created = models.DateTimeField(_(u'created'), auto_now_add=True)
     tags = TagAutocompleteField(verbose_name=_(u'tags'))
     rating = models.PositiveIntegerField(_(u'rating'), default=0)
+    rated_by = models.ManyToManyField(User, verbose_name=_(u'rated by'), editable=False, related_name='rated_snippets')
 
     class Meta:
         ordering = ['-created']
@@ -31,6 +32,12 @@ class Snipet(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('code_review:details', [self.pk], {})
+
+    def can_rate(self, user):
+        if not user.is_authenticated():
+            return False
+
+        return not self.rated_by.filter(pk=user.pk).exists()
 
 
 class File(models.Model):

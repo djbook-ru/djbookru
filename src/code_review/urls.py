@@ -6,4 +6,5 @@ urlpatterns = patterns('src.code_review.views',
     url(r'^add/$', 'add', name='add'),
     url(r'^comments_api/(?P<file_id>\d+)/$', 'comments_api', name='comments_api'),
     url(r'^details/(\d+)/$', 'details', name='details'),
+    url(r'^rate/(\d+)/$', 'rate', name='rate'),
 )
