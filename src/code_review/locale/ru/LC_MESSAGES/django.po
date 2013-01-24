@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-22 15:02+0200\n"
+"POT-Creation-Date: 2013-01-24 11:51+0200\n"
 "PO-Revision-Date: 2013-01-17 20:47+0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgstr "заголовок"
 msgid "description"
 msgstr "описание"
 
-#: models.py:18 models.py:42
+#: models.py:18 models.py:54
 msgid "language"
 msgstr "язык"
 
@@ -35,68 +35,95 @@ msgstr "язык"
 msgid "Main snippet language"
 msgstr "Основной язык сниппета"
 
-#: models.py:20 models.py:52
+#: models.py:20 models.py:64
 msgid "author"
 msgstr "автор"
 
-#: models.py:21 models.py:53
+#: models.py:21 models.py:65
 msgid "created"
 msgstr "создан"
 
-#: models.py:39
+#: models.py:22
+msgid "tags"
+msgstr "тэги"
+
+#: models.py:23 templates/code_review/details.html:108
+#: templates/code_review/index.html:33
+msgid "rating"
+msgstr "рейтинг"
+
+#: models.py:24
+#, fuzzy
+msgid "rated by"
+msgstr "создан"
+
+#: models.py:51
 msgid "file name"
 msgstr "имя файла"
 
-#: models.py:40
+#: models.py:52
 msgid "content"
 msgstr "содержимое"
 
-#: models.py:49
+#: models.py:61
 msgid "file"
 msgstr "файл"
 
-#: models.py:50
+#: models.py:62
 msgid "row"
 msgstr "строка"
 
-#: models.py:51
+#: models.py:63
 msgid "comment"
 msgstr "комментарий"
 
-#: views.py:39
+#: views.py:58
 msgid "Add at least one file"
 msgstr "Добавьте хотя бы один файл"
 
-#: templates/code_review/add.html:6 templates/code_review/details.html:6
-#: templates/code_review/index.html:6
+#: templates/code_review/add.html:6 templates/code_review/comments.html:6
+#: templates/code_review/details.html:6 templates/code_review/index.html:6
 msgid "Code Review"
 msgstr "Code Review"
 
-#: templates/code_review/add.html:22 templates/code_review/index.html:18
+#: templates/code_review/add.html:23 templates/code_review/comments.html:9
+#: templates/code_review/index.html:18
 msgid "Add snippet"
 msgstr "Добавить сниппет"
 
-#: templates/code_review/add.html:23
+#: templates/code_review/add.html:24 templates/code_review/add.html.py:37
 msgid "Create"
 msgstr "Создать"
 
-#: templates/code_review/add.html:24
+#: templates/code_review/add.html:25 templates/code_review/add.html.py:38
 msgid "Cancel"
 msgstr "Отменить"
 
-#: templates/code_review/add.html:32
+#: templates/code_review/add.html:33
 msgid "Files"
 msgstr "Файлы"
 
-#: templates/code_review/details.html:66
+#: templates/code_review/comments.html:10
+msgid "View snipets"
+msgstr "Показать сниппеты"
+
+#: templates/code_review/comments.html:13 templates/code_review/index.html:21
+msgid "Show all"
+msgstr "Показать все"
+
+#: templates/code_review/comments.html:15
+msgid "To my snippets"
+msgstr "Для моих сниппетов"
+
+#: templates/code_review/details.html:80
 msgid "Help"
 msgstr "Помощь"
 
-#: templates/code_review/details.html:69
+#: templates/code_review/details.html:83
 msgid "Click on row number to add comment."
 msgstr "Кликните на номер строки для добавления комментария."
 
-#: templates/code_review/details.html:70
+#: templates/code_review/details.html:84
 msgid ""
 "There is button on toolbar to show/hide comments. This can be usefull while "
 "code copying."
@@ -104,19 +131,23 @@ msgstr ""
 "На панели есть кнопка для отображения/скрытия комментариев, что может быть "
 "полезно при копировании кода."
 
-#: templates/code_review/details.html:71
+#: templates/code_review/details.html:85
 msgid "You can use Markdown in comments."
 msgstr "Вы можете использовать Markdown в комментариях."
 
-#: templates/code_review/details.html:72
+#: templates/code_review/details.html:86
 msgid "At the bottom you can left comment related to whole snippet."
 msgstr ""
 "В конце страницы вы можете оставить комментарий, который относится ко всему "
 "сниппету."
 
-#: templates/code_review/details.html:84
+#: templates/code_review/details.html:98
 msgid "back"
 msgstr "вернуться"
+
+#: templates/code_review/details.html:111 templates/code_review/index.html:40
+msgid "tags:"
+msgstr "тэги:"
 
 #: templates/code_review/index.html:11
 msgid "Welcome to our new application: Code review and snippets!"
@@ -138,5 +169,6 @@ msgstr ""
 "Старайтесь добавлять рабочий код и не слишком большой. Чем больше и сложнее "
 "код, тем меньше шанс, что его кто-то будет смотреть."
 
-#~ msgid "Add snipet"
-#~ msgstr "Добавить сниппет"
+#: templates/code_review/index.html:19
+msgid "Comments"
+msgstr "комментарии"

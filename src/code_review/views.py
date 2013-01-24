@@ -16,7 +16,7 @@ from django.db.models import F
 
 def index(request):
     qs = Snipet.objects.all()
-    tag_name = request.GET.get('tag', None)
+    tag_name = request.GET.get('tag')
     tag = None
     if tag_name:
         tag = get_object_or_404(Tag, name=tag_name)
@@ -74,6 +74,19 @@ def details(request, pk):
         'object': obj,
         'can_rate': obj.can_rate(request.user)
     }
+
+
+def comments(request):
+    qs = Comment.objects.all()
+    my_comments = request.GET.get('my') and request.user.is_authenticated()
+    if my_comments:
+        qs = qs.filter(file__snipet__author=request.user)
+    extra_context = {
+        'my_comments': my_comments
+    }
+    return object_list(request, qs, 20,
+                       template_name='code_review/comments.html',
+                       extra_context=extra_context)
 
 
 class CommentsApi(View):

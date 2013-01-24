@@ -16,6 +16,7 @@
 
 {% block content %}
     <a href="{% url 'code_review:add' %}" class="btn">{% trans "Add snippet" %}</a>
+    <a href="{% url 'code_review:comments' %}" class="btn">{% trans "Comments" %}</a>
     {% if tag %}
     <a href="?" class="btn">{% trans "Show all" %}</a>
     {% endif %}
