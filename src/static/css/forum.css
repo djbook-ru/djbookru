@@ -75,3 +75,8 @@
     border-right: 1px solid #ddd;
     font-size: 0.9em;
 }
+
+.post-form .submit-button {
+    width: 100px;
+    margin: 0 0 -35px 601px;
+}

@@ -1,10 +1,19 @@
 # -*- coding: utf-8 -*-
 
-from django.conf import settings
 from django import forms
+from django.conf import settings
+from django.forms.forms import pretty_name
 from django.utils.safestring import mark_safe
-
 from recaptcha.client import captcha
+
+
+class PlaceholderMixin(object):
+
+    def __init__(self, *args, **kwargs):
+        super(PlaceholderMixin, self).__init__(*args, **kwargs)
+        for name, field in self.fields.items():
+            if not 'placeholder' in field.widget.attrs:
+                field.widget.attrs['placeholder'] = field.label or pretty_name(name)
 
 
 class AjaxForm(object):

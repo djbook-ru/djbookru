@@ -3,6 +3,11 @@
 {% load i18n staticfiles bootstrap %}
 {% load url from future %}
 
+{% block head %}
+    {{ block.super }}
+    {{ form.media }}
+{% endblock %}
+
 {% block content %}
     <div class="well">
         <ul class="breadcrumb">
@@ -12,14 +17,15 @@
             <li class="active">{% trans "New post" %}</li>
         </ul>
 
-        <form method="post" class="form-horizontal">
+        <form method="post" class="form-horizontal post-form">
             <div class="pull-right top-panel">
                 <button type="submit" class="btn btn-primary btn-small">{% trans "Submit" %}</button>
                 <a href="{{ topic.get_absolute_url }}" class="btn btn-small">{% trans "Cancel" %}</a>
             </div>
 
             {% csrf_token %}
-            {{ form|bootstrap }}
+            <button type="submit" class="submit-button btn btn-primary btn-small">{% trans "Submit" %}</button>
+            {{ form.body }}
         </form>
     </div>
 {% endblock %}

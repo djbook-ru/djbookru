@@ -1,9 +1,11 @@
-from django import forms
 from .models import Topic, Post
+from django import forms
 from django.utils.translation import ugettext_lazy as _
+from markitup.forms import MarkdownEditorMixin
+from src.utils.forms import PlaceholderMixin
 
 
-class AddPostForm(forms.ModelForm):
+class AddPostForm(MarkdownEditorMixin, forms.ModelForm):
 
     class Meta:
         model = Post
@@ -22,7 +24,7 @@ class AddPostForm(forms.ModelForm):
         return post
 
 
-class AddTopicForm(forms.ModelForm):
+class AddTopicForm(PlaceholderMixin, MarkdownEditorMixin, forms.ModelForm):
     body = forms.CharField(label=_(u'Message'), widget=forms.Textarea)
 
     class Meta:

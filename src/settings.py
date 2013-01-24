@@ -249,6 +249,7 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'tagging',
     'staging',
+    'markitup',
 
     'src.forum',
     'src.accounts',

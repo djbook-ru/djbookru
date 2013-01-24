@@ -5,14 +5,14 @@
 
 {% block content %}
     <div class="well">
-        <div class="pull-right top-panel">
-            <a href="{% url 'forum:add_topic' forum.pk %}" class="btn btn-small">{% trans "New topic" %}</a>
-        </div>
-
         <ul class="breadcrumb">
             <li><a class="title" href="{{ forum.category.get_absolute_url }}">{{ forum.category }}</a> <span class="divider">/</span></li>
             <li class="active">{{ forum }}</li>
         </ul>
+
+        <div class="pull-right top-panel">
+            <a href="{% url 'forum:add_topic' forum.pk %}" class="btn btn-small">{% trans "New topic" %}</a>
+        </div>
 
         {% if topics %}
         <table class="table table-condensed forums">
