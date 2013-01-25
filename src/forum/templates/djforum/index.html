@@ -28,11 +28,15 @@
                         <p class="description">{{ forum.description }}</p>
                         {% endif %}
                     </td>
-                    <td>10</td>
-                    <td>10</td>
+                    <td>{{ forum.topics_count }}</td>
+                    <td>{{ forum.posts_count }}</td>
                     <td>
-                        <a href="">24.01.2013 14:02:00</a><br>
-                        by Alerion
+                        {% with last_post=forum.last_post %}
+                        {% if last_post %}
+                            <a href="{{ last_post.get_absolute_url }}">{{ last_post.created|date:"d.m.Y H:i:s" }}</a><br>
+                            {% trans "by" %} {{ last_post.user }}
+                        {% endif %}
+                        {% endwith %}
                     </td>
                 </tr>
             {% endfor %}

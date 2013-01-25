@@ -60,6 +60,21 @@ class Forum(models.Model):
     def get_absolute_url(self):
         return ('forum:forum', [self.pk])
 
+    @property
+    def topics_count(self):
+        return Topic.objects.filter(forum=self).count()
+
+    @property
+    def posts_count(self):
+        return Post.objects.filter(topic__forum=self).count()
+
+    @property
+    def last_post(self):
+        try:
+            return Post.objects.filter(topic__forum=self).order_by('-created')[:1].get()
+        except Post.DoesNotExist:
+            pass
+
 
 class Topic(models.Model):
     forum = models.ForeignKey(Forum, related_name='topics', verbose_name=_('Forum'))
@@ -84,6 +99,10 @@ class Topic(models.Model):
     def get_absolute_url(self):
         return ('forum:topic', [self.pk])
 
+    @property
+    def replies_count(self):
+        return self.posts.all().count() - 1
+
     def can_post(self, user):
         if not self.forum.category.has_access(user):
             return False
@@ -92,6 +111,13 @@ class Topic(models.Model):
             return False
 
         return True
+
+    @property
+    def last_post(self):
+        try:
+            return Post.objects.filter(topic=self).order_by('-created')[:1].get()
+        except Post.DoesNotExist:
+            pass
 
 
 class Post(models.Model):

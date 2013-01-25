@@ -43,16 +43,16 @@
             {% include "djforum/_post.html" %}
         {% endfor %}
 
+        {% if is_paginated %}
+            {% paginate %}
+        {% endif %}
+
         {% if form %}
         <form action="{% url 'forum:add_post' topic.pk %}" method="post" class="post-form form-horizontal">
             {% csrf_token %}
             <button type="submit" class="submit-button btn btn-primary btn-small">{% trans "Submit" %}</button>
             {{ form.body }}
         </form>
-        {% endif %}
-
-        {% if is_paginated %}
-            {% paginate %}
         {% endif %}
     </div>
 {% endblock %}

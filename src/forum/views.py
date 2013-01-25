@@ -19,10 +19,13 @@ def index(request):
 @render_to('djforum/forum.html')
 def forum(request, pk):
     forum = get_object_or_404(Forum, pk=pk)
-    return {
-        'forum': forum,
-        'topics': forum.topics.all()
+    qs = forum.topics.all()
+    extra_context = {
+        'forum': forum
     }
+    return object_list(request, qs, 20,
+                       template_name='djforum/forum.html',
+                       extra_context=extra_context)
 
 
 @login_required

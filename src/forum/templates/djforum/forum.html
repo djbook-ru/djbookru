@@ -1,6 +1,6 @@
 {% extends "djforum/base.html" %}
 
-{% load i18n staticfiles %}
+{% load i18n staticfiles pagination_tags %}
 {% load url from future %}
 
 {% block content %}
@@ -14,7 +14,11 @@
             <a href="{% url 'forum:add_topic' forum.pk %}" class="btn btn-small">{% trans "New topic" %}</a>
         </div>
 
-        {% if topics %}
+        {% if is_paginated %}
+            {% paginate %}
+        {% endif %}
+
+        {% if object_list %}
         <table class="table table-condensed forums">
             <thead>
                 <tr>
@@ -25,16 +29,20 @@
                 </tr>
             </thead>
             <tbody>
-            {% for topic in topics %}
+            {% for topic in object_list %}
                 <tr>
                     <td>
                         <a href="{{ topic.get_absolute_url }}" class="forum-title">{{ topic }}</a>
                     </td>
-                    <td>10</td>
-                    <td>10</td>
+                    <td>{{ topic.replies_count }}</td>
+                    <td>{{ topic.views }}</td>
                     <td>
-                        <a href="">24.01.2013 14:02:00</a><br>
-                        by Alerion
+                        {% with last_post=topic.last_post %}
+                        {% if last_post %}
+                            <a href="{{ last_post.get_absolute_url }}">{{ last_post.created|date:"d.m.Y H:i:s" }}</a><br>
+                            {% trans "by" %} {{ last_post.user }}
+                        {% endif %}
+                        {% endwith %}
                     </td>
                 </tr>
             {% endfor %}
@@ -42,6 +50,10 @@
         </table>
         {% else %}
             <p style="margin-left: 4px">{% trans "No topics" %}</p>
+        {% endif %}
+
+        {% if is_paginated %}
+            {% paginate %}
         {% endif %}
     </div>
 {% endblock %}

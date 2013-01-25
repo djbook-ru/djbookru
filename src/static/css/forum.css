@@ -52,6 +52,10 @@
     color: #595959;
 }
 
+.forums tr td {
+    height: 40px;
+}
+
 .top-panel {
     margin-top: -40px;
 }
