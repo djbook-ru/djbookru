@@ -46,4 +46,31 @@
         {% endwith %}
     </div>
     {% endfor %}
+
+    <div id="brdstats" class="block">
+        <h2><span>{% trans "Board information" %}</span></h2>
+        <div class="box">
+            <div class="inbox">
+                <dl class="conr">
+                    <dt><strong>{% trans "Board statistics" %}</strong></dt>
+                    <dd>{% trans "Total number of registered users:" %} <strong>{{ users_count }}</strong></dd>
+                    <dd>{% trans "Total number of topics:" %} <strong>{{ topics_count }}</strong></dd>
+                    <dd>{% trans "Total number of posts:" %} <strong>{{ posts_count }}</strong></dd>
+                </dl>
+                <dl class="conl">
+                    <dt><strong>{% trans "User information" %}</strong></dt>
+                    <dd>{% trans "Registered users online:" %} <strong>{{ online_count }}</strong></dd>
+                    <dd>{% trans "Guests online:" %} <strong>{{ guest_count }}</strong></dd>
+                </dl>
+                <dl id="onlinelist" class= "clearb">
+                    {% if online_count %}
+                        <dt><strong>{% trans "Online:" %} </strong></dt>
+                        {% for online in users_online %}
+                            <dd><a href="{{ online.get_absolute_url }}">{{ online }}</a></dd>
+                        {% endfor %}
+                    {% endif %}
+                </dl>
+            </div>
+        </div>
+    </div>
 {% endblock %}

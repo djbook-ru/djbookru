@@ -1,18 +1,33 @@
 # -*- coding: utf-8 -*-
 from .. decorators import render_to
-from .models import Category, Forum, Topic
-from django.shortcuts import get_object_or_404, redirect
-from django.contrib.auth.decorators import login_required
 from .forms import AddTopicForm, AddPostForm
+from .models import Category, Forum, Topic, Post
+from django.contrib.auth.decorators import login_required
+from django.db.models import F
+from django.shortcuts import get_object_or_404, redirect
 from django.views.generic.list_detail import object_list
+from django.core.cache import cache
+from src.accounts.models import User
 
 
 @render_to('djforum/index.html')
 def index(request):
+    users_cached = cache.get('users_online', {})
+    users_online = users_cached and User.objects.filter(id__in=users_cached.keys()) or []
+    guests_cached = cache.get('guests_online', {})
+    guest_count = len(guests_cached)
+    users_count = len(users_online)
+
     categories = [obj for obj in Category.objects.all() if obj.has_access(request.user)]
 
     return {
-        'categories': categories
+        'categories': categories,
+        'users_online': users_online,
+        'online_count': users_count,
+        'guest_count': guest_count,
+        'users_count': User.objects.count(),
+        'topics_count': Topic.objects.count(),
+        'posts_count': Post.objects.count()
     }
 
 
@@ -64,6 +79,7 @@ def add_post(request, pk):
 
 def topic(request, pk):
     topic = get_object_or_404(Topic, pk=pk)
+    Topic.objects.filter(pk=pk).update(views=F('views') + 1)
     qs = topic.posts.all()
     form = None
 
