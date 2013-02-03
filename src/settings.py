@@ -214,9 +214,6 @@ LOGGING = {
         }
     },
     'loggers': {
-        'SocialAuth': {
-            'handlers': ['mail_admins'],
-        },
         'django.request': {
             'handlers': ['mail_admins'],
             'level': 'ERROR',
