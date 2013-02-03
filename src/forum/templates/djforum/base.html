@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load staticfiles i18n components %}
+
+{% block head %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/forum.css" %}" type="text/css"/>
+{% endblock %}
+
+{% block body %}
+    {% block menu %}{% menu %}{% endblock %}
+    {% block search %}{% include '_search.html' %}{% endblock %}
+
+    <div class="content-container">
+        <div class="right-column visible-desktop">
+            {% include '_right.html' %}
+        </div>
+        <div class="center-column">
+            {% if messages %}
+                {% for message in messages %}
+                <div class="alert message {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                  {{ message }}
+                  <a class="close" data-dismiss="alert" href="#">&times;</a>
+                </div>
+                {% endfor %}
+            {% endif %}
+
+            {% block content %}{% endblock %}
+            {% block feedback_link %}
+            <a class="feedback-link" href="{% url main:feedback %}" target="_blank">{% trans 'Please, write feedback if something does not work' %}</a>
+            {% endblock %}
+        </div>
+        <footer>{% include '_footer.html' %}</footer>
+    </div>
+{% endblock %}

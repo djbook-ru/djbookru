@@ -114,6 +114,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'src.forum.middleware.LastLoginMiddleware',
+    'src.forum.middleware.UsersOnline',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 
     'pagination.middleware.PaginationMiddleware',
@@ -158,6 +160,8 @@ FIXTURE_DIRS = (
 
 DJANGOBB_FORUM_PAGE_SIZE = 40
 DJANGOBB_TOPIC_PAGE_SIZE = 50
+
+USER_ONLINE_TIMEOUT = 15
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -249,7 +253,10 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'tagging',
     'staging',
+    'markitup',
 
+    'src.djangobb_forum',
+    'src.forum',
     'src.accounts',
     'src.claims',
     'src.comments',
@@ -364,19 +371,6 @@ INSTALLED_APPS += ('south', )
 SKIP_SOUTH_TESTS = True
 SOUTH_TESTS_MIGRATE = False
 ### SOUTH: END
-
-
-### FORUM: BEGIN
-INSTALLED_APPS += ('src.djangobb_forum', )
-TOPIC_PAGE_SIZE = 10
-REPLY_PAGE_SIZE = 20
-FLOOD_TIME = 5
-RANKS_NAMES_DATA = ((30, "Member"), (100, "Senior Member"), (300, 'Star'))
-MIDDLEWARE_CLASSES += (
-    'src.djangobb_forum.middleware.LastLoginMiddleware',
-    'src.djangobb_forum.middleware.UsersOnline',
-)
-### FORUM: BEGIN
 
 RECAPTCHA_PUBLIC = ''
 RECAPTCHA_PRIVATE = ''

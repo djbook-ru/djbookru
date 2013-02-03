@@ -1,0 +1,39 @@
+{% extends "djforum/base.html" %}
+
+{% load i18n staticfiles bootstrap %}
+{% load url from future %}
+
+{% block head %}
+    {{ block.super }}
+    {{ form.media }}
+    <style>
+    .control-group-name {
+        margin-bottom: -15px;
+    }
+    #id_name {
+        width: 500px;
+    }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="well">
+        <ul class="breadcrumb">
+            <li><a class="title" href="{{ forum.category.get_absolute_url }}">{{ forum.category }}</a> <span class="divider">/</span></li>
+            <li><a class="title forum" href="{{ forum.get_absolute_url }}">{{ forum }}</a> <span class="divider">/</span></li>
+            <li class="active">{% trans "New topic" %}</li>
+        </ul>
+
+        <form method="post" class="post-form">
+            <div class="pull-right top-panel">
+                <button type="submit" class="btn btn-primary btn-small">{% trans "Submit" %}</button>
+                <a href="{{ forum.get_absolute_url }}" class="btn btn-small">{% trans "Cancel" %}</a>
+            </div>
+
+            {% csrf_token %}
+            {{ form.name|bootstrap:'nolabel' }}
+            <button type="submit" class="submit-button btn btn-primary btn-small">{% trans "Submit" %}</button>
+            {{ form.body|bootstrap:'nolabel' }}
+        </form>
+    </div>
+{% endblock %}

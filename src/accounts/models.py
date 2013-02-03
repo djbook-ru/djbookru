@@ -27,6 +27,7 @@ class User(BaseUser):
     homepage = models.URLField(_(u'homepage'), verify_exists=False, blank=True)
     is_valid_email = models.BooleanField(_(u'is valid email?'), default=False)
     achievements = models.ManyToManyField('Achievement', verbose_name=_(u'achievements'), through='UserAchievement')
+    signature = models.TextField(_('forum signature'), blank=True,  max_length=1024)
 
     lng = models.FloatField(_(u'longitude'), blank=True, null=True)
     lat = models.FloatField(_(u'latitude'), blank=True, null=True)
@@ -99,6 +100,10 @@ class User(BaseUser):
     def nickname(self):
         #for easy change of user name display
         return self.username
+
+    @property
+    def has_achievements(self):
+        return self.achievements.exists()
 
 
 def create_custom_user(sender, instance, created, **kwargs):

@@ -1,0 +1,96 @@
+.center-column {
+    margin-left: 5px;
+}
+
+.title {
+    color: #595959;
+    margin: 0;
+    padding-left: 4px;
+}
+
+.breadcrumb {
+    padding: 0;
+}
+
+.breadcrumb .title {
+    color: #595959;
+    font-size: 17.5px;
+    font-weight: bold;
+    text-rendering: optimizelegibility;
+}
+
+.breadcrumb .title.forum {
+    color: #487858;
+    font-size: 16.5px;
+}
+
+.breadcrumb .active {
+    color: #595959;
+}
+
+.forums {
+    margin-bottom: 0;
+}
+
+.forums a {
+    color: #487858;
+}
+
+.forum-title {
+    font-weight: bold;
+}
+
+.forums .number-column {
+    width: 80px;
+}
+
+.forums .last-post {
+    width: 20%;
+}
+
+.forums .description {
+    color: #595959;
+}
+
+.forums tr td {
+    height: 40px;
+}
+
+.top-panel {
+    margin-top: -40px;
+}
+
+.post .table .author .date {
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.post .table {
+    margin-bottom: 0;
+}
+
+.post .table td {
+    border-top: none;
+}
+
+.post .table .author {
+    padding-top: 0;
+    width: 150px;
+    border-right: 1px solid #ddd;
+    font-size: 0.9em;
+}
+
+.post-form .submit-button {
+    width: 100px;
+    margin: 0 0 -35px 601px;
+}
+
+hr {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #eee;
+    margin: 10px 0;
+}
+
+.signature {
+    font-size: 0.9em;
+}

@@ -84,7 +84,7 @@ class UserEditForm(forms.ModelForm):
 
     class Meta:
         model = models.User
-        fields = ('biography', 'email')
+        fields = ('biography', 'email', 'signature')
 
     def clean(self):
         current, new, verify = map(self.cleaned_data.get,

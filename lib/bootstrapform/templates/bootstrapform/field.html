@@ -17,6 +17,22 @@
             {% endif %}
         </div>
     {% else %}
+        {% if nolabel %}
+        <div class="controls">
+            {{ field }}
+
+            {% for error in field.errors %}
+                <span class="help-inline">{{ error }}</span>
+            {% endfor %}
+
+            {% if field.help_text %}
+            <p class="help-block">
+                {{ field.help_text }}
+            </p>
+            {% endif %}
+
+        </div>
+        {% else %}
         <label class="control-label">{{ field.label }} {% if field.field.required %}*{% endif %}</label>
 
         <div class="controls">
@@ -33,5 +49,6 @@
             {% endif %}
 
         </div>
+        {% endif %}
     {% endif %}
 </div>

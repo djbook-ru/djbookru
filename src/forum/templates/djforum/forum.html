@@ -1,0 +1,59 @@
+{% extends "djforum/base.html" %}
+
+{% load i18n staticfiles pagination_tags %}
+{% load url from future %}
+
+{% block content %}
+    <div class="well">
+        <ul class="breadcrumb">
+            <li><a class="title" href="{{ forum.category.get_absolute_url }}">{{ forum.category }}</a> <span class="divider">/</span></li>
+            <li class="active">{{ forum }}</li>
+        </ul>
+
+        <div class="pull-right top-panel">
+            <a href="{% url 'forum:add_topic' forum.pk %}" class="btn btn-small">{% trans "New topic" %}</a>
+        </div>
+
+        {% if is_paginated %}
+            {% paginate %}
+        {% endif %}
+
+        {% if object_list %}
+        <table class="table table-condensed forums">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="number-column">{% trans "Replies" %}</th>
+                    <th class="number-column">{% trans "Views" %}</th>
+                    <th class="last-post">{% trans "Last post" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for topic in object_list %}
+                <tr>
+                    <td>
+                        <a href="{{ topic.get_absolute_url }}" class="forum-title">{{ topic }}</a>
+                    </td>
+                    <td>{{ topic.replies_count }}</td>
+                    <td>{{ topic.views }}</td>
+                    <td>
+                        {% with last_post=topic.last_post %}
+                        {% if last_post %}
+                            <a href="{{ last_post.get_absolute_url }}">{{ last_post.created|date:"d.m.Y H:i:s" }}</a><br>
+                            {% trans "by" %} {{ last_post.user }}
+                        {% endif %}
+                        {% endwith %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p style="margin-left: 4px">{% trans "No topics" %}</p>
+        {% endif %}
+
+        {% if is_paginated %}
+            {% paginate %}
+        {% endif %}
+    </div>
+{% endblock %}

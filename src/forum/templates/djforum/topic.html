@@ -1,0 +1,58 @@
+{% extends "djforum/base.html" %}
+
+{% load i18n staticfiles pagination_tags bootstrap %}
+{% load url from future %}
+
+{% block head %}
+    {{ block.super }}
+    {{ form.media }}
+    <script>
+    jQuery(function($){
+        $('.post-form').submit(function(){
+            if ( ! $('textarea', this).val()){
+                alert('{% trans "Eneter message." %}');
+                return false;
+            }
+        });
+
+        $('.answer-button').click(function(){
+            $('#id_body').focus();
+            return false;
+        });
+    });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="well">
+        <ul class="breadcrumb">
+            <li><a class="title" href="{{ forum.category.get_absolute_url }}">{{ forum.category }}</a> <span class="divider">/</span></li>
+            <li><a class="title forum" href="{{ forum.get_absolute_url }}">{{ forum }}</a> <span class="divider">/</span></li>
+            <li class="active">{{ topic }}</li>
+        </ul>
+
+        <div class="pull-right top-panel">
+            <a href="{% url 'forum:add_post' topic.pk %}" class="btn btn-small answer-button">{% trans "Answer" %}</a>
+        </div>
+
+        {% if is_paginated %}
+            {% paginate %}
+        {% endif %}
+
+        {% for post in object_list %}
+            {% include "djforum/_post.html" %}
+        {% endfor %}
+
+        {% if is_paginated %}
+            {% paginate %}
+        {% endif %}
+
+        {% if form %}
+        <form action="{% url 'forum:add_post' topic.pk %}" method="post" class="post-form form-horizontal">
+            {% csrf_token %}
+            <button type="submit" class="submit-button btn btn-primary btn-small">{% trans "Submit" %}</button>
+            {{ form.body }}
+        </form>
+        {% endif %}
+    </div>
+{% endblock %}

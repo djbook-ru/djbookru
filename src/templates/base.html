@@ -74,63 +74,65 @@
         </script>
     </head>
     <body>
-        {% block menu %}{% menu %}{% endblock %}
-        {% block search %}{% include '_search.html' %}{% endblock %}
+        {% block body %}
+          {% block menu %}{% menu %}{% endblock %}
+          {% block search %}{% include '_search.html' %}{% endblock %}
 
-        <div class="content-container">
-            <div class="left-column">
-                {% block left %}
-                    {% last_news %}
-                    <div class="alert alert-info sidebar-item">
-                        <i class="icon-comment"></i>
-                        <a href="http://people.csail.mit.edu/pgbovine/python/tutor.html">
-                            Онлайн репетитор: Python
-                        </a>
+          <div class="content-container">
+              <div class="left-column">
+                  {% block left %}
+                      {% last_news %}
+                      <div class="alert alert-info sidebar-item">
+                          <i class="icon-comment"></i>
+                          <a href="http://people.csail.mit.edu/pgbovine/python/tutor.html">
+                              Онлайн репетитор: Python
+                          </a>
+                      </div>
+                      {% last_comments %}
+                  {% endblock %}
+              </div>
+              <div class="right-column visible-desktop">
+                  {% include '_right.html' %}
+              </div>
+              <div class="center-column">
+                  {% if messages %}
+                      {% for message in messages %}
+                      <div class="alert message {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                        {{ message }}
+                        <a class="close" data-dismiss="alert" href="#">&times;</a>
+                      </div>
+                      {% endfor %}
+                  {% endif %}
+                  {% random_zone_ad 'buy_me' 'header' %}
+                  {% block pre_content %}
+                  {% announcements %}
+                  {% if user.is_authenticated and not user.is_valid_email %}
+                    <div class="alert alert-error">
+                        <h4><a href="{% url accounts:edit %}">{% trans "Confirm you email" %}</a></h4>
+                        <p>
+                            {% blocktrans %}
+                                You account does not have confirmed email.
+                                You should edit email if your profile has incorrect one and confirm it.
+                            {% endblocktrans %}
+                        </p>
+                        <p>
+                            {% trans "Your current email is:" %} {{ user.email }}<br>
+                            <strong><a href="{% url accounts:resend_confirmation_email %}">{% trans "Send confirmation email" %}</a></strong>
+                        </p>
                     </div>
-                    {% last_comments %}
-                {% endblock %}
-            </div>
-            <div class="right-column visible-desktop">
-                {% include '_right.html' %}
-            </div>
-            <div class="center-column">
-                {% if messages %}
-                    {% for message in messages %}
-                    <div class="alert message {% if message.tags %}alert-{{ message.tags }}{% endif %}">
-                      {{ message }}
-                      <a class="close" data-dismiss="alert" href="#">&times;</a>
-                    </div>
-                    {% endfor %}
-                {% endif %}
-                {% random_zone_ad 'buy_me' 'header' %}
-                {% block pre_content %}
-                {% announcements %}
-                {% if user.is_authenticated and not user.is_valid_email %}
-                  <div class="alert alert-error">
-                      <h4><a href="{% url accounts:edit %}">{% trans "Confirm you email" %}</a></h4>
-                      <p>
-                          {% blocktrans %}
-                              You account does not have confirmed email.
-                              You should edit email if your profile has incorrect one and confirm it.
-                          {% endblocktrans %}
-                      </p>
-                      <p>
-                          {% trans "Your current email is:" %} {{ user.email }}<br>
-                          <strong><a href="{% url accounts:resend_confirmation_email %}">{% trans "Send confirmation email" %}</a></strong>
-                      </p>
+                  {% endif %}
+                  {% endblock %}
+                  <div class="well content">
+                      {% block content %}{% endblock %}
+                      {% block feedback_link %}
+                      <a class="feedback-link" href="{% url main:feedback %}" target="_blank">{% trans 'Please, write feedback if something does not work' %}</a>
+                      {% endblock %}
                   </div>
-                {% endif %}
-                {% endblock %}
-                <div class="well content">
-                    {% block content %}{% endblock %}
-                    {% block feedback_link %}
-                    <a class="feedback-link" href="{% url main:feedback %}" target="_blank">{% trans 'Please, write feedback if something does not work' %}</a>
-                    {% endblock %}
-                </div>
-                {% block post_content %}{% endblock %}
-                {% random_zone_ad 'buy_me' 'footer' %}
-            </div>
-            <footer>{% include '_footer.html' %}</footer>
-        </div>
+                  {% block post_content %}{% endblock %}
+                  {% random_zone_ad 'buy_me' 'footer' %}
+              </div>
+              <footer>{% include '_footer.html' %}</footer>
+          </div>
+        {% endblock %}
     </body>
 </html>
