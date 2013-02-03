@@ -24,7 +24,7 @@ class ExampleForm(ModelForm):
 class ExampleAdmin(admin.ModelAdmin):
     list_display = ('title', 'category', 'author', 'approved', 'created')
     list_filter = ('category', 'approved')
-    readonly_fields = ('author',)
+    raw_id_fields = ('author',)
     form = ExampleForm
 
     def save_model(self, request, obj, form, change):
