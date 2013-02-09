@@ -9,7 +9,7 @@ class AddPostForm(MarkdownEditorMixin, forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ('body', )
+        fields = ('body',)
 
     def __init__(self, topic, user, *args, **kwargs):
         self.topic = topic
@@ -22,6 +22,13 @@ class AddPostForm(MarkdownEditorMixin, forms.ModelForm):
         post.topic = self.topic
         post.save()
         return post
+
+
+class EditPostForm(MarkdownEditorMixin, forms.ModelForm):
+
+    class Meta:
+        model = Post
+        fields = ('body',)
 
 
 class AddTopicForm(PlaceholderMixin, MarkdownEditorMixin, forms.ModelForm):

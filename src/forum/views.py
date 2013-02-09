@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from .. decorators import render_to
-from .forms import AddTopicForm, AddPostForm
+from .forms import AddTopicForm, AddPostForm, EditPostForm
 from .models import Category, Forum, Topic, Post
 from django.contrib.auth.decorators import login_required
 from django.db.models import F
@@ -8,6 +8,8 @@ from django.shortcuts import get_object_or_404, redirect
 from django.views.generic.list_detail import object_list
 from django.core.cache import cache
 from src.accounts.models import User
+from django.contrib import messages
+from django.utils.translation import ugettext_lazy as _
 
 
 @render_to('djforum/index.html')
@@ -74,6 +76,27 @@ def add_post(request, pk):
         'form': form,
         'topic': topic,
         'forum': topic.forum
+    }
+
+
+@login_required
+@render_to('djforum/edit_post.html')
+def edit_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+
+    if not post.can_edit(request.user):
+        messages.error(request, _(u'You have no permission edit this post'))
+        return redirect(post.topic)
+
+    form = EditPostForm(request.POST or None, instance=post)
+    if form.is_valid():
+        post = form.save()
+        return redirect(post)
+
+    return {
+        'form': form,
+        'topic': post.topic,
+        'forum': post.topic.forum
     }
 
 

@@ -144,3 +144,12 @@ class Post(models.Model):
 
     def get_content(self):
         return mark_safe(markdown.markdown(self.body, safe_mode='escape'))
+
+    def can_edit(self, user):
+        if not self.topic.forum.category.has_access(user):
+            return False
+
+        if self.topic.closed:
+            return False
+
+        return user.is_active and (user.is_superuser or self.user == user)
