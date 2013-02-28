@@ -441,8 +441,7 @@ a.btn-success {
     font-size: 0.8em;
 }
 
-.ad_text {
-    margin: 0 auto;
+.dynamic_text {
     vertical-align: middle;
     display: inline-block;
     border: 1px solid rgba(0, 0, 0, 0.15);
@@ -450,16 +449,17 @@ a.btn-success {
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
     background-color: #C0DB8A;
+    padding: 5px 5px 0px 9px;
     padding: 6px;
     height: 100%;
-
+    text-align: center;
+    width: 295px;
 }
-
-.ad_text > p {
+.dynamic_text > p {
     margin-top: 6px;
 }
 
-.ad_banner {
+.dynamic_banner {
     height: 64px;
     margin: 0 auto;
     vertical-align: middle;
