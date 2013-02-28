@@ -17,10 +17,10 @@
                 <li><a href="{% url news:index %}" >{% trans 'News' %}</a></li>
                 <li><a href="{% url videos:index %}" >{% trans 'Videos' %}</a></li>
                 <li><a href="{% url djangobb:index %}" >{% trans 'Forum' %}</a></li>
+                <li><a href="{% url main:search %}" >{% trans 'Search' %}</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
                         {% trans 'Code Review' %}
-                        <img style="width: 24px; height: 24px; margin: -13px 0 0 -8px" src="{% static 'img/beta.png' %}"/>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
@@ -46,7 +46,6 @@
                 </li>
                 <li><a href="{% url accounts:map %}" >
                     {% trans 'Map' %}
-                    <img style="width: 24px; height: 24px; margin: -13px 0 0 -8px" src="{% static 'img/beta.png' %}"/>
                 </a></li>
                 <li><a href="/about/">{% trans 'About' %}</a></li>
             </ul>

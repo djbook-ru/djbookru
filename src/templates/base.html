@@ -75,21 +75,32 @@
     </head>
     <body>
         {% block body %}
-          {% block menu %}{% menu %}{% endblock %}
-          {% block search %}{% include '_search.html' %}{% endblock %}
+           {% block menu %}{% menu %}{% endblock %}
+        <div class="top-container container-fluid">
+            <div class="row-fluid">
+                <div class="span4 logo">
+                    {% random_zone_ad 'tematic' 'header_text' %}
+                </div>
+                <div class="span6">
+                </div>
+                <div class="span2">
+                    {% random_zone_ad 'tematic' 'header_banner' %}
+                 </div>
+            </div>
+        </div>
 
-          <div class="content-container">
-              <div class="left-column">
-                  {% block left %}
-                      {% last_news %}
-                      <div class="alert alert-info sidebar-item">
-                          <i class="icon-comment"></i>
-                          <a href="http://people.csail.mit.edu/pgbovine/python/tutor.html">
-                              Онлайн репетитор: Python
-                          </a>
-                      </div>
-                      {% last_comments %}
-                  {% endblock %}
+        <div class="content-container">
+            <div class="left-column">
+                {% block left %}
+                    {% last_news %}
+                    <div class="alert alert-info sidebar-item">
+                        <i class="icon-comment"></i>
+                        <a href="http://people.csail.mit.edu/pgbovine/python/tutor.html">
+                            Онлайн репетитор: Python
+                        </a>
+                    </div>
+                    {% last_comments %}
+                {% endblock %}
               </div>
               <div class="right-column visible-desktop">
                   {% include '_right.html' %}
@@ -103,7 +114,9 @@
                       </div>
                       {% endfor %}
                   {% endif %}
-                  {% random_zone_ad 'buy_me' 'header' %}
+
+                  {% random_zone_ad 'tematic' 'header' %}
+
                   {% block pre_content %}
                   {% announcements %}
                   {% if user.is_authenticated and not user.is_valid_email %}
@@ -122,14 +135,18 @@
                     </div>
                   {% endif %}
                   {% endblock %}
+
                   <div class="well content">
                       {% block content %}{% endblock %}
                       {% block feedback_link %}
                       <a class="feedback-link" href="{% url main:feedback %}" target="_blank">{% trans 'Please, write feedback if something does not work' %}</a>
                       {% endblock %}
                   </div>
+
                   {% block post_content %}{% endblock %}
+
                   {% random_zone_ad 'buy_me' 'footer' %}
+
               </div>
               <footer>{% include '_footer.html' %}</footer>
           </div>

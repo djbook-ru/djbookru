@@ -440,3 +440,29 @@ a.btn-success {
 .feedback-link {
     font-size: 0.8em;
 }
+
+.ad_text {
+    margin: 0 auto;
+    vertical-align: middle;
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    -border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    background-color: #C0DB8A;
+    padding: 6px;
+    height: 100%;
+
+}
+
+.ad_text > p {
+    margin-top: 6px;
+}
+
+.ad_banner {
+    height: 64px;
+    margin: 0 auto;
+    vertical-align: middle;
+    display: inline-block;
+}
+
