@@ -47,12 +47,7 @@ hr {
 }
 
 .top-container {
-    padding: 8px 0 0 0;
-}
-
-.top-container .logo.span4 {
-    margin-left: 10px;
-    margin-right: -10px;
+    padding: 0;
 }
 
 .top-container .search {
@@ -442,27 +437,35 @@ a.btn-success {
 }
 
 .dynamic_text {
+    display: table;
     vertical-align: middle;
-    display: inline-block;
+    text-align: center;
     border: 1px solid rgba(0, 0, 0, 0.15);
     -border-radius: 8px;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
     background-color: #C0DB8A;
-    padding: 5px 5px 0px 9px;
-    padding: 6px;
+    margin: 0;
+    padding: 0;
     height: 100%;
-    text-align: center;
-    width: 295px;
+    width: 100%;
 }
-.dynamic_text > p {
-    margin-top: 6px;
-}
-
-.dynamic_banner {
-    height: 64px;
-    margin: 0 auto;
+.dynamic_text > a {
+    margin: 0;
     vertical-align: middle;
-    display: inline-block;
+    text-align: center;
+    display: table-cell;
 }
-
+.dynamic_image {
+    display: table;
+    vertical-align: middle;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+.dynamic_image > a {
+    margin: 0;
+    vertical-align: middle;
+    text-align: right;
+    display: table-cell;
+}
