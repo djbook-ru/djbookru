@@ -5,9 +5,10 @@
 {% block title %}{{ object }} | {% trans 'News' %} | {{ block.super }}{% endblock %}
 
 {% block content %}
-    <h4>{{ object }}</h4> <em>{{ object.created|date:'DATETIME_FORMAT' }}</em>
+    {% include "news/metainfo.html" %}
+    <h4>{{ object|upper }}</h4>
     {{ object.content|markdown }}
-    <a class="pull-right" href="{{ object.author.get_absolute_url }}">{{ object.author }}</a>
+    {% include "news/metainfo.html" %}
     {% get_share_links object %}
     {% render_comment_list object %}
     {% render_comment_form object %}

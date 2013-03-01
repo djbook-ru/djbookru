@@ -1,14 +1,31 @@
 {% load i18n markup comments_tags %}
 {% for item in news %}
-    <div class="well sidebar-item">
-        <h4><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></h4>
-        <h5><small>{{ item.created|date:'DATETIME_FORMAT' }}</small></h5>
-        {{ item.content|markdown|truncatewords:15|linebreaksbr }}
-        <hr>
-        <a href="{{ item.get_absolute_url }}#comments">
-            {% trans 'Comments' %}: {% get_comment_count item %}
-        </a>
-        <a class="pull-right" href="{{ item.author.get_absolute_url }}">{{ item.author }}</a>
-        <div style="clear: both"></div>
+    <div class="well" style="margin-bottom: 0px;">
+        <div class="row-fluid small">
+            <div class="span2">
+                <span class="user_thumb pull-left">
+                    <img src="{{ item.author.avatar }}&s=32" alt="{{ item.author }}" title="{{ item.author }}"/>
+                </span>
+            </div>
+            <div class="row-fluid">
+                <div class="table_user_deets pull-left">
+                    <a href="{{ item.author.get_absolute_url }}">{{ item.author }}</a>
+                    <span style="font-size: 12px;"><em>{{ item.created|timesince }} {% trans 'ago' %}</em></span>
+                </div>
+                <div class="pull-right">
+                    <a href="{{ item.get_absolute_url }}#comments">
+                        <span class="label" title="Комментарии">
+                            {% get_comment_count item %}
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-header">
+            <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+        </div>
+        <div style="font-size: 12px;">
+            {{ item.content|markdown|truncatewords:15|linebreaksbr }}
+        </div>
     </div>
 {% endfor %}

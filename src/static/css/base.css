@@ -288,6 +288,8 @@ form formset p {
 
 .comments .user_thumb {
     margin-right: 10px;
+    width: 80px;
+    height: 80px;
 }
 
 .comments a.link, .comments a.reply, .comments a.delete, .comments a.edit {
