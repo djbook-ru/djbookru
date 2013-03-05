@@ -1,14 +1,14 @@
 # Copyright (C) 2010-2011 Ruslan Popov
 # This file is distributed under the same license as the translation package.
 # Ruslan Popov <ruslan.popov@gmail.com>, 2010.
-# Ruslan Popob <ruslan.popov@gmail.com>, 2011, 2012.
+# Ruslan Popob <ruslan.popov@gmail.com>, 2011, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-22 17:18+0200\n"
-"PO-Revision-Date: 2012-08-31 15:14+0400\n"
+"POT-Creation-Date: 2013-03-06 01:46+0400\n"
+"PO-Revision-Date: 2013-03-06 01:56+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -18,15 +18,15 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: admin.py:29
+#: admin.py:36
 msgid "Personal info"
 msgstr "Персональные данные"
 
-#: admin.py:30
+#: admin.py:37
 msgid "Permissions"
 msgstr "Права доступа"
 
-#: admin.py:32
+#: admin.py:39
 msgid "Important dates"
 msgstr "Важные даты"
 
@@ -113,101 +113,104 @@ msgstr "домашняя страница"
 msgid "is valid email?"
 msgstr "почта верна?"
 
-#: models.py:29 models.py:145
+#: models.py:29 models.py:150
 msgid "achievements"
-msgstr "Достижения"
+msgstr "достижения"
 
-#: models.py:31
-msgid "longitude"
-msgstr ""
+#: models.py:30
+msgid "forum signature"
+msgstr "подпись на форуме"
 
 #: models.py:32
-msgid "latitude"
-msgstr ""
+msgid "longitude"
+msgstr "долгота"
 
-#: models.py:35
-msgid "last comments read"
-msgstr "Последний просмотр комментариев"
+#: models.py:33
+msgid "latitude"
+msgstr "широта"
 
 #: models.py:36
-msgid "last doc. comments read"
-msgstr "Последний просмотр комментариев к документации"
+msgid "last comments read"
+msgstr "последний просмотр комментариев"
 
-#: models.py:41
+#: models.py:37
+msgid "last doc. comments read"
+msgstr "последний просмотр комментариев к документации"
+
+#: models.py:42
 msgid "User"
 msgstr "Пользователь"
 
-#: models.py:42
+#: models.py:43
 msgid "Users"
 msgstr "Пользователи"
 
-#: models.py:116
+#: models.py:121
 msgid "title"
-msgstr ""
+msgstr "заголовок"
 
-#: models.py:117
+#: models.py:122
 msgid "link"
-msgstr ""
+msgstr "ссылка"
 
-#: models.py:118
+#: models.py:123
 msgid "content"
-msgstr ""
+msgstr "содержимое"
 
-#: models.py:118
+#: models.py:123
 msgid "Use Markdown and HTML"
-msgstr ""
+msgstr "Используйте Markdown и HTML"
 
-#: models.py:119
+#: models.py:124
 msgid "is active?"
-msgstr ""
+msgstr "активен?"
 
-#: models.py:120
-#, fuzzy
+#: models.py:125
 msgid "created"
-msgstr "Создать"
+msgstr "создан"
 
-#: models.py:127
+#: models.py:132
 msgid "user"
 msgstr "пользователь"
 
-#: models.py:128 models.py:144
+#: models.py:133 models.py:149
 msgid "achievement"
-msgstr "Достижение"
+msgstr "достижение"
 
-#: models.py:129
+#: models.py:134
 msgid "note"
 msgstr "заметка"
 
-#: models.py:132
+#: models.py:137
 msgid "user achievement"
-msgstr "Достижение пользователя"
-
-#: models.py:133
-msgid "user achievements"
-msgstr "Достижения пользователя"
+msgstr "достижение пользователя"
 
 #: models.py:138
+msgid "user achievements"
+msgstr "достижения пользователей"
+
+#: models.py:143
 msgid "name"
 msgstr "имя"
 
-#: models.py:139
+#: models.py:144
 msgid "description"
 msgstr "описание"
 
-#: models.py:140
+#: models.py:145
 msgid "active icon"
-msgstr "Активная иконка"
+msgstr "активная иконка"
 
-#: models.py:183
+#: models.py:188
 #, python-format
 msgid "Please confirm your email address for %(site)s"
 msgstr "Пожалуйста, подтвердите адрес вашей электронной почты для %(site)s"
 
-#: models.py:206
+#: models.py:211
 msgid "e-mail confirmation"
 msgstr "подтверждение почты"
 
-#: models.py:207
+#: models.py:212
 msgid "e-mail confirmations"
 msgstr "подтверждения почты"
 
@@ -220,15 +223,13 @@ msgstr ""
 "аккаунт, войдите и подключите сторонний аккаунт на странице редактирования "
 "профиля."
 
-#: views.py:53 templates/accounts/map.html:123
-#, fuzzy
+#: views.py:53 templates/accounts/map.html:124
 msgid "Authenticate please!"
-msgstr "Аутентификация"
+msgstr "Аутентифицируйтесь, пожалуйста!"
 
 #: views.py:62
-#, fuzzy
 msgid "invalid form"
-msgstr "Неправильный пароль."
+msgstr "неправильная форма"
 
 #: views.py:72
 msgid "Account created success! Confirm your email."
@@ -359,27 +360,26 @@ msgstr "Забыли пароль?"
 msgid "You are authenticated already"
 msgstr "Вы уже аутентифицированы"
 
-#: templates/accounts/map.html:136
-msgid "Add yourself on map!"
-msgstr ""
-
 #: templates/accounts/map.html:137
-msgid "This is just for fun."
-msgstr ""
+msgid "Add yourself on the map!"
+msgstr "Добавьте себя на карту!"
 
 #: templates/accounts/map.html:138
-#, fuzzy
-msgid "You should be authenticated."
-msgstr "Вы уже аутентифицированы"
+msgid "This is just for fun."
+msgstr "Это всё просто для забавы."
 
 #: templates/accounts/map.html:139
+msgid "You should be authenticated."
+msgstr "Вы должны быть аутентифицированы."
+
+#: templates/accounts/map.html:140
 msgid ""
 "Green marker should appear on your position, otherwise put marker on map to "
 "mark you position."
 msgstr ""
-"Зеленый маркер появится там, где вы находитесь. Если ваш барузер не "
-"пооддерживает geolocation, добавите маркер просто перетащив его с панельки "
-"на карту."
+"Зеленый маркер появится там, где вы находитесь. Если ваш браузер не "
+"поддерживает возможности геолокации, добавьте маркер вручную, просто "
+"перетащив его с панельки на карту."
 
 #: templates/accounts/notifications.html:11
 msgid "Comments"
