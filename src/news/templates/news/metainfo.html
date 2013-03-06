@@ -1,7 +1,7 @@
 {% load i18n %}
 <div class="pull-right">
     <span class="user_thumb pull-left">
-        <img src="{{ object.author.avatar }}" alt="{{ object.author }}" title="{{ object.author }}"/>
+        <img src="{{ object.author.avatar }}{% if avatar_size %}&s={{ avatar_size }}{% endif %}" alt="{{ object.author }}" title="{{ object.author }}"/>
     </span>
     <div class="pull-left" style="padding: 0px 4px;">
         <div>

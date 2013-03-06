@@ -9,11 +9,11 @@
         {% paginate %}
     {% endif %}
 
-    {% for n in object_list %}
+    {% for object in object_list %}
         <div class="well">
-            <h4><a href="{{ n.get_absolute_url }}">{{ n.title }}</a></h4>
-            <em>{{ n.created|date:'DATETIME_FORMAT' }}</em>
-            {{ n.content|markdown|truncatewords_html:30 }}
+            {% include "news/metainfo.html" with avatar_size=32 %}
+            <h4><a href="{{ object.get_absolute_url }}">{{ object.title|upper }}</a></h4>
+            {{ object.content|markdown|truncatewords_html:30 }}
         </div>
     {% endfor %}
 
