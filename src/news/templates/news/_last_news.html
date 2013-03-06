@@ -1,13 +1,15 @@
-{% load i18n markup comments_tags %}
+{% load i18n staticfiles markup comments_tags %}
+
+<ul class="news_list">
 {% for item in news %}
-    <div class="well" style="margin-bottom: 0px;">
+    <li>
         <div class="row-fluid small">
             <div class="span2">
                 <span class="user_thumb pull-left">
                     <img src="{{ item.author.avatar }}&s=32" alt="{{ item.author }}" title="{{ item.author }}"/>
                 </span>
             </div>
-            <div class="row-fluid">
+            <div>
                 <div class="table_user_deets pull-left">
                     <a href="{{ item.author.get_absolute_url }}">{{ item.author }}</a>
                     <span style="font-size: 12px;"><em>{{ item.created|timesince }} {% trans 'ago' %}</em></span>
@@ -27,5 +29,6 @@
         <div style="font-size: 12px;">
             {{ item.content|markdown|truncatewords:15|linebreaksbr }}
         </div>
-    </div>
+    </li>
 {% endfor %}
+</ul>
