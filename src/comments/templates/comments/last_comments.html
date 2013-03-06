@@ -1,11 +1,23 @@
 {% load i18n %}
+<ul class="news_list">
 {% for item in last_comments %}
-    <div class="well sidebar-item">
-        <h5><a href="{{ item.get_absolute_url }}">{{ item.content_object }}</a></h5>   
-        <h5><small>{{ item.submit_date|timesince }} {% trans 'ago' %}</small></h5>
-        <p>{{ item.content|truncatewords:15|linebreaksbr }}</p>
-        <hr>
-        <a class="pull-right" href="{{ item.user.get_absolute_url }}">{{ item.user }}</a>
-        <div style="clear: both"></div>
-    </div>
+    <li>
+        <div class="row-fluid small">
+            <div class="span2">
+                <span class="user_thumb pull-left">
+                    <img src="{{ item.user.avatar }}&s=32" alt="{{ item.user }}" title="{{ item.user }}"/>
+                </span>
+            </div>
+            <div>
+                <div class="user_info pull-left">
+                    <a href="{{ item.user.get_absolute_url }}">{{ item.user }}</a>
+                    <span style="font-size: 12px;"><em>{{ item.submit_date|timesince }} {% trans 'ago' %}</em></span>
+                </div>
+            </div>
+        </div>
+        <div>
+            {{ item.content|truncatewords:15|linebreaksbr }}
+        </div>
+    </li>
 {% endfor %}
+</ul>
