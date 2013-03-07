@@ -15,7 +15,10 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div class="nav-header">
+            <a href="{{ item.get_absolute_url }}">{{ item.content_object }}</a>
+        </div>
+        <div style="font-size: 12px;">
             {{ item.content|truncatewords:15|linebreaksbr }}
         </div>
     </li>

@@ -12,7 +12,7 @@
             <div>
                 <div class="user_info pull-left">
                     <a href="{{ item.author.get_absolute_url }}">{{ item.author }}</a>
-                    <span style="font-size: 12px;"><em>{{ item.created|timesince }} {% trans 'ago' %}</em></span>
+                    <span style="font-size: 12px;"><em>{{ item.created|date:'DATETIME_FORMAT' }} </em></span>
                 </div>
                 <div class="pull-right">
                     <a href="{{ item.get_absolute_url }}#comments">
