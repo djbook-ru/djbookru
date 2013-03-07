@@ -326,7 +326,7 @@ def get_doc_pages(path, ext):
         for item in glob.glob('%s/*.%s' % (directory, ext)):
             yield item
 
-DJANGO_DOCUMENTATION_URL = '/rel1.4/'
+DJANGO_DOCUMENTATION_URL = '/rel1.5/'
 
 INSTALLED_APPS += ('haystack', 'haystack_static_pages')
 HAYSTACK_SITECONF = 'src.search_sites'
@@ -337,7 +337,7 @@ HAYSTACK_STATIC_PAGES = tuple(
         os.path.expanduser('~/devel/django_documentation/_build/html'),
         'html'))
 HAYSTACK_STATIC_MAPPING = {
-    os.path.expanduser('~/devel/django_documentation/_build/html'): 'http://127.0.0.1:8000/rel1.4'
+    os.path.expanduser('~/devel/django_documentation/_build/html'): 'http://127.0.0.1:8000%s' % DJANGO_DOCUMENTATION_URL
     }
 ### HAYSTACK: END
 
