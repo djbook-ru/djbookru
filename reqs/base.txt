@@ -34,6 +34,6 @@ feedparser
 
 -e git+git://github.com/RaD/django-chunks.git@rel2.3#egg=django-chunks
 -e git+https://github.com/RaD/haystack-static-pages.git/#egg=haystack-static-pages
--e git+http://github.com/RaD/django-adzone.git@5f61cde3a60ffeb9101412330e7ae7fc474357ba#egg=django-adzone
+-e git+http://github.com/RaD/django-adzone.git@aad1d3c7f9ea08763e4cd0c0887c3bc972e10fc8#egg=django-adzone
 -e git+http://github.com/clintecker/django-google-analytics.git/#egg=django-google_analytics
 -e git+https://github.com/jezdez/django-robots.git/#egg=django-robots
