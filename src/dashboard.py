@@ -86,8 +86,8 @@ class CustomIndexDashboard(Dashboard):
                     ])
                 ]))
 
+        self.children.append(modules.RecentActions(_('Recent Actions'), 10))
         self.children.append(AdClickReport(_('AdClick Report')))
-        self.children.append(modules.RecentActions(_('Recent Actions'), 15))
 
 
 class CustomAppIndexDashboard(AppIndexDashboard):
