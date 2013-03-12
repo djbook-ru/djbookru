@@ -1,0 +1,16 @@
+ul.news_list > li {
+    background: url('../img/line.png') repeat-x left top;
+    margin: 4px 10px;
+    display: inline-block;
+}
+ul.news_list > li:first-child {
+    background: none !important;
+}
+
+.user_thumb {
+    margin: 4px;
+}
+.user_info {
+    line-height: 32px;
+    vertical-align: middle;
+}
