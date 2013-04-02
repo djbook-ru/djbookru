@@ -1,0 +1,87 @@
+{% extends "admin_tools/dashboard/module.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load url from future %}
+
+{% block module_content %}
+    <script type="text/javascript">
+    var adBlock = adBlock || {};
+    var queryString = '';
+    var dataUrl = '';
+
+    function onLoadCallback() {
+        if (dataUrl.length > 0) {
+            var query = new google.visualization.Query(dataUrl);
+            query.setQuery(queryString);
+            query.send(handleQueryResponse);
+        } else {
+            var dataTable = new google.visualization.DataTable();
+            dataTable.addRows(7);
+
+            dataTable.addColumn('number');
+            dataTable.addColumn('number');
+            dataTable.setValue(0, 0, 20);
+            dataTable.setValue(0, 1, 28.766828414518386);
+            dataTable.setValue(1, 0, 30);
+            dataTable.setValue(1, 1, 39.71035631431732);
+            dataTable.setValue(2, 0, 40);
+            dataTable.setValue(2, 1, 52.0438005856704);
+            dataTable.setValue(3, 0, 50);
+            dataTable.setValue(3, 1, 52.77544321201276);
+            dataTable.setValue(4, 0, 60);
+            dataTable.setValue(4, 1, 40.68301685620099);
+            dataTable.setValue(5, 0, 70);
+            dataTable.setValue(5, 1, null);
+            dataTable.setValue(6, 0, 80);
+            dataTable.setValue(6, 1, null);
+
+            draw(dataTable);
+        }
+    }
+
+    function draw(dataTable) {
+        var vis = new google.visualization.ImageChart(document.getElementById('chart'));
+        var options = {
+            chxl: '',
+            chxp: '',
+            chxr: '',
+            chxs: '',
+            chxtc: '',
+            chxt: 'x,y',
+            chs: '440x220',
+            cht: 'lxy',
+            chco: '3072F3,FF0000',
+            chd: 't:10,20,40,80,90,95,99|20,30,40,50,60,70,80|-1|28.767,39.71,52.044,52.775,40.683',
+            chdl: 'Ponies|Unicorns',
+            chdlp: 'b',
+            chg: '10,20',
+            chls: '2,4,1|1',
+            chma: '5,0,5,25|5,5'
+        };
+        vis.draw(dataTable, options);
+    }
+
+    function handleQueryResponse(response) {
+        if (response.isError()) {
+            alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+            return;
+        }
+        draw(response.getDataTable());
+    }
+
+
+    if ( ! adBlock.paper) {
+        loadScripts([
+            {
+                src: "https://www.google.com/jsapi/",
+                test: function() { return true; }
+            }
+        ], function() {
+            google.load("visualization", "1", {packages:["imagechart"]});
+            google.setOnLoadCallback(onLoadCallback);
+            adBlock.paper = true;
+        });
+    }
+    </script>
+    <div id="adzone_clicks" style="height: 300px;"></div>
+{% endblock %}
