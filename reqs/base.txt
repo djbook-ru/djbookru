@@ -12,6 +12,8 @@ django-extensions
 django-salmonella == 0.5.1
 django-autoslug-field
 django-markitup
+django-timelog
+django-report-tools==0.2.1
 
 easy_thumbnails
 

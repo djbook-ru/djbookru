@@ -119,6 +119,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 
     'pagination.middleware.PaginationMiddleware',
+    'timelog.middleware.TimeLogMiddleware',
 )
 
 ROOT_URLCONF = 'src.urls'
@@ -211,7 +212,24 @@ LOGGING = {
             'maxBytes': 1024 * 1024 * 1,
             'backupCount': 5,
             'formatter': 'verbose',
+        },
+        'timelog': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': rel_project('..', 'logs', 'timelog.log'),
+            'maxBytes': 1024 * 1024 * 1,
+            'backupCount': 5,
+            'formatter': 'plain',
+        },
+        'profile_db_log': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': rel_project('..', 'logs', 'profile.db.log'),
+            'maxBytes': 1024 * 1024 * 1,
+            'backupCount': 5,
+            'formatter': 'plain',
         }
+
     },
     'loggers': {
         'django.request': {
@@ -224,6 +242,16 @@ LOGGING = {
             level='ERROR',
             propagate=True,
         ),
+        'timelog.middleware': {
+            'handlers': ['timelog'],
+            'level': 'DEBUG',
+            'propogate': False,
+        },
+        'django.db.backends': dict(
+            handlers=['profile_db_log'],
+            level='DEBUG',
+            propagate=True,
+        )
     }
 }
 
@@ -244,13 +272,14 @@ INSTALLED_APPS = (
     'bootstrapform',
     'chunks',
     'google_analytics',
+    'markitup',
     'oembed',
     'pagination',
+    'report_tools',
     'robots',
     'sorl.thumbnail',
-    'tagging',
     'staging',
-    'markitup',
+    'tagging',
 
     'src.djangobb_forum',
     'src.forum',
@@ -354,6 +383,12 @@ INSTALLED_APPS += (
 )
 MIDDLEWARE_CLASSES += ('sentry.client.middleware.SentryResponseErrorIdMiddleware', )
 ### SENTRY: END
+
+
+### TIMELOG: BEGIN
+INSTALLED_APPS += ('timelog', )
+
+### TIMELOG: END
 
 
 ### FEEDBACK: BEGIN

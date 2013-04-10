@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse
 from admin_tools.dashboard import modules, Dashboard, AppIndexDashboard
 from admin_tools.utils import get_admin_site_name
 
-from adzone.modules import AdClickReport
+from adzone.modules import AdClickModule
 
 
 class CustomIndexDashboard(Dashboard):
@@ -87,7 +87,7 @@ class CustomIndexDashboard(Dashboard):
                 ]))
 
         self.children.append(modules.RecentActions(_('Recent Actions'), 10))
-        #self.children.append(AdClickReport(_('AdClick Report')))
+        #self.children.append(AdClickModule(_('AdClick Report')))
 
 
 class CustomAppIndexDashboard(AppIndexDashboard):

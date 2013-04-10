@@ -19,7 +19,7 @@ class Advertiser(models.Model):
     """
 
     company_name = models.CharField(_('Company Name'), max_length=255)
-    website = models.URLField(_('Company Site'), verify_exists=(settings.DEBUG == False))
+    website = models.URLField(_('Company Site'), verify_exists=(settings.DEBUG is False))
     user = models.ForeignKey(User)
 
     class Meta:
@@ -75,7 +75,7 @@ class AdBase(models.Model):
     display return etc.
     """
     title = models.CharField(_('Title'), max_length=255)
-    url = models.URLField(_('Advertised URL'), verify_exists=(settings.DEBUG == False))
+    url = models.URLField(_('Advertised URL'), verify_exists=(settings.DEBUG is False))
     enabled = models.BooleanField(_('Enabled'), default=False)
     since = models.DateTimeField(_('Since'), auto_now_add=True)
     updated = models.DateTimeField(_('Updated'), editable=False, auto_now=True)
@@ -129,13 +129,20 @@ class AdClick(models.Model):
         qs = qs.values('day', 'ad', 'ad__title').order_by()
         qs = qs.annotate(count=models.Count('ad'))
 
-        out = []
-        for base_id, base_title in dict(set(map(lambda x: (x['ad'], x['ad__title']), qs))).items():
-            based_items = filter(lambda x: x['ad'] == base_id, qs)
-            prepared_items = map(lambda x: (x['day'], x['count']), based_items)
-            out.append((base_title, prepared_items))
+        titles = {}
+        days = {}
+        for pk, title in dict(set(map(lambda x: (x['ad'], x['ad__title']), qs))).items():
+            titles[pk] = title
+            based_items = filter(lambda x: x['ad'] == pk, qs)
+            for item in based_items:
+                key = item['day']
+                day = days.get(key, {})
+                day[pk] = item['count']
+                days[key] = day
 
-        return out
+        titles = sorted(titles.items(), key=lambda x: x[0])
+        days = sorted(days.items(), key=lambda x: x[0])
+        return titles, days
 
 
 class TextAd(AdBase):
