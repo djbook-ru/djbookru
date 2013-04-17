@@ -1,0 +1,267 @@
+/*	Hero Columns 3 / 4 / 2 Equal Columns
+========================================================== */
+.equalHero .span4,
+.equalHero .span3,
+.equalHero .span6 {
+    background: url(../images/5p.png);
+    margin-bottom: 3%;
+    margin-top: 10px;
+    padding-bottom:10px;
+}
+/** equalHero typography **/
+.equalHero h3 a,
+.equalHero h4 a,
+.equalHero h2 a { text-decoration: none;color:#138358 }
+.equalHero h2,
+.equalHero h3,
+.equalHero h4,
+.equalHero p {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.equalHero h2,
+.equalHero h3,
+.equalHero h4 { padding-top: 10px }
+
+.equalHero .span4 h2,
+.equalHero .span4 h3,
+.equalHero .span4 h4 { padding-top: 0 }
+
+.equalHero p.right { padding-right: 0;padding-top:10px; }
+
+/** equalHero Image Styles **/
+.equalHero img.aligncenter {
+    width: 100%;
+    margin: 0;
+}
+.equalHero img  {
+    max-width: 100%;
+}
+.equalHero .span6 img {
+margin-top:10px;
+margin-left:10px;
+}
+
+/** four across span3 styles **/
+.equalHero .span3 h3 {
+    font-size: 115%;
+    line-height: 1.3;
+}
+.equalHero .span3 p {
+    font-size: 85%;
+    line-height: 1.4;
+}
+.equalHero .span3 p.right .btn {
+	font-size:90%;
+	line-height:1.2;
+	padding-top:5px;
+}
+
+.equalHero .btn {
+	-webkit-border-radius:4px 0 0 4px!important;
+	-moz-border-radius:4px 0 0 4px!important;
+	border-radius:4px 0 0 4px!important;
+}
+
+/*	thumbnail gallery
+================================================== */
+.thumb-gallery * {
+    -webkit-transition: all .6s ease;
+    -moz-transition: all .6s ease;
+    -o-transition: all .6s ease;
+}
+.thumb-gallery {
+    position: relative;
+    left: -1%;
+    margin-bottom: 30px;
+}
+.thumb-gallery ul {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    margin-bottom: 30px;
+    width: 102%;
+    list-style: none;
+}
+.thumb-gallery ul li {
+    float: left;
+    margin: 0 1% 15px;
+    width: 23%;
+    *width:22.75%;
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+}
+.thumb-gallery ul li h4 {
+    margin: 0 0 5px 0;
+    padding: 0 0 5px 0;
+}
+.thumb-gallery ul li p {
+    margin: 0;
+    font-size: 11px;
+}
+.thumb-gallery a,
+.thumb-gallery a h4 {
+    text-decoration: none;
+    color: #fff!important;
+}
+.thumb-gallery div {
+    opacity: 0;
+    position: absolute;
+    top: -500px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 15px 0;
+    background: url(../images/50p.png);
+    z-index: 100;
+}
+.thumb-gallery li:hover div {
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+.thumb-gallery img {
+    margin: 0;
+    float: left;
+}
+.lt-ie9 .thumb-gallery div{
+	top:0;
+	display:none;
+}
+.lt-ie9 .thumb-gallery li:hover div{
+	display:block;
+}
+ 
+
+/*==================================================== 
+******************************************************
+/*	DEVICES less than 500 pixels wide
+******************************************************
+====================================================== */
+@media only screen and (max-width: 500px) {
+	
+	/*** thumbnail gallery ***/
+	.thumb-gallery ul {
+    width: 100%;
+	}
+	.thumb-gallery ul li {
+	    margin: 0 0 15px;
+ 	   width: 96%!important;
+	}
+	
+/*** 33-D. EqualHero ***/
+.equalHero h2,
+.equalHero h3,
+.equalHero h4 { padding-top: 10px }
+
+.equalHero img.alignleft {
+    width: 40%;
+}
+.equalHero img.alignright {
+    width: 40%;
+}
+
+	
+}/* end devices under 500px */
+
+
+/*==================================================== 
+******************************************************
+/*	DEVICES less than 767 pixels wide 
+		(mostly all mobile settings)
+******************************************************
+====================================================== */
+@media only screen and (max-width: 767px) {
+/*** thumbnail gallery ***/
+.thumb-gallery {
+    position: relative;
+    left: -1%;
+    margin-bottom: 30px;
+}
+.thumb-gallery ul {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    margin-bottom: 30px;
+    width: 102%;
+    list-style: none;
+}
+.thumb-gallery ul li {
+    margin: 0 1% 15px;
+    width: 46%;
+    padding: 1%;
+    position: relative;
+    float: left;
+    background: url(../images/5p.png);
+}
+.thumb-gallery a { text-decoration: none }
+.thumb-gallery img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.thumb-gallery h4,
+.thumb-gallery p {
+    margin: 0;
+    display: block;
+    color: inherit;
+}
+.thumb-gallery div {
+    opacity: 1;
+    position: relative;
+    top: auto;
+    left: 0;
+    right: 0;
+    width: auto;
+    padding: 0;
+    background-image:none;
+    z-index: 100;
+}
+.thumb-gallery li:hover div {
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+.thumb-gallery a,
+.thumb-gallery a h4 { color: #6d767e!important }
+.thumb-gallery ul li h4 {
+    margin: 0;
+    padding: 0;
+}
+
+/*** EqualHero ***/
+.equalHero h2,
+.equalHero h3,
+.equalHero h4 { padding-top: 10px }
+
+.equalHero img.alignleft {
+    width: 30%;
+}
+.equalHero img.alignright {
+    width: 30%;
+}
+
+/** four across span3 styles **/
+.equalHero .span3 h3 {
+    font-size: 160%; 
+    line-height: 1.3;
+}
+.equalHero .span3 p {
+    font-size: 100%;
+    line-height: 1.5;
+}
+.equalHero .span3 p.right .btn {
+	font-size:100%;
+	line-height:1.2;
+	padding-top:5px;
+}
+
+
+}/* end max width 767 */
+
+
+

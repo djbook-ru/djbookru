@@ -1,0 +1,261 @@
+/* portfolio single post detail page
+================================================== */ 
+
+/****** structure ******/
+.row-fluid.portfolio-detail .span7.image-slider { float: right }
+.row-fluid.portfolio-detail .span4.project-description {
+    float: left;
+    margin-left: 0;
+}
+
+/****** description ******/
+.project-description h6 {
+    margin-bottom: 0;
+    margin-top: 5%;
+    font-size: 100%;
+    text-transform: uppercase;
+}
+.project-description p a {
+    text-decoration: none;
+    border-bottom: 1px dotted #63905c;
+}
+.portfolio-detail .btn {
+    text-decoration: none;
+    border-bottom: 0px;
+}
+
+/****** add this ******/
+.portfolio-detail .addthis_toolbox {
+    margin: 15px 0 10px 0;
+}
+.no-js .addthis_toolbox {
+    display: none!important;
+}
+
+/****** related items ******/
+.portfolio-detail .related .span5 {
+    text-align: right;
+    text-transform: lowercase;
+}
+.portfolio-detail .related {
+    padding: 15px 0 0 0;
+    margin-top: 10px;
+    clear: both;
+    background: url(../images/hr.png) 0 0 repeat-x;
+}
+.portfolio-detail .related ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.portfolio-detail .related ul li {
+    float: left;
+    width: 75px;
+    height: 75px;
+    margin: 0 10px 10px 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.portfolio-detail .related ul li a {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.portfolio-detail .related ul li a:hover { border-top: 3px solid #174615 }
+
+
+
+/****** slider with carousel ******/
+
+/* zoom image in upper right corner of image */
+.portfolio-detail #slider .zoom-image {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-indent: -9999px;
+    width: 40px;
+    height: 40px;
+    float: right;
+    background: #d8dfe5 url(../images/zoom-corner.png) 50% 50% no-repeat;
+}
+
+/****** slider styles ******/
+.portfolio-detail #slider {
+    margin-bottom: 10px;
+    position: relative;
+}
+.portfolio-detail #slider .flex-direction-nav a {
+    position: absolute;
+	z-index: 200;
+	top: 0;
+	right: -25px;
+	width: 20px;
+	height: 20px;
+	border: none;
+    text-indent: -9999px;
+    display: block;
+    background: #356635 url(../images/sliderarrows.png) -280px 50% no-repeat;
+}
+.portfolio-detail #slider .flex-direction-nav .flex-prev {
+	top: 25px;
+	right: -25px;
+	left: auto;
+    background-position: -300px 50%;
+}
+
+.portfolio-detail #slider .flex-direction-nav a:hover { background-color: #63905c }
+
+/****** carousel styles ******/
+.portfolio-detail #carousel .flex-direction-nav .flex-disabled,
+.portfolio-detail #carousel .flex-direction-nav .disabled { display: none }
+.portfolio-detail #slider .flex-direction-nav .flex-disabled,
+.portfolio-detail #slider .flex-direction-nav .disabled {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+    filter: alpha(opacity=30);
+    -moz-opacity: 0.3;
+    -khtml-opacity: 0.3;
+    opacity: 0.3;
+    cursor: default;
+}
+.portfolio-detail #carousel .flex-direction-nav { display: none }
+.portfolio-detail #carousel {
+    padding: 0;
+    position: relative;
+    cursor: pointer;
+    margin: 5px 0;
+}
+.no-js .portfolio-detail #carousel { display: none }
+.portfolio-detail #carousel li { margin: 0 5px 0 0 }
+.portfolio-detail #carousel img { /*this is a transparent .gif*/
+    width: 90px;
+    height: 70px;
+}
+.portfolio-detail #carousel li {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.portfolio-detail #carousel li.flex-active-slide {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    opacity: 1;
+    border-top: 3px solid #174615;
+}
+.portfolio-detail #carousel li.flex-active-slide img { height: 67px }
+.portfolio-detail #carousel li span {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    left: 0;
+    z-index: 200;
+    height: 100%;
+    width: 100%;
+    display: block;
+    background: url(../images/video-icon-small.png) center center no-repeat;
+}
+.portfolio-detail #carousel li.flex-active-slide span { top: -3px }
+.portfolio-detail .video-wrapper {margin:0;}
+
+@media only screen and (max-width: 767px) { 
+
+.portfolio-detail #slider .flex-direction-nav a {
+    position: absolute;
+    z-index: 200;
+    top: 80px;
+    right: 0;
+    width: 30px;
+	border:1px solid #fff;
+    border-right:0px;
+    height: 50px;
+    text-indent: -9999px;
+    display: block;
+    background: #356635 url(../images/sliderarrows.png) -80px 50% no-repeat;
+}
+.portfolio-detail #slider .flex-direction-nav .flex-prev {
+    right: auto;
+    left:0;
+    top:80px;
+    border-left:0px;
+    border-right:1px solid #fff;
+    left: auto;
+    background-position: -110px 50%;
+}
+/****** related items ******/
+.portfolio-detail .related .span5 {
+    text-align: left;
+    text-transform: lowercase;
+}
+    
+    
+} /*end*/
+
+
+/* ================================================== 
+	MAIN RETINA BACKGROUND IMAGE REPLACEMENT & RETINA INFORMATION
+================================================== */
+
+/*	change the webkit number to 1 to test on webkit to make sure 
+	the sizes and the images show up correctly then switch back before launch */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+ 	only screen and (-o-min-device-pixel-ratio: 3/2),
+ 	only screen and (min--moz-device-pixel-ratio: 2),
+	only screen and (min-device-pixel-ratio: 2) 
+{
+
+
+.portfolio-detail .related {
+		background-image:url(../images/retina/hr_@2x.png);
+	    	-moz-background-size:3px 3px; /*w & h of total ORIGINAL 72dpi image*/
+             -ie-background-size:3px 3px;
+              -o-background-size:3px 3px;
+       	 -webkit-background-size:3px 3px;
+                 background-size:3px 3px;
+}
+
+.portfolio-detail #slider .flex-direction-nav a {
+    background-image:url(../images/retina/sliderarrows_@2x.png);
+			-moz-background-size:360px 100px; 
+             -ie-background-size:360px 100px;
+              -o-background-size:360px 100px;
+       	 -webkit-background-size:360px 100px;
+                 background-size:360px 100px;
+
+} 
+
+.portfolio-detail #slider .zoom-image { 
+	background-image: url(../images/retina/zoom-corner_@2x.png);
+	     	-moz-background-size:25px 25px; /*w & h of original 72dpi image */
+             -ie-background-size:25px 25px;
+              -o-background-size:25px 25px;
+       	 -webkit-background-size:25px 25px;
+                 background-size:25px 25px;
+}
+
+.portfolio-detail #carousel li span {
+	background-image:url(../images/retina/video-icon-small_@2x.png);
+            -moz-background-size:30px 30px; 
+             -ie-background-size:30px 30px;
+              -o-background-size:30px 30px;
+       	 -webkit-background-size:30px 30px;
+                 background-size:30px 30px;	
+
+}
+
+
+}/* end desktop and main retina swapping */
+

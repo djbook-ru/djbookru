@@ -1,0 +1,141 @@
+.pricingTable {
+    margin: 30px 0;
+    clear: both;
+}
+.pricingTable .wrapper {
+    margin: 0 0 30px 0;
+    clear: both;
+}
+.pricingTable ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+.features { margin-bottom: 10px }
+.features li:last-child { border: none }
+.features li {
+    padding: 0;
+    border-bottom: 1px solid #eee;
+    line-height:60px;
+    height:60px;
+}
+.optionheader { margin: 0 }
+
+.features li:nth-child(even), 
+.features li.even, .lt-ie9 .features li.even {
+	background-image: url(../images/10p.png);
+}
+.features li:nth-child(odd), 
+.features li.odd, .lt-ie9 .features li.odd {
+	background: transparent;
+}
+.features .detailsPop:hover {
+    color: #fff;
+    background-color: #000;
+}
+.features:hover li {
+    color: #fff;
+	background-image: url(../images/50p.png);
+}
+.features li.detailsPop{
+	line-height:60px!important;
+	height:60px;
+}
+.features li.detailsPop [class^="icon-"],
+.features li.detailsPop [class*=" icon-"] {
+	font-size:25px;
+	color:#777;
+	position:relative;
+	top:3px;
+}
+.features:hover li [class^="icon-"], .features:hover li [class*="icon-"], .features li.detailsPop:hover [class^="icon-"],
+.features li.detailsPop:hover [class*=" icon-"] {
+	color:#fff;
+}
+.price {
+    color: #fff;
+    font-size: 33px;
+    font-size: 3.3rem;
+    font-weight: bold;
+    padding: 20px 0;
+}
+.title {
+    color: #fff;
+    font-size: 12px;
+    font-size: 1.2rem;
+    padding: 5px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.select .btn {color:#fff;}
+.select .btn:hover {
+    background: #555!important; /*button color on hover */
+    border-color: #555!important;
+}
+.price { line-height: 1.2 }
+.price span {
+    display: block;
+    font-size: 14px;
+    font-weight: normal;
+}
+.price i {
+    font-style: normal;
+    font-size: 14px;
+    vertical-align: super;
+}
+.features strong {
+    font-size: 18px;
+    font-size: 1.8rem;
+}
+ /*col 1*/
+.option1 .price,
+.option1 .select a { background: #89929b;border-color:#89929b }
+.option1 .title { background: #6d767e;border-color:#6d767e }
+ /*col 2*/
+.option2 .price,
+.option2 .select a { background: #fe6000;border-color:#fe6000 }
+.option2 .title { background: #d25001;border-color:#d25001 }
+ /*col 3*/
+.option3 .price,
+.option3 .select a { background: #2ba4c2; border-color: #2ba4c2 }
+.option3 .title { background: #1f7f97; border-color: #1f7f97 }
+ /*col 4*/
+.option4 .price,
+.option4 .select a { background: #aac206; border-color: #aac206 }
+.option4 .title { background: #92a701; border-color: #92a701 }
+
+/*================================================ 
+/* ## media queries > 768 px
+================================================== */
+
+@media only screen and (min-width: 768px) { 
+    .pricingTable ul {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .pricingTable .features { border-right: 1px solid #fff }
+    .pricingTable .last .features { border: 0 }
+    .pricingTable .span3 { width: 25% }
+    .pricingTable .span3 { margin: 0 }
+    .pricingTable .span4 { width: 33.333% }
+    .pricingTable .span4 { margin: 0 }
+    .popular .wrapper {
+        position: relative;
+        top: -10px;
+        z-index: 10;
+        border:1px solid #eee;
+        -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.3);
+        margin-bottom: 30px;
+    }
+    .popular .features li {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+    .popular ul { border: 0px!important }
+    .lt-ie9 .pricingTable ul { border: 1px solid #eee!important }
+} /*end*/
+

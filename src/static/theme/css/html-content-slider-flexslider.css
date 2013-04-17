@@ -1,0 +1,289 @@
+.content-slider.flexslider .slides > li {
+    display: none;
+    -webkit-backface-visibility: hidden;
+    position: relative;
+}
+.content-slider.flexslider .slides img { display: block }
+
+/* Custom Content Slider
+*********************************/
+.content-slider.flexslider {
+    zoom: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0;
+    clear: both;
+    overflow:hidden;
+    z-index:2;
+}
+.content-slider.flexslider .slides { zoom: 1 }
+.content-slider-wrapper {
+    position: relative;
+    clear: both;
+    background: url(../images/70p.png) fixed;
+    margin: 30px 0 3% 0;
+    padding: 2% 60px 0 60px;
+}
+.content-slider.flexslider .video-wrapper { margin: 0 0 10px 0 }
+
+/* captions
+*********************************/
+.content-slider.flexslider .caption {
+    float: right;
+    width: 35%;
+    margin-left: 3%;
+}
+.content-slider.flexslider .img,
+.content-slider.flexslider .video-wrapper {
+    float: left;
+    width: 60%;
+    padding-top: 1%;
+}
+.content-slider.flexslider .img.full {
+    float: none;
+    width: 80%;
+    margin:0 auto;
+    padding-top: 1%;
+}
+.content-slider.flexslider .video-wrapper.full {
+    float: none;
+    width: 80%;
+    margin:0 auto;
+    padding-top: 1%;
+}
+.content-slider.flexslider .img img { max-width: 100% }
+.content-slider.flexslider .img span,
+.content-slider.flexslider .video-wrapper span {
+    display: block;
+    clear: both;
+}
+.content-slider.flexslider .caption h2 {
+    font-size: 200%;
+    line-height: 1.2;
+    margin-bottom: 3%;
+    color:#8dc4d2
+}
+.content-slider .more {
+    padding-top: 10px;
+    text-align: right;
+}
+.content-slider.flexslider p { line-height: 2 }
+.content-slider-wrapper.dark .caption p, .content-slider.flexslider.dark .caption p a { color: #fff }
+.content-slider-wrapper.dark span.credit a, .content-slider-wrapper.dark span.credit {color:#ddd;}
+
+
+/* direction navigation
+*********************************/
+.content-slider.flexslider .flex-direction-nav { *height: 0 }
+.content-slider.flexslider .flex-direction-nav .flex-disabled {
+    display: none!important;
+    cursor: default;
+}
+.content-slider.flexslider .flex-direction-nav a.flex-next,
+.content-slider.flexslider .flex-direction-nav a.flex-prev {
+    cursor: pointer;
+    position: absolute;
+    z-index: 200;
+    height: 50px;
+    right: 8px;
+    text-indent: -9999px;
+    display: block;
+    top: 40%;
+    width: 40px;
+    height: 80px;
+    background:url(../images/sliderarrows.png) 0 50% no-repeat;
+}
+.content-slider.flexslider .flex-direction-nav a.flex-prev {
+    left: 8px;
+    right: auto;
+    background-position: -40px 50%;
+}
+.content-slider.flexslider .flex-prev:hover,
+.content-slider.flexslider .flex-next:hover { opacity: .5 }
+
+/* control navigation
+*********************************/
+.content-slider.flexslider .flex-control-nav {
+    width: 100%;
+    position: relative;
+    top: 0;
+    text-align: right;
+    padding:10px 0 0 0;
+}
+.content-slider.flexslider .flex-control-nav li {
+    margin: 0 0 0 5px;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+}
+.content-slider.flexslider .flex-control-paging li a {
+    width: 5px;
+    height: 5px;
+    display: block;
+    background: #63905c;
+    cursor: pointer;
+    text-indent: 9999px;
+}
+.content-slider.flexslider .flex-control-paging li a:hover { background: #2ba4c2 }
+.content-slider.flexslider .flex-control-paging li a.flex-active {
+    background: #2ba4c2;
+    cursor: default;
+}
+/* image credit (used in demo) this is the span inside these two divs
+================================================== */
+.content-slider.flexslider .img span,
+.content-slider.flexslider .video-wrapper span {
+    font-size: 11px;
+    margin-top: 5px;
+    position: relative;
+    padding: 10px 0;
+    overflow:visibile;
+}
+.content-slider.flexslider span.credit a {
+    text-decoration: none;
+}
+.content-slider.flexslider span.credit .tooltip {left:10px!important;}
+
+
+/** Light Styles **/
+================================================== */
+.content-slider-wrapper.light .caption p, .content-slider.flexslider.light .caption p a { color: #333 }
+.content-slider-wrapper.light .caption .btn {color: #fff;}
+.content-slider-wrapper.light .caption h2 {color: #2ba4c2;}
+.content-slider-wrapper.light span.credit a {color:#444;}
+.content-slider-wrapper.light {
+    background: url(../images/7p.png);
+}
+.content-slider-wrapper.light .flex-direction-nav a.flex-next,
+.content-slider-wrapper.light .flex-direction-nav a.flex-prev {
+    background:url(../images/sliderarrows.png) -140px 50% no-repeat;
+}
+.content-slider-wrapper.light .flex-direction-nav a.flex-prev {
+    background-position: -180px 50%;
+}
+
+/* device width 600 px to 800 px
+================================================== */
+@media only screen and (min-width: 600px) and (max-width:800px) { 
+    .content-slider.flexslider .caption h2 {
+        font-size: 180%;
+        line-height: 1.2;
+    }
+    .content-slider.flexslider p {
+        font-size: 100%;
+        line-height: 1.5;
+        text-align: left;
+    }
+} /* end */
+
+/* up to 767px wide
+================================================== */
+@media only screen and (max-width: 767px) { 
+
+	.content-slider-wrapper {
+ 	   margin: 10px 0 2% 0;
+ 	   padding:1% 35px;
+	}
+    .content-slider.flexslider .caption {
+        float: none;
+        clear: both;
+        width: 100%;
+        padding-bottom: 10px;
+        margin: 0;
+    }
+	.content-slider.flexslider .img,
+    .content-slider.flexslider .video-wrapper {
+        float: none;
+        width: 100%;
+    }
+	.content-slider.flexslider .img img {
+		width:auto;
+		max-width 100%;
+		margin:0 auto;
+	}
+    .content-slider.flexslider .caption h2 {
+        text-align: center;
+        font-size: 140%;
+        line-height: 1.2;
+    }
+    .content-slider.flexslider p {
+        font-size: 100%;
+        line-height: 1.5;
+        text-align: center;
+    }
+    .content-slider.flexslider .more {
+        padding-top: 0;
+        text-align: center;
+    }
+    .content-slider.flexslider .flex-control-nav {
+        top: auto;
+        text-align: left;
+        margin-left: -5px;
+    }
+    .content-slider.flexslider .img span,
+    .content-slider.flexslider .video-wrapper span {
+        padding: 5px 0;
+        text-align: center;
+    }
+    .content-slider.flexslider .flex-direction-nav a.flex-next {
+        background-position: -80px 50%;
+        width: 30px;
+        height: 50px;
+        right:5px;
+    }
+    .content-slider.flexslider .flex-direction-nav a.flex-prev {
+        background-position: -110px 50%;
+        width: 30px;
+        left:5px;
+        height: 50px;
+    }
+    .content-slider.flexslider .flex-control-nav {
+		text-align: center;
+	}
+	.content-slider.flexslider .flex-control-paging li a {
+		width:10px;
+		height:10px;
+	}
+	
+	/*light style arrows */
+	.content-slider-wrapper.light .flex-direction-nav a.flex-next,
+	.content-slider-wrapper.light .flex-direction-nav a.flex-prev {
+    background:url(../images/sliderarrows.png) -220px 50% no-repeat;
+	}
+	.content-slider-wrapper.light .flex-direction-nav a.flex-prev {
+    background-position: -250px 50%;
+	}
+	
+
+} /* end */
+
+/* ================================================== 
+	MAIN RETINA BACKGROUND IMAGE REPLACEMENT & RETINA INFORMATION
+================================================== */
+
+/*	change the webkit number to 1 to test on webkit to make sure 
+	the sizes and the images show up correctly then switch back before launch */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+ 	only screen and (-o-min-device-pixel-ratio: 3/2),
+ 	only screen and (min--moz-device-pixel-ratio: 2),
+	only screen and (min-device-pixel-ratio: 2) 
+{
+
+.content-slider.flexslider .flex-direction-nav a.flex-next,
+.content-slider.flexslider .flex-direction-nav a.flex-prev {
+    background-image:url(../images/retina/sliderarrows_@2x.png);
+			-moz-background-size:360px 100px; 
+             -ie-background-size:360px 100px;
+              -o-background-size:360px 100px;
+       	 -webkit-background-size:360px 100px;
+                 background-size:360px 100px;
+
+} 
+
+
+
+}/* end desktop and main retina swapping */
+
+
+

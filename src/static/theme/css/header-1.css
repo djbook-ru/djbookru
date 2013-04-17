@@ -1,0 +1,686 @@
+/* user nav 
+================================================== */
+body.login nav.user {display:none!important;} /* hide the login on the login page duh ;-)*/
+nav.user {float:left;line-height:43px;}
+nav.user a {text-decoration:none; float:left; padding:0 5px;margin-right:5px;color:#356635;}
+nav.user a:hover {color:#138358;}
+
+body.tall-logo nav.user {margin-left:180px;}
+
+/* header / logo (desktop)
+================================================== */
+#logo, #logo img { /* width and height of logo desktop NON retina - this is the regular size logo */
+	width:140px;
+	height:59px;
+}
+#logo {
+    padding: 0 0 10px 0;
+    float: left;
+    position:relative;
+    margin-top:18px;
+    background:url(../images/logo.png) no-repeat;
+}
+/* ie 7 fix*/
+.lt-ie8 #logo {position:absolute!important:top:0;left:0;}
+
+
+#logo em { 
+	position:absolute;
+	display:block;
+	top:-1000px;
+	left:100px;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
+.header {
+    margin: 0 auto 3% auto;
+    position: relative;
+    clear:both;
+    padding:0;
+    background: #0c3907;
+    z-index: 999 /*ie 7*/
+}
+
+/* tall logo resets (desktop)
+================================================== */
+.tall-logo #logo, .tall-logo #logo img { /* - this is the tall size logo NON retina */
+	width:170px;
+	height:185px;
+}
+.tall-logo #logo {
+    margin-top:0;
+    padding:0;
+    top:-47px;
+    background-image:url(../images/tall-logo-desktop.png);
+    background-color:transparent;
+    background-position:50% 50%;
+    background-repeat: no-repeat;
+}
+.tall-logo .header{
+	height:95px; /*height of navigation */
+}
+
+.lt-ie8 .tall-logo .header {margin-bottom:100px!important;}
+
+/*end tall logo tall header resets */
+
+/* header / preheader / menu
+================================================== */
+.header .container {
+    position: relative
+}
+.container.preheader {
+	right:-10px;
+	position:relative
+}
+.container.preheader form {
+	margin:0;
+	padding:0;
+	height:30px
+}
+.search-wrapper {
+	float:right;
+	padding:5px 0 0 0
+}
+.search #search-trigger{
+    font-size:0.75em;
+    font-weight:bold;
+    color:#333;
+    text-indent:-9999em;
+    display:block;
+    float:left;
+    padding:0;
+    margin:0;
+    width:30px;
+    height:30px;
+    position:relative;
+    top:3px;
+	background:url(../images/search.png) 0px 50% no-repeat;
+	cursor:pointer
+}
+.search #search-trigger.active{
+	background:url(../images/search.png) -30px 50% no-repeat;
+}
+.search input {
+	background-color:#fff;
+	width:200px;
+	margin-left:5px;
+	top:3px;
+	position:relative;
+	font-size:16px;
+	-webkit-appearance: textfield; 
+}
+.js .search input {
+	display:none;
+}
+.preheader .phone {
+	float:right;
+	line-height:45px;
+	margin-right:10px;
+	padding:0 15px 0 10px;
+	border-right:1px solid #d8dfe5
+}
+.preheader .phone a, .preheader .phone  {color:#356635;}
+.preheader .social  {
+	float:right;
+	line-height:30px;
+	height:45px;
+	border-right:1px solid #d8dfe5;
+	margin-right:0;
+	position:relative;
+	padding-right:20px;
+}
+.lt-ie9 .preheader .social  {
+	margin-right:0;
+	padding-right:20px;
+}
+.preheader .social a {
+	color:#356635;
+	position:relative;
+	top:10px;
+	position:relative;
+	text-decoration: none;
+}
+.preheader .social a:before {
+	font-size:22px;
+	line-height:25px;
+	padding:0 5px 0 5px;
+}
+.preheader .social .tooltip .tooltip-inner {
+	background:#d8dfe5;
+	color:#174615;
+}
+.preheader .social .tooltip.bottom .tooltip-arrow {
+	border-bottom-color:#d8dfe5
+}
+
+/* main navigation / desktop styles
+================================================== */
+.mobile_nav { display: none } /* hide trigger for desktop */
+#main_menu {
+    padding: 0;
+    z-index: 999;
+    right: -12px;
+    clear: none;
+    position: relative;
+    float:right;
+    top: 0;
+}
+#main_menu li.parent i {
+	background:url(../images/menu_arrow.png) 0 0 no-repeat;
+	display:inline-block;
+	width:5px;
+	margin-left:8px;
+	height:5px;
+	position:relative;
+	top:-2px;
+}
+.lt-ie8 #main_menu .parent i { position:relative;display:inline;zoom:1;left:5px;top:-4px}
+
+#main_menu ul ul li.parent i { /* third level */
+	background-position:-5px 0;
+}
+#main_menu ul {
+    float: right;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    list-style: none;
+}
+#main_menu ul ul {
+    margin: 0;
+    padding: 0;
+    display:none;
+}
+/* first level */
+#main_menu li {
+    float: left;
+    margin: 0 0 0 2px;
+    padding: 0;
+    position: relative;
+    background: #0c3907;
+    text-transform:lowercase;
+}
+#main_menu li a {
+    border: none;
+    color: #d8dfe5;
+    display: block;
+    height: 95px;
+    line-height: 95px;
+    margin: 0!important;
+    padding: 0 12px;
+    text-decoration: none;
+    font-size: 110%;
+}
+#main_menu li.parent.foo a {
+    background: inherit; /***! added this for ipad*/
+}
+#main_menu a:hover,
+#main_menu .active a,
+#main_menu a.selected,
+#main_menu li.parent.foo.active a /***! added foo.active a **/ {
+    background: #138358;
+    color: #fff;
+}
+/* sub level */
+#main_menu ul li ul li a { font-size: 100% }
+.lt-ie9 #main_menu ul li ul li a { font-size: 100% }
+#main_menu ul li ul li a,
+#main_menu ul ul a.selected,
+#main_menu ul ul .active,
+#main_menu ul ul a:hover {
+   /* text-transform: none;*/
+}
+#main_menu li.active ul a {
+    background-color: inherit;
+    *background-color: transparent;
+}
+#main_menu li.active ul li.active a {
+    background-color: #138358;
+}
+#main_menu ul li ul li {
+    background: #356635; /* second level bg color */
+    float: none;
+    left: auto;
+    margin: 0;
+    top: 0;
+    width: 100%;
+}
+#main_menu ul li ul li ul li {
+    background: #356635; /* third level bg color */
+}
+
+#main_menu li li {
+    border-bottom:1px solid #63905c;
+}
+#main_menu li ul a,
+#main_menu li ul li a,
+#main_menu li ul li ul li a {
+    height: auto;
+    line-height: 1.5;
+    padding: 7px 10px;
+    width: 175px;
+    color: #fff;
+}
+#main_menu li ul {
+    background: #6d767e;
+    left: 0;
+    padding: 0;
+    position: absolute;
+    top: 95px;
+	z-index: 100;
+}
+/* second level */
+#main_menu li ul ul {
+    border-top: 0px;
+    z-index:100000;
+}
+#main_menu li ul a:hover {
+    background: #138358;
+}
+/* third level + */
+#main_menu ul ul ul {
+    border: none;
+    top: 0!important;
+    left: 195px; /*when js is off*/
+}
+
+#main_menu li ul li ul {
+    padding: 0;
+    position: absolute;
+    top: 0;
+}
+/* fourth level + bad idea to have more than two levels*/
+#main_menu ul li ul li ul li ul li a {
+    background: #333;
+}
+
+/*=================== ie7 fix */
+.lt-ie8 #main_menu ul ul ul {
+	display:none;
+}
+
+/* js off */
+.no-js #main_menu ul li:hover ul ul {
+    display: block;
+}
+.no-js #main_menu li:hover ul,
+.no-js #main_menu li:hover ul li:hover ul {
+    display: block;
+}
+.no-js.lt-ie8 #main_menu ul ul li:hover ul {
+	display:block;
+}
+
+
+/*
+***********************************************************************************
+/*	BEGIN MEDIA QUERIES
+***********************************************************************************
+ */
+
+
+/*==================================================== 
+******************************************************
+/*	DEVICES less than 880 pixels wide
+******************************************************
+====================================================== */
+@media only screen and (max-width: 880px) {
+
+/*** Menu Adjustment so items don't cover the logo ***/
+#main_menu li {
+    margin: 0 0 0 2px
+}
+#main_menu li a {
+    padding: 0 10px;
+    font-size: 120%;
+}
+
+} /**** end max width 800px ****/
+
+/*==================================================== 
+******************************************************
+/*	DEVICES less than 800 pixels wide
+******************************************************
+====================================================== */
+@media only screen and (max-width: 800px) {
+
+/*** Menu Adjustment so items don't cover the logo ***/
+#main_menu li {
+	margin: 0;
+}
+#main_menu li a {
+padding: 0 7px;
+font-size: 115%;
+}
+	
+} /**** end max width 800px ****/
+
+/*==================================================== 
+******************************************************
+/*	DEVICES less than 600 pixels wide
+******************************************************
+====================================================== */
+@media only screen and (max-width: 600px) {
+
+a.tele {
+    cursor: pointer;
+    pointer-events: visible;
+}
+
+}/**** end max width 600 ****/
+
+
+
+/*==================================================== 
+******************************************************
+/*	DEVICES less than 767 pixels wide 
+******************************************************
+====================================================== */
+@media only screen and (max-width: 767px) {
+/*** Header / Logo / Preheader Mobile Adjustments ***/
+
+nav.user {float:right;line-height:55px;}
+nav.user a {margin:0 10px 0 0;padding:0}
+body.tall-logo nav.user {margin-left:0;}
+
+
+.header {
+    position: relative;
+    height: auto;
+    margin-top: 50px;
+}
+.header .container {
+    padding: 0;
+    width: 100%;
+}
+#logo { 
+    position: relative;
+    background-position: 50% 50%;
+    display: block;
+    width: 100%;
+    height: 59px;
+    margin: 0;
+    padding: 10px 0!important;
+}
+/* tall header for taller logo mobile */
+.tall-logo #logo {
+    background-image: url(../images/tall-logo-mobile.png); /*notice that this image changes on mobile */
+    background-color: transparent!important;
+    background-position:0 0;
+    position: relative;
+    display: block;
+    width: 78px;
+    height: 85px;
+    margin: 0;
+    top: auto;
+    left:45px;
+    padding:0!important;
+}
+.tall-logo .header {
+    height: 60px;
+    margin-bottom:30px;
+}
+/*end tall logo tall header mobile */
+.container.preheader {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+    width:100%; /***!! added width***/
+}
+.container.preheader  .phone,
+.container.preheader  .phone a {
+    border: 0px;
+    padding: 5px 0 0 0;
+    margin: 0;
+}
+.container.preheader  .phone{
+    margin-right: 10px;
+}
+.preheader .social {
+    display: none
+}
+.search input {
+    position: relative;
+    width: 180px; /***!! changed width ***/
+    right: 0;
+    top: auto;
+    margin: 0 0 0 5px;
+    font-size: 16px!important; 
+    overflow-x: hidden;
+}
+.search #search-trigger {
+    width: 30px;
+    margin: 0;
+    top: auto;
+}
+.search-wrapper {
+	/***!!removed float right */
+    padding: 10px 0 0 0;
+    margin: 0;
+    position: absolute; /***!! changed position type*/
+    left:50px; /***!! added left position*/
+    z-index: 2;
+}
+/*** Mobile Navigation Trigger ***/
+.lt-ie9 .mobile_nav {
+    display: none
+}
+.mobile_nav {
+    margin: 0;
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: 40px;
+    width: 40px;
+    background: #138358;
+    z-index: 1;
+}
+.mobile_nav a span {
+    display: block;
+    width: 20px;
+    height: 40px;
+    padding: 0;
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    background: url(../images/navtriggerbg.png) -20px 50% no-repeat;
+}
+.mobile_nav a.active span {
+    background-position: -60px 50%
+}
+.mobile_nav a {
+    color: #fff;
+    position: relative;
+    text-decoration: none;
+    display: block;
+    padding: 0 0 0 5px;
+    height: 40px;
+    width: 100%;
+    line-height: 38px;
+    position: relative;
+    z-index: 2000;
+}
+.no-js .mobile_nav {
+    display: none
+}
+/*** Mobile Navigation ***/
+
+.js #main_menu {
+    display: none
+}
+
+#main_menu {
+    display: block;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    right:0;
+}
+#main_menu ul {
+    margin: 0;
+}
+#main_menu ul ul {
+    height:auto;
+    width:100%;
+    overflow:visible;
+}
+#main_menu * {
+   float: none!important;
+}
+
+#main_menu ul li a {
+    height: auto;
+    line-height: normal;
+    margin: 0;
+    font-size: 100%!important;
+    padding: 10px 0 5px 20px;
+}
+#main_menu li ul a,
+#main_menu li ul li a,
+#main_menu li ul li ul li a {
+    height: auto;
+    width: auto;
+    line-height: auto;
+    background: #0c3907;
+    padding: 8px 0 5px 20px;
+}
+#main_menu li ul,
+#main_menu ul,
+#main_menu ul ul ul,
+#main_menu ul ul ul ul {
+    position: relative!important;
+    top: auto!important;
+    left: 0!important;
+    clear: both!important;
+    right: auto!important;
+    width: 100%!important;
+}
+#main_menu ul,
+#main_menu ul ul {
+    border: none;
+}
+
+#main_menu ul ul {
+    display:none;
+}
+
+#main_menu li { margin: 0 }
+#main_menu li a { text-transform:uppercase;}
+#main_menu li li a { text-transform:none;}
+#main_menu ul ul li a { padding-left: 30px }
+#main_menu ul ul li ul li a { padding-left: 50px }
+#main_menu ul ul ul li:last-child {border:0px;}
+
+#main_menu ul ul ul li {
+	border-left:0px solid #fff;
+	border-right:0px solid #fff;
+}
+
+
+}/**** end max width 767 ****/
+
+
+
+/* ================================================== 
+	MAIN RETINA BACKGROUND IMAGE REPLACEMENT & RETINA INFORMATION
+	http://weedygarden.net/2012/04/hi-res-retina-display-css-sprites/
+	http://www.kylejlarson.com/blog/2012/creating-retina-images-for-your-website/
+	http://www.webresourcesdepot.com/3-solutions-for-serving-high-res-images-to-retina-display-devices/
+================================================== */
+
+/*	change the webkit number to 1 to test on webkit to make sure 
+	the sizes and the images show up correctly then switch back before launch */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+ 	only screen and (-o-min-device-pixel-ratio: 3/2),
+ 	only screen and (min--moz-device-pixel-ratio: 2),
+	only screen and (min-device-pixel-ratio: 2) 
+{
+
+
+#logo {
+		background-image:url(../images/retina/logo_@2x.png);
+	    	-moz-background-size:140px 59px; /*w & h of total ORIGINAL 72dpi image*/
+             -ie-background-size:140px 59px;
+              -o-background-size:140px 59px;
+       	 -webkit-background-size:140px 59px;
+                 background-size:140px 59px;
+}
+
+
+.tall-logo #logo {
+    background-image: url(../images/retina/tall-logo-mobile_@2x.png); 
+            -moz-background-size:170px 185px; /*w & h of total image 72dpi image*/
+             -ie-background-size:170px 185px;
+              -o-background-size:170px 185px;
+       	 -webkit-background-size:170px 185px;
+                 background-size:170px 185px;	
+
+}
+
+
+.search #search-trigger {
+		background-image:url(../images/retina/search_@2x.png);
+	    	-moz-background-size:60px 30px; /*w & h of total ORIGINAL 72dpi image*/
+             -ie-background-size:60px 30px;
+              -o-background-size:60px 30px;
+       	 -webkit-background-size:60px 30px;
+                 background-size:60px 30px;
+}
+
+#main_menu li.parent i {
+		background-image:url(../images/retina/menu_arrow_@2x.png);
+	    	-moz-background-size:20px 5px; /*w & h of total ORIGINAL 72dpi image*/
+             -ie-background-size:20px 5px;
+              -o-background-size:20px 5px;
+       	 -webkit-background-size:20px 5px;
+                 background-size:20px 5px;
+}
+
+
+}/* end desktop and main retina swapping */
+
+
+/*==================================================== 
+******************************************************
+/*	MOBILE SPECIFIC RETINA SWAPPING
+******************************************************
+====================================================== */
+
+@media only screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2),
+ 	only screen and (max-width: 767px) and (-o-min-device-pixel-ratio: 3/2),
+ 	only screen and (max-width: 767px) and (min--moz-device-pixel-ratio: 2),
+	only screen and (max-width: 767px) and (min-device-pixel-ratio: 2)
+{
+            
+.tall-logo #logo {
+    background-image: url(../images/retina/tall-logo-mobile_@2x.png); 
+            -moz-background-size:78px 85px; /*w & h of total image 72dpi image*/
+             -ie-background-size:78px 85px;
+              -o-background-size:78px 85px;
+       	 -webkit-background-size:78px 85px;
+                 background-size:78px 85px;	
+
+}
+
+
+.mobile_nav a span
+{
+	background-image:url(../images/retina/navtriggerbg_@2x.png);
+	    	-moz-background-size:80px 40px; /*w & h of total sprite 72dpi image*/
+             -ie-background-size:80px 40px;
+              -o-background-size:80px 40px;
+       	 -webkit-background-size:80px 40px;
+                 background-size:80px 40px;	
+
+}
+
+
+}/*end mobile specific retina swapping */
+
+
+

@@ -1,0 +1,100 @@
+
+/*quick and dirty calendar just for demo css */
+.calendar td  {     
+    font-size: medium;
+    padding: 0.25em 0.25em;   
+    width: 14%; 
+    height: 80px;
+    text-align: left;
+    vertical-align: top;
+    }
+.calendar .date  {     
+    padding: 0.25em 0.25em;   
+    text-align: left;
+    vertical-align: top;
+    font-size:140%;
+    }
+
+/* Responsive Tables */
+
+/* http://www.zurb.com/playground/responsive-tables */
+
+table {
+	border-spacing: 0px;
+	border:1px solid #ddd;
+	border-collapse: colapse;
+	width:100%;
+	margin-bottom:3%;
+}
+table tr:last-child td {
+}
+table td:last-child {
+}
+table tbody tr td {
+	background-color: #fff;
+}
+table td {
+	border-bottom:1px solid #ddd;
+	border-right:1px solid #ddd;
+	vertical-align: top;
+	padding:5px;
+}
+table tr th:last-child {
+	border-right:none;
+}
+table caption {
+	font-weight: bold;
+	padding-bottom: 1%;
+}
+table thead th, table thead td {
+	vertical-align: middle;
+	padding:5px;
+}
+
+table tbody tr td {
+	background: transparent;
+}
+
+table tbody tr:nth-child(even) td {
+    background: url(../images/5p.png);
+}
+
+html.ie7 table {
+	border-collapse: collapse;
+}
+
+html.ie7 table td {
+	border: 1px solid #477a0f;
+}
+
+table thead tr th,table tfoot tr th {
+	background-color: #63905c;
+	font-weight: bold;
+	color:#fff;
+}
+
+table tbody td {
+	vertical-align: top;
+}
+
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+	
+	table.responsive { margin-bottom: 0; }
+	
+	.pinned { position: absolute; left: 0; top: 0; background: #fff; width: 35%; overflow: hidden; overflow-x: scroll; border-right: 1px solid #ccc; border-left: 1px solid #ccc; }
+	.pinned table { border-right: none; border-left: none; width: 100%; }
+	.pinned table th, .pinned table td { white-space: nowrap; }
+	.pinned td:last-child { border-bottom: 0; }
+	
+	div.table-wrapper { position: relative; margin-bottom: 20px; overflow: hidden; border-right: 1px solid #ccc; }
+	div.table-wrapper div.scrollable table { margin-left: 35%; }
+	div.table-wrapper div.scrollable { overflow: scroll; overflow-y: hidden; }	
+	
+	table.responsive td, table.responsive th { position: relative; white-space: nowrap; overflow: hidden; }
+	table.responsive th:first-child, table.responsive td:first-child, table.responsive td:first-child, table.responsive.pinned td { display: none; }
+	
+}
+
+

@@ -1,0 +1,530 @@
+/*
+Sequence.js (http://www.sequencejs.com/)
+Custom Theme for Crisp Bootstrap Template by Christina Arasmo Beymer
+*/
+
+.no-js #sequence-slider-wrapper {display:none}
+
+.lt-ie9 #sequence li,
+.lt-ie9 #sequence li * {
+		/*By making sure IE filters never run, jQuery won't animate a fade between frames in IE6/7/8. This prevents the black halo around transparent images.*/
+    filter: "" !important;
+		-ms-filter: "" !important;
+}
+#sequence-slider {
+		height: 450px;
+		position: relative;
+		margin: 0 auto;
+		overflow: hidden;
+		background:url(../images/5p.png);
+		-webkit-text-stroke: 0.35px
+}
+#sequence {margin:0 auto;position:relative;max-width:1200px;}
+
+#sequence .info .more {
+		padding-top:10px;
+		text-align:right;
+}
+#sequence-slider-wrapper {
+		position:relative;
+		height:450px;
+		margin:20px 0 3%;
+}
+#sequence ul {
+		margin:0;
+		padding:0;
+		list-style:none;
+}
+.bg-animate img {max-width:100%;}
+
+#sequence {
+		/*backface-visibility prevents graphical glitches when frames are animating*/
+	-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+		-o-backface-visibility: hidden;
+		backface-visibility: hidden;
+}
+#sequence-slider-wrapper .next:hover,
+#sequence-slider-wrapper .prev:hover {
+		opacity: 1;
+		-webkit-transition-duration: .4s;
+		-moz-transition-duration: .4s;
+		-o-transition-duration: .4s;
+		-ms-transition-duration: .4s;
+		transition-duration: .4s;
+}
+#sequence-slider-wrapper .next,
+#sequence-slider-wrapper .prev {
+		cursor: pointer;
+		position: absolute;
+		z-index: 200;
+		height: 50px;
+		right: 10px;
+		text-indent: -9999px;
+		display: block;
+		top: 40%;
+		width: 40px;
+		height: 80px;
+    	background:url(../images/sliderarrows.png) -140px 50% no-repeat;
+}
+#sequence-slider-wrapper .prev {
+		left: 10px;
+		right: auto;
+		background-position: -180px 50%;
+}
+#sequence-slider-wrapper .next:hover,
+#sequence-slider-wrapper .prev:hover {
+		opacity: .5
+}
+#sequence li > * {
+		position: absolute;
+}
+#sequence {
+		height: 440px;
+		margin: 0 auto;
+		position: relative;
+}
+#sequence .info h2 {
+		font-size: 260%;
+		line-height: 1.2;
+		margin-bottom: 3%;
+}
+#sequence .info p {
+		line-height:1.5;
+}
+#sequence .info {
+		right: 150%;
+		top: 120px;
+		width: 40%;
+		z-index: 10;
+		vertical-align: middle;
+		-webkit-transition-duration: 2s;
+		-moz-transition-duration: 2s;
+		-o-transition-duration: 2s;
+		-ms-transition-duration: 2s;
+		transition-duration: 2s;
+}
+#sequence .animate-in .info {
+		right: 10%;
+		-webkit-transition-duration: 4s;
+		-moz-transition-duration: 4s;
+		-o-transition-duration: 4s;
+		-ms-transition-duration: 4s;
+		transition-duration: 4s;
+}
+#sequence .animate-out  .info {
+		right: -150%;
+		-webkit-transition-duration: 4s;
+		-moz-transition-duration: 4s;
+		-o-transition-duration: 4s;
+		-ms-transition-duration: 4s;
+		transition-duration: 4s;
+}
+.animate-1 {
+		left: -140%;
+		top: 800px;
+		max-width: 40%;
+		-webkit-transition-property: left top;
+		-moz-transition-property: left top;
+		-o-transition-property: left top;
+		-ms-transition-property: left top;
+		transition-property: left top;
+		z-index: 6;
+}
+.animate-in .animate-1 {
+		left: 10%;
+		top: 75px;
+		-webkit-transition-duration: 4s;
+		-moz-transition-duration: 4s;
+		-o-transition-duration: 4s;
+		-ms-transition-duration: 4s;
+		transition-duration: 4s;
+		-webkit-transition-property: left top -webkit-transform;
+		-moz-transition-property: left top -moz-transform;
+		-o-transition-property: left top -o-transform;
+		-ms-transition-property: left top -ms-transform;
+		transition-property: left top transform;
+		-webkit-transition-property: left top;
+		-moz-transition-property: left top;
+		-o-transition-property: left top;
+		-ms-transition-property: left top;
+		transition-property: left top;
+		z-index: 4;
+}
+.animate-out .animate-1 {
+		left: 140%;
+		top: -300px;
+		-webkit-transition-duration: 4s;
+		-moz-transition-duration: 4s;
+		-o-transition-duration: 4s;
+		-ms-transition-duration: 4s;
+		transition-duration: 4s;
+		-webkit-transition-property: left top;
+		-moz-transition-property: left top;
+		-o-transition-property: left top;
+		-ms-transition-property: left top;
+		transition-property: left top;
+		-webkit-transition-property: left top -webkit-transform;
+		-moz-transition-property: left top -moz-transform;
+		-o-transition-property: left top -o-transform;
+		-ms-transition-property: left top -ms-transform;
+		transition-property: left top transform;
+		z-index: 2;
+}
+.animate-2 {
+		left: -50%;
+		max-width: 40%;
+		top: 800px;
+		-webkit-transition-property: left top;
+		-moz-transition-property: left top;
+		-o-transition-property: left top;
+		-ms-transition-property: left top;
+		transition-property: left top;
+		z-index: 6;
+}
+.animate-in .animate-2 {
+		left: 10%;
+		top: 50px;
+		-webkit-transition-duration: 4s;
+		-moz-transition-duration: 4s;
+		-o-transition-duration: 4s;
+		-ms-transition-duration: 4s;
+		transition-duration: 4s;
+		z-index: 4;
+}
+.animate-out .animate-2 {
+		left: 70%;
+		top: -900px;
+		-webkit-transform: rotate(80deg);
+		-moz-transform: rotate(80deg);
+		-o-transform: rotate(80deg);
+		-ms-transform: rotate(80deg);
+		transform: rotate(80deg);
+		-webkit-transition-duration: 4s;
+		-moz-transition-duration: 4s;
+		-o-transition-duration: 4s;
+		-ms-transition-duration: 4s;
+		transition-duration: 4s;
+		-webkit-transition-property: left top -webkit-transform;
+		-moz-transition-property: left top -moz-transform;
+		-o-transition-property: left top -o-transform;
+		-ms-transition-property: left top -ms-transform;
+		transition-property: left top transform;
+		z-index: 2;
+}
+.animate-3 {
+		left: -100%;
+		max-width: 40%;
+		top: -100px;
+		-webkit-transition-property: left top;
+		-moz-transition-property: left top;
+		-o-transition-property: left top;
+		-ms-transition-property: left top;
+		transition-property: left top;
+		z-index: 6;
+}
+.animate-in .animate-3 {
+		left: 15%;
+		top: 50px;
+		-webkit-transition-duration: 4s;
+		-moz-transition-duration: 4s;
+		-o-transition-duration: 4s;
+		-ms-transition-duration: 4s;
+		transition-duration: 4s;
+		-webkit-transition-property: left top -webkit-transform;
+		-moz-transition-property: left top -moz-transform;
+		-o-transition-property: left top -o-transform;
+		-ms-transition-property: left top -ms-transform;
+		transition-property: left top transform;
+		-webkit-transition-property: left top;
+		-moz-transition-property: left top;
+		-o-transition-property: left top;
+		-ms-transition-property: left top;
+		transition-property: left top;
+		z-index: 4;
+}
+.animate-out .animate-3 {
+		left: -150%;
+		top: 100px;
+		-webkit-transition-duration: 4s;
+		-moz-transition-duration: 4s;
+		-o-transition-duration: 4s;
+		-ms-transition-duration: 4s;
+		transition-duration: 4s;
+		-webkit-transition-property: left top;
+		-moz-transition-property: left top;
+		-o-transition-property: left top;
+		-ms-transition-property: left top;
+		transition-property: left top;
+		-webkit-transition-property: left top -webkit-transform;
+		-moz-transition-property: left top -moz-transform;
+		-o-transition-property: left top -o-transform;
+		-ms-transition-property: left top -ms-transform;
+		transition-property: left top transform;
+		z-index: 2;
+}
+.bg-animate {
+		height: auto;
+		width: 100%;
+		left: -10%;
+		opacity: 0;
+		top: -5%;
+		vertical-align: middle;
+		-webkit-transition-property: left top;
+		-moz-transition-property: left top;
+		-o-transition-property: left top;
+		-ms-transition-property: left top;
+		transition-property: left top;
+		z-index: 1;
+}
+.animate-in .bg-animate {
+		left: 0%;
+		opacity: 1;
+		top: -5%;
+		-webkit-transition-duration: 4s;
+		-moz-transition-duration: 4s;
+		-o-transition-duration: 4s;
+		-ms-transition-duration: 4s;
+		transition-duration: 4s;
+		-webkit-transition-property: left top;
+		-moz-transition-property: left top;
+		-o-transition-property: left top;
+		-ms-transition-property: left top;
+		transition-property: left top;
+		z-index: 1;
+}
+.animate-out .bg-animate {
+		left: 10%;
+		opacity: 0;
+		top: -5%;
+		-webkit-transition-duration: 4s;
+		-moz-transition-duration: 4s;
+		-o-transition-duration: 4s;
+		-ms-transition-duration: 4s;
+		transition-duration: 4s;
+		-webkit-transition-property: left top;
+		-moz-transition-property: left top;
+		-o-transition-property: left top;
+		-ms-transition-property: left top;
+		transition-property: left top;
+		z-index: 1;
+}
+
+/* end global desktop styles below are media queries */
+
+@media only screen and (max-width: 1050px) {
+
+	#sequence-slider,
+	#sequence,
+	#sequence-slider-wrapper {
+		height:400px;
+	}
+
+
+}/**/
+
+
+/************ 0 to 1000 px **************/
+@media only screen and (max-width: 1000px) {
+	#sequence-slider,
+	#sequence,
+	#sequence-slider-wrapper {
+		height:370px;
+	}
+	#sequence .info h2 {
+		font-size: 180%;
+		margin: 0 0 1% 0;
+	}
+	#sequence .info p {
+		font-size:90%;
+	}
+	#sequence {
+		margin-bottom:50px;
+	}
+	.animate-1,
+	.animate-2,
+	.animate-3 {
+		width:100%;
+		max-width:100%;
+		text-align:center;
+		margin-bottom:10px;
+		max-height:120px;
+	}
+	.animate-1 img,
+	.animate-2 img,
+	.animate-3 img {
+		margin:0 auto;
+		display:block;
+		max-height:190px;
+	}
+	#sequence .info {
+		right: 150%;
+		top: auto;
+		bottom:10px;
+		width:80%;
+		text-align:center;
+		padding:0 10%;
+		z-index: 10;
+		vertical-align: middle;
+	}
+	#sequence .animate-in .info {
+		right:0%;
+	}
+	#sequence .animate-out  .info {
+		right: 150%;
+		bottom:-100%;
+	}
+	.animate-1 {
+		left: -200%;
+		top: 800px;
+	}
+	.animate-in .animate-1 {
+		left: 0%;
+		top: 20px;
+	}
+	.animate-out .animate-1 {
+		left: 140%;
+		top: -300px;
+	}
+	.animate-2 {
+		left: -50%;
+		top: 800px;
+	}
+	.animate-in .animate-2 {
+		left: 0%;
+		top: 20px;
+	}
+	.animate-out .animate-2 {
+		left: 70%;
+		top: -900px;
+	}
+	.animate-3 {
+		left: -200%;
+		top: 800px;
+	}
+	.animate-in .animate-3 {
+		left: 0%;
+		top: 20px;
+	}
+	.animate-out .animate-3 {
+		left: 140%;
+		top: -300px;
+	}
+	#sequence-slider .info .more {
+		padding-top:5px;
+		text-align:center;
+	}
+
+}/*end*/
+
+/************ 0 - 500px **************/
+ @media only screen and (max-width: 500px) {
+	.bg-animate {
+		display:none;
+	}
+	#sequence .info h2 {
+		font-size: 180%;
+		margin-bottom: 1%;
+	}
+	#sequence .info p {
+		-webkit-text-stroke: 0.35px
+	}
+	.animate-1 img,
+	.animate-2 img,
+	.animate-3 img {
+		margin:0 auto;
+		display:block;
+		max-height:130px;
+	}
+	#sequence-slider,
+	#sequence,
+	#sequence-slider-wrapper {
+		height:300px;
+	}
+	#sequence-slider-wrapper .prev {
+		left: auto;
+		right:5px;
+		width: 30px;
+		height: 50px;
+		top:50px;
+        background-position: -250px 50%;
+	}
+	#sequence-slider-wrapper .next {
+		position: absolute;
+		right: 5px;
+		width: 30px;
+		height: 50px;
+		top:5px;
+        background-position: -220px 50%;
+	}
+	#sequence .info .more {
+		padding-top:5px;
+		text-align:center;
+	}
+	#sequence-slider-wrapper {
+		margin:3% 0 3%;
+
+	}
+
+}/*end*/
+
+
+/************ 0 - 380px **************/
+ @media only screen and (max-width: 380px) {
+	#sequence .info p {
+		font-size:85%;
+		-webkit-text-stroke: 0.35px
+	}
+	#sequence .info h2 {
+		font-size: 130%;
+		margin-bottom: 1%;
+	}
+	.animate-1 img,
+	.animate-2 img,
+	.animate-3 img {
+		margin:0 auto;
+		display:block;
+		max-height:110px;
+	}
+	#sequence-slider,
+	#sequence,
+	#sequence-slider-wrapper {
+		height:275px;
+	}
+	#sequence-slider-wrapper {
+		margin:3% 0 3%;
+
+	}
+	#sequence .info .more {
+		padding-top:5px;
+		text-align:center;
+	}
+
+}/*end*/
+
+
+/* ================================================== 
+	RETINA BACKGROUND IMAGE REPLACEMENT & RETINA INFORMATION
+	http://weedygarden.net/2012/04/hi-res-retina-display-css-sprites/
+	http://www.kylejlarson.com/blog/2012/creating-retina-images-for-your-website/
+	http://www.webresourcesdepot.com/3-solutions-for-serving-high-res-images-to-retina-display-devices/
+================================================== */
+
+/*	change the webkit number to 1 to test on webkit to make sure 
+	the sizes and the images show up correctly then switch back before launch */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+ 	only screen and (-o-min-device-pixel-ratio: 3/2),
+ 	only screen and (min--moz-device-pixel-ratio: 2),
+	only screen and (min-device-pixel-ratio: 2) 
+{
+
+/* 
+
+arrows
+
+*/
+
+
+}/* end retina */
