@@ -1,0 +1,454 @@
+<!doctype html>{% load staticfiles i18n analytics adzone_tags news_tags components comments_tags chunks accounts_tags %}
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en" dir="ltr"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en" dir="ltr"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
+<head>
+    <title>{% block title %}Django на русском{% endblock %}</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Language" content="ru"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="ROBOTS" content="ALL"/>
+    <meta name="keywords" content="Python, Django, framework, open-source, Питон, Джанго"/>
+    <meta name="description" content="{% block description %}{% endblock %}"/>
+    <meta name="generator" content="Django"/>
+    <meta name="google-site-verification" content="zICpUlONvVLohGcE1oztBD1-qHqkAOuS-Oaim8NFW2s" />
+    <meta name='yandex-verification' content='446e96868717e10e' />
+    <meta property="og:site_name" content="DjangoBook v2.0"/>
+    <meta property="og:image" content="{% static 'img/djangobook-title.png' %}"/>
+
+    <link href="/news/feed" rel="alternate" type="application/rss+xml" title="{% trans 'The freshest news about Russian version of DjangoBook' %}"/>
+    <link href="/examples/feed" rel="alternate" type="application/rss+xml" title="{% trans 'Newly examples from Russian DjangoBook' %}"/>
+
+    <!-- CSS ================ -->
+    <link rel="stylesheet" href="{% static 'theme/css/bootstrap.min.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'theme/css/style.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'theme/css/header-2.css' %}" type="text/css"/>
+    {% if not settings.DEBUG %}{% analytics_async "UA-3919032-6" %}{% endif %}
+
+    <!-- Icons ================ -->
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <link rel="apple-touch-icon-precomposed" href="{% static 'img/djangobook-title.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'img/djangobook-title.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'img/djangobook-title.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'img/djangobook-title.png' %}" />
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" />
+
+    <script src="{% static 'theme/js/jquery.min.js' %}"></script>
+    <script src="{% static 'theme/js/modernizr.custom.87724.js' %}"></script>
+    <script src="{% static 'js/jquery.form.js' %}"></script>
+    <script src="{% static 'js/jquery-spelling.js' %}"></script>
+
+    {% block highlightjs %}
+    <script src="{% static 'js/highlight.min.js' %}"></script>
+    <script type="text/javascript">
+        jQuery(function($){
+            $('[rel=popover]').popover();
+
+            hljs.tabReplace = '    ';
+            hljs.initHighlightingOnLoad();
+        });
+    </script>
+    {% endblock %}
+
+    {% block head %}{% endblock %}
+    <script type="text/javascript">
+      $(document).ready(function() {
+          $.ajaxSetup({
+              beforeSend: function(xhr, settings) {
+                  function getCookie(name) {
+                      var cookieValue = null;
+                      if (document.cookie && document.cookie != '') {
+                          var cookies = document.cookie.split(';');
+                          for (var i = 0; i < cookies.length; i++) {
+                              var cookie = jQuery.trim(cookies[i]);
+                              // Does this cookie string begin with the name we want?
+                                  if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                                      cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                      break;
+                                  }
+                          }
+                      }
+                      return cookieValue;
+                  }
+                  if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                      // Only send the token to relative URLs i.e. locally.
+                      xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+                  }
+              }
+          });
+      });
+    </script>
+</head>
+<body class="alternative-header">
+    {% block body %}
+    <!-- begin accesibility skip to nav skip content -->
+    <ul class="visuallyhidden" id="top">
+        <li><a href="#nav" title="Skip to navigation" accesskey="n">Skip to navigation</a></li>
+        <li><a href="#page" title="Skip to content" accesskey="c">Skip to content</a></li>
+    </ul>
+    <!-- end /.visuallyhidden accesibility-->
+
+    <!-- mobile navigation trigger-->
+    <h5 class="mobile_nav"><a href="javascript:void(0)">&nbsp;<span></span></a></h5>
+    <!--end mobile navigation trigger-->
+
+    <section class="container preheader">
+
+        <!--this is the login for the user-->
+        <nav class="user clearfix">
+            {% if user.is_authenticated %}
+                <a href="{{ user.get_absolute_url }}"><i class="icon-user"></i> {{ user.username }}</a>
+                {% notification_indicator %} |
+                <a href="{% url accounts:logout %}?next={{ request.path_info|urlencode }}"><i class="icon-share"></i> {% trans 'Logout' %}</a>
+            {% else %}
+                <a href="{% url accounts:login %}?next={{ request.path_info|urlencode }}"><i class="icon-share"></i> {% trans 'Login' %}</a>
+            {% endif %}
+        </nav>
+        <!--close user nav-->
+
+        <div class="search-wrapper">
+            <form class="search" method="get" action="{% url main:search %}">
+                <div id="search-trigger">{% trans "Search:" %}</div>
+                <input id="search-box" name="q" type="text" placeholder="{% trans 'search + enter' %}">
+            </form>
+        </div>
+        <ul class="social">
+            <li><a class="socicon small rss" href="/news/feed" data-placement="bottom" title="{% trans 'Recipes' %}"></a></li>
+            <li><a class="socicon small rss" href="/examples/feed" data-placement="bottom" title="{% trans 'News' %}"></a></li>
+            <li><a class="socicon small facebook" href="#" data-placement="bottom" title="Follow us on Facebook"></a></li>
+            <li><a class="socicon small twitterbird" href="#" data-placement="bottom" title="Follow us on Twitter"></a></li>
+            <li><a class="socicon small linkedin" href="#" data-placement="bottom" title="Follow us on LinkedIn"></a></li>
+            <li><a class="socicon small dribbble" href="#" data-placement="bottom" title="Follow us on dribble"></a></li>
+            <li><a class="socicon small vimeo" href="#" data-placement="bottom" title="Follow us on Vimeo"></a></li>
+        </ul>
+    </section>
+
+    {% block menu %}{% menu %}{% endblock %}
+
+    <!-- begin #page - the container for everything but header -->
+    <div id="page">
+        <div class="hero-unit center no-border">
+            <div class="container">
+                <h1>We will amplify our capacity to utilize without decrementing our power to iterate.</h1>
+            </div>
+            <!--close container-->
+        </div>
+        <!--close hero-unit-->
+        <div class="container clearfix" id="main-content">
+            <!--begin main content-->
+            <div class="row-fluid">
+                <!-- Begin image slider -->
+                <div class="flexslider image-slider span6">
+                    <ul class="slides">
+                        <!--begin slide content inside each li tag-->
+                        <li> <img alt="" src="../demo/boxed-slider/Canaletto_(I)_021.png" />
+                            <div class="caption no-border">
+                                <p>This <b>wrapbootstrap</b> template is <a href="#" title="test link">crafted</a> with responsive, clean design. It has all sorts of useful and practical features, such as this handy content slider. </p>
+                            </div>
+                        </li>
+                        <li> <img alt="" src="../demo/boxed-slider/Camille_Pissarro_019.png" />
+                            <div class="caption no-border">
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                            </div>
+                        </li>
+                        <li> <img alt="" src="../demo/boxed-slider/Maler_der_Geschichte_von_Bayad_und_Riyad_003.png" />
+                            <div class="caption no-border">
+                                <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end  .flexslider. image-slider span6 -->
+                <div class="span6">
+                    <h2 class="short_headline"><span>Redefine extensibly</span></h2>
+                    <p>We have proven we know that it is better to disintermediate intuitively than to expedite virally. The dot-com, mission-critical structuring factor can be summed up in one word: compelling.</p>
+                    <p>We have proven we know that it is better to disintermediate intuitively than to expedite virally. The dot-com, mission-critical structuring factor can be summed up in one word: compelling.</p>
+                    <p class="right"><a href="#" class="btn btn-small btn-very-subtle">More &rarr;</a></p>
+                </div>
+                <!--close span6-->
+            </div>
+            <!--close row-fluid-->
+            <div class="row-fluid">
+                <section class="call-to-action trad clearfix">
+                    <div class="message">
+                        <h3>It is better to e-enable extensibly</h3>
+                        <p>We will amplify our power to benchmark without decreasing our capacity to mesh. We will reinvent the buzzword "frictionless".</p>
+                    </div>
+                    <div class="action"> <a href="register.html" class="btn-primary btn btn-large">30 Day Free Trial &nbsp;<i class="icon-circle-arrow-right icon-white"></i></a> </div>
+                </section>
+            </div>
+            <!--close row-fluid-->
+            <div class="row-fluid center">
+                <div class="span3"> <a class="biggieicon" href="#"><i class="icon-paper-clip"></i></a>
+                    <h4 class="border-b">It’s Wonderful</h4>
+                    <p class="bumpdown">We here at Crisp have proven we know that it is better to e-enable extensibly than to architect seamlessly. If all of this may seem wonderful to you, that's because it is! Our functionality is unparalleled in the industry.</p>
+                    <p class="center"><a href="#" class="btn btn-small btn-very-subtle">More &rarr;</a></p>
+                </div>
+                <div class="span3"> <a class="biggieicon" href="#"><i class="icon-wrench"></i></a>
+                    <h4 class="border-b">Sum it up!</h4>
+                    <p class="bumpdown">We have proven we know that it is better to disintermediate intuitively than to expedite virally. The dot-com, mission-critical structuring factor can be summed up in one word: compelling.</p>
+                    <p class="center"><a href="#" class="btn btn-small btn-very-subtle">More &rarr;</a></p>
+                </div>
+                <div class="span3"> <a class="biggieicon" href="#"><i class="icon-refresh"></i></a>
+                    <h4 class="border-b">Factor the Short Term</h4>
+                    <p class="bumpdown">The accounting factor is short-term. Our functionality is unmatched, but our transparent models and user-proof configuration is constantly considered a remarkable achievement.</p>
+                    <p class="center"><a href="#" class="btn btn-small btn-very-subtle">More &rarr;</a></p>
+                </div>
+                <div class="span3"> <a class="biggieicon" href="#"><i class="icon-comments-alt"></i></a>
+                    <h4 class="border-b">User-Centric</h4>
+                    <p class="bumpdown">Think intra-client-focused. Think viral. Think resource-constrained. Think user-centric. But don't think all three at the same time. The ability to redefine extensibly leads to the ability to incentivize iteravely.</p>
+                    <p class="center"><a href="#" class="btn btn-small btn-very-subtle">More &rarr;</a></p>
+                </div>
+            </div>
+            <!--close row-fluid -->
+            <hr class="empty" />
+            <h3 class="short_headline"><span>What does it really mean to e-enable "intuitively"?</span></h3>
+            <div class="row-fluid">
+                <div class="span7">
+                    <p><img class="alignleft" src="../demo/fresh-work/fw-708px-Vincent_Willem_van_Gogh_012.png" alt=" " />We here at Crisp have come to know that it is better to synthesize strategically than to morph seamlessly. The web services factor can be summed up in one word: clicks-and-mortar, 24/7/365. Without appropriate biometrics, returns-on-investment are forced to become B2C. What does the term "best-of-breed" really mean? </p>
+                    <p> Crisp practically invented the term "e-tailers". Think macro-B2C. What does it really mean to e-enable "intuitively"? Without Total Quality Management, you will lack social networks. What do we aggregate? Anything and everything, regardless of reconditeness! Do you have a plan of action to become cross-media? We will maximize our capability to envisioneer without decrementing our ability to target. If you engineer efficiently, you may have to exploit dynamically. Our feature set is unmatched in the industry, but our holistic eyeballs and user-proof use is invariably considered a terrific achievement. We apply the proverb "It never rains but it pours" not only to our process management but our capacity to exploit. </p>
+                </div>
+                <div class="span4 offset1">
+                    <!-- ****** TABBED CONTENT ******-->
+                    <aside class="widget">
+                        <h5 class="short_headline"><span>Blog</span></h5>
+                        <div class="sidebar-tabs">
+                            <ul class="tabs">
+                                <li class="tab"><a href="#tab-latest">Latest</a></li>
+                                <li class="tab"><a href="#tab-popular">Popular</a></li>
+                                <li class="tab"><a href="#tab-tags">Tags</a></li>
+                            </ul>
+                            <div class="panels">
+                                <div id="tab-latest">
+                                    <ul class="blogposts clearfix">
+                                        <!--required class-->
+                                        <li> <span class="date"> <span class="month">Jan</span> <span class="day">13</span> <span class="year">2012</span> </span>
+                                            <h3><a href="blog-single.html">We frequently maximize turn-key infrastructures</a></h3>
+                                            <a href="blog-single.html">
+                                            <p> Your budget for unleashing should be at least twice...</p>
+                                            </a> </li>
+                                        <li> <span class="date"> <span class="month">Nov</span> <span class="day">28</span> <span class="year">2012</span> </span>
+                                            <h3><a href="blog-single.html">Split of a Second</a></h3>
+                                            <a href="blog-single.html">
+                                            <p> Wingsuit World Champion Espen Fadnes and...</p>
+                                            </a> </li>
+                                        <li> <span class="date"> <span class="month">Sep</span> <span class="day">18</span> <span class="year">2012</span> </span>
+                                            <h3><a href="blog-single.html">Latte Art</a></h3>
+                                            <a href="blog-single.html">
+                                            <p> Creating art with latte coffee.
+                                                Lorem ipsum dolor sit amet... </p>
+                                            </a> </li>
+                                        <li> <span class="date"> <span class="month">Mar</span> <span class="day">3</span> <span class="year">2012</span> </span>
+                                            <h3><a href="blog-single.html">Lorem ipsum dolor sit amet</a></h3>
+                                            <a href="blog-single.html">
+                                            <p>senectus et netus et malesuada fames ac turpis egestas...</p>
+                                            </a> </li>
+                                    </ul>
+                                </div>
+                                <!-- close #tab-latest-->
+                                <div id="tab-popular">
+                                    <!--begin tab-popular-->
+                                    <ul class="blogposts clearfix">
+                                        <!--required class-->
+                                        <li> <span class="date"> <span class="month">Jan</span> <span class="day">13</span> <span class="year">2012</span> </span>
+                                            <h3><a href="blog-single.html">We frequently maximize turn-key infrastructures</a></h3>
+                                            <a href="blog-single.html">
+                                            <p> Your budget for unleashing should be at least twice...</p>
+                                            </a> </li>
+                                        <li> <span class="date"> <span class="month">Nov</span> <span class="day">28</span> <span class="year">2012</span> </span>
+                                            <h3><a href="blog-single.html">Split of a Second</a></h3>
+                                            <a href="blog-single.html">
+                                            <p> Wingsuit World Champion Espen Fadnes and...</p>
+                                            </a> </li>
+                                        <li> <span class="date"> <span class="month">Sep</span> <span class="day">18</span> <span class="year">2012</span> </span>
+                                            <h3><a href="blog-single.html">Latte Art</a></h3>
+                                            <a href="blog-single.html">
+                                            <p> Creating art with latte coffee.
+                                                Lorem ipsum dolor sit amet... </p>
+                                            </a> </li>
+                                        <li> <span class="date"> <span class="month">Mar</span> <span class="day">3</span> <span class="year">2012</span> </span>
+                                            <h3><a href="blog-single.html">Lorem ipsum dolor sit amet</a></h3>
+                                            <a href="blog-single.html">
+                                            <p>senectus et netus et malesuada fames ac turpis egestas...</p>
+                                            </a> </li>
+                                    </ul>
+                                </div>
+                                <!-- close #tab-popular-->
+                                <div id="tab-tags" class="tag-wrapper"> <a href="#" class="tag">business</a> <a href="#" class="tag">fun</a> <a href="#" class="tag">food</a> <a href="#" class="tag">design</a> <a href="#" class="tag">old</a> <a href="#" class="tag">recent</a> <a href="#" class="tag">junk</a> <a href="#" class="tag">important</a> <a href="#" class="tag">fonts</a> <a href="#" class="tag">css3</a> <a href="#" class="tag">php</a> <a href="#" class="tag">seamless</a> <a href="#" class="tag">complicated</a> </div>
+                                <!-- close #tab-tags .tag-wrapper-->
+                            </div>
+                            <!--close .panels (all of them)-->
+                        </div>
+                        <!--close .sidebar-tabs-->
+                    </aside>
+                    <!-- close .widget containing blog tabs-->
+                </div>
+            </div>
+            <!--close row-fluid -->
+        </div>
+        <!--close .container id="main-content" -->
+        <!--begin footer -->
+        <footer id="footer" class="clearfix">
+            <div class="container"><!--footer container-->
+
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="twitter flexslider clearfix">
+                            <p class="icon-twitter"></p>
+                            <ul id="twitter_update_list" class="slides">
+                            </ul>
+                        </div>
+                        <!-- end twitter flexslider clearfix-->
+                    </div>
+                    <!--close span12-->
+                </div>
+                <!--close row-fluid-->
+
+                <div class="row-fluid">
+                    <div class="span4">
+                        <section>
+                            <h4>Contact Us</h4>
+                            <p>Crisp Creative<br>
+                                1255 Nowhere Street<br>
+                                Tampa, FL 33655<br>
+                                <strong>phone:</strong> <a href="tel:8135551234" class="tele">813.555.1234</a><br>
+                                <strong>fax:</strong> 813.555.1235<br>
+                                <strong>email:</strong> <a href="mailto:email@domain.com">crisp@companydomain.com</a> </p>
+                        </section>
+                        <!--close section-->
+
+                        <section>
+                            <h4>Follow Us</h4>
+                            <ul class="social">
+                                <li><a class="socicon rss" href="#" title="RSS"></a></li>
+                                <li><a class="socicon facebook" href="#" title="Facebook"></a></li>
+                                <li><a class="socicon twitterbird" href="#" title="Twitter"></a></li>
+                                <li><a class="socicon linkedin" href="#" title="LinkedIn"></a></li>
+                                <li><a class="socicon dribbble" href="#" title="dribble"></a></li>
+                                <li><a class="socicon vimeo" href="#" title="Vimeo"></a></li>
+                            </ul>
+                        </section>
+                        <!--close section-->
+                    </div>
+                    <!-- close .span4 -->
+
+                    <!--section containing newsletter signup and recent images-->
+                    <div class="span4">
+                        <section>
+                            <h4>Stay Updated</h4>
+                            <p>Sign up for our crispy newsletter. We won't share your email address.</p>
+                            <form action="yourscript.php" method="post">
+                                <div class="input-append">
+                                    <input type="email" placeholder="Email Address" class="span6" name="email" />
+                                    <button class="btn btn-primary">Sign Up</button>
+                                </div>
+                                <!--close input-append-->
+                            </form>
+                        </section>
+                        <!--close section-->
+
+                        <section>
+                            <h4>Recent Images</h4>
+                            <ul class="image-widget clearfix">
+                                <li><a href="#"><img src="../demo/image-widget/1.png" alt="" /></a></li>
+                                <li><a href="#"><img src="../demo/image-widget/2.png" alt="" /></a></li>
+                                <li><a href="#"><img src="../demo/image-widget/3.png" alt="" /></a></li>
+                                <li><a href="#"><img src="../demo/image-widget/4.png" alt="" /></a></li>
+                                <li><a href="#"><img src="../demo/image-widget/5.png" alt="" /></a></li>
+                                <li><a href="#"><img src="../demo/image-widget/6.png" alt="" /></a></li>
+                                <li><a href="#"><img src="../demo/image-widget/7.png" alt="" /></a></li>
+                                <li><a href="#"><img src="../demo/image-widget/8.png" alt="" /></a></li>
+                                <li><a href="#"><img src="../demo/image-widget/9.png" alt="" /></a></li>
+                                <li><a href="#"><img src="../demo/image-widget/10.png" alt="" /></a></li>
+                                <li><a href="#"><img src="../demo/image-widget/11.png" alt="" /></a></li>
+                                <li><a href="#"><img src="../demo/image-widget/12.png" alt="" /></a></li>
+                            </ul>
+                        </section>
+                        <!--close section-->
+                    </div>
+                    <!-- close .span4 -->
+
+                    <!--section containing blog posts-->
+                    <div class="span4">
+                        <section>
+                            <h4>Latest Blog Posts</h4>
+                            <ul class="footerPosts">
+                                <li><a href="blog-single.html">We will amplify our power to benchmark</a> <span class="meta">December 10, 2012</span> </li>
+                                <li><a href="blog-single.html">Crisp has revolutionized the conceptualization of structuring</a> <span class="meta">September 10, 2012</span> </li>
+                                <li><a href="blog-single.html">A company that can implement correctly</a> <span class="meta">September 10, 2012</span> </li>
+                                <li><a href="blog-single.html">Claritas est etiam processus dynamicus</a> <span class="meta">September 10, 2012</span> </li>
+                                <li><a href="blog-single.html">It is stunning to you!</a> <span class="meta">September 10, 2012</span> </li>
+                                <li><a href="blog-single.html">We will increase our aptitude to evolve </a> <span class="meta">November 15, 2012</span> </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <!-- close .span4 -->
+                </div>
+                <!-- close .row-fluid-->
+            </div>
+            <!-- close footer .container-->
+
+            <!--change this to your stuff-->
+            <section class="footerCredits">
+                <div class="container">
+                    <ul class="clearfix">
+                        <li>© 2012 Your Company Name. All rights reserved.</li>
+                        <li><a href="sitemap.html">Site Map</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                    </ul>
+                </div>
+                <!--footerCredits container-->
+            </section>
+            <!--close section-->
+        </footer>
+        <!--/.footer-->
+
+        <span class="backToTop"><a href="#top">back to top</a></span> </div>
+    <!-- close #page-->
+
+    <!-- JS JQuery ================ -->
+    <script src="{% static 'theme/js/bootstrap.min.js' %}"></script><!--transitions, tooltips, popover, buttons, modals, alert messages-->
+    <script src="{% static 'theme/js/ddsmoothmenu-min.js' %}"></script><!-- desktop edge detect menu -->
+    <script src="{% static 'theme/js/jquery.dcjqaccordion.2.7.min.js' %}"></script><!-- mobile multi-level accordion menu -->
+    <script src="{% static 'theme/js/jquery.easytabs.min.js' %}"></script><!-- tabs/testimonials -->
+    <script src="{% static 'theme/js/slide-to-top-accordion-min.js' %}"></script><!-- slide to top accordion toggle -->
+    <script src="{% static 'theme/js/jquery.easing-1.3.min.js' %}"></script><!--easing-->
+    <script src="{% static 'theme/js/jquery.flexslider-min.js' %}"></script><!--flexslider content slider twitter slider and initializations-->
+    <script src="{% static 'theme/js/responsive-tables.js' %}"></script><!--responsive table-->
+    <script src="{% static 'theme/js/jquery.fitvid.js' %}"></script><!-- responsive videos -->
+    <script src="{% static 'theme/js/scripts.js' %}"></script>
+    {% endblock %}
+</body>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter20399554 = new Ya.Metrika({id:20399554,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/20399554" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+</html>

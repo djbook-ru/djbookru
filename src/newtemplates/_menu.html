@@ -1,0 +1,49 @@
+<header class="header  clearfix">{% load i18n accounts_tags staticfiles %}
+    <img src="{% static 'theme/images/logo.png' %}" class="print logo" alt="name of company" />
+    <div class="container">
+
+        <!-- begin #main_menu -->
+        <div class="menu-wrapper">
+            <!-- begin #main_menu -->
+            <nav id="main_menu">
+                <ul class="accordmobile">
+                    <li><a href="{{ DJANGO_DOCUMENTATION_URL }}">Документация Django</a></li>
+                    <li><a href="{% url news:index %}" >{% trans 'News' %}</a></li>
+                    <li><a href="{% url videos:index %}" >{% trans 'Videos' %}</a></li>
+                    <li><a href="{% url djangobb:index %}" >{% trans 'Forum' %}</a></li>
+                    <li class="parent active"><a href="javascript:void(0)">{% trans 'Code Review' %}<i></i></a>
+                        <ul>
+                            <li><a href="{% url code_review:index %}">{% trans "View snipets" %}</a></li>
+                            <li><a href="{% url code_review:add %}">{% trans "Add snipet" %}</a></li>
+                            <li><a href="{% url code_review:comments %}">{% trans "Comments" %}</a></li>
+                        </ul>
+                    </li>
+                    <li class="parent"><a href="javascript:void(0)">{% trans 'Recipes' %}<i></i></a>
+                        <ul>
+                            <li><a href="{% url examples:index %}">{% trans "All" %}</a></li>
+                            <li><a href="{% url examples:add %}">{% trans "Add" %}</a></li>
+                            {% for item in example_categories %}
+                                <li><a href="{{ item.get_absolute_url }}">{{ item }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li><a href="{% url accounts:map %}" >{% trans 'Map' %}</a></li>
+                    <li><a href="/about/">{% trans 'About' %}</a></li>
+                </ul>
+            </nav>
+            <!-- close / #main_menu -->
+        </div>
+        <!-- close / #main_menu -->
+
+        <!-- begin #logo -->
+        <div id="logo">
+            <a href="/">
+                <img style="width: 243px; height: 51px;" alt="Django на русском" src="{% static 'theme/images/logo.png' %}" />
+                <em>Django на русском</em>
+            </a>
+        </div>
+        <!-- end #logo -->
+        <h4 class="tagline">Django на русском, йопт.</h4>
+    </div>
+    <!-- close / .container-->
+</header>

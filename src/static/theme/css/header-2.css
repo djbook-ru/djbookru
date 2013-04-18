@@ -1,4 +1,4 @@
-/* user nav 
+/* user nav
 ================================================== */
 body.login nav.user {display:none!important;} /* hide the login on the login page duh ;-)*/
 nav.user {float:left;line-height:43px;}
@@ -8,8 +8,8 @@ nav.user a:hover {color:#138358;}
 /* header / logo (desktop)
 ================================================== */
 #logo, #logo img { /* width and height of logo desktop NON retina - this is the regular size logo */
-	width:140px;
-	height:59px;
+	width:243px;
+	height:51px;
 }
 #logo {
     padding: 0 0 20px 0;
@@ -19,7 +19,7 @@ nav.user a:hover {color:#138358;}
     clear:both;
     background:url(../images/logo.png) no-repeat;
 }
-#logo em { 
+#logo em {
 	position:absolute;
 	display:block;
 	top:-1000px;
@@ -91,7 +91,7 @@ nav.user a:hover {color:#138358;}
 	top:3px;
 	position:relative;
 	font-size:16px;
-	-webkit-appearance: textfield; 
+	-webkit-appearance: textfield;
 }
 .js .search input {
 	display:none;
@@ -145,7 +145,7 @@ nav.user a:hover {color:#138358;}
 /*  clearing
 ================================================== */
 #main_menu { *zoom: 1}
-#main_menu:before, #main_menu:after 
+#main_menu:before, #main_menu:after
 {display: table; content: ""; line-height: 0;}
 
 #main_menu:after
@@ -210,7 +210,7 @@ nav.user a:hover {color:#138358;}
 #main_menu a:hover,
 #main_menu .active a,
 #main_menu a.selected,
-main_menu li.parent.foo.active a /***! added foo.active a **/ 
+main_menu li.parent.foo.active a /***! added foo.active a **/
 {
     background: #63905c;
 }
@@ -309,7 +309,7 @@ main_menu li.parent.foo.active a /***! added foo.active a **/
  */
 
 
-/*==================================================== 
+/*====================================================
 ******************************************************
 /*	DEVICES less than 600 pixels wide
 ******************************************************
@@ -325,9 +325,9 @@ a.tele {
 
 
 
-/*==================================================== 
+/*====================================================
 ******************************************************
-/*	DEVICES less than 767 pixels wide 
+/*	DEVICES less than 767 pixels wide
 ******************************************************
 ====================================================== */
 @media only screen and (max-width: 767px) {
@@ -356,7 +356,7 @@ body.tall-logo nav.user {margin-left:0;}
     padding: 0;
     width: 100%;
 }
-#logo { 
+#logo {
     position: relative;
     background-position: 50% 50%;
     display: block;
@@ -409,7 +409,7 @@ body.tall-logo nav.user {margin-left:0;}
     right: 0;
     top: auto;
     margin: 0 0 0 5px;
-    font-size: 16px!important; 
+    font-size: 16px!important;
     overflow-x: hidden;
 }
 .search #search-trigger {
@@ -548,20 +548,20 @@ body.tall-logo nav.user {margin-left:0;}
 
 
 
-/* ================================================== 
+/* ==================================================
 	MAIN RETINA BACKGROUND IMAGE REPLACEMENT & RETINA INFORMATION
 	http://weedygarden.net/2012/04/hi-res-retina-display-css-sprites/
 	http://www.kylejlarson.com/blog/2012/creating-retina-images-for-your-website/
 	http://www.webresourcesdepot.com/3-solutions-for-serving-high-res-images-to-retina-display-devices/
 ================================================== */
 
-/*	change the webkit number to 1 to test on webkit to make sure 
+/*	change the webkit number to 1 to test on webkit to make sure
 	the sizes and the images show up correctly then switch back before launch */
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2),
  	only screen and (-o-min-device-pixel-ratio: 3/2),
  	only screen and (min--moz-device-pixel-ratio: 2),
-	only screen and (min-device-pixel-ratio: 2) 
+	only screen and (min-device-pixel-ratio: 2)
 {
 
 
@@ -600,7 +600,7 @@ body.tall-logo nav.user {margin-left:0;}
              -ie-background-size:80px 40px;
               -o-background-size:80px 40px;
        	 -webkit-background-size:80px 40px;
-                 background-size:80px 40px;	
+                 background-size:80px 40px;
 
 }
 
