@@ -35,7 +35,7 @@ html {
     margin: 0;
 	padding: 0;
 	-webkit-font-smoothing: antialiased;
-}    
+}
 body {
 	background:#fff;
 	font-size: 12px;
@@ -85,9 +85,9 @@ embed,
     -moz-outline-style: none;
     outline: none!important; /*remove dotted border */
 }
-/* Don't collapse these into one ruleset. When a browser doesn't 
-recognise a selector it discards the whole ruleset. 
-By using vendor selectors in one ruleset you guarentee 
+/* Don't collapse these into one ruleset. When a browser doesn't
+recognise a selector it discards the whole ruleset.
+By using vendor selectors in one ruleset you guarentee
 nothing will be applied */
 ::-webkit-selection {
     background-color: #356635;
@@ -102,16 +102,16 @@ nothing will be applied */
     color: #fff;
 }
 a.tele { /*turn off telephone link on desktop */
-	text-decoration: none; 
-	cursor:text; 
-	pointer-events: none; 
+	text-decoration: none;
+	cursor:text;
+	pointer-events: none;
 	color:inherit!important;
 }
 
 /* Typography Resets & Settings
 ================================================== */
 h1,h2,h3 { text-rendering: optimizeLegibility }
-/*only use on headlines, otherwise page load on IOS is not good;source: http: //aestheticallyloyal.com/public/optimize-legibility/ 
+/*only use on headlines, otherwise page load on IOS is not good;source: http: //aestheticallyloyal.com/public/optimize-legibility/
 do not use with: font-variant: small-caps; do not use with ex sizing; */
 h1 { font-size: 220% }
 h2 { font-size: 200% }
@@ -129,8 +129,8 @@ h6 {
     margin-top: 2%;
     margin-bottom: 2%;
 }
-.primary-column:first-child h2, 
-.primary-column:first-child h3, 
+.primary-column:first-child h2,
+.primary-column:first-child h3,
 .primary-column:first-child h1 {margin-top:0;}
 h4,
 h5,
@@ -148,7 +148,7 @@ pre {
     margin-bottom: 2%;
 }
 
-/* I don't know why bootstrap has no bottom margin on their ul and ol classes, 
+/* I don't know why bootstrap has no bottom margin on their ul and ol classes,
 even though I added them in, they don't override bootsrap, so this is a fix*/
 ul + p, ol + p {margin-top:2%;}
 
@@ -327,7 +327,7 @@ h6 + .short_headline,
 
 .short_headline + h1
  {margin-top:3%}
- 
+
 .short_headline.margin-top {
     margin:2em 0 1em 0;
 }
@@ -363,7 +363,7 @@ figure {
 	margin: 0 0 4% 0;
 }
 figcaption {
-	text-align: left; 
+	text-align: left;
 	margin-top:0px;
 	padding:10px 0;
 	clear:both;
@@ -524,12 +524,12 @@ p.three-columns {
 /*  clearing
 ================================================== */
 .span2, .span3, .span4, .span8, .span6, .span5, .span9, .span12, .widget, .summary-wrapper { *zoom: 1}
-.span2:before, .span3:before, .span4:before, .span8:before, .span6:before, .span5:before, .span9:before, 
-.span12:before, .widget:before, .summary-wrapper:before, .span2:after, .span3:after, .span4:after, 
-.span8:after, .span6:after, .span5:after, .span9:after, .span12:after, .widget:after, .summary-wrapper:after 
+.span2:before, .span3:before, .span4:before, .span8:before, .span6:before, .span5:before, .span9:before,
+.span12:before, .widget:before, .summary-wrapper:before, .span2:after, .span3:after, .span4:after,
+.span8:after, .span6:after, .span5:after, .span9:after, .span12:after, .widget:after, .summary-wrapper:after
 {display: table; content: ""; line-height: 0;}
 
-.span2:after, .span3:after, .span4:after, .span8:after, .span6:after, .span5:after, .span9:after, .span12:after, .widget:after, .summary-wrapper:after 
+.span2:after, .span3:after, .span4:after, .span8:after, .span6:after, .span5:after, .span9:after, .span12:after, .widget:after, .summary-wrapper:after
 {clear: both}
 
 /*  webkit fix
@@ -564,12 +564,12 @@ input[type="text"], input[type="password"], input[type="search"], input[type="em
 .hero-unit.center {
     text-align: center;
 }
-.hero-unit.no-padding-bottom h1, 
-.hero-unit.no-padding-bottom h2 
+.hero-unit.no-padding-bottom h1,
+.hero-unit.no-padding-bottom h2
 {padding-bottom:0;}
 
-.hero-unit.no-border h1, 
-.hero-unit.no-border h2 
+.hero-unit.no-border h1,
+.hero-unit.no-border h2
 {background:none;}
 
 
@@ -597,6 +597,10 @@ input[type="text"], input[type="password"], input[type="search"], input[type="em
 	margin-bottom:20px;
 	border-top:4px double #c8d2da;
 	border-bottom:4px double #c8d2da;
+}
+.last-videos {
+    border-top:4px double #c8d2da;
+    padding-top: 20px;
 }
 .call-to-action h3 {
 	margin-top:0;
@@ -643,7 +647,7 @@ input[type="text"], input[type="password"], input[type="search"], input[type="em
     background-position: -110px 50%;
 }
 .image-slider.flexslider .caption {
-	text-align: left; 
+	text-align: left;
 	margin-top:0px;
 	padding:10px 0;
 	clear:both;
@@ -670,8 +674,8 @@ input[type="text"], input[type="password"], input[type="search"], input[type="em
 
 /* used on the home page to put the .well before the testimonials &
   on the contact page to put the form before the address on desktop */
-  
-.row-fluid.reverse-order .span4, .row-fluid.reverse-order .span5 {float:right;} 
+
+.row-fluid.reverse-order .span4, .row-fluid.reverse-order .span5 {float:right;}
 .row-fluid.reverse-order .span8, .row-fluid.reverse-order .span7 {margin-left:0;}
 
 /****** widget base ******/
@@ -818,17 +822,43 @@ ul.navigation ul {
 	padding: 0px 0px 10px;
 	width: 100%;
 }
+.widget ul.blogposts.news li {
+    background: url(../images/5p.png);
+    padding: 7px;
+    border-bottom: none;
+    -webkit-border-radius: 4px 4px 4px 4px!important;
+    -moz-border-radius: 4px 4px 4px 4px!important;
+    border-radius: 4px 4px 4px 4px!important;
+}
+.widget ul.blogposts.news li .content {
+    margin-bottom: 7px;
+}
 .widget ul.blogposts li:last-child {
 	border: none;
 	padding: 0px;
+}
+.widget ul.blogposts.news li:last-child {
+    padding: 7px;
 }
 .widget ul.blogposts h3 {
 	font-size:105%;
 	margin: 0px 0px 5px 50px;
 }
+.widget ul.blogposts.news h3 {
+    margin: 0px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
 .widget ul.blogposts p {
 	margin: 0px 0px 0px 50px;
 	font-size:85%;
+}
+.widget ul.blogposts.news p {
+    margin: 0px;
+}
+
+.widget ul.blogposts li.video iframe {
+    width:100%;
 }
 
 /* ***** sidebar widget fancy date ******/
@@ -839,7 +869,7 @@ ul.blogposts span.date {
     border-radius: 60px;
 	display: block;
 	float: left;
-	line-height:1; 
+	line-height:1;
 	height: 31px;
 	width:40px;
 	padding: 9px 0 0 0;
@@ -1131,7 +1161,7 @@ font-size:70%!important;
 }
 #footer .footerCredits a:hover { color: #fff }
 
-/*	go to top 
+/*	go to top
 ================================================== */
 .backToTop {
 	position: fixed;
@@ -1225,7 +1255,7 @@ font-size:70%!important;
 	background-repeat: repeat-y;
 }
 #login-form .btn {margin:3% 0;}
-.login-box .float-left, 
+.login-box .float-left,
 .login-box .float-right {
 	width:40%;
 	padding:5%;
@@ -1245,7 +1275,7 @@ font-size:70%!important;
 	padding:0;
 	list-style:none
 }
-.login-box ul a img { 
+.login-box ul a img {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -1253,7 +1283,7 @@ font-size:70%!important;
     -khtml-opacity: 0.5;
     opacity: 0.5;
 }
-.login-box ul a img:hover { 
+.login-box ul a img:hover {
     -moz-opacity: 1;
     -khtml-opacity: 1;
     opacity: 1;
@@ -1263,14 +1293,14 @@ font-size:70%!important;
 ================================================== */
 .forgot-password {padding-bottom:40px;}
 
-/*  registration 
+/*  registration
 ================================================== */
 .register-box {
 	width:70%;
 	margin:0 auto;
 }
 
-/*  sitemap	 
+/*  sitemap
 ================================================== */
 .sitemaplist li {
 	font-size:130%;
@@ -1299,16 +1329,16 @@ font-size:70%!important;
 
 /*	testimonial page
 ================================================== */
-.testimonial-gallery li {  
+.testimonial-gallery li {
   background-color:#d8dfe5;
   background-image:none;
 }
-.testimonial-gallery li.highlight {  
+.testimonial-gallery li.highlight {
   background-color:#356635;
   background-image:none;
   color:#fff;
 }
-.testimonial-gallery li.highlight blockquote {  
+.testimonial-gallery li.highlight blockquote {
     background-image: url(../images/open-quote-white.png);
 }
 
@@ -1345,7 +1375,7 @@ font-size:70%!important;
     text-indent: 9999px;
     overflow: hidden;
 }
-.rotating-testimonials .panels { 
+.rotating-testimonials .panels {
     /* ie fix */
     width: 100%;
 }
@@ -1367,8 +1397,8 @@ font-size:70%!important;
 }
 
 
-/*================================================ 
-/*	components 
+/*================================================
+/*	components
 ================================================== */
 
 /*	responsive videos using fit-vids.js
@@ -1405,9 +1435,9 @@ font-size:70%!important;
 /*	BEGIN MEDIA QUERIES
 ***********************************************************************************
  */
- 
- 
- /*==================================================== 
+
+
+ /*====================================================
 ******************************************************
 /*	DEVICES greater than 980 pixels wide
 ******************************************************
@@ -1415,10 +1445,10 @@ font-size:70%!important;
 
 @media only screen and (min-width: 980px) {
 body {
-	font-size: 14px; 
+	font-size: 14px;
 	font-size: 1.4rem;/* =15px */
 	line-height:1.65;
-	} 
+	}
 
 .hero-unit h1,
 .hero-unit h2 { font-size: 250% }
@@ -1428,7 +1458,7 @@ body {
 }/*** end greater than 980 ***/
 
 
-/*==================================================== 
+/*====================================================
 ******************************************************
 /*	DEVICES greater than 1100 pixels wide
 ******************************************************
@@ -1436,10 +1466,10 @@ body {
 
 @media only screen and (min-width: 1100px) {
 body {
-	font-size: 15px; 
+	font-size: 15px;
 	font-size: 1.5rem;/* =15px */
 	line-height:1.65;
-	} 
+	}
 .hero-unit h1,
 .hero-unit h2 { font-size: 280% }
 .widget ul.navigation li {
@@ -1454,7 +1484,7 @@ body {
 }/*** end greater than 1100px ***/
 
 
-/*==================================================== 
+/*====================================================
 ******************************************************
 /*	DEVICES less than 1100 pixels wide
 ******************************************************
@@ -1472,7 +1502,7 @@ body {
 }/**** end max width 1100 ****/
 
 
-/*==================================================== 
+/*====================================================
 ******************************************************
 /*	DEVICES less than 980 pixels wide
 ******************************************************
@@ -1494,7 +1524,7 @@ body {
 
 }/**** end max width 980 ****/
 
-/*==================================================== 
+/*====================================================
 ******************************************************
 /*	DEVICES less than 768 pixels wide
 ******************************************************
@@ -1507,9 +1537,9 @@ body {
 }/**** end max width 768 ****/
 
 
-/*==================================================== 
+/*====================================================
 ******************************************************
-/*	DEVICES less than 767 pixels wide 
+/*	DEVICES less than 767 pixels wide
 ******************************************************
 ====================================================== */
 @media only screen and (max-width: 767px) {
@@ -1615,7 +1645,7 @@ hr {
 	width:100%;
 }
 
-.login-box .float-left, 
+.login-box .float-left,
 .login-box .float-right {
 	width:100%;
 	padding:3% 0;
@@ -1660,7 +1690,7 @@ hr {
 
 }/**** end max width 767 ****/
 
-/*==================================================== 
+/*====================================================
 ******************************************************
 /*	DEVICES less than 500 pixels wide
 ******************************************************
@@ -1726,9 +1756,9 @@ blockquote {
 	margin-top:2%;padding:0;
 }
 
-.hero-unit h1,.hero-unit h2, 
-.short_headline, 
-.call-to-action h3, h1, h2, h3, h4, h5, h6 
+.hero-unit h1,.hero-unit h2,
+.short_headline,
+.call-to-action h3, h1, h2, h3, h4, h5, h6
 {font-family:"Raleway", Sans-Serif;font-weight:500}
 
 .call-to-action h3 {
@@ -1741,7 +1771,7 @@ blockquote {
 
 }/**** end max width 500px ****/
 
-/*==================================================== 
+/*====================================================
 ******************************************************
 /*	DEVICES less than 600 pixels wide
 ******************************************************
@@ -1753,7 +1783,7 @@ body {
     font-size: 1.3rem; /* =15px */
     line-height: 1.5;
 }
-/*** twitter footer slider max-width 600px 
+/*** twitter footer slider max-width 600px
 ================================================== */
 .twitter.flexslider ul {
     font-size: 90%
@@ -1764,7 +1794,7 @@ body {
 .twitter.flexslider p {
     font-size: 30px
 }
-/*** Turn ON telephone max-width 600px 
+/*** Turn ON telephone max-width 600px
 ================================================== */
 a.tele {
     cursor: pointer;
@@ -1780,7 +1810,7 @@ img.alignleft {
     width: 45%
 }
 
-.well img.alignleft, 
+.well img.alignleft,
 .well img.alignright {
 	width:auto;
 	max-width:100%;
@@ -1797,14 +1827,14 @@ ul.navigation ul {
 }
 
 /* forgot password bootstrap fix for fluid append stuff*/
-.forgot-password .input-append input[type="text"], 
-.forgot-password input[type="email"] 
+.forgot-password .input-append input[type="text"],
+.forgot-password input[type="email"]
 {width:50%}
 
 /*  bootstrap fluid corrections max-width 600px
 ================================================== */
-label.checkbox.inline, 
-label.radio.inline, 
+label.checkbox.inline,
+label.radio.inline,
 .form-inline label {
 	width:100%!important;
 	clear:both;
@@ -1815,7 +1845,7 @@ label.radio.inline,
 	clear:both;
 	margin:0 0 10px 0;
 }
-#registration-form-extended select, 
+#registration-form-extended select,
 #registration-form select {
 	margin-bottom:5px;
 }
@@ -1838,20 +1868,20 @@ form span.info {
 
 }/**** end max width 600 ****/
 
-/* ================================================== 
+/* ==================================================
 	MAIN RETINA BACKGROUND IMAGE REPLACEMENT & RETINA INFORMATION
 	http://weedygarden.net/2012/04/hi-res-retina-display-css-sprites/
 	http://www.kylejlarson.com/blog/2012/creating-retina-images-for-your-website/
 	http://www.webresourcesdepot.com/3-solutions-for-serving-high-res-images-to-retina-display-devices/
 ================================================== */
 
-/*	change the webkit number to 1 to test on webkit to make sure 
+/*	change the webkit number to 1 to test on webkit to make sure
 	the sizes and the images show up correctly then switch back before launch */
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2),
  	only screen and (-o-min-device-pixel-ratio: 3/2),
  	only screen and (min--moz-device-pixel-ratio: 2),
-	only screen and (min-device-pixel-ratio: 2) 
+	only screen and (min-device-pixel-ratio: 2)
 {
 
 
@@ -1865,7 +1895,7 @@ hr, figcaption, .hero-unit h1, .hero-unit h2, .image-slider.flexslider .caption 
 }
 blockquote {
 		background-image:url(../images/retina/open-quote_@2x.png);
-	    	-moz-background-size:38px 38px; 
+	    	-moz-background-size:38px 38px;
              -ie-background-size:38px 38px;
               -o-background-size:38px 38px;
        	 -webkit-background-size:38px 38px;
@@ -1873,7 +1903,7 @@ blockquote {
 }
 span.plus {
 		background-image:url(../images/retina/plus_@2x.png);
-	    	-moz-background-size:50px 50px; 
+	    	-moz-background-size:50px 50px;
              -ie-background-size:50px 50px;
               -o-background-size:50px 50px;
        	 -webkit-background-size:50px 50px;
@@ -1881,7 +1911,7 @@ span.plus {
 }
 .testimonial-gallery li.highlight blockquote {
 		background-image:url(../images/retina/open-quote-white_@2x.png);
-	    	-moz-background-size:38px 38px; 
+	    	-moz-background-size:38px 38px;
              -ie-background-size:38px 38px;
               -o-background-size:38px 38px;
        	 -webkit-background-size:38px 38px;
@@ -1889,7 +1919,7 @@ span.plus {
 }
 .backToTop a {
 		background-image:url(../images/retina/top_@2x.png);
-	    	-moz-background-size:50px 50px; 
+	    	-moz-background-size:50px 50px;
              -ie-background-size:50px 50px;
               -o-background-size:50px 50px;
        	 -webkit-background-size:50px 50px;
@@ -1897,16 +1927,16 @@ span.plus {
 }
 .flex-direction-nav a, .twitter.flexslider .flex-direction-nav a, .clientlogos .flex-direction-nav a {
     background-image:url(../images/retina/sliderarrows_@2x.png);
-			-moz-background-size:360px 100px; 
+			-moz-background-size:360px 100px;
              -ie-background-size:360px 100px;
               -o-background-size:360px 100px;
        	 -webkit-background-size:360px 100px;
                  background-size:360px 100px;
 
-} 
+}
 ul.navigation li, .widget ul.navigation li {
     background-image:url(../images/retina/sidebar-list-icon_@2x.png);
-			-moz-background-size:6px 8px; 
+			-moz-background-size:6px 8px;
              -ie-background-size:6px 8px;
               -o-background-size:6px 8px;
        	 -webkit-background-size:6px 8px;
@@ -1917,7 +1947,7 @@ ul.navigation li, .widget ul.navigation li {
 }/* end desktop and main retina swapping */
 
 
-/*==================================================== 
+/*====================================================
 ******************************************************
 /*	MOBILE SPECIFIC RETINA SWAPPING
 ******************************************************
@@ -1928,14 +1958,14 @@ ul.navigation li, .widget ul.navigation li {
  	only screen and (max-width: 767px) and (min--moz-device-pixel-ratio: 2),
 	only screen and (max-width: 767px) and (min-device-pixel-ratio: 2)
 {
-         
-         /* nothing now but keep this for reference */   
+
+         /* nothing now but keep this for reference */
 
 }/*end mobile specific retina swapping */
 
 
 
-/* ================================================== 
+/* ==================================================
 	Print Media Styles
 ================================================== */
  @media print {

@@ -8,9 +8,10 @@ from django.contrib.sites.models import Site
 from django.template import Context
 from django.template.loader import get_template
 
-from ... djangobb_forum.models import Topic
-from ... examples.models import Category, Example
-from ... accounts.models import User
+from src.comments.models import Comment
+from src.djangobb_forum.models import Topic
+from src.examples.models import Category, Example
+from src.accounts.models import User
 
 
 RECIPES_ON_MAIN = getattr(settings, 'RECIPES_ON_MAIN', 4)
@@ -20,9 +21,22 @@ FORUM_TOPIC_ON_MAIN = getattr(settings, 'FORUM_TOPIC_ON_MAIN', 4)
 register = template.Library()
 
 
+@register.inclusion_tag('_recipes.html', takes_context=True)
+def recipes(context):
+    context['recipe_categories'] = Category.objects.all()
+    return context
+
+
 @register.inclusion_tag('_menu.html', takes_context=True)
 def menu(context):
     context['example_categories'] = Category.objects.all()
+    return context
+
+
+@register.inclusion_tag('_user_activities.html', takes_context=True)
+def user_activities(context):
+    context['last_forum_topics'] = Topic.objects.filter(forum__category__groups__isnull=True).order_by('-updated')
+    context['last_comments'] = Comment.objects.order_by('-submit_date')
     return context
 
 

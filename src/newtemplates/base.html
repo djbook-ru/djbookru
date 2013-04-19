@@ -1,4 +1,4 @@
-<!doctype html>{% load staticfiles i18n analytics adzone_tags news_tags components comments_tags chunks accounts_tags %}
+<!doctype html>{% load staticfiles i18n analytics adzone_tags news_tags components comments_tags chunks accounts_tags videos_tags %}
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr"> <![endif]-->
 <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en" dir="ltr"> <![endif]-->
 <!--[if IE 8]> <html class="no-js lt-ie9" lang="en" dir="ltr"> <![endif]-->
@@ -116,8 +116,7 @@
             </form>
         </div>
         <ul class="social">
-            <li><a class="socicon small rss" href="/news/feed" data-placement="bottom" title="{% trans 'Recipes' %}"></a></li>
-            <li><a class="socicon small rss" href="/examples/feed" data-placement="bottom" title="{% trans 'News' %}"></a></li>
+            <li><a class="socicon small rss" href="/examples/feed" data-placement="bottom" title="{% trans 'Subscribe to our RSS' %}"></a></li>
             <li><a class="socicon small facebook" href="#" data-placement="bottom" title="Follow us on Facebook"></a></li>
             <li><a class="socicon small twitterbird" href="#" data-placement="bottom" title="Follow us on Twitter"></a></li>
             <li><a class="socicon small linkedin" href="#" data-placement="bottom" title="Follow us on LinkedIn"></a></li>
@@ -130,47 +129,26 @@
 
     <!-- begin #page - the container for everything but header -->
     <div id="page">
-        <div class="hero-unit center no-border">
-            <div class="container">
-                <h1>We will amplify our capacity to utilize without decrementing our power to iterate.</h1>
-            </div>
-            <!--close container-->
-        </div>
-        <!--close hero-unit-->
         <div class="container clearfix" id="main-content">
             <!--begin main content-->
+
             <div class="row-fluid">
-                <!-- Begin image slider -->
-                <div class="flexslider image-slider span6">
-                    <ul class="slides">
-                        <!--begin slide content inside each li tag-->
-                        <li> <img alt="" src="../demo/boxed-slider/Canaletto_(I)_021.png" />
-                            <div class="caption no-border">
-                                <p>This <b>wrapbootstrap</b> template is <a href="#" title="test link">crafted</a> with responsive, clean design. It has all sorts of useful and practical features, such as this handy content slider. </p>
-                            </div>
-                        </li>
-                        <li> <img alt="" src="../demo/boxed-slider/Camille_Pissarro_019.png" />
-                            <div class="caption no-border">
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                        </li>
-                        <li> <img alt="" src="../demo/boxed-slider/Maler_der_Geschichte_von_Bayad_und_Riyad_003.png" />
-                            <div class="caption no-border">
-                                <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
-                            </div>
-                        </li>
-                    </ul>
+                <div class="span7">
+                    {% recipes %}
                 </div>
-                <!-- end  .flexslider. image-slider span6 -->
-                <div class="span6">
-                    <h2 class="short_headline"><span>Redefine extensibly</span></h2>
-                    <p>We have proven we know that it is better to disintermediate intuitively than to expedite virally. The dot-com, mission-critical structuring factor can be summed up in one word: compelling.</p>
-                    <p>We have proven we know that it is better to disintermediate intuitively than to expedite virally. The dot-com, mission-critical structuring factor can be summed up in one word: compelling.</p>
-                    <p class="right"><a href="#" class="btn btn-small btn-very-subtle">More &rarr;</a></p>
+                <div class="span4 offset1">
+                    {% last_news %}
                 </div>
-                <!--close span6-->
             </div>
-            <!--close row-fluid-->
+            <div class="row-fluid">
+                <div class="span7">
+                    {% user_activities %}
+                </div>
+                <div class="span4 offset1">
+                    {% last_videos %}
+                </div>
+            </div>
+
             <div class="row-fluid">
                 <section class="call-to-action trad clearfix">
                     <div class="message">
@@ -290,121 +268,8 @@
             <!--close row-fluid -->
         </div>
         <!--close .container id="main-content" -->
-        <!--begin footer -->
-        <footer id="footer" class="clearfix">
-            <div class="container"><!--footer container-->
 
-                <div class="row-fluid">
-                    <div class="span12">
-                        <div class="twitter flexslider clearfix">
-                            <p class="icon-twitter"></p>
-                            <ul id="twitter_update_list" class="slides">
-                            </ul>
-                        </div>
-                        <!-- end twitter flexslider clearfix-->
-                    </div>
-                    <!--close span12-->
-                </div>
-                <!--close row-fluid-->
-
-                <div class="row-fluid">
-                    <div class="span4">
-                        <section>
-                            <h4>Contact Us</h4>
-                            <p>Crisp Creative<br>
-                                1255 Nowhere Street<br>
-                                Tampa, FL 33655<br>
-                                <strong>phone:</strong> <a href="tel:8135551234" class="tele">813.555.1234</a><br>
-                                <strong>fax:</strong> 813.555.1235<br>
-                                <strong>email:</strong> <a href="mailto:email@domain.com">crisp@companydomain.com</a> </p>
-                        </section>
-                        <!--close section-->
-
-                        <section>
-                            <h4>Follow Us</h4>
-                            <ul class="social">
-                                <li><a class="socicon rss" href="#" title="RSS"></a></li>
-                                <li><a class="socicon facebook" href="#" title="Facebook"></a></li>
-                                <li><a class="socicon twitterbird" href="#" title="Twitter"></a></li>
-                                <li><a class="socicon linkedin" href="#" title="LinkedIn"></a></li>
-                                <li><a class="socicon dribbble" href="#" title="dribble"></a></li>
-                                <li><a class="socicon vimeo" href="#" title="Vimeo"></a></li>
-                            </ul>
-                        </section>
-                        <!--close section-->
-                    </div>
-                    <!-- close .span4 -->
-
-                    <!--section containing newsletter signup and recent images-->
-                    <div class="span4">
-                        <section>
-                            <h4>Stay Updated</h4>
-                            <p>Sign up for our crispy newsletter. We won't share your email address.</p>
-                            <form action="yourscript.php" method="post">
-                                <div class="input-append">
-                                    <input type="email" placeholder="Email Address" class="span6" name="email" />
-                                    <button class="btn btn-primary">Sign Up</button>
-                                </div>
-                                <!--close input-append-->
-                            </form>
-                        </section>
-                        <!--close section-->
-
-                        <section>
-                            <h4>Recent Images</h4>
-                            <ul class="image-widget clearfix">
-                                <li><a href="#"><img src="../demo/image-widget/1.png" alt="" /></a></li>
-                                <li><a href="#"><img src="../demo/image-widget/2.png" alt="" /></a></li>
-                                <li><a href="#"><img src="../demo/image-widget/3.png" alt="" /></a></li>
-                                <li><a href="#"><img src="../demo/image-widget/4.png" alt="" /></a></li>
-                                <li><a href="#"><img src="../demo/image-widget/5.png" alt="" /></a></li>
-                                <li><a href="#"><img src="../demo/image-widget/6.png" alt="" /></a></li>
-                                <li><a href="#"><img src="../demo/image-widget/7.png" alt="" /></a></li>
-                                <li><a href="#"><img src="../demo/image-widget/8.png" alt="" /></a></li>
-                                <li><a href="#"><img src="../demo/image-widget/9.png" alt="" /></a></li>
-                                <li><a href="#"><img src="../demo/image-widget/10.png" alt="" /></a></li>
-                                <li><a href="#"><img src="../demo/image-widget/11.png" alt="" /></a></li>
-                                <li><a href="#"><img src="../demo/image-widget/12.png" alt="" /></a></li>
-                            </ul>
-                        </section>
-                        <!--close section-->
-                    </div>
-                    <!-- close .span4 -->
-
-                    <!--section containing blog posts-->
-                    <div class="span4">
-                        <section>
-                            <h4>Latest Blog Posts</h4>
-                            <ul class="footerPosts">
-                                <li><a href="blog-single.html">We will amplify our power to benchmark</a> <span class="meta">December 10, 2012</span> </li>
-                                <li><a href="blog-single.html">Crisp has revolutionized the conceptualization of structuring</a> <span class="meta">September 10, 2012</span> </li>
-                                <li><a href="blog-single.html">A company that can implement correctly</a> <span class="meta">September 10, 2012</span> </li>
-                                <li><a href="blog-single.html">Claritas est etiam processus dynamicus</a> <span class="meta">September 10, 2012</span> </li>
-                                <li><a href="blog-single.html">It is stunning to you!</a> <span class="meta">September 10, 2012</span> </li>
-                                <li><a href="blog-single.html">We will increase our aptitude to evolve </a> <span class="meta">November 15, 2012</span> </li>
-                            </ul>
-                        </section>
-                    </div>
-                    <!-- close .span4 -->
-                </div>
-                <!-- close .row-fluid-->
-            </div>
-            <!-- close footer .container-->
-
-            <!--change this to your stuff-->
-            <section class="footerCredits">
-                <div class="container">
-                    <ul class="clearfix">
-                        <li>© 2012 Your Company Name. All rights reserved.</li>
-                        <li><a href="sitemap.html">Site Map</a></li>
-                        <li><a href="privacy.html">Privacy</a></li>
-                    </ul>
-                </div>
-                <!--footerCredits container-->
-            </section>
-            <!--close section-->
-        </footer>
-        <!--/.footer-->
+        {% include '_footer.html' %}
 
         <span class="backToTop"><a href="#top">back to top</a></span> </div>
     <!-- close #page-->

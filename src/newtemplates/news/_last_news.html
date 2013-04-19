@@ -1,0 +1,21 @@
+<aside class="widget">{% load i18n staticfiles markup comments_tags %}
+    <h5 class="short_headline"><span>{% trans 'News' %}</span></h5>
+    <ul class="blogposts news clearfix">
+        {% for obj in news %}
+            <li>
+                <h3><a href="{{ obj.get_absolute_url }}">{{ obj }}</a></h3>
+                <div class="content">
+                    <p>{{ obj.content|markdown|truncatewords:45|striptags|linebreaksbr }}</p>
+                </div>
+                <a href="{{ obj.get_absolute_url }}" style="font-size: 0.8em">{{ obj.created|date:'DATE_FORMAT' }}</a>
+                <a href="{{ obj.get_absolute_url }}#comments" class="pull-right" >
+                    <p>
+                        <i class="icon-comments"></i>
+                        {{ obj|get_comment_count }}
+                        {% blocktrans count counter=obj|get_comment_count %}comment{% plural %}comments{% endblocktrans %}
+                    </p>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</aside>

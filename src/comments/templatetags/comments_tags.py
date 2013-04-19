@@ -38,7 +38,7 @@ def render_comment_list(context, obj):
     }
 
 
-@register.simple_tag
+@register.filter
 def get_comment_count(obj):
     return models.Comment.get_for_object(obj).count()
 

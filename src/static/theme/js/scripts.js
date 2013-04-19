@@ -4,7 +4,7 @@
 /*	REFRESH IF WINDOW IS UNDER OR OVER 747 PX WIDE (removed 20px for scroll bar, that's why)
 /*================================================================*/
 var ww = $(window).width();
-var limit = 747; 
+var limit = 747;
 
 function refresh() {
    ww = $(window).width();
@@ -15,13 +15,13 @@ var tOut;
 $(window).resize(function() {
     var resW = $(window).width();
     clearTimeout(tOut);
-    if ( (ww>limit && resW<limit) || (ww<limit && resW>limit) ) {        
+    if ( (ww>limit && resW<limit) || (ww<limit && resW>limit) ) {
         tOut = setTimeout(refresh, 100);
     }
-}); 
+});
 
 /*================================================================*/
-/*	TRIGGER EQUAL COLUMNS AT 767 px 
+/*	TRIGGER EQUAL COLUMNS AT 767 px
 /*================================================================*/
 $(window).load(function(){
 if (document.documentElement.clientWidth > 767) { //if client width is greater than 767px load equal columns
@@ -74,13 +74,13 @@ $('.image-widget li').hover(function(){
 if (document.documentElement.clientWidth > 767) { //if client width is greater than 767px
 
 ddsmoothmenu.init({
-	mainmenuid: "main_menu", 
+	mainmenuid: "main_menu",
 	orientation: 'h',
 	contentsource: "markup",
 	showhidedelay: {showdelay: 300, hidedelay: 100} //set delay in milliseconds before sub menus appear and disappear, respectively
 })
 
-} // end if 
+} // end if
 
 
 /*================================================================*/
@@ -103,8 +103,8 @@ $('.accordmobile').dcAccordion({
 });
 
 });	// end document ready
-				
-} // end if 
+
+} // end if
 
 
 /*================================================================*/
@@ -116,7 +116,7 @@ $('.mobile_nav a').click(function(){
 	$('#main_menu').slideToggle(400);
 	$(this).toggleClass('active'); return false;
 });
-	
+
 /*================================================================*/
 /*	IPAD MENU ONLY
 /*================================================================*/
@@ -128,18 +128,18 @@ var agentID = deviceAgent.match(/(iphone|ipod|ipad)/);
 if (agentID)   {
 	if (document.documentElement.clientWidth > 767) {
 		$('#main_menu ul li.parent').click(function(event) {
-			$(this).children('.parent').hide();	
+			$(this).children('.parent').hide();
 			$('ul', this).toggle();
 			$(this).toggleClass('foo');
 			event.stopPropagation();
 	});
 
-	} //end clientWidth	
+	} //end clientWidth
 
 }// end IS ipad/iphone/ipod
 
 });
-	
+
 /*================================================================*/
 /*	ADD CLASSES TO VARIOUS THINGS TO FIX IE
 /*================================================================*/
@@ -164,9 +164,9 @@ if ( navigator.userAgent.indexOf('iPad','iPhone','iPod') == -1 )
             $('.backToTop').fadeIn();
         } else {
             $('.backToTop').fadeOut();
-        }        
+        }
  });
- 
+
     $('.backToTop').click(function(){
         $("html, body").animate({ scrollTop: 0 }, 800);
         return false;
@@ -188,22 +188,22 @@ if (agentID)   {
 /*================================================================*/
 /*	SEARCH
 /*================================================================*/
-if (document.documentElement.clientWidth < 767) { 
+if (document.documentElement.clientWidth < 767) {
 $(document).ready(function(){
 $('.search input').hide();
 $('#search-trigger').click(function(){
-    $('.search input').slideToggle('fast').focus(); 
-	$('.preheader .user, .preheader .phone').slideToggle('fast'); 
+    $('.search input').slideToggle('fast').focus();
+	$('.preheader .user, .preheader .phone').slideToggle('fast');
        	$(this).toggleClass('active');
   	  });
 });
 }
 
-if (document.documentElement.clientWidth > 767) { 
+if (document.documentElement.clientWidth > 767) {
 $(document).ready(function(){
 $('.search input').hide();
 $('#search-trigger').click(function(){
-    $('.search input').slideToggle('fast').focus(); 
+    $('.search input').slideToggle('fast').focus();
        	$(this).toggleClass('active');
   	  });
 });
@@ -217,8 +217,8 @@ $(document).ready(function(){
 
 $('.forgot-password').hide();
 	$('.forgotpw, .forgot-password .closeforgot').click(function(){
-		$('.forgot-password').slideToggle('fast').focus(); 
-	});  		
+		$('.forgot-password').slideToggle('fast').focus();
+	});
 });
 
 
@@ -227,16 +227,16 @@ $('.forgot-password').hide();
 /*================================================================*/
 
 $(document).ready(function(){
-    
+
 //  var allPanels = $('.s-accordion li.s-wrap div.s-content').hide();
-    
+
 //  $('.s-accordion li.s-wrap .trigger a').click(function() {
 // 	 $(this).addClass('active')
 //    allPanels.slideUp();
 //     if($(this).parent().next().is(':hidden'))
 //		{
 //     $(this).parent().next().slideDown();
-//		} 
+//		}
 //	 return false;
 //  });
 
@@ -274,8 +274,8 @@ $(document).ready(function(){
 /*================================================================*/
 
 $(document).ready(function($) {
- 
-	$(".scrollto, .container.visible-phone.hidden-tablet.hidden-desktop .btn").click(function(event){		
+
+	$(".scrollto, .container.visible-phone.hidden-tablet.hidden-desktop .btn").click(function(event){
 		event.preventDefault();
 		$('html,body').animate({scrollTop:$(this.hash).offset().top}, 800);return false;
 	});
@@ -293,7 +293,7 @@ $(document).ready(function(){
 		$('#main_menu li a[href$="' + path + '"]').parents('li').first().addClass('active');
      	$('#main_menu li a[href$="' + path + '"]').parent('li').addClass('active');
  });
- 
+
  $(document).ready(function(){
    var path = location.pathname.substring(1);
    if ( path )

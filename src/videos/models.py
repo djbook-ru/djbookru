@@ -31,7 +31,7 @@ class Video(models.Model):
 
     def video_preview_code(self):
         try:
-            resource = oembed.site.embed(self.video, maxwidth=260, maxheight=195)
+            resource = oembed.site.embed(self.video, maxwidth=348, maxheight=261)
             return resource.get_data()['html']
         except (oembed.exceptions.OEmbedException, KeyError):
             return ''

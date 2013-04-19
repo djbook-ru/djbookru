@@ -1,0 +1,49 @@
+<aside class="widget">{% load i18n %}
+    <h5 class="short_headline"><span>{% trans 'Repices' %}</span></h5>
+    <div class="sidebar-tabs">
+        <ul class="tabs">
+            <li class="tab"><a href="#user-activites-forum">{% trans "Forum" %}</a></li>
+            <li class="tab"><a href="#user-activites-comment">{% trans "Comments" %}</a></li>
+        </ul>
+        <div class="panels">
+            <div id="user-activites-forum">
+                <ul class="blogposts clearfix">
+                    {% for topic in last_forum_topics|slice:":5" %}
+                    <li>
+                        <span class="date">
+                            <span class="month">{{ topic.updated|date:"b" }}</span>
+                            <span class="day">{{ topic.updated|date:"j" }}</span>
+                            <span class="year">{{ topic.updated|date:"Y" }}</span>
+                        </span>
+                        <h3><a href="{{ topic.get_absolute_url }}">{{ topic }}</a></h3>
+                        <p><a href="{{ topic.user.get_absolute_url }}">{{ topic.user }}</a></p>
+                        <a href="{{ topic.get_absolute_url }}#comments" class="pull-right" style="margin-top: -1.1em">
+                            <p>
+                                <i class="icon-comments"></i>
+                                {{ topic.reply_count }}
+                                {% blocktrans count counter=topic.reply_count %}reply{% plural %}replies{% endblocktrans %}
+                            </p>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div id="user-activites-comment">
+                <ul class="blogposts clearfix">
+                    {% for comment in last_comments|slice:":4" %}
+                    <li>
+                        <span class="date">
+                            <span class="month">{{ comment.submit_date|date:"b" }}</span>
+                            <span class="day">{{ comment.submit_date|date:"j" }}</span>
+                            <span class="year">{{ comment.submit_date|date:"Y" }}</span>
+                        </span>
+                        <h3><a href="{{ comment.get_absolute_url }}">{{ comment.content_object }}</a></h3>
+                        <p>{{ comment.content|truncatewords:35|linebreaksbr }}
+                        <p><a href="{{ comment.user.get_absolute_url }}">{{ comment.user }}</a></p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</aside>
