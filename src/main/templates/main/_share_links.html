@@ -3,11 +3,9 @@
 
 <div class="sociallinks">
 
-    <a class="twitter" target="_blank" title="Share on Twitter" href="http://twitter.com/?status={{ content|urlencode|plus_spaces }}+{{ url|urlencode }}"><img src="{% static "img/twitter.png" %}"/></a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="ru">Твитнуть</a>
 
-    <a class="facebook" target="_blank" title="Share on Facebook" href="http://facebook.com/share.php?u={{ url|urlencode }}"><img src="{% static "img/facebook.png" %}"/></a>
-
-    <a class="buzz" target="_blank" title="Submit to Google Buzz" href="http://www.google.com/buzz/post?message={{ content|urlencode }}&url={{ url|urlencode }}"><img src="{% static "img/buzz.png" %}"/></a>
+    <div class="g-plusone"></div>
 
 	{% facebook_like obj %}
 </div>
