@@ -84,7 +84,7 @@ class UserEditForm(forms.ModelForm):
 
     class Meta:
         model = models.User
-        fields = ('biography', 'email', 'signature')
+        fields = ('username', 'biography', 'email', 'signature')
 
     def clean(self):
         current, new, verify = map(self.cleaned_data.get,
@@ -94,6 +94,12 @@ class UserEditForm(forms.ModelForm):
         if new and new != verify:
             raise forms.ValidationError(_(u'The two passwords did not match.'))
         return self.cleaned_data
+
+    def clean_username(self):
+        username = self.cleaned_data['username'].strip()
+        if models.User.objects.exclude(pk=self.instance.pk).filter(username__iexact=username):
+            raise forms.ValidationError(_(u'A user with that username already exists.'))
+        return username
 
     def clean_email(self):
         value = self.cleaned_data['email']
