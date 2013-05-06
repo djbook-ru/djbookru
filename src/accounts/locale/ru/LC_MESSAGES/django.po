@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-06 01:46+0400\n"
-"PO-Revision-Date: 2013-03-06 01:56+0400\n"
+"POT-Creation-Date: 2013-05-06 17:14+0400\n"
+"PO-Revision-Date: 2013-05-06 17:15+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -60,35 +60,43 @@ msgstr "Аккаунт не активен."
 msgid "captcha"
 msgstr "капча"
 
-#: forms.py:79
+#: forms.py:80
 msgid "Current password"
 msgstr "Текущий пароль"
 
-#: forms.py:80
+#: forms.py:81
 msgid "Ignore if you do not have one yet."
 msgstr "Игнорируйте, если у вас его нет."
 
-#: forms.py:81
+#: forms.py:82
 msgid "New password"
 msgstr "Новый пароль"
 
-#: forms.py:82
+#: forms.py:83
 msgid "Confirm new password"
 msgstr "Подтверждение нового пароля"
 
-#: forms.py:93
+#: forms.py:92
+msgid "We use this an small pieces of info."
+msgstr "Мы используем его в мелких информационных блоках."
+
+#: forms.py:99
 msgid "Invalid password."
 msgstr "Неправильный пароль."
 
-#: forms.py:95
+#: forms.py:101
 msgid "The two passwords did not match."
 msgstr "Введённые пароли не совпадают."
 
-#: forms.py:103
+#: forms.py:107
+msgid "A user with that username already exists."
+msgstr "Пользователь с таким ником уже существует."
+
+#: forms.py:115
 msgid "This email is used already."
 msgstr "Данный адрес электронной почты уже используется."
 
-#: forms.py:125
+#: forms.py:137
 msgid ""
 "That e-mail address doesn't have an associated active user account. Are you "
 "sure you've registered and e-mail is confirmed?"
@@ -96,7 +104,7 @@ msgstr ""
 "Эта почта не привязана к активному аккаунту. Вы уверены, что вы у нас "
 "зарегистрированы и ввели адрес почты правильно?"
 
-#: forms.py:150
+#: forms.py:162
 #, python-format
 msgid "Password reset on %s"
 msgstr "Сброшен пароль для %s"
@@ -296,7 +304,7 @@ msgstr "Профиль форума"
 msgid "Register"
 msgstr "Зарегистрировать"
 
-#: templates/accounts/create.html:15 templates/accounts/edit.html:32
+#: templates/accounts/create.html:15
 msgid "Create"
 msgstr "Создать"
 
@@ -315,6 +323,10 @@ msgstr "Отключить аккаунт"
 #: templates/accounts/edit.html:17
 msgid "Connect account"
 msgstr "Подключить аккаунт"
+
+#: templates/accounts/edit.html:32
+msgid "Update"
+msgstr "Обновить"
 
 #: templates/accounts/email_confirmation_message.html:1
 #, python-format
