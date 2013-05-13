@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% load staticfiles i18n bootstrap %}
+
+{% block page %}
+<div class="container clearfix" id="main-content">
+    <div class="row-fluid">
+        <div class="span12">
+
+            <!--begin hidden by js forgot pw form -->
+            <div class="forgot-password" style="display: none;">
+                <p class="statement">{% trans 'Forgot Password? Please enter your email and we’ll send it you.' %}</p>
+                <form action="." method="post">
+                    <div class="input-append">
+                        <input type="email" class="span6" placeholder="{% trans 'Email Address' %}" name="email">
+                        <button class="btn btn-primary">{% trans 'Send Password' %}</button>
+                    </div>
+                    <!--close input-append-->
+                </form>
+            </div>
+            <!--*******end forgot-password********-->
+
+            <!--begin login-box-->
+            <div class="login-box clearfix">
+                <header>
+                    <h2 class="short_headline"><span>{% trans 'Login to your account...' %}</span></h2>
+                </header>
+                <div class="login-wrapper clearfix">
+                    {% if not user.is_authenticated %}
+                    <div class="float-right">
+                        <form id="login-form" action="." method="post" novalidate="novalidate">
+                            {% csrf_token %}
+                            {{ form|bootstrap }}
+                            <div class="form-controls">
+                                <input class="btn btn-primary btn-large" type="submit" name="login" value="{% trans 'Login' %}">
+                            </div>
+
+                        </form>
+                        <footer class="clearfix"> <a href="#" class="forgotpw">{% trans 'Forgot Password?' %}</a> </footer>
+                    </div>
+                    <!--close .float-right-->
+
+                    <div class="float-left">
+                        <ul>
+                            {% for backend in social_auth.backends %}
+                                <li>
+                                    <a href="{% url socialauth_begin backend %}?next={{ next }}">
+                                        <img src="{% static 'theme/images/sign-in-'|add:backend|add:'.png' %}" alt="{% trans 'sign in with' %} {{ backend.title }}">
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <p><a href="register.html" class="center">Not a member? Join today!</a></p>
+                    </div>
+                    <!--close .float-left-->
+                    {% else %}
+                        <p>{% trans 'You are authenticated already' %}</p>
+                    {% endif %}
+                </div>
+                <!--end .login-wrapper clearfix-->
+            </div>
+            <!--end .login-box-->
+
+        </div>
+        <!--close .span12-->
+    </div>
+    <!-- close row-fluid-->
+</div>
+{% endblock %}

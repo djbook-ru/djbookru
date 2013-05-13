@@ -129,9 +129,41 @@
 
     <!-- begin #page - the container for everything but header -->
     <div id="page">
+        {% if messages %}
+        <div class="messages container clearfix">
+            {% for message in messages %}
+                <div class="alert message {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                    {{ message }}
+                    <a class="close" data-dismiss="alert" href="#">&times;</a>
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% block pre_content %}
+            {% if user.is_authenticated and not user.is_valid_email %}
+            <div class="messages container clearfix">
+                <div class="alert alert-error">
+                    <h4><a href="{% url accounts:edit %}">{% trans "Confirm you email" %}</a></h4>
+                    <p>
+                        {% blocktrans %}
+                            You account does not have confirmed email.
+                            You should edit email if your profile has incorrect one and confirm it.
+                        {% endblocktrans %}
+                    </p>
+                    <p>
+                        {% trans "Your current email is:" %} {{ user.email }}<br>
+                        <h4><a href="{% url accounts:resend_confirmation_email %}">{% trans "Send confirmation email" %}</a></h4>
+                    </p>
+                </div>
+            </div>
+            {% endif %}
+            {% announcements %}
+        {% endblock %}
+
+        {% block page %}
         <div class="container clearfix" id="main-content">
             <!--begin main content-->
-
             <div class="row-fluid">
                 <div class="span7">
                     {% recipes %}
@@ -268,10 +300,16 @@
             <!--close row-fluid -->
         </div>
         <!--close .container id="main-content" -->
+        {% endblock %}
+
+        {% block feedback_link %}
+            <a class="feedback-link" href="{% url main:feedback %}" target="_blank">{% trans 'Please, write feedback if something does not work' %}</a>
+        {% endblock %}
 
         {% include '_footer.html' %}
 
-        <span class="backToTop"><a href="#top">back to top</a></span> </div>
+        <span class="backToTop"><a href="#top">back to top</a></span>
+    </div>
     <!-- close #page-->
 
     <!-- JS JQuery ================ -->

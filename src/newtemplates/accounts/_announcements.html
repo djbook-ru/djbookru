@@ -1,0 +1,15 @@
+{% load i18n markup %}
+{% if announcements %}
+<div class="messages container clearfix">
+    {% for obj in announcements %}
+    <div class="well announcement">
+        {% if obj.link %}
+        <h4><a href="{{ obj.link }}">{{ obj }}</a></h4>
+        {% else %}
+        <h4>{{ obj }}</h4>
+        {% endif %}
+        {{ obj.content|markdown }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}

@@ -1,0 +1,9 @@
+    <aside class="widget clearfix">{% load i18n %}{% load url from future %}
+        <h5 class="short_headline"><span>{% trans "Recipe categories" %}</span></h5>
+        <ul class="navigation">
+            <li><a href="{% url 'examples:index' %}">{% trans "All" %}</a></li>
+            {% for category in categories %}
+            <li><a href="{{ category.get_absolute_url }}">{{ category }}</a></li>
+            {% endfor %}
+        </ul>
+    </aside>

@@ -2,7 +2,7 @@
 ================================================== */
 body.login nav.user {display:none!important;} /* hide the login on the login page duh ;-)*/
 nav.user {float:left;line-height:43px;}
-nav.user a {text-decoration:none; float:left; padding:0 5px;margin-right:5px;color:#356635;}
+nav.user a {text-decoration:none; ~float:left; padding:0 5px;margin-right:5px;color:#356635;}
 nav.user a:hover {color:#138358;}
 
 /* header / logo (desktop)

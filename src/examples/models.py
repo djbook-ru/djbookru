@@ -2,7 +2,7 @@
 
 from django.db import models, transaction
 from django.utils.translation import ugettext_lazy as _
-
+from src.djangobb_forum.models import Topic
 from .. accounts.models import User
 
 
@@ -88,3 +88,12 @@ class Example(models.Model):
 
     def search(self):
         return dict(source=_(u'Example'), title=self.title, desc=self.content)
+
+    @property
+    def topic(self):
+        try:
+            topic = Topic.objects.get(pk=self.topic_id)
+        except Topic.DoesNotExist:
+            topic = None
+
+        return topic

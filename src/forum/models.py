@@ -100,7 +100,7 @@ class Topic(models.Model):
         return ('forum:topic', [self.pk])
 
     @property
-    def replies_count(self):
+    def reply_count(self):
         return self.posts.all().count() - 1
 
     def can_post(self, user):

@@ -1,0 +1,12 @@
+{% extends 'basepage.html' %}
+
+{% load i18n example_tags %}
+
+{% block title %}{% trans "Recipes" %} | {{ block.super }}{% endblock %}
+
+{% block header_container %}{% endblock %}
+
+{% block sidebar %}
+    {% examples_menu %}
+    {{ block.super }}
+{% endblock %}

@@ -8,7 +8,6 @@ from django.http import Http404
 
 from .. decorators import render_to
 
-from .. djangobb_forum.models import Topic
 from . import models
 from . import forms
 
@@ -49,12 +48,6 @@ def detail(request, pk):
     if not example.approved and not request.user.is_superuser:
         raise Http404
 
-    try:
-        topic = Topic.objects.get(pk=example.topic_id)
-    except Topic.DoesNotExist:
-        topic = None
-
     return {
-        'obj': example,
-        'topic': topic
+        'obj': example
     }

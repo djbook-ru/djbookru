@@ -1,0 +1,9 @@
+{% extends 'examples/base.html' %}
+
+{% load i18n %}
+
+{% block title %}{{ category }} | {{ block.super }}{% endblock %}
+
+{% block content %}
+    {% include 'examples/_category.html' %}
+{% endblock %}

@@ -10,6 +10,59 @@
 @import url('http://fonts.googleapis.com/css?family=Ubuntu:400,700,700italic,400italic');/*fonts*/
 @import url('http://fonts.googleapis.com/css?family=Raleway:300,500,600,700');/*fonts*/
 
+/* spelling */
+.spelling span {
+    padding: 1px 4px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.spelling .spelling_error_count_pending {
+    border: 2px solid #c3cb3c;
+}
+
+.spelling .spelling_error_count_assigned {
+    border: 2px solid #cd953a;
+}
+
+.spelling .spelling_error_count_fixed {
+    border: 2px solid #23891c;
+}
+
+.spelling .spelling_error_count_invalid {
+    border: 2px solid #cd3a3a;
+}
+/*********************/
+
+.well.announcement {
+    padding: 19px;
+}
+
+.well.announcement h4, .well.announcement p {
+    margin: 2px;
+}
+
+.messages.container {
+    margin-bottom: 15px;
+}
+
+.messages.container .message {
+    margin-bottom: 5px;
+}
+
+.messages.container h4 a:hover {
+    color: #138358;
+}
+
+.feedback-link {
+    float: right;
+    color: #777;
+    font-size: 0.85em;
+    margin-right: 8px;
+    text-decoration: none;
+}
+
 /*	main container(s)
 ================================================================= */
 .container {
@@ -1296,7 +1349,7 @@ font-size:70%!important;
 /*  registration
 ================================================== */
 .register-box {
-	width:70%;
+	width:85%;
 	margin:0 auto;
 }
 

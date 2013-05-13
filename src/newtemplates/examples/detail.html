@@ -1,0 +1,79 @@
+{% extends 'examples/base.html' %}
+
+{% load i18n markup components %}
+{% load url from future %}
+
+{% block title %}{{ obj }} | {{ block.super }}{% endblock %}
+
+{% block content_class %}blog-detail{% endblock %}
+
+{% block content %}
+    <!--begin primary-column-->
+    <article class="entry-post">
+        <header class="entry-header">
+            <h1>{{ obj }}</h1>
+            <div class="byline">
+                <a href="{{ obj.author.get_absolute_url }}"><i class="icon-pencil"></i> {{ obj.author }}</a> &nbsp;&nbsp;
+                <i class="icon-time"></i> {{ obj.created|date:'DATE_FORMAT' }} &nbsp;&nbsp;
+                <a href="{{ obj.topic.get_absolute_url }}"><i class="icon-comments-alt"></i> {{ obj.topic.reply_count }} {% blocktrans count counter=obj.topic.reply_count %}comment{% plural %}comments{% endblocktrans %}</a>
+            </div>
+            <div class="entry-meta">
+                <i class="icon-folder-open"></i> <a href="{% url 'examples:index' %}">{% trans "Recipes" %}</a> - <a href="{{ obj.category.get_absolute_url }}">{{ obj.category }}</a>
+            </div>
+
+            <!--add this share buttons for mobile viewers-->
+            <div class="addthis_toolbox addthis_16x16_style"> <a class="addthis_button_preferred_2"></a> <a class="addthis_button_preferred_3"></a> <a class="addthis_button_preferred_7"></a> <a class="addthis_button_preferred_6"></a> <a class="addthis_button_preferred_10"></a> <a class="addthis_button_preferred_4"></a> <a class="addthis_button_compact"></a> </div>
+        </header>
+        <!--end entry-header-->
+
+        <div class="entry-content">
+            {{ obj.content|markdown }}
+            <a href="{{ obj.topic.get_absolute_url }}" class="btn" style="float: right">{% trans "Discuss this recipe" %}</a>
+        </div>
+        <!--end entry-content-->
+
+        {% comment %}
+        <div class="entry-tags"> Tags:<br class="clear">
+            <a href="#">people</a> <a href="#">open source</a> <a href="#">indie thought</a> <a href="#">goodness</a>
+        </div>
+        {% endcomment %}
+
+        <footer class="entry-footer">
+            <span class="blog date">
+                <span class="month">{{ obj.created|date:"b" }}</span>
+                <span class="day">{{ obj.created|date:"j" }}</span>
+                <span class="year">{{ obj.created|date:"Y" }}</span>
+            </span>
+            <!--close date-->
+
+            {% include '_addthis.html' %}
+        </footer>
+        <!--end entry-footer-->
+
+    </article>
+    <!--end entry-post -->
+
+    {% comment %}
+    <div class="entry-pagination">
+        <ul class="pager">
+            <li><a href="#">← Older</a></li>
+            <li><a href="#">Newer →</a></li>
+        </ul>
+        <!--close pager-->
+    </div>
+    <!--end entry-pagination-->
+    {% endcomment %}
+
+    {% comment %}
+    <div class="entry-related">
+        <h4 class="short_headline"><span>Related Articles</span></h4>
+        <ul class="navigation">
+            <li> <a href="#"> Lorem ipsum dolor sit amet </a> </li>
+            <li> <a href="#"> Nam sed orci massa quis placerat libero </a> </li>
+            <li> <a href="#"> Final Test Maybe </a> </li>
+            <li> <a href="#"> Sed venenatis laoreet ligula </a> </li>
+        </ul>
+    </div>
+    <!--close entry-related-->
+    {% endcomment %}
+{% endblock %}

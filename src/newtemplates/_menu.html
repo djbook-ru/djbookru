@@ -21,7 +21,7 @@
                     <li class="parent"><a href="javascript:void(0)">{% trans 'Recipes' %}<i></i></a>
                         <ul>
                             <li><a href="{% url examples:index %}">{% trans "All" %}</a></li>
-                            <li><a href="{% url examples:add %}">{% trans "Add" %}</a></li>
+                            <li><a href="{% url examples:add %}">{% trans "Add recipe" %}</a></li>
                             {% for item in example_categories %}
                                 <li><a href="{{ item.get_absolute_url }}">{{ item }}</a></li>
                             {% endfor %}
