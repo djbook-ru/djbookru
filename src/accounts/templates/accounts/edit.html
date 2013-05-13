@@ -8,12 +8,12 @@
 {% profile_menu "edit" %}
 <div class="social-accounts">
     <h3>{% trans "Connect accounts" %}</h3>
-    {% for backend in social_auth.associated %} 
+    {% for backend in social_auth.associated %}
         <a href="{% url socialauth_disconnect backend.provider %}?next={{ request.path_info|urlencode }}" class="btn btn-success" title="{% trans 'Disconnect account' %}">
             {{ backend.provider.title }}
         </a>
     {% endfor %}
-    {% for backend in social_auth.not_associated %} 
+    {% for backend in social_auth.not_associated %}
         <a href="{% url socialauth_begin backend %}?next={{ request.path_info|urlencode }}" class="btn" title="{% trans 'Connect account' %}">
             {{ backend.title }}
         </a>
@@ -29,7 +29,7 @@
         {{ form|bootstrap }}
     </fieldset>
     <div class="form-actions">
-        <button type="submit" class="btn btn-primary">{% trans "Create" %}</button>
+        <button type="submit" class="btn btn-primary">{% trans "Update" %}</button>
     </div>
 </form>
 {% endblock %}

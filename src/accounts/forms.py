@@ -76,7 +76,8 @@ class CreateUserForm(UserCreationForm):
 
 
 class UserEditForm(forms.ModelForm):
-    current_password = forms.CharField(label=_(u'Current password'), widget=forms.PasswordInput, required=False,
+    current_password = forms.CharField(
+        label=_(u'Current password'), widget=forms.PasswordInput, required=False,
         help_text=_(u'Ignore if you do not have one yet.'))
     new_password = forms.CharField(label=_(u'New password'), widget=forms.PasswordInput, required=False)
     new_password_verify = forms.CharField(label=_(u'Confirm new password'), widget=forms.PasswordInput,
@@ -84,16 +85,27 @@ class UserEditForm(forms.ModelForm):
 
     class Meta:
         model = models.User
-        fields = ('biography', 'email', 'signature')
+        fields = ('username', 'biography', 'email', 'signature')
+
+    def __init__(self, *args, **kwargs):
+        super(UserEditForm, self).__init__(*args, **kwargs)
+        self.fields['username'].help_text = _('We use this an small pieces of info.')
 
     def clean(self):
-        current, new, verify = map(self.cleaned_data.get,
-                    ('current_password', 'new_password', 'new_password_verify'))
+        current, new, verify = map(
+            self.cleaned_data.get,
+            ('current_password', 'new_password', 'new_password_verify'))
         if current and self.instance.has_usable_password() and not self.instance.check_password(current):
             raise forms.ValidationError(_(u'Invalid password.'))
         if new and new != verify:
             raise forms.ValidationError(_(u'The two passwords did not match.'))
         return self.cleaned_data
+
+    def clean_username(self):
+        username = self.cleaned_data['username'].strip()
+        if models.User.objects.exclude(pk=self.instance.pk).filter(username__iexact=username):
+            raise forms.ValidationError(_(u'A user with that username already exists.'))
+        return username
 
     def clean_email(self):
         value = self.cleaned_data['email']
@@ -117,10 +129,10 @@ class PasswordResetForm(AuthPasswordResetForm):
     def clean_email(self):
         email = self.cleaned_data["email"]
         self.users_cache = models.User.objects.filter(
-                                email__iexact=email,
-                                is_active=True,
-                                is_valid_email=True
-                            )
+            email__iexact=email,
+            is_active=True,
+            is_valid_email=True
+        )
         if len(self.users_cache) == 0:
             raise forms.ValidationError(_("That e-mail address doesn't have an associated active user account. Are you sure you've registered and e-mail is confirmed?"))
         return email
