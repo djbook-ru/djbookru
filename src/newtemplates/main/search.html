@@ -1,0 +1,39 @@
+{% extends 'basepage.html' %}
+
+{% load i18n pagination_tags bootstrap %}
+
+{% block title %}{% trans 'Search' %} | {{ block.super }}{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+    <form class="form-inline" method="get" action=".">
+        {{ form.q }}
+        {{ form.content }}
+        <button type="submit" class="btn">{% trans "Search" %}</button>
+    </form>
+
+    {% for item in object_list %}
+        <a href="{{ item.object.get_absolute_url }}">{{ item.object.search.title|default:'No title'|safe }}</a>
+    {% endfor %}
+
+    {% comment %}
+    <div class="search_results">
+        {% for item in object_list %}
+            <div class="item">
+                <div class="title">
+                    <a href="{{ item.object.get_absolute_url }}">{{ item.object.search.title|default:'No title'|safe }}</a>
+                    <div class="source">{{ item.object.search.source }}</div>
+                </div>
+                <div class="desc">{{ item.object.search.desc|default:'No description'|safe|truncatewords:50  }}</div>
+            </div>
+        {% empty %}
+            <p>{% trans "No search results" %}</p>
+        {% endfor %}
+    </div>
+    {% endcomment %}
+
+    {% if is_paginated %}
+        {% paginate %}
+    {% endif %}
+{% endblock %}

@@ -1,9 +1,9 @@
 {% load i18n %}
-<div class="well toc">
-    <h3>{% trans 'Table of contents' %}</h3>
-    <ul class="nav nav-list">
+<aside class="widget clearfix">
+    <h5 class="short_headline"><span>{% trans 'Table of contents' %}</span></h5>
+    <ul class="navigation">
     {% for c in toc.chapters %}
-        <li class="nav-header"><a href="{{c.0}}">{{ c.1 }}</a></li>
+        <li><a href="{{c.0}}">{{ c.1 }}</a></li>
         {% ifequal c.0 toc.chapter_url %}
             {% for s in toc.sections %}
                 <li><a href="{{s.0}}">{{ s.1 }}</a></li>
@@ -11,4 +11,4 @@
         {% endifequal %}
     {% endfor %}
     </ul>
-</div>
+</aside>

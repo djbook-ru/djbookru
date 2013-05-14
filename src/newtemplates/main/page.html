@@ -1,0 +1,47 @@
+{% extends 'basepage.html' %}
+
+{% load book_page comments_tags components %}
+
+{% block title %}{{ page.name }}: {{ page.book.name }} | {{ block.super }} {% endblock %}
+
+{% block description %}{{ page.content|striptags|truncatewords:40 }}{% endblock %}
+
+{% block head %}
+    {{ block.super }}
+    <style>
+        .navheader table, .navfooter table {
+            border: none;
+        }
+
+        .navheader table tbody tr:nth-child(even) td, .navfooter table tbody tr:nth-child(even) td {
+            background: none;
+        }
+
+        .navheader table td, .navfooter table td {
+            border: none;
+        }
+    </style>
+{% endblock %}
+
+{% block pre_content %}
+    {{ block.super }}
+    <div class="messages container clearfix">
+        <div class="alert alert-error">
+            <h4>Внимание!</h4>
+            Книга написана для очень старой версии Django. Надеемся автор обновит ее и мы сможешь обновить перевод.<br>
+            Пока советуем читать <a href="{{ DJANGO_DOCUMENTATION_URL }}"><strong>перевод официальной документации</strong></a>.
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+        {{ page.content|safe }}
+        {% block comments %}
+            {% render_comment_list_with_form page %}
+        {% endblock %}
+{% endblock %}
+
+{% block sidebar %}
+    {% toc page %}
+    {{ block.super }}
+{% endblock %}

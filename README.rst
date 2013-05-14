@@ -160,7 +160,7 @@
     nice -n 19 bash ${PATH_TO_SITE}/addon/xapian_install.sh
     rm -rf ./xapian*
     cd -
-
+    ./manage.py rebuild_index
 
 Настройка статики::
 

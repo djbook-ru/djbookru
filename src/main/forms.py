@@ -21,10 +21,10 @@ from . import models
 
 
 class FeedbackForm(forms.Form):
-    email = forms.EmailField(label=_(u'email'), required=False)
-    message = forms.CharField(label=_(u'message'), widget=forms.Textarea())
+    email = forms.EmailField(label=_(u'Email'), required=False)
+    message = forms.CharField(label=_(u'Message'), widget=forms.Textarea())
     referer = forms.CharField(required=False, widget=forms.HiddenInput())
-    captcha = ReCaptchaField(label=_(u'captcha'))
+    captcha = ReCaptchaField(label=_(u'Captcha'))
 
     def send(self, request):
         email = self.cleaned_data['email']

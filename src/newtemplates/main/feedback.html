@@ -1,0 +1,25 @@
+{% extends 'basepage.html' %}
+
+{% load i18n bootstrap %}
+
+{% block title %}{% trans 'Feedback' %} | {{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="register-box clearfix">
+    <h2 class="short_headline"><span>{% trans "You can send message to us" %}</span></h2>
+
+    <p>
+        {% trans "We are glad to hear your questions, comments or suggestions!" %}
+    </p>
+
+    <form method="post" action="." class="form-horizontal" novalidate="novalidate">
+        {% csrf_token %}
+        <fieldset>
+            {% bootstrap form extra_class='span12' %}
+        </fieldset>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-large">{% trans "Send" %}</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

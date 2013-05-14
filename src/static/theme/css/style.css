@@ -10,6 +10,14 @@
 @import url('http://fonts.googleapis.com/css?family=Ubuntu:400,700,700italic,400italic');/*fonts*/
 @import url('http://fonts.googleapis.com/css?family=Raleway:300,500,600,700');/*fonts*/
 
+.form-horizontal .control-label {
+    width: 120px;
+}
+
+.form-horizontal .controls {
+    margin-left: 140px;
+}
+
 /* comments */
 .comments-list .well.replied {
     padding: 8px 10px 10px;

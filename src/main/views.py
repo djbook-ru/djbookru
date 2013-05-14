@@ -50,6 +50,7 @@ def search(request):
         'searching_for': q,
         'form': form
     }
+
     return object_list(request, search_qs, 30,
                        template_name='main/search.html',
                        extra_context=extra_context)

@@ -3,8 +3,7 @@
 from django.http import HttpResponse
 from django.utils import simplejson as json
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render_to_response
-
+from .. decorators import render_to
 from . import forms
 from . import models
 
@@ -21,6 +20,7 @@ def post(request):
     return HttpResponse(json.dumps(output), "text/javascript")
 
 
+@render_to('comments/update_comments.html')
 def update_comments(request):
     last_comment_id = request.POST.get('last_comment_id')
     object_pk = request.POST.get('obj_id')
@@ -35,6 +35,6 @@ def update_comments(request):
                 pass
     else:
         qs = models.Comment.objects.none()
-    return render_to_response('comments/update_comments.html', {
-            'qs': qs
-        })
+    return {
+        'qs': qs
+    }

@@ -19,6 +19,7 @@
                             <li><a href="{% url code_review:comments %}">{% trans "Comments" %}</a></li>
                         </ul>
                     </li>
+                    {% endcomment %}
                     <li class="parent"><a href="javascript:void(0)">{% trans 'Recipes' %}<i></i></a>
                         <ul>
                             <li><a href="{% url examples:index %}">{% trans "All" %}</a></li>
@@ -28,7 +29,6 @@
                             {% endfor %}
                         </ul>
                     </li>
-                    {% endcomment %}
                     <li><a href="{% url accounts:map %}" >{% trans 'Map' %}</a></li>
                     <li><a href="/about/">{% trans 'About' %}</a></li>
                 </ul>
