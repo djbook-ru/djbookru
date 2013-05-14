@@ -1,0 +1,38 @@
+{% extends 'news/base.html' %}
+
+{% load pagination_tags i18n markup comments_tags components %}
+
+{% block content %}
+    {% for obj in object_list %}
+    <article class="entry-post">
+        <header class="entry-header">
+            <h3 class="entry-title"><a href="{{ obj.get_absolute_url }}">{{ obj }}</a></h3>
+            <div class="byline">
+                <abbr class="published" title="{{ obj.created|date:'DATETIME_FORMAT' }}">{{ obj.created|date:'DATE_FORMAT' }}</abbr> &nbsp;&nbsp;
+                <a href="{{ obj.get_absolute_url }}#comments">
+                    <i class="icon-comments-alt"></i>
+                    {% with comments_count=obj|get_comment_count %}
+                        {{ comments_count }} {% blocktrans count counter=comments_count %}comment{% plural %}comments{% endblocktrans %}
+                    {% endwith %}
+                </a>
+            </div>
+        </header>
+        <!--end entry-header -->
+
+        <!--begin loop of entry-posts for summary page-->
+        <div class="entry-content">
+            {{ obj.content|markdown|truncatewords_html:45|striptags|linebreaksbr }}
+            <p class="more right"><a class="btn btn-primary" href="{{ obj.get_absolute_url }}">{% trans 'Read More' %} →</a>
+        </p></div>
+        <!-- close entry-content -->
+
+        <footer class="entry-footer">
+            {{ obj.created|pretty_date:'blog' }}
+        </footer>
+    </article>
+    {% endfor %}
+
+    {% if is_paginated %}
+        {% paginate %}
+    {% endif %}
+{% endblock %}

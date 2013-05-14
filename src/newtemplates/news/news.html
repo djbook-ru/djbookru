@@ -1,0 +1,60 @@
+{% extends 'news/base.html' %}
+
+{% load i18n markup components comments_tags %}
+{% load url from future %}
+
+{% block title %}{{ obj }} | {{ block.super }}{% endblock %}
+
+{% block content_class %}blog-detail{% endblock %}
+
+{% block content %}
+    <!--begin primary-column-->
+    <article class="entry-post">
+        <header class="entry-header">
+            <h1>{{ obj }}</h1>
+            <div class="byline">
+                <abbr class="published" title="{{ obj.created|date:'DATETIME_FORMAT' }}">{{ obj.created|date:'DATE_FORMAT' }}</abbr> &nbsp;&nbsp;
+                <a href="{{ obj.get_absolute_url }}#comments">
+                    <i class="icon-comments-alt"></i>
+                    {% with comments_count=obj|get_comment_count %}
+                        {{ comments_count }} {% blocktrans count counter=comments_count %}comment{% plural %}comments{% endblocktrans %}
+                    {% endwith %}
+                </a>
+            </div>
+            <div class="entry-meta">
+                <i class="icon-folder-open"></i> <a href="{% url 'news:index' %}">{% trans "News" %}</a>
+            </div>
+
+            <!--add this share buttons for mobile viewers-->
+            {% include '_addthis.html' %}
+        </header>
+        <!--end entry-header-->
+
+        <div class="entry-content">
+            {{ obj.content|markdown }}
+        </div>
+        <!--end entry-content-->
+
+        <footer class="entry-footer">
+            {{ obj.created|pretty_date:'blog' }}
+
+            {% include '_addthis.html' %}
+        </footer>
+        <!--end entry-footer-->
+
+    </article>
+    <!--end entry-post -->
+
+    {% render_comment_list_with_form obj %}
+
+    {% comment %}
+    <div class="entry-pagination">
+        <ul class="pager">
+            <li><a href="#">← Older</a></li>
+            <li><a href="#">Newer →</a></li>
+        </ul>
+        <!--close pager-->
+    </div>
+    <!--end entry-pagination-->
+    {% endcomment %}
+{% endblock %}

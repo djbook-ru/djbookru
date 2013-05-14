@@ -22,7 +22,7 @@
             </div>
 
             <!--add this share buttons for mobile viewers-->
-            <div class="addthis_toolbox addthis_16x16_style"> <a class="addthis_button_preferred_2"></a> <a class="addthis_button_preferred_3"></a> <a class="addthis_button_preferred_7"></a> <a class="addthis_button_preferred_6"></a> <a class="addthis_button_preferred_10"></a> <a class="addthis_button_preferred_4"></a> <a class="addthis_button_compact"></a> </div>
+            {% include '_addthis.html' %}
         </header>
         <!--end entry-header-->
 
@@ -39,12 +39,7 @@
         {% endcomment %}
 
         <footer class="entry-footer">
-            <span class="blog date">
-                <span class="month">{{ obj.created|date:"b" }}</span>
-                <span class="day">{{ obj.created|date:"j" }}</span>
-                <span class="year">{{ obj.created|date:"Y" }}</span>
-            </span>
-            <!--close date-->
+            {{ obj.created|pretty_date:'blog' }}
 
             {% include '_addthis.html' %}
         </footer>

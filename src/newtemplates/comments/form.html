@@ -1,0 +1,68 @@
+{% load i18n %}
+
+<div id="comment-form">
+{% if form %}
+    <h3>{% trans 'Leave a Comment' %}</h3>
+    <div class="comment-reply-to"></div>
+    <form method="post" action="{% url comments:post %}" id="comment_form" class="comment_form">
+        {% csrf_token %}
+        {% for field in form %}
+            {% if field.is_hidden %}
+                {{ field }}
+            {% endif %}
+        {% endfor %}
+        <span class="inputwrapper">
+            {{ form.content }}
+        </span>
+        <input type="submit" value="{% trans 'Add Comment' %}" class="btn btn-primary" name="submit">
+    </form>
+    <script type="text/javascript">
+    jQuery(document).ready(function($){
+        $('#comment_form').ajaxForm({
+            dataType: 'json',
+            success: function(data, status, xhr, $form){
+                if (data.success){
+                    $('#id_comment_form_content').clearFields();
+                    $('#id_comment_form_reply_to').val('');
+                    if (update_comments){
+                        update_comments();
+                    }
+                } else {
+                    for (key in data.errors){
+                        var $field = $('input[name="'+key+'"]', $form);
+                        var error = '<p class="error_list">'+data.errors[key]+'</p>';
+                        if ($field.length){
+                            $('input[name="'+key+'"]', $form).before(error);
+                        }else{
+                            $form.prepend(error);
+                        }
+                    };
+                }
+                $('.submit', $form).prop('disabled', false);
+            },
+            beforeSubmit: function(formData, $form, options){
+                $('p.error_list', $form).remove();
+                var form = $form[0];
+                if (!form.content.value){
+                    $(form.content).before('<p class="error_list">{% trans "Enter comment please." %}</p>');
+                    return false;
+                }
+                $('.submit', $form).prop('disabled', true);
+            }
+        });
+
+        $('.reply').live('click', function(){
+            $('#id_comment_form_reply_to').val($(this).attr('comment_id'))
+            $('#id_comment_form_content').focus();
+            var $comment = $(this).parents('li');
+            var username = $comment.find('.comment-author .url').text();
+            $('.comment-reply-to').html('{% trans "Answering to: " %}'
+                +'<a href="#comments-'+$comment.attr('comment_id')+'">'+username+'</a>');
+            return false;
+        });
+    });
+    </script>
+{% else %}
+    <a href="{% url accounts:login %}?next={{ next_page }}">{% trans 'Login please to post comment' %}</a>
+{% endif %}
+</div>

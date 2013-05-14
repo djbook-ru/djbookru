@@ -38,6 +38,19 @@ def render_comment_list(context, obj):
     }
 
 
+@register.inclusion_tag('comments/list_with_form.html', takes_context=True)
+def render_comment_list_with_form(context, obj):
+    return {
+        'next_page': context['request'].get_full_path(),
+        'qs': models.Comment.get_for_object(obj),
+        'content_type': ContentType.objects.get_for_model(obj),
+        'obj': obj,
+        'perms': context['perms'],
+        'user': context['user'],
+        'request': context['request']
+    }
+
+
 @register.filter
 def get_comment_count(obj):
     return models.Comment.get_for_object(obj).count()

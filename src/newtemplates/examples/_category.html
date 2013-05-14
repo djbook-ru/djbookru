@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n components %}
 
 <aside class="widget" id="recipe-category-{{ category.pk }}">
     <h5 class="short_headline"><span>{{ category }}</span></h5>
@@ -6,11 +6,7 @@
         <ul class="blogposts clearfix">
             {% for example in category.examples.all %}
             <li>
-                <span class="date">
-                    <span class="month">{{ example.created|date:"b" }}</span>
-                    <span class="day">{{ example.created|date:"j" }}</span>
-                    <span class="year">{{ example.created|date:"Y" }}</span>
-                </span>
+                {{ example.created|pretty_date }}
                 <h3><a href="{{ example.get_absolute_url }}">{{ example }}</a></h3>
                 <a href="{{ example.author.get_absolute_url }}">
                     <p>{{ example.author }}</p>

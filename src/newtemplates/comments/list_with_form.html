@@ -1,0 +1,12 @@
+{% load i18n comments_tags %}
+<section id="comments" class="entry-comments clearfix">
+    <h3>
+        {% with comments_count=obj|get_comment_count %}
+            {{ comments_count }} {% blocktrans count counter=comments_count %}comment{% plural %}comments{% endblocktrans %}
+        {% endwith %}
+        <a href="#comment-form" class="scrollto">| {% trans 'Make a comment' %}</a>
+    </h3>
+    <!--begin comments-->
+    {% render_comment_list obj %}
+    {% render_comment_form obj %}
+</section>

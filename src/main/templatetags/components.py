@@ -113,3 +113,14 @@ def random_forum_topics():
     return {
         'topics': Topic.objects.filter(pk__in=ids[:FORUM_TOPIC_ON_MAIN])
     }
+
+
+@register.filter
+def pretty_date(date_obj, extra_class=''):
+    template = get_template("_pretty_date.html")
+    context = Context({
+        'date_obj': date_obj,
+        'extra_class': extra_class
+    })
+
+    return template.render(context)
