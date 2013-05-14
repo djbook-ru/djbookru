@@ -11,6 +11,7 @@
                     <li><a href="{% url news:index %}" >{% trans 'News' %}</a></li>
                     <li><a href="{% url videos:index %}" >{% trans 'Videos' %}</a></li>
                     <li><a href="{% url djangobb:index %}" >{% trans 'Forum' %}</a></li>
+                    {% comment %}
                     <li class="parent"><a href="javascript:void(0)">{% trans 'Code Review' %}<i></i></a>
                         <ul>
                             <li><a href="{% url code_review:index %}">{% trans "View snipets" %}</a></li>
@@ -27,6 +28,7 @@
                             {% endfor %}
                         </ul>
                     </li>
+                    {% endcomment %}
                     <li><a href="{% url accounts:map %}" >{% trans 'Map' %}</a></li>
                     <li><a href="/about/">{% trans 'About' %}</a></li>
                 </ul>

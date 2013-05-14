@@ -1,0 +1,33 @@
+{% extends 'videos/base.html' %}
+
+{% load pagination_tags i18n markup comments_tags components %}
+
+{% block content %}
+    {% for obj in object_list %}
+    <article class="entry-post">
+        <header class="entry-header">
+            <h3 class="entry-title">{{ obj }}</h3>
+            <div class="byline">
+                <abbr class="published" title="{{ obj.created|date:'DATETIME_FORMAT' }}">{{ obj.created|date:'DATE_FORMAT' }}</abbr>
+            </div>
+        </header>
+
+        <div class="entry-content">
+            <div class="video-wrapper">
+                <div class="fluid-width-video-wrapper" style="padding-top: 66.66666666666666%;">
+                    {{ obj.video_embed_code|safe }}
+                </div>
+            </div>
+            {{ obj.description|linebreaks }}
+        </div>
+
+        <footer class="entry-footer">
+            {{ obj.created|pretty_date:'blog' }}
+        </footer>
+    </article>
+    {% endfor %}
+
+    {% if is_paginated %}
+        {% paginate %}
+    {% endif %}
+{% endblock %}
