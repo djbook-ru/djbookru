@@ -524,6 +524,9 @@ i .tooltip { font-weight: normal;font-style:normal }
 .form-actions {
     background: transparent;
     border: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px 10px 10px;
 }
 ul.breadcrumb { background: transparent }
 .audiojs {
@@ -1366,7 +1369,11 @@ font-size:70%!important;
 
 /*  forgot password hidden div on login page
 ================================================== */
-.forgot-password {padding-bottom:40px;}
+.forgot-password {
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom:40px;
+}
 
 /*  registration
 ================================================== */

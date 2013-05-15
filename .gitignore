@@ -2,7 +2,8 @@
 *.mo
 *~
 /env
-/src/search_index
+/logs
+/src/search/xapian_index/
 /src/coverage
 *.sqlite
 /src/local_settings.py

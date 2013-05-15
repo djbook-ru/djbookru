@@ -39,10 +39,15 @@
 
         <!-- begin #logo -->
         <div id="logo">
+            {% if request.path != '/' %}
             <a href="/">
                 <img style="width: 243px; height: 51px;" alt="Django на русском" src="{% static 'theme/images/logo.png' %}" />
                 <em>Django на русском</em>
             </a>
+            {% else %}
+                <img style="width: 243px; height: 51px;" alt="Django на русском" src="{% static 'theme/images/logo.png' %}" />
+                <em>Django на русском</em>
+            {% endif %}
         </div>
         <!-- end #logo -->
         <h4 class="tagline">Django на русском, йопт.</h4>

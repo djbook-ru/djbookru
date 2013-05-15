@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load staticfiles i18n bootstrap %}
+{% load url from future %}
 
 {% block page %}
 <div class="container clearfix" id="main-content">
@@ -10,10 +11,11 @@
             <!--begin hidden by js forgot pw form -->
             <div class="forgot-password" style="display: none;">
                 <p class="statement">{% trans 'Forgot Password? Please enter your email and we’ll send it you.' %}</p>
-                <form action="." method="post">
+                <form action="{% url 'accounts:password_reset' %}" method="post">
+                    {% csrf_token %}
                     <div class="input-append">
-                        <input type="email" class="span6" placeholder="{% trans 'Email Address' %}" name="email">
-                        <button class="btn btn-primary">{% trans 'Send Password' %}</button>
+                        <input type="email" class="span6" required placeholder="{% trans 'Email Address' %}" name="email">
+                        <button class="btn btn-primary">{% trans 'Send' %}</button>
                     </div>
                     <!--close input-append-->
                 </form>
@@ -44,13 +46,13 @@
                         <ul>
                             {% for backend in social_auth.backends %}
                                 <li>
-                                    <a href="{% url socialauth_begin backend %}?next={{ next }}">
-                                        <img src="{% static 'theme/images/sign-in-'|add:backend|add:'.png' %}" alt="{% trans 'sign in with' %} {{ backend.title }}">
+                                    <a class="btn" style="width: 160px" href="{% url 'socialauth_begin' backend %}?next={{ next }}">
+                                        {% trans 'Sign in with' %} {{ backend.title }}
                                     </a>
                                 </li>
                             {% endfor %}
                         </ul>
-                        <p><a href="register.html" class="center">Not a member? Join today!</a></p>
+                        <p><a href="{% url 'accounts:create' %}" class="center">{% trans 'Not a member? Join today!' %}</a></p>
                     </div>
                     <!--close .float-left-->
                     {% else %}
