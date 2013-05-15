@@ -1,6 +1,6 @@
 {% extends 'basepage.html' %}
 
-{% load i18n pagination_tags bootstrap %}
+{% load i18n pagination_tags bootstrap components markup %}
 
 {% block title %}{% trans 'Search' %} | {{ block.super }}{% endblock %}
 
@@ -14,7 +14,31 @@
     </form>
 
     {% for item in object_list %}
-        <a href="{{ item.object.get_absolute_url }}">{{ item.object.search.title|default:'No title'|safe }}</a>
+    <article class="entry-post">
+        <header class="entry-header">
+            <h3 class="entry-title"><a href="{{ item.object.get_absolute_url }}">{{ item.object.search.title|default:'No title'|striptags|safe }}</a></h3>
+            <div class="byline">
+                {% if item.author %}
+                <a href="{{ item.author.get_absolute_url }}"><i class="icon-pencil"></i> {{ item.author }}</a> &nbsp;&nbsp;
+                {% endif %}
+                {% if item.created %}
+                <i class="icon-time"></i> {{ item.created|date:'DATE_FORMAT' }} &nbsp;&nbsp;
+                {% endif %}
+                <i class="icon-folder-open"></i> {{ item|search_model_name }}
+            </div>
+        </header>
+
+        <div class="entry-content">
+            {{ item.object.search.desc|default:'No description'|markdown|truncatewords_html:25|striptags|linebreaks }}
+            <p class="more right">
+                <a class="btn btn-primary" href="{{ item.object.get_absolute_url }}">{% trans 'Read More' %} →</a>
+            </p>
+        </div>
+
+        <footer class="entry-footer">
+            {{ item.created|pretty_date:'blog' }}
+        </footer>
+    </article>
     {% endfor %}
 
     {% comment %}

@@ -8,10 +8,12 @@ from django.contrib.sites.models import Site
 from django.template import Context
 from django.template.loader import get_template
 
+from src.main.forms import SearchForm
 from src.comments.models import Comment
 from src.djangobb_forum.models import Topic
 from src.examples.models import Category, Example
 from src.accounts.models import User
+from django.contrib.contenttypes.models import ContentType
 
 
 RECIPES_ON_MAIN = getattr(settings, 'RECIPES_ON_MAIN', 4)
@@ -124,3 +126,9 @@ def pretty_date(date_obj, extra_class=''):
     })
 
     return template.render(context)
+
+
+@register.filter
+def search_model_name(result_item):
+    model_pk = ContentType.objects.get_for_model(result_item.model).pk
+    return dict(SearchForm.CONTENT_CHOICES)[model_pk]

@@ -13,7 +13,7 @@
         <header class="entry-header">
             <h1>{{ obj }}</h1>
             <div class="byline">
-                <abbr class="published" title="{{ obj.created|date:'DATETIME_FORMAT' }}">{{ obj.created|date:'DATE_FORMAT' }}</abbr> &nbsp;&nbsp;
+                <i class="icon-time"></i> <abbr class="published" title="{{ obj.created|date:'DATETIME_FORMAT' }}">{{ obj.created|date:'DATE_FORMAT' }}</abbr> &nbsp;&nbsp;
                 <a href="{{ obj.get_absolute_url }}#comments">
                     <i class="icon-comments-alt"></i>
                     {% with comments_count=obj|get_comment_count %}

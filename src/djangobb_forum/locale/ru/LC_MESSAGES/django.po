@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DjangoBB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-22 15:02+0200\n"
+"POT-Creation-Date: 2013-05-15 16:01+0300\n"
 "PO-Revision-Date: 2012-11-02 10:07+0400\n"
 "Last-Translator: slav0nic <slav0nic0@gmail.com>\n"
 "Language-Team: RU <ru@li.org>\n"
@@ -101,7 +101,7 @@ msgstr "Только в текстах сообщений"
 msgid "Topic subject only"
 msgstr "Только в заголовках тем"
 
-#: forms.py:48 templates/forum/add_post.html:37 templates/forum/topic.html:178
+#: forms.py:48 templates/forum/add_post.html:37 templates/forum/topic.html:172
 msgid "Attachment"
 msgstr "Прикреплённые файлы"
 
@@ -285,7 +285,7 @@ msgstr "Войти"
 msgid "Reason"
 msgstr "Причина"
 
-#: models.py:255 templates/forum/topic.html:70
+#: models.py:255
 msgid "Reputation"
 msgstr "Репутация"
 
@@ -361,7 +361,7 @@ msgstr "Личные права"
 msgid "Default markup"
 msgstr "Разметка по умолчанию"
 
-#: models.py:285 templates/forum/header.html:22 templates/forum/topic.html:78
+#: models.py:285 templates/forum/header.html:22 templates/forum/topic.html:69
 #: templates/forum/user.html:7
 msgid "Profile"
 msgstr "Профиль"
@@ -386,7 +386,7 @@ msgstr "Рассмотрена"
 msgid "Zapped by"
 msgstr "Рассмотрел"
 
-#: models.py:333 templates/forum/topic.html:125
+#: models.py:333 templates/forum/topic.html:119
 msgid "Report"
 msgstr "Пожаловаться"
 
@@ -434,7 +434,7 @@ msgstr "Хэш"
 #: templates/forum/delete_posts.html:11 templates/forum/edit_post.html:8
 #: templates/forum/forum.html:16 templates/forum/forum.html.py:74
 #: templates/forum/moderate.html:10 templates/forum/topic.html:17
-#: templates/forum/topic.html.py:148 templates/forum/lofi/forum.html:8
+#: templates/forum/topic.html.py:142 templates/forum/lofi/forum.html:8
 #: templates/forum/lofi/index.html:6 templates/forum/lofi/index.html.py:8
 #: templates/forum/lofi/topic.html:9
 msgid "Root"
@@ -449,13 +449,13 @@ msgstr "Создать новую тему"
 msgid "New reply"
 msgstr "Новый ответ"
 
-#: templates/forum/add_post.html:25 templates/forum/topic.html:169
+#: templates/forum/add_post.html:25 templates/forum/topic.html:163
 msgid "Write your message and submit"
 msgstr "Написать и отправить сообщение"
 
 #: templates/forum/add_post.html:47 templates/forum/mail_to.html:25
 #: templates/forum/report.html:22 templates/forum/reputation_form.html:41
-#: templates/forum/search_form.html:71 templates/forum/topic.html:187
+#: templates/forum/search_form.html:71 templates/forum/topic.html:181
 #: templates/forum/profile/profile_display.html:45
 #: templates/forum/profile/profile_essentials.html:65
 #: templates/forum/profile/profile_messaging.html:31
@@ -478,7 +478,7 @@ msgstr "Назад"
 msgid "Topic review (newest first)"
 msgstr "Просмотр тем (новые сверху)"
 
-#: templates/forum/add_post.html:71 templates/forum/topic.html:136
+#: templates/forum/add_post.html:71 templates/forum/topic.html:130
 msgid "Quote"
 msgstr "Цитировать"
 
@@ -486,7 +486,7 @@ msgstr "Цитировать"
 msgid "Board footer"
 msgstr "Подвал форума"
 
-#: templates/forum/delete_posts.html:37 templates/forum/topic.html:106
+#: templates/forum/delete_posts.html:37 templates/forum/topic.html:100
 msgid "Edited"
 msgstr "Отредактировано"
 
@@ -495,7 +495,7 @@ msgid "Select"
 msgstr "Выбрать"
 
 #: templates/forum/delete_posts.html:53 templates/forum/moderate.html:72
-#: templates/forum/reputation.html:30 templates/forum/topic.html:128
+#: templates/forum/reputation.html:30 templates/forum/topic.html:122
 msgid "Delete"
 msgstr "Удалить"
 
@@ -541,11 +541,11 @@ msgstr "оставил"
 msgid "Forum is empty."
 msgstr "Форум пуст."
 
-#: templates/forum/forum.html:92 templates/forum/topic.html:208
+#: templates/forum/forum.html:92 templates/forum/topic.html:202
 msgid "Jump to"
 msgstr "Перейти"
 
-#: templates/forum/forum.html:103 templates/forum/topic.html:219
+#: templates/forum/forum.html:103 templates/forum/topic.html:213
 msgid "Go"
 msgstr "Перейти"
 
@@ -571,7 +571,7 @@ msgstr "Поиск"
 msgid "Feedback"
 msgstr "Отклик"
 
-#: templates/forum/header.html:24 templates/forum/topic.html:88
+#: templates/forum/header.html:24 templates/forum/topic.html:79
 msgid "PM"
 msgstr "ЛС"
 
@@ -713,7 +713,7 @@ msgstr "Закрыть"
 msgid "Moderated by"
 msgstr "Модераторы"
 
-#: templates/forum/move_topic.html:7 templates/forum/topic.html:225
+#: templates/forum/move_topic.html:7 templates/forum/topic.html:219
 msgid "Move topic"
 msgstr "Перенести тему"
 
@@ -844,8 +844,8 @@ msgstr "Ничего не найдено."
 msgid "Search results"
 msgstr "Результаты поиска"
 
-#: templates/forum/topic.html:13 templates/forum/topic.html.py:134
-#: templates/forum/topic.html:147
+#: templates/forum/topic.html:13 templates/forum/topic.html.py:128
+#: templates/forum/topic.html:141
 msgid "Reply"
 msgstr "Ответить"
 
@@ -866,75 +866,75 @@ msgstr "Из"
 msgid "IP"
 msgstr "IP"
 
-#: templates/forum/topic.html:80
+#: templates/forum/topic.html:71
 msgid "E-mail"
 msgstr "E-mail"
 
-#: templates/forum/topic.html:83 templates/forum/user.html:42
+#: templates/forum/topic.html:74 templates/forum/user.html:42
 msgid "Send e-mail"
 msgstr "Отправить e-mail"
 
-#: templates/forum/topic.html:110
+#: templates/forum/topic.html:104
 msgid "Attachments"
 msgstr "Прикреплённый файлы"
 
-#: templates/forum/topic.html:118
+#: templates/forum/topic.html:112
 msgid "Online"
 msgstr "Онлайн"
 
-#: templates/forum/topic.html:120
+#: templates/forum/topic.html:114
 msgid "Offline"
 msgstr "Офлайн"
 
-#: templates/forum/topic.html:128
+#: templates/forum/topic.html:122
 msgid "Are you sure you want to delete this post?"
 msgstr "Вы уверены, что хотите удалить это сообщение?"
 
-#: templates/forum/topic.html:132
+#: templates/forum/topic.html:126
 msgid "Edit"
 msgstr "Редактировать"
 
-#: templates/forum/topic.html:153
+#: templates/forum/topic.html:147
 msgid "Unsubscribe"
 msgstr "Запретить уведомления"
 
-#: templates/forum/topic.html:155
+#: templates/forum/topic.html:149
 msgid "Subscribe"
 msgstr "Получать уведомления"
 
-#: templates/forum/topic.html:163
+#: templates/forum/topic.html:157
 msgid "Quick post"
 msgstr "Быстрый ответ"
 
-#: templates/forum/topic.html:222
+#: templates/forum/topic.html:216
 msgid "Moderator control"
 msgstr "Модераторировать"
 
-#: templates/forum/topic.html:224
+#: templates/forum/topic.html:218
 msgid "Delete multiple posts"
 msgstr "Удалить сообщения"
 
-#: templates/forum/topic.html:227
+#: templates/forum/topic.html:221
 msgid "Open topic"
 msgstr "Открыть тему"
 
-#: templates/forum/topic.html:229
+#: templates/forum/topic.html:223
 msgid "Close topic"
 msgstr "Закрыть тему"
 
-#: templates/forum/topic.html:232
+#: templates/forum/topic.html:226
 msgid "Unstick topic"
 msgstr "Убрать выделение"
 
-#: templates/forum/topic.html:234
+#: templates/forum/topic.html:228
 msgid "Stick topic"
 msgstr "Выделить тему"
 
-#: templates/forum/topic.html:237
+#: templates/forum/topic.html:231
 msgid "Mark as useful"
 msgstr "Пометить, как полезное"
 
-#: templates/forum/topic.html:239
+#: templates/forum/topic.html:233
 msgid "Mark as heresy"
 msgstr "Пометить, как ересь"
 
