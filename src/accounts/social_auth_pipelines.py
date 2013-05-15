@@ -3,7 +3,7 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.translation import ugettext_lazy as _
 
-from social_auth.backends.exceptions import AuthException
+from social_auth.exceptions import AuthException
 from social_auth.models import UserSocialAuth
 
 

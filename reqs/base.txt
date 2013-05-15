@@ -23,6 +23,7 @@ pytz
 pytils
 simplejson
 
+django-social-auth==0.7.23
 django-modeltranslation
 django-model-utils == 1.0.0
 django-tastypie == 0.9.11

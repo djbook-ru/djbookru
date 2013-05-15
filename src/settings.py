@@ -116,6 +116,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'src.forum.middleware.LastLoginMiddleware',
     'src.forum.middleware.UsersOnline',
+    'social_auth.middleware.SocialAuthExceptionMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 
     'pagination.middleware.PaginationMiddleware',
@@ -315,7 +316,6 @@ TWITTER_CONSUMER_SECRET = 'see production settings'
 INSTALLED_APPS += ('social_auth', )
 SOCIAL_AUTH_USER_MODEL = 'accounts.User'
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False
-SOCIAL_AUTH_PROCESS_EXCEPTIONS = 'social_auth.utils.log_exceptions_to_messages'
 SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.social.social_auth_user',
     'social_auth.backends.pipeline.user.get_username',
@@ -330,7 +330,6 @@ AUTHENTICATION_BACKENDS += (
     'social_auth.backends.google.GoogleBackend',
     'social_auth.backends.contrib.github.GithubBackend',
     'social_auth.backends.contrib.yandex.YandexBackend',
-    'src.accounts.backends.CustomUserBackend',
 )
 ### SOCIAL_AUTH: END
 
