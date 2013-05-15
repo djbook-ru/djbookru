@@ -1,6 +1,6 @@
 {% load thumbnail i18n %}
 
-<li>
+<li class="{% if item.submit_date > last_comments_read %}new{% endif %}">
     <footer class="comment-meta">
         <a href="{{ item.user.get_absolute_url }}" rel="external nofollow" title="{{ item.user }}">
             <img alt="{{ item.user }}" src="{{ item.user.avatar }}" class="avatar">
@@ -10,7 +10,7 @@
                 <cite title="{{ item.user.get_absolute_url }}"><a href="{{ item.user.get_absolute_url }}" title="{{ item.user }}" class="url" rel="external nofollow">{{ item.user }}</a></cite>
             </span>
             <time class="published" datetime="{{ item.submit_date|date:'DATETIME_FORMAT' }}">{{ item.submit_date|date:'DATE_FORMAT' }}</time>
-            | <a class="permalink" href="#comments-{{ item.id }}" title="Permalink to comment 5">{% trans 'Permalink' %}</a>
+            | <a class="permalink" href="{{ item.reply_to.get_absolute_url }}">{% trans 'Permalink' %}</a>
             {% if user.is_staff and perms.comments.delete_comment %}
                 | <a href="{% url admin:comments_comment_delete item.pk %}" target="blank" class="permalink">
                     {% trans 'Delete' %}

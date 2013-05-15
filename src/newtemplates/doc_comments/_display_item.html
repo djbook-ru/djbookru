@@ -1,0 +1,29 @@
+{% load thumbnail i18n %}
+
+<li class="{% if item.created > last_doc_comments_read %}new{% endif %}">
+    <footer class="comment-meta">
+        <a href="{{ item.author.get_absolute_url }}" rel="external nofollow" title="{{ item.author }}">
+            <img alt="{{ item.author }}" src="{{ item.author.avatar }}" class="avatar">
+        </a>
+        <div class="comment-meta">
+            <span class="comment-author vcard">
+                <cite title="{{ item.author.get_absolute_url }}"><a href="{{ item.author.get_absolute_url }}" title="{{ item.author }}" class="url" rel="external nofollow">{{ item.author }}</a></cite>
+            </span>
+            <time class="published" datetime="{{ item.created|date:'DATETIME_FORMAT' }}">{{ item.created|date:'DATE_FORMAT' }}</time>
+            | <a class="permalink" href="{{ item.get_absolute_url }}">{% trans 'Permalink' %}</a>
+            {% if user.is_staff and perms.comments.delete_comment %}
+                | <a href="{% url admin:doc_comments_comment_delete item.pk %}" target="blank" class="permalink">
+                    {% trans 'Delete' %}
+                </a>
+            {% endif %}
+            {% if user.is_staff and perms.comments.change_comment %}
+                | <a href="{% url admin:doc_comments_comment_change item.pk %}" target="blank" class="permalink">
+                    {% trans 'Edit' %}
+                </a>
+            {% endif %}
+        </div>
+    </footer>
+    <div class="text">
+        <p>{{ item.get_content|linebreaksbr }}</p>
+    </div>
+</li>

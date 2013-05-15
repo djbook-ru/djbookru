@@ -8,4 +8,5 @@
 *.sqlite
 /src/local_settings.py
 *.sublime-*
-src/static/html
+/src/static/html
+/src/public/media/uploads

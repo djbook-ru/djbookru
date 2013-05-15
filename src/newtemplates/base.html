@@ -106,6 +106,15 @@
             {% else %}
                 <a href="{% url accounts:login %}?next={{ request.path_info|urlencode }}"><i class="icon-share"></i> {% trans 'Login' %}</a>
             {% endif %}
+            {% if user.is_staff and user.is_active %}
+                | <a href="{% url admin:index %}"><i class="icon-cog icon-white"></i> {% trans "Admin UI" %}</a>
+            {% endif %}
+            |
+            {% if LANGUAGE_CODE|lower|slice:":2" == "en" %}
+                <a href="{% url main:lang "ru" %}">Русский</a>
+            {% elif LANGUAGE_CODE|lower|slice:":2" == "ru" %}
+                <a href="{% url main:lang "en" %}">English</a>
+            {% endif %}
         </nav>
         <!--close user nav-->
 

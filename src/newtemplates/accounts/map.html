@@ -30,7 +30,9 @@
         var OTHER_POSITIONS = {{ other_positions_json|safe }};
 
         // create a map in the "map" div, set the view to a given place and zoom
-        var map = L.map('map').setView([55.779120, 37.615807], 5);
+        var map = L.map('map', {
+            minZoom: 2
+        }).setView([55.779120, 37.615807], 5);
 
         // add an OpenStreetMap tile layer
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {

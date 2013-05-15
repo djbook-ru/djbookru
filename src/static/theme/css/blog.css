@@ -1,7 +1,7 @@
 /* blog general
 ================================================== */
 .entry-post { *zoom: 1}
-.entry-post:before, .entry-post:after 
+.entry-post:before, .entry-post:after
 {display: table; content: ""; line-height: 0;}
 
 .entry-post:after
@@ -38,8 +38,8 @@
 }
 .blog.date .year { font-size: 10px }
 
-.blog-detail .video-wrapper, 
-.blog-summary .video-wrapper 
+.blog-detail .video-wrapper,
+.blog-summary .video-wrapper
 { margin-bottom: 20px }
 
 .blog-detail header .byline,
@@ -187,6 +187,14 @@
     margin: 0 0 10px 0;
     background: url(../images/hr.png) 0 100% repeat-x;
 }
+.entry-comments li.new {
+    background: #eff;
+    border: 1px dotted #9cf;
+    padding: 10px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
 .entry-comments ul ul {
     list-style: none;
     margin: 0 0 0 5%;
@@ -270,7 +278,7 @@
 /* media queries
 ================================================== */
 
-@media only screen and (max-width: 1080px) { 
+@media only screen and (max-width: 1080px) {
     /******  date ******/
     .span6 .blog.date {
         width: 50px;
@@ -291,7 +299,7 @@
 } /*end*/
 
 
-@media only screen and (max-width: 880px) { 
+@media only screen and (max-width: 880px) {
     /******  date ******/
     .span9 .blog.date {
         width: 50px;
@@ -312,12 +320,12 @@
 } /*end*/
 
 
-@media only screen and (max-width:600px) { 
+@media only screen and (max-width:600px) {
 
 .blog-detail .addthis_toolbox span { margin: 0 auto 10px auto }
 .blog.date, .blog-detail .entry-footer .addthis_toolbox { display: none }
 
-.blog-summary .entry-content, 
+.blog-summary .entry-content,
 .blog-summary .entry-header,
 .blog-detail .entry-header,
 .blog-detail .entry-content,
@@ -376,17 +384,17 @@
 } /*end*/
 
 
-/* ================================================== 
+/* ==================================================
 	MAIN RETINA BACKGROUND IMAGE REPLACEMENT & RETINA INFORMATION
 ================================================== */
 
-/*	change the webkit number to 1 to test on webkit to make sure 
+/*	change the webkit number to 1 to test on webkit to make sure
 	the sizes and the images show up correctly then switch back before launch */
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2),
  	only screen and (-o-min-device-pixel-ratio: 3/2),
  	only screen and (min--moz-device-pixel-ratio: 2),
-	only screen and (min-device-pixel-ratio: 2) 
+	only screen and (min-device-pixel-ratio: 2)
 {
 
 
