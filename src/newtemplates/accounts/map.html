@@ -1,0 +1,148 @@
+{% extends 'accounts/base.html' %}
+
+{% load thumbnail i18n staticfiles %}
+{% load url from future %}
+
+{% block title %}{% trans 'Map' %} | {{ block.super }}{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "leeflet_0.4.5/dist/leaflet.css" %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static "leeflet_0.4.5/plugins/draw/leaflet.draw.css" %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static "leeflet_0.4.5/plugins/markercluster/MarkerCluster.Default.css" %}" type="text/css"/>
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="{% static "leeflet_0.4.5/dist/leaflet.ie.css" %}" type="text/css"/>
+        <link rel="stylesheet" href="{% static "leeflet_0.4.5/plugins/draw/leaflet.draw.ie.css" %}" type="text/css"/>
+        <link rel="stylesheet" href="{% static "leeflet_0.4.5/plugins/markercluster/MarkerCluster.Default.ie.css" %}" type="text/css"/>
+    <![endif]-->
+    <script src="{% static "leeflet_0.4.5/dist/leaflet.js" %}"></script>
+    <script src="{% static "leeflet_0.4.5/plugins/draw/leaflet.draw.js" %}"></script>
+    <script src="{% static "leeflet_0.4.5/plugins/markercluster/leaflet.markercluster.js" %}"></script>
+    <style>
+        #map {
+            height: 600px;
+        }
+    </style>
+    <script>
+    jQuery(function($){
+        var IS_AUTHENTICATED = {% if user.is_authenticated %}true{% else %}false{% endif %};
+        var SAVE_URL = '{% url "accounts:save_user_position" %}';
+        var USER_POSITION = {{ user_position_json|safe }};
+        var OTHER_POSITIONS = {{ other_positions_json|safe }};
+
+        // create a map in the "map" div, set the view to a given place and zoom
+        var map = L.map('map').setView([55.779120, 37.615807], 5);
+
+        // add an OpenStreetMap tile layer
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // define markers
+        var UserMarker = L.Icon.extend({
+            options: {
+                shadowUrl: null,
+                iconAnchor: new L.Point(16, 36),
+                iconSize: new L.Point(32, 37),
+                iconUrl: '{% static "leeflet_0.4.5/icons/snakes.png" %}'
+            }
+        });
+
+        var OtherUserMarker = L.Icon.extend({
+            options: {
+                shadowUrl: null,
+                iconAnchor: new L.Point(16, 36),
+                iconSize: new L.Point(32, 37),
+                iconUrl: '{% static "leeflet_0.4.5/icons/snakes_blue.png" %}'
+            }
+        });
+
+        // configure draw control
+        var drawControl = new L.Control.Draw({
+            polyline: false,
+            polygon: false,
+            circle: false,
+            rectangle: false,
+            marker: {
+                icon: new UserMarker()
+            }
+        });
+        map.addControl(drawControl);
+
+        // add markers
+        var markers = new L.MarkerClusterGroup({
+            disableClusteringAtZoom: 8
+        });
+        var userMarker = null;
+
+        if (USER_POSITION){
+            userMarker = L.marker([USER_POSITION.lat, USER_POSITION.lng], {icon: new UserMarker()});
+            markers.addLayer(userMarker);
+        }
+
+        for (var i=0; i<OTHER_POSITIONS.length; i++){
+            var p = OTHER_POSITIONS[i];
+            var m = L.marker([p.lat, p.lng], {icon: new OtherUserMarker()});
+            m.bindPopup('<a href="'+p.url+'" target="blank"><img src="'+p.avatar+'"></img></a><br><a href="'+p.url+'" target="blank">'+p.username+'</a>', {
+                offset: new L.Point(0, -25),
+                minWidth: 80
+            });
+            markers.addLayer(m);
+        }
+
+        map.addLayer(markers);
+
+        if (navigator.geolocation && ! userMarker)
+        {
+            navigator.geolocation.getCurrentPosition(function(position){
+                saveMarker({
+                    marker: L.marker([position.coords.latitude, position.coords.longitude], {icon: new UserMarker()})
+                });
+            });
+        }
+
+        function saveMarker(e){
+            if (userMarker){
+                markers.removeLayer(userMarker);
+            }
+
+            userMarker = e.marker;
+            markers.addLayer(userMarker);
+
+            if (IS_AUTHENTICATED){
+                var data = {
+                    lat: userMarker.getLatLng().lat,
+                    lng: userMarker.getLatLng().lng
+                }
+                $.post(SAVE_URL, data, function(data){
+                    if (data.error){
+                        markers.removeLayer(userMarker);
+                        alert(data.error);
+                    }
+                });
+            } else {
+                markers.removeLayer(userMarker);
+                alert('{% trans "Authenticate please!" %}');
+            }
+        }
+
+        // add draw handler
+        map.on('draw:marker-created', saveMarker);
+    });
+    </script>
+{% endblock %}
+
+{% block pre_content %}
+    {{ block.super }}
+    <div class="messages container clearfix">
+        <div class="alert alert-info">
+            <h4>{% trans "Add yourself on the map!" %}</h4>
+            {% trans "This is just for fun." %}
+            {% trans "You should be authenticated." %}
+            {% trans "Green marker should appear on your position, otherwise put marker on map to mark you position." %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div id="map"></div>
+{% endblock %}

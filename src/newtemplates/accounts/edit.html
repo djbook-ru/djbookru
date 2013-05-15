@@ -1,0 +1,36 @@
+{% extends 'accounts/base.html' %}
+
+{% load i18n thumbnail bootstrap accounts_tags %}
+
+{% block title %}{% trans 'Edit Profile' %} | {{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="register-box clearfix">
+    <h2 class="short_headline"><span>{% trans "Connect accounts" %}</span></h2>
+
+    {% for backend in social_auth.associated %}
+        <a href="{% url socialauth_disconnect backend.provider %}?next={{ request.path_info|urlencode }}" class="btn btn-success" title="{% trans 'Disconnect account' %}">
+            {{ backend.provider.title }}
+        </a>
+    {% endfor %}
+    {% for backend in social_auth.not_associated %}
+        <a href="{% url socialauth_begin backend %}?next={{ request.path_info|urlencode }}" class="btn btn-info" title="{% trans 'Connect account' %}">
+            {{ backend.title }}
+        </a>
+    {% endfor %}
+</div>
+
+<div class="register-box clearfix" style="margin-top: 20px">
+    <h2 class="short_headline"><span>{% trans "Edit your profile" %}</span></h2>
+
+    <form action="." method="post" enctype="multipart/form-data" class="edit-form form-horizontal">
+        {% csrf_token %}
+        <fieldset>
+            {% bootstrap form extra_class='span10' %}
+        </fieldset>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-large">{% trans "Update" %}</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'accounts/base.html' %}
+
+{% load thumbnail i18n accounts_tags %}
+{% load url from future %}
+
+{% block title %}{{ user_obj }} | {{ block.super }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="span5 offset2">
+            <h2>{{ user_obj }}</h2>
+
+            <p>
+            {% if user_obj.first_name or user_obj.last_name %}
+                <h4>{{ user_obj.first_name }} {{ user_obj.last_name }}</h4>
+            {% endif %}
+            </p>
+
+            <p>
+                <strong>{% trans 'Forum posts count' %}:</strong> {{ user_obj.forum_profile.post_count }}<br/>
+                <strong>{% trans 'Comments count' %}:</strong> {{ user_obj.comments_count }}
+            </p>
+
+            {% if user_obj.biography %}
+            <p class="well" style="margin-top: 5px">
+                {{ user_obj.biography|linebreaksbr }}
+            </p>
+            {% endif %}
+
+            {% achievements user_obj %}
+        </div>
+        <div class="span3">
+            <img src="{{ user_obj.avatar }}" class="img-polaroid"/>
+        </div>
+    </div>
+{% endblock %}

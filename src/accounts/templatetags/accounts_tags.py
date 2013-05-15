@@ -10,7 +10,7 @@ register = template.Library()
 
 
 @register.inclusion_tag('accounts/_menu.html', takes_context=True)
-def profile_menu(context, current):
+def profile_menu(context, current=None):
     return {
         'user': context['user'],
         'current': current

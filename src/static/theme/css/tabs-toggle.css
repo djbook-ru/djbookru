@@ -1,4 +1,4 @@
-/*	No JS styles 
+/*	No JS styles
 ========================================================== */
 .no-js li.st-content-wrapper, .no-js .s-accordion li.s-wrap div.s-content{
 	overflow: visible!!important;
@@ -14,7 +14,7 @@
 .no-js .sidebar-tabs .panels .pane {display:block!important;visibility:visible!important;clear:both!important;}
 .no-js .content-tabs .panels .pane {display:block!important;visibility:visible!important;clear:both!important;}
 
-/*	Slide to Top Accordion for short headers 
+/*	Slide to Top Accordion for short headers
 ========================================================== */
 .slide-to-top .trigger i { position:absolute; right:10px; }
 .slide-to-top .st-open .trigger i:before { content: "\f078"; }
@@ -45,7 +45,7 @@ li.st-content-wrapper .trigger{
     padding:0 10px;
     background:#f8f8f8;
 	outline:none;
-	cursor:pointer; 
+	cursor:pointer;
 	text-decoration:none;
 }
 li.st-content-wrapper .st-content{
@@ -53,7 +53,7 @@ li.st-content-wrapper .st-content{
     border-left:1px solid #ddd;
 }
 
-/*	Fancy Styles for Slide to Top Accordion for short headers 
+/*	Fancy Styles for Slide to Top Accordion for short headers
 ========================================================== */
 .slide-to-top.fancy li.st-content-wrapper{
     height: 49px;
@@ -183,8 +183,8 @@ li.st-content-wrapper .st-content{
 .content-tabs {padding:0;margin:0 0 4% 0;}
 .content-tabs .tabs { margin: 0 0 5px; padding:0; }
 .content-tabs .tab { float:left;margin:0 5px 5px 0;list-style:none;}
-.content-tabs .tab a { 
-display: block; 
+.content-tabs .tab a {
+display: block;
 padding: 10px 15px;
 text-decoration:none;
 background-image:url(../images/7p.png);
@@ -194,7 +194,7 @@ background-image:url(../images/7p.png);
 }
 .content-tabs .tab a:hover {background:#356635;color:#fff;}
 .content-tabs .tab a.active  {background:#356635;color:#fff;}
-.content-tabs .panels {clear:both;position:relative;padding:2% 3%;border:1px solid #d8dfe5;border-bottom:5px solid #87af77}
+.content-tabs .panels {clear:both;position:relative;padding:2% 3%;border:1px solid #d8dfe5;}
 
 
 /* clearing all */
@@ -205,9 +205,9 @@ background-image:url(../images/7p.png);
 .st-content:after, .content-tabs .panels .pane:after, .s-content:after {clear: both}
 
 
-/*==================================================== 
+/*====================================================
 ******************************************************
-/*	DEVICES less than 767 pixels wide 
+/*	DEVICES less than 767 pixels wide
 ******************************************************
 ====================================================== */
 @media only screen and (max-width: 767px) {
@@ -215,7 +215,7 @@ background-image:url(../images/7p.png);
 .content-tabs {padding:0;margin:0 0 4% 0;border:1px solid #d8dfe5;border-bottom:1px solid #87af77;padding:2%}
 .content-tabs .panels {clear:both;position:relative;padding:2% 0 0 0;border:0px solid #d8dfe5;border-bottom:0px solid #87af77}
 
-.content-tabs .tab a { 
+.content-tabs .tab a {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -231,9 +231,9 @@ li.st-content-wrapper a.trigger{
 
 }/**/
 
-/*==================================================== 
+/*====================================================
 ******************************************************
-/*	DEVICES less than 400 pixels wide 
+/*	DEVICES less than 400 pixels wide
 ******************************************************
 ====================================================== */
 @media only screen and (max-width: 400px) {
@@ -250,11 +250,11 @@ li.st-content-wrapper a.trigger{
 }/**/
 
 
-/* ================================================== 
+/* ==================================================
 	Print Media Styles
 ================================================== */
  @media print {
- 
+
 li.st-content-wrapper, .s-accordion li.s-wrap div.s-content{
 	overflow: visible!!important;
 	height:auto!important;

@@ -1,0 +1,12 @@
+{% extends 'basepage.html' %}
+
+{% load i18n accounts_tags %}
+
+{% block title %}{% trans "Profile" %} | {{ block.super }}{% endblock %}
+
+{% block header_container %}{% endblock %}
+
+{% block sidebar %}
+    {% profile_menu %}
+    {{ block.super }}
+{% endblock %}

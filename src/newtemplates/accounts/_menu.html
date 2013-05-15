@@ -1,0 +1,17 @@
+<aside class="widget clearfix">{% load i18n %}{% load url from future %}
+    <h5 class="short_headline"><span>{% trans "My profile" %}</span></h5>
+    <ul class="navigation">
+        <li>
+            <a href="{% url 'accounts:profile' user.pk %}">{% trans "Profile" %}</a>
+        </li>
+        <li>
+            <a href="{% url 'accounts:notifications' %}">{% trans "Notifications" %}</a>
+        </li>
+        <li>
+            <a href="{% url 'accounts:edit' %}">{% trans "Edit" %}</a>
+        </li>
+        <li>
+            <a href="{% url 'djangobb:forum_profile' user.username %}">{% trans "Forum profile" %}</a>
+        </li>
+    </ul>
+</aside>
