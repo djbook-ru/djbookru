@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load i18n claims_tags %}
+{% load i18n %}
 
 {% block page %}
     <div class="container visible-phone hidden-tablet hidden-desktop">
@@ -18,25 +18,15 @@
     <div class="container clearfix" id="main-content">
         <!--begin main content-->
         <div class="row-fluid sidebar-right">
-            <!--begin row-fluid-->
             <div class="span9 primary-column {% block content_class %}blog-summary{% endblock %}">
                 {% block content %}{% endblock %}
             </div>
-            <!-- close .span9 . primary-column .blog-summary-->
 
             <section class="span3 sidebar secondary-column" id="secondary-nav">
                 {% block sidebar %}
-                <aside class="widget">
-                    <h5 class="short_headline"><span>Found misprint?</span></h5>
-                    <p>
-                        {% trans 'Select it with the mouse and hit' %}<br>
-                        <strong>Ctrl - Enter</strong>
-                    </p>
-                    {% claims_statistic %}
-                </aside>
+                    {% include '_sidebar.html' %}
                 {% endblock %}
             </section>
-            <!--close section sidebar span3-->
         </div>
         <!--close row-fluid-->
     </div>

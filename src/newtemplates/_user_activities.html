@@ -1,5 +1,5 @@
 <aside class="widget">{% load i18n %}
-    <h5 class="short_headline"><span>{% trans 'Repices' %}</span></h5>
+    <h5 class="short_headline"><span>{% trans 'User activites' %}</span></h5>
     <div class="sidebar-tabs">
         <ul class="tabs">
             <li class="tab"><a href="#user-activites-forum">{% trans "Forum" %}</a></li>
@@ -16,7 +16,7 @@
                             <span class="year">{{ topic.updated|date:"Y" }}</span>
                         </span>
                         <h3><a href="{{ topic.get_absolute_url }}">{{ topic }}</a></h3>
-                        <p><a href="{{ topic.user.get_absolute_url }}">{{ topic.user }}</a></p>
+                        <p><a href="{{ topic.user.get_absolute_url }}"><i class="icon-pencil"></i> {{ topic.user }}</a></p>
                         <a href="{{ topic.get_absolute_url }}#comments" class="pull-right" style="margin-top: -1.1em">
                             <p>
                                 <i class="icon-comments"></i>
@@ -39,7 +39,7 @@
                         </span>
                         <h3><a href="{{ comment.get_absolute_url }}">{{ comment.content_object }}</a></h3>
                         <p>{{ comment.content|truncatewords:35|linebreaksbr }}
-                        <p><a href="{{ comment.user.get_absolute_url }}">{{ comment.user }}</a></p>
+                        <p><a href="{{ comment.user.get_absolute_url }}"><i class="icon-pencil"></i> {{ comment.user }}</a></p>
                     </li>
                     {% endfor %}
                 </ul>

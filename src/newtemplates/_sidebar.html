@@ -1,0 +1,82 @@
+<aside class="widget">{% load i18n claims_tags staticfiles %}
+    <h5 class="short_headline"><span>{% trans 'Found misprint?' %}</span></h5>
+    <p>
+        {% trans 'Select it with the mouse and hit' %}<br>
+        <strong>Ctrl - Enter</strong>
+    </p>
+    {% claims_statistic %}
+</aside>
+
+<aside class="widget">
+    <h5 class="short_headline"><span>{% trans 'Source code' %}</span></h5>
+    <ul class="navigation">
+        <li>
+            <a href="https://github.com/Alerion/django_documentation/">{% trans "Documentation translation" %}</a>
+        </li>
+        <li>
+            <a href="https://github.com/RaD/djbookru/">{% trans "Our site" %}</a>
+        </li>
+        <li>
+            <a href="https://github.com/django">Django</a>
+        </li>
+    </ul>
+</aside>
+
+<aside class="widget">
+    <h5 class="short_headline"><span>Ускорить перевод</span></h5>
+    {% if not settings.DEBUG %}
+      <table cellpadding="0" cellspacing="0" border="0" style="width: 116px; font: 0.8em Arial, sans-serif; border: 0px;">
+        <tr>
+          <td style="padding: 0px; width: 116px; height: 77px; vertical-align: bottom; border: none; background:url(http://www.yandex.ru/redir?dtype=stred&pid=41&cid=132&url=https://img.yandex.net/i/money/top-1rub-default.gif) repeat-y; text-align:center" align="center" valign="bottom">
+        <form style="margin: 0; padding: 0 0 2px;" action="https://money.yandex.ru/donate.xml" method="post">
+          <input type="hidden" name="to" value="41001223475816"/>
+          <input type="hidden" name="s5" value="1rub"/>
+          <input type="submit" value="Дай рубль"/>
+        </form>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 0px; border: none; width: 116px; height: 38px; background:url(https://img.yandex.net/i/money/bg-default.gif) repeat-y; text-align:center; padding: 5px 0; color: black;" align="center" valign="top">
+            <b>на поддержку <br>перевода</b>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 0px; border: none;">
+        <img src="https://img.yandex.net/i/money/bottom-default.gif" style="width: 116px; height: 40px" alt="" usemap="#button" border="0" />
+        <map name="button">
+          <area alt="Яндекс" coords="38,2,49,21" href="http://www.yandex.ru"/>
+          <area alt="Яндекс.Деньги" coords="52,1,84,28" href="https://money.yandex.ru"/>
+          <area alt="Хочу такую же кнопку" coords="17,29,100,40" href="https://money.yandex.ru/choose-banner.xml"/>
+        </map>
+          </td>
+        </tr>
+      </table>
+    {% endif %}
+    <p>ЯМ:41001223475816</p>
+</aside>
+
+<aside class="widget">
+    <h5 class="short_headline"><span>{% trans 'useful links' %}</span></h5>
+    <ul class="navigation">
+        <li>
+            <a href="http://groups.google.ru/group/django-russian?hl=ru">{% trans "Русская группа на Google" %}</a>
+        </li>
+        <li>
+            <a href="{{ DJANGO_DOCUMENTATION_URL }}">{% trans "Документации  Django на русском" %}</a>
+        </li>
+        <li>
+            <a href="https://www.djangopackages.com/">Django Packages</a>
+        </li>
+    </ul>
+</aside>
+
+<aside class="widget">
+    <h5 class="short_headline"><span>{% trans "Add yourself on map!" %}</span></h5>
+    <a href="{% url accounts:map %}"><img src="{% static 'img/map.png' %}"/></a>
+</aside>
+
+<aside class="widget">
+    <h5 class="short_headline"><span>Для перевода</span></h5>
+    <p>Редактор ресурсов Gettext<br>для Android</p>
+    <a href="https://play.google.com/store/apps/details?id=ru.securelayer.rad.ando"><img src="{% static "img/ando-qr.png" %}" title="Скачать редактор ресурсов Gettext для устройства под управлением Android"/></a>
+</aside>

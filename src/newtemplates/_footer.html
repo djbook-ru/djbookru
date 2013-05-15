@@ -1,92 +1,29 @@
+{% load i18n %}
 <!--begin footer -->
 <footer id="footer" class="clearfix">
-    <div class="container"><!--footer container-->
-
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="twitter flexslider clearfix">
-                    <p class="icon-twitter"></p>
-                    <ul id="twitter_update_list" class="slides">
-                    </ul>
-                </div>
-                <!-- end twitter flexslider clearfix-->
-            </div>
-            <!--close span12-->
-        </div>
-        <!--close row-fluid-->
-
-        <div class="row-fluid">
-            <div class="span4">
-                <section>
-                    <h4>Contact Us</h4>
-                    <p>Crisp Creative<br>
-                        1255 Nowhere Street<br>
-                        Tampa, FL 33655<br>
-                        <strong>phone:</strong> <a href="tel:8135551234" class="tele">813.555.1234</a><br>
-                        <strong>fax:</strong> 813.555.1235<br>
-                        <strong>email:</strong> <a href="mailto:email@domain.com">crisp@companydomain.com</a> </p>
-                </section>
-                <!--close section-->
-
-                <section>
-                    <h4>Follow Us</h4>
-                    <ul class="social">
-                        <li><a class="socicon rss" href="#" title="RSS"></a></li>
-                        <li><a class="socicon facebook" href="#" title="Facebook"></a></li>
-                        <li><a class="socicon twitterbird" href="#" title="Twitter"></a></li>
-                        <li><a class="socicon linkedin" href="#" title="LinkedIn"></a></li>
-                        <li><a class="socicon dribbble" href="#" title="dribble"></a></li>
-                        <li><a class="socicon vimeo" href="#" title="Vimeo"></a></li>
-                    </ul>
-                </section>
-                <!--close section-->
-            </div>
-            <!-- close .span4 -->
-
-            <!--section containing newsletter signup and recent images-->
-            <div class="span4">
-                <section>
-                    <h4>Stay Updated</h4>
-                    <p>Sign up for our crispy newsletter. We won't share your email address.</p>
-                    <form action="yourscript.php" method="post">
-                        <div class="input-append">
-                            <input type="email" placeholder="Email Address" class="span6" name="email" />
-                            <button class="btn btn-primary">Sign Up</button>
-                        </div>
-                        <!--close input-append-->
-                    </form>
-                </section>
-                <!--close section-->
-            </div>
-            <!-- close .span4 -->
-
-            <!--section containing blog posts-->
-            <div class="span4">
-                <section>
-                    <h4>Latest Blog Posts</h4>
-                    <ul class="footerPosts">
-                        <li><a href="blog-single.html">We will amplify our power to benchmark</a> <span class="meta">December 10, 2012</span> </li>
-                        <li><a href="blog-single.html">Crisp has revolutionized the conceptualization of structuring</a> <span class="meta">September 10, 2012</span> </li>
-                        <li><a href="blog-single.html">A company that can implement correctly</a> <span class="meta">September 10, 2012</span> </li>
-                        <li><a href="blog-single.html">Claritas est etiam processus dynamicus</a> <span class="meta">September 10, 2012</span> </li>
-                        <li><a href="blog-single.html">It is stunning to you!</a> <span class="meta">September 10, 2012</span> </li>
-                        <li><a href="blog-single.html">We will increase our aptitude to evolve </a> <span class="meta">November 15, 2012</span> </li>
-                    </ul>
-                </section>
-            </div>
-            <!-- close .span4 -->
-        </div>
-        <!-- close .row-fluid-->
-    </div>
-    <!-- close footer .container-->
-
     <!--change this to your stuff-->
     <section class="footerCredits">
         <div class="container">
             <ul class="clearfix">
-                <li>© 2012 Your Company Name. All rights reserved.</li>
-                <li><a href="sitemap.html">Site Map</a></li>
-                <li><a href="privacy.html">Privacy</a></li>
+                <li>&copy; 2008-{% now "Y" %} &nbsp;&nbsp; Ruslan Popov @ gmail.com &nbsp;&nbsp; Dmitriy Kostochko @ gmail.com</li>
+                <li>Powered by <a href="http://djangoproject.com/">Django {{ django_version }}</a></li>
+                <li>
+                    {% if not settings.DEBUG %}
+                    <!--LiveInternet counter--><script type="text/javascript"><!--
+                    document.write("<a href='http://www.liveinternet.ru/click' "+
+                    "target=_blank><img src='//counter.yadro.ru/hit?t52.6;r"+
+                    escape(document.referrer)+((typeof(screen)=="undefined")?"":
+                    ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+                    screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+                    ";"+Math.random()+
+                    "' alt='' title='LiveInternet: показано число просмотров и"+
+                    " посетителей за 24 часа' "+
+                    "border='0' width='88' height='31'><\/a>")
+                    //--></script><!--/LiveInternet-->
+                    {% else %}
+                    <div>Disabled in DEBUG mode</div>
+                    {% endif %}
+                </li>
             </ul>
         </div>
         <!--footerCredits container-->

@@ -86,8 +86,8 @@
     {% block body %}
     <!-- begin accesibility skip to nav skip content -->
     <ul class="visuallyhidden" id="top">
-        <li><a href="#nav" title="Skip to navigation" accesskey="n">Skip to navigation</a></li>
-        <li><a href="#page" title="Skip to content" accesskey="c">Skip to content</a></li>
+        <li><a href="#nav" title="Skip to navigation" accesskey="n">{% trans 'Skip to navigation' %}</a></li>
+        <li><a href="#page" title="Skip to content" accesskey="c">{% trans 'Skip to content' %}</a></li>
     </ul>
     <!-- end /.visuallyhidden accesibility-->
 
@@ -125,12 +125,8 @@
             </form>
         </div>
         <ul class="social">
-            <li><a class="socicon small rss" href="/examples/feed" data-placement="bottom" title="{% trans 'Subscribe to our RSS' %}"></a></li>
-            <li><a class="socicon small facebook" href="#" data-placement="bottom" title="Follow us on Facebook"></a></li>
-            <li><a class="socicon small twitterbird" href="#" data-placement="bottom" title="Follow us on Twitter"></a></li>
-            <li><a class="socicon small linkedin" href="#" data-placement="bottom" title="Follow us on LinkedIn"></a></li>
-            <li><a class="socicon small dribbble" href="#" data-placement="bottom" title="Follow us on dribble"></a></li>
-            <li><a class="socicon small vimeo" href="#" data-placement="bottom" title="Follow us on Vimeo"></a></li>
+            <li><a href="/examples/feed" data-placement="bottom" title="{% trans 'Subscribe to our RSS' %}"><i class="icon-rss icon-large"></i></a></li>
+            <li><a href="https://github.com/Alerion/django_documentation/" data-placement="bottom" title="{% trans 'Documentation translation' %}"><i class="icon-github icon-large"></i></a></li>
         </ul>
     </section>
 

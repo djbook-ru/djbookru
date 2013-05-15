@@ -12,7 +12,7 @@
             <time class="published" datetime="{{ item.submit_date|date:'DATETIME_FORMAT' }}">{{ item.submit_date|date:'DATE_FORMAT' }}</time>
             | <a class="permalink" href="{{ item.reply_to.get_absolute_url }}"">{% trans 'Permalink' %}</a>
             {% if user.is_authenticated %}
-            | <a class="comment-reply-link reply" href="#" comment_id="{{ item.id }}">{% trans 'Reply' %}</a>
+            | <a class="comment-reply-link reply" href="#" comment_id="{{ item.id }}">{% trans 'Answer' %}</a>
             {% else %}
             | <a class="comment-reply-link reply" href="{% url accounts:login %}?next={{ next_page }}">{% trans 'Reply' %}</a>
             {% endif %}

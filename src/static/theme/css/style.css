@@ -1076,7 +1076,7 @@ a.thumbnail:hover {
 }
 .social li {
     display: inline-block;
-    padding:0 7px 0 7px;
+    padding:0 3px 0 3px;
     *padding:0;
     *display: inline;
     *zoom: 1;

@@ -112,6 +112,7 @@ nav.user a:hover {color:#138358;}
 	margin-right:0;
 	position:relative;
 	padding-right:20px;
+    margin-top: -5px;
 }
 .lt-ie9 .preheader .social  {
 	margin-right:0;
