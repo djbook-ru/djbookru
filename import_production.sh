@@ -9,6 +9,4 @@ python manage.py dbshell << EOF
 \. ./tmp/dump.sql
 EOF
 
-rm -f ./tmp/dump.sql
-
 exit 0
