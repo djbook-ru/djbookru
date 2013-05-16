@@ -2,13 +2,13 @@
 
 from django.contrib import admin
 from django.forms import ModelForm
-
+from ordered_model.admin import OrderedModelAdmin
 from .. utils.admin import LogModelAdmin
 from . import models
 
 
-class CategoryAdmin(admin.ModelAdmin):
-    pass
+class CategoryAdmin(OrderedModelAdmin):
+    list_display = ('name', 'move_up_down_links')
 
 
 class ExampleForm(ModelForm):

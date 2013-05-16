@@ -4,13 +4,14 @@ from django.db import models, transaction
 from django.utils.translation import ugettext_lazy as _
 from src.djangobb_forum.models import Topic
 from .. accounts.models import User
+from ordered_model.models import OrderedModel
 
 
-class Category(models.Model):
+class Category(OrderedModel):
     name = models.CharField(_(u'name'), max_length=255)
 
     class Meta:
-        ordering = ['name']
+        ordering = ('order',)
         verbose_name = _(u'Category')
         verbose_name_plural = _(u'Categories')
 
