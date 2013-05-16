@@ -47,6 +47,10 @@ nav.user a:hover {color:#138358;}
 	font-style:italic
 }
 
+.header .tagline a {
+    text-decoration: none;
+}
+
 /* header / preheader / menu
 ================================================== */
 .header .container {

@@ -127,7 +127,7 @@ body {
 body, html, a { color: #174615 }
 h1, h2, h3, h4, h5, h6, .slide-to-top .trigger { color: #356635 }
 h1 a, h2 a, h3 a, h5 a, h4 a { color: inherit }
-h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, .slide-to-top .trigger:hover { color: #0290b3 }
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, .slide-to-top .trigger:hover { color: #479fb4 }
 
 /* Font Selection
 ================================================== */

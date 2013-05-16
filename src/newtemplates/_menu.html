@@ -7,7 +7,7 @@
             <!-- begin #main_menu -->
             <nav id="main_menu">
                 <ul class="accordmobile">
-                    <li><a href="{{ DJANGO_DOCUMENTATION_URL }}">Документация Django</a></li>
+                    <li><a href="{{ DJANGO_DOCUMENTATION_URL }}">Документация</a></li>
                     <li><a href="{% url news:index %}" >{% trans 'News' %}</a></li>
                     <li><a href="{% url videos:index %}" >{% trans 'Videos' %}</a></li>
                     <li><a href="{% url djangobb:index %}" >{% trans 'Forum' %}</a></li>
@@ -49,7 +49,7 @@
             {% endif %}
         </div>
         <!-- end #logo -->
-        <h4 class="tagline">Django на русском, йопт.</h4>
+        <h4 class="tagline"><a href="{{ DJANGO_DOCUMENTATION_URL }}">Документация Django на русском</a></h4>
     </div>
     <!-- close / .container-->
 </header>
