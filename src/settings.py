@@ -281,6 +281,7 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'staging',
     'tagging',
+    'ordered_model',
 
     'src.djangobb_forum',
     'src.forum',
@@ -293,7 +294,8 @@ INSTALLED_APPS = (
     'src.news',
     'src.utils',
     'src.videos',
-    'src.code_review'
+    'src.code_review',
+    'src.links',
 )
 
 

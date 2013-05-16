@@ -1,0 +1,13 @@
+<aside class="widget">{% load i18n %}
+    <h5 class="short_headline"><span>{% trans 'useful links' %}</span></h5>
+    <ul class="navigation">
+        {% for obj in useful_links %}
+        <li>
+            <a href="{{ obj.get_absolute_url }}">{{ obj }}</a>
+        </li>
+        {% endfor %}
+        <li>
+            <a href="{{ DJANGO_DOCUMENTATION_URL }}">{% trans "Документации Django на русском" %}</a>
+        </li>
+    </ul>
+</aside>

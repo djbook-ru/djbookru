@@ -1,4 +1,4 @@
-<aside class="widget">{% load i18n claims_tags staticfiles %}
+<aside class="widget">{% load i18n claims_tags staticfiles links_tags %}
     <h5 class="short_headline"><span>{% trans 'Found misprint?' %}</span></h5>
     <p>
         {% trans 'Select it with the mouse and hit' %}<br>
@@ -55,20 +55,7 @@
     <p>ЯМ:41001223475816</p>
 </aside>
 
-<aside class="widget">
-    <h5 class="short_headline"><span>{% trans 'useful links' %}</span></h5>
-    <ul class="navigation">
-        <li>
-            <a href="http://groups.google.ru/group/django-russian?hl=ru">{% trans "Русская группа на Google" %}</a>
-        </li>
-        <li>
-            <a href="{{ DJANGO_DOCUMENTATION_URL }}">{% trans "Документации  Django на русском" %}</a>
-        </li>
-        <li>
-            <a href="https://www.djangopackages.com/">Django Packages</a>
-        </li>
-    </ul>
-</aside>
+{% useful_links %}
 
 <aside class="widget">
     <h5 class="short_headline"><span>{% trans "Add yourself on map!" %}</span></h5>
