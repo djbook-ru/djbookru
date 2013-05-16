@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-15 16:01+0300\n"
+"POT-Creation-Date: 2013-05-16 13:49+0300\n"
 "PO-Revision-Date: 2012-08-31 15:47+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -50,39 +50,29 @@ msgstr "дата отправки"
 msgid "Comments"
 msgstr "Комментарии"
 
-#: templates/comments/_display_item.html:9 templates/comments/_item.html:9
-#: templates/comments/last_comments.html:14
-msgid "ago"
-msgstr "прошло"
+#~ msgid "ago"
+#~ msgstr "прошло"
 
-#: templates/comments/_display_item.html:23
-msgid "View comment"
-msgstr "Просмотреть комментарий"
+#~ msgid "View comment"
+#~ msgstr "Просмотреть комментарий"
 
-#: templates/comments/_display_item.html:26 templates/comments/_item.html:35
-msgid "answer to"
-msgstr "ответить"
+#~ msgid "answer to"
+#~ msgstr "ответить"
 
-#: templates/comments/_item.html:24 templates/comments/_item.html.py:28
-msgid "Answer"
-msgstr "Ответить"
+#~ msgid "Answer"
+#~ msgstr "Ответить"
 
-#: templates/comments/_item.html:32
-msgid "Link"
-msgstr "Ссылка"
+#~ msgid "Link"
+#~ msgstr "Ссылка"
 
-#: templates/comments/form.html:14
-msgid "Post"
-msgstr "Пост"
+#~ msgid "Post"
+#~ msgstr "Пост"
 
-#: templates/comments/form.html:44
-msgid "Enter comment please."
-msgstr "Введите комментарий, пожалуйста."
+#~ msgid "Enter comment please."
+#~ msgstr "Введите комментарий, пожалуйста."
 
-#: templates/comments/form.html:56
-msgid "Answering to: "
-msgstr "Ответ для:"
+#~ msgid "Answering to: "
+#~ msgstr "Ответ для:"
 
-#: templates/comments/form.html:64
-msgid "Login please to post comment"
-msgstr "Пожалуйста, войдите для отправки комментария"
+#~ msgid "Login please to post comment"
+#~ msgstr "Пожалуйста, войдите для отправки комментария"

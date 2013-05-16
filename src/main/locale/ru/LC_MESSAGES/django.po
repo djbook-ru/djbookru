@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-15 16:01+0300\n"
+"POT-Creation-Date: 2013-05-16 13:49+0300\n"
 "PO-Revision-Date: 2012-08-31 15:59+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -45,7 +45,7 @@ msgstr "Хочу zip архив"
 msgid "All"
 msgstr "Все"
 
-#: forms.py:129 templates/main/_random_recipes.html:2
+#: forms.py:129
 msgid "Recipes"
 msgstr "Рецепты"
 
@@ -117,42 +117,33 @@ msgstr "Страница"
 msgid "Pages"
 msgstr "Страницы"
 
-#: views.py:64
+#: views.py:66
 msgid "Feedback sent success!"
 msgstr "Отзыв успешно отправлен!"
 
-#: templates/main/_random_forum_topics.html:2
-msgid "From forum"
-msgstr "Форум"
+#~ msgid "From forum"
+#~ msgstr "Форум"
 
-#: templates/main/_toc.html:3
-msgid "Table of contents"
-msgstr "Содержание"
+#~ msgid "Table of contents"
+#~ msgstr "Содержание"
 
-#: templates/main/_user_counter.html:3
-msgid "Users number"
-msgstr "Количество пользователей"
+#~ msgid "Users number"
+#~ msgstr "Количество пользователей"
 
-#: templates/main/feedback.html:5
-msgid "Feedback"
-msgstr "Обратная связь"
+#~ msgid "Feedback"
+#~ msgstr "Обратная связь"
 
-#: templates/main/feedback.html:8
-msgid "You can send message to us"
-msgstr "Вы можете отправить нам сообщение"
+#~ msgid "You can send message to us"
+#~ msgstr "Вы можете отправить нам сообщение"
 
-#: templates/main/feedback.html:11
-msgid "We are glad to hear your questions, comments or suggestions!"
-msgstr "Мы рады получить ваши вопросы, комментарии или предложения!"
+#~ msgid "We are glad to hear your questions, comments or suggestions!"
+#~ msgstr "Мы рады получить ваши вопросы, комментарии или предложения!"
 
-#: templates/main/feedback.html:20
-msgid "Send"
-msgstr "Отправить"
+#~ msgid "Send"
+#~ msgstr "Отправить"
 
-#: templates/main/search.html:5 templates/main/search.html.py:12
-msgid "Search"
-msgstr "Поиск"
+#~ msgid "Search"
+#~ msgstr "Поиск"
 
-#: templates/main/search.html:24
-msgid "No search results"
-msgstr "Ничего не найдено"
+#~ msgid "No search results"
+#~ msgstr "Ничего не найдено"
