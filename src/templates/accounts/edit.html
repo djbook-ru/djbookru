@@ -1,6 +1,6 @@
 {% extends 'accounts/base.html' %}
 
-{% load i18n thumbnail bootstrap accounts_tags %}
+{% load i18n thumbnail bootstrap accounts_tags components %}
 
 {% block title %}{% trans 'Edit Profile' %} | {{ block.super }}{% endblock %}
 
@@ -10,12 +10,12 @@
 
     {% for backend in social_auth.associated %}
         <a href="{% url socialauth_disconnect backend.provider %}?next={{ request.path_info|urlencode }}" class="btn btn-success" title="{% trans 'Disconnect account' %}">
-            {{ backend.provider.title }}
+            {{ backend.provider.title|fix_auth_backend_name }}
         </a>
     {% endfor %}
     {% for backend in social_auth.not_associated %}
         <a href="{% url socialauth_begin backend %}?next={{ request.path_info|urlencode }}" class="btn btn-info" title="{% trans 'Connect account' %}">
-            {{ backend.title }}
+            {{ backend.title|fix_auth_backend_name }}
         </a>
     {% endfor %}
 </div>

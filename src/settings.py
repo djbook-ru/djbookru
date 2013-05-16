@@ -326,10 +326,16 @@ SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.social.load_extra_data',
 )
 OPENID_REDIRECT_NEXT = '/socialauth/openid/done/'
-GITHUB_APP_ID = 'see production settings'
-GITHUB_API_SECRET = 'see production settings'
+
+GITHUB_APP_ID = ''
+GITHUB_API_SECRET = ''
+GITHUB_EXTENDED_PERMISSIONS = ['email']
+
+GOOGLE_OAUTH2_CLIENT_ID = ''
+GOOGLE_OAUTH2_CLIENT_SECRET = ''
+
 AUTHENTICATION_BACKENDS += (
-    'social_auth.backends.google.GoogleBackend',
+    'social_auth.backends.google.GoogleOAuth2Backend',
     'social_auth.backends.contrib.github.GithubBackend',
     'social_auth.backends.contrib.yandex.YandexBackend',
 )
@@ -342,7 +348,8 @@ INSTALLED_APPS = (
     'admin_tools.theming',
     'admin_tools.menu',
     'admin_tools.dashboard',
-    ) + INSTALLED_APPS
+) + INSTALLED_APPS
+
 ADMIN_TOOLS_INDEX_DASHBOARD = 'src.dashboard.CustomIndexDashboard'
 ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'src.dashboard.CustomAppIndexDashboard'
 ADMIN_TOOLS_MENU = 'src.menu.CustomMenu'

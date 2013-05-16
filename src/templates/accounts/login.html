@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load staticfiles i18n bootstrap %}
+{% load staticfiles i18n bootstrap components %}
 {% load url from future %}
 
 {% block page %}
@@ -47,7 +47,7 @@
                             {% for backend in social_auth.backends %}
                                 <li>
                                     <a class="btn" style="width: 160px" href="{% url 'socialauth_begin' backend %}?next={{ next }}">
-                                        {% trans 'Sign in with' %} {{ backend.title }}
+                                        {% trans 'Sign in with' %} {{ backend.title|fix_auth_backend_name }}
                                     </a>
                                 </li>
                             {% endfor %}

@@ -5,7 +5,7 @@ import random
 from datetime import timedelta
 
 from django.conf import settings
-from django.contrib.auth.models import UserManager, User as BaseUser
+from django.contrib.auth.models import UserManager as BaseUserManager, User as BaseUser
 from django.contrib.sites.models import Site
 from django.core.urlresolvers import reverse
 from django.db import models
@@ -20,6 +20,26 @@ EMAIL_CONFIRMATION_DAYS = getattr(settings, 'EMAIL_CONFIRMATION_DAYS', 3)
 
 BaseUser._meta.get_field('email')._unique = True
 BaseUser._meta.get_field('email').blank = False
+
+
+class UserManager(BaseUserManager):
+
+    def create_user(self, username, email=None, password=None, force_email_valid=False):
+        """
+        Creates and saves a User with the given username, email and password.
+        """
+        now = timezone.now()
+        if not username:
+            raise ValueError('The given username must be set')
+        email = UserManager.normalize_email(email)
+        user = self.model(username=username, email=email,
+                          is_staff=False, is_active=True, is_superuser=False,
+                          last_login=now, date_joined=now)
+
+        user.set_password(password)
+        user.is_valid_email = True
+        user.save(using=self._db, send_email_confirmation=False)
+        return user
 
 
 class User(BaseUser):
