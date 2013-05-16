@@ -30,7 +30,7 @@
                 <div class="login-wrapper clearfix">
                     {% if not user.is_authenticated %}
                     <div class="float-right">
-                        <form id="login-form" action="." method="post" novalidate="novalidate">
+                        <form id="login-form" method="post" novalidate="novalidate">
                             {% csrf_token %}
                             {{ form|bootstrap }}
                             <div class="form-controls">
