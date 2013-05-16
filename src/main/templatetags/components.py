@@ -132,3 +132,10 @@ def pretty_date(date_obj, extra_class=''):
 def search_model_name(result_item):
     model_pk = ContentType.objects.get_for_model(result_item.model).pk
     return dict(SearchForm.CONTENT_CHOICES)[model_pk]
+
+
+@register.filter
+def fix_auth_backend_name(name):
+    if name == 'Google-Oauth2':
+        return 'Google'
+    return name
