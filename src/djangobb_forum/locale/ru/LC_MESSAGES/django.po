@@ -2,14 +2,14 @@
 # Copyright (C) 2010 DjangoBB
 # This file is distributed under the same license as the djbookru package.
 # Unknown <unknown@gmail.com>, 2010.
-# slav0nic <slav0nic0@gmail.com>, 2012.
+# slav0nic <slav0nic0@gmail.com>, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: DjangoBB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-16 13:49+0300\n"
-"PO-Revision-Date: 2012-11-02 10:07+0400\n"
+"POT-Creation-Date: 2013-05-16 23:03+0400\n"
+"PO-Revision-Date: 2013-05-16 23:08+0400\n"
 "Last-Translator: slav0nic <slav0nic0@gmail.com>\n"
 "Language-Team: RU <ru@li.org>\n"
 "Language: ru\n"
@@ -266,7 +266,7 @@ msgstr "Сообщение"
 
 #: models.py:247
 msgid "From"
-msgstr "От"
+msgstr "Из"
 
 #: models.py:248
 msgid "To"

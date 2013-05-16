@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-16 13:49+0300\n"
+"POT-Creation-Date: 2013-05-16 23:03+0400\n"
 "PO-Revision-Date: 2012-08-17 15:31+0300\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -64,31 +64,31 @@ msgstr ""
 "\n"
 "Пожалуйста, проверьте и подтвердите его. URL: %(link)s"
 
-#: models.py:10
+#: models.py:11
 msgid "name"
 msgstr "имя"
 
-#: models.py:14
+#: models.py:15
 msgid "Category"
 msgstr "Категория"
 
-#: models.py:15
+#: models.py:16
 msgid "Categories"
 msgstr "Категории"
 
-#: models.py:33
+#: models.py:34
 msgid "category"
 msgstr "категория"
 
-#: models.py:34
+#: models.py:35
 msgid "title"
 msgstr "тема"
 
-#: models.py:35
+#: models.py:36
 msgid "content"
 msgstr "содержимое"
 
-#: models.py:35
+#: models.py:36
 msgid ""
 "Use <a target=\"blank\" href=\"http://daringfireball.net/projects/markdown/"
 "syntax\">Markdown</a> and HTML"
@@ -96,39 +96,39 @@ msgstr ""
 "Используйте <a target=\"blank\" href=\"http://daringfireball.net/projects/"
 "markdown/syntax\">Markdown</a> и HTML"
 
-#: models.py:36
+#: models.py:37
 msgid "created"
 msgstr "создано"
 
-#: models.py:38
+#: models.py:39
 msgid "approved"
 msgstr "разрешено"
 
-#: models.py:38
+#: models.py:39
 msgid "Can be used for draft"
 msgstr "Может быть использовано для черновиков"
 
-#: models.py:39
+#: models.py:40
 msgid "note"
 msgstr "заметка"
 
-#: models.py:39
+#: models.py:40
 msgid "author's note, is not visible on site"
 msgstr "авторская заметка, не отображается на сайте"
 
-#: models.py:40
+#: models.py:41
 msgid "URL"
 msgstr "URL"
 
-#: models.py:41
+#: models.py:42
 msgid "Topic ID"
 msgstr "Идентификатор темы"
 
-#: models.py:44 models.py:90
+#: models.py:45 models.py:91
 msgid "Example"
 msgstr "Пример"
 
-#: models.py:45
+#: models.py:46
 msgid "Examples"
 msgstr "Примеры"
 

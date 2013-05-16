@@ -1,14 +1,14 @@
 # Copyright (C) 2010-2011 Ruslan Popov
 # This file is distributed under the same license as the translation package.
 # Ruslan Popov <ruslan.popov@gmail.com>, 2010.
-# Ruslan Popob <ruslan.popov@gmail.com>, 2011, 2012.
+# Ruslan Popob <ruslan.popov@gmail.com>, 2011, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-16 13:49+0300\n"
-"PO-Revision-Date: 2012-08-31 15:59+0400\n"
+"POT-Creation-Date: 2013-05-16 23:03+0400\n"
+"PO-Revision-Date: 2013-05-16 23:05+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -19,17 +19,14 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #: forms.py:24
-#, fuzzy
 msgid "Email"
 msgstr "е-почта"
 
 #: forms.py:25
-#, fuzzy
 msgid "Message"
 msgstr "сообщение"
 
 #: forms.py:27
-#, fuzzy
 msgid "Captcha"
 msgstr "капча"
 
