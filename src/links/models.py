@@ -33,3 +33,19 @@ class SourceCode(OrderedModel):
 
     def get_absolute_url(self):
         return self.url
+
+
+class Archive(OrderedModel):
+    url = models.URLField(u'URL')
+    name = models.CharField(_(u'name'), max_length=250)
+
+    class Meta:
+        verbose_name = _(u'archive link')
+        verbose_name_plural = _(u'archive links')
+        ordering = ('order',)
+
+    def __unicode__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return self.url

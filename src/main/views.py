@@ -8,9 +8,10 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import ObjectDoesNotExist
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import redirect
-from django.utils.translation import ugettext_lazy as _
-from django.views.generic.list_detail import object_list
 from django.utils import translation
+from django.utils.translation import ugettext_lazy as _
+from django.views.generic.base import RedirectView
+from django.views.generic.list_detail import object_list
 
 from .. decorators import render_to
 
@@ -94,3 +95,9 @@ def lang(request, code):
             response.set_cookie(settings.LANGUAGE_COOKIE_NAME, code)
         translation.activate(code)
     return response
+
+
+class BookRedirectView(RedirectView):
+    url = '/%(slug)s.html'
+
+book_redirect = BookRedirectView.as_view()

@@ -1,0 +1,14 @@
+{% load i18n %}
+<aside class="widget clearfix">
+    <h5 class="short_headline"><span>{% trans 'Table of contents' %}</span></h5>
+    <ul class="navigation">
+    {% for c in toc.chapters %}
+        <li><a href="{{c.0}}">{{ c.1 }}</a></li>
+        {% ifequal c.0 toc.chapter_url %}
+            {% for s in toc.sections %}
+                <li><a href="{{s.0}}">{{ s.1 }}</a></li>
+            {% endfor %}
+        {% endifequal %}
+    {% endfor %}
+    </ul>
+</aside>
