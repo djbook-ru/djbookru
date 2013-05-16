@@ -1,0 +1,10 @@
+<aside class="widget">{% load i18n %}
+    <h5 class="short_headline"><span>{% trans 'source code' %}</span></h5>
+    <ul class="navigation">
+        {% for obj in source_codes %}
+        <li>
+            <a href="{{ obj.get_absolute_url }}">{{ obj }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</aside>

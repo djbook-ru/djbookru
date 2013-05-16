@@ -10,7 +10,7 @@ class Migration(DataMigration):
     def forwards(self, orm):
         "Write your forwards methods here."
         orm.UsefulLink(url=u'http://groups.google.ru/group/django-russian', name=u'Русская группа на Google', order=1).save()
-        orm.UsefulLink(url=u'https://www.djangopackages.com/', name=u'Django Packages', order=3).save()
+        orm.UsefulLink(url=u'https://www.djangopackages.com/', name=u'Django Packages', order=2).save()
 
     def backwards(self, orm):
         "Write your backwards methods here."
