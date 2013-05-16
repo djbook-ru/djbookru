@@ -10,7 +10,7 @@
                 <ul class="blogposts clearfix">
                     {% for topic in last_forum_topics|slice:":5" %}
                     <li>
-                        <span class="date">
+                        <span class="date" title="{{ topic.updated }}">
                             <span class="month">{{ topic.updated|date:"b" }}</span>
                             <span class="day">{{ topic.updated|date:"j" }}</span>
                             <span class="year">{{ topic.updated|date:"Y" }}</span>

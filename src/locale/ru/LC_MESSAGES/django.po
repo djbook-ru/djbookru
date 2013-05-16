@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-16 23:10+0400\n"
-"PO-Revision-Date: 2013-05-16 23:29+0400\n"
+"POT-Creation-Date: 2013-05-16 23:49+0400\n"
+"PO-Revision-Date: 2013-05-16 23:50+0400\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -118,7 +118,7 @@ msgstr ""
 msgid "Advanced options"
 msgstr "Дополнительные возможности"
 
-#: settings.py:398
+#: settings.py:405
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
 
@@ -213,134 +213,134 @@ msgstr ""
 msgid "Password reset on %s"
 msgstr "Сброшен пароль для %s"
 
-#: accounts/models.py:26
+#: accounts/models.py:46
 msgid "biography"
 msgstr "биография"
 
-#: accounts/models.py:27
+#: accounts/models.py:47
 msgid "homepage"
 msgstr "домашняя страница"
 
-#: accounts/models.py:28
+#: accounts/models.py:48
 msgid "is valid email?"
 msgstr "почта верна?"
 
-#: accounts/models.py:29 accounts/models.py:150
+#: accounts/models.py:49 accounts/models.py:170
 msgid "achievements"
 msgstr "Достижения"
 
-#: accounts/models.py:30
+#: accounts/models.py:50
 msgid "forum signature"
 msgstr "подпись на форуме"
 
-#: accounts/models.py:32
+#: accounts/models.py:52
 msgid "longitude"
 msgstr "долгота"
 
-#: accounts/models.py:33
+#: accounts/models.py:53
 msgid "latitude"
 msgstr "широта"
 
-#: accounts/models.py:36
+#: accounts/models.py:56
 msgid "last comments read"
 msgstr "Последний просмотр комментариев"
 
-#: accounts/models.py:37
+#: accounts/models.py:57
 msgid "last doc. comments read"
 msgstr "Последний просмотр комментариев к документации"
 
-#: accounts/models.py:42 djangobb_forum/models.py:125
+#: accounts/models.py:62 djangobb_forum/models.py:125
 #: djangobb_forum/models.py:180 djangobb_forum/models.py:264
 #: forum/models.py:84 forum/models.py:125
 msgid "User"
 msgstr "Пользователь"
 
-#: accounts/models.py:43
+#: accounts/models.py:63
 msgid "Users"
 msgstr "Пользователи"
 
-#: accounts/models.py:121 code_review/models.py:16 examples/models.py:35
+#: accounts/models.py:141 code_review/models.py:16 examples/models.py:35
 #: news/models.py:10 videos/models.py:11
 msgid "title"
 msgstr "тема"
 
-#: accounts/models.py:122
+#: accounts/models.py:142
 msgid "link"
 msgstr "ссылка"
 
-#: accounts/models.py:123 code_review/models.py:52 doc_comments/models.py:18
+#: accounts/models.py:143 code_review/models.py:52 doc_comments/models.py:18
 #: examples/models.py:36 main/models.py:36 news/models.py:11
 msgid "content"
 msgstr "содержимое"
 
-#: accounts/models.py:123 news/models.py:11
+#: accounts/models.py:143 news/models.py:11
 msgid "Use Markdown and HTML"
 msgstr "Иcпользуйте Markdown или HTML"
 
-#: accounts/models.py:124
+#: accounts/models.py:144
 msgid "is active?"
 msgstr "активно?"
 
-#: accounts/models.py:125 code_review/models.py:21 code_review/models.py:65
+#: accounts/models.py:145 code_review/models.py:21 code_review/models.py:65
 #: examples/models.py:37 main/models.py:10 news/models.py:12
 #: videos/models.py:15
 msgid "created"
 msgstr "создано"
 
-#: accounts/models.py:132 comments/models.py:19
+#: accounts/models.py:152 comments/models.py:19
 msgid "user"
 msgstr "пользователь"
 
-#: accounts/models.py:133 accounts/models.py:149
+#: accounts/models.py:153 accounts/models.py:169
 msgid "achievement"
 msgstr "Достижение"
 
-#: accounts/models.py:134 examples/models.py:40
+#: accounts/models.py:154 examples/models.py:40
 msgid "note"
 msgstr "заметка"
 
-#: accounts/models.py:137
+#: accounts/models.py:157
 msgid "user achievement"
 msgstr "Достижение пользователя"
 
-#: accounts/models.py:138
+#: accounts/models.py:158
 msgid "user achievements"
 msgstr "Достижения пользователя"
 
-#: accounts/models.py:143 examples/models.py:11 links/models.py:8
+#: accounts/models.py:163 examples/models.py:11 links/models.py:8
 #: links/models.py:24 links/models.py:40 main/models.py:9 main/models.py:34
 msgid "name"
 msgstr "имя"
 
-#: accounts/models.py:144 code_review/models.py:17 main/models.py:11
+#: accounts/models.py:164 code_review/models.py:17 main/models.py:11
 msgid "description"
 msgstr "описание"
 
-#: accounts/models.py:145
+#: accounts/models.py:165
 msgid "active icon"
 msgstr "Активная иконка"
 
-#: accounts/models.py:188
+#: accounts/models.py:208
 #, python-format
 msgid "Please confirm your email address for %(site)s"
 msgstr "Пожалуйста, подтвердите адрес вашей электронной почты для %(site)s"
 
-#: accounts/models.py:211
+#: accounts/models.py:231
 msgid "e-mail confirmation"
 msgstr "подтверждение почты"
 
-#: accounts/models.py:212
+#: accounts/models.py:232
 msgid "e-mail confirmations"
 msgstr "подтверждения почты"
 
-#: accounts/social_auth_pipelines.py:22
+#: accounts/social_auth_pipelines.py:29
+#, python-format
 msgid ""
-"This email is already used by other account. If it is your account, login "
+"\"%(email)s\" is already used by other account. If it is your account, login "
 "and connect it on profile edit page."
 msgstr ""
-"Этот электронный адрес используется для другого аккаунта. Если это ваш "
-"аккаунт, войдите и подключите сторонний аккаунт на странице редактирования "
-"профиля."
+"Е-почта \"%(email)s\" используется для другого аккаунта. Если это ваш "
+"аккаунт, войдите и подключите его на странице редактирования профиля."
 
 #: accounts/views.py:53 templates/accounts/map.html:126
 msgid "Authenticate please!"
@@ -2166,9 +2166,8 @@ msgid "No topics"
 msgstr "Тем нет"
 
 #: forum/templates/djforum/topic.html:13
-#, fuzzy
-msgid "Eneter message."
-msgstr "сообщение"
+msgid "Enter message."
+msgstr "Введите сообщение."
 
 #: forum/templates/djforum/topic.html:35 templates/comments/_item.html:15
 msgid "Answer"

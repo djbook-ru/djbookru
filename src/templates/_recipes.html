@@ -12,7 +12,7 @@
                 <ul class="blogposts clearfix">
                     {% for example in obj.examples.all|slice:":4" %}
                     <li>
-                        <span class="date">
+                        <span class="date" title="{{ example.created }}">
                             <span class="month">{{ example.created|date:"b" }}</span>
                             <span class="day">{{ example.created|date:"j" }}</span>
                             <span class="year">{{ example.created|date:"Y" }}</span>
