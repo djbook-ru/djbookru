@@ -1,3 +1,4 @@
+{% if user.is_authenticated %}
 <aside class="widget clearfix">{% load i18n %}{% load url from future %}
     <h5 class="short_headline"><span>{% trans "My profile" %}</span></h5>
     <ul class="navigation">
@@ -15,3 +16,4 @@
         </li>
     </ul>
 </aside>
+{% endif %}
