@@ -17,7 +17,7 @@
                         </span>
                         <h3><a href="{{ topic.get_absolute_url }}">{{ topic }}</a></h3>
                         <p><a href="{{ topic.user.get_absolute_url }}"><i class="icon-pencil"></i> {{ topic.user }}</a></p>
-                        <a href="{{ topic.get_absolute_url }}#comments" class="pull-right" style="margin-top: -1.1em">
+                        <a href="{{ topic.get_absolute_url }}" class="pull-right" style="margin-top: -1.1em">
                             <p>
                                 <i class="icon-comments"></i>
                                 {{ topic.reply_count }}
