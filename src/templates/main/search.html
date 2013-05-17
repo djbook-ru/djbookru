@@ -31,7 +31,7 @@
         <div class="entry-content">
             {{ item.object.search.desc|default:'No description'|markdown|truncatewords_html:25|striptags|linebreaks }}
             <p class="more right">
-                <a class="btn btn-primary" href="{{ item.object.get_absolute_url }}">{% trans 'Read More' %} →</a>
+                <a class="btn" href="{{ item.object.get_absolute_url }}">{% trans 'Read More' %} →</a>
             </p>
         </div>
 

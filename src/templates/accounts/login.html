@@ -15,7 +15,7 @@
                     {% csrf_token %}
                     <div class="input-append">
                         <input type="email" class="span6" required placeholder="{% trans 'Email Address' %}" name="email">
-                        <button class="btn btn-primary">{% trans 'Send' %}</button>
+                        <button class="btn">{% trans 'Send' %}</button>
                     </div>
                     <!--close input-append-->
                 </form>
@@ -34,7 +34,7 @@
                             {% csrf_token %}
                             {{ form|bootstrap }}
                             <div class="form-controls">
-                                <input class="btn btn-primary btn-large" type="submit" name="login" value="{% trans 'Login' %}">
+                                <input class="btn btn-large" type="submit" name="login" value="{% trans 'Login' %}">
                             </div>
 
                         </form>

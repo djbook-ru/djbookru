@@ -17,7 +17,6 @@ nav.user a:hover {color:#138358;}
     position:absolute;
     margin:15px 0 0 0;
     clear:both;
-    background:url(../images/logo.png) no-repeat;
 }
 #logo em {
 	position:absolute;
@@ -442,7 +441,7 @@ body.tall-logo nav.user {margin-left:0;}
     left: 5px;
     height: 40px;
     width: 40px;
-    background: #138358;
+    background: #63905c;
     z-index: 1;
 }
 .mobile_nav a span {
