@@ -11,7 +11,7 @@ admin.autodiscover()
 sites_flatpages_patch()
 
 js_info_dict = {
-    'packages': ('main'),
+    'packages': ('src.main', 'src'),
 }
 
 urlpatterns = patterns('',

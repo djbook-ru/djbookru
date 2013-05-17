@@ -36,17 +36,22 @@
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'img/djangobook-title.png' %}" />
     <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" />
 
+    <script type="text/javascript" src="{% url js_i18n_catalog %}"></script>
     <script src="{% static 'theme/js/jquery.min.js' %}"></script>
     <script src="{% static 'theme/js/modernizr.custom.87724.js' %}"></script>
     <script src="{% static 'js/jquery.form.js' %}"></script>
     <script src="{% static 'js/jquery-spelling.js' %}"></script>
 
     {% block highlightjs %}
-    <script src="{% static 'js/highlight.min.js' %}"></script>
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/github.min.css">
+    <style>
+        pre code {
+            background: none;
+        }
+    </style>
+    <script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
     <script type="text/javascript">
         jQuery(function($){
-            $('[rel=popover]').popover();
-
             hljs.tabReplace = '    ';
             hljs.initHighlightingOnLoad();
         });
@@ -54,6 +59,12 @@
     {% endblock %}
 
     {% block head %}{% endblock %}
+    <script>
+        jQuery(function($){
+            hljs.tabReplace = '    ';
+            hljs.initHighlightingOnLoad();
+        });
+    </script>
     <script type="text/javascript">
       $(document).ready(function() {
           $.ajaxSetup({

@@ -26,6 +26,14 @@
     -moz-border-radius: 4px;
     border-radius: 4px;
 }
+
+.comment_form .help-block a {
+    text-decoration: none;
+}
+
+.comment_form .help-block {
+    margin-bottom: 0px;
+}
 /************/
 
 .error_list {
@@ -127,7 +135,7 @@ body {
 body, html, a { color: #174615 }
 h1, h2, h3, h4, h5, h6, .slide-to-top .trigger { color: #356635 }
 h1 a, h2 a, h3 a, h5 a, h4 a { color: inherit }
-h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, .slide-to-top .trigger:hover { color: #479fb4 }
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, .slide-to-top .trigger:hover { color: #138358 }
 
 /* Font Selection
 ================================================== */
@@ -1253,10 +1261,10 @@ font-size:70%!important;
 	height: 50px;
 	display: block;
 	margin: 0;
-	background:#138358 url(../images/top.png) no-repeat center center;
+	background:#63905c url(../images/top.png) no-repeat center center;
 }
 .backToTop a:hover {
-	background-color:#9bd9e9;
+	background-color:#508249;
 }
 
 /*	PAGES
