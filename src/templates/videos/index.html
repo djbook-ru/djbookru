@@ -7,6 +7,9 @@
     <article class="entry-post">
         <header class="entry-header">
             <h3 class="entry-title">{{ obj }}</h3>
+            <div class="byline">
+                <i class="icon-time"></i> {{ obj.created|date:'DATE_FORMAT' }} &nbsp;&nbsp;
+            </div>
         </header>
 
         <div class="entry-content">
