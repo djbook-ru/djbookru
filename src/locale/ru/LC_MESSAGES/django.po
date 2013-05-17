@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-16 23:49+0400\n"
-"PO-Revision-Date: 2013-05-16 23:50+0400\n"
+"PO-Revision-Date: 2013-05-17 00:24+0400\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -2183,11 +2183,11 @@ msgstr "полезные ссылки"
 
 #: links/models.py:27 templates/links/_source_codes.html:2
 msgid "source code"
-msgstr "исходные код"
+msgstr "исходники"
 
 #: links/models.py:28
 msgid "source codes"
-msgstr "исходные коды"
+msgstr "исходники"
 
 #: links/models.py:43
 msgid "archive link"
@@ -2666,7 +2666,7 @@ msgstr "Мы рады получить ваши вопросы, коммента
 
 #: templates/main/search.html:34 templates/news/index.html:25
 msgid "Read More"
-msgstr "Прочесть больше"
+msgstr "Читать дальше"
 
 #: templates/openid_consumer/signin.html:5
 msgid "Sign in with your OpenID"
