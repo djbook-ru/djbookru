@@ -6,8 +6,8 @@ SRC=${BUILD}/src
 
 mkdir -p ${BUILD}
 
-./po_compile.sh
-cd src; django-admin.py compilemessages; cd -
+#./po_compile.sh
+python manage.py compilemessages
 
 cp -r ./addon ./lib ./reqs ./src ./manage.py ./logs ${BUILD}
 
