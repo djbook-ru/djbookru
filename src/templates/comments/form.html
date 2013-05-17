@@ -1,10 +1,12 @@
 {% load i18n %}
 
+{% load url from future %}
+
 <div id="comment-form">
 {% if form %}
     <h3>{% trans 'Leave a Comment' %}</h3>
     <div class="comment-reply-to"></div>
-    <form method="post" action="{% url comments:post %}" id="comment_form" class="comment_form">
+    <form method="post" action="{% url 'comments:post' %}" id="comment_form" class="comment_form">
         {% csrf_token %}
         {% for field in form %}
             {% if field.is_hidden %}
@@ -13,6 +15,10 @@
         {% endfor %}
         <span class="inputwrapper">
             {{ form.content }}
+            <span class="help-block">
+                {% trans "Django related question ask on" %}
+                <a href="{% url 'djangobb:index' %}">{% trans "our forum" %}</a>
+            </span>
         </span>
         <input type="submit" value="{% trans 'Add Comment' %}" class="btn" name="submit">
     </form>
@@ -63,6 +69,6 @@
     });
     </script>
 {% else %}
-    <a href="{% url accounts:login %}?next={{ next_page }}">{% trans 'Login please to post comment' %}</a>
+    <a href="{% url 'accounts:login' %}?next={{ next_page }}">{% trans 'Login please to post comment' %}</a>
 {% endif %}
 </div>

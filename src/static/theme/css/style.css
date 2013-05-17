@@ -26,6 +26,14 @@
     -moz-border-radius: 4px;
     border-radius: 4px;
 }
+
+.comment_form .help-block a {
+    text-decoration: none;
+}
+
+.comment_form .help-block {
+    margin-bottom: 0px;
+}
 /************/
 
 .error_list {
