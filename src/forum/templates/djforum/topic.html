@@ -32,7 +32,7 @@
             <li class="active">{{ topic }}</li>
         </ul>
 
-        <a href="{% url 'forum:add_post' topic.pk %}" class="pull-right btn btn-small">{% trans "Answer" %}</a>
+        <a href="{% url 'forum:add_post' topic.pk %}" class="pull-right btn btn-small" style="margin-bottom: 5px">{% trans "Answer" %}</a>
 
         {% if is_paginated %}
             {% paginate float='left' %}
@@ -49,7 +49,7 @@
         {% if form %}
         <form action="{% url 'forum:add_post' topic.pk %}" method="post" class="post-form form-horizontal">
             {% csrf_token %}
-            <button type="submit" class="btn btn-primary btn-small">{% trans "Submit" %}</button>
+            <button type="submit" class="btn btn-primary btn-small submit-button">{% trans "Submit" %}</button>
             {{ form.body }}
         </form>
         {% endif %}

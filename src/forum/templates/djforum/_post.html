@@ -2,33 +2,38 @@
 {% load url from future %}
 
 <div id="post-{{ post.pk }}" class="row-fluid post">
-    <div class="author">
-        <a class="date" href="{{ post.get_absolute_url }}"><i class="icon-time"></i> {{ post.created|date:'DATETIME_FORMAT' }}</a><br>
-        <a href="{{ post.user.get_absolute_url }}"><img class="img-polaroid" src="{{ post.user.avatar }}" title="{{ post.user }}" /></a>
-        <a href="{{ post.user.get_absolute_url }}"><i class="icon-pencil"></i> {{ post.user }}</a>
-        <br>{% trans "Posts" %}: {{ post.user.forum_posts.count }}
-    </div>
-    <div class="content">
-        {{ post.get_content }}
+    <table class="table">
+        <tr>
+            <td class="author">
+                <a class="date" href="{{ post.get_absolute_url }}"><i class="icon-time"></i> {{ post.created|date:'DATETIME_FORMAT' }}</a><br>
+                <a href="{{ post.user.get_absolute_url }}"><img class="img-polaroid" src="{{ post.user.avatar }}" title="{{ post.user }}" /></a>
+                <a href="{{ post.user.get_absolute_url }}"><i class="icon-pencil"></i> {{ post.user }}</a>
+                <br>{% trans "Posts" %}: {{ post.user.forum_posts.count }}
+            </td>
+            <td class="content">
+                {{ post.get_content }}
 
-        <div class="clearfix"></div>
-        {% if post.user.signature or post.user.has_achievements %}
-            <hr>
-            {% if post.user.signature %}
-            <div class="signature">{{ post.user.signature }}</div>
-            {% endif %}
-            {% achievements post.user 'forum' %}
-        {% endif %}
-    </div>
-    <div class="clearfix"></div>
-    <div class="author-footer">
-        {% if post.user|online %}
-            <p><strong>{% trans "Online" %}</strong></p>
-        {% endif %}
-    </div>
-    <div class="content-footer">
-        {% if post|can_edit:user %}
-        <a class="pull-right" href="{% url 'forum:edit_post' post.pk %}">{% trans "Edit" %}</a>
-        {% endif %}
-    </div>
+                <div class="clearfix"></div>
+                {% if post.user.signature or post.user.has_achievements %}
+                    <hr>
+                    {% if post.user.signature %}
+                    <div class="signature">{{ post.user.signature|urlize }}</div>
+                    {% endif %}
+                    {% achievements post.user 'forum' %}
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td class="author-footer">
+                {% if post.user|online %}
+                    <p><strong>{% trans "Online" %}</strong></p>
+                {% endif %}
+            </td>
+            <td class="content-footer">
+                {% if post|can_edit:user %}
+                <a class="pull-right" href="{% url 'forum:edit_post' post.pk %}">{% trans "Edit" %}</a>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
 </div>
