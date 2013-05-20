@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-20 11:31+0300\n"
-"PO-Revision-Date: 2013-05-20 11:38+0300\n"
+"POT-Creation-Date: 2013-05-20 11:54+0300\n"
+"PO-Revision-Date: 2013-05-20 11:59+0300\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -58,8 +58,8 @@ msgid "Current password"
 msgstr "Текущий пароль"
 
 #: forms.py:81
-msgid "Ignore if you do not have one yet."
-msgstr "Игнорируйте, если у вас его нет."
+msgid "Ignore if you do not have one yet. We recommend setup password, so you can use it to login, because sometime we broke login via some external service."
+msgstr "Игнорируйте, если у вас еще нет пароля. Советуем создать пароль, чтобы вы могли авторизироваться, используя email/пароль, т.к. мы иногда ломаем авторизацию через внешние сервисы."
 
 #: forms.py:82
 msgid "New password"
@@ -267,6 +267,9 @@ msgstr "Отправлено письмо для подтверждения ад
 #: views.py:186
 msgid "Email with instruction how reset password is sent."
 msgstr "Выслано письмо с инструкцией для сброса вашего пароля."
+
+#~ msgid "Ignore if you do not have one yet."
+#~ msgstr "Игнорируйте, если у вас его нет."
 
 #~ msgid "Notifications"
 #~ msgstr "Уведомения"

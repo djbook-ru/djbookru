@@ -78,7 +78,7 @@ class CreateUserForm(UserCreationForm):
 class UserEditForm(forms.ModelForm):
     current_password = forms.CharField(
         label=_(u'Current password'), widget=forms.PasswordInput, required=False,
-        help_text=_(u'Ignore if you do not have one yet.'))
+        help_text=_(u'Ignore if you do not have one yet. We recommend setup password, so you can use it to login, because sometime we broke login via some external service.'))
     new_password = forms.CharField(label=_(u'New password'), widget=forms.PasswordInput, required=False)
     new_password_verify = forms.CharField(label=_(u'Confirm new password'), widget=forms.PasswordInput,
                                           required=False)
