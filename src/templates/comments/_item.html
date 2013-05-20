@@ -33,9 +33,9 @@
             <p class="replied well">
                 <a href="#comments-{{ item.reply_to.id }}">{% trans 'answer to' %} {{ item.reply_to.user }}</a>
                 <br/>
-                {{ item.reply_to.content|linebreaksbr }}
+                {{ item.reply_to.content|urlize|linebreaksbr }}
             </p>
         {% endif %}
-        <p>{{ item.content|linebreaksbr }}</p>
+        <p>{{ item.content|urlize|linebreaksbr }}</p>
     </div>
 </li>

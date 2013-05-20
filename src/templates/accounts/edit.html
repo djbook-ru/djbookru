@@ -34,3 +34,10 @@
     </form>
 </div>
 {% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script>
+    $('#id_current_password').attr('autocomplete', 'off').val('');
+    </script>
+{% endblock %}

@@ -8,6 +8,7 @@ from django.contrib.auth.models import Group
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe
+from django.utils.html import urlize
 from django.core.urlresolvers import reverse
 import markdown
 
@@ -143,7 +144,7 @@ class Post(models.Model):
         return reverse('forum:topic', args=[self.topic.pk]) + '#post-' + str(self.pk)
 
     def get_content(self):
-        return mark_safe(markdown.markdown(self.body, safe_mode='escape'))
+        return mark_safe(urlize(markdown.markdown(self.body, safe_mode='escape')))
 
     def can_edit(self, user):
         if not self.topic.forum.category.has_access(user):

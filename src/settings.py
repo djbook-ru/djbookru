@@ -4,6 +4,8 @@ import os
 import sys
 import glob
 
+gettext_noop = lambda s: s
+
 
 def rel_project(*x):
     return os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
@@ -56,12 +58,12 @@ USE_TZ = True
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'ru-RU'
-# If you set this to False, Django will make some optimizations so as not
-# to load the internationalization machinery.
+LANGUAGES = (
+    ('ru', gettext_noop('Russian')),
+    ('en', gettext_noop('English')),
+)
 USE_I18N = True
-# If you set this to False, Django will not format dates, numbers and
-# calendars according to the current locale.
-USE_L10N = True
+USE_L10N = False
 USE_THOUSAND_SEPARATOR = False
 LOCALE_PATHS = (
     rel_project('locale'),

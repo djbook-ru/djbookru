@@ -5,18 +5,18 @@
 
 {% block content %}
     {% for category in categories %}
-    <div class="well">
-        <h4 class="title">{{ category }}</h4>
+    <aside class="widget forum">
+        <h5 class="short_headline"><span>{{ category }}</span></h5>
 
         {% with forums=category.forums.all %}
         {% if forums %}
-        <table class="table table-condensed forums">
+        <table class="table table-bordered table-condensed">
             <thead>
                 <tr>
                     <th></th>
-                    <th class="number-column">{% trans "Topics" %}</th>
-                    <th class="number-column">{% trans "Posts" %}</th>
-                    <th class="last-post">{% trans "Last post" %}</th>
+                    <th class="number-column center smaller">{% trans "Topics" %}</th>
+                    <th class="number-column center smaller">{% trans "Posts" %}</th>
+                    <th class="last-post center">{% trans "Last post" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,13 +28,15 @@
                         <p class="description">{{ forum.description }}</p>
                         {% endif %}
                     </td>
-                    <td>{{ forum.topics_count }}</td>
-                    <td>{{ forum.posts_count }}</td>
-                    <td>
+                    <td class="smaller center">{{ forum.topics_count }}</td>
+                    <td class="smaller center">{{ forum.posts_count }}</td>
+                    <td class="smaller last-post">
                         {% with last_post=forum.last_post %}
                         {% if last_post %}
-                            <a href="{{ last_post.get_absolute_url }}">{{ last_post.created|date:"d.m.Y H:i:s" }}</a><br>
-                            {% trans "by" %} {{ last_post.user }}
+                            <a href="{{ last_post.get_absolute_url }}">
+                                <i class="icon-time"></i> {{ last_post.created|date:'DATETIME_FORMAT' }}
+                            </a><br>
+                            <a href="{{ last_port.user.get_absolute_url }}"><i class="icon-pencil"></i> {{ last_post.user }}</a>
                         {% endif %}
                         {% endwith %}
                     </td>
@@ -44,7 +46,7 @@
         </table>
         {% endif %}
         {% endwith %}
-    </div>
+    </aside>
     {% endfor %}
 
     <div id="brdstats" class="block">

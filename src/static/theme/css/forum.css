@@ -1,0 +1,81 @@
+.widget.forum {
+    margin: 0 0 18px 0;
+}
+
+.forum .breadcrumb {
+    margin: 0 0 10px;
+}
+
+.widget.forum .table th.number-column {
+    width: 70px;
+}
+
+.widget.forum .table th.last-post {
+    width: 20%;
+    font-size: 0.8em;
+}
+
+.widget.forum .table td.smaller,
+.widget.forum .table th.smaller {
+    font-size: 0.9em;
+}
+
+.widget.forum .table td.last-post a {
+    text-decoration: none;
+}
+
+.widget.forum .table td.center,
+.widget.forum .table th.center {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.post {
+    ~border: 1px solid #ddd;
+    margin: 0 0 16px 0;
+    padding: 0px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.post .table {
+    margin: 0;
+}
+
+.post .table td {
+    border: none;
+}
+
+.post .table td {
+    background: none;
+}
+
+.post .table .author, .post .table .author-footer {
+    border-right: 1px solid #ddd;
+    width: 145px;
+    background: url(../images/5p.png);
+}
+
+.post .table .author a, .post .table .content-footer a {
+    text-decoration: none;
+}
+
+.post .table .author, .post .table .content-footer {
+    font-size: 0.85em;
+}
+
+.post .table .content hr {
+    margin: 8px 0;
+}
+
+.post .table .content .signature {
+    font-size: 0.8em;
+    color: #63905c;
+}
+
+.post-form .submit-button {
+    width: 100px;
+    margin: 0 0 -35px 601px;
+}

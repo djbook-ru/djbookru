@@ -10,6 +10,9 @@ if test $# -gt 0; then
 fi
 
 for project in ${PROJECTS}; do
+    cd ${project}
+    django-admin.py compilemessages
+    cd ..
     for app in ${APPS}; do
         if test -d ${project}/${app}; then
             cd ${project}/${app}
