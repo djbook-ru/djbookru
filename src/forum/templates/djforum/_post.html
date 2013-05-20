@@ -17,7 +17,7 @@
                 {% if post.user.signature or post.user.has_achievements %}
                     <hr>
                     {% if post.user.signature %}
-                    <div class="signature">{{ post.user.signature|urlize }}</div>
+                    <div class="signature">{{ post.user.signature|urlize|linebreaksbr }}</div>
                     {% endif %}
                     {% achievements post.user 'forum' %}
                 {% endif %}

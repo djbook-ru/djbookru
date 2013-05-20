@@ -38,9 +38,6 @@
 
     <script type="text/javascript" src="{% url js_i18n_catalog %}"></script>
     <script src="{% static 'theme/js/jquery.min.js' %}"></script>
-    <script src="{% static 'theme/js/modernizr.custom.87724.js' %}"></script>
-    <script src="{% static 'js/jquery.form.js' %}"></script>
-    <script src="{% static 'js/jquery-spelling.js' %}"></script>
 
     {% block highlightjs %}
     <link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/github.min.css">
@@ -59,12 +56,6 @@
     {% endblock %}
 
     {% block head %}{% endblock %}
-    <script>
-        jQuery(function($){
-            hljs.tabReplace = '    ';
-            hljs.initHighlightingOnLoad();
-        });
-    </script>
     <script type="text/javascript">
       $(document).ready(function() {
           $.ajaxSetup({
@@ -190,7 +181,9 @@
     <!-- close #page-->
 
     <!-- JS JQuery ================ -->
+    {% block scripts %}
     <script src="{% static 'theme/js/bootstrap.min.js' %}"></script><!--transitions, tooltips, popover, buttons, modals, alert messages-->
+    <script src="{% static 'theme/js/modernizr.custom.87724.js' %}"></script>
     <script src="{% static 'theme/js/ddsmoothmenu-min.js' %}"></script><!-- desktop edge detect menu -->
     <script src="{% static 'theme/js/jquery.dcjqaccordion.2.7.min.js' %}"></script><!-- mobile multi-level accordion menu -->
     <script src="{% static 'theme/js/jquery.easytabs.min.js' %}"></script><!-- tabs/testimonials -->
@@ -200,10 +193,15 @@
     <script src="{% static 'theme/js/responsive-tables.js' %}"></script><!--responsive table-->
     <script src="{% static 'theme/js/jquery.fitvid.js' %}"></script><!-- responsive videos -->
     <script src="{% static 'theme/js/scripts.js' %}"></script>
+    <script src="{% static 'js/jquery.form.js' %}"></script>
+    <script src="{% static 'js/jquery-spelling.js' %}"></script>
     <script>
-        $('[rel="popover"]').popover();
+        $('[rel="popover"]').popover({
+            delay: { show: 500, hide: 100 }
+        });
         $('[data-toggle="tooltip"]').tooltip();
     </script>
+    {% endblock %}
     {% endblock %}
 </body>
 

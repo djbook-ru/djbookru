@@ -10,7 +10,7 @@
     jQuery(function($){
         $('.post-form').submit(function(){
             if ( ! $('textarea', this).val()){
-                alert('{% trans "Enter message." %}');
+                alert('{% trans "Enter message" %}');
                 return false;
             }
         });
