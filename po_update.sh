@@ -13,6 +13,10 @@ fi
 
 for lang in ${LANGUAGES}; do
     for project in ${PROJECTS}; do
+        cd ${project}
+        mkdir -p locale
+        django-admin.py makemessages --locale ${lang}
+        cd ..
         for app in ${APPS}; do
             if test -d ${project}/${app}; then
                 cd ${project}/${app}

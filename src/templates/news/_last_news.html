@@ -11,8 +11,7 @@
                 <a href="{{ obj.get_absolute_url }}#comments" class="pull-right" >
                     <p>
                         <i class="icon-comments"></i>
-                        {{ obj|get_comment_count }}
-                        {% blocktrans count counter=obj|get_comment_count %}comment{% plural %}comments{% endblocktrans %}
+                        {% blocktrans count counter=obj|get_comment_count %}{{ counter }} comment{% plural %}{{ counter }} comments{% endblocktrans %}
                     </p>
                 </a>
             </li>

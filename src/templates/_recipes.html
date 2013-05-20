@@ -24,8 +24,7 @@
                         <a href="{{ example.topic.get_absolute_url }}" class="pull-right" style="margin-top: -1.1em">
                             <p>
                                 <i class="icon-comments"></i>
-                                {{ example|get_comment_count }}
-                                {% blocktrans count counter=example|get_comment_count %}comment{% plural %}comments{% endblocktrans %}
+                                {% blocktrans count counter=example|get_comment_count %}{{ counter }} comment{% plural %}{{ counter }} comments{% endblocktrans %}
                             </p>
                         </a>
                     </li>

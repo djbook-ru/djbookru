@@ -17,7 +17,7 @@
                 <a href="{{ obj.get_absolute_url }}#comments">
                     <i class="icon-comments-alt"></i>
                     {% with comments_count=obj|get_comment_count %}
-                        {{ comments_count }} {% blocktrans count counter=comments_count %}comment{% plural %}comments{% endblocktrans %}
+                        {% blocktrans count counter=comments_count %}{{ counter }} comment{% plural %}{{ counter }} comments{% endblocktrans %}
                     {% endwith %}
                 </a>
             </div>
