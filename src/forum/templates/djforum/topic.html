@@ -24,19 +24,18 @@
 {% endblock %}
 
 {% block content %}
-    <div class="well">
+    <aside class="widget forum">
+
         <ul class="breadcrumb">
             <li><a class="title" href="{{ forum.category.get_absolute_url }}">{{ forum.category }}</a> <span class="divider">/</span></li>
             <li><a class="title forum" href="{{ forum.get_absolute_url }}">{{ forum }}</a> <span class="divider">/</span></li>
             <li class="active">{{ topic }}</li>
         </ul>
 
-        <div class="pull-right top-panel">
-            <a href="{% url 'forum:add_post' topic.pk %}" class="btn btn-small answer-button">{% trans "Answer" %}</a>
-        </div>
+        <a href="{% url 'forum:add_post' topic.pk %}" class="pull-right btn btn-small">{% trans "Answer" %}</a>
 
         {% if is_paginated %}
-            {% paginate %}
+            {% paginate float='left' %}
         {% endif %}
 
         {% for post in object_list %}
@@ -44,15 +43,15 @@
         {% endfor %}
 
         {% if is_paginated %}
-            {% paginate %}
+            {% paginate float='left' %}
         {% endif %}
 
         {% if form %}
         <form action="{% url 'forum:add_post' topic.pk %}" method="post" class="post-form form-horizontal">
             {% csrf_token %}
-            <button type="submit" class="submit-button btn btn-primary btn-small">{% trans "Submit" %}</button>
+            <button type="submit" class="btn btn-primary btn-small">{% trans "Submit" %}</button>
             {{ form.body }}
         </form>
         {% endif %}
-    </div>
+    </aside>
 {% endblock %}

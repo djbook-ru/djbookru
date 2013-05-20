@@ -1,0 +1,64 @@
+.widget.forum {
+    margin: 0 0 18px 0;
+}
+
+.widget.forum .table th.number-column {
+    width: 70px;
+}
+
+.widget.forum .table th.last-post {
+    width: 20%;
+    font-size: 0.8em;
+}
+
+.widget.forum .table td.smaller,
+.widget.forum .table th.smaller {
+    font-size: 0.9em;
+}
+
+.widget.forum .table td.last-post a {
+    text-decoration: none;
+}
+
+.widget.forum .table td.center,
+.widget.forum .table th.center {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.post {
+    border: 1px solid #ddd;
+    margin: 6px 0;
+    padding: 8px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    height: auto;
+    overflow: hidden;
+}
+
+.post .author, .post .author-footer {
+    width: 180px;
+    float: left;
+}
+
+.post .content {
+    border-left: 1px solid #ddd;
+    height:100%
+}
+
+.post .content-footer {
+    border-left: 1px solid #ddd;
+    margin-left: 180px;
+}
+
+.post .author a {
+    text-decoration: none;
+}
+
+.post .content, .post .content-footer {
+    float: none;
+    width: auto;
+    overflow: hidden;
+    padding-left: 8px;
+}
