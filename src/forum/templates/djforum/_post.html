@@ -33,8 +33,13 @@
             </td>
             <td class="content-footer">
                 <a class="answer-post" href="#">{% trans "Answer" %}</a>
+
                 {% if post|can_edit:user %}
-                <span class="divider">|</span> <a class="" href="{% url 'forum:edit_post' post.pk %}">{% trans "Edit" %}</a>
+                <span class="divider">|</span> <a href="{% url 'forum:edit_post' post.pk %}">{% trans "Edit" %}</a>
+                {% endif %}
+
+                {% if post|can_delete:user %}
+                <span class="divider">|</span> <a class="delete-post" href="{% url 'forum:delete_post' post.pk %}">{% trans "Delete" %}</a>
                 {% endif %}
             </td>
         </tr>

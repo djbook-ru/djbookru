@@ -1,6 +1,6 @@
 {% extends "djforum/base.html" %}
 
-{% load i18n staticfiles pagination_tags bootstrap %}
+{% load i18n staticfiles pagination_tags bootstrap forum_tags %}
 {% load url from future %}
 
 {% block head %}
@@ -26,7 +26,13 @@
             return false;
         });
 
+        $('.delete-post').click(function(){
+            return confirm('{% trans "Do you wish delete this post?" %}');
+        });
 
+        $('.delete-topic').click(function(){
+           return confirm('{% trans "Do you wish delete this topic?" %}');
+        })
     });
     </script>
 {% endblock %}
@@ -41,6 +47,13 @@
         </ul>
 
         <a href="{% url 'forum:add_post' topic.pk %}" class="pull-right btn btn-small" style="margin-bottom: 5px">{% trans "Answer" %}</a>
+
+        {% if topic|can_delete:user %}
+            <form action="{% url 'forum:delete_topic' topic.pk %}" method="post">
+                {% csrf_token %}
+                <button class="pull-right btn btn-small btn-danger delete-topic" style="margin: 0 5px 5px">{% trans "Delete" %}</button>
+            </form>
+        {% endif %}
 
         {% if is_paginated %}
             {% paginate float='left' %}

@@ -157,6 +157,9 @@ class Topic(models.Model):
     def reply_count(self):
         return self.posts.all().count() - 1
 
+    def can_delete(self, user):
+        return user.is_active and user.is_superuser
+
     def can_post(self, user):
         if not self.forum.category.has_access(user):
             return False
@@ -220,6 +223,12 @@ class Post(models.Model):
         self.topic.updated = self.updated or self.created
         self.topic.save()
 
+    def delete(self):
+        topic = self.topic
+        super(Post, self).delete()
+        if not topic.posts.exists():
+            topic.delete()
+
     def get_absolute_url(self):
         return reverse('forum:topic', args=[self.topic.pk]) + '#post-' + str(self.pk)
 
@@ -227,10 +236,19 @@ class Post(models.Model):
         return mark_safe(urlize(markdown.markdown(self.body, safe_mode='escape')))
 
     def can_edit(self, user):
+        if not user.is_authenticated():
+            return False
+
+        if user.is_superuser:
+            return True
+
         if not self.topic.forum.category.has_access(user):
             return False
 
         if self.topic.closed:
             return False
 
-        return user.is_active and (user.is_superuser or self.user == user)
+        return user.is_active and self.user == user
+
+    def can_delete(self, user):
+        return user.is_active and user.is_superuser

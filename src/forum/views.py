@@ -101,6 +101,32 @@ def edit_post(request, pk):
 
 
 @login_required
+def delete_topic(request, pk):
+    topic = get_object_or_404(Topic, pk=pk)
+    forum = topic.forum
+
+    if topic.can_delete(request.user) and request.method == 'POST':
+        topic.delete()
+
+    return redirect(forum)
+
+
+@login_required
+def delete_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    topic_id = post.topic_id
+    forum = post.topic.forum
+
+    if post.can_delete(request.user):
+        post.delete()
+
+    try:
+        return redirect(Topic.objects.get(pk=topic_id))
+    except Topic.DoesNotExist:
+        return redirect(forum)
+
+
+@login_required
 def mark_read_all(request):
     for forum in Forum.objects.all():
         if forum.has_access(request.user):

@@ -15,6 +15,11 @@ def can_edit(post, user):
 
 
 @register.filter
+def can_delete(post, user):
+    return post.can_delete(user)
+
+
+@register.filter
 def has_access(obj, user):
     return obj.has_access(user)
 
