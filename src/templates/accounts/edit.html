@@ -39,5 +39,7 @@
     {{ block.super }}
     <script>
     $('#id_current_password').attr('autocomplete', 'off').val('');
+    $('#id_new_password').attr('autocomplete', 'off').val('');
+    $('#id_new_password_verify').attr('autocomplete', 'off').val('');
     </script>
 {% endblock %}
