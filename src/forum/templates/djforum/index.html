@@ -1,9 +1,12 @@
 {% extends "djforum/base.html" %}
 
-{% load i18n staticfiles %}
+{% load i18n staticfiles forum_tags %}
 {% load url from future %}
 
 {% block content %}
+    {% if user.is_authenticated %}
+    <a href="{% url 'forum:mark_read_all' %}" class="pull-right btn btn-small" style="margin-right: 5px">{% trans "Mark all as read" %}</a>
+    {% endif %}
     {% for category in categories %}
     <aside class="widget forum">
         <h5 class="short_headline"><span>{{ category }}</span></h5>
@@ -21,7 +24,7 @@
             </thead>
             <tbody>
             {% for forum in forums %}
-                <tr>
+                <tr {% if forum|has_unread:user %}class="success"{% endif %}>
                     <td>
                         <a href="{{ forum.get_absolute_url }}" class="forum-title">{{ forum }}</a>
                         {% if forum.description %}

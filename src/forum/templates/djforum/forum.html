@@ -1,6 +1,6 @@
 {% extends "djforum/base.html" %}
 
-{% load i18n staticfiles pagination_tags %}
+{% load i18n staticfiles pagination_tags forum_tags %}
 {% load url from future %}
 
 {% block content %}
@@ -12,6 +12,9 @@
         </ul>
 
         <a href="{% url 'forum:add_topic' forum.pk %}" class="pull-right btn btn-small">{% trans "New topic" %}</a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'forum:mark_read_forum' forum.pk %}" class="pull-right btn btn-small" style="margin-right: 5px">{% trans "Mark all as read" %}</a>
+        {% endif %}
 
         {% if is_paginated %}
             {% paginate float='left' %}
@@ -29,7 +32,7 @@
             </thead>
             <tbody>
             {% for topic in object_list %}
-                <tr>
+                <tr {% if topic|has_unread:user %}class="success"{% endif %}>
                     <td>
                         <a href="{{ topic.get_absolute_url }}" class="forum-title">{{ topic }}</a>
                     </td>

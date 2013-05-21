@@ -100,20 +100,40 @@ def edit_post(request, pk):
     }
 
 
+@login_required
+def mark_read_all(request):
+    for forum in Forum.objects.all():
+        if forum.has_access(request.user):
+            forum.mark_read(request.user)
+    return redirect('forum:index')
+
+
+@login_required
+def mark_read_forum(request, pk):
+    forum = get_object_or_404(Forum, pk=pk)
+
+    if forum.has_access(request.user):
+        forum.mark_read(request.user)
+    return redirect(forum)
+
+
 def topic(request, pk):
+    user = request.user
     topic = get_object_or_404(Topic, pk=pk)
     Topic.objects.filter(pk=pk).update(views=F('views') + 1)
     qs = topic.posts.all()
     form = None
 
-    if topic.can_post(request.user):
-        form = AddPostForm(topic, request.user)
+    if topic.can_post(user):
+        form = AddPostForm(topic, user)
+
+    topic.mark_visited_for(user)
 
     extra_context = {
         'form': form,
         'forum': topic.forum,
         'topic': topic,
-        'can_post': topic.can_post(request.user)
+        'can_post': topic.can_post(user)
     }
     return object_list(request, qs, 100,
                        template_name='djforum/topic.html',
