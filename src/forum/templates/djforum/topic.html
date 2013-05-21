@@ -15,10 +15,18 @@
             }
         });
 
-        $('.answer-button').click(function(){
-            $('#id_body').focus();
+        $('.answer-post').click(function(){
+            var $post = $(this).parents('.post').find('.post-content').clone();
+            $post.find('blockquote').remove();
+
+            var text = $.trim($post.text());
+            text = '>'+text.replace(/(\r\n|\n|\r)/gm, "\n\n>")
+
+            $('#id_body').focus().val($('#id_body').val()+text+'\n\n');
             return false;
         });
+
+
     });
     </script>
 {% endblock %}
