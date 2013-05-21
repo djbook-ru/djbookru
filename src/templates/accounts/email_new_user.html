@@ -1,0 +1,10 @@
+{% load i18n %}{% blocktrans with current_site.name as site_name %}
+<p>Thanks for registering on {{ site_name }}.</p>
+
+<p>
+    Since you registered via social network, your automatically assigned email is {{ email }} and your password is {{ password }}.<br>
+    You can use it to login, if something happens with authentication via external services.
+</p>
+
+<p>With best regards, {{ site_name }} team.</p>
+{% endblocktrans %}

@@ -24,7 +24,7 @@ BaseUser._meta.get_field('email').blank = False
 
 class UserManager(BaseUserManager):
 
-    def create_user(self, username, email=None, password=None, force_email_valid=False):
+    def create_user(self, username, email=None, password=None, force_email_valid=False, send_email_confirmation=True):
         """
         Creates and saves a User with the given username, email and password.
         """
@@ -36,9 +36,23 @@ class UserManager(BaseUserManager):
                           is_staff=False, is_active=True, is_superuser=False,
                           last_login=now, date_joined=now)
 
+        if force_email_valid:
+            user.is_valid_email = True
+            send_email_confirmation = False
+            password = self.make_random_password()
+
+            current_site = Site.objects.get_current()
+            subject = _(u'You just created account on %(site)s') % {'site': current_site.name}
+
+            context = {
+                'email': user.email,
+                'password': password,
+                'current_site': current_site
+            }
+            send_templated_email(user.email, subject, 'accounts/email_new_user.html', context, fail_silently=settings.DEBUG)
+
         user.set_password(password)
-        user.is_valid_email = True
-        user.save(using=self._db, send_email_confirmation=False)
+        user.save(using=self._db, send_email_confirmation=send_email_confirmation)
         return user
 
 
