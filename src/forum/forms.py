@@ -54,3 +54,10 @@ class AddTopicForm(PlaceholderMixin, MarkdownEditorMixin, forms.ModelForm):
         post.save()
 
         return topic
+
+
+class MoveTopicForm(forms.ModelForm):
+
+    class Meta:
+        model = Topic
+        fields = ('forum',)

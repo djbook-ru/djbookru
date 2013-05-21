@@ -24,15 +24,19 @@ def create_user(backend, details, response, uid, username, user=None, *args,
 
     email = details.get('email')
 
-    try:
-        UserSocialAuth.get_user_by_email(email=email)
-        raise AuthException(backend, _('"%(email)s" is already used by other account. If it is your account, login and connect it on profile edit page.') % {
-            'email': email
-        })
-    except ObjectDoesNotExist:
-        pass
+    if email:
+        try:
+            UserSocialAuth.get_user_by_email(email=email)
+            raise AuthException(backend, _('"%(email)s" is already used by other account. If it is your account, login and connect it on profile edit page.') % {
+                'email': email
+            })
+        except ObjectDoesNotExist:
+            pass
 
-    user = UserSocialAuth.create_user(username=username, email=email, force_email_valid=True)
+        user = UserSocialAuth.create_user(username=username, email=email, force_email_valid=True)
+    else:
+        email = '%s%s@example.com' % (username, backend.name)
+        user = UserSocialAuth.create_user(username=username, email=email, send_email_confirmation=False)
 
     return {
         'user': user,

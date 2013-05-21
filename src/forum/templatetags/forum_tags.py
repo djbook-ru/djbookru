@@ -10,5 +10,20 @@ def online(user):
 
 
 @register.filter
-def can_edit(post, user):
-    return post.can_edit(user)
+def can_edit(obj, user):
+    return obj.can_edit(user)
+
+
+@register.filter
+def can_delete(obj, user):
+    return obj.can_delete(user)
+
+
+@register.filter
+def has_access(obj, user):
+    return obj.has_access(user)
+
+
+@register.filter
+def has_unread(obj, user):
+    return obj.has_unread(user)

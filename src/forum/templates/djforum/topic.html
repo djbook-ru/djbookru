@@ -1,6 +1,6 @@
 {% extends "djforum/base.html" %}
 
-{% load i18n staticfiles pagination_tags bootstrap %}
+{% load i18n staticfiles pagination_tags bootstrap forum_tags %}
 {% load url from future %}
 
 {% block head %}
@@ -15,10 +15,36 @@
             }
         });
 
-        $('.answer-button').click(function(){
-            $('#id_body').focus();
+        $('.answer-post').click(function(){
+            var $post = $(this).parents('.post').find('.post-content').clone();
+            $post.find('blockquote').remove();
+
+            var text = $.trim($post.text());
+            text = '>'+text.replace(/(\r\n|\n|\r)/gm, "\n\n>")
+
+            $('#id_body').focus().val($('#id_body').val()+text+'\n\n');
             return false;
         });
+
+        $('.delete-post').click(function(){
+            return confirm('{% trans "Do you wish delete this post?" %}');
+        });
+
+        $('.delete-topic').click(function(){
+           return confirm('{% trans "Do you wish delete this topic?" %}');
+        })
+
+        $('.close-topic').click(function(){
+           return confirm('{% if topic.closed %}{% trans "Do you wish open this topic?" %}{% else %}{% trans "Do you wish close this topic?" %}{% endif %}');
+        })
+
+        $('.herecy-topic').click(function(){
+           return confirm('{% if topic.herecy %}{% trans "Do you wish remove herecy mark for this topic?" %}{% else %}{% trans "Do you wish mark this topic as herecy?" %}{% endif %}');
+        })
+
+        $('.stick-topic').click(function(){
+           return confirm('{% if topic.sticky %}{% trans "Do you wish unstick this topic?" %}{% else %}{% trans "Do you wish stick this topic?" %}{% endif %}');
+        })
     });
     </script>
 {% endblock %}
@@ -32,7 +58,44 @@
             <li class="active">{{ topic }}</li>
         </ul>
 
-        <a href="{% url 'forum:add_post' topic.pk %}" class="pull-right btn btn-small" style="margin-bottom: 5px">{% trans "Answer" %}</a>
+        <div class="topic-status pull-left">
+            {% include 'djforum/_topic_statuses.html' %}
+        </div>
+
+        <div class="pull-right topic-toolbar">
+            {% if topic|can_edit:user %}
+                <a href="{% url 'forum:move_topic' topic.pk %}" class="btn btn-small btn-info">
+                    {% trans 'Move' %}
+                </a>
+            {% endif %}
+
+            {% if topic|can_edit:user %}
+                <a href="{% url 'forum:heresy_unheresy_topic' topic.pk %}" class="btn btn-small btn-info herecy-topic">
+                    {% if topic.herecy %}{% trans "Not herecy" %}{% else %}{% trans "Not herecy" %}{% endif %}
+                </a>
+            {% endif %}
+
+            {% if topic|can_edit:user %}
+                <a href="{% url 'forum:stick_unstick_topic' topic.pk %}" class="btn btn-small btn-info stick-topic">
+                    {% if topic.sticky %}{% trans "Unstick" %}{% else %}{% trans "Stick" %}{% endif %}
+                </a>
+            {% endif %}
+
+            {% if topic|can_edit:user %}
+                <a href="{% url 'forum:close_open_topic' topic.pk %}" class="btn btn-small btn-info close-topic">
+                    {% if topic.closed %}{% trans "Open" %}{% else %}{% trans "Close" %}{% endif %}
+                </a>
+            {% endif %}
+
+            {% if topic|can_delete:user %}
+                <form action="{% url 'forum:delete_topic' topic.pk %}" method="post" style="display: inline">
+                    {% csrf_token %}
+                    <button class="btn btn-small btn-danger delete-topic">{% trans "Delete" %}</button>
+                </form>
+            {% endif %}
+
+            <a href="{% url 'forum:add_post' topic.pk %}" class="btn btn-small">{% trans "Answer" %}</a>
+        </div>
 
         {% if is_paginated %}
             {% paginate float='left' %}

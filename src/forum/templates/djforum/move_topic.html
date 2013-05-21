@@ -14,13 +14,15 @@
             <li><a class="title" href="{{ forum.category.get_absolute_url }}">{{ forum.category }}</a> <span class="divider">/</span></li>
             <li><a class="title forum" href="{{ forum.get_absolute_url }}">{{ forum }}</a> <span class="divider">/</span></li>
             <li><a href="{{ topic.get_absolute_url }}">{{ topic }}</a> <span class="divider">/</span></li>
-            <li class="active">{% trans "Edit post" %}</li>
+            <li class="active">{% trans "Move" %}</li>
         </ul>
 
-        <form method="post" class="form-horizontal post-form">
+        <form method="post" class="form-horizontal">
             {% csrf_token %}
-            <button type="submit" class="submit-button btn btn-primary btn-small">{% trans "Submit" %}</button>
-            {{ form.body }}
+            {{ form|bootstrap }}
+            <div class="form-actions">
+                <button type="submit" class="btn btn-small">{% trans "Save" %}</button>
+            </div>
         </form>
     </aside>
 {% endblock %}

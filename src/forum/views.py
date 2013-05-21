@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from .. decorators import render_to
-from .forms import AddTopicForm, AddPostForm, EditPostForm
+from .forms import AddTopicForm, AddPostForm, EditPostForm, MoveTopicForm
 from .models import Category, Forum, Topic, Post
 from django.contrib.auth.decorators import login_required
 from django.db.models import F
@@ -60,6 +60,24 @@ def add_topic(request, pk):
 
 
 @login_required
+@render_to('djforum/move_topic.html')
+def move_topic(request, pk):
+    topic = get_object_or_404(Topic, pk=pk)
+
+    form = MoveTopicForm(request.POST or None, instance=topic)
+
+    if form.is_valid():
+        form.save()
+        return redirect(topic)
+
+    return {
+        'form': form,
+        'topic': topic,
+        'forum': topic.forum
+    }
+
+
+@login_required
 @render_to('djforum/add_post.html')
 def add_post(request, pk):
     topic = get_object_or_404(Topic, pk=pk)
@@ -100,20 +118,105 @@ def edit_post(request, pk):
     }
 
 
+@login_required
+def heresy_unheresy_topic(request, pk):
+    topic = get_object_or_404(Topic, pk=pk)
+
+    if topic.can_edit(request.user):
+        if topic.heresy:
+            topic.unmark_heresy()
+        else:
+            topic.mark_heresy()
+
+    return redirect(topic)
+
+
+@login_required
+def close_open_topic(request, pk):
+    topic = get_object_or_404(Topic, pk=pk)
+
+    if topic.can_edit(request.user):
+        if topic.closed:
+            topic.open()
+        else:
+            topic.close()
+
+    return redirect(topic)
+
+
+@login_required
+def stick_unstick_topic(request, pk):
+    topic = get_object_or_404(Topic, pk=pk)
+
+    if topic.can_edit(request.user):
+        if topic.sticky:
+            topic.unstick()
+        else:
+            topic.stick()
+
+    return redirect(topic)
+
+
+@login_required
+def delete_topic(request, pk):
+    topic = get_object_or_404(Topic, pk=pk)
+    forum = topic.forum
+
+    if topic.can_delete(request.user) and request.method == 'POST':
+        topic.delete()
+
+    return redirect(forum)
+
+
+@login_required
+def delete_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    topic_id = post.topic_id
+    forum = post.topic.forum
+
+    if post.can_delete(request.user):
+        post.delete()
+
+    try:
+        return redirect(Topic.objects.get(pk=topic_id))
+    except Topic.DoesNotExist:
+        return redirect(forum)
+
+
+@login_required
+def mark_read_all(request):
+    for forum in Forum.objects.all():
+        if forum.has_access(request.user):
+            forum.mark_read(request.user)
+    return redirect('forum:index')
+
+
+@login_required
+def mark_read_forum(request, pk):
+    forum = get_object_or_404(Forum, pk=pk)
+
+    if forum.has_access(request.user):
+        forum.mark_read(request.user)
+    return redirect(forum)
+
+
 def topic(request, pk):
+    user = request.user
     topic = get_object_or_404(Topic, pk=pk)
     Topic.objects.filter(pk=pk).update(views=F('views') + 1)
     qs = topic.posts.all()
     form = None
 
-    if topic.can_post(request.user):
-        form = AddPostForm(topic, request.user)
+    if topic.has_access(user):
+        form = AddPostForm(topic, user)
+
+    topic.mark_visited_for(user)
 
     extra_context = {
         'form': form,
         'forum': topic.forum,
         'topic': topic,
-        'can_post': topic.can_post(request.user)
+        'has_access': topic.has_access(user)
     }
     return object_list(request, qs, 100,
                        template_name='djforum/topic.html',

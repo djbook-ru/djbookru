@@ -15,6 +15,10 @@
     font-size: 0.8em;
 }
 
+.widget.forum .table td.topic-name {
+    vertical-align: middle;
+}
+
 .widget.forum .table td.smaller,
 .widget.forum .table th.smaller {
     font-size: 0.9em;
@@ -66,6 +70,15 @@
     font-size: 0.85em;
 }
 
+.post .table .content-footer {
+    text-align: right;
+}
+
+.post .table .content-footer .divider {
+    color: #ccc;
+    margin: 0 5px;
+}
+
 .post .table .content hr {
     margin: 8px 0;
 }
@@ -78,4 +91,16 @@
 .post-form .submit-button {
     width: 100px;
     margin: 0 0 -35px 601px;
+}
+
+.post blockquote {
+    font-size: 0.9em;
+}
+
+.post blockquote p {
+    margin: 0 0 4px;
+}
+
+.topic-toolbar {
+    margin-bottom: 10px;
 }
