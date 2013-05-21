@@ -4,7 +4,7 @@
     <h5 class="short_headline"><span>{{ category }}</span></h5>
     <div class="panels">
         <ul class="blogposts clearfix">
-            {% for example in category.examples.all %}
+            {% for example in category.examples.approved %}
             <li>
                 {{ example.created|pretty_date }}
                 <h3><a href="{{ example.get_absolute_url }}">{{ example }}</a></h3>

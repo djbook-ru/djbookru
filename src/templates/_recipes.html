@@ -10,7 +10,7 @@
             {% for obj in recipe_categories %}
             <div id="recipe-category-{{ obj.pk }}">
                 <ul class="blogposts clearfix">
-                    {% for example in obj.examples.all|slice:":4" %}
+                    {% for example in obj.examples.approved|slice:":4" %}
                     <li>
                         <span class="date" title="{{ example.created }}">
                             <span class="month">{{ example.created|date:"b" }}</span>
