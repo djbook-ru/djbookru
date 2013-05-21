@@ -140,7 +140,7 @@ class Topic(models.Model):
                                         through=Visit, related_name='visited_topics')
 
     class Meta:
-        ordering = ['-updated']
+        ordering = ['-sticky', '-updated']
         verbose_name = _('Topic')
         verbose_name_plural = _('Topics')
 
@@ -157,10 +157,37 @@ class Topic(models.Model):
     def reply_count(self):
         return self.posts.all().count() - 1
 
+    def mark_heresy(self):
+        self.heresy = True
+        self.save()
+
+    def unmark_heresy(self):
+        self.heresy = False
+        self.save()
+
+    def stick(self):
+        self.sticky = True
+        self.save()
+
+    def unstick(self):
+        self.sticky = False
+        self.save()
+
+    def close(self):
+        self.closed = True
+        self.save()
+
+    def open(self):
+        self.closed = False
+        self.save()
+
     def can_delete(self, user):
         return user.is_active and user.is_superuser
 
-    def can_post(self, user):
+    def can_edit(self, user):
+        return user.is_active and user.is_superuser
+
+    def has_access(self, user):
         if not self.forum.category.has_access(user):
             return False
 

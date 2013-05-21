@@ -1,0 +1,13 @@
+{% load i18n %}
+
+{% if topic.heresy %}
+    <span class="label label-warning">{% trans "Herecy" %}</span>
+{% endif %}
+
+{% if topic.closed %}
+    <span class="label">{% trans "Closed" %}</span>
+{% endif %}
+
+{% if topic.sticky %}
+    <span class="label label-info">{% trans "Sticky" %}</span>
+{% endif %}

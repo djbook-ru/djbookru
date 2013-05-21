@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from .. decorators import render_to
-from .forms import AddTopicForm, AddPostForm, EditPostForm
+from .forms import AddTopicForm, AddPostForm, EditPostForm, MoveTopicForm
 from .models import Category, Forum, Topic, Post
 from django.contrib.auth.decorators import login_required
 from django.db.models import F
@@ -60,6 +60,24 @@ def add_topic(request, pk):
 
 
 @login_required
+@render_to('djforum/move_topic.html')
+def move_topic(request, pk):
+    topic = get_object_or_404(Topic, pk=pk)
+
+    form = MoveTopicForm(request.POST or None, instance=topic)
+
+    if form.is_valid():
+        form.save()
+        return redirect(topic)
+
+    return {
+        'form': form,
+        'topic': topic,
+        'forum': topic.forum
+    }
+
+
+@login_required
 @render_to('djforum/add_post.html')
 def add_post(request, pk):
     topic = get_object_or_404(Topic, pk=pk)
@@ -98,6 +116,45 @@ def edit_post(request, pk):
         'topic': post.topic,
         'forum': post.topic.forum
     }
+
+
+@login_required
+def heresy_unheresy_topic(request, pk):
+    topic = get_object_or_404(Topic, pk=pk)
+
+    if topic.can_edit(request.user):
+        if topic.heresy:
+            topic.unmark_heresy()
+        else:
+            topic.mark_heresy()
+
+    return redirect(topic)
+
+
+@login_required
+def close_open_topic(request, pk):
+    topic = get_object_or_404(Topic, pk=pk)
+
+    if topic.can_edit(request.user):
+        if topic.closed:
+            topic.open()
+        else:
+            topic.close()
+
+    return redirect(topic)
+
+
+@login_required
+def stick_unstick_topic(request, pk):
+    topic = get_object_or_404(Topic, pk=pk)
+
+    if topic.can_edit(request.user):
+        if topic.sticky:
+            topic.unstick()
+        else:
+            topic.stick()
+
+    return redirect(topic)
 
 
 @login_required
@@ -150,7 +207,7 @@ def topic(request, pk):
     qs = topic.posts.all()
     form = None
 
-    if topic.can_post(user):
+    if topic.has_access(user):
         form = AddPostForm(topic, user)
 
     topic.mark_visited_for(user)
@@ -159,7 +216,7 @@ def topic(request, pk):
         'form': form,
         'forum': topic.forum,
         'topic': topic,
-        'can_post': topic.can_post(user)
+        'has_access': topic.has_access(user)
     }
     return object_list(request, qs, 100,
                        template_name='djforum/topic.html',

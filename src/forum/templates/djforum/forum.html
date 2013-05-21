@@ -33,7 +33,8 @@
             <tbody>
             {% for topic in object_list %}
                 <tr {% if topic|has_unread:user %}class="success"{% endif %}>
-                    <td>
+                    <td class="topic-name">
+                        {% include 'djforum/_topic_statuses.html' %}
                         <a href="{{ topic.get_absolute_url }}" class="forum-title">{{ topic }}</a>
                     </td>
                     <td class="smaller center">{{ topic.reply_count }}</td>

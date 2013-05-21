@@ -15,6 +15,10 @@
     font-size: 0.8em;
 }
 
+.widget.forum .table td.topic-name {
+    vertical-align: middle;
+}
+
 .widget.forum .table td.smaller,
 .widget.forum .table th.smaller {
     font-size: 0.9em;
@@ -95,4 +99,8 @@
 
 .post blockquote p {
     margin: 0 0 4px;
+}
+
+.topic-toolbar {
+    margin-bottom: 10px;
 }

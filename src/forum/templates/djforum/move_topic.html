@@ -1,0 +1,28 @@
+{% extends "djforum/base.html" %}
+
+{% load i18n staticfiles bootstrap %}
+{% load url from future %}
+
+{% block head %}
+    {{ block.super }}
+    {{ form.media }}
+{% endblock %}
+
+{% block content %}
+    <aside class="widget forum">
+        <ul class="breadcrumb">
+            <li><a class="title" href="{{ forum.category.get_absolute_url }}">{{ forum.category }}</a> <span class="divider">/</span></li>
+            <li><a class="title forum" href="{{ forum.get_absolute_url }}">{{ forum }}</a> <span class="divider">/</span></li>
+            <li><a href="{{ topic.get_absolute_url }}">{{ topic }}</a> <span class="divider">/</span></li>
+            <li class="active">{% trans "Move" %}</li>
+        </ul>
+
+        <form method="post" class="form-horizontal">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            <div class="form-actions">
+                <button type="submit" class="btn btn-small">{% trans "Save" %}</button>
+            </div>
+        </form>
+    </aside>
+{% endblock %}
