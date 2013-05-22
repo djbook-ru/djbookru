@@ -19,7 +19,7 @@
 
         <form method="post" class="form-horizontal post-form">
             {% csrf_token %}
-            <button type="submit" class="submit-button btn btn-primary btn-small">{% trans "Submit" %}</button>
+            <button type="submit" class="submit-button btn btn-small">{% trans "Submit" %}</button>
             {{ form.body }}
         </form>
     </aside>
