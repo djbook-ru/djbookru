@@ -312,3 +312,6 @@ class Post(models.Model):
 
     def can_delete(self, user):
         return user.is_active and user.is_superuser
+
+    def search(self):
+        return dict(source=_(u'Forum'), title=self.topic.name, desc=self.get_content())

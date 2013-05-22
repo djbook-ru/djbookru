@@ -13,7 +13,7 @@ from haystack.forms import SearchForm as HaystackSearchForm
 from haystack_static_pages.models import StaticPage
 from zipfile import ZipFile, BadZipfile
 
-from .. djangobb_forum.models import Post
+from .. forum.models import Post
 from .. examples.models import Example
 from .. news.models import News
 from .. utils.forms import ReCaptchaField
