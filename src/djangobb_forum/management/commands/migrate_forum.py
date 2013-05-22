@@ -3,6 +3,7 @@ from src.accounts.models import User
 from src.djangobb_forum.models import Category, Forum, Topic, Post
 from src.forum import models
 from django.utils.html import strip_tags
+import htmlentitiesdecode
 import re
 
 code_pattern = re.compile(r'<code>(.+?)<\/code>', re.DOTALL)
@@ -87,7 +88,7 @@ class Command(BaseCommand):
         def format_code(matchobj):
             code = matchobj.group(1)
             code = code.replace('\n', '\n    ')
-            code = '    ' + code
+            code = '    ' + htmlentitiesdecode.decode(code)
             return '\n'+code+'\n'
 
         return code_pattern.sub(format_code, body)
