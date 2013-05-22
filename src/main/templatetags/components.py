@@ -10,7 +10,7 @@ from django.template.loader import get_template
 
 from src.main.forms import SearchForm
 from src.comments.models import Comment
-from src.djangobb_forum.models import Topic
+from src.forum.models import Topic
 from src.examples.models import Category, Example
 from src.accounts.models import User
 from django.contrib.contenttypes.models import ContentType
