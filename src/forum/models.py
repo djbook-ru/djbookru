@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models import Q, F
 from django.utils import timezone
-from django.utils.html import urlize
+from src.forum.util import urlize
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 from src.forum.settings import POSTS_ON_PAGE
@@ -312,3 +312,6 @@ class Post(models.Model):
 
     def can_delete(self, user):
         return user.is_active and user.is_superuser
+
+    def search(self):
+        return dict(source=_(u'Forum'), title=self.topic.name, desc=self.get_content())
