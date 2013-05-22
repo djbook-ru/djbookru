@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models import Q, F
 from django.utils import timezone
-from django.utils.html import urlize
+from src.forum.util import urlize
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 from src.forum.settings import POSTS_ON_PAGE
