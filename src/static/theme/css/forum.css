@@ -77,7 +77,12 @@
 .post .table .author, .post .table .author-footer {
     border-right: 1px solid #ddd;
     width: 165px;
+    min-width: 165px;
     background: url(../images/5p.png);
+    overflow: hidden;
+}
+
+.post .table .content {
     overflow: hidden;
 }
 
