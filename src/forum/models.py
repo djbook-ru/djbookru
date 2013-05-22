@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 
-import os
-import os.path
-
+from django.conf import settings
+from django.contrib.auth.models import Group
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models import Q, F
-from django.contrib.auth.models import Group
-from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
-from django.utils.safestring import mark_safe
-from django.utils.html import urlize
-from django.core.urlresolvers import reverse
 from django.utils import timezone
+from django.utils.html import urlize
+from django.utils.safestring import mark_safe
+from django.utils.translation import ugettext_lazy as _
+from src.forum.settings import POSTS_ON_PAGE
 import markdown
+import os
+import os.path
 
 
 class CategoryManager(models.Manager):

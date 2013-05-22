@@ -2,6 +2,10 @@ from django.core.management.base import BaseCommand
 from src.accounts.models import User
 from src.djangobb_forum.models import Category, Forum, Topic, Post
 from src.forum import models
+from django.utils.html import strip_tags
+import re
+
+code_pattern = re.compile(r'<code>(.+?)<\/code>', re.DOTALL)
 
 
 class Command(BaseCommand):
@@ -67,7 +71,23 @@ class Command(BaseCommand):
             new_obj.user = obj.user
             new_obj.updated = obj.updated
             new_obj.updated_by = obj.updated_by
-            new_obj.body = obj.body
+
+            if obj.markup == 'bbcode':
+                if '</code>' in obj.body_html:
+                    obj.body_html = self.replace_code(obj.body_html)
+                new_obj.body = strip_tags(obj.body_html)
+            else:
+                new_obj.body = obj.body
+
             new_obj.save()
 
             models.Post.objects.filter(pk=new_obj.pk).update(created=obj.created)
+
+    def replace_code(self, body):
+        def format_code(matchobj):
+            code = matchobj.group(1)
+            code = code.replace('\n', '\n    ')
+            code = '    ' + code
+            return '\n'+code+'\n'
+
+        return code_pattern.sub(format_code, body)

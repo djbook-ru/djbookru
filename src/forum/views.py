@@ -12,6 +12,7 @@ from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic.list import ListView
 from django.http import Http404
+from src.forum.settings import POSTS_ON_PAGE
 
 
 @render_to('djforum/index.html')
@@ -260,6 +261,6 @@ def topic(request, pk):
         'topic': topic,
         'has_access': topic.has_access(user)
     }
-    return object_list(request, qs, 100,
+    return object_list(request, qs, POSTS_ON_PAGE,
                        template_name='djforum/topic.html',
                        extra_context=extra_context)
