@@ -71,7 +71,7 @@
 
             {% if topic|can_edit:user %}
                 <a href="{% url 'forum:heresy_unheresy_topic' topic.pk %}" class="btn btn-small btn-info herecy-topic">
-                    {% if topic.herecy %}{% trans "Not herecy" %}{% else %}{% trans "Not herecy" %}{% endif %}
+                    {% if topic.heresy %}{% trans "Not herecy" %}{% else %}{% trans "Herecy" %}{% endif %}
                 </a>
             {% endif %}
 
