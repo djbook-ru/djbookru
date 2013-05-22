@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-22 15:52+0400\n"
+"POT-Creation-Date: 2013-05-22 16:19+0400\n"
 "PO-Revision-Date: 2013-05-21 12:54+0300\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -2200,7 +2200,7 @@ msgstr "Просмотров"
 msgid "sticky"
 msgstr "Прикреплён"
 
-#: forum/models.py:174
+#: forum/models.py:174 forum/templates/djforum/topic.html:74
 #, fuzzy
 msgid "heresy"
 msgstr "Ересь"
@@ -2219,7 +2219,6 @@ msgid "No topics"
 msgstr "Тем нет"
 
 #: forum/templates/djforum/_topic_statuses.html:4
-#: forum/templates/djforum/topic.html:74
 #, fuzzy
 msgid "Herecy"
 msgstr "Ересь"
@@ -2275,12 +2274,14 @@ msgid "Do you wish close this topic?"
 msgstr ""
 
 #: forum/templates/djforum/topic.html:42
-msgid "Do you wish remove herecy mark for this topic?"
-msgstr ""
+#, fuzzy
+msgid "do you wish remove heresy mark for this topic?"
+msgstr "Вы уверены, что этот отклик надо удалить?"
 
 #: forum/templates/djforum/topic.html:42
-msgid "Do you wish mark this topic as herecy?"
-msgstr ""
+#, fuzzy
+msgid "do you wish mark this topic as heresy?"
+msgstr "Вы уверены, что этот отклик надо удалить?"
 
 #: forum/templates/djforum/topic.html:46
 msgid "Do you wish unstick this topic?"
@@ -2291,8 +2292,9 @@ msgid "Do you wish stick this topic?"
 msgstr ""
 
 #: forum/templates/djforum/topic.html:74
-msgid "Not herecy"
-msgstr ""
+#, fuzzy
+msgid "not heresy"
+msgstr "Ересь"
 
 #: forum/templates/djforum/topic.html:80
 #, fuzzy
