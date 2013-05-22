@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-20 11:31+0300\n"
+"POT-Creation-Date: 2013-05-22 15:50+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,199 +19,291 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
-#: forms.py:35 models.py:129
+#: forms.py:35 models.py:268
 msgid "Message"
 msgstr ""
 
-#: models.py:16 models.py:47
+#: models.py:26 models.py:59
 msgid "Name"
 msgstr ""
 
-#: models.py:17
+#: models.py:27
 msgid "Groups"
 msgstr ""
 
-#: models.py:18
+#: models.py:28
 msgid "Only users from these groups can see this category"
 msgstr ""
 
-#: models.py:19 models.py:48
+#: models.py:29 models.py:60
 msgid "Position"
 msgstr ""
 
-#: models.py:23 models.py:46
+#: models.py:33 models.py:58
 msgid "Category"
 msgstr ""
 
-#: models.py:24
+#: models.py:34
 msgid "Categories"
 msgstr ""
 
-#: models.py:49
+#: models.py:61
 msgid "Description"
 msgstr ""
 
-#: models.py:53 models.py:80
+#: models.py:65 models.py:317
 msgid "Forum"
 msgstr ""
 
-#: models.py:54
+#: models.py:66
 msgid "Forums"
 msgstr ""
 
-#: models.py:81
-msgid "Subject"
+#: models.py:123 models.py:170
+msgid "user"
 msgstr ""
 
-#: models.py:82 models.py:126
-msgid "Created"
+#: models.py:124
+msgid "topic"
 msgstr ""
 
-#: models.py:83 models.py:127
-msgid "Updated"
+#: models.py:125
+msgid "time"
 msgstr ""
 
-#: models.py:84 models.py:125
-msgid "User"
+#: models.py:166
+msgid "forum"
 msgstr ""
 
-#: models.py:85
-msgid "Views count"
+#: models.py:167
+msgid "subject"
 msgstr ""
 
-#: models.py:86
-msgid "Sticky"
+#: models.py:168
+msgid "created"
 msgstr ""
 
-#: models.py:87
-msgid "Closed"
+#: models.py:169
+msgid "updated"
 msgstr ""
 
-#: models.py:88
-msgid "Heresy"
+#: models.py:171
+msgid "views count"
 msgstr ""
 
-#: models.py:92 models.py:124
+#: models.py:172
+msgid "sticky"
+msgstr ""
+
+#: models.py:173
+msgid "closed"
+msgstr ""
+
+#: models.py:174
+msgid "heresy"
+msgstr ""
+
+#: models.py:180 models.py:263
 msgid "Topic"
 msgstr ""
 
-#: models.py:93 templates/djforum/index.html:17
+#: models.py:181 templates/djforum/index.html:31
 msgid "Topics"
 msgstr ""
 
-#: models.py:128
+#: models.py:264
+msgid "User"
+msgstr ""
+
+#: models.py:265
+msgid "Created"
+msgstr ""
+
+#: models.py:266
+msgid "Updated"
+msgstr ""
+
+#: models.py:267
 msgid "Updated by"
 msgstr ""
 
-#: models.py:134
+#: models.py:273
 msgid "Post"
 msgstr ""
 
-#: models.py:135 templates/djforum/_post.html:10
-#: templates/djforum/index.html:18
+#: models.py:274 templates/djforum/_post.html:11
+#: templates/djforum/index.html:32
 msgid "Posts"
 msgstr ""
 
-#: views.py:88
+#: views.py:144
 msgid "You have no permission edit this post"
 msgstr ""
 
-#: templates/djforum/_post.html:12
+#: templates/djforum/_post.html:31
 msgid "Online"
 msgstr ""
 
-#: templates/djforum/_post.html:20
+#: templates/djforum/_post.html:36 templates/djforum/_post.html.py:38
+#: templates/djforum/topic.html:97
+msgid "Answer"
+msgstr ""
+
+#: templates/djforum/_post.html:42
 msgid "Edit"
+msgstr ""
+
+#: templates/djforum/_post.html:46 templates/djforum/topic.html:93
+msgid "Delete"
+msgstr ""
+
+#: templates/djforum/_topic_list.html:7
+msgid "Replies"
+msgstr ""
+
+#: templates/djforum/_topic_list.html:8
+msgid "Views"
+msgstr ""
+
+#: templates/djforum/_topic_list.html:9 templates/djforum/index.html:33
+msgid "Last post"
+msgstr ""
+
+#: templates/djforum/_topic_list.html:37
+msgid "No topics"
+msgstr ""
+
+#: templates/djforum/_topic_statuses.html:4 templates/djforum/topic.html:74
+msgid "Herecy"
+msgstr ""
+
+#: templates/djforum/_topic_statuses.html:8
+msgid "Closed"
+msgstr ""
+
+#: templates/djforum/_topic_statuses.html:12
+msgid "Sticky"
 msgstr ""
 
 #: templates/djforum/add_post.html:17
 msgid "New post"
 msgstr ""
 
-#: templates/djforum/add_post.html:22 templates/djforum/add_post.html.py:27
-#: templates/djforum/add_topic.html:29 templates/djforum/add_topic.html:35
-#: templates/djforum/edit_post.html:22 templates/djforum/edit_post.html:27
-#: templates/djforum/topic.html:53
+#: templates/djforum/add_post.html:22 templates/djforum/add_topic.html:30
+#: templates/djforum/edit_post.html:22 templates/djforum/topic.html:115
 msgid "Submit"
 msgstr ""
 
-#: templates/djforum/add_post.html:23 templates/djforum/add_topic.html:30
-#: templates/djforum/edit_post.html:23
-msgid "Cancel"
-msgstr ""
-
-#: templates/djforum/add_topic.html:24 templates/djforum/forum.html:14
+#: templates/djforum/add_topic.html:24 templates/djforum/forum.html:15
 msgid "New topic"
-msgstr ""
-
-#: templates/djforum/base.html:30
-msgid "Please, write feedback if something does not work"
 msgstr ""
 
 #: templates/djforum/edit_post.html:17
 msgid "Edit post"
 msgstr ""
 
-#: templates/djforum/forum.html:26
-msgid "Replies"
+#: templates/djforum/forum.html:18 templates/djforum/index.html:17
+#: templates/djforum/unread_topics.html:20
+msgid "Mark all as read"
 msgstr ""
 
-#: templates/djforum/forum.html:27
-msgid "Views"
+#: templates/djforum/index.html:9 templates/djforum/unread_topics.html:11
+msgid "Unread topics"
 msgstr ""
 
-#: templates/djforum/forum.html:28 templates/djforum/index.html:19
-msgid "Last post"
+#: templates/djforum/index.html:13 templates/djforum/my_topics.html:11
+#: templates/djforum/unread_topics.html:16
+msgid "My topics"
 msgstr ""
 
-#: templates/djforum/forum.html:43 templates/djforum/index.html:37
-msgid "by"
-msgstr ""
-
-#: templates/djforum/forum.html:52
-msgid "No topics"
-msgstr ""
-
-#: templates/djforum/index.html:51
-msgid "Board information"
-msgstr ""
-
-#: templates/djforum/index.html:55
-msgid "Board statistics"
-msgstr ""
-
-#: templates/djforum/index.html:56
+#: templates/djforum/index.html:68
 msgid "Total number of registered users:"
 msgstr ""
 
-#: templates/djforum/index.html:57
+#: templates/djforum/index.html:69
 msgid "Total number of topics:"
 msgstr ""
 
-#: templates/djforum/index.html:58
+#: templates/djforum/index.html:70
 msgid "Total number of posts:"
 msgstr ""
 
-#: templates/djforum/index.html:61
-msgid "User information"
-msgstr ""
-
-#: templates/djforum/index.html:62
+#: templates/djforum/index.html:73
 msgid "Registered users online:"
 msgstr ""
 
-#: templates/djforum/index.html:63
+#: templates/djforum/index.html:74
 msgid "Guests online:"
 msgstr ""
 
-#: templates/djforum/index.html:67
+#: templates/djforum/index.html:76
 msgid "Online:"
 msgstr ""
 
-#: templates/djforum/topic.html:13
-msgid "Enter message."
+#: templates/djforum/move_topic.html:17 templates/djforum/topic.html:68
+msgid "Move"
 msgstr ""
 
-#: templates/djforum/topic.html:35
-msgid "Answer"
+#: templates/djforum/move_topic.html:24
+msgid "Save"
+msgstr ""
+
+#: templates/djforum/my_topics.html:10 templates/djforum/unread_topics.html:10
+msgid "Home"
+msgstr ""
+
+#: templates/djforum/topic.html:13
+msgid "Enter message"
+msgstr ""
+
+#: templates/djforum/topic.html:30
+msgid "Do you wish delete this post?"
+msgstr ""
+
+#: templates/djforum/topic.html:34
+msgid "Do you wish delete this topic?"
+msgstr ""
+
+#: templates/djforum/topic.html:38
+msgid "Do you wish open this topic?"
+msgstr ""
+
+#: templates/djforum/topic.html:38
+msgid "Do you wish close this topic?"
+msgstr ""
+
+#: templates/djforum/topic.html:42
+msgid "Do you wish remove herecy mark for this topic?"
+msgstr ""
+
+#: templates/djforum/topic.html:42
+msgid "Do you wish mark this topic as herecy?"
+msgstr ""
+
+#: templates/djforum/topic.html:46
+msgid "Do you wish unstick this topic?"
+msgstr ""
+
+#: templates/djforum/topic.html:46
+msgid "Do you wish stick this topic?"
+msgstr ""
+
+#: templates/djforum/topic.html:74
+msgid "Not herecy"
+msgstr ""
+
+#: templates/djforum/topic.html:80
+msgid "Unstick"
+msgstr ""
+
+#: templates/djforum/topic.html:80
+msgid "Stick"
+msgstr ""
+
+#: templates/djforum/topic.html:86
+msgid "Open"
+msgstr ""
+
+#: templates/djforum/topic.html:86
+msgid "Close"
 msgstr ""
