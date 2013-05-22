@@ -6,7 +6,7 @@
 {% block content %}
     <div class="pull-right topic-toolbar">
         {% if user.is_authenticated %}
-        <a href="{% url 'forum:unread_topics' %}" class="btn btn-small">{% trans "Unread topics" %}</a>
+        <a href="{% url 'forum:unread_topics' %}" class="btn btn-small">{% trans "Unread topics" %}{% if unread_count %} ({{ unread_count }}){% endif %}</a>
         {% endif %}
 
         {% if user.is_authenticated %}

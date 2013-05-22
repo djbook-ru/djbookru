@@ -25,6 +25,11 @@ def index(request):
 
     categories = [obj for obj in Category.objects.all() if obj.has_access(request.user)]
 
+    if request.user.is_authenticated():
+        unread_count = Topic.objects.unread_for_user_count(request.user)
+    else:
+        unread_count = 0
+
     return {
         'categories': categories,
         'users_online': users_online,
@@ -32,7 +37,8 @@ def index(request):
         'guest_count': guest_count,
         'users_count': User.objects.count(),
         'topics_count': Topic.objects.count(),
-        'posts_count': Post.objects.count()
+        'posts_count': Post.objects.count(),
+        'unread_count': unread_count
     }
 
 
