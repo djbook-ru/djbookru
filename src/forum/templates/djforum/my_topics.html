@@ -1,0 +1,24 @@
+{% extends "djforum/base.html" %}
+
+{% load i18n staticfiles pagination_tags forum_tags %}
+{% load url from future %}
+
+{% block content %}
+    <aside class="widget forum">
+
+        <ul class="breadcrumb">
+            <li><a class="title" href="{% url 'forum:index' %}">{% trans "Home" %}</a> <span class="divider">/</span></li>
+            <li class="active">{% trans "My topics" %}</li>
+        </ul>
+
+        {% if is_paginated %}
+            {% paginate float='left' %}
+        {% endif %}
+
+        {% include 'djforum/_topic_list.html' %}
+
+        {% if is_paginated %}
+            {% paginate float='left' %}
+        {% endif %}
+    </aside>
+{% endblock %}

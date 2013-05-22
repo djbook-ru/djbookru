@@ -3,6 +3,8 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('src.forum.views',
     url(r'^$', 'index', name='index'),
+    url(r'^unread_topics/$', 'unread_topics', name='unread_topics'),
+    url(r'^my_topics/$', 'my_topics', name='my_topics'),
     url(r'^topic/(\d+)/$', 'topic', name='topic'),
     url(r'^add_post/(\d+)/$', 'add_post', name='add_post'),
     url(r'^add_topic/(\d+)/$', 'add_topic', name='add_topic'),

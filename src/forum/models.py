@@ -4,6 +4,7 @@ import os
 import os.path
 
 from django.db import models
+from django.db.models import Q, F
 from django.contrib.auth.models import Group
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
@@ -122,8 +123,25 @@ class TopicManager(models.Manager):
 
     def unread(self, user, forum):
         query = '''SELECT ft.* FROM forum_topic ft LEFT JOIN forum_visit fv ON ft.id = fv.topic_id AND fv.user_id = %s
-WHERE ft.forum_id = %s AND (fv.time IS NULL or fv.time < ft.updated);'''
+WHERE ft.forum_id = %s AND (fv.time IS NULL OR fv.time < ft.updated);'''
         return self.raw(query, [user.pk, forum.pk])
+
+    def unread_for_user(self, user):
+        query = '''SELECT ft.* FROM forum_topic ft LEFT JOIN forum_visit fv ON ft.id = fv.topic_id AND fv.user_id = %s
+WHERE fv.time IS NULL OR fv.time < ft.updated;'''
+        return self.raw(query, [user.pk])
+
+    def unread_for_user_count(self, user):
+        from django.db import connection
+        cursor = connection.cursor()
+
+        query = '''SELECT COUNT(*) FROM forum_topic ft LEFT JOIN forum_visit fv ON ft.id = fv.topic_id AND fv.user_id = %s
+WHERE fv.time IS NULL OR fv.time < ft.updated;'''
+
+        cursor.execute(query, [user.pk])
+        row = cursor.fetchone()
+
+        return row[0]
 
 
 class Topic(models.Model):

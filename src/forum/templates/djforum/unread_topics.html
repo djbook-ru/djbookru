@@ -7,15 +7,17 @@
     <aside class="widget forum">
 
         <ul class="breadcrumb">
-            <li><a class="title" href="{{ forum.category.get_absolute_url }}">{{ forum.category }}</a> <span class="divider">/</span></li>
-            <li class="active">{{ forum }}</li>
+            <li><a class="title" href="{% url 'forum:index' %}">{% trans "Home" %}</a> <span class="divider">/</span></li>
+            <li class="active">{% trans "Unread topics" %}</li>
         </ul>
 
         <div class="pull-right topic-toolbar">
-            <a href="{% url 'forum:add_topic' forum.pk %}" class="btn btn-small">{% trans "New topic" %}</a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'forum:my_topics' %}" class="btn btn-small">{% trans "My topics" %}</a>
+            {% endif %}
 
             {% if user.is_authenticated %}
-            <a href="{% url 'forum:mark_read_forum' forum.pk %}" class="btn btn-small" style="margin-right: 5px">{% trans "Mark all as read" %}</a>
+            <a href="{% url 'forum:mark_read_all' %}" class="btn btn-small">{% trans "Mark all as read" %}</a>
             {% endif %}
         </div>
 

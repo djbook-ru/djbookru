@@ -4,9 +4,20 @@
 {% load url from future %}
 
 {% block content %}
-    {% if user.is_authenticated %}
-    <a href="{% url 'forum:mark_read_all' %}" class="pull-right btn btn-small" style="margin-right: 5px">{% trans "Mark all as read" %}</a>
-    {% endif %}
+    <div class="pull-right topic-toolbar">
+        {% if user.is_authenticated %}
+        <a href="{% url 'forum:unread_topics' %}" class="btn btn-small">{% trans "Unread topics" %}</a>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+        <a href="{% url 'forum:my_topics' %}" class="btn btn-small">{% trans "My topics" %}</a>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+        <a href="{% url 'forum:mark_read_all' %}" class="btn btn-small">{% trans "Mark all as read" %}</a>
+        {% endif %}
+    </div>
+
     {% for category in categories %}
     <aside class="widget forum">
         <h5 class="short_headline"><span>{{ category }}</span></h5>

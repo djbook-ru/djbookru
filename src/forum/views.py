@@ -10,6 +10,7 @@ from django.core.cache import cache
 from src.accounts.models import User
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
+from django.views.generic.list import ListView
 
 
 @render_to('djforum/index.html')
@@ -42,6 +43,30 @@ def forum(request, pk):
     }
     return object_list(request, qs, 20,
                        template_name='djforum/forum.html',
+                       extra_context=extra_context)
+
+
+class UnreadView(ListView):
+    paginate_by = 20
+    template_name = 'djforum/unread_topics.html'
+
+    def get_queryset(self):
+        return Topic.objects.unread_for_user(user=self.request.user)
+
+    def get_paginator(self, *args, **kwargs):
+        paginator = super(UnreadView, self).get_paginator(*args, **kwargs)
+        paginator._count = Topic.objects.unread_for_user_count(user=self.request.user)
+        return paginator
+
+unread_topics = login_required(UnreadView.as_view())
+
+
+@login_required
+def my_topics(request):
+    qs = Topic.objects.filter(user=request.user)
+    extra_context = {}
+    return object_list(request, qs, 20,
+                       template_name='djforum/my_topics.html',
                        extra_context=extra_context)
 
 
@@ -82,7 +107,7 @@ def move_topic(request, pk):
 def add_post(request, pk):
     topic = get_object_or_404(Topic, pk=pk)
 
-    if not topic.can_post(request.user):
+    if not topic.has_access(request.user):
         return redirect(topic)
 
     form = AddPostForm(topic, request.user, request.POST or None)

@@ -1,0 +1,38 @@
+{% load i18n forum_tags %}
+{% if object_list %}
+<table class="table table-bordered table-condensed">
+    <thead>
+        <tr>
+            <th></th>
+            <th class="number-column center smaller">{% trans "Replies" %}</th>
+            <th class="number-column center smaller">{% trans "Views" %}</th>
+            <th class="last-post center">{% trans "Last post" %}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for topic in object_list %}
+        <tr {% if topic|has_unread:user %}class="success"{% endif %}>
+            <td class="topic-name">
+                {% include 'djforum/_topic_statuses.html' %}
+                <a href="{{ topic.get_absolute_url }}" class="forum-title">{{ topic }}</a>
+            </td>
+            <td class="smaller center">{{ topic.reply_count }}</td>
+            <td class="smaller center">{{ topic.views }}</td>
+            <td class="smaller last-post">
+                {% with last_post=topic.last_post %}
+                {% if last_post %}
+                    <a href="{{ last_post.get_absolute_url }}">
+                        <i class="icon-time"></i> {{ last_post.created|date:'DATETIME_FORMAT' }}
+                    </a><br>
+                    <a href="{{ last_port.user.get_absolute_url }}"><i class="icon-pencil"></i>  {{ last_post.user }}</a>
+                {% endif %}
+                {% endwith %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <div class="clearfix"></div>
+    <p>{% trans "No topics" %}</p>
+{% endif %}
