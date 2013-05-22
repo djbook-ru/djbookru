@@ -7,7 +7,7 @@
             <td class="author">
                 <a class="date" href="{{ post.get_absolute_url }}"><i class="icon-time"></i> {{ post.created|date:'DATETIME_FORMAT' }}</a><br>
                 <a href="{{ post.user.get_absolute_url }}"><img class="img-polaroid" src="{{ post.user.avatar }}" title="{{ post.user }}" /></a>
-                <a href="{{ post.user.get_absolute_url }}"><i class="icon-pencil"></i> {{ post.user }}</a>
+                <a href="{{ post.user.get_absolute_url }}">{{ post.user|softwraphtml }}</a>
                 <br>{% trans "Posts" %}: {{ post.user.forum_posts.count }}
             </td>
             <td class="content">

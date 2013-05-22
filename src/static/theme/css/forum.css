@@ -2,8 +2,26 @@
     margin: 0 0 18px 0;
 }
 
+.widget.forum p {
+    font-size: 1em;
+    margin: 0px;
+}
+
+.widget.forum pre {
+    margin: 5px 0;
+    padding: 5px;
+}
+
 .forum .breadcrumb {
     margin: 0 0 10px;
+}
+
+.widget.forum table {
+    font-size: 1.05em;
+}
+
+.widget.forum table .topic-name {
+    font-weight: bold;
 }
 
 .widget.forum .table th.number-column {
@@ -58,8 +76,9 @@
 
 .post .table .author, .post .table .author-footer {
     border-right: 1px solid #ddd;
-    width: 145px;
+    width: 165px;
     background: url(../images/5p.png);
+    overflow: hidden;
 }
 
 .post .table .author a, .post .table .content-footer a {
