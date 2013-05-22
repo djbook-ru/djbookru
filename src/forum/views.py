@@ -11,6 +11,7 @@ from src.accounts.models import User
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic.list import ListView
+from django.http import Http404
 
 
 @render_to('djforum/index.html')
@@ -37,6 +38,10 @@ def index(request):
 @render_to('djforum/forum.html')
 def forum(request, pk):
     forum = get_object_or_404(Forum, pk=pk)
+
+    if not forum.has_access(request.user):
+        raise Http404
+
     qs = forum.topics.all()
     extra_context = {
         'forum': forum
@@ -74,6 +79,10 @@ def my_topics(request):
 @render_to('djforum/add_topic.html')
 def add_topic(request, pk):
     forum = get_object_or_404(Forum, pk=pk)
+
+    if not forum.has_access(request.user):
+        raise Http404
+
     form = AddTopicForm(forum, request.user, request.POST or None)
     if form.is_valid():
         topic = form.save()
@@ -88,6 +97,9 @@ def add_topic(request, pk):
 @render_to('djforum/move_topic.html')
 def move_topic(request, pk):
     topic = get_object_or_404(Topic, pk=pk)
+
+    if not topic.can_edit(request.user):
+        raise Http404
 
     form = MoveTopicForm(request.POST or None, instance=topic)
 
@@ -222,17 +234,22 @@ def mark_read_forum(request, pk):
 
     if forum.has_access(request.user):
         forum.mark_read(request.user)
+
     return redirect(forum)
 
 
 def topic(request, pk):
     user = request.user
     topic = get_object_or_404(Topic, pk=pk)
+
+    if not topic.has_access(user):
+        raise Http404
+
     Topic.objects.filter(pk=pk).update(views=F('views') + 1)
     qs = topic.posts.all()
     form = None
 
-    if topic.has_access(user):
+    if topic.can_post(user):
         form = AddPostForm(topic, user)
 
     topic.mark_visited_for(user)

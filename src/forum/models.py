@@ -15,6 +15,13 @@ from django.utils import timezone
 import markdown
 
 
+class CategoryManager(models.Manager):
+
+    def for_user(self, user):
+        qs = super(CategoryManager, self).get_query_set()
+        return qs.filter(Q(groups=None) | Q(groups__user=user))
+
+
 class Category(models.Model):
     name = models.CharField(_('Name'), max_length=80)
     groups = models.ManyToManyField(Group, blank=True, verbose_name=_('Groups'),
@@ -25,6 +32,8 @@ class Category(models.Model):
         ordering = ['position']
         verbose_name = _('Category')
         verbose_name_plural = _('Categories')
+
+    objects = CategoryManager()
 
     def __unicode__(self):
         return self.name
@@ -81,7 +90,7 @@ class Forum(models.Model):
     def has_unread(self, user):
         # Do not track for anonymous users
         if not user.is_authenticated():
-            return True
+            return False
 
         visits_qs = Visit.objects.filter(user=user, topic__forum=self)
 
@@ -127,16 +136,25 @@ WHERE ft.forum_id = %s AND (fv.time IS NULL OR fv.time < ft.updated);'''
         return self.raw(query, [user.pk, forum.pk])
 
     def unread_for_user(self, user):
-        query = '''SELECT ft.* FROM forum_topic ft LEFT JOIN forum_visit fv ON ft.id = fv.topic_id AND fv.user_id = %s
-WHERE fv.time IS NULL OR fv.time < ft.updated;'''
+        category_ids = Category.objects.for_user(user).values_list('pk', flat=True)
+        category_ids = ', '.join(str(id) for id in category_ids)
+
+        query = '''SELECT ft.* FROM forum_topic ft INNER JOIN forum_forum ff ON ft.forum_id = ff.id
+LEFT JOIN forum_visit fv ON ft.id = fv.topic_id AND fv.user_id = %%s
+WHERE ff.category_id IN (%s) AND (fv.time IS NULL OR fv.time < ft.updated);''' % category_ids
+
         return self.raw(query, [user.pk])
 
     def unread_for_user_count(self, user):
+        category_ids = Category.objects.for_user(user).values_list('pk', flat=True)
+        category_ids = ', '.join(str(id) for id in category_ids)
+
         from django.db import connection
         cursor = connection.cursor()
 
-        query = '''SELECT COUNT(*) FROM forum_topic ft LEFT JOIN forum_visit fv ON ft.id = fv.topic_id AND fv.user_id = %s
-WHERE fv.time IS NULL OR fv.time < ft.updated;'''
+        query = '''SELECT COUNT(*) FROM forum_topic ft INNER JOIN forum_forum ff ON ft.forum_id = ff.id
+LEFT JOIN forum_visit fv ON ft.id = fv.topic_id AND fv.user_id = %%s
+WHERE ff.category_id IN (%s) AND (fv.time IS NULL OR fv.time < ft.updated);''' % category_ids
 
         cursor.execute(query, [user.pk])
         row = cursor.fetchone()
@@ -206,13 +224,10 @@ class Topic(models.Model):
         return user.is_active and user.is_superuser
 
     def has_access(self, user):
-        if not self.forum.category.has_access(user):
-            return False
+        return self.forum.has_access(user)
 
-        if self.closed:
-            return False
-
-        return True
+    def can_post(self, user):
+        return self.has_access(user) and not self.closed and user.is_authenticated()
 
     @property
     def last_post(self):
@@ -239,7 +254,7 @@ class Topic(models.Model):
     def has_unread(self, user):
         # Do not track for anonymous users
         if not user.is_authenticated():
-            return True
+            return False
 
         return not Visit.objects.filter(user=user, topic=self, time__gte=self.updated).exists()
 

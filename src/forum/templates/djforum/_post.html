@@ -32,7 +32,11 @@
                 {% endif %}
             </td>
             <td class="content-footer">
-                <a class="answer-post" href="#">{% trans "Answer" %}</a>
+                {% if user.is_authenticated %}
+                    <a class="answer-post" href="#">{% trans "Answer" %}</a>
+                {% else %}
+                    <a href="{% url 'forum:add_post' topic.pk %}">{% trans "Answer" %}</a>
+                {% endif %}
 
                 {% if post|can_edit:user %}
                 <span class="divider">|</span> <a href="{% url 'forum:edit_post' post.pk %}">{% trans "Edit" %}</a>
