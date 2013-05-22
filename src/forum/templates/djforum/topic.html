@@ -38,8 +38,8 @@
            return confirm('{% if topic.closed %}{% trans "Do you wish open this topic?" %}{% else %}{% trans "Do you wish close this topic?" %}{% endif %}');
         })
 
-        $('.herecy-topic').click(function(){
-           return confirm('{% if topic.herecy %}{% trans "Do you wish remove herecy mark for this topic?" %}{% else %}{% trans "Do you wish mark this topic as herecy?" %}{% endif %}');
+        $('.heresy-topic').click(function(){
+           return confirm('{% if topic.heresy %}{% trans "do you wish remove heresy mark for this topic?"|capfirst %}{% else %}{% trans "do you wish mark this topic as heresy?"|capfirst %}{% endif %}');
         })
 
         $('.stick-topic').click(function(){
@@ -70,8 +70,8 @@
             {% endif %}
 
             {% if topic|can_edit:user %}
-                <a href="{% url 'forum:heresy_unheresy_topic' topic.pk %}" class="btn btn-small btn-info herecy-topic">
-                    {% if topic.heresy %}{% trans "Not herecy" %}{% else %}{% trans "Herecy" %}{% endif %}
+                <a href="{% url 'forum:heresy_unheresy_topic' topic.pk %}" class="btn btn-small btn-info heresy-topic">
+                    {% if topic.heresy %}{% trans "not heresy"|capfirst %}{% else %}{% trans "heresy"|capfirst %}{% endif %}
                 </a>
             {% endif %}
 
