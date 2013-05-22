@@ -7,7 +7,7 @@
 @import url('blog.css'); /*blog */
 @import url('gallery-folio-masonry.css'); /*isotope/masonry/grid css */
 @import url('../js/fancybox/source/jquery.fancybox.css'); /*combined buttons, thumbs and base fancybox*/
-@import url('http://fonts.googleapis.com/css?family=Ubuntu:400,700,700italic,400italic');/*fonts*/
+@import url(http://fonts.googleapis.com/css?family=Ubuntu&subset=latin,cyrillic-ext,cyrillic);
 @import url('http://fonts.googleapis.com/css?family=Raleway:300,500,600,700');/*fonts*/
 
 .form-horizontal .control-label {
@@ -142,7 +142,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, .slide-to-top .trigger:hover { c
 body, input, textarea, button { font-family: "Ubuntu", Sans-Serif;} /* http://css-tricks.com/sans-serif/ */
 .hero-unit h1,.hero-unit h2, .short_headline, .call-to-action h3, h1, h2, h3, h4, h5, h6 {font-family:"Raleway", Sans-Serif;font-weight:300}
 .short_headline, .call-to-action h3, h2, h3, h4, h5, h6 {font-weight:500}
-blockquote, .statement, .header .tagline { font-family: Garamond, "Apple Garamond", "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;}
+/*blockquote, .statement, .header .tagline { font-family: Garamond, "Apple Garamond", "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;}*/
 
 /* Link Styles
 ================================================== */
@@ -340,6 +340,7 @@ blockquote {
     border: 0px;
     font-size: 120%;
     line-height: 175%;
+    min-height: 30px;
 }
 blockquote p {
     font-size: 100%;
@@ -537,6 +538,7 @@ i .tooltip { font-weight: normal;font-style:normal }
     padding: 10px 10px 10px;
 }
 ul.breadcrumb { background: transparent }
+ul.breadcrumb .active, ul.breadcrumb a {font-weight: bold;}
 .audiojs {
     -webkit-box-shadow:	none;
     -moz-box-shadow: 	none;

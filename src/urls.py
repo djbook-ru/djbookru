@@ -55,7 +55,7 @@ from django.contrib.sitemaps import FlatPageSitemap, GenericSitemap
 from . examples import models as r_models
 from . news import models as n_models
 from . comments import models as c_models
-from . djangobb_forum import models as f_models
+from . forum import models as f_models
 
 sitemap_forum = {
     'queryset': f_models.Topic.objects.all(),
