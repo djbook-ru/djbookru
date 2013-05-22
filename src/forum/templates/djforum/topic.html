@@ -112,7 +112,7 @@
         {% if form %}
         <form action="{% url 'forum:add_post' topic.pk %}" method="post" class="post-form form-horizontal">
             {% csrf_token %}
-            <button type="submit" class="btn btn-primary btn-small submit-button">{% trans "Submit" %}</button>
+            <button type="submit" class="btn btn-small submit-button">{% trans "Submit" %}</button>
             {{ form.body }}
         </form>
         {% endif %}
