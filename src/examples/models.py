@@ -2,7 +2,7 @@
 
 from django.db import models, transaction
 from django.utils.translation import ugettext_lazy as _
-from src.djangobb_forum.models import Topic
+from src.forum.models import Forum, Topic, Post
 from .. accounts.models import User
 from ordered_model.models import OrderedModel
 
@@ -61,14 +61,12 @@ class Example(models.Model):
 
     @transaction.commit_on_success
     def save(self):
-        from ..djangobb_forum.models import Forum, Topic, Post
-
         is_create = self.pk is None
 
         if is_create:
             user = self.author
-            forum = Forum.objects.get(name='Обсуждение рецептов')
 
+            forum = Forum.objects.get(name=u'Обсуждение рецептов')
             topic = Topic(forum=forum, name=self.title, user=user)
             topic.save()
 
@@ -77,14 +75,12 @@ class Example(models.Model):
         super(Example, self).save()
 
         if is_create:
-            body_plain = u"""Обсуждение рецепта "%s" (http://djbook.ru%s)."""
-            body_html = u"""Обсуждение рецепта &laquo;<a href="%s">%s</a>&raquo;."""
+            body = u"""Обсуждение рецепта "%s" (http://djbook.ru%s)."""
             title = self.title
             url = self.get_absolute_url()
 
             post = Post(topic=topic, user=user,
-                        body=body_plain % (title, url),
-                        body_html=body_html % (url, title))
+                        body=body % (title, url))
             post.save()
 
     def search(self):
