@@ -15,7 +15,7 @@
             <div class="byline">
                 <a href="{{ obj.author.get_absolute_url }}"><i class="icon-pencil"></i> {{ obj.author }}</a> &nbsp;&nbsp;
                 <i class="icon-time"></i> {{ obj.created|date:'DATE_FORMAT' }} &nbsp;&nbsp;
-                <a href="{{ obj.topic.get_absolute_url }}"><i class="icon-comments-alt"></i> {{ obj.topic.reply_count }} {% blocktrans count counter=obj.topic.reply_count %}comment{% plural %}comments{% endblocktrans %}</a>
+                <a href="{{ obj.topic.get_absolute_url }}"><i class="icon-comments-alt"></i> {{ obj.topic.reply_count }} {% blocktrans count counter=obj.topic.reply_count|default:0 %}comment{% plural %}comments{% endblocktrans %}</a>
             </div>
             <div class="entry-meta">
                 <i class="icon-folder-open"></i> <a href="{% url 'examples:index' %}">{% trans "Recipes" %}</a> - <a href="{{ obj.category.get_absolute_url }}">{{ obj.category }}</a>
@@ -48,16 +48,18 @@
     </article>
     <!--end entry-post -->
 
-    {% comment %}
     <div class="entry-pagination">
         <ul class="pager">
-            <li><a href="#">← Older</a></li>
-            <li><a href="#">Newer →</a></li>
+            {% with prev=obj.get_prev %}
+                {% if prev %}<li><a href="{{ prev.get_absolute_url }}">← {% trans "older"|capfirst %}</a></li>{% endif %}
+            {% endwith %}
+            {% with next=obj.get_next %}
+                {% if next %}<li><a href="{{ next.get_absolute_url }}">{% trans "newer"|capfirst %} →</a></li>{% endif %}
+            {% endwith %}
         </ul>
         <!--close pager-->
     </div>
     <!--end entry-pagination-->
-    {% endcomment %}
 
     {% comment %}
     <div class="entry-related">

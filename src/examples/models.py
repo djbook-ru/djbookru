@@ -55,6 +55,18 @@ class Example(models.Model):
     def get_absolute_url(self):
         return ('examples:detail', [self.pk])
 
+    def get_next(self):
+        try:
+            return Example.objects.approved().filter(created__gt=self.created).exclude(pk=self.pk).order_by('created')[:1].get()
+        except Example.DoesNotExist:
+            return
+
+    def get_prev(self):
+        try:
+            return Example.objects.approved().filter(created__lt=self.created).exclude(pk=self.pk).order_by('-created')[:1].get()
+        except Example.DoesNotExist:
+            return
+
     @models.permalink
     def get_edit_url(self):
         return ('admin:examples_example_change', [self.pk])
