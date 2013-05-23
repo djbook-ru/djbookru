@@ -24,6 +24,10 @@
     font-weight: bold;
 }
 
+.widget.forum table .topic-name .description {
+    font-weight: normal;
+}
+
 .widget.forum .table th.number-column {
     width: 70px;
 }
