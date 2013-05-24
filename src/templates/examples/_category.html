@@ -15,7 +15,7 @@
                 <p>
                     <i class="icon-comments"></i>
                     {{ example.topic.reply_count }}
-                    {% blocktrans count counter=example.topic.reply_count %}comment{% plural %}comments{% endblocktrans %}
+                    {% blocktrans count counter=example.topic.reply_count|default:0 %}comment{% plural %}comments{% endblocktrans %}
                 </p>
             </a>
         </li>
