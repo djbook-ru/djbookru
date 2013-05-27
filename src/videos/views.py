@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from django.views.generic.list_detail import object_list
+from ..decorators import render_to
+from .import models
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-
+from django.views.generic.list_detail import object_list
 from tagging.models import TaggedItem, Tag
-
-from . import models
 
 VIDEOS_ON_PAGE = getattr(settings, 'VIDEOS_ON_PAGE', 8)
 

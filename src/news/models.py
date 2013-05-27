@@ -26,3 +26,15 @@ class News(models.Model):
 
     def search(self):
         return dict(source=_(u'News'), title=self.title, desc=self.content)
+
+    def get_next(self):
+        try:
+            return News.objects.all().filter(created__gt=self.created).exclude(pk=self.pk).order_by('created')[:1].get()
+        except News.DoesNotExist:
+            return
+
+    def get_prev(self):
+        try:
+            return News.objects.all().filter(created__lt=self.created).exclude(pk=self.pk).order_by('-created')[:1].get()
+        except News.DoesNotExist:
+            return
