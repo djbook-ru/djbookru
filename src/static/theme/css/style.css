@@ -772,6 +772,19 @@ input[type="text"], input[type="password"], input[type="search"], input[type="em
 	clear:both;
 }
 
+.widget .blogposts .content {
+    -ms-word-break: break-all;
+         word-break: break-all;
+
+         /* Non standard for webkit */
+         word-break: break-word;
+
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+            hyphens: auto;
+}
+}
+
 /******  left sidebar layout ******/
 .row-fluid.sidebar-left .span3 {
 	float:left;

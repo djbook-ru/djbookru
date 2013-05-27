@@ -5,7 +5,7 @@
             <li>
                 <h3><a href="{{ obj.get_absolute_url }}">{{ obj }}</a></h3>
                 <div class="content">
-                    <p>{{ obj.content|markdown|truncatewords:45|striptags|linebreaksbr }}</p>
+                    <p>{{ obj.content|markdown|truncatewords_html:45|striptags|urlize|linebreaksbr }}</p>
                 </div>
                 <i class="icon-time"></i> <a href="{{ obj.get_absolute_url }}" style="font-size: 0.8em">{{ obj.created|date:'DATE_FORMAT' }}</a>
                 <a href="{{ obj.get_absolute_url }}#comments" class="pull-right" >
