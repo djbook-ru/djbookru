@@ -45,6 +45,18 @@
     </article>
     <!--end entry-post -->
 
+    <div class="entry-pagination">
+        <ul class="pager">
+            {% with prev=obj.get_prev %}
+                {% if prev %}<li><a href="{{ prev.get_absolute_url }}">← {% trans "older"|capfirst %}</a></li>{% endif %}
+            {% endwith %}
+            {% with next=obj.get_next %}
+                {% if next %}<li><a href="{{ next.get_absolute_url }}">{% trans "newer"|capfirst %} →</a></li>{% endif %}
+            {% endwith %}
+        </ul>
+        <!--close pager-->
+    </div>
+
     {% render_comment_list_with_form obj %}
 
     {% comment %}
