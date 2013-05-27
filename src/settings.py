@@ -68,7 +68,6 @@ USE_THOUSAND_SEPARATOR = False
 LOCALE_PATHS = (
     rel_project('locale'),
     rel_project('main', 'locale'),
-    rel_project('djangobb_forum', 'locale'),
 )
 
 SITE_ID = 1
@@ -161,9 +160,6 @@ TEMPLATE_DIRS = (
 FIXTURE_DIRS = (
     rel_project('fixtures'),
 )
-
-DJANGOBB_FORUM_PAGE_SIZE = 40
-DJANGOBB_TOPIC_PAGE_SIZE = 50
 
 USER_ONLINE_TIMEOUT = 15
 
@@ -285,7 +281,6 @@ INSTALLED_APPS = (
     'tagging',
     'ordered_model',
 
-    'src.djangobb_forum',
     'src.forum',
     'src.accounts',
     'src.claims',

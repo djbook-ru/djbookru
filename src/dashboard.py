@@ -76,13 +76,6 @@ class CustomIndexDashboard(Dashboard):
                     'adzone.models.BannerAd',
                     'adzone.models.AdClick',
                     'adzone.models.Impression',
-                    ]),
-                modules.ModelList(_(u'Forum'), [
-                    'src.djangobb_forum.models.Category',
-                    'src.djangobb_forum.models.Forum',
-                    'src.djangobb_forum.models.Topic',
-                    'src.djangobb_forum.models.Post',
-                    'src.djangobb_forum.models.PostTracking',
                     ])
                 ]))
 
