@@ -21,6 +21,11 @@
             {% csrf_token %}
             <button type="submit" class="submit-button btn btn-small">{% trans "Submit" %}</button>
             {{ form.body }}
+            <p>
+                {% blocktrans with url='http://daringfireball.net/projects/markdown/syntax' %}
+                Use <a href="{{ url }}">Markdown</a> to format text.
+                {% endblocktrans %}
+            </p>
         </form>
     </aside>
 {% endblock %}

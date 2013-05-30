@@ -90,6 +90,24 @@
     overflow: hidden;
 }
 
+.post .table .content h1,
+.post .table .content h2,
+.post .table .content h3,
+.post .table .content h4,
+.post .table .content h5,
+.post .table .content h6 {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.post .table .content h1 {
+    font-size: 190%;
+}
+
+.post .table .content h2 {
+    font-size: 175%;
+}
+
 .post .table .content code {
     white-space: pre-wrap; /* css-3 */
     white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */

@@ -27,8 +27,14 @@
         <form method="post" class="post-form">
             {% csrf_token %}
             {{ form.name|bootstrap:'nolabel' }}
+
             <button type="submit" class="submit-button btn btn-small">{% trans "Submit" %}</button>
             {{ form.body|bootstrap:'nolabel' }}
+            <p>
+                {% blocktrans with url='http://daringfireball.net/projects/markdown/syntax' %}
+                Use <a href="{{ url }}">Markdown</a> to format text.
+                {% endblocktrans %}
+            </p>
         </form>
     </aside>
 {% endblock %}
