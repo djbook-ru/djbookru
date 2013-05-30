@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-22 15:50+0400\n"
-"PO-Revision-Date: 2013-05-22 16:03+0400\n"
+"POT-Creation-Date: 2013-05-22 16:19+0400\n"
+"PO-Revision-Date: 2013-05-22 16:20+0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -99,7 +99,7 @@ msgstr "прикреплён"
 msgid "closed"
 msgstr "закрыт"
 
-#: models.py:174
+#: models.py:174 templates/djforum/topic.html:74
 msgid "heresy"
 msgstr "ересь"
 
@@ -173,7 +173,7 @@ msgstr "Последний отклик"
 msgid "No topics"
 msgstr "Нет тем"
 
-#: templates/djforum/_topic_statuses.html:4 templates/djforum/topic.html:74
+#: templates/djforum/_topic_statuses.html:4
 msgid "Herecy"
 msgstr "Ересь"
 
@@ -273,12 +273,12 @@ msgid "Do you wish close this topic?"
 msgstr "Вы желаете закрыть эту тему?"
 
 #: templates/djforum/topic.html:42
-msgid "Do you wish remove herecy mark for this topic?"
-msgstr "Вы желаете удалить отметку ереси с этой темы?"
+msgid "do you wish remove heresy mark for this topic?"
+msgstr "вы желаете удалить отметку ереси с этой темы?"
 
 #: templates/djforum/topic.html:42
-msgid "Do you wish mark this topic as herecy?"
-msgstr "Вы желаете пометить эту тему как ересь?"
+msgid "do you wish mark this topic as heresy?"
+msgstr "вы желаете пометить эту тему как ересь?"
 
 #: templates/djforum/topic.html:46
 msgid "Do you wish unstick this topic?"
@@ -289,8 +289,8 @@ msgid "Do you wish stick this topic?"
 msgstr "Вы желаете прикрепить эту тему?"
 
 #: templates/djforum/topic.html:74
-msgid "Not herecy"
-msgstr "Не ересь"
+msgid "not heresy"
+msgstr "не ересь"
 
 #: templates/djforum/topic.html:80
 msgid "Unstick"
