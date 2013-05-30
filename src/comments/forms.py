@@ -35,7 +35,7 @@ class CommentForm(forms.ModelForm, AjaxForm):
         object_pk = self.cleaned_data.get('object_pk')
         if reply_to and content_type and object_pk:
             if not reply_to.content_type == content_type and not reply_to.object_pk == object_pk:
-                raise forms.ValidationError(_('You car reply only comments for same object'))
+                raise forms.ValidationError(_('You can reply to the comments of the same object only'))
         return self.cleaned_data
 
     def clean_honeypot(self):

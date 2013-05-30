@@ -16,8 +16,10 @@
         <span class="inputwrapper">
             {{ form.content }}
             <span class="help-block">
-                {% trans "Django related question ask on" %}
-                <a href="{% url 'forum:index' %}">{% trans "our forum" %}</a>
+                {% url 'forum:index' as forum_index_url %}
+                {% blocktrans %}
+                Please, ask Django related questions on <a href="{{ forum_index_url }}">our forum</a>.
+                {% endblocktrans %}
             </span>
         </span>
         <input type="submit" value="{% trans 'Add Comment' %}" class="btn" name="submit">
