@@ -12,6 +12,14 @@
         </ul>
 
         <div class="pull-right topic-toolbar">
+            {% if user.is_authenticated %}
+                {% with unread_count=user|unread_topics_count %}
+                <a href="{% url 'forum:unread_topics' %}" class="btn btn-small">
+                    {% trans "Unread topics" %}{% if unread_count %} ({{ unread_count }}){% endif %}
+                </a>
+                {% endwith %}
+            {% endif %}
+
             <a href="{% url 'forum:add_topic' forum.pk %}" class="btn btn-small">{% trans "New topic" %}</a>
 
             {% if user.is_authenticated %}

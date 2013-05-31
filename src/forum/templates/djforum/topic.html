@@ -63,6 +63,14 @@
         </div>
 
         <div class="pull-right topic-toolbar">
+            {% if user.is_authenticated %}
+                {% with unread_count=user|unread_topics_count %}
+                <a href="{% url 'forum:unread_topics' %}" class="btn btn-small">
+                    {% trans "Unread topics" %}{% if unread_count %} ({{ unread_count }}){% endif %}
+                </a>
+                {% endwith %}
+            {% endif %}
+
             {% if topic|can_edit:user %}
                 <a href="{% url 'forum:move_topic' topic.pk %}" class="btn btn-small btn-info">
                     {% trans 'Move' %}

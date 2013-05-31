@@ -1,10 +1,16 @@
 from django import template
 from django.core.cache import cache
 from django.template.defaultfilters import stringfilter
-from django.utils.safestring import mark_safe
 from django.utils.html import escape
+from django.utils.safestring import mark_safe
+from src.forum.models import Topic
 
 register = template.Library()
+
+
+@register.filter
+def unread_topics_count(user):
+    return Topic.objects.unread_for_user_count(user)
 
 
 @register.filter
