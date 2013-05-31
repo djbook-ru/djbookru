@@ -5,11 +5,19 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.db.models import Count
 
-e = enumerate([_(u'New'), _(u'Assigned'), _(u'Fixed'), _(u'Invalid')], 1)
-CLAIM_STATUSES = tuple([(x, y) for x, y in e])
-
 
 class Claims(models.Model):
+    NEW = 1
+    ASSIGNED = 2
+    FIXED = 3
+    INVALID = 4
+    CLAIM_STATUSES = (
+        (NEW, _(u'New')),
+        (ASSIGNED, _(u'Assigned')),
+        (FIXED, _(u'Fixed')),
+        (INVALID, _(u'Invalid'))
+    )
+
     ctx_left = models.CharField(verbose_name=_(u'Left Context Value'), max_length=255, blank=True)
     selected = models.CharField(verbose_name=_(u'Selected Text'), max_length=255)
     ctx_right = models.CharField(verbose_name=_(u'Right Context Value'), max_length=255, blank=True)

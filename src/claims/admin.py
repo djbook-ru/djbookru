@@ -6,23 +6,21 @@ from django.utils.translation import ugettext as _
 from . import models
 
 
-class __Claims(admin.ModelAdmin):
+class ClaimsAdmin(admin.ModelAdmin):
     list_display = ('url', 'status_colored', 'status_applied', 'text', 'comment', 'to_page')
     list_filter = ('status',)
+    actions = ['fixed', 'invalid']
     list_per_page = 20
 
     fieldsets = (
-        (_(u'Meta'),
-         {'fields': ('url',)}),
-        (_(u'Error'),
-         {'fields': ('ctx_left', 'selected', 'ctx_right')}),
-        (_(u'Comment'),
-         {'fields': ('status', 'email', 'comment', 'reply')})
-        )
+        (_(u'Meta'), {'fields': ('url',)}),
+        (_(u'Error'), {'fields': ('ctx_left', 'selected', 'ctx_right')}),
+        (_(u'Comment'), {'fields': ('status', 'email', 'comment', 'reply')})
+    )
 
     def status_colored(self, obj):
         output = []
-        color = ['yellow', 'orange', 'green', 'red'][obj.status - 1]
+        color = ['#fff04a', 'orange', '#c0db8a', '#ff5d4f'][obj.status - 1]
         output.append(u'<div style="background-color: %s; padding: 2px 3px; text-align: center">%s</div>' \
                % (color, obj.get_status_display()))
         if obj.notify:
@@ -41,9 +39,20 @@ class __Claims(admin.ModelAdmin):
         if obj.ctx_left:
             output.append(u'<span>%s</span>' % obj.ctx_left)
         output.append(u'<span style="background-color: #c0db8a;">%s</span>' % obj.selected)
+        output.append(u'<hr>')
         if obj.ctx_right:
             output.append(u'<span>%s</span>' % obj.ctx_right)
         return u''.join(output)
     text.allow_tags = True
 
-admin.site.register(models.Claims, __Claims)
+    def fixed(self, request, queryset):
+        queryset.update(status=models.Claims.FIXED)
+
+    fixed.short_description = _(u'Fixed')
+
+    def invalid(self, request, queryset):
+        queryset.update(status=models.Claims.INVALID)
+
+    invalid.short_description = _(u'Invalid')
+
+admin.site.register(models.Claims, ClaimsAdmin)
