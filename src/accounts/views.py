@@ -116,7 +116,7 @@ def edit(request):
 @login_required
 def notifications(request):
     user = request.user
-    reply_comments = list(Comment.get_reply_comments(user, only_new=False)[:30])
+    reply_comments = list(Comment.get_reply_comments(user, only_new=False).order_by('-submit_date')[:30])
     reply_comments_count = Comment.get_reply_comments(user).count()
 
     doc_comments = list(DocComment.get_reply_comments(user, only_new=False)[:30])

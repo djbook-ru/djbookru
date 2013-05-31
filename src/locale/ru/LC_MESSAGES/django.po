@@ -1552,7 +1552,7 @@ msgstr ""
 #: templates/comments/_display_item.html:13 templates/comments/_item.html:13
 #: templates/doc_comments/_display_item.html:13
 msgid "Permalink"
-msgstr "Постоянная ссылка"
+msgstr "Ссылка"
 
 #: templates/comments/_display_item.html:29 templates/comments/_item.html:34
 msgid "answer to"
