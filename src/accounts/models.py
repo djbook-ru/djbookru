@@ -1,20 +1,18 @@
 # -*- coding: utf-8 -*-
 
-import hashlib
-import random
 from datetime import timedelta
-
 from django.conf import settings
 from django.contrib.auth.models import UserManager as BaseUserManager, User as BaseUser
 from django.contrib.sites.models import Site
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models.signals import post_save
+from django.utils import timezone
 from django.utils.hashcompat import sha_constructor
 from django.utils.translation import ugettext_lazy as _
-from django.utils import timezone
-
-from .. utils.mail import send_templated_email
+from src.utils.mail import send_templated_email
+import hashlib
+import random
 
 EMAIL_CONFIRMATION_DAYS = getattr(settings, 'EMAIL_CONFIRMATION_DAYS', 3)
 
@@ -157,6 +155,10 @@ class Announcement(models.Model):
     content = models.TextField(_(u'content'), help_text=_('Use Markdown and HTML'))
     is_active = models.BooleanField(_(u'is active?'), default=True)
     created = models.DateTimeField(_(u'created'), auto_now_add=True)
+
+    class Meta:
+        verbose_name = _(u'announcement')
+        verbose_name_plural = _(u'announcements')
 
     def __unicode__(self):
         return self.title

@@ -1,41 +1,32 @@
 # Список зависимостей для работы проекта.
 
-Django == 1.4.2
-#South == 0.7.6
-mysql-python
--e hg+https://bitbucket.org/ruslanpopov/django-sentry#egg=sentry
-
-python_openid>=2.2
-oauth2 >= 1.5.167
-
-django-extensions
-django-salmonella == 0.5.1
+django-admin-tools==0.5.1
 django-autoslug-field
-django-markitup
-django-timelog
-django-report-tools==0.2.1
-
-easy_thumbnails
-
-Markdown >= 2.0
-python-dateutil == 1.5
-pytz
-pytils
-simplejson
-
-django-social-auth==0.7.23
-django-modeltranslation
-django-model-utils == 1.0.0
-django-tastypie == 0.9.11
-django-tagging == 0.3.1
-
+django-extensions
 django-haystack==1.2.7
-xapian-haystack
-
--e hg+https://bitbucket.org/rsalmaso/django-admin-tools#egg=admin_tools
+django-markitup
+django-model-utils==1.0.0
+django-modeltranslation
+django-report-tools==0.2.1
+django-salmonella == 0.5.1
+django-social-auth==0.7.23
+django-tagging==0.3.1
+django-tastypie==0.9.11
+django-timelog
+Django==1.4.2
 feedparser
-
+Markdown >= 2.0
+mysql-python
+oauth2 >= 1.5.167
+python-dateutil==1.5
+python_openid>=2.2
+pytils
+pytz
+simplejson
+sorl-thumbnail==11.12
+xapian-haystack
 -e git+git://github.com/RaD/django-chunks.git@rel2.7#egg=django-chunks
--e git+https://github.com/RaD/haystack-static-pages.git/#egg=haystack-static-pages
 -e git+http://github.com/clintecker/django-google-analytics.git/#egg=django-google_analytics
 -e git+https://github.com/jezdez/django-robots.git/#egg=django-robots
+-e git+https://github.com/RaD/haystack-static-pages.git/#egg=haystack-static-pages
+-e hg+https://bitbucket.org/ruslanpopov/django-sentry#egg=sentry

@@ -350,7 +350,7 @@ INSTALLED_APPS = (
 ADMIN_TOOLS_INDEX_DASHBOARD = 'src.dashboard.CustomIndexDashboard'
 ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'src.dashboard.CustomAppIndexDashboard'
 ADMIN_TOOLS_MENU = 'src.menu.CustomMenu'
-ADMIN_MEDIA_PREFIX = '/static/admin/'  # грязный хак
+ADMIN_TOOLS_THEMING_CSS = 'theme/css/admin.css'
 ### ADMIN-TOOLS: END
 
 

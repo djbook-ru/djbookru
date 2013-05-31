@@ -19,34 +19,6 @@ class CustomIndexDashboard(Dashboard):
         site_name = get_admin_site_name(context)
 
         self.children.append(
-            modules.LinkList(
-                _(u'Quick Links'),
-                layout='inline',
-                draggable=False,
-                deletable=False,
-                collapsable=False,
-                children=[
-                    (_(u'Go to Site'), reverse('main:index')),
-                    [_(u'Error Console'), reverse('sentry')],
-                    [_('Change password'), reverse('%s:password_change' % site_name)],
-                    [_('Log out'), reverse('%s:logout' % site_name)],
-                ]))
-
-        self.children.append(
-            modules.Group(
-                _(u'Administration'),
-                children=[
-                modules.ModelList(_(u'Credentials'), [
-                    'accounts.models.User',
-                    'django.contrib.auth.models.Group',
-                    ]),
-                modules.AppList(_(u'Control'), models=(
-                    'google_analytics.*', 'django.contrib.*',
-
-                    ))
-                ]))
-
-        self.children.append(
             modules.Group(
                 _(u'Applications'),
                 children=[

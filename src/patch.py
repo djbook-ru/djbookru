@@ -31,7 +31,7 @@ class FlatPageAdmin(admin.ModelAdmin):
 
     class Media:
         js = [
-            settings.ADMIN_MEDIA_PREFIX + 'tinymce/jscripts/tiny_mce/tiny_mce.js',
+            'tinymce/jscripts/tiny_mce/tiny_mce.js',
             'js/tinymce_setup.js'
         ]
 
