@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-31 13:35+0400\n"
+"POT-Creation-Date: 2013-05-31 17:12+0300\n"
 "PO-Revision-Date: 2013-05-20 11:59+0300\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -18,15 +18,15 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: admin.py:36
+#: admin.py:35
 msgid "Personal info"
 msgstr "Персональные данные"
 
-#: admin.py:37
+#: admin.py:36
 msgid "Permissions"
 msgstr "Права доступа"
 
-#: admin.py:39
+#: admin.py:38
 msgid "Important dates"
 msgstr "Важные даты"
 
@@ -114,129 +114,129 @@ msgstr ""
 msgid "Password reset on %s"
 msgstr "Сброшен пароль для %s"
 
-#: models.py:45
+#: models.py:43
 #, python-format
 msgid "You just created account on %(site)s"
 msgstr ""
 
-#: models.py:60
+#: models.py:58
 msgid "biography"
 msgstr "биография"
 
-#: models.py:61
+#: models.py:59
 msgid "homepage"
 msgstr "домашняя страница"
 
-#: models.py:62
+#: models.py:60
 msgid "is valid email?"
 msgstr "почта верна?"
 
-#: models.py:63 models.py:188
+#: models.py:61 models.py:186
 msgid "achievements"
 msgstr "достижения"
 
-#: models.py:64
+#: models.py:62
 msgid "forum signature"
 msgstr "подпись на форуме"
 
-#: models.py:66
+#: models.py:64
 msgid "longitude"
 msgstr "долгота"
 
-#: models.py:67
+#: models.py:65
 msgid "latitude"
 msgstr "широта"
 
-#: models.py:70
+#: models.py:68
 msgid "last comments read"
 msgstr "последний просмотр комментариев"
 
-#: models.py:71
+#: models.py:69
 msgid "last doc. comments read"
 msgstr "последний просмотр комментариев к документации"
 
-#: models.py:76
+#: models.py:74
 msgid "User"
 msgstr "Пользователь"
 
-#: models.py:77
+#: models.py:75
 msgid "Users"
 msgstr "Пользователи"
 
-#: models.py:155
+#: models.py:153
 msgid "title"
 msgstr "заголовок"
 
-#: models.py:156
+#: models.py:154
 msgid "link"
 msgstr "ссылка"
 
-#: models.py:157
+#: models.py:155
 msgid "content"
 msgstr "содержимое"
 
-#: models.py:157
+#: models.py:155
 msgid "Use Markdown and HTML"
 msgstr "Используйте Markdown и HTML"
 
-#: models.py:158
+#: models.py:156
 msgid "is active?"
 msgstr "активен?"
 
-#: models.py:159
+#: models.py:157
 msgid "created"
 msgstr "создан"
 
-#: models.py:162
+#: models.py:160
 msgid "announcement"
 msgstr "объявление"
 
-#: models.py:163
+#: models.py:161
 msgid "announcements"
 msgstr "объявления"
 
-#: models.py:170
+#: models.py:168
 msgid "user"
 msgstr "пользователь"
 
-#: models.py:171 models.py:187
+#: models.py:169 models.py:185
 msgid "achievement"
 msgstr "достижение"
 
-#: models.py:172
+#: models.py:170
 msgid "note"
 msgstr "заметка"
 
-#: models.py:175
+#: models.py:173
 msgid "user achievement"
 msgstr "достижение пользователя"
 
-#: models.py:176
+#: models.py:174
 msgid "user achievements"
 msgstr "достижения пользователей"
 
-#: models.py:181
+#: models.py:179
 msgid "name"
 msgstr "имя"
 
-#: models.py:182
+#: models.py:180
 msgid "description"
 msgstr "описание"
 
-#: models.py:183
+#: models.py:181
 msgid "active icon"
 msgstr "активная иконка"
 
-#: models.py:226
+#: models.py:224
 #, python-format
 msgid "Please confirm your email address for %(site)s"
 msgstr "Пожалуйста, подтвердите адрес вашей электронной почты для %(site)s"
 
-#: models.py:249
+#: models.py:247
 msgid "e-mail confirmation"
 msgstr "подтверждение почты"
 
-#: models.py:250
+#: models.py:248
 msgid "e-mail confirmations"
 msgstr "подтверждения почты"
 

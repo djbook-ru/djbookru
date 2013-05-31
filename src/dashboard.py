@@ -22,34 +22,23 @@ class CustomIndexDashboard(Dashboard):
             modules.Group(
                 _(u'Applications'),
                 children=[
-                modules.ModelList(_(u'Content'), [
-                    'src.news.models.News',
-                    'src.claims.models.Claims',
-                    'src.comments.models.Comment',
-                    'src.videos.models.Video',
-                    'src.accounts.Announcement'
+                    modules.ModelList(_(u'Content'), [
+                        'src.accounts.models.User',
+                        'src.examples.models.Example',
+                        'src.news.models.News',
+                        'src.videos.models.Video',
                     ]),
-                modules.ModelList(_(u'Book'), [
-                    'src.main.models.Book',
-                    'src.main.models.Page',
+                    modules.ModelList(_(u'From users'), [
+                        'src.doc_comments.models.Comment',
+                        'src.claims.models.Claims',
+                        'src.comments.models.Comment',
                     ]),
-                modules.ModelList(_(u'Receipts'), [
-                    'src.examples.models.Example',
-                    'src.examples.models.Category',
+                    modules.ModelList(_(u'Links'), [
+                        'src.links.models.*',
                     ]),
-                modules.ModelList(_(u'Documentation'), [
-                    'src.doc_comments.models.Comment',
-                    ]),
-                modules.ModelList(_(u'Advertisment'), [
-                    'adzone.models.Advertiser',
-                    'adzone.models.AdCategory',
-                    'adzone.models.AdZone',
-                    'adzone.models.TextAd',
-                    'adzone.models.BannerAd',
-                    'adzone.models.AdClick',
-                    'adzone.models.Impression',
-                    ])
-                ]))
+                ]
+            )
+        )
 
         self.children.append(modules.RecentActions(_('Recent Actions'), 10))
         #self.children.append(AdClickModule(_('AdClick Report')))

@@ -6,6 +6,7 @@ from . import models
 
 class CommentAdmin(admin.ModelAdmin):
     list_display = ['created', 'comment', 'url', 'author', 'status']
+    list_filter = ['status']
 
     def url(self, obj):
         return '<a href="%s">%s</a>' % (obj.get_absolute_url(), obj.page_title)

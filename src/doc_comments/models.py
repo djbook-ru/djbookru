@@ -24,8 +24,8 @@ class Comment(models.Model):
     status = models.IntegerField(_(u'status'), choices=STATUS_CHOICES, default=0)
 
     class Meta:
-        verbose_name = _(u'comment')
-        verbose_name_plural = _(u'comments')
+        verbose_name = _(u'doc. comment')
+        verbose_name_plural = _(u'doc. comments')
         ordering = ['-created']
 
     def __unicode__(self):
