@@ -109,7 +109,7 @@ jQuery.noConflict();
                 var id = $this.parents('.comment').data('id');
                 if ($this.hasClass('closed')){
                     $.post(self.urls.close, {'id': id}, function(){
-                        $this.removeClass('closed').addClass('accept').text('Принять');
+                        $this.removeClass('closed').addClass('accept').addClass('reopen').text('Открыть');
                     });
                 }else if($this.hasClass('accept')) {
                     $.post(self.urls.accept, {'id': id}, function(){
@@ -189,6 +189,8 @@ jQuery.noConflict();
                     if (self.canChangeStatus){
                         if (obj.status == self.ACCEPTED){
                             status_button = ' | <a href="#" class="status-button closed">Закрыть</a>';
+                        }else if (obj.status == self.CLOSED){
+                            status_button = ' | <a href="#" class="status-button accept reopen">Открыть</a>';
                         }else{
                             status_button = ' | <a href="#" class="status-button accept">Принять</a>';
                         }

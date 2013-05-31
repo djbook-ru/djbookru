@@ -1,74 +1,74 @@
-.block-with-comment { 
+.block-with-comment {
     position: relative
 }
 div.comment-indicator {
-    position: absolute; 
-    width: 20px; 
-    z-index: 999; 
-    text-align: center; 
-    color: black; 
-    font-size: 11px; 
-    left: -44px; 
+    position: absolute;
+    width: 20px;
+    z-index: 999;
+    text-align: center;
+    color: black;
+    font-size: 11px;
+    left: -44px;
     top: 0;
     cursor: pointer;
 }
 
 dd div.comment-indicator {
-    left: -59px; 
+    left: -59px;
 }
 dd dd div.comment-indicator, dd dd div.comment-indicator {
-    left: -74px; 
+    left: -74px;
 }
 ul li div.comment-indicator {
-    left: -73px; 
+    left: -73px;
 }
 dd ul li div.comment-indicator, dd ol li div.comment-indicator {
-    left: -89px; 
+    left: -89px;
 }
 ol li ol li div.comment-indicator {
-    left: -102px; 
+    left: -102px;
 }
 ol li ul li div.comment-indicator {
-    left: -103px; 
+    left: -103px;
 }
 ul ul li div.comment-indicator {
-    left: -88px; 
+    left: -88px;
 }
 dd dd ul li div.comment-indicator {
-    left: -104px; 
+    left: -104px;
 }
 blockquote li div.comment-indicator {
-    left: -91px; 
+    left: -91px;
 }
 ol li div.comment-indicator,
 ol li div.comment-indicator,
 ol li div.comment-indicator {
-    left: -73px; 
+    left: -73px;
 }
 
-div.comment-indicator:hover { 
-    background-color: #406b4e; 
+div.comment-indicator:hover {
+    background-color: #406b4e;
 }
-div.comment-indicator span { 
-    position: absolute; 
-    top: -10px; 
-    left: -10px; 
-    width: 25px; 
-    height: 25px; 
+div.comment-indicator span {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 25px;
+    height: 25px;
 }
-div.comment-indicator:hover span { 
-    background-image: url(../img/comment-hover.png); 
+div.comment-indicator:hover span {
+    background-image: url(../img/comment-hover.png);
 }
-div.has-comments > span, div.has-comments:hover > span { 
-    background-image: url(../img/comment-active.png); 
+div.has-comments > span, div.has-comments:hover > span {
+    background-image: url(../img/comment-active.png);
 }
-div.current > span, div.has-comments.current:hover > span{ 
-    background-image: url(../img/comment-current.png); 
+div.current > span, div.has-comments.current:hover > span{
+    background-image: url(../img/comment-current.png);
 }
 
 /* Fix bootstrap */
 .modal .modal-footer {
-    
+
 }
 .modal a {
     color: #487858;
@@ -130,6 +130,9 @@ div.current > span, div.has-comments.current:hover > span{
 }
 .comment .status-button.accept {
     background-color: #468847;
+}
+.comment .status-button.accept.reopen {
+    background-color: #999999;
 }
 .comment .status-button.closed {
     background-color: #F89406;
