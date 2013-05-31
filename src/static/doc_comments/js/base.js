@@ -39,11 +39,11 @@ jQuery.noConflict();
                   '</div>'+
                   '<div class="modal-body">'+
                     '<ul class="nav nav-tabs">'+
-                      '<li class="active"><a href="#commentsModalAdd" data-toggle="tab">Добавить</a></li>'+
-                      '<li><a href="#commentsModalComments" data-toggle="tab">Комментарии блока</a></li>'+
+                      '<li class="active"><a href="#commentsModalComments" data-toggle="tab">Комментарии</a></li>'+
+                      '<li><a href="#commentsModalAdd" data-toggle="tab">Добавить</a></li>'+
                     '</ul>'+
                     '<div class="tab-content">'+
-                      '<div class="tab-pane active" id="commentsModalAdd">'+
+                      '<div class="tab-pane" id="commentsModalAdd">'+
                         '<form class="form-inline" method="post" action="'+this.urls.add+'">'+
                           '<input type="hidden" name="page">'+
                           '<input type="hidden" name="page_title">'+
@@ -57,7 +57,7 @@ jQuery.noConflict();
                           '</fieldset>'+
                         '</form>'+
                       '</div>'+
-                      '<div class="tab-pane" id="commentsModalComments"></div>'+
+                      '<div class="tab-pane active" id="commentsModalComments"></div>'+
                     '</div>'+
                   '</div>'+
                   '<div class="modal-footer">'+
@@ -149,7 +149,7 @@ jQuery.noConflict();
                 self.cleanFormMessages();
                 self.checkLogin();
                 self.loadComments();
-                $('#commentsModal a[href="#commentsModalAdd"]').tab('show');
+                $('#commentsModal a[href="#commentsModalComments"]').tab('show');
                 self.$modal.modal();
                 return false;
             });
