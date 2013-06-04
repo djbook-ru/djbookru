@@ -59,7 +59,7 @@ class Claims(models.Model):
 
     @staticmethod
     def statistic():
-        statuses = dict(CLAIM_STATUSES)
+        statuses = dict(Claims.CLAIM_STATUSES)
         css = ['', 'spelling_error_count_pending', 'spelling_error_count_assigned',
                'spelling_error_count_fixed', 'spelling_error_count_invalid']
         result = []
