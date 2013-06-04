@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import posixpath
+
 from functools import wraps
 from fabric.api import env, run, cd, prefix
 
@@ -24,6 +26,28 @@ def inside_project(func):
     return inner
 
 
+@inside_virtualenv
 @inside_project
 def manage(command):
-    run('python manage.pyc ' + command, shell=False)
+    u"""Выполняет команду Django на сервере."""
+    run('python manage.py ' + command, shell=False)
+
+
+def pip_reqs_path(name):
+    if not name.endswith('.txt'):
+        name += '.txt'
+    return posixpath.join(env.conf.PIP_REQS_PATH, name)
+
+
+def touch():
+    u"""Обновляет время WSGI файла, заставляя сервер перезапустить сайт."""
+    run('touch %s' % env.conf.WSGI, shell=False)
+
+
+def touch_after(func):
+    @wraps(func)
+    def inner(*args, **kwargs):
+        result = func(*args, **kwargs)
+        touch()
+        return result
+    return inner
