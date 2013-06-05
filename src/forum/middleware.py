@@ -7,7 +7,7 @@ from django.utils import timezone
 class LastLoginMiddleware(object):
     def process_request(self, request):
         if request.user.is_authenticated():
-            cache.set(str(request.user.id), True, settings.USER_ONLINE_TIMEOUT)
+            cache.set(str(request.user.id), True, settings.USER_ONLINE_TIMEOUT * 60)
 
 
 class UsersOnline(object):
