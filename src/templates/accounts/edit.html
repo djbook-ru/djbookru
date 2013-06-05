@@ -23,11 +23,14 @@
 <div class="register-box clearfix" style="margin-top: 20px">
     <h2 class="short_headline"><span>{% trans "Edit your profile" %}</span></h2>
 
+    <div style="padding-left: 140px; margin-bottom: 10px">
+        <img src="{{ user.avatar }}" class="img-polaroid"/>
+        {% trans "You can edit your avatar on" %} <a href="https://gravatar.com/">gravatar.com</a>
+    </div>
+
     <form action="." method="post" enctype="multipart/form-data" class="edit-form form-horizontal">
         {% csrf_token %}
-        <fieldset>
-            {% bootstrap form extra_class='span10' %}
-        </fieldset>
+        {% bootstrap form extra_class='span10' %}
         <div class="form-actions">
             <button type="submit" class="btn btn-large">{% trans "Update" %}</button>
         </div>
