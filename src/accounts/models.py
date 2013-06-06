@@ -137,6 +137,10 @@ class User(BaseUser):
     def has_achievements(self):
         return self.achievements.exists()
 
+    @property
+    def forum_post_count(self):
+        return self.forum_posts.count()
+
 
 def create_custom_user(sender, instance, created, **kwargs):
     if created:
