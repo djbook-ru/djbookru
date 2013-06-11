@@ -7,6 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 from src.main.templatetags.components import filter_markdown
 from django.core.urlresolvers import reverse_lazy
 from django.utils.safestring import mark_safe
+from operator import attrgetter
 
 
 class LatestFeed(Feed):
@@ -19,7 +20,8 @@ class LatestFeed(Feed):
         news = News.objects.order_by('-created')[:20]
 
         objects = list(examples) + list(news)
-        sorted(objects, key=lambda obj: obj.created)
+
+        objects.sort(key=attrgetter('created'), reverse=True)
 
         return objects[:15]
 
