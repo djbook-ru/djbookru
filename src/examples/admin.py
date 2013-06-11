@@ -1,24 +1,21 @@
 # -*- coding: utf-8 -*-
 
+from . import models
+from .. utils.admin import LogModelAdmin
 from django.contrib import admin
 from django.forms import ModelForm
+from markitup.forms import MarkdownEditorMixin
 from ordered_model.admin import OrderedModelAdmin
-from .. utils.admin import LogModelAdmin
-from . import models
 
 
 class CategoryAdmin(OrderedModelAdmin):
     list_display = ('name', 'move_up_down_links')
 
 
-class ExampleForm(ModelForm):
+class ExampleForm(MarkdownEditorMixin, ModelForm):
 
     class Meta:
         model = models.Example
-
-    def __init__(self, *args, **kwargs):
-        super(ExampleForm, self).__init__(*args, **kwargs)
-        self.fields['content'].widget.attrs['style'] = 'height: 400px'
 
 
 class ExampleAdmin(admin.ModelAdmin):
