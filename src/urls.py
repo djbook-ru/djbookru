@@ -4,7 +4,7 @@ from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
+from src.main import feeds
 from patch import sites_flatpages_patch
 
 admin.autodiscover()
@@ -17,6 +17,7 @@ js_info_dict = {
 urlpatterns = patterns('',
     url(r'^', include('src.main.urls', 'main')),
     url(r'^', include('social_auth.urls')),
+    url(r'^feed/$', feeds.LatestFeed(), name='rss'),
     url(r'^admin_tools/', include('admin_tools.urls')),
     url(r'^sentry/', include('sentry.urls')),
     url(r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict, name='js_i18n_catalog'),
@@ -33,7 +34,6 @@ urlpatterns = patterns('',
     url(r'^doc_comments/', include('src.doc_comments.urls', 'doc_comments')),
     url(r'^comments/', include('src.comments.urls', 'comments')),
     url(r'^tagging_autocomplete/', include('tagging_autocomplete.urls')),
-    #url(r'^(?P<path>pics/.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )
 
 urlpatterns += staticfiles_urlpatterns()

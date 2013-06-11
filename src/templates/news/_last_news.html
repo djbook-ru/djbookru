@@ -1,11 +1,11 @@
-<aside class="widget">{% load i18n staticfiles markup comments_tags %}
+<aside class="widget">{% load i18n staticfiles markup comments_tags components %}
     <h5 class="short_headline"><span>{% trans 'News' %}</span></h5>
     <ul class="blogposts news clearfix">
         {% for obj in news %}
             <li>
                 <h3><a href="{{ obj.get_absolute_url }}">{{ obj }}</a></h3>
                 <div class="content">
-                    <p>{{ obj.content|markdown|truncatewords_html:45|striptags|urlize|linebreaksbr }}</p>
+                    <p>{{ obj.content|filter_markdown:35 }}</p>
                 </div>
                 <i class="icon-time"></i> <a href="{{ obj.get_absolute_url }}" style="font-size: 0.8em">{{ obj.created|date:'DATE_FORMAT' }}</a>
                 <a href="{{ obj.get_absolute_url }}#comments" class="pull-right" >

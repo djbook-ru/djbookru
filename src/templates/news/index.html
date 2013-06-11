@@ -21,7 +21,7 @@
 
         <!--begin loop of entry-posts for summary page-->
         <div class="entry-content">
-            {{ obj.content|markdown|truncatewords_html:45|striptags|linebreaksbr }}
+            {{ obj.content|filter_markdown:35 }}
             <p class="more right"><a class="btn" href="{{ obj.get_absolute_url }}">{% trans 'Read More' %} →</a>
         </p></div>
         <!-- close entry-content -->

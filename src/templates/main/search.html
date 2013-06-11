@@ -29,7 +29,7 @@
         </header>
 
         <div class="entry-content">
-            {{ item.object.search.desc|default:'No description'|markdown|truncatewords_html:25|striptags|linebreaks }}
+            {{ item.object.search.desc|default:'No description'|filter_markdown:35 }}
             <p class="more right">
                 <a class="btn" href="{{ item.object.get_absolute_url }}">{% trans 'Read More' %} →</a>
             </p>

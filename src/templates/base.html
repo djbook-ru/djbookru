@@ -19,8 +19,9 @@
     <meta property="og:site_name" content="DjangoBook v2.0"/>
     <meta property="og:image" content="{% static 'img/djangobook-title.png' %}"/>
 
-    <link href="/news/feed" rel="alternate" type="application/rss+xml" title="{% trans 'The freshest news about Russian version of DjangoBook' %}"/>
-    <link href="/examples/feed" rel="alternate" type="application/rss+xml" title="{% trans 'Newly examples from Russian DjangoBook' %}"/>
+    <link href="{% url news:rss %}" rel="alternate" type="application/rss+xml" title="{% trans 'The freshest news about Russian version of DjangoBook' %}"/>
+    <link href="{% url examples:rss %}" rel="alternate" type="application/rss+xml" title="{% trans 'Newly examples from Russian DjangoBook' %}"/>
+    <link href="{% url rss %}" rel="alternate" type="application/rss+xml" title="{% trans 'DjangoBook RSS feed' %}"/>
 
     <!-- CSS ================ -->
     <link rel="stylesheet" href="{% static 'theme/css/bootstrap.min.css' %}" type="text/css"/>
@@ -127,7 +128,7 @@
             </form>
         </div>
         <ul class="social">
-            <li><a href="/examples/feed" data-placement="bottom" title="{% trans 'Subscribe to our RSS' %}"><i class="icon-rss icon-large"></i></a></li>
+            <li><a href="{% url rss %}" data-placement="bottom" title="{% trans 'Subscribe to our RSS' %}"><i class="icon-rss icon-large"></i></a></li>
             <li><a href="https://github.com/Alerion/django_documentation/" data-placement="bottom" title="{% trans 'Documentation translation' %}"><i class="icon-github icon-large"></i></a></li>
         </ul>
     </section>

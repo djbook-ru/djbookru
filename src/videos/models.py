@@ -22,6 +22,10 @@ class Video(models.Model):
     def __unicode__(self):
         return self.title
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('videos:index',)
+
     def video_embed_code(self, maxwidth=300, maxheight=225):
         try:
             resource = oembed.site.embed(self.video, maxwidth=maxwidth, maxheight=maxheight)
