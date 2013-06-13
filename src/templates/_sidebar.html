@@ -1,4 +1,11 @@
-<aside class="widget">{% load i18n claims_tags staticfiles links_tags %}
+{% load i18n claims_tags staticfiles links_tags %}
+
+<aside class="widget">
+    <h5 class="short_headline"><span>{% trans "Add yourself on map!" %}</span></h5>
+    <a href="{% url accounts:map %}"><img src="{% static 'img/map.png' %}"/></a>
+</aside>
+
+<aside class="widget">
     <h5 class="short_headline"><span>{% trans 'Found misprint?' %}</span></h5>
     <p>
         {% trans 'Select it with the mouse and hit' %}<br>
@@ -43,11 +50,6 @@
 </aside>
 
 {% useful_links %}
-
-<aside class="widget">
-    <h5 class="short_headline"><span>{% trans "Add yourself on map!" %}</span></h5>
-    <a href="{% url accounts:map %}"><img src="{% static 'img/map.png' %}"/></a>
-</aside>
 
 <aside class="widget">
     <h5 class="short_headline"><span>Для перевода</span></h5>
