@@ -4,6 +4,11 @@ from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+from haystack import autodiscover as haystack_autodiscover
+
+haystack_autodiscover()
+
 from src.main import feeds
 from patch import sites_flatpages_patch
 
