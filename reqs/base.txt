@@ -27,6 +27,6 @@ sorl-thumbnail==11.12
 xapian-haystack
 -e git+git://github.com/RaD/django-chunks.git@rel2.7#egg=django-chunks
 -e git+http://github.com/clintecker/django-google-analytics.git/#egg=django-google_analytics
--e git+https://github.com/jezdez/django-robots.git/#egg=django-robots
+-e git+https://github.com/jezdez/django-robots.git/@1211ffc90345c5d7497865332f7cd4b0f1246da8#egg=django_robots-dev
 -e git+https://github.com/RaD/haystack-static-pages.git/#egg=haystack-static-pages
 -e hg+https://bitbucket.org/ruslanpopov/django-sentry#egg=sentry
