@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from datetime import timedelta
+import hashlib
+import random
+
 from django.conf import settings
 from django.contrib.auth.models import UserManager as BaseUserManager, User as BaseUser
 from django.contrib.sites.models import Site
@@ -10,9 +13,9 @@ from django.db.models.signals import post_save
 from django.utils import timezone
 from django.utils.hashcompat import sha_constructor
 from django.utils.translation import ugettext_lazy as _
+
+from src.accounts.countries import CountryField
 from src.utils.mail import send_templated_email
-import hashlib
-import random
 
 EMAIL_CONFIRMATION_DAYS = getattr(settings, 'EMAIL_CONFIRMATION_DAYS', 3)
 
@@ -60,6 +63,7 @@ class User(BaseUser):
     is_valid_email = models.BooleanField(_(u'is valid email?'), default=False)
     achievements = models.ManyToManyField('Achievement', verbose_name=_(u'achievements'), through='UserAchievement')
     signature = models.TextField(_('forum signature'), blank=True,  max_length=1024)
+    country = CountryField(null=True, blank=True)
 
     lng = models.FloatField(_(u'longitude'), blank=True, null=True)
     lat = models.FloatField(_(u'latitude'), blank=True, null=True)
