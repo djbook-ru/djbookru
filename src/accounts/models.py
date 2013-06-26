@@ -63,6 +63,7 @@ class User(BaseUser):
     is_valid_email = models.BooleanField(_(u'is valid email?'), default=False)
     achievements = models.ManyToManyField('Achievement', verbose_name=_(u'achievements'), through='UserAchievement')
     signature = models.TextField(_('forum signature'), blank=True,  max_length=1024)
+    location = models.CharField(max_length=64, null=True, blank=True)
     country = CountryField(null=True, blank=True)
 
     lng = models.FloatField(_(u'longitude'), blank=True, null=True)
