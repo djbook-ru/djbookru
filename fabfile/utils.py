@@ -3,7 +3,7 @@
 import posixpath
 
 from functools import wraps
-from fabric.api import env, run, cd, prefix
+from fabric.api import env, run, cd, prefix, local
 
 
 def virtualenv():
@@ -51,3 +51,14 @@ def touch_after(func):
         touch()
         return result
     return inner
+
+
+def remove_pycs_local():
+    u"""Удаление скомпилированных модулей локально."""
+    local('find ./src -type f -name "*.pyc" -delete')
+
+
+def remove_pycs_remote():
+    u"""Удаление скомпилированных модулей удалённо."""
+    with cd(env.conf.PROJECT_DIR):
+        run('find . -type f -name "*.pyc" -delete')

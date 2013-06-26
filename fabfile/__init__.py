@@ -9,7 +9,7 @@ from fabric.contrib.project import rsync_project
 
 from database import make_instance, drop_instance, db_dump
 from pip import pip_install
-from utils import manage, touch
+from utils import manage, touch, remove_pycs_local, remove_pycs_remote
 
 import src.local_settings as settings
 
@@ -64,6 +64,9 @@ def deploy_server(**kwargs):
 def importing(**kwargs):
     u"""Импорт данных с сервера."""
     # Получаем пользовательскую статику с сервера
+    if 'rsync' not in kwargs and 'database' not in kwargs:
+        print 'Usage: importing:[rsync=y][,database=y]'
+        return
     if 'rsync' in kwargs:
         resource = '%(user)s@%(host)s:%(dir)s' % {
             'user': env.conf.HOST_USER,
@@ -77,9 +80,9 @@ def importing(**kwargs):
             })
     # Получение дампа БД
     if 'database' in kwargs:
-        db_dump(filename='./import.sql', download=True, remove=True)
+        db_dump(filename='import.sql', download=True, remove=True)
         p = Popen(['python', 'manage.py', 'dbshell'], stdout=PIPE, stdin=PIPE, stderr=PIPE)
-        stdout_data = p.communicate(input='\. ./import.sql')[0]
+        stdout_data = p.communicate(input='\. import.sql')[0]
         print stdout_data
 
 
