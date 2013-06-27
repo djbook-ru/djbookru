@@ -11,7 +11,7 @@
                 <br/>{% trans "Posts" %}: {{ post.user.forum_posts.count }}
                 <br/>
                 {% if post.user.location %}{% trans "Location" %}: {{ post.user.location }}{% endif %}
-                <img src="" class="flag flag-{{ post.user.country|lower }}" title="{{ post.user.get_country_display }}" />
+                {% if post.user.country %}<img src="" class="flag flag-{{ post.user.country|lower }}" title="{{ post.user.get_country_display }}" />{% endif %}
             </td>
             <td class="content">
                 <div class="post-content">
