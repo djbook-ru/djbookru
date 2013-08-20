@@ -130,7 +130,7 @@ class User(BaseUser):
 
     def getMD5(self):
         m = hashlib.md5()
-        m.update(self.user.email or self.user.username + '@djbook.ru')
+        m.update(self.user.email.encode('utf8') or self.user.username + u'@djbook.ru')
         return m.hexdigest()
 
     @property
@@ -217,7 +217,7 @@ class EmailConfirmationManager(models.Manager):
         self.filter(user=user).delete()
 
         salt = sha_constructor(str(random.random()) + settings.SECRET_KEY).hexdigest()[:5]
-        confirmation_key = sha_constructor(salt + user.email).hexdigest()
+        confirmation_key = sha_constructor(salt + user.email.encode('utf8')).hexdigest()
         try:
             current_site = Site.objects.get_current()
         except Site.DoesNotExist:

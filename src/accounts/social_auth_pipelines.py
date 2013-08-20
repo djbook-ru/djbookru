@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+import hashlib
+import datetime
+
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.translation import ugettext_lazy as _
 
@@ -35,7 +38,9 @@ def create_user(backend, details, response, uid, username, user=None, *args,
 
         user = UserSocialAuth.create_user(username=username, email=email, force_email_valid=True)
     else:
-        email = '%s%s@example.com' % (username, backend.name)
+        m = hashlib.md5()
+        m.update(str(datetime.datetime.now()))
+        email = '%s.%s@example.com' % (m.hexdigest(), backend.name)
         user = UserSocialAuth.create_user(username=username, email=email, send_email_confirmation=False)
 
     return {
