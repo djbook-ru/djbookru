@@ -275,7 +275,6 @@ INSTALLED_APPS = (
     'oembed',
     'pagination',
     'report_tools',
-    'robots',
     'sorl.thumbnail',
     'staging',
     'tagging',

@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin/
+
+User-agent: YandexBot
+Disallow: /admin/
+
+
+Sitemap: http://djbook.ru/sitemap.xml

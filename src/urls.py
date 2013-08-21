@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
 
+from django.conf import settings
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
-from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from haystack import autodiscover as haystack_autodiscover
 
-haystack_autodiscover()
-
-from src.main import feeds
 from patch import sites_flatpages_patch
+from src.main import feeds
+from src.utils.views import direct_to_template
 
+haystack_autodiscover()
 admin.autodiscover()
 sites_flatpages_patch()
 
@@ -81,7 +81,7 @@ sitemaps = {
 
 urlpatterns += patterns('',
     (r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
-    (r'^robots.txt$', include('robots.urls')),
+    (r'^robots.txt$', direct_to_template, {'template': 'robots.txt', 'mimetype': 'text/plain'}),
 )
 
 from django import http
