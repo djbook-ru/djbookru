@@ -108,6 +108,11 @@
 	width:81%;
 }
 
+.blog-detail .entry-header h1 .label {
+    position: absolute;
+    margin: 5px 0 0 5px;
+}
+
 /****** entry footer ******/
 .blog-detail .entry-footer {
     width: 12%;

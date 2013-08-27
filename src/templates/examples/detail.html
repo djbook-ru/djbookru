@@ -11,7 +11,7 @@
     <!--begin primary-column-->
     <article class="entry-post">
         <header class="entry-header">
-            <h1>{{ obj }}</h1>
+            <h1>{{ obj }} {% if not obj.approved %}<span class="label label-important">{% trans "Draft" %}</span>{% endif %}</h1>
             <div class="byline">
                 <a href="{{ obj.author.get_absolute_url }}"><i class="icon-pencil"></i> {{ obj.author }}</a> &nbsp;&nbsp;
                 <i class="icon-time"></i> {{ obj.created|date:'DATE_FORMAT' }} &nbsp;&nbsp;
