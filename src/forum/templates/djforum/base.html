@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load staticfiles i18n %}
 
+{% block title %}{% trans "Forum" %} | {{ block.super }}{% endblock %}
+
 {% block head %}
     {{ block.super }}
     <link rel="stylesheet" href="{% static "theme/css/forum.css" %}" type="text/css"/>

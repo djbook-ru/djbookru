@@ -3,6 +3,8 @@
 {% load i18n staticfiles bootstrap %}
 {% load url from future %}
 
+{% block title %}{% trans "Add post" %} | {{ block.super }}{% endblock %}
+
 {% block head %}
     {{ block.super }}
     {{ form.media }}

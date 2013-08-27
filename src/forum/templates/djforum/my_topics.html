@@ -3,6 +3,8 @@
 {% load i18n staticfiles pagination_tags forum_tags %}
 {% load url from future %}
 
+{% block title %}{% trans "My topics" %} | {{ block.super }}{% endblock %}
+
 {% block content %}
     <aside class="widget forum">
 
