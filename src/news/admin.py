@@ -14,6 +14,7 @@ class NewsForm(MarkdownEditorMixin, ModelForm):
 
 class NewsAdmin(admin.ModelAdmin):
     list_display = ['title', 'created']
+    search_fields = ('title',)
     form = NewsForm
 
     def save_model(self, request, obj, form, change):

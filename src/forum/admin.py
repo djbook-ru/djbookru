@@ -10,11 +10,13 @@ class CategoryAdmin(admin.ModelAdmin):
 class ForumAdmin(admin.ModelAdmin):
     list_display = ['name', 'category', 'position']
     list_editable = ['position']
+    search_fields = ('name',)
 
 
 class TopicAdmin(admin.ModelAdmin):
     list_filter = ['sticky', 'closed', 'heresy']
     list_display = ['name', 'forum', 'created', 'updated', 'user', 'views', 'sticky']
+    search_fields = ('name',)
 
 admin.site.register(Topic, TopicAdmin)
 admin.site.register(Category, CategoryAdmin)
