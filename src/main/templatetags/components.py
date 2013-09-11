@@ -1,21 +1,23 @@
 # -*- coding: utf-8 -*-
 
+import markdown
+import re
+from random import shuffle
+
 from django import template
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.sites.models import Site
 from django.template import Context
-from django.template.defaultfilters import truncatewords_html, stringfilter, urlize, linebreaksbr, removetags
+from django.template.defaultfilters import truncatewords_html, stringfilter, urlize, linebreaksbr
 from django.template.loader import get_template
-from django.utils.html import strip_tags
-from random import shuffle
+from django.utils.safestring import mark_safe
+
 from src.accounts.models import User
 from src.comments.models import Comment
 from src.examples.models import Category, Example
 from src.forum.models import Topic
 from src.main.forms import SearchForm
-import markdown
-import re
 
 
 RECIPES_ON_MAIN = getattr(settings, 'RECIPES_ON_MAIN', 4)
@@ -29,8 +31,9 @@ register = template.Library()
 @stringfilter
 def filter_markdown(value, words=None):
     html = markdown.markdown(value)
-    html = re.sub(r'<a\s+href="([^"]+)"[^>]*>.*</a>', r'\1', html)
-    html = linebreaksbr(urlize(strip_tags(html)))
+    html = re.sub(r'<(?!\/?a(?=>|\s.*>))\/?.*?>', '', html)
+
+    html = mark_safe(linebreaksbr(urlize(html)))
 
     if words:
         return truncatewords_html(html, words)

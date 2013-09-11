@@ -934,6 +934,11 @@ ul.navigation ul {
 .widget ul.blogposts.news li .content {
     margin-bottom: 7px;
 }
+
+.widget ul.blogposts.news li .content a {
+    text-decoration: underline;
+}
+
 .widget ul.blogposts li:last-child {
 	border: none;
 	padding: 0px;
