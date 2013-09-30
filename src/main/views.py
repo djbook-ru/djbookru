@@ -12,6 +12,7 @@ from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic.base import RedirectView
 from django.views.generic.list_detail import object_list
+from src.forum.util import urlize
 
 from .. decorators import render_to
 
@@ -81,7 +82,7 @@ def test_error_email(request):
 @render_to('main/markdown_preview.html')
 def markdown_preview(request):
     data = request.POST.get('data', '')
-    data = markdown.markdown(data, safe_mode='escape')
+    data = urlize(markdown.markdown(data, safe_mode='escape'))
     return {'data': data}
 
 
