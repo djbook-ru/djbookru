@@ -27,7 +27,7 @@
         <!--end entry-header-->
 
         <div class="entry-content">
-            {{ obj.content|markdown }}
+            {{ obj.content|markdown:"safe" }}
             <a href="{{ obj.topic.get_absolute_url }}" class="btn" style="float: right">{% trans "Discuss this recipe" %}</a>
         </div>
         <!--end entry-content-->
