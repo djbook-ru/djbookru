@@ -1,5 +1,5 @@
 # Список зависимостей для работы проекта.
-Django==1.4.7
+Django==1.4.8
 django-admin-tools==0.5.1
 django-autoslug-field==0.2.3
 django-extensions==1.2.2
