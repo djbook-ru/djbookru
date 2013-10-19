@@ -35,7 +35,7 @@ class EditPostForm(forms.ModelForm):
         model = Post
         fields = ('body',)
 
-    def __init__(self, topic, user, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super(EditPostForm, self).__init__(*args, **kwargs)
         self.fields['body'].widget = PagedownWidget()
 
