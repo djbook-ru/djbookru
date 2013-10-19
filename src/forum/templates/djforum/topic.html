@@ -126,13 +126,8 @@
         {% if form %}
         <form action="{% url 'forum:add_post' topic.pk %}" method="post" class="post-form form-horizontal">
             {% csrf_token %}
-            <button type="submit" class="btn btn-small submit-button">{% trans "Submit" %}</button>
             {{ form.body }}
-            <p>
-                {% blocktrans with url='http://daringfireball.net/projects/markdown/syntax' %}
-                Use <a href="{{ url }}">Markdown</a> to format text.
-                {% endblocktrans %}
-            </p>
+            <button type="submit" class="btn btn-small submit-button">{% trans "Submit" %}</button>
         </form>
         {% endif %}
       </div> <!-- row -->
