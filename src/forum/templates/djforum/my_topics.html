@@ -7,12 +7,12 @@
 
 {% block content %}
     <aside class="widget forum">
-
+      <div class="row">
         <ul class="breadcrumb">
             <li><a class="title" href="{% url 'forum:index' %}">{% trans "Home" %}</a> <span class="divider">/</span></li>
             <li class="active">{% trans "My topics" %}</li>
         </ul>
-
+      </div> <!-- row -->
         {% if is_paginated %}
             {% paginate float='left' %}
         {% endif %}
