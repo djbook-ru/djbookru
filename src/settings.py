@@ -271,7 +271,7 @@ INSTALLED_APPS = (
     'bootstrapform',
     'chunks',
     'google_analytics',
-    'markitup',
+    'pagedown',
     'oembed',
     'pagination',
     'report_tools',

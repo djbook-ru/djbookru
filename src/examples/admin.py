@@ -1,18 +1,20 @@
 # -*- coding: utf-8 -*-
 
-from . import models
-from .. utils.admin import LogModelAdmin
 from django.contrib import admin
+from django.db.models import TextField
 from django.forms import ModelForm
-from markitup.forms import MarkdownEditorMixin
+
 from ordered_model.admin import OrderedModelAdmin
+from pagedown.widgets import AdminPagedownWidget
+
+from src.examples import models
 
 
 class CategoryAdmin(OrderedModelAdmin):
     list_display = ('name', 'move_up_down_links')
 
 
-class ExampleForm(MarkdownEditorMixin, ModelForm):
+class ExampleForm(ModelForm):
 
     class Meta:
         model = models.Example
@@ -29,6 +31,11 @@ class ExampleAdmin(admin.ModelAdmin):
         if not change:
             obj.author = request.user
         obj.save()
+
+    formfield_overrides = {
+        TextField: {'widget': AdminPagedownWidget},
+    }
+
 
 admin.site.register(models.Category, CategoryAdmin)
 admin.site.register(models.Example, ExampleAdmin)
