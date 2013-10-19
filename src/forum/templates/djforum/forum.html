@@ -7,12 +7,14 @@
 
 {% block content %}
     <aside class="widget forum">
-
+      <div class="row">
         <ul class="breadcrumb">
             <li><a class="title" href="{{ forum.category.get_absolute_url }}">{{ forum.category }}</a> <span class="divider">/</span></li>
             <li class="active">{{ forum }}</li>
         </ul>
+      </div> <!-- row -->
 
+      <div class="row" style="margin-bottom: 10px;">
         <div class="pull-right topic-toolbar">
             {% if user.is_authenticated %}
                 {% with unread_count=user|unread_topics_count %}
@@ -28,6 +30,7 @@
             <a href="{% url 'forum:mark_read_forum' forum.pk %}" class="btn btn-small" style="margin-right: 5px">{% trans "Mark all as read" %}</a>
             {% endif %}
         </div>
+      </div> <!-- row -->
 
         {% if is_paginated %}
             {% paginate float='left' %}
