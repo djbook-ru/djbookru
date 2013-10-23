@@ -15,22 +15,22 @@
 
 Выполняем::
 
-    virtualenv --python=python2.6 --system-site-packages env    # начиная с версии 1.7
-    virtualenv --python=python2.6 env                           # до версии 1.7
+    virtualenv --python=python2.7 --system-site-packages env    # начиная с версии 1.7
+    virtualenv --python=python2.7 env                           # до версии 1.7
 
     PIP_CACHE="~/cache/pip"
     mkdir -p ${PIP_CACHE}
     alias pipi="pip install --download-cache=${PIP_CACHE}"
     alias pipu="pip install -U --download-cache=${PIP_CACHE}"
 
-    easy_install --prefix=./env -U distribute
     pipi -r ./reqs/base.txt
     pipi -r ./reqs/dev.txt
 
 Конфигурация проекта
 --------------------
 
-Скопируйте найстройки из ``src/local_settings.py.dev.template`` в ``local_settings.py``.
+Скопируйте настройки из ``src/local_settings.py.dev.template`` в
+``local_settings.py``.
 
 Изучите файл ``src/settings.py``. Необходимые правки выполните в файле
 ``src/local_settings.py``, который будет подгружаться при чтении
@@ -43,7 +43,8 @@
 
     python manage.py reset_staging
 
-Будет создана база данных, загружены тестовые данные, создан суперпользователь с логин/email/пароль - admin/admin@admin.com/admin,
+Будет создана база данных, загружены тестовые данные, создан
+суперпользователь с логин/email/пароль - admin/admin@admin.com/admin,
 также пользователь test/test@test.com/test
 
 Запуск
@@ -60,7 +61,7 @@
 Настройка отправки писем в консоль
 ----------------------------------
 
-Добавляем в local_settings.py:
+Добавляем в local_settings.py::
 
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -75,14 +76,17 @@
 Обновление тестовых фикстур
 ---------------------------
 
-Если необходимо обновить тестовые(staging) фикстуры, внесите необходимые изменения и сохраните необходимые модели используя
-команду ``save_staging``, пример смотрите в документации https://github.com/code-on/django-staging
+Если необходимо обновить тестовые (staging) фикстуры, внесите
+необходимые изменения и сохраните необходимые модели используя команду
+``save_staging``, пример смотрите в документации
+https://github.com/code-on/django-staging
 
 Тестирование
 ------------
 
-Тестирование должно проводится перед выполнением передачи набора коммитов в удалённый репозиторий.
-Тестирование выполняется с помощью запуска одной из следующих команд::
+Тестирование должно проводится перед выполнением передачи набора
+коммитов в удалённый репозиторий. Тестирование выполняется с помощью
+запуска одной из следующих команд::
 
     ./testing.sh APP_NAME
     ./testing.sh APP_NAME.CLASS_NAME.METHOD_NAME
@@ -90,9 +94,10 @@
 Добавить документацию и комментарии к ней
 -----------------------------------------
 
-Для этого клонируем репозиторий документации https://github.com/Alerion/django_documentation.
-Собираем ее и создаем симлинк в папку static проекта, настройки уже указаны в local_settings.py.dev.template.
-Пример команды::
+Для этого клонируем репозиторий документации
+https://github.com/Alerion/django_documentation. Собираем её и
+создаем симлинк в папку static проекта, настройки уже указаны в
+local_settings.py.dev.template. Пример команды::
 
     ln -s ~/Workspace/django_documentation/_build/html/ ~/Workspace/djbookru/src/static/html
 
@@ -122,10 +127,10 @@
 
 Создаём окружение::
 
-    mkdir -p ~/.local/lib/python2.6/site-packages
+    mkdir -p ~/.local/lib/python2.7/site-packages
 
-    easy_install-2.6 --prefix=~/.local virtualenv
-    easy_install-2.6 --prefix=~/.local pip
+    easy_install-2.7 --prefix=~/.local virtualenv
+    easy_install-2.7 --prefix=~/.local pip
 
     export PATH=~/.local/bin/:$PATH
 
@@ -133,8 +138,8 @@
 
     cd ${PATH_TO_SITE}
 
-    virtualenv --python=python2.6 --system-site-packages env    # начиная с версии 1.7
-    virtualenv --python=python2.6 env                           # до версии 1.7
+    virtualenv --python=python2.7 --system-site-packages env    # начиная с версии 1.7
+    virtualenv --python=python2.7 env                           # до версии 1.7
 
     ./env/bin/pip install -r ./reqs/base.txt
 
@@ -200,23 +205,19 @@
 Сопровождение
 =============
 
-Обновление кода без рестарта сервиса::
+Читаем помощь::
 
-    ./deploy.sh noapply
+    $ ./deploy.sh
 
-Обновление кода с рестартом сервиса::
+    Usage: deploy.sh [<command> [<command> ...]]
 
-    ./deploy.sh
-
-Обновление кода с рестартом сервиса и обновлением статики::
-
-    ./deploy.sh static
-
-Обновление кода с рестартом сервиса и накатом миграций::
-
-    ./deploy.sh migrate
-
-Обновление кода с рестартом сервиса, накатом миграций и обновлением статики::
-
-    ./deploy.sh migrate static
-    ./deploy.sh static migrate
+    where <command> is:
+            * pipi    -- install packages into virtual environment;
+            * pipu    -- update packages of virtual environment;
+            * rsync   -- send source code to a server;
+            * po      -- compile PO resources;
+            * migrate -- run migrations on the database;
+            * static  -- collect static files;
+            * i18n    -- update multilanguage fields;
+            * index   -- rebuild search index;
+            * touch   -- restart web server.
