@@ -36,9 +36,9 @@ def edit(request, pk):
                 return news(request, obj.id)
         else:
             form = models.NewsForm(instance=obj)
-            return {
-                'obj': obj,
-                'form': form
-            }
+        return {
+            'obj': obj,
+            'form': form
+        }
     else:
        return news(request, obj.id) 
