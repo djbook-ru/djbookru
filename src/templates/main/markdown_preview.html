@@ -1,15 +1,27 @@
-<html>
-<head>
-<link rel="stylesheet" href="{{ MEDIA_URL }}css/djangobook.css" type="text/css"/>
-<style>
-    body{
-        background-color: #d6e7c2;
-    }
-</style>
-</head>
-<script src="{{ MEDIA_URL }}js/highlight.pack.js"></script>
-<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
-<body class="markItUpPreview">
-{{ data|safe }}
-</body>
+<html>{% load staticfiles %}
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+        <link rel="stylesheet" href="{% static 'theme/css/bootstrap.min.css' %}" type="text/css"/>
+        <link rel="stylesheet" href="{% static 'theme/css/style.css' %}" type="text/css"/>
+        <link rel="stylesheet" href="{% static 'theme/css/header-2.css' %}" type="text/css"/>
+        <link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/github.min.css">
+
+        <script src="{% static 'theme/js/jquery.min.js' %}"></script>
+        <style>
+            pre code {
+                background: none;
+            }
+        </style>
+        <script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+        <script type="text/javascript">
+            jQuery(function($){
+                hljs.tabReplace = '    ';
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+    </head>
+    <body class="markItUpPreview">
+        {{ data|safe }}
+    </body>
 </html>

@@ -28,40 +28,29 @@
 
         {% with forums=category.forums.all %}
         {% if forums %}
-        <table class="table table-bordered table-condensed">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th class="number-column center smaller">{% trans "Topics" %}</th>
-                    <th class="number-column center smaller">{% trans "Posts" %}</th>
-                    <th class="last-post center">{% trans "Last post" %}</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for forum in forums %}
-                <tr {% if forum|has_unread:user %}class="success"{% endif %}>
-                    <td class="topic-name">
-                        <a href="{{ forum.get_absolute_url }}" class="forum-title">{{ forum }}</a>
-                        {% if forum.description %}
-                        <p class="description">{{ forum.description }}</p>
-                        {% endif %}
-                    </td>
-                    <td class="smaller center">{{ forum.topics_count }}</td>
-                    <td class="smaller center">{{ forum.posts_count }}</td>
-                    <td class="smaller last-post">
-                        {% with last_post=forum.last_post %}
-                        {% if last_post %}
-                            <a href="{{ last_post.get_absolute_url }}">
-                                <i class="icon-time"></i> {{ last_post.created|date:'DATETIME_FORMAT' }}
-                            </a><br>
-                            <a href="{{ last_post.user.get_absolute_url }}"><i class="icon-pencil"></i> {{ last_post.user|softwraphtml }}</a>
-                        {% endif %}
-                        {% endwith %}
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+        {% for forum in forums %}
+        <div class="row{% if forum|has_unread:user %} success{% endif %}">
+          <div class="span6">
+            <a href="{{ forum.get_absolute_url }}" class="forum-title">{{ forum }}</a>
+            {% if forum.description %}
+            <p class="description">{{ forum.description }}</p>
+            {% endif %}
+          </div>
+          <div class="span2 center" title="{% trans "Topics/Posts" %}">
+            {{ forum.topics_count }} / {{ forum.posts_count }}
+          </div>
+          <div class="span2" title="{% trans "Last post" %}">
+            {% with last_post=forum.last_post %}
+            {% if last_post %}
+            <a href="{{ last_post.get_absolute_url }}">
+              <i class="icon-time"></i> {{ last_post.created|date:'DATETIME_FORMAT' }}
+            </a><br/>
+            <a href="{{ last_post.user.get_absolute_url }}"><i class="icon-pencil"></i> {{ last_post.user|softwraphtml }}</a>
+            {% endif %}
+            {% endwith %}
+          </div>
+        </div>
+        {% endfor %}
         {% endif %}
         {% endwith %}
     </aside>

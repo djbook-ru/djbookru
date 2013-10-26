@@ -58,7 +58,7 @@
 
 .post {
     ~border: 1px solid #ddd;
-    margin: 0 0 16px 0;
+    margin: 16px 0 16px 0;
     padding: 0px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -66,19 +66,15 @@
     overflow: hidden;
 }
 
-.post .table {
-    margin: 0;
+.post {
+    margin: 10px 0 10px 0;
 }
 
-.post .table td {
-    border: none;
-}
-
-.post .table td {
+.post div {
     background: none;
 }
 
-.post .table .author, .post .table .author-footer {
+.post .author, .post .author-footer {
     border-right: 1px solid #ddd;
     width: 165px;
     min-width: 165px;
@@ -86,29 +82,29 @@
     overflow: hidden;
 }
 
-.post .table .content {
+.post .content {
     overflow: hidden;
 }
 
-.post .table .content h1,
-.post .table .content h2,
-.post .table .content h3,
-.post .table .content h4,
-.post .table .content h5,
-.post .table .content h6 {
+.post .content h1,
+.post .content h2,
+.post .content h3,
+.post .content h4,
+.post .content h5,
+.post .content h6 {
     margin-top: 3px;
     margin-bottom: 3px;
 }
 
-.post .table .content h1 {
+.post .content h1 {
     font-size: 190%;
 }
 
-.post .table .content h2 {
+.post .content h2 {
     font-size: 175%;
 }
 
-.post .table .content code {
+.post .content code {
     white-space: pre-wrap; /* css-3 */
     white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
     white-space: -pre-wrap; /* Opera 4-6 */
@@ -116,7 +112,7 @@
     word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
 
-.post .table .content .post-content {
+.post .content .post-content {
     -ms-word-break: break-all;
 
         /* Non standard for webkit */
@@ -127,35 +123,35 @@
             hyphens: auto;
 }
 
-.post .table .author a, .post .table .content-footer a {
+.post .author a, .post .content-footer a {
     text-decoration: none;
 }
 
-.post .table .author, .post .table .content-footer {
+.post .author, .post .content-footer {
     font-size: 0.85em;
 }
 
-.post .table .content-footer {
+.post .content-footer {
     text-align: right;
 }
 
-.post .table .content-footer .divider {
+.post .content-footer .divider {
     color: #ccc;
     margin: 0 5px;
 }
 
-.post .table .content hr {
+.post .content hr {
     margin: 8px 0;
 }
 
-.post .table .content .signature {
+.post .content .signature {
     font-size: 0.8em;
     color: #63905c;
 }
 
 .post-form .submit-button {
     width: 100px;
-    margin: 0 0 -35px 601px;
+    margin-left: 25%;
 }
 
 .post blockquote {

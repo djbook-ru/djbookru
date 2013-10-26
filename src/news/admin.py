@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib import admin
+from django.db.models import TextField
 from django.forms import ModelForm
-from markitup.forms import MarkdownEditorMixin
-from . import models
+
+from pagedown.widgets import AdminPagedownWidget
+from src.news import models
 
 
-class NewsForm(MarkdownEditorMixin, ModelForm):
+class NewsForm(ModelForm):
 
     class Meta:
         model = models.News
@@ -22,4 +24,7 @@ class NewsAdmin(admin.ModelAdmin):
             obj.author = request.user
         obj.save()
 
+    formfield_overrides = {
+        TextField: {'widget': AdminPagedownWidget},
+    }
 admin.site.register(models.News, NewsAdmin)

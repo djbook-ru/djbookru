@@ -1,11 +1,15 @@
-from .models import Topic, Post
+# -*- coding: utf-8 -*-
+
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from markitup.forms import MarkdownEditorMixin
+
+from pagedown.widgets import PagedownWidget
+
+from src.forum.models import Topic, Post
 from src.utils.forms import PlaceholderMixin
 
 
-class AddPostForm(MarkdownEditorMixin, forms.ModelForm):
+class AddPostForm(forms.ModelForm):
 
     class Meta:
         model = Post
@@ -15,6 +19,7 @@ class AddPostForm(MarkdownEditorMixin, forms.ModelForm):
         self.topic = topic
         self.user = user
         super(AddPostForm, self).__init__(*args, **kwargs)
+        self.fields['body'].widget = PagedownWidget()
 
     def save(self):
         post = super(AddPostForm, self).save(commit=False)
@@ -24,14 +29,18 @@ class AddPostForm(MarkdownEditorMixin, forms.ModelForm):
         return post
 
 
-class EditPostForm(MarkdownEditorMixin, forms.ModelForm):
+class EditPostForm(forms.ModelForm):
 
     class Meta:
         model = Post
         fields = ('body',)
 
+    def __init__(self, *args, **kwargs):
+        super(EditPostForm, self).__init__(*args, **kwargs)
+        self.fields['body'].widget = PagedownWidget()
 
-class AddTopicForm(PlaceholderMixin, MarkdownEditorMixin, forms.ModelForm):
+
+class AddTopicForm(PlaceholderMixin, forms.ModelForm):
     body = forms.CharField(label=_(u'Message'), widget=forms.Textarea)
 
     class Meta:
@@ -42,6 +51,7 @@ class AddTopicForm(PlaceholderMixin, MarkdownEditorMixin, forms.ModelForm):
         self.forum = forum
         self.user = user
         super(AddTopicForm, self).__init__(*args, **kwargs)
+        self.fields['body'].widget = PagedownWidget()
 
     def save(self):
         data = self.cleaned_data
