@@ -32,6 +32,9 @@
 
         <div class="entry-content">
             {{ obj.content|markdown:"safe" }}
+            <p class="more right">
+            	<a class="btn" href="{% url 'news:edit' obj.id %}">{% trans 'Edit' %}</a>
+        	</p>
         </div>
         <!--end entry-content-->
 
