@@ -3,6 +3,7 @@
 import markdown
 import re
 from random import shuffle
+from random import randrange
 
 from django import template
 from django.conf import settings
@@ -12,6 +13,7 @@ from django.template import Context
 from django.template.defaultfilters import truncatewords_html, stringfilter, urlize, linebreaksbr
 from django.template.loader import get_template
 from django.utils.safestring import mark_safe
+from django.utils.translation import ugettext_lazy as _
 
 from src.accounts.models import User
 from src.comments.models import Comment
@@ -49,6 +51,29 @@ def recipes(context):
 
 @register.inclusion_tag('_menu.html', takes_context=True)
 def menu(context):
+    dzen = (
+        _("Beautiful is better than ugly."),
+        _("Explicit is better than implicit."),
+        _("Simple is better than complex."),
+        _("Complex is better than complicated."),
+        _("Flat is better than nested."),
+        _("Sparse is better than dense."),
+        _("Readability counts."),
+        _("Special cases aren't special enough to break the rules."),
+        _("Although practicality beats purity."),
+        _("Errors should never pass silently."),
+        _("Unless explicitly silenced."),
+        _("In the face of ambiguity, refuse the temptation to guess."),
+        _("There should be one-- and preferably only one --obvious way to do it."),
+        _("Although that way may not be obvious at first unless you're Dutch."),
+        _("Now is better than never."),
+        _("Although never is often better than *right* now."),
+        _("If the implementation is hard to explain, it's a bad idea."),
+        _("If the implementation is easy to explain, it may be a good idea."),
+        _("Namespaces are one honking great idea -- let's do more of those!"),
+    )
+    i = randrange(0, len(dzen))
+    context['dzen'] = dzen[i]
     context['example_categories'] = Category.objects.all()
     return context
 
