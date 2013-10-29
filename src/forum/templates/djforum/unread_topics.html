@@ -7,14 +7,12 @@
 
 {% block content %}
     <aside class="widget forum">
-      <div class="row">
+
         <ul class="breadcrumb">
             <li><a class="title" href="{% url 'forum:index' %}">{% trans "Home" %}</a> <span class="divider">/</span></li>
             <li class="active">{% trans "Unread topics" %}</li>
         </ul>
-      </div> <!-- row -->
 
-      <div class="row" style="margin-bottom: 10px;">
         <div class="pull-right topic-toolbar">
             {% if user.is_authenticated %}
             <a href="{% url 'forum:my_topics' %}" class="btn btn-small">{% trans "My topics" %}</a>
@@ -24,7 +22,6 @@
             <a href="{% url 'forum:mark_read_all' %}" class="btn btn-small">{% trans "Mark all as read" %}</a>
             {% endif %}
         </div>
-      </div> <!-- row -->
 
         {% if is_paginated %}
             {% paginate float='left' %}

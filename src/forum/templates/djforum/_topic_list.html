@@ -1,26 +1,38 @@
 {% load i18n forum_tags %}
-{% for topic in object_list %}
-<div class="row{% if topic|has_unread:user %} success{% endif %}" style="margin-bottom: 10px;">
-  <div class="span6">
-    <a href="{{ topic.get_absolute_url }}" class="forum-title">{{ topic }}</a>
-    {% include 'djforum/_topic_statuses.html' %}
-  </div>
-  <div class="span2 center" title="{% trans "Replies/Views" %}">
-    {{ topic.reply_count }} / {{ topic.views }}
-  </div>
-  <div class="span2">
-    {% with last_post=topic.last_post %}
-    {% if last_post %}
-    <a href="{{ last_post.get_absolute_url }}">
-      <i class="icon-time"></i> {{ last_post.created|date:'DATETIME_FORMAT' }}
-    </a><br>
-    <a href="{{ last_port.user.get_absolute_url }}"><i class="icon-pencil"></i>  {{ last_post.user|softwraphtml }}</a>
-    {% endif %}
-    {% endwith %}
-  </div>
-  {% if not forloop.last %}<hr/>{% endif %}
-</div>
-{% empty %}
-<div class="clearfix"></div>
-<p>{% trans "No topics" %}</p>
-{% endfor %}
+{% if object_list %}
+<table class="table table-bordered table-condensed">
+    <thead>
+        <tr>
+            <th></th>
+            <th class="number-column center smaller hidden-phone hidden-phone">{% trans "Replies" %}</th>
+            <th class="number-column center smaller hidden-phone hidden-phone">{% trans "Views" %}</th>
+            <th class="last-post center">{% trans "Last post" %}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for topic in object_list %}
+        <tr {% if topic|has_unread:user %}class="success"{% endif %}>
+            <td class="topic-name">
+                {% include 'djforum/_topic_statuses.html' %}
+                <a href="{{ topic.get_absolute_url }}" class="forum-title">{{ topic }}</a>
+            </td>
+            <td class="smaller center hidden-phone hidden-phone">{{ topic.reply_count }}</td>
+            <td class="smaller center hidden-phone hidden-phone">{{ topic.views }}</td>
+            <td class="smaller last-post">
+                {% with last_post=topic.last_post %}
+                {% if last_post %}
+                    <a href="{{ last_post.get_absolute_url }}">
+                        <i class="icon-time"></i> {{ last_post.created|date:'DATETIME_FORMAT' }}
+                    </a><br>
+                    <a href="{{ last_port.user.get_absolute_url }}"><i class="icon-pencil"></i>  {{ last_post.user|softwraphtml }}</a>
+                {% endif %}
+                {% endwith %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <div class="clearfix"></div>
+    <p>{% trans "No topics" %}</p>
+{% endif %}

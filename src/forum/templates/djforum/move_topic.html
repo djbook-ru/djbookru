@@ -12,14 +12,12 @@
 
 {% block content %}
     <aside class="widget forum">
-      <div class="row">
         <ul class="breadcrumb">
             <li><a class="title" href="{{ forum.category.get_absolute_url }}">{{ forum.category }}</a> <span class="divider">/</span></li>
             <li><a class="title forum" href="{{ forum.get_absolute_url }}">{{ forum }}</a> <span class="divider">/</span></li>
             <li><a href="{{ topic.get_absolute_url }}">{{ topic }}</a> <span class="divider">/</span></li>
             <li class="active">{% trans "Move" %}</li>
         </ul>
-      </div> <!-- row -->
 
         <form method="post" class="form-horizontal">
             {% csrf_token %}

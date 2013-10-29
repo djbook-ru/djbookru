@@ -53,20 +53,18 @@
 
 {% block content %}
     <aside class="widget forum">
-      <div class="row">
+
         <ul class="breadcrumb">
             <li><a class="title" href="{{ forum.category.get_absolute_url }}">{{ forum.category }}</a> <span class="divider">/</span></li>
             <li><a class="title forum" href="{{ forum.get_absolute_url }}">{{ forum }}</a> <span class="divider">/</span></li>
             <li class="active">{{ topic }}</li>
         </ul>
-      </div> <!-- row -->
 
-      <div class="row" style="margin-bottom: 10px;">
-        <div class="span4 pull-left">
+        <div class="topic-status pull-left">
             {% include 'djforum/_topic_statuses.html' %}
         </div>
 
-        <div class="span7 pull-right">
+        <div class="pull-right topic-toolbar">
             {% if user.is_authenticated %}
                 {% with unread_count=user|unread_topics_count %}
                 <a href="{% url 'forum:unread_topics' %}" class="btn btn-small">
@@ -108,7 +106,6 @@
 
             <a href="{% url 'forum:add_post' topic.pk %}" class="btn btn-small">{% trans "Answer" %}</a>
         </div>
-      </div> <!-- row -->
 
         {% if is_paginated %}
             {% paginate float='left' %}
@@ -122,14 +119,12 @@
             {% paginate float='left' %}
         {% endif %}
 
-      <div class="row">
         {% if form %}
         <form action="{% url 'forum:add_post' topic.pk %}" method="post" class="post-form form-horizontal">
             {% csrf_token %}
-            {{ form.body }}
             <button type="submit" class="btn btn-small submit-button">{% trans "Submit" %}</button>
+            {{ form.body }}
         </form>
         {% endif %}
-      </div> <!-- row -->
     </aside>
 {% endblock %}

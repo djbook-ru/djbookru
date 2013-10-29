@@ -1,48 +1,58 @@
 {% load i18n accounts_tags forum_tags %}
 {% load url from future %}
 
-<div id="post-{{ post.pk }}" class="row post">
-  <div class="span2 author">
-    <a class="date" href="{{ post.get_absolute_url }}"><i class="icon-time"></i> {{ post.created|date:'DATETIME_FORMAT' }}</a><br>
-    <a href="{{ post.user.get_absolute_url }}"><img class="img-polaroid" src="{{ post.user.avatar }}" title="{{ post.user }}" /></a>
-    <a href="{{ post.user.get_absolute_url }}">{{ post.user|softwraphtml }}</a>
-    <br/>{% trans "Posts" %}: {{ post.user.forum_posts.count }}
-    <br/>
-    {% if post.user.location %}{% trans "Location" %}: {{ post.user.location }}{% endif %}
-    {% if post.user.country %}<img src="" class="flag flag-{{ post.user.country|lower }}" title="{{ post.user.get_country_display }}" />{% endif %}
-    <div class="author-footer">
-      {% if post.user|online %}
-      <p><strong>{% trans "Online" %}</strong></p>
-      {% endif %}
-    </div>
-  </div>
-  <div class="span9 content">
-    <div class="post-content">
-      {{ post.get_content }}
-    </div>
+<div id="post-{{ post.pk }}" class="row-fluid post">
+    <table class="table">
+        <tr>
+            <td class="author hidden-phone">
+                {% include "djforum/_post_author.html" %}
+            </td>
+            <td class="content">
+                <div class="author visible-phone">
+                    {% include "djforum/_post_author.html" %}
 
-    <div class="clearfix"></div>
-    {% if post.user.signature or post.user.has_achievements %}
-    <hr/>
-    {% if post.user.signature %}
-    <div class="signature">{{ post.user.signature|urlize|linebreaksbr }}</div>
-    {% endif %}
-    {% achievements post.user 'forum' %}
-    {% endif %}
-    <div class="content-footer">
-      {% if user.is_authenticated %}
-      <a class="answer-post" href="#">{% trans "Answer" %}</a>
-      {% else %}
-      <a href="{% url 'forum:add_post' topic.pk %}">{% trans "Answer" %}</a>
-      {% endif %}
+                    {% if post.user|online %}
+                        <p><strong>{% trans "Online" %}</strong></p>
+                    {% endif %}
+                </div>
 
-      {% if post|can_edit:user %}
-      <span class="divider">|</span> <a href="{% url 'forum:edit_post' post.pk %}">{% trans "Edit" %}</a>
-      {% endif %}
+                <div class="post-content">
+                    {{ post.get_content }}
+                </div>
 
-      {% if post|can_delete:user %}
-      <span class="divider">|</span> <a class="delete-post" href="{% url 'forum:delete_post' post.pk %}">{% trans "Delete" %}</a>
-      {% endif %}
-    </div>
-  </div>
+                <div class="clearfix"></div>
+                {% if post.user.signature or post.user.has_achievements %}
+                    <div class="hidden-phone">
+                        <hr>
+                        {% if post.user.signature %}
+                        <div class="signature">{{ post.user.signature|urlize|linebreaksbr }}</div>
+                        {% endif %}
+                        {% achievements post.user 'forum' %}
+                    </div>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td class="author-footer hidden-phone">
+                {% if post.user|online %}
+                    <p><strong>{% trans "Online" %}</strong></p>
+                {% endif %}
+            </td>
+            <td class="content-footer">
+                {% if user.is_authenticated %}
+                    <a class="answer-post" href="#">{% trans "Answer" %}</a>
+                {% else %}
+                    <a href="{% url 'forum:add_post' topic.pk %}">{% trans "Answer" %}</a>
+                {% endif %}
+
+                {% if post|can_edit:user %}
+                <span class="divider">|</span> <a href="{% url 'forum:edit_post' post.pk %}">{% trans "Edit" %}</a>
+                {% endif %}
+
+                {% if post|can_delete:user %}
+                <span class="divider">|</span> <a class="delete-post" href="{% url 'forum:delete_post' post.pk %}">{% trans "Delete" %}</a>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
 </div>

@@ -20,19 +20,23 @@
 
 {% block content %}
     <aside class="widget forum">
-      <div class="row">
         <ul class="breadcrumb">
             <li><a class="title" href="{{ forum.category.get_absolute_url }}">{{ forum.category }}</a> <span class="divider">/</span></li>
             <li><a class="title forum" href="{{ forum.get_absolute_url }}">{{ forum }}</a> <span class="divider">/</span></li>
             <li class="active">{% trans "New topic" %}</li>
         </ul>
-      </div> <!-- row -->
 
         <form method="post" class="post-form">
             {% csrf_token %}
             {{ form.name|bootstrap:'nolabel' }}
-            {{ form.body|bootstrap:'nolabel' }}
+
             <button type="submit" class="submit-button btn btn-small">{% trans "Submit" %}</button>
+            {{ form.body|bootstrap:'nolabel' }}
+            <p>
+                {% blocktrans with url='http://daringfireball.net/projects/markdown/syntax' %}
+                Use <a href="{{ url }}">Markdown</a> to format text.
+                {% endblocktrans %}
+            </p>
         </form>
     </aside>
 {% endblock %}

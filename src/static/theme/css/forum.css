@@ -58,7 +58,7 @@
 
 .post {
     ~border: 1px solid #ddd;
-    margin: 16px 0 16px 0;
+    margin: 0 0 16px 0;
     padding: 0px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -66,15 +66,19 @@
     overflow: hidden;
 }
 
-.post {
-    margin: 10px 0 10px 0;
+.post .table {
+    margin: 0;
 }
 
-.post div {
+.post .table td {
+    border: none;
+}
+
+.post .table td {
     background: none;
 }
 
-.post .author, .post .author-footer {
+.post .table .author, .post .table .author-footer {
     border-right: 1px solid #ddd;
     width: 165px;
     min-width: 165px;
@@ -82,29 +86,35 @@
     overflow: hidden;
 }
 
-.post .content {
+.post .table .author.visible-phone {
+    width: 100%;
+    background: none;
+    border-right: none;
+}
+
+.post .table .content {
     overflow: hidden;
 }
 
-.post .content h1,
-.post .content h2,
-.post .content h3,
-.post .content h4,
-.post .content h5,
-.post .content h6 {
+.post .table .content h1,
+.post .table .content h2,
+.post .table .content h3,
+.post .table .content h4,
+.post .table .content h5,
+.post .table .content h6 {
     margin-top: 3px;
     margin-bottom: 3px;
 }
 
-.post .content h1 {
+.post .table .content h1 {
     font-size: 190%;
 }
 
-.post .content h2 {
+.post .table .content h2 {
     font-size: 175%;
 }
 
-.post .content code {
+.post .table .content code {
     white-space: pre-wrap; /* css-3 */
     white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
     white-space: -pre-wrap; /* Opera 4-6 */
@@ -112,7 +122,7 @@
     word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
 
-.post .content .post-content {
+.post .table .content .post-content {
     -ms-word-break: break-all;
 
         /* Non standard for webkit */
@@ -123,35 +133,41 @@
             hyphens: auto;
 }
 
-.post .author a, .post .content-footer a {
+.post .table .author a, .post .table .content-footer a {
     text-decoration: none;
 }
 
-.post .author, .post .content-footer {
+.post .table .author, .post .table .content-footer {
     font-size: 0.85em;
 }
 
-.post .content-footer {
+.post .table .content-footer {
     text-align: right;
 }
 
-.post .content-footer .divider {
+.post .table .content-footer .divider {
     color: #ccc;
     margin: 0 5px;
 }
 
-.post .content hr {
+.post .table .content hr {
     margin: 8px 0;
 }
 
-.post .content .signature {
+.post .table .content .signature {
     font-size: 0.8em;
     color: #63905c;
 }
 
 .post-form .submit-button {
     width: 100px;
-    margin-left: 25%;
+    margin: 0 0 -50px 414px;
+}
+
+@media (min-width: 1200px) {
+    .post-form .submit-button {
+        margin: 0 0 -50px 464px;
+    }
 }
 
 .post blockquote {
@@ -164,4 +180,17 @@
 
 .topic-toolbar {
     margin-bottom: 10px;
+}
+
+.post-form .wmd-panel {
+    margin: 0;
+}
+
+.post-form .wmd-input {
+    background-color: #fff;
+}
+
+.post-form .wmd-preview {
+    background-color: #eee;
+    padding: 0 5px;
 }

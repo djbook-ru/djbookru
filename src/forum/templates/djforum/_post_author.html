@@ -1,0 +1,10 @@
+{% load i18n forum_tags accounts_tags %}
+<a class="date" href="{{ post.get_absolute_url }}"><i class="icon-time"></i> {{ post.created|date:'DATETIME_FORMAT' }}</a><br>
+<a href="{{ post.user.get_absolute_url }}"><img class="img-polaroid" src="{{ post.user.avatar }}" title="{{ post.user }}" /></a>
+<a href="{{ post.user.get_absolute_url }}">{{ post.user|softwraphtml }}</a>
+<div class="hidden-phone">
+    {% trans "Posts" %}: {{ post.user.forum_posts.count }}
+    <br/>
+    {% if post.user.location %}{% trans "Location" %}: {{ post.user.location }}{% endif %}
+    {% if post.user.country %}<img src="" class="flag flag-{{ post.user.country|lower }}" title="{{ post.user.get_country_display }}" />{% endif %}
+</div>
