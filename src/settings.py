@@ -292,6 +292,7 @@ INSTALLED_APPS = (
     'src.videos',
     'src.code_review',
     'src.links',
+    'src.header_messages',
 )
 
 
