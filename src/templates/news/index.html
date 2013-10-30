@@ -24,7 +24,6 @@
         <div class="entry-content">
             {{ obj.content|filter_markdown:35 }}
             <p class="more right">
-            	<a class="btn" href="{% url 'news:edit' obj.id %}">{% trans 'Edit' %}</a>&nbsp;&nbsp;
             	<a class="btn" href="{{ obj.get_absolute_url }}">{% trans 'Read More' %} →</a>
             </p>
         </div>

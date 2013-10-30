@@ -3,7 +3,7 @@
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from django.views.generic.list_detail import object_list
-from django.views.decorators.csrf import csrf_exempt
+from django.core.urlresolvers import reverse
 
 from .. decorators import render_to
 from . import models
@@ -19,26 +19,14 @@ def index(request):
 
 @render_to('news/news.html')
 def news(request, pk):
-    return {
-        'obj': get_object_or_404(models.News, pk=pk)
-    }
-    
-    
-@csrf_exempt
-@render_to('news/edit.html')
-def edit(request, pk):
-    obj = get_object_or_404(models.News, pk=pk)
+    obj= get_object_or_404(models.News, pk=pk)
     if request.user.is_superuser:
-        if request.method == 'POST':
-            form = models.NewsForm(request.POST, instance=obj)
-            if form.is_valid():
-                form.save()
-                return news(request, obj.id)
-        else:
-            form = models.NewsForm(instance=obj)
+        url_path = reverse('admin:news_news_changelist')
+        url_path += pk
         return {
             'obj': obj,
-            'form': form
+            'url_path' : url_path
         }
-    else:
-       return news(request, obj.id) 
+    return {
+        'obj': obj
+    }
