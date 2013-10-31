@@ -3,8 +3,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-import random
-
 
 class HeaderMessage(models.Model):
     message = models.CharField(_(u'Phrase'), max_length=2048)
@@ -28,6 +26,5 @@ class HeaderMessage(models.Model):
         if count == 0:
             return ""
         else:
-            i = random.randrange(1, count)
-            phrase = HeaderMessage.objects.get(pk=i)
+            phrase = HeaderMessage.objects.order_by('?')[0]
             return phrase.message
