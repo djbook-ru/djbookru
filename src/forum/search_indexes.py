@@ -3,7 +3,7 @@
 from haystack.indexes import *
 from haystack import site
 
-from . import models
+from .models import Topic
 
 
 class TopicIndex(SearchIndex):
@@ -14,4 +14,7 @@ class TopicIndex(SearchIndex):
     category = CharField(model_attr='forum__category__name')
     forum = IntegerField(model_attr='forum__pk')
 
-site.register(models.Topic, TopicIndex)
+    def index_queryset(self):
+        return Topic.objects.filter(forum__category__groups=None)
+
+site.register(Topic, TopicIndex)
