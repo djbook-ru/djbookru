@@ -32,6 +32,9 @@
 
         <div class="entry-content">
             {{ obj.content|markdown:"safe" }}
+            {% if user.is_superuser %}
+            <p class="more right"><a class="btn" href="{% url 'admin:news_news_change' obj.pk %}">{% trans "Edit" %}</a>
+            {% endif %}
         </div>
         <!--end entry-content-->
 
