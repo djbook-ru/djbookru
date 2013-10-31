@@ -18,13 +18,9 @@ class HeaderMessage(models.Model):
             return self.message
 
     @staticmethod
-    def rnd():
-        """
-        return random phrase
-        """
-        count = HeaderMessage.objects.count()
-        if count == 0:
+    def random_message():
+        try:
+            return HeaderMessage.objects.order_by('?')[:1].get().message
+        except HeaderMessage.DoesNotExist:
             return ""
-        else:
-            phrase = HeaderMessage.objects.order_by('?')[0]
-            return phrase.message
+

@@ -50,7 +50,7 @@ def recipes(context):
 
 @register.inclusion_tag('_menu.html', takes_context=True)
 def menu(context):
-    context['rnd_message'] = HeaderMessage.rnd()
+    context['rnd_message'] = HeaderMessage.random_message()
     context['example_categories'] = Category.objects.all()
     return context
 
