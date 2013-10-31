@@ -19,6 +19,11 @@
             </div>
             <div class="entry-meta">
                 <i class="icon-folder-open"></i> <a href="{% url 'examples:index' %}">{% trans "Recipes" %}</a> - <a href="{{ obj.category.get_absolute_url }}">{{ obj.category }}</a>
+                {% if user.is_superuser %}
+                <a class="pull-right" href="{% url 'admin:examples_example_change' obj.pk %}">
+                    <i class="icon-pencil"></i> {% trans "Edit" %}
+                </a>
+                {% endif %}
             </div>
 
             <!--add this share buttons for mobile viewers-->
