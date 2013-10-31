@@ -23,6 +23,11 @@
             </div>
             <div class="entry-meta">
                 <i class="icon-folder-open"></i> <a href="{% url 'news:index' %}">{% trans "News" %}</a>
+                {% if user.is_superuser %}
+                <a class="pull-right" href="{% url 'admin:news_news_change' obj.pk %}">
+                    <i class="icon-pencil"></i> {% trans "Edit" %}
+                </a>
+                {% endif %}
             </div>
 
             <!--add this share buttons for mobile viewers-->
@@ -32,9 +37,6 @@
 
         <div class="entry-content">
             {{ obj.content|markdown:"safe" }}
-            {% if user.is_superuser %}
-            <p class="more right"><a class="btn" href="{% url 'admin:news_news_change' obj.pk %}">{% trans "Edit" %}</a>
-            {% endif %}
         </div>
         <!--end entry-content-->
 
