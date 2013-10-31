@@ -1,6 +1,7 @@
 {% extends 'news/base.html' %}
 
 {% load pagination_tags i18n markup comments_tags components %}
+{% load url from future %}
 
 {% block content %}
     {% for obj in object_list %}
@@ -22,8 +23,10 @@
         <!--begin loop of entry-posts for summary page-->
         <div class="entry-content">
             {{ obj.content|filter_markdown:35 }}
-            <p class="more right"><a class="btn" href="{{ obj.get_absolute_url }}">{% trans 'Read More' %} →</a>
-        </p></div>
+            <p class="more right">
+            	<a class="btn" href="{{ obj.get_absolute_url }}">{% trans 'Read More' %} →</a>
+            </p>
+        </div>
         <!-- close entry-content -->
 
         <footer class="entry-footer">

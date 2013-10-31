@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
+from django import forms
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+
 
 from .. accounts.models import User
 
@@ -38,3 +40,8 @@ class News(models.Model):
             return News.objects.all().filter(created__lt=self.created).exclude(pk=self.pk).order_by('-created')[:1].get()
         except News.DoesNotExist:
             return
+
+
+class NewsForm(forms.ModelForm):
+    class Meta:
+        model = News        

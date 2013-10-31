@@ -32,6 +32,11 @@
 
         <div class="entry-content">
             {{ obj.content|markdown:"safe" }}
+            {% if url_path %}
+            	<p class="more right">
+            		<a class="btn" href="{{ url_path }}">{% trans 'Edit' %}</a>
+        		</p>
+        	{% endif %}
         </div>
         <!--end entry-content-->
 
