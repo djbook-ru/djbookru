@@ -189,6 +189,13 @@ class Topic(models.Model):
     def get_absolute_url(self):
         return ('forum:topic', [self.pk])
 
+    def search(self):
+        try:
+            content = self.posts.all()[:1].get().get_content()
+        except Post.DoesNotExist:
+            content
+        return dict(source=_(u'Forum'), title=self.name, desc=content)
+
     @property
     def reply_count(self):
         return self.posts.all().count() - 1
@@ -312,6 +319,3 @@ class Post(models.Model):
 
     def can_delete(self, user):
         return user.is_active and user.is_superuser
-
-    def search(self):
-        return dict(source=_(u'Forum'), title=self.topic.name, desc=self.get_content())

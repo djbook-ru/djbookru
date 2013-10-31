@@ -13,7 +13,7 @@ from haystack.forms import SearchForm as HaystackSearchForm
 from haystack_static_pages.models import StaticPage
 from zipfile import ZipFile, BadZipfile
 
-from .. forum.models import Post
+from .. forum.models import Topic
 from .. examples.models import Example
 from .. news.models import News
 from .. utils.forms import ReCaptchaField
@@ -127,7 +127,7 @@ class SearchForm(HaystackSearchForm):
     CONTENT_CHOICES = (
         ('', _(u'All')),
         (ContentType.objects.get_for_model(Example).pk, _(u'Recipes')),
-        (ContentType.objects.get_for_model(Post).pk, _(u'Forum')),
+        (ContentType.objects.get_for_model(Topic).pk, _(u'Forum')),
         (ContentType.objects.get_for_model(News).pk, _(u'News')),
         (ContentType.objects.get_for_model(StaticPage).pk, _(u'Documentation')),
     )

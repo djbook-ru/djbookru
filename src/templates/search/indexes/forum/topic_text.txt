@@ -1,0 +1,3 @@
+{% for post in object.posts.all %}
+{{ post.get_content|striptags }}
+{% endfor %}
