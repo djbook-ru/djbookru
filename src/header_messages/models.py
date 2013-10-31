@@ -1,39 +1,33 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
+
 import random
 
 
-class Header_message(models.Model):
-    message = models.CharField(u'Фраза', max_length=2048)
-    weight = models.SmallIntegerField(default=1)
+class HeaderMessage(models.Model):
+    message = models.CharField(_(u'Phrase'), max_length=2048)
 
     class Meta:
-        ordering = ['-weight']
-        verbose_name = u'Фраза'
-        verbose_name_plural = u'Фразы'
+        verbose_name = _(u'Phrase')
+        verbose_name_plural = _(u'Phrases')
 
     def __unicode__(self):
-        return self.message
+        if len(self.message) > 50:
+            return self.message[:50] + "..."
+        else:
+            return self.message
 
     @staticmethod
     def rnd():
         """
-        return random message based on weight
-        simple linear approach
+        return random phrase
         """
-        if Header_message.objects.count() == 0:
-            return None
-        weights = Header_message.objects.all().order_by('-weight').values_list('id', 'weight')
-        running_total = 0
-        totals = []
-        for w in weights:
-            running_total += w[1]
-            totals.append(running_total)
-        rnd = random.random() * running_total
-        for i, total in enumerate(totals):
-            if rnd < total:
-                rnd_id = weights[i][0]
-                break
-
-        return Header_message.objects.get(pk=rnd_id)
+        count = HeaderMessage.objects.count()
+        if count == 0:
+            return ""
+        else:
+            i = random.randrange(1, count)
+            phrase = HeaderMessage.objects.get(pk=i)
+            return phrase.message

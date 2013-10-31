@@ -8,26 +8,24 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'Header_message'
-        db.create_table('header_messages_header_message', (
+        # Adding model 'HeaderMessage'
+        db.create_table('header_messages_headermessage', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('message', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('weight', self.gf('django.db.models.fields.SmallIntegerField')(default=1)),
+            ('message', self.gf('django.db.models.fields.CharField')(max_length=2048)),
         ))
-        db.send_create_signal('header_messages', ['Header_message'])
+        db.send_create_signal('header_messages', ['HeaderMessage'])
 
 
     def backwards(self, orm):
-        # Deleting model 'Header_message'
-        db.delete_table('header_messages_header_message')
+        # Deleting model 'HeaderMessage'
+        db.delete_table('header_messages_headermessage')
 
 
     models = {
-        'header_messages.header_message': {
-            'Meta': {'ordering': "['-weight']", 'object_name': 'Header_message'},
+        'header_messages.headermessage': {
+            'Meta': {'object_name': 'HeaderMessage'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'message': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
-            'weight': ('django.db.models.fields.SmallIntegerField', [], {'default': '1'})
+            'message': ('django.db.models.fields.CharField', [], {'max_length': '2048'})
         }
     }
 

@@ -5,7 +5,7 @@ from django.contrib import admin
 from . import models
 
 
-class Header_messageAdmin(admin.ModelAdmin):
-    list_display = ['message', 'weight']
+class HeaderMessageAdmin(admin.ModelAdmin):
+    list_display = ['message']
 
-admin.site.register(models.Header_message, Header_messageAdmin)
+admin.site.register(models.HeaderMessage, HeaderMessageAdmin)

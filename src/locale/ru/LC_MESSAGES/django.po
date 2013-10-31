@@ -3702,3 +3702,9 @@ msgstr "видео"
 #, fuzzy
 #~ msgid "Add example"
 #~ msgstr "Пример"
+
+msgid "Phrase"
+msgstr "Фраза"
+
+msgid "Phrases"
+msgstr "Фразы"
