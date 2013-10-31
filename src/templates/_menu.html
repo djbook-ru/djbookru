@@ -49,7 +49,9 @@
             {% endif %}
         </div>
         <!-- end #logo -->
-        <h4 class="tagline visible-desktop"><div>{{ rnd_message }}</div>
+        {% if rnd_message %}
+        <h4 class="tagline visible-desktop"><div>{{ rnd_message.strip|linebreaksbr }}</div>
+        {% endif %}
         </h4>
     </div>
     <!-- close / .container-->
