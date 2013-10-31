@@ -18,6 +18,7 @@ from src.comments.models import Comment
 from src.examples.models import Category, Example
 from src.forum.models import Topic
 from src.main.forms import SearchForm
+from src.header_messages.models import HeaderMessage
 
 
 RECIPES_ON_MAIN = getattr(settings, 'RECIPES_ON_MAIN', 4)
@@ -49,6 +50,7 @@ def recipes(context):
 
 @register.inclusion_tag('_menu.html', takes_context=True)
 def menu(context):
+    context['rnd_message'] = HeaderMessage.rnd()
     context['example_categories'] = Category.objects.all()
     return context
 
