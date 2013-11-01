@@ -1,18 +1,17 @@
 # -*- coding: utf-8 -*-
 
-from django.conf import settings
 from django.contrib.auth.models import Group
 from django.core.urlresolvers import reverse
 from django.db import models
-from django.db.models import Q, F
+from django.db.models import Q
 from django.utils import timezone
-from src.forum.util import urlize
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
-from src.forum.settings import POSTS_ON_PAGE
+
 import markdown
-import os
-import os.path
+
+from src.forum.settings import FORUM_EDIT_TIMEOUT
+from src.forum.util import urlize
 
 
 class CategoryManager(models.Manager):
@@ -302,12 +301,22 @@ class Post(models.Model):
     def get_content(self):
         return mark_safe(urlize(markdown.markdown(self.body, safe_mode='escape')))
 
+    @property
+    def expired(self):
+        u"""Возвращает признак невозможности внесения исправлений в
+        опубликованное сообщение."""
+        timeout = FORUM_EDIT_TIMEOUT * 60
+        return timeout < (timezone.now() - self.created).seconds
+
     def can_edit(self, user):
         if not user.is_authenticated():
             return False
 
         if user.is_superuser:
             return True
+
+        if self.expired:
+            return False
 
         if not self.topic.forum.category.has_access(user):
             return False
