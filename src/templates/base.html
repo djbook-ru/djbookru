@@ -104,19 +104,23 @@
         <nav class="user clearfix">
             {% if user.is_authenticated %}
                 <a href="{{ user.get_absolute_url }}"><i class="icon-user"></i> {{ user.username }}</a>
-                {% notification_indicator %} |
-                <a href="{% url accounts:logout %}?next={{ request.path_info|urlencode }}"><i class="icon-share"></i> {% trans 'Logout' %}</a>
+                {% notification_indicator %} <span class="hidden-phone">|</span>
+                <a href="{% url accounts:logout %}?next={{ request.path_info|urlencode }}">
+                    <i class="icon-share"></i> <span class="hidden-phone">{% trans 'Logout' %}</span>
+                </a>
             {% else %}
                 <a href="{% url accounts:login %}?next={{ request.path_info|urlencode }}"><i class="icon-share"></i> {% trans 'Login' %}</a>
             {% endif %}
             {% if user.is_staff and user.is_active %}
-                | <a href="{% url admin:index %}"><i class="icon-cog icon-white"></i> {% trans "Admin UI" %}</a>
+                <span class="hidden-phone">|</span> <a href="{% url admin:index %}">
+                    <i class="icon-cog icon-white"></i> <span class="hidden-phone">{% trans "Admin UI" %}</span>
+                </a>
             {% endif %}
-            |
+            <span class="hidden-phone">|</span>
             {% if LANGUAGE_CODE|lower|slice:":2" == "en" %}
-                <a href="{% url main:lang "ru" %}">Русский</a>
+                <a href="{% url main:lang "ru" %}">RU</a>
             {% elif LANGUAGE_CODE|lower|slice:":2" == "ru" %}
-                <a href="{% url main:lang "en" %}">English</a>
+                <a href="{% url main:lang "en" %}">EN</a>
             {% endif %}
         </nav>
         <!--close user nav-->

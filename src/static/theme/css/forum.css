@@ -159,9 +159,13 @@
     color: #63905c;
 }
 
+.post-form .wmd-button-row {
+    width: 400px;
+}
+
 .post-form .submit-button {
     width: 100px;
-    margin: 0 0 -5px 414px;
+    margin: 0 0 -50px 414px;
 }
 
 @media (min-width: 1200px) {
