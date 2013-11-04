@@ -1,29 +1,35 @@
 # -*- coding: utf-8 -*-
-from .. decorators import render_to
-from .forms import AddTopicForm, AddPostForm, EditPostForm, MoveTopicForm
-from .models import Category, Forum, Topic, Post
-from django.contrib.auth.decorators import login_required
-from django.db.models import F
-from django.shortcuts import get_object_or_404, redirect
-from django.views.generic.list_detail import object_list
-from django.core.cache import cache
-from src.accounts.models import User
+
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.core.cache import cache
+from django.db.models import F
+from django.http import Http404
+from django.shortcuts import get_object_or_404, redirect
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic.list import ListView
-from django.http import Http404
+from django.views.generic.list_detail import object_list
+
+from src.accounts.models import User
+from src.decorators import render_to
+from src.forum.forms import AddTopicForm, AddPostForm
+from src.forum.forms import EditPostForm, MoveTopicForm
+from src.forum.models import Category, Forum, Topic, Post
 from src.forum.settings import POSTS_ON_PAGE
+from src.forum.settings import FORUM_EDIT_TIMEOUT
 
 
 @render_to('djforum/index.html')
 def index(request):
     users_cached = cache.get('users_online', {})
-    users_online = users_cached and User.objects.filter(id__in=users_cached.keys()) or []
+    users_online = users_cached and User.objects.filter(
+        id__in=users_cached.keys()) or []
     guests_cached = cache.get('guests_online', {})
     guest_count = len(guests_cached)
     users_count = len(users_online)
 
-    categories = [obj for obj in Category.objects.all() if obj.has_access(request.user)]
+    categories = [obj for obj in Category.objects.all()
+                  if obj.has_access(request.user)]
 
     return {
         'categories': categories,
@@ -61,7 +67,8 @@ class UnreadView(ListView):
 
     def get_paginator(self, *args, **kwargs):
         paginator = super(UnreadView, self).get_paginator(*args, **kwargs)
-        paginator._count = Topic.objects.unread_for_user_count(user=self.request.user)
+        paginator._count = Topic.objects.unread_for_user_count(
+            user=self.request.user)
         return paginator
 
 unread_topics = login_required(UnreadView.as_view())
