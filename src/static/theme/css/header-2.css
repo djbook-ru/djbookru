@@ -371,7 +371,7 @@ body.tall-logo nav.user {margin-left:0;}
     width: 100%;
     height: 59px;
     margin: 0;
-    padding: 10px 0!important;
+    padding: 10px 10px!important;
 }
 /* tall header for taller logo mobile */
 .tall-logo #logo {
