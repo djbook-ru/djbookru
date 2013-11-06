@@ -16,7 +16,6 @@ from src.forum.forms import AddTopicForm, AddPostForm
 from src.forum.forms import EditPostForm, MoveTopicForm
 from src.forum.models import Category, Forum, Topic, Post
 from src.forum.settings import POSTS_ON_PAGE
-from src.forum.settings import FORUM_EDIT_TIMEOUT
 
 
 @render_to('djforum/index.html')

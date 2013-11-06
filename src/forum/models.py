@@ -10,7 +10,7 @@ from django.utils.translation import ugettext_lazy as _
 
 import markdown
 
-from src.forum.settings import FORUM_EDIT_TIMEOUT
+from src.forum.settings import FORUM_EDIT_TIMEOUT, POSTS_ON_PAGE
 from src.forum.util import urlize
 
 
@@ -296,7 +296,16 @@ class Post(models.Model):
             topic.delete()
 
     def get_absolute_url(self):
-        return reverse('forum:topic', args=[self.topic.pk]) + '#post-' + str(self.pk)
+        topic_url = reverse('forum:topic', args=[self.topic.pk])
+        posts = list(self.topic.posts.all())
+        post_index = posts.index(self)
+
+        if post_index <= POSTS_ON_PAGE:
+            return topic_url + '#post-' + str(self.pk)
+        else:
+            url = '%s?page=%s#post-%s'
+            page = post_index / POSTS_ON_PAGE + 1
+            return url % (topic_url, page, str(self.pk))
 
     def get_content(self):
         return mark_safe(urlize(markdown.markdown(self.body, safe_mode='escape')))
