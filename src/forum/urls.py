@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, url
-from src.forum.feeds import feed_latest_entries
+from src.forum.feeds import (FeedLatestPosts, FeedLatestPostsByCategory)
 
 
 urlpatterns = patterns(
@@ -20,5 +20,6 @@ urlpatterns = patterns(
     url(r'^forum/(\d+)/$', 'forum', name='forum'),
     url(r'^mark_read_all/$', 'mark_read_all', name='mark_read_all'),
     url(r'^mark_read_forum/(\d+)/$', 'mark_read_forum', name='mark_read_forum'),
-    url(r'^feeds/category/(?P<category_id>\d+)/$', feed_latest_entries(), name='feed_latest_entries')
+    url(r'^feeds/category/(?P<category_id>\d+)/$', FeedLatestPostsByCategory(), name='feed_latest_entries'),
+    url(r'^feeds/categories/$', FeedLatestPosts(), name='feed_latest_entries')
 )
