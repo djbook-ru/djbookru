@@ -42,5 +42,17 @@ class FeedLatestPosts(Feed):
     def title(self):
         return _(u"Last messages on forum in all categories")
 
+    def item_title(self, item):
+        return unicode(item.topic.name)
+
+    def item_author_name(self, item):
+        return unicode(item.user.username)
+
+    def item_pubdate(self, item):
+        return item.created
+
+    def item_updateddate(self, item):
+        return item.updated
+
     def items(self):
         return Post.objects.order_by('-updated')[:30]
