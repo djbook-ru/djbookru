@@ -175,12 +175,6 @@
     margin: 0 0 -50px 414px;
 }
 
-@media (min-width: 1200px) {
-    .post-form .submit-button {
-        margin: 0 0 -50px 464px;
-    }
-}
-
 .post blockquote {
     font-size: 0.9em;
 }
@@ -208,4 +202,50 @@
 .post-form .wmd-preview {
     background-color: #eee;
     padding: 0 5px;
+}
+
+@media (min-width: 1200px) {
+    .post-form .submit-button {
+        margin: 0 0 -50px 464px;
+    }
+}
+
+@media (max-width: 600px) {
+    .post-form .wmd-panel {
+        width: 96%;
+        min-width: 96%;
+    }
+
+    .post-form textarea {
+        width: 96%;
+        min-width: 96%;
+    }
+
+    .post-form .submit-button {
+        margin: 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .post-form .wmd-panel {
+        width: 98%;
+        min-width: 98%;
+    }
+
+    .post-form textarea {
+        width: 98%;
+        min-width: 98%;
+    }
+
+    .post-form .submit-button {
+        margin-bottom: 5px;
+    }
+
+    #id_body_wmd_button_bar {
+        display: none;
+    }
+
+    .table .last-post .icon-pencil {
+        display: none;
+    }
 }
