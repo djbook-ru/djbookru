@@ -9,7 +9,7 @@ from django.contrib.sites.models import get_current_site
 from django.utils.http import int_to_base36
 from django.utils.translation import ugettext_lazy as _
 
-from .. utils.forms import ReCaptchaField
+from .. utils.forms import ReCaptchaField, EmailInput
 from .. utils.mail import send_templated_email
 
 from . import models
@@ -23,7 +23,7 @@ class SavePositionForm(forms.ModelForm):
 
 
 class AuthenticationForm(forms.Form):
-    email = forms.EmailField(label=_("Email"), max_length=30)
+    email = forms.EmailField(label=_("Email"), max_length=30, widget=EmailInput)
     password = forms.CharField(label=_("Password"), widget=forms.PasswordInput)
 
     error_messages = {
