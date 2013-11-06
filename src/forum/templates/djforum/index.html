@@ -54,7 +54,7 @@
                             <a href="{{ last_post.get_absolute_url }}">
                                 <i class="icon-time"></i> {{ last_post.created|date:'DATETIME_FORMAT' }}
                             </a><br>
-                            <a href="{{ last_post.user.get_absolute_url }}"><i class="icon-pencil"></i> {{ last_post.user|softwraphtml }}</a>
+                            <a href="{{ last_post.get_absolute_url }}"><i class="icon-pencil"></i> {{ last_post.user|softwraphtml }}</a>
                         {% endif %}
                         {% endwith %}
                     </td>

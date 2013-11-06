@@ -573,13 +573,14 @@ body.tall-logo nav.user {margin-left:0;}
 {
 
 
-#logo {
+#logo1 {
         background-image:url(../images/retina/logo_@2x.png);
-            -moz-background-size:140px 59px; /*w & h of total ORIGINAL 72dpi image*/
-             -ie-background-size:140px 59px;
-              -o-background-size:140px 59px;
-         -webkit-background-size:140px 59px;
-                 background-size:140px 59px;
+        background-repeat: no-repeat;
+            -moz-background-size:243px 51px; /*w & h of total ORIGINAL 72dpi image*/
+             -ie-background-size:243px 51px;
+              -o-background-size:243px 51px;
+         -webkit-background-size:243px 51px;
+                 background-size:243px 51px;
 }
 
 .search #search-trigger {

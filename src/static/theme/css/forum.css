@@ -7,6 +7,13 @@
     margin: 0 0 10px;
 }
 
+@media (max-width: 480px) {
+    .widget.forum p {
+        font-size: 0.9em;
+        margin: 0 0 8px;
+    }
+}
+
 .widget.forum pre {
     margin: 5px 0;
     padding: 5px;
@@ -184,6 +191,10 @@
 
 .topic-toolbar {
     margin-bottom: 10px;
+}
+
+.topic-toolbar .btn {
+    margin-top: 2px;
 }
 
 .post-form .wmd-panel {
