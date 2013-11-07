@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from haystack.indexes import *
-from haystack import site
-
-from . import models
+from haystack import indexes
+from .models import Example
 
 
-class ExampleIndex(SearchIndex):
-    text = CharField(document=True, use_template=True)
-    title = CharField(model_attr='title')
-    created = DateTimeField(model_attr='created')
-    author = CharField(model_attr='author')
-
-site.register(models.Example, ExampleIndex)
+class ExampleIndex(indexes.SearchIndex, indexes.Indexable):
+    text = indexes.CharField(document=True, use_template=True)
+    title = indexes.CharField(model_attr='title')
+    created = indexes.DateTimeField(model_attr='created')
+    author = indexes.CharField(model_attr='author')
+    
+    def get_model(self):
+        return Example

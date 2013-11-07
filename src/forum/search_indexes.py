@@ -1,20 +1,19 @@
 # encoding: utf-8
 
-from haystack.indexes import *
-from haystack import site
-
+from haystack import indexes
 from .models import Topic
 
 
-class TopicIndex(SearchIndex):
-    text = CharField(document=True, use_template=True)
-    author = CharField(model_attr='user')
-    created = DateTimeField(model_attr='created')
-    name = CharField(model_attr='name')
-    category = CharField(model_attr='forum__category__name')
-    forum = IntegerField(model_attr='forum__pk')
+class TopicIndex(indexes.SearchIndex, indexes.Indexable):
+    text = indexes.CharField(document=True, use_template=True)
+    author = indexes.CharField(model_attr='user')
+    created = indexes.DateTimeField(model_attr='created')
+    name = indexes.CharField(model_attr='name')
+    category = indexes.CharField(model_attr='forum__category__name')
+    forum = indexes.IntegerField(model_attr='forum__pk')
 
-    def index_queryset(self):
-        return Topic.objects.filter(forum__category__groups=None)
+    def get_model(self):
+        return Topic
 
-site.register(Topic, TopicIndex)
+    def get_queryset(self, using=None):
+        return self.get_model().objects.filter(forum__category__groups=None)

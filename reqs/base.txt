@@ -3,7 +3,7 @@ Django==1.4.9
 django-admin-tools==0.5.1
 django-autoslug-field==0.2.3
 django-extensions==1.2.2
-django-haystack==1.2.7
+django-haystack==2.1.0
 django-model-utils==1.0.0
 django-modeltranslation
 django-pagedown==0.0.5
@@ -22,8 +22,8 @@ python_openid==2.2.5
 pytils==0.2.3
 pytz
 sorl-thumbnail==11.12
-xapian-haystack==1.1.5beta
 -e git+git://github.com/RaD/django-chunks.git@rel2.7#egg=django-chunks
 -e git+http://github.com/clintecker/django-google-analytics.git/#egg=django-google_analytics
 -e git+https://github.com/RaD/haystack-static-pages.git/#egg=haystack-static-pages
 -e hg+https://bitbucket.org/ruslanpopov/django-sentry#egg=sentry
+-e git+https://github.com/benjaoming/xapian-haystack.git/#egg=xapian-haystack

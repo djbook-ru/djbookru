@@ -363,9 +363,12 @@ def get_doc_pages(path, ext):
 DJANGO_DOCUMENTATION_URL = '/rel1.5/'
 
 INSTALLED_APPS += ('haystack', 'haystack_static_pages')
-HAYSTACK_SITECONF = 'src.search_sites'
-HAYSTACK_SEARCH_ENGINE = 'xapian'
-HAYSTACK_XAPIAN_PATH = rel_project('search', 'xapian_index')
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'xapian_backend.XapianEngine',
+        'PATH': rel_project('search', 'xapian_index'),
+    }
+}
 HAYSTACK_STATIC_PAGES = tuple(
     get_doc_pages(
         os.path.expanduser('~/devel/django_documentation/_build/html'),
