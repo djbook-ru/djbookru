@@ -1,7 +1,9 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, url
+from src.forum.feeds import (FeedLatestPosts, FeedLatestPostsByCategory)
 
 
-urlpatterns = patterns('src.forum.views',
+urlpatterns = patterns(
+    'src.forum.views',
     url(r'^$', 'index', name='index'),
     url(r'^unread_topics/$', 'unread_topics', name='unread_topics'),
     url(r'^my_topics/$', 'my_topics', name='my_topics'),
@@ -18,5 +20,6 @@ urlpatterns = patterns('src.forum.views',
     url(r'^forum/(\d+)/$', 'forum', name='forum'),
     url(r'^mark_read_all/$', 'mark_read_all', name='mark_read_all'),
     url(r'^mark_read_forum/(\d+)/$', 'mark_read_forum', name='mark_read_forum'),
-
+    url(r'^feeds/category/(?P<category_id>\d+)/$', FeedLatestPostsByCategory(), name='feed_latest_entries'),
+    url(r'^feeds/categories/$', FeedLatestPosts(), name='feed_latest_entries')
 )
