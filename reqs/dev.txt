@@ -3,8 +3,7 @@
 Fabric >= 1.3.2
 django-fab-deploy >= 0.7.2
 
--e git+git://github.com/dcramer/django-devserver#egg=django-devserver
-sqlparse        # pretty SQL formatting
+django-devserver==0.7.0
 werkzeug        # interactive debugger
 guppy           # tracks memory usage (required for MemoryUseModule)
 
