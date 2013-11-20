@@ -9,11 +9,11 @@
             {{ example.created|pretty_date }}
             <h3><a href="{{ example.get_absolute_url }}">{{ example }}</a></h3>
             <a href="{{ example.author.get_absolute_url }}">
-                <p><i class="icon-pencil"></i> {{ example.author }}</p>
+                <p><i class="fa fa-pencil"></i> {{ example.author }}</p>
             </a>
             <a href="{{ example.topic.get_absolute_url }}" class="pull-right" style="margin-top: -1.1em">
                 <p>
-                    <i class="icon-comments"></i>
+                    <i class="fa fa-comments"></i>
                     {{ example.topic.reply_count }}
                     {% blocktrans count counter=example.topic.reply_count|default:0 %}comment{% plural %}comments{% endblocktrans %}
                 </p>

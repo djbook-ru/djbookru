@@ -8,9 +8,9 @@
         <header class="entry-header">
             <h3 class="entry-title"><a href="{{ obj.get_absolute_url }}">{{ obj }}</a></h3>
             <div class="byline">
-                <i class="icon-time"></i> <abbr class="published" title="{{ obj.created|date:'DATETIME_FORMAT' }}">{{ obj.created|date:'DATE_FORMAT' }}</abbr> &nbsp;&nbsp;
+                <i class="fa fa-clock-o"></i> <abbr class="published" title="{{ obj.created|date:'DATETIME_FORMAT' }}">{{ obj.created|date:'DATE_FORMAT' }}</abbr> &nbsp;&nbsp;
                 <a href="{{ obj.get_absolute_url }}#comments">
-                    <i class="icon-comments-alt"></i>
+                    <i class="fa fa-comment"></i>
                     {% with comments_count=obj|get_comment_count %}
                         {{ comments_count }} {% blocktrans count counter=comments_count %}comment{% plural %}comments{% endblocktrans %}
                     {% endwith %}

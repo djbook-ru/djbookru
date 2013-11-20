@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 
+from src.forum.models import Topic, Post
 
 urlpatterns = patterns('src.forum.views',
     url(r'^$', 'index', name='index'),
@@ -18,5 +19,6 @@ urlpatterns = patterns('src.forum.views',
     url(r'^forum/(\d+)/$', 'forum', name='forum'),
     url(r'^mark_read_all/$', 'mark_read_all', name='mark_read_all'),
     url(r'^mark_read_forum/(\d+)/$', 'mark_read_forum', name='mark_read_forum'),
-
+    url(r'^vote/topic/(\d+)/$', 'vote', {'model': Topic}, 'vote_topic'),
+    url(r'^vote/post/(\d+)/$', 'vote', {'model': Post}, 'vote_post'),
 )

@@ -13,12 +13,12 @@
         <header class="entry-header">
             <h3 class="entry-title">{{ obj }}</h3>
             <div class="byline">
-                <i class="icon-time"></i> {{ obj.created|date:'DATE_FORMAT' }} &nbsp;&nbsp;
+                <i class="fa fa-clock-o"></i> {{ obj.created|date:'DATE_FORMAT' }} &nbsp;&nbsp;
             </div>
             {% tags_for_object obj as video_tags %}
             {% if video_tags %}
             <div class="entry-meta">
-                <i class="icon-folder-open"></i>
+                <i class="fa fa-folder-open"></i>
                 {% for video_tag in video_tags %}
                 <a href="?tag={{ video_tag|urlencode }}">{{ video_tag }}</a>{% if not forloop.last %}, {% endif %}
                 {% endfor %}

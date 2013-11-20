@@ -19,12 +19,12 @@
             <h3 class="entry-title"><a href="{{ item.object.get_absolute_url }}">{{ item.object.search.title|default:'No title'|striptags|safe }}</a></h3>
             <div class="byline">
                 {% if item.author %}
-                <a href="{{ item.author.get_absolute_url }}"><i class="icon-pencil"></i> {{ item.author }}</a> &nbsp;&nbsp;
+                <a href="{{ item.author.get_absolute_url }}"><i class="fa fa-pencil"></i> {{ item.author }}</a> &nbsp;&nbsp;
                 {% endif %}
                 {% if item.created %}
-                <i class="icon-time"></i> {{ item.created|date:'DATE_FORMAT' }} &nbsp;&nbsp;
+                <i class="fa fa-clock-o"></i> {{ item.created|date:'DATE_FORMAT' }} &nbsp;&nbsp;
                 {% endif %}
-                <i class="icon-folder-open"></i> {{ item|search_model_name }}
+                <i class="fa fa-folder-open"></i> {{ item|search_model_name }}
             </div>
         </header>
 

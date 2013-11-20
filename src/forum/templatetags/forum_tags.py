@@ -29,6 +29,11 @@ def can_delete(obj, user):
 
 
 @register.filter
+def has_vote(obj, user):
+    return obj.has_vote(user)
+
+
+@register.filter
 def has_access(obj, user):
     return obj.has_access(user)
 
@@ -69,3 +74,15 @@ def softwraphtml(value, max_line_length=24):
             else:
                 unbroken_chars += 1
     return mark_safe(''.join(new_value))
+
+
+@register.inclusion_tag('djforum/_rating.html', takes_context=True)
+def rating(context, obj):
+    """
+    Rating for post and topic
+    """
+    return {
+        'user': context['user'],
+        'model': obj.__class__.__name__,
+        'obj': obj
+    }

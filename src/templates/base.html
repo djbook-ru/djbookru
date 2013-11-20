@@ -103,17 +103,17 @@
         <!--this is the login for the user-->
         <nav class="user clearfix">
             {% if user.is_authenticated %}
-                <a href="{{ user.get_absolute_url }}"><i class="icon-user"></i> {{ user.username }}</a>
+                <a href="{{ user.get_absolute_url }}"><i class="fa fa-user"></i> {{ user.username }}</a>
                 {% notification_indicator %} <span class="hidden-phone">|</span>
                 <a href="{% url accounts:logout %}?next={{ request.path_info|urlencode }}">
-                    <i class="icon-share"></i> <span class="hidden-phone">{% trans 'Logout' %}</span>
+                    <i class="fa fa-share"></i> <span class="hidden-phone">{% trans 'Logout' %}</span>
                 </a>
             {% else %}
-                <a href="{% url accounts:login %}?next={{ request.path_info|urlencode }}"><i class="icon-share"></i> {% trans 'Login' %}</a>
+                <a href="{% url accounts:login %}?next={{ request.path_info|urlencode }}"><i class="fa fa-share"></i> {% trans 'Login' %}</a>
             {% endif %}
             {% if user.is_staff and user.is_active %}
                 <span class="hidden-phone">|</span> <a href="{% url admin:index %}">
-                    <i class="icon-cog icon-white"></i> <span class="hidden-phone">{% trans "Admin UI" %}</span>
+                    <i class="fa fa-cog"></i> <span class="hidden-phone">{% trans "Admin UI" %}</span>
                 </a>
             {% endif %}
             <span class="hidden-phone">|</span>
@@ -132,8 +132,8 @@
             </form>
         </div>
         <ul class="social">
-            <li><a href="{% url rss %}" data-placement="bottom" title="{% trans 'Subscribe to our RSS' %}"><i class="icon-rss icon-large"></i></a></li>
-            <li><a href="https://github.com/Alerion/django_documentation/" data-placement="bottom" title="{% trans 'Documentation translation' %}"><i class="icon-github icon-large"></i></a></li>
+            <li><a href="{% url rss %}" data-placement="bottom" title="{% trans 'Subscribe to our RSS' %}"><i class="fa fa-rss fa-lg"></i></a></li>
+            <li><a href="https://github.com/Alerion/django_documentation/" data-placement="bottom" title="{% trans 'Documentation translation' %}"><i class="fa fa-github fa-lg"></i></a></li>
         </ul>
     </section>
 

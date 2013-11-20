@@ -1,0 +1,20 @@
+{% load forum_tags i18n %}
+{% load url from future %}
+
+<span class="divider">|</span>
+
+{% if user.is_authenticated %}
+    {% if model == 'Post' %}
+        {% url 'forum:vote_post' obj.pk as vote_url %}
+    {% endif %}
+
+    {% if model == 'Topic' %}
+        {% url 'forum:vote_topic' obj.pk as vote_url %}
+    {% endif %}
+
+    <span class="js-rating" data-has-vote="{% if obj|has_vote:user %}true{% endif %}" data-rating="{{ obj.rating }}">
+        <a href="{{ vote_url }}" class="js-vote"><i></i> <span class="rating">{{ obj.rating }}</span></a>
+    <span>
+{% else %}
+    <span><i class="fa fa-thumbs-o-up"></i> {{ obj.rating }}<span>
+{% endif %}

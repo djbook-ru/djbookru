@@ -7,10 +7,10 @@
                 <div class="content">
                     <p>{{ obj.content|filter_markdown:35 }}</p>
                 </div>
-                <i class="icon-time"></i> <a href="{{ obj.get_absolute_url }}" style="font-size: 0.8em">{{ obj.created|date:'DATE_FORMAT' }}</a>
+                <i class="fa fa-clock-o"></i> <a href="{{ obj.get_absolute_url }}" style="font-size: 0.8em">{{ obj.created|date:'DATE_FORMAT' }}</a>
                 <a href="{{ obj.get_absolute_url }}#comments" class="pull-right" >
                     <p>
-                        <i class="icon-comments"></i>
+                        <i class="fa fa-comments"></i>
                         {% blocktrans count counter=obj|get_comment_count %}{{ counter }} comment{% plural %}{{ counter }} comments{% endblocktrans %}
                     </p>
                 </a>

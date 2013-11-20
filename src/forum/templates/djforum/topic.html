@@ -112,7 +112,11 @@
         {% endif %}
 
         {% for post in object_list %}
-            {% include "djforum/_post.html" %}
+            {% if forloop.counter == 1 %}
+                {% include "djforum/_post.html" with topic_rating='True' %}
+            {% else %}
+                {% include "djforum/_post.html" %}
+            {% endif %}
         {% endfor %}
 
         {% if is_paginated %}

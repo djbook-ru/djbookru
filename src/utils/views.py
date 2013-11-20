@@ -1,3 +1,5 @@
+import json
+
 from django.template import loader, RequestContext
 from django.http import HttpResponse
 
@@ -17,3 +19,15 @@ def direct_to_template(request, template, extra_context=None, mimetype=None, **k
     c = RequestContext(request, dictionary)
     t = loader.get_template(template)
     return HttpResponse(t.render(c), content_type=mimetype)
+
+
+class JsonResponse(HttpResponse):
+    """
+        JSON response
+    """
+    def __init__(self, content, mimetype='application/json', status=None):
+        super(JsonResponse, self).__init__(
+            content=json.dumps(content),
+            mimetype=mimetype,
+            status=status
+        )

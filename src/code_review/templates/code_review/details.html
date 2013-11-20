@@ -43,12 +43,12 @@
             SyntaxHighlighter.toolbar.items.list = ['help', 'hideComments'];
             SyntaxHighlighter.toolbar.items.help = {
                 getHtml: function(){
-                    return '<a href="#" class="btn show-help"><i class="icon-question-sign"></i></a>'
+                    return '<a href="#" class="btn show-help"><i class="fa fa-question-sign"></i></a>'
                 }
             }
             SyntaxHighlighter.toolbar.items.hideComments = {
                 getHtml: function(){
-                    return '<a href="#" class="btn toggle-comments"><i class="icon-minus-sign"></i></a>'
+                    return '<a href="#" class="btn toggle-comments"><i class="fa fa-minus-sign"></i></a>'
                 }
             }
 
@@ -106,7 +106,7 @@
 
     <p class="tags">
         {% trans "rating" %}: <span class="label">{{ object.rating }}</span>
-        {% if can_rate %}<a href="{% url 'code_review:rate' object.pk %}" class="add-rating"><i class="icon-thumbs-up"></i></a>{% endif %}
+        {% if can_rate %}<a href="{% url 'code_review:rate' object.pk %}" class="add-rating"><i class="fa fa-thumbs-up"></i></a>{% endif %}
         {% tags_for_object object as object_tags %}
         {% if object_tags %}| {% trans "tags:" %}{% endif %}
         {% for obj_tag in object_tags %}

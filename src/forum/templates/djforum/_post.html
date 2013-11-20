@@ -52,6 +52,12 @@
                 {% if post|can_delete:user %}
                 <span class="divider">|</span> <a class="delete-post" href="{% url 'forum:delete_post' post.pk %}">{% trans "Delete" %}</a>
                 {% endif %}
+
+                {% if topic_rating %}
+                    {% rating post.topic %}
+                {% else %}
+                    {% rating post %}
+                {% endif %}
             </td>
         </tr>
     </table>

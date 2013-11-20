@@ -13,15 +13,15 @@
         <header class="entry-header">
             <h1>{{ obj }} {% if not obj.approved %}<span class="label label-important">{% trans "Draft" %}</span>{% endif %}</h1>
             <div class="byline">
-                <a href="{{ obj.author.get_absolute_url }}"><i class="icon-pencil"></i> {{ obj.author }}</a> &nbsp;&nbsp;
-                <i class="icon-time"></i> {{ obj.created|date:'DATE_FORMAT' }} &nbsp;&nbsp;
-                <a href="{{ obj.topic.get_absolute_url }}"><i class="icon-comments-alt"></i> {{ obj.topic.reply_count }} {% blocktrans count counter=obj.topic.reply_count|default:0 %}comment{% plural %}comments{% endblocktrans %}</a>
+                <a href="{{ obj.author.get_absolute_url }}"><i class="fa fa-pencil"></i> {{ obj.author }}</a> &nbsp;&nbsp;
+                <i class="fa fa-clock-o"></i> {{ obj.created|date:'DATE_FORMAT' }} &nbsp;&nbsp;
+                <a href="{{ obj.topic.get_absolute_url }}"><i class="fa fa-comment"></i> {{ obj.topic.reply_count }} {% blocktrans count counter=obj.topic.reply_count|default:0 %}comment{% plural %}comments{% endblocktrans %}</a>
             </div>
             <div class="entry-meta">
-                <i class="icon-folder-open"></i> <a href="{% url 'examples:index' %}">{% trans "Recipes" %}</a> - <a href="{{ obj.category.get_absolute_url }}">{{ obj.category }}</a>
+                <i class="fa fa-folder-open"></i> <a href="{% url 'examples:index' %}">{% trans "Recipes" %}</a> - <a href="{{ obj.category.get_absolute_url }}">{{ obj.category }}</a>
                 {% if user.is_superuser %}
                 <a class="pull-right" href="{% url 'admin:examples_example_change' obj.pk %}">
-                    <i class="icon-pencil"></i> {% trans "Edit" %}
+                    <i class="fa fa-pencil"></i> {% trans "Edit" %}
                 </a>
                 {% endif %}
             </div>

@@ -16,6 +16,7 @@ from src.forum.forms import AddTopicForm, AddPostForm
 from src.forum.forms import EditPostForm, MoveTopicForm
 from src.forum.models import Category, Forum, Topic, Post
 from src.forum.settings import POSTS_ON_PAGE
+from src.utils.views import JsonResponse
 
 
 @render_to('djforum/index.html')
@@ -270,3 +271,30 @@ def topic(request, pk):
     return object_list(request, qs, POSTS_ON_PAGE,
                        template_name='djforum/topic.html',
                        extra_context=extra_context)
+
+
+def vote(request, pk, model):
+    user = request.user
+    obj = get_object_or_404(model, pk=pk)
+
+    if not user.is_authenticated():
+        return JsonResponse({
+            'error': _(u'Authentication required.')
+        })
+
+    if not obj.has_access(user):
+        raise Http404
+
+    if obj.votes.filter(pk=user.pk).exists():
+        obj.votes.remove(user)
+        voted = False
+    else:
+        obj.votes.add(user)
+        voted = True
+
+    obj.update_rating()
+
+    return JsonResponse({
+        'rating': obj.rating,
+        'voted': voted
+    })

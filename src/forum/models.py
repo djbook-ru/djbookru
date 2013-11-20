@@ -161,7 +161,17 @@ WHERE ff.category_id IN (%s) AND (fv.time IS NULL OR fv.time < ft.updated);''' %
         return row[0]
 
 
-class Topic(models.Model):
+class RatingMixin(object):
+
+    def has_vote(self, user):
+        return self.votes.filter(pk=user.pk).exists()
+
+    def update_rating(self):
+        self.rating = self.votes.count()
+        self.save()
+
+
+class Topic(models.Model, RatingMixin):
     forum = models.ForeignKey(Forum, related_name='topics', verbose_name=_(u'forum'))
     name = models.CharField(_(u'subject'), max_length=255)
     created = models.DateTimeField(_(u'created'), auto_now_add=True)
@@ -173,6 +183,9 @@ class Topic(models.Model):
     heresy = models.BooleanField(_(u'heresy'), default=False)
     visited_by = models.ManyToManyField('accounts.User', verbose_name='visited_by', blank=True,
                                         through=Visit, related_name='visited_topics')
+    rating = models.IntegerField(_('rating'), default=0)
+    votes = models.ManyToManyField('accounts.User', verbose_name=_('votes'),
+        related_name='voted_topics', editable=False)
 
     class Meta:
         ordering = ['-sticky', '-updated']
@@ -265,13 +278,16 @@ class Topic(models.Model):
         return not Visit.objects.filter(user=user, topic=self, time__gte=self.updated).exists()
 
 
-class Post(models.Model):
+class Post(models.Model, RatingMixin):
     topic = models.ForeignKey(Topic, related_name='posts', verbose_name=_('Topic'))
     user = models.ForeignKey('accounts.User', related_name='forum_posts', verbose_name=_('User'))
     created = models.DateTimeField(_('Created'), auto_now_add=True)
     updated = models.DateTimeField(_('Updated'), blank=True, null=True)
     updated_by = models.ForeignKey('accounts.User', verbose_name=_('Updated by'), related_name='forum_updated_posts', blank=True, null=True)
     body = models.TextField(_('Message'))
+    rating = models.IntegerField(_('rating'), default=0)
+    votes = models.ManyToManyField('accounts.User', verbose_name=_('votes'),
+        related_name='voted_posts', editable=False)
 
     class Meta:
         ordering = ['created']
@@ -337,3 +353,6 @@ class Post(models.Model):
 
     def can_delete(self, user):
         return user.is_active and user.is_superuser
+
+    def has_access(self, user):
+        return self.topic.has_access(user)
