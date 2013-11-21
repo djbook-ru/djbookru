@@ -12,9 +12,10 @@
         {% url 'forum:vote_topic' obj.pk as vote_url %}
     {% endif %}
 
-    <span class="js-rating" data-has-vote="{% if obj|has_vote:user %}true{% endif %}" data-rating="{{ obj.rating }}">
+    <span class="js-rating" data-has-vote="{% if obj|has_vote:user %}true{% endif %}"
+        data-rating="{{ obj.rating }}" title="{{ title }}">
         <a href="{{ vote_url }}" class="js-vote"><i></i> <span class="rating">{{ obj.rating }}</span></a>
     <span>
 {% else %}
-    <span><i class="fa fa-thumbs-o-up"></i> {{ obj.rating }}<span>
+    <span title="{{ title }}"><i class="fa fa-thumbs-o-up"></i> {{ obj.rating }}<span>
 {% endif %}

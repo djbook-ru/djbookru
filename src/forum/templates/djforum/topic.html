@@ -47,6 +47,11 @@
         $('.stick-topic').click(function(){
            return confirm('{% if topic.sticky %}{% trans "Do you wish unstick this topic?" %}{% else %}{% trans "Do you wish stick this topic?" %}{% endif %}');
         })
+
+        $('.js-answer-topic').click(function(){
+            $('#id_body').focus();
+            return false;
+        });
     });
     </script>
 {% endblock %}
@@ -74,27 +79,34 @@
             {% endif %}
 
             {% if topic|can_edit:user %}
-                <a href="{% url 'forum:move_topic' topic.pk %}" class="btn btn-small btn-info">
-                    {% trans 'Move' %}
+            <div class="btn-group">
+                <a class="btn btn-small btn-info dropdown-toggle" data-toggle="dropdown" href="#">
+                    {{ _("manage")|title }}
+                    <i class="fa fa-caret-down"></i>
                 </a>
-            {% endif %}
-
-            {% if topic|can_edit:user %}
-                <a href="{% url 'forum:heresy_unheresy_topic' topic.pk %}" class="btn btn-small btn-info heresy-topic">
-                    {% if topic.heresy %}{% trans "not heresy"|capfirst %}{% else %}{% trans "heresy"|capfirst %}{% endif %}
-                </a>
-            {% endif %}
-
-            {% if topic|can_edit:user %}
-                <a href="{% url 'forum:stick_unstick_topic' topic.pk %}" class="btn btn-small btn-info stick-topic">
-                    {% if topic.sticky %}{% trans "Unstick" %}{% else %}{% trans "Stick" %}{% endif %}
-                </a>
-            {% endif %}
-
-            {% if topic|can_edit:user %}
-                <a href="{% url 'forum:close_open_topic' topic.pk %}" class="btn btn-small btn-info close-topic">
-                    {% if topic.closed %}{% trans "Open" %}{% else %}{% trans "Close" %}{% endif %}
-                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="{% url 'forum:move_topic' topic.pk %}">
+                            {% trans 'Move' %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'forum:heresy_unheresy_topic' topic.pk %}" class="heresy-topic">
+                            {% if topic.heresy %}{% trans "not heresy"|capfirst %}{% else %}{% trans "heresy"|capfirst %}{% endif %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'forum:stick_unstick_topic' topic.pk %}" class="stick-topic">
+                            {% if topic.sticky %}{% trans "Unstick" %}{% else %}{% trans "Stick" %}{% endif %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'forum:close_open_topic' topic.pk %}" class="close-topic">
+                            {% if topic.closed %}{% trans "Open" %}{% else %}{% trans "Close" %}{% endif %}
+                        </a>
+                    </li>
+                <ul>
+            </div>
             {% endif %}
 
             {% if topic|can_delete:user %}
@@ -104,7 +116,7 @@
                 </form>
             {% endif %}
 
-            <a href="{% url 'forum:add_post' topic.pk %}" class="btn btn-small">{% trans "Answer" %}</a>
+            <a href="{% url 'forum:add_post' topic.pk %}" class="js-answer-topic btn btn-small">{% trans "Answer" %}</a>
         </div>
 
         {% if is_paginated %}

@@ -3,6 +3,7 @@ from django.core.cache import cache
 from django.template.defaultfilters import stringfilter
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
+from django.utils.translation import ugettext_lazy as _
 from src.forum.models import Topic
 
 register = template.Library()
@@ -81,8 +82,18 @@ def rating(context, obj):
     """
     Rating for post and topic
     """
+    model = obj.__class__.__name__
+
+    if model == 'Post':
+        title = _(u'Post rating')
+    elif model == 'Topic':
+        title = _(u'Topic rating')
+    else:
+        title = ''
+
     return {
+        'title': title,
         'user': context['user'],
-        'model': obj.__class__.__name__,
+        'model': model,
         'obj': obj
     }

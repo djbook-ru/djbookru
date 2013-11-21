@@ -40,17 +40,27 @@
             </td>
             <td class="content-footer">
                 {% if user.is_authenticated %}
-                    <a class="answer-post" href="#">{% trans "Answer" %}</a>
+                    <a class="answer-post" href="#">
+                        <i class="fa fa-reply"></i> <span class="hidden-phone">{% trans "Answer" %}</span>
+                    </a>
                 {% else %}
-                    <a href="{% url 'forum:add_post' topic.pk %}">{% trans "Answer" %}</a>
+                    <a href="{% url 'forum:add_post' topic.pk %}">
+                        <i class="fa fa-reply"></i> <span class="hidden-phone">{% trans "Answer" %}</span>
+                    </a>
                 {% endif %}
 
                 {% if post|can_edit:user %}
-                <span class="divider">|</span> <a href="{% url 'forum:edit_post' post.pk %}">{% trans "Edit" %}</a>
+                <span class="divider">|</span>
+                <a href="{% url 'forum:edit_post' post.pk %}">
+                    <i class="fa fa-pencil-square-o"></i> <span class="hidden-phone">{% trans "Edit" %}</span>
+                </a>
                 {% endif %}
 
                 {% if post|can_delete:user %}
-                <span class="divider">|</span> <a class="delete-post" href="{% url 'forum:delete_post' post.pk %}">{% trans "Delete" %}</a>
+                <span class="divider">|</span>
+                <a class="delete-post" href="{% url 'forum:delete_post' post.pk %}">
+                    <i class="fa fa-trash-o"></i> <span class="hidden-phone">{% trans "Delete" %}</span>
+                </a>
                 {% endif %}
 
                 {% if topic_rating %}

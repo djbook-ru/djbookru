@@ -298,7 +298,7 @@ class Post(models.Model, RatingMixin):
     def __unicode__(self):
         LIMIT = 50
         tail = len(self.body) > LIMIT and '...' or ''
-        return self.body[:LIMIT] + tail
+        return self.body[:LIMIT] + tail or '...'
 
     def save(self, *args, **kwargs):
         super(Post, self).save(*args, **kwargs)
