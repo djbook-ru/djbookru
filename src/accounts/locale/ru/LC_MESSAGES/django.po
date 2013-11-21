@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-26 12:52+0400\n"
+"POT-Creation-Date: 2013-11-21 12:41+0200\n"
 "PO-Revision-Date: 2013-06-26 11:59+0400\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -1202,7 +1202,7 @@ msgstr "подтверждение почты"
 msgid "e-mail confirmations"
 msgstr "подтверждения почты"
 
-#: social_auth_pipelines.py:30
+#: social_auth_pipelines.py:33
 #, python-format
 msgid ""
 "\"%(email)s\" is already used by other account. If it is your account, login "

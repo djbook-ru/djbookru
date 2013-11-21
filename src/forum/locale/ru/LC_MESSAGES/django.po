@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-31 17:12+0300\n"
+"POT-Creation-Date: 2013-11-21 12:41+0200\n"
 "PO-Revision-Date: 2013-05-22 16:20+0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,143 +19,160 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
-#: forms.py:35 models.py:268
+#: forms.py:44 models.py:287
 msgid "Message"
 msgstr "Сообщение"
 
-#: models.py:26 models.py:59
+#: models.py:25 models.py:58
 msgid "Name"
 msgstr "Имя"
 
-#: models.py:27
+#: models.py:26
 msgid "Groups"
 msgstr "Группы "
 
-#: models.py:28
+#: models.py:27
 msgid "Only users from these groups can see this category"
 msgstr "Только пользователи следующих групп могут видеть данную категорию"
 
-#: models.py:29 models.py:60
+#: models.py:28 models.py:59
 msgid "Position"
 msgstr "Позиция"
 
-#: models.py:33 models.py:58
+#: models.py:32 models.py:57
 msgid "Category"
 msgstr "Категория"
 
-#: models.py:34
+#: models.py:33
 msgid "Categories"
 msgstr "Категории"
 
-#: models.py:61
+#: models.py:60
 msgid "Description"
 msgstr "Описание"
 
-#: models.py:65 models.py:317
+#: models.py:64 models.py:209 templates/djforum/base.html:4
 msgid "Forum"
 msgstr "Форум"
 
-#: models.py:66
+#: models.py:65
 msgid "Forums"
 msgstr "Форумы"
 
-#: models.py:123 models.py:170
+#: models.py:122 models.py:179
 msgid "user"
 msgstr "пользователь"
 
-#: models.py:124
+#: models.py:123
 msgid "topic"
 msgstr "тема"
 
-#: models.py:125
+#: models.py:124
 msgid "time"
 msgstr "время"
 
-#: models.py:166
+#: models.py:175
 msgid "forum"
 msgstr "форум"
 
-#: models.py:167
+#: models.py:176
 msgid "subject"
 msgstr "заголовок"
 
-#: models.py:168
+#: models.py:177
 msgid "created"
 msgstr "создан"
 
-#: models.py:169
+#: models.py:178
 msgid "updated"
 msgstr "изменён"
 
-#: models.py:171
+#: models.py:180
 msgid "views count"
 msgstr "количество просмотров"
 
-#: models.py:172
+#: models.py:181
 msgid "sticky"
 msgstr "прикреплён"
 
-#: models.py:173
+#: models.py:182
 msgid "closed"
 msgstr "закрыт"
 
-#: models.py:174 templates/djforum/topic.html:82
+#: models.py:183 templates/djforum/topic.html:95
 msgid "heresy"
 msgstr "ересь"
 
-#: models.py:180 models.py:263
+#: models.py:186 models.py:288
+msgid "rating"
+msgstr ""
+
+#: models.py:187 models.py:289
+msgid "votes"
+msgstr ""
+
+#: models.py:192 models.py:282
 msgid "Topic"
 msgstr "Тема"
 
-#: models.py:181 templates/djforum/index.html:35
+#: models.py:193 templates/djforum/index.html:35
 msgid "Topics"
 msgstr "Темы"
 
-#: models.py:264
+#: models.py:283
 msgid "User"
 msgstr "Пользователь"
 
-#: models.py:265
+#: models.py:284
 msgid "Created"
 msgstr "Создан"
 
-#: models.py:266
+#: models.py:285
 msgid "Updated"
 msgstr "Изменён"
 
-#: models.py:267
+#: models.py:286
 msgid "Updated by"
 msgstr "Изменён"
 
-#: models.py:273
+#: models.py:295
 msgid "Post"
 msgstr "Отклик"
 
-#: models.py:274 templates/djforum/_post.html:11
+#: models.py:296 templates/djforum/_post_author.html:13
 #: templates/djforum/index.html:36
 msgid "Posts"
 msgstr "Отклики"
 
-#: views.py:144
+#: views.py:151
 msgid "You have no permission edit this post"
 msgstr "У вас нет прав на редактирование этого отклика"
 
-#: templates/djforum/_post.html:31
+#: views.py:282
+msgid "Authentication required."
+msgstr ""
+
+#: templates/djforum/_post.html:15 templates/djforum/_post.html.py:37
 msgid "Online"
 msgstr "Онлайн"
 
-#: templates/djforum/_post.html:36 templates/djforum/_post.html.py:38
-#: templates/djforum/topic.html:105
+#: templates/djforum/_post.html:43 templates/djforum/_post.html.py:47
+#: templates/djforum/topic.html:119
 msgid "Answer"
 msgstr "Ответ"
 
-#: templates/djforum/_post.html:42
+#: templates/djforum/_post.html:54
 msgid "Edit"
 msgstr "Изменить"
 
-#: templates/djforum/_post.html:46 templates/djforum/topic.html:101
+#: templates/djforum/_post.html:61 templates/djforum/topic.html:115
 msgid "Delete"
 msgstr "Удалить"
+
+#: templates/djforum/_post_author.html:15
+#, fuzzy
+msgid "Location"
+msgstr "Позиция"
 
 #: templates/djforum/_topic_list.html:7
 msgid "Replies"
@@ -185,17 +202,22 @@ msgstr "Закрыт"
 msgid "Sticky"
 msgstr "Прикреплён"
 
-#: templates/djforum/add_post.html:17
+#: templates/djforum/add_post.html:6
+#, fuzzy
+msgid "Add post"
+msgstr "Изменить отклик"
+
+#: templates/djforum/add_post.html:19
 msgid "New post"
 msgstr "Новый отклик"
 
-#: templates/djforum/add_post.html:22 templates/djforum/add_topic.html:31
-#: templates/djforum/edit_post.html:22 templates/djforum/topic.html:123
+#: templates/djforum/add_post.html:24 templates/djforum/add_topic.html:33
+#: templates/djforum/edit_post.html:24 templates/djforum/topic.html:141
 msgid "Submit"
 msgstr "Отправить"
 
-#: templates/djforum/add_post.html:25 templates/djforum/add_topic.html:34
-#: templates/djforum/edit_post.html:25 templates/djforum/topic.html:126
+#: templates/djforum/add_post.html:27 templates/djforum/add_topic.html:36
+#: templates/djforum/edit_post.html:27
 #, python-format
 msgid ""
 "\n"
@@ -203,26 +225,31 @@ msgid ""
 "                "
 msgstr ""
 
-#: templates/djforum/add_topic.html:24 templates/djforum/forum.html:23
+#: templates/djforum/add_topic.html:6
+msgid "Add topic to"
+msgstr ""
+
+#: templates/djforum/add_topic.html:26 templates/djforum/forum.html:25
 msgid "New topic"
 msgstr "Новая тема"
 
-#: templates/djforum/edit_post.html:17
+#: templates/djforum/edit_post.html:6 templates/djforum/edit_post.html:19
 msgid "Edit post"
 msgstr "Изменить отклик"
 
-#: templates/djforum/forum.html:18 templates/djforum/index.html:11
-#: templates/djforum/topic.html:69 templates/djforum/unread_topics.html:11
+#: templates/djforum/forum.html:20 templates/djforum/index.html:11
+#: templates/djforum/topic.html:76 templates/djforum/unread_topics.html:6
+#: templates/djforum/unread_topics.html:13
 msgid "Unread topics"
 msgstr "Непрочитанные темы"
 
-#: templates/djforum/forum.html:26 templates/djforum/index.html:21
-#: templates/djforum/unread_topics.html:20
+#: templates/djforum/forum.html:28 templates/djforum/index.html:21
+#: templates/djforum/unread_topics.html:22
 msgid "Mark all as read"
 msgstr "Пометить всё как прочитанное"
 
-#: templates/djforum/index.html:17 templates/djforum/my_topics.html:11
-#: templates/djforum/unread_topics.html:16
+#: templates/djforum/index.html:17 templates/djforum/my_topics.html:6
+#: templates/djforum/my_topics.html:13 templates/djforum/unread_topics.html:18
 msgid "My topics"
 msgstr "Мои темы"
 
@@ -250,70 +277,87 @@ msgstr "Гостей онлайн:"
 msgid "Online:"
 msgstr "Онлайн:"
 
-#: templates/djforum/move_topic.html:17 templates/djforum/topic.html:76
+#: templates/djforum/move_topic.html:6
+#, fuzzy
+msgid "Move topic"
+msgstr "Нет тем"
+
+#: templates/djforum/move_topic.html:19 templates/djforum/topic.html:90
 msgid "Move"
 msgstr "Переместить"
 
-#: templates/djforum/move_topic.html:24
+#: templates/djforum/move_topic.html:26
 msgid "Save"
 msgstr "Сохранить"
 
-#: templates/djforum/my_topics.html:10 templates/djforum/unread_topics.html:10
+#: templates/djforum/my_topics.html:12 templates/djforum/unread_topics.html:12
 msgid "Home"
 msgstr "Начало"
 
-#: templates/djforum/topic.html:13
+#: templates/djforum/topic.html:15
 msgid "Enter message"
 msgstr "Введите сообщение"
 
-#: templates/djforum/topic.html:30
+#: templates/djforum/topic.html:32
 msgid "Do you wish delete this post?"
 msgstr "Вы желаете удалить этот отклик?"
 
-#: templates/djforum/topic.html:34
+#: templates/djforum/topic.html:36
 msgid "Do you wish delete this topic?"
 msgstr "Вы желаете удалить эту тему?"
 
-#: templates/djforum/topic.html:38
+#: templates/djforum/topic.html:40
 msgid "Do you wish open this topic?"
 msgstr "Вы желаете открыть эту тему?"
 
-#: templates/djforum/topic.html:38
+#: templates/djforum/topic.html:40
 msgid "Do you wish close this topic?"
 msgstr "Вы желаете закрыть эту тему?"
 
-#: templates/djforum/topic.html:42
+#: templates/djforum/topic.html:44
 msgid "do you wish remove heresy mark for this topic?"
 msgstr "вы желаете удалить отметку ереси с этой темы?"
 
-#: templates/djforum/topic.html:42
+#: templates/djforum/topic.html:44
 msgid "do you wish mark this topic as heresy?"
 msgstr "вы желаете пометить эту тему как ересь?"
 
-#: templates/djforum/topic.html:46
+#: templates/djforum/topic.html:48
 msgid "Do you wish unstick this topic?"
 msgstr "Вы желаете открепить эту тему?"
 
-#: templates/djforum/topic.html:46
+#: templates/djforum/topic.html:48
 msgid "Do you wish stick this topic?"
 msgstr "Вы желаете прикрепить эту тему?"
 
-#: templates/djforum/topic.html:82
+#: templates/djforum/topic.html:84
+msgid "manage"
+msgstr ""
+
+#: templates/djforum/topic.html:95
 msgid "not heresy"
 msgstr "не ересь"
 
-#: templates/djforum/topic.html:88
+#: templates/djforum/topic.html:100
 msgid "Unstick"
 msgstr "Открепить"
 
-#: templates/djforum/topic.html:88
+#: templates/djforum/topic.html:100
 msgid "Stick"
 msgstr "Прикрепить"
 
-#: templates/djforum/topic.html:94
+#: templates/djforum/topic.html:105
 msgid "Open"
 msgstr "Открыть"
 
-#: templates/djforum/topic.html:94
+#: templates/djforum/topic.html:105
 msgid "Close"
 msgstr "Закрыть"
+
+#: templatetags/forum_tags.py:88
+msgid "Post rating"
+msgstr ""
+
+#: templatetags/forum_tags.py:90
+msgid "Topic rating"
+msgstr ""
