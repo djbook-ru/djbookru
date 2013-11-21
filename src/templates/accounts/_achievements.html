@@ -3,7 +3,7 @@
 {% if theme == 'forum' %}
     {% for obj in user_achivements %}
         <img src="{{ obj.active_icon.url }}"
-        style="display: inline-block"
+        style="display: inline-block; width: 20px"
         rel="popover"
         title="{{ obj }}"
         data-placement="top"
