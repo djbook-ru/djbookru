@@ -10,7 +10,7 @@ from src.forum.models import (Category, Post)
 class FeedLatestPostsByCategory(Feed):
 
     def get_object(self, request, category_id):
-        return get_object_or_404(Category, pk=category_id)
+        return get_object_or_404(Category, pk=category_id, groups__isnull=True)
 
     def link(self, obj):
             return obj.get_absolute_url()
@@ -31,7 +31,7 @@ class FeedLatestPostsByCategory(Feed):
         return item.updated
 
     def items(self, obj):
-        return Post.objects.filter(topic__forum__category=obj).order_by('-updated')[:30]
+        return Post.objects.filter(topic__forum__category=obj, topic__forum__category__groups__isnull=True).order_by('-updated')[:30]
 
 
 class FeedLatestPosts(Feed):
@@ -55,4 +55,4 @@ class FeedLatestPosts(Feed):
         return item.updated
 
     def items(self):
-        return Post.objects.order_by('-updated')[:30]
+        return Post.objects.filter(topic__forum__category__groups__isnull=True).order_by('-updated')[:30]
