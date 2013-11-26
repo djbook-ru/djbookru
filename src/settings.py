@@ -356,22 +356,25 @@ ADMIN_TOOLS_THEMING_CSS = 'theme/css/admin.css'
 
 ### HAYSTACK: BEGIN
 def get_doc_pages(path, ext):
-    for directory, dirnames, filenames in os.walk(path):
-        for item in glob.glob('%s/*.%s' % (directory, ext)):
-            yield item
+    if not isinstance(path, list):
+        path = [path]
+    for p in path:
+        for directory, dirnames, filenames in os.walk(p):
+            for item in glob.glob('%s/*.%s' % (directory, ext)):
+                yield item
 
-DJANGO_DOCUMENTATION_URL = '/rel1.5/'
+DJANGO_DOCUMENTATION_URL = '/rel1.6/'
 
 INSTALLED_APPS += ('haystack', 'haystack_static_pages')
 HAYSTACK_SITECONF = 'src.search_sites'
 HAYSTACK_SEARCH_ENGINE = 'xapian'
 HAYSTACK_XAPIAN_PATH = rel_project('search', 'xapian_index')
 HAYSTACK_STATIC_PAGES = tuple(
-    get_doc_pages(
-        os.path.expanduser('~/devel/django_documentation/_build/html'),
-        'html'))
+    get_doc_pages([
+        os.path.expanduser('~/devel/djdoc/source/_build/html'),
+    ], 'html'))
 HAYSTACK_STATIC_MAPPING = {
-    os.path.expanduser('~/devel/django_documentation/_build/html'): 'http://127.0.0.1:8000%s' % DJANGO_DOCUMENTATION_URL
+    os.path.expanduser('~/devel/djdoc/source/_build/html'): 'http://127.0.0.1:8000%s' % DJANGO_DOCUMENTATION_URL
     }
 ### HAYSTACK: END
 
