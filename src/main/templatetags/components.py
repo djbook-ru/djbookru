@@ -15,6 +15,7 @@ from django.utils.safestring import mark_safe
 
 from src.accounts.models import User
 from src.comments.models import Comment
+from src.doc_comments.models import Comment as DocComment
 from src.examples.models import Category, Example
 from src.forum.models import Topic
 from src.main.forms import SearchForm
@@ -59,6 +60,7 @@ def menu(context):
 def user_activities(context):
     context['last_forum_topics'] = Topic.objects.filter(forum__category__groups__isnull=True).order_by('-updated')
     context['last_comments'] = Comment.objects.order_by('-submit_date')
+    context['last_doc_comments'] = DocComment.objects.order_by('-created')
     return context
 
 
