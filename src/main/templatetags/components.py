@@ -60,7 +60,7 @@ def menu(context):
 def user_activities(context):
     context['last_forum_topics'] = Topic.objects.filter(forum__category__groups__isnull=True).order_by('-updated')
     context['last_comments'] = Comment.objects.order_by('-submit_date')
-    context['last_doc_comments'] = DocComment.objects.order_by('-created')
+    context['last_doc_comments'] = DocComment.objects.exclude(status=DocComment.CLOSED).order_by('-created')
     return context
 
 
