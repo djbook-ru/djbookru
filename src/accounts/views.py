@@ -90,8 +90,10 @@ def logout(request):
 @render_to('accounts/profile.html')
 def profile(request, pk):
     user_obj = get_object_or_404(User, pk=pk)
+    user_position = user_obj.get_position()
     return {
-        'user_obj': user_obj
+        'user_obj': user_obj,
+        'user_position_json': simplejson.dumps(user_position)
     }
 
 
