@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import json
 from . backends import CustomUserBackend
 from . forms import UserEditForm, CreateUserForm, PasswordResetForm, SavePositionForm
 from . models import User, EmailConfirmation, EMAIL_CONFIRMATION_DAYS
@@ -17,7 +18,6 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _, ugettext
-import simplejson
 
 
 LOGIN_REDIRECT_URL = getattr(settings, 'LOGIN_REDIRECT_URL', '/')
@@ -39,8 +39,8 @@ def map(request):
     other_positions = [p for p in other_positions if p]
 
     return {
-        'user_position_json': simplejson.dumps(user_position),
-        'other_positions_json': simplejson.dumps(other_positions)
+        'user_position_json': json.dumps(user_position),
+        'other_positions_json': json.dumps(other_positions)
     }
 
 
@@ -93,7 +93,7 @@ def profile(request, pk):
     user_position = user_obj.get_position()
     return {
         'user_obj': user_obj,
-        'user_position_json': simplejson.dumps(user_position)
+        'user_position_json': json.dumps(user_position)
     }
 
 

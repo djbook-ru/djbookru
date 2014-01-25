@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import json
 from django.http import HttpResponse
-from django.utils import simplejson as json
 from django.contrib.auth.decorators import login_required
 from .. decorators import render_to
 from . import forms

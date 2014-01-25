@@ -1,3 +1,4 @@
+import json
 from ..decorators import render_to
 from .forms import CommentForm, AddSnipetForm, FileFormset
 from .models import Snipet, Comment, File
@@ -6,7 +7,6 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
-from django.utils import simplejson
 from django.views.generic.base import View
 from django.views.generic.list_detail import object_list
 from django.utils.translation import ugettext_lazy as _
@@ -102,8 +102,8 @@ class CommentsApi(View):
             return HttpResponse('Authentication required', status=400)
 
         try:
-            data = simplejson.loads(request.read())
-        except simplejson.JSONDecodeError:
+            data = json.loads(request.read())
+        except json.JSONDecodeError:
             return HttpResponse('JSON decode error', status=400)
 
         form = CommentForm(f, request.user, data)
@@ -114,7 +114,7 @@ class CommentsApi(View):
             return HttpResponse('Invalid data', status=400)
 
     def response(self, content):
-        json = simplejson.dumps(content, cls=DjangoJSONEncoder)
+        json = json.dumps(content, cls=DjangoJSONEncoder)
         return HttpResponse(json, mimetype="application/json")
 
 comments_api = CommentsApi.as_view()

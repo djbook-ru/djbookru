@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+import json
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django.utils import simplejson
 
 
 class Book(models.Model):
@@ -27,7 +27,7 @@ class Book(models.Model):
             return
 
     def get_toc(self):
-        return simplejson.loads(self.toc)
+        return json.loads(self.toc)
 
 
 class Page(models.Model):

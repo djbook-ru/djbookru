@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import simplejson
 from datetime import timedelta
 
 from django.utils import timezone
