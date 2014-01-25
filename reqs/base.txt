@@ -23,6 +23,7 @@ pytils==0.2.3
 pytz
 sorl-thumbnail==11.12
 xapian-haystack==1.1.5beta
+simplejson==3.3.2
 -e git+git://github.com/RaD/django-chunks.git@rel2.7#egg=django-chunks
 -e git+http://github.com/clintecker/django-google-analytics.git/#egg=django-google_analytics
 -e git+https://github.com/RaD/haystack-static-pages.git/#egg=haystack-static-pages
