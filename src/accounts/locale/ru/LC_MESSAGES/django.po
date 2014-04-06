@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-21 12:41+0200\n"
+"POT-Creation-Date: 2014-04-06 12:11+0300\n"
 "PO-Revision-Date: 2013-06-26 11:59+0400\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -1223,33 +1223,33 @@ msgstr "неправильная форма"
 msgid "Account created success! Confirm your email."
 msgstr "Аккаунт успешно создан! Подтвердите свою почту."
 
-#: views.py:74 views.py:107
+#: views.py:74 views.py:109
 msgid "Please correct the error below."
 msgstr "Пожалуйста, исправьте ошибки перечисленные далее."
 
-#: views.py:105
+#: views.py:107
 msgid "Profile changed success! Confirm your email if it was changed."
 msgstr ""
 "Профиль успешно изменён! Подтвердите адрес вашей электронной почты, если он "
 "был изменен."
 
-#: views.py:146
+#: views.py:148
 msgid "Confirmation key expired."
 msgstr "Ключ подтверждения почты просрочен."
 
-#: views.py:149
+#: views.py:151
 msgid "Email is confirmed."
 msgstr "Адрес электронной почты подтверждён."
 
-#: views.py:163
+#: views.py:165
 msgid "Your email is already confirmed."
 msgstr "Данный адрес электронной почты уже используется."
 
-#: views.py:165
+#: views.py:167
 msgid "Add email to your profile."
 msgstr "Добавьте электронный адрес в свой профиль"
 
-#: views.py:169
+#: views.py:171
 #, python-format
 msgid ""
 "We have sent you confirmation email. New one you can get in %(days)s days"
@@ -1257,11 +1257,11 @@ msgstr ""
 "Мы отправили вам письмо для подтверждения адреса электронной почты. "
 "Следующий запрос вы сможете сделать через  %(days)s дня."
 
-#: views.py:174
+#: views.py:176
 msgid "Confirmation email is sent."
 msgstr "Отправлено письмо для подтверждения адреса электронной почты."
 
-#: views.py:186
+#: views.py:188
 msgid "Email with instruction how reset password is sent."
 msgstr "Выслано письмо с инструкцией для сброса вашего пароля."
 

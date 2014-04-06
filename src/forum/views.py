@@ -7,6 +7,7 @@ from django.db.models import F
 from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect
 from django.utils.translation import ugettext_lazy as _
+from django.utils.timezone import now
 from django.views.generic.list import ListView
 from django.views.generic.list_detail import object_list
 
@@ -153,7 +154,10 @@ def edit_post(request, pk):
 
     form = EditPostForm(request.POST or None, instance=post)
     if form.is_valid():
-        post = form.save()
+        post = form.save(commit=False)
+        post.updated = now()
+        post.updated_by = request.user
+        post.save()
         return redirect(post)
 
     return {

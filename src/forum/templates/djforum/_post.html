@@ -21,6 +21,14 @@
                 </div>
 
                 <div class="clearfix"></div>
+                {% if post.updated %}
+                    <div class="signature">
+                        {% blocktrans with updated=post.updated|date:"DATETIME_FORMAT" updated_by=post.updated_by %}
+                            Updated {{ updated }} by <strong>{{ updated_by }}</strong>.
+                        {% endblocktrans %}
+                    </div>
+                {% endif %}
+
                 {% if post.user.signature or post.user.has_achievements %}
                     <div class="hidden-phone">
                         <hr>

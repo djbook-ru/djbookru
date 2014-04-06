@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-21 12:41+0200\n"
+"POT-Creation-Date: 2014-04-06 12:11+0300\n"
 "PO-Revision-Date: 2013-11-21 12:43+0200\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -92,7 +92,7 @@ msgstr "Русский"
 msgid "English"
 msgstr "English"
 
-#: settings.py:402
+#: settings.py:405
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
 
@@ -1305,31 +1305,31 @@ msgstr "Ошибка валидации"
 msgid "Account created success! Confirm your email."
 msgstr "Аккаунт успешно создан! Подтвердите свою почту."
 
-#: accounts/views.py:74 accounts/views.py:107 templates/admin/login.html:18
+#: accounts/views.py:74 accounts/views.py:109 templates/admin/login.html:18
 msgid "Please correct the error below."
 msgstr "Пожалуйста, исправьте ошибки перечисленные далее."
 
-#: accounts/views.py:105
+#: accounts/views.py:107
 msgid "Profile changed success! Confirm your email if it was changed."
 msgstr "Профиль успешно изменён! Подтвердите адрес вашей электронной почты."
 
-#: accounts/views.py:146
+#: accounts/views.py:148
 msgid "Confirmation key expired."
 msgstr "Ключ подтверждения почты просрочен."
 
-#: accounts/views.py:149
+#: accounts/views.py:151
 msgid "Email is confirmed."
 msgstr "Адрес электронной почты подтверждён."
 
-#: accounts/views.py:163
+#: accounts/views.py:165
 msgid "Your email is already confirmed."
 msgstr "Данный адрес электронной почты уже используется."
 
-#: accounts/views.py:165
+#: accounts/views.py:167
 msgid "Add email to your profile."
 msgstr "Добавьте электронный адрес в свой профиль"
 
-#: accounts/views.py:169
+#: accounts/views.py:171
 #, python-format
 msgid ""
 "We have sent you confirmation email. New one you can get in %(days)s days"
@@ -1337,11 +1337,11 @@ msgstr ""
 "Мы отправили вам письмо для подтверждения адреса электронной почты. "
 "Следующий запрос вы сможете сделать через  %(days)s дня."
 
-#: accounts/views.py:174
+#: accounts/views.py:176
 msgid "Confirmation email is sent."
 msgstr "Отправлено письмо для подтверждения адреса электронной почты."
 
-#: accounts/views.py:186
+#: accounts/views.py:188
 msgid "Email with instruction how reset password is sent."
 msgstr "Выслано письмо с инструкцией для сброса вашего пароля."
 
@@ -1848,31 +1848,40 @@ msgstr "Отправить"
 msgid "Posts"
 msgstr "Откликов"
 
-#: forum/views.py:151
+#: forum/views.py:152
 msgid "You have no permission edit this post"
 msgstr "У вас нет прав на редактирование этого сообщения"
 
-#: forum/views.py:282
+#: forum/views.py:286
 msgid "Authentication required."
 msgstr "Необходимо авторизоваться"
 
-#: forum/templates/djforum/_post.html:15 forum/templates/djforum/_post.html:37
+#: forum/templates/djforum/_post.html:15 forum/templates/djforum/_post.html:45
 msgid "Online"
 msgstr "Онлайн"
 
-#: forum/templates/djforum/_post.html:43 forum/templates/djforum/_post.html:47
+#: forum/templates/djforum/_post.html:26
+#, python-format
+msgid ""
+"\n"
+"                            Updated %(updated)s by <strong>%(updated_by)s</"
+"strong>.\n"
+"                        "
+msgstr ""
+
+#: forum/templates/djforum/_post.html:51 forum/templates/djforum/_post.html:55
 #: forum/templates/djforum/topic.html:119 templates/comments/_item.html:15
 msgid "Answer"
 msgstr "Ответ"
 
-#: forum/templates/djforum/_post.html:54 templates/accounts/_menu.html:12
+#: forum/templates/djforum/_post.html:62 templates/accounts/_menu.html:12
 #: templates/comments/_display_item.html:21 templates/comments/_item.html:26
 #: templates/doc_comments/_display_item.html:21
 #: templates/examples/detail.html:24 templates/news/news.html:28
 msgid "Edit"
 msgstr "Редактировать"
 
-#: forum/templates/djforum/_post.html:61
+#: forum/templates/djforum/_post.html:69
 #: forum/templates/djforum/topic.html:115
 #: templates/comments/_display_item.html:16 templates/comments/_item.html:21
 #: templates/doc_comments/_display_item.html:16
@@ -2150,7 +2159,7 @@ msgstr "Рецепты"
 msgid "News"
 msgstr "Новости"
 
-#: main/forms.py:132
+#: main/forms.py:132 templates/_user_activities.html:7
 msgid "Documentation"
 msgstr "Документация"
 
@@ -2248,7 +2257,7 @@ msgstr "Выделите её мышкой и нажмите"
 msgid "User activites"
 msgstr "Активность пользователей"
 
-#: templates/_user_activities.html:24
+#: templates/_user_activities.html:25
 msgid "reply"
 msgid_plural "replies"
 msgstr[0] "отклик"
@@ -2536,11 +2545,11 @@ msgstr ""
 "Ссылка для сброса пароля неверна, возможно, потому что она уже была "
 "использована. Пожалуйста, запросите ссылку ещё раз."
 
-#: templates/accounts/profile.html:20
+#: templates/accounts/profile.html:63
 msgid "Forum posts count"
 msgstr "Количество откликов в форуме"
 
-#: templates/accounts/profile.html:21
+#: templates/accounts/profile.html:64
 msgid "Comments count"
 msgstr "Комментариев"
 

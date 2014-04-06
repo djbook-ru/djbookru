@@ -20,7 +20,7 @@ class TopicAdmin(admin.ModelAdmin):
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['__unicode__', 'topic', 'user', 'rating', 'created']
+    list_display = ['__unicode__', 'topic', 'user', 'rating', 'created', 'updated', 'updated_by']
     search_fields = ('topic__name', 'body')
 
 admin.site.register(Post, PostAdmin)

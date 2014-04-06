@@ -2,14 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# FULL NAME <EMAIL@ADDRESS>, 2013.
+# FULL NAME <EMAIL@ADDRESS>, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-21 12:41+0200\n"
-"PO-Revision-Date: 2013-05-22 16:20+0400\n"
+"POT-Creation-Date: 2014-04-06 12:11+0300\n"
+"PO-Revision-Date: 2014-04-06 12:15+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -105,11 +105,11 @@ msgstr "ересь"
 
 #: models.py:186 models.py:288
 msgid "rating"
-msgstr ""
+msgstr "рейтинг"
 
 #: models.py:187 models.py:289
 msgid "votes"
-msgstr ""
+msgstr "голоса"
 
 #: models.py:192 models.py:282
 msgid "Topic"
@@ -144,35 +144,47 @@ msgstr "Отклик"
 msgid "Posts"
 msgstr "Отклики"
 
-#: views.py:151
+#: views.py:152
 msgid "You have no permission edit this post"
 msgstr "У вас нет прав на редактирование этого отклика"
 
-#: views.py:282
+#: views.py:286
 msgid "Authentication required."
-msgstr ""
+msgstr "Необходима авторизация"
 
-#: templates/djforum/_post.html:15 templates/djforum/_post.html.py:37
+#: templates/djforum/_post.html:15 templates/djforum/_post.html.py:45
 msgid "Online"
 msgstr "Онлайн"
 
-#: templates/djforum/_post.html:43 templates/djforum/_post.html.py:47
+#: templates/djforum/_post.html:26
+#, python-format
+msgid ""
+"\n"
+"                            Updated %(updated)s by <strong>%(updated_by)s</"
+"strong>.\n"
+"                        "
+msgstr ""
+"\n"
+"                            Обновлено %(updated)s <strong>%(updated_by)s</"
+"strong>.\n"
+"                        "
+
+#: templates/djforum/_post.html:51 templates/djforum/_post.html.py:55
 #: templates/djforum/topic.html:119
 msgid "Answer"
 msgstr "Ответ"
 
-#: templates/djforum/_post.html:54
+#: templates/djforum/_post.html:62
 msgid "Edit"
 msgstr "Изменить"
 
-#: templates/djforum/_post.html:61 templates/djforum/topic.html:115
+#: templates/djforum/_post.html:69 templates/djforum/topic.html:115
 msgid "Delete"
 msgstr "Удалить"
 
 #: templates/djforum/_post_author.html:15
-#, fuzzy
 msgid "Location"
-msgstr "Позиция"
+msgstr "Местонахождение"
 
 #: templates/djforum/_topic_list.html:7
 msgid "Replies"
@@ -203,9 +215,8 @@ msgid "Sticky"
 msgstr "Прикреплён"
 
 #: templates/djforum/add_post.html:6
-#, fuzzy
 msgid "Add post"
-msgstr "Изменить отклик"
+msgstr "Добавить отклик"
 
 #: templates/djforum/add_post.html:19
 msgid "New post"
@@ -224,10 +235,14 @@ msgid ""
 "                Use <a href=\"%(url)s\">Markdown</a> to format text.\n"
 "                "
 msgstr ""
+"\n"
+"                Используйте <a href=\"%(url)s\">Markdown</a> для "
+"форматирования текста.\n"
+"                "
 
 #: templates/djforum/add_topic.html:6
 msgid "Add topic to"
-msgstr ""
+msgstr "Добавить тему"
 
 #: templates/djforum/add_topic.html:26 templates/djforum/forum.html:25
 msgid "New topic"
@@ -278,9 +293,8 @@ msgid "Online:"
 msgstr "Онлайн:"
 
 #: templates/djforum/move_topic.html:6
-#, fuzzy
 msgid "Move topic"
-msgstr "Нет тем"
+msgstr "Перенести тему"
 
 #: templates/djforum/move_topic.html:19 templates/djforum/topic.html:90
 msgid "Move"
@@ -332,7 +346,7 @@ msgstr "Вы желаете прикрепить эту тему?"
 
 #: templates/djforum/topic.html:84
 msgid "manage"
-msgstr ""
+msgstr "управлять"
 
 #: templates/djforum/topic.html:95
 msgid "not heresy"
@@ -356,8 +370,8 @@ msgstr "Закрыть"
 
 #: templatetags/forum_tags.py:88
 msgid "Post rating"
-msgstr ""
+msgstr "Рейтинг отклика"
 
 #: templatetags/forum_tags.py:90
 msgid "Topic rating"
-msgstr ""
+msgstr "Рейтинг темы"
