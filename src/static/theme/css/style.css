@@ -704,6 +704,7 @@ input[type="text"], input[type="password"], input[type="search"], input[type="em
 .call-to-action.trad .message p:last-child {margin-bottom:0;}
 .call-to-action.trad .action {float:right;width:20%;text-align:right;padding-top:2%;}
 
+.doc-intro .call-to-action .action a {width: 180px;}
 
 /* basic image slider
 ================================================== */
@@ -1791,6 +1792,10 @@ hr {
     text-align: center;
     padding-top: 0;
 }
+.doc-intro .call-to-action.trad .action {
+    margin-top: 10px;
+}
+
 /* misc atmosphere styles
 ================================================== */
 .biggieicon {
