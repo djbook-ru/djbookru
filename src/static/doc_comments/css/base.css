@@ -56,9 +56,6 @@ div.comment-indicator span {
     width: 25px;
     height: 25px;
 }
-div.comment-indicator:hover span {
-    background-image: url(../img/comment-hover.png);
-}
 div.has-comments > span, div.has-comments:hover > span {
     background-image: url(../img/comment-active.png);
 }

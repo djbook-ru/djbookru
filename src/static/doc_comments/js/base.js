@@ -223,7 +223,8 @@ jQuery.noConflict();
         };
 
         this.updateCommentsCount = function(el, data){
-            var $indicator = $(el).find('.comment-indicator');
+            var $indicator = $(el).find('.comment-indicator:first');
+
             if (data.count){
                 $indicator.addClass('has-comments').find('span').text(data.count);
                 if (data.unclosed && this.canChangeStatus) {
