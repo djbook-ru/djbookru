@@ -216,20 +216,22 @@ jQuery.noConflict();
                 for (var i=0, len=resp.data.length; i<len; i++){
                     var el = self.getElementsByXPath(resp.data[i].xpath)[0];
                     if(el){
-                        self.updateCommentsCount(el, resp.data[i].count);
+                        self.updateCommentsCount(el, resp.data[i]);
                     }
                 }
             });
         };
 
-        this.updateCommentsCount = function(el, count){
+        this.updateCommentsCount = function(el, data){
             var $indicator = $(el).find('.comment-indicator');
-            if (count){
-                $indicator.addClass('has-comments').find('span').text(count);
+            if (data.count){
+                $indicator.addClass('has-comments').find('span').text(data.count);
+                if (data.unclosed && this.canChangeStatus) {
+                    $indicator.addClass('has-unclosed');
+                }
             }else{
                 $indicator.removeClass('has-comments').find('span').text('');
             }
-
         };
 
         this.checkLogin = function(){

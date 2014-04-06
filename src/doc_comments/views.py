@@ -63,7 +63,15 @@ def load_comments_info(request):
     output = []
 
     if page:
-        output = list(models.Comment.objects.filter(page=page).values('xpath').annotate(count=Count('id')))
+        output = list(models.Comment.objects.filter(page=page).values('page', 'xpath') \
+            .annotate(count=Count('id'))
+        )
+
+        for info in output:
+            qs = models.Comment.objects.filter(page=info['page'], xpath=info['xpath']) \
+                .exclude(status=models.Comment.CLOSED)
+
+            info['unclosed'] = qs.count()
 
     return {
         'data': output

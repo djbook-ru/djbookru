@@ -65,6 +65,9 @@ div.has-comments > span, div.has-comments:hover > span {
 div.current > span, div.has-comments.current:hover > span{
     background-image: url(../img/comment-current.png);
 }
+div.has-unclosed > span, div.has-unclosed:hover > span {
+    background-image: url(../img/comment-unclosed.png);
+}
 
 /* Fix bootstrap */
 .modal .modal-footer {
