@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-06 12:11+0300\n"
+"POT-Creation-Date: 2014-04-06 16:36+0300\n"
 "PO-Revision-Date: 2013-11-21 12:43+0200\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -55,7 +55,7 @@ msgstr "Sentry"
 msgid "Go to site"
 msgstr "Перейти к сайту"
 
-#: menu.py:28 forum/models.py:64 forum/models.py:209
+#: menu.py:28 forum/models.py:66 forum/models.py:212
 #: forum/templates/djforum/base.html:4 main/forms.py:130
 #: templates/_menu.html:13 templates/_user_activities.html:5
 msgid "Forum"
@@ -1193,7 +1193,7 @@ msgstr "Последний просмотр комментариев"
 msgid "last doc. comments read"
 msgstr "Последний просмотр комментариев к документации"
 
-#: accounts/models.py:79 forum/models.py:283
+#: accounts/models.py:79 forum/models.py:304
 msgid "User"
 msgstr "Пользователь"
 
@@ -1224,7 +1224,7 @@ msgid "is active?"
 msgstr "активно?"
 
 #: accounts/models.py:166 code_review/models.py:21 code_review/models.py:65
-#: examples/models.py:37 forum/models.py:177 main/models.py:10
+#: examples/models.py:37 forum/models.py:179 main/models.py:10
 #: news/models.py:12 videos/models.py:15
 msgid "created"
 msgstr "создано"
@@ -1237,8 +1237,8 @@ msgstr "Объявление"
 msgid "announcements"
 msgstr "объявления"
 
-#: accounts/models.py:177 comments/models.py:19 forum/models.py:122
-#: forum/models.py:179
+#: accounts/models.py:177 comments/models.py:19 forum/models.py:124
+#: forum/models.py:181
 msgid "user"
 msgstr "пользователь"
 
@@ -1468,8 +1468,8 @@ msgid "tags"
 msgstr "таги"
 
 #: code_review/models.py:23 code_review/templates/code_review/details.html:108
-#: code_review/templates/code_review/index.html:33 forum/models.py:186
-#: forum/models.py:288
+#: code_review/templates/code_review/index.html:33 forum/models.py:188
+#: forum/models.py:309
 msgid "rating"
 msgstr "рейтинг"
 
@@ -1625,7 +1625,7 @@ msgstr "none"
 msgid "accepted"
 msgstr "принят"
 
-#: doc_comments/models.py:16 forum/models.py:182
+#: doc_comments/models.py:16 forum/models.py:184
 msgid "closed"
 msgstr "закрыт"
 
@@ -1653,7 +1653,7 @@ msgstr "комментарии к доке"
 msgid "doc. comments"
 msgstr "комментарии к доке"
 
-#: doc_comments/views.py:78
+#: doc_comments/views.py:86
 msgid "You are not authenticated."
 msgstr "Вы не авторизированы"
 
@@ -1703,11 +1703,11 @@ msgstr ""
 "\n"
 "Пожалуйста, проверьте и подтвердите его. URL: %(link)s"
 
-#: examples/models.py:15 forum/models.py:32 forum/models.py:57
+#: examples/models.py:15 forum/models.py:34 forum/models.py:59
 msgid "Category"
 msgstr "Категория"
 
-#: examples/models.py:16 forum/models.py:33
+#: examples/models.py:16 forum/models.py:35
 msgid "Categories"
 msgstr "Категории"
 
@@ -1755,96 +1755,106 @@ msgstr ""
 "Рецепт был добавлен успешно и будет проверен, как только появится "
 "возможность."
 
-#: forum/forms.py:44 forum/models.py:287 main/forms.py:25
+#: forum/forms.py:47 forum/models.py:308 main/forms.py:25
 msgid "Message"
 msgstr "Сообщение"
 
-#: forum/models.py:25 forum/models.py:58
+#: forum/models.py:27 forum/models.py:60
 msgid "Name"
 msgstr "Имя"
 
-#: forum/models.py:26
+#: forum/models.py:28
 msgid "Groups"
 msgstr "Группы"
 
-#: forum/models.py:27
+#: forum/models.py:29
 msgid "Only users from these groups can see this category"
 msgstr "Только пользователи из этих групп могут читать данную категорию"
 
-#: forum/models.py:28 forum/models.py:59
+#: forum/models.py:30 forum/models.py:61
 msgid "Position"
 msgstr "Позиция"
 
-#: forum/models.py:60
+#: forum/models.py:62
 msgid "Description"
 msgstr "Описание"
 
-#: forum/models.py:65
+#: forum/models.py:67
 msgid "Forums"
 msgstr "Форумов"
 
-#: forum/models.py:123
+#: forum/models.py:125
 msgid "topic"
 msgstr "тема"
 
-#: forum/models.py:124
+#: forum/models.py:126
 msgid "time"
 msgstr "время"
 
-#: forum/models.py:175
+#: forum/models.py:177
 msgid "forum"
 msgstr "форум"
 
-#: forum/models.py:176
+#: forum/models.py:178
 msgid "subject"
 msgstr "заголовок"
 
-#: forum/models.py:178
+#: forum/models.py:180
 msgid "updated"
 msgstr "обновлено"
 
-#: forum/models.py:180
+#: forum/models.py:182
 msgid "views count"
 msgstr "просмотров"
 
-#: forum/models.py:181
+#: forum/models.py:183
 msgid "sticky"
 msgstr "прикреплён"
 
-#: forum/models.py:183 forum/templates/djforum/topic.html:95
+#: forum/models.py:185 forum/templates/djforum/topic.html:95
 msgid "heresy"
 msgstr "ересь"
 
-#: forum/models.py:187 forum/models.py:289
+#: forum/models.py:189 forum/models.py:310
 msgid "votes"
 msgstr "голоса"
 
-#: forum/models.py:192 forum/models.py:282
+#: forum/models.py:191
+#, fuzzy
+msgid "send response on email"
+msgstr "Отправить письмо для подтверждение адреса электронной почты"
+
+#: forum/models.py:195 forum/models.py:303
 msgid "Topic"
 msgstr "Тема"
 
-#: forum/models.py:193 forum/templates/djforum/index.html:35
+#: forum/models.py:196 forum/templates/djforum/index.html:30
 msgid "Topics"
 msgstr "Темы"
 
-#: forum/models.py:284
+#: forum/models.py:290
+#, python-format
+msgid "New post for your topic \"%(topic)s\""
+msgstr ""
+
+#: forum/models.py:305
 msgid "Created"
 msgstr "Создано"
 
-#: forum/models.py:285
+#: forum/models.py:306
 msgid "Updated"
 msgstr "Обновлено"
 
-#: forum/models.py:286
+#: forum/models.py:307
 msgid "Updated by"
 msgstr "Обновлено"
 
-#: forum/models.py:295
+#: forum/models.py:316
 msgid "Post"
 msgstr "Отправить"
 
-#: forum/models.py:296 forum/templates/djforum/_post_author.html:13
-#: forum/templates/djforum/index.html:36
+#: forum/models.py:317 forum/templates/djforum/_post_author.html:13
+#: forum/templates/djforum/index.html:31
 msgid "Posts"
 msgstr "Откликов"
 
@@ -1852,7 +1862,7 @@ msgstr "Откликов"
 msgid "You have no permission edit this post"
 msgstr "У вас нет прав на редактирование этого сообщения"
 
-#: forum/views.py:286
+#: forum/views.py:308
 msgid "Authentication required."
 msgstr "Необходимо авторизоваться"
 
@@ -1901,7 +1911,7 @@ msgid "Views"
 msgstr "Просмотров"
 
 #: forum/templates/djforum/_topic_list.html:9
-#: forum/templates/djforum/index.html:37
+#: forum/templates/djforum/index.html:32
 msgid "Last post"
 msgstr "Последнее сообщение"
 
@@ -1932,7 +1942,7 @@ msgstr "Новые сообщение"
 #: forum/templates/djforum/add_post.html:24
 #: forum/templates/djforum/add_topic.html:33
 #: forum/templates/djforum/edit_post.html:24
-#: forum/templates/djforum/topic.html:141
+#: forum/templates/djforum/topic.html:149
 msgid "Submit"
 msgstr "Отправить"
 
@@ -1964,46 +1974,59 @@ msgstr "Новая тема"
 msgid "Edit post"
 msgstr "Изменить отклик"
 
-#: forum/templates/djforum/forum.html:20 forum/templates/djforum/index.html:11
+#: forum/templates/djforum/email_new_post.html:1
+#, python-format
+msgid ""
+"\n"
+"<a href=\"%(protocol)s://%(domain)s%(url)s\">%(protocol)s://%(domain)s"
+"%(url)s</a>\n"
+msgstr ""
+
+#: forum/templates/djforum/forum.html:20 forum/templates/djforum/index.html:12
 #: forum/templates/djforum/topic.html:76
 #: forum/templates/djforum/unread_topics.html:6
 #: forum/templates/djforum/unread_topics.html:13
 msgid "Unread topics"
 msgstr "Непрочтённые темы"
 
-#: forum/templates/djforum/forum.html:28 forum/templates/djforum/index.html:21
+#: forum/templates/djforum/forum.html:28 forum/templates/djforum/index.html:16
 #: forum/templates/djforum/unread_topics.html:22
 msgid "Mark all as read"
 msgstr "Отметить все темы как прочитанные"
 
-#: forum/templates/djforum/index.html:17
+#: forum/templates/djforum/index.html:9 templates/main/search.html:5
+#: templates/main/search.html.py:13
+msgid "Search"
+msgstr "Поиск"
+
+#: forum/templates/djforum/index.html:15
 #: forum/templates/djforum/my_topics.html:6
 #: forum/templates/djforum/my_topics.html:13
 #: forum/templates/djforum/unread_topics.html:18
 msgid "My topics"
 msgstr "Мои темы"
 
-#: forum/templates/djforum/index.html:72
+#: forum/templates/djforum/index.html:67
 msgid "Total number of registered users:"
 msgstr "Общее количество зарегистрированных пользователей:"
 
-#: forum/templates/djforum/index.html:73
+#: forum/templates/djforum/index.html:68
 msgid "Total number of topics:"
 msgstr "Общее количество тем:"
 
-#: forum/templates/djforum/index.html:74
+#: forum/templates/djforum/index.html:69
 msgid "Total number of posts:"
 msgstr "Общее количество откликов:"
 
-#: forum/templates/djforum/index.html:77
+#: forum/templates/djforum/index.html:72
 msgid "Registered users online:"
 msgstr "Зарегистрированные пользователи в онлайне:"
 
-#: forum/templates/djforum/index.html:78
+#: forum/templates/djforum/index.html:73
 msgid "Guests online:"
 msgstr "Гости в онлайне:"
 
-#: forum/templates/djforum/index.html:80
+#: forum/templates/djforum/index.html:75
 msgid "Online:"
 msgstr "Онлайн:"
 
@@ -2084,6 +2107,14 @@ msgstr "Открыть"
 #: forum/templates/djforum/topic.html:105
 msgid "Close"
 msgstr "Закрыть"
+
+#: forum/templates/djforum/topic.html:123
+msgid "Unsubscribe"
+msgstr "Отписаться"
+
+#: forum/templates/djforum/topic.html:125
+msgid "Subscribe"
+msgstr "Подписаться"
 
 #: forum/templatetags/forum_tags.py:88
 msgid "Post rating"
@@ -2699,10 +2730,6 @@ msgstr "Вы можете отправить нам сообщение"
 msgid "We are glad to hear your questions, comments or suggestions!"
 msgstr "Мы рады получить ваши вопросы, комментарии или предложения!"
 
-#: templates/main/search.html:5 templates/main/search.html.py:13
-msgid "Search"
-msgstr "Поиск"
-
 #: templates/main/search.html:34 templates/news/index.html:25
 msgid "Read More"
 msgstr "Читать дальше"
@@ -3240,12 +3267,6 @@ msgstr "видео"
 
 #~ msgid "Are you sure you want to delete this post?"
 #~ msgstr "Вы уверены, что этот отклик надо удалить?"
-
-#~ msgid "Unsubscribe"
-#~ msgstr "Отписаться"
-
-#~ msgid "Subscribe"
-#~ msgstr "Подписаться"
 
 #~ msgid "Quick post"
 #~ msgstr "Быстрый отклик"

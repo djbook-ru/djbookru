@@ -12,6 +12,7 @@ def send_templated_email(to, subject, body_template, context,
         to = [to]
 
     context['domain'] = Site.objects.get_current().domain
+    context['protocol'] = 'http'
     message = render_to_string(body_template, context)
 
     email = EmailMessage(subject, message, from_email, to)

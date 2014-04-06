@@ -1,0 +1,3 @@
+{% load i18n %}{% blocktrans with url=post.get_absolute_url %}
+<a href="{{ protocol }}://{{ domain }}{{ url }}">{{ protocol }}://{{ domain }}{{ url }}</a>
+{% endblocktrans %}

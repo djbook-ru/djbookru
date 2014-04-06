@@ -37,6 +37,8 @@
                 Use <a href="{{ url }}">Markdown</a> to format text.
                 {% endblocktrans %}
             </p>
+
+            {{ form.send_response|bootstrap }}
         </form>
     </aside>
 {% endblock %}

@@ -117,6 +117,14 @@
             {% endif %}
 
             <a href="{% url 'forum:add_post' topic.pk %}" class="js-answer-topic btn btn-small">{% trans "Answer" %}</a>
+
+            {% if topic.user == user %}
+                {% if topic.send_response %}
+                    <a href="{% url 'forum:unsubscribe' topic.pk %}" class="btn btn-info btn-small">{% trans "Unsubscribe" %}</a>
+                {% else %}
+                    <a href="{% url 'forum:subscribe' topic.pk %}" class="btn btn-info btn-small">{% trans "Subscribe" %}</a>
+                {% endif %}
+            {% endif %}
         </div>
 
         {% if is_paginated %}

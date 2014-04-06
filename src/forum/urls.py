@@ -21,4 +21,6 @@ urlpatterns = patterns('src.forum.views',
     url(r'^mark_read_forum/(\d+)/$', 'mark_read_forum', name='mark_read_forum'),
     url(r'^vote/topic/(\d+)/$', 'vote', {'model': Topic}, 'vote_topic'),
     url(r'^vote/post/(\d+)/$', 'vote', {'model': Post}, 'vote_post'),
+    url(r'^subscribe/(\d+)/$', 'subscribe', name='subscribe'),
+    url(r'^unsubscribe/(\d+)/$', 'unsubscribe', name='unsubscribe'),
 )

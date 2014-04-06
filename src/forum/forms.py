@@ -26,6 +26,9 @@ class AddPostForm(forms.ModelForm):
         post.user = self.user
         post.topic = self.topic
         post.save()
+
+        post.topic.send_email_about_post(post)
+
         return post
 
 
@@ -45,7 +48,7 @@ class AddTopicForm(PlaceholderMixin, forms.ModelForm):
 
     class Meta:
         model = Topic
-        fields = ('name', 'body')
+        fields = ('name', 'body', 'send_response')
 
     def __init__(self, forum, user, *args, **kwargs):
         self.forum = forum

@@ -168,6 +168,28 @@ def edit_post(request, pk):
 
 
 @login_required
+def unsubscribe(request, pk):
+    topic = get_object_or_404(Topic, pk=pk)
+
+    if topic.user == request.user:
+        topic.send_response = False
+        topic.save()
+
+    return redirect(topic)
+
+
+@login_required
+def subscribe(request, pk):
+    topic = get_object_or_404(Topic, pk=pk)
+
+    if topic.user == request.user:
+        topic.send_response = True
+        topic.save()
+
+    return redirect(topic)
+
+
+@login_required
 def heresy_unheresy_topic(request, pk):
     topic = get_object_or_404(Topic, pk=pk)
 

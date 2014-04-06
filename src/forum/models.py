@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from django.conf import settings
 from django.contrib.auth.models import Group
 from django.core.urlresolvers import reverse
 from django.db import models
@@ -12,6 +13,7 @@ import markdown
 
 from src.forum.settings import FORUM_EDIT_TIMEOUT, POSTS_ON_PAGE
 from src.forum.util import urlize
+from src.utils.mail import send_templated_email
 
 
 class CategoryManager(models.Manager):
@@ -186,6 +188,7 @@ class Topic(models.Model, RatingMixin):
     rating = models.IntegerField(_('rating'), default=0)
     votes = models.ManyToManyField('accounts.User', verbose_name=_('votes'),
         related_name='voted_topics', editable=False)
+    send_response = models.BooleanField(_(u'send response on email'), default=False)
 
     class Meta:
         ordering = ['-sticky', '-updated']
@@ -248,6 +251,9 @@ class Topic(models.Model, RatingMixin):
     def can_post(self, user):
         return self.has_access(user) and not self.closed and user.is_authenticated()
 
+    def do_send_notification(self):
+        return self.send_response and self.can_post(self.user) and self.user.is_valid_email
+
     @property
     def last_post(self):
         try:
@@ -276,6 +282,21 @@ class Topic(models.Model, RatingMixin):
             return False
 
         return not Visit.objects.filter(user=user, topic=self, time__gte=self.updated).exists()
+
+    def send_email_about_post(self, post):
+        if not self.do_send_notification():
+            return
+
+        subject = _(u'New post for your topic "%(topic)s"') % {'topic': self}
+        context = {
+            'post': post
+        }
+        send_templated_email(
+            self.user.email, subject,
+            'djforum/email_new_post.html',
+            context,
+            fail_silently=settings.DEBUG
+        )
 
 
 class Post(models.Model, RatingMixin):

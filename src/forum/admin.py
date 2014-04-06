@@ -14,8 +14,8 @@ class ForumAdmin(admin.ModelAdmin):
 
 
 class TopicAdmin(admin.ModelAdmin):
-    list_filter = ['sticky', 'closed', 'heresy']
-    list_display = ['name', 'forum', 'created', 'updated', 'user', 'views', 'rating', 'sticky']
+    list_filter = ['sticky', 'closed', 'heresy', 'send_response']
+    list_display = ['name', 'forum', 'created', 'updated', 'user', 'views', 'rating', 'sticky', 'send_response']
     search_fields = ('name',)
 
 
