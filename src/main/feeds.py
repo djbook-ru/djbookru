@@ -16,7 +16,7 @@ class LatestFeed(Feed):
     description = _("Newly examples from Russian DjangoBook")
 
     def items(self):
-        examples = Example.objects.order_by('-created')[:15]
+        examples = Example.objects.approved().order_by('-created')[:15]
         news = News.objects.order_by('-created')[:20]
 
         objects = list(examples) + list(news)

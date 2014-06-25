@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 
+from src.forum.feeds import FeedLatestPosts, FeedLatestPostsByForum
 from src.forum.models import Topic, Post
 
 urlpatterns = patterns('src.forum.views',
@@ -23,4 +24,6 @@ urlpatterns = patterns('src.forum.views',
     url(r'^vote/post/(\d+)/$', 'vote', {'model': Post}, 'vote_post'),
     url(r'^subscribe/(\d+)/$', 'subscribe', name='subscribe'),
     url(r'^unsubscribe/(\d+)/$', 'unsubscribe', name='unsubscribe'),
+    url(r'^feeds/(?P<forum_id>\d+)/$', FeedLatestPostsByForum(), name='feed_latest_forum_entries'),
+    url(r'^feeds/$', FeedLatestPosts(), name='feed_latest_entries')
 )

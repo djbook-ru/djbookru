@@ -65,7 +65,7 @@ sitemap_forum = {
     'date_field': 'created'
 }
 sitemap_recipes = {
-    'queryset': r_models.Example.objects.all(),
+    'queryset': r_models.Example.objects.approved(),
     'date_field': 'created',
 }
 sitemap_news = {

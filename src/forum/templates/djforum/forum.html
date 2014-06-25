@@ -25,7 +25,11 @@
             <a href="{% url 'forum:add_topic' forum.pk %}" class="btn btn-small">{% trans "New topic" %}</a>
 
             {% if user.is_authenticated %}
-            <a href="{% url 'forum:mark_read_forum' forum.pk %}" class="btn btn-small" style="margin-right: 5px">{% trans "Mark all as read" %}</a>
+            <a href="{% url 'forum:mark_read_forum' forum.pk %}" class="btn btn-small">{% trans "Mark all as read" %}</a>
+            {% endif %}
+
+            {% if not forum.category.groups.exists %}
+            <a href="{% url 'forum:feed_latest_forum_entries' forum.pk %}" class="btn btn-small" style="margin-right: 1px">{% trans "RSS" %}</a>
             {% endif %}
         </div>
 
