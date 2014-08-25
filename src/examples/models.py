@@ -3,7 +3,7 @@
 from django.db import models, transaction
 from django.utils.translation import ugettext_lazy as _
 from src.forum.models import Forum, Topic, Post
-from .. accounts.models import User
+from src.accounts.models import User
 from ordered_model.models import OrderedModel
 
 

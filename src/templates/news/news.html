@@ -37,6 +37,11 @@
 
         <div class="entry-content">
             {{ obj.content|markdown:"safe" }}
+
+            {% if obj.link %}
+                <br>
+                {% trans "Full version:" %} <a href="{{ obj.link }}">{{ obj.link }}</a>
+            {% endif %}
         </div>
         <!--end entry-content-->
 

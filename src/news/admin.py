@@ -15,7 +15,7 @@ class NewsForm(ModelForm):
 
 
 class NewsAdmin(admin.ModelAdmin):
-    list_display = ['title', 'created']
+    list_display = ['title', 'approved', 'created']
     search_fields = ('title',)
     form = NewsForm
 
@@ -27,4 +27,10 @@ class NewsAdmin(admin.ModelAdmin):
     formfield_overrides = {
         TextField: {'widget': AdminPagedownWidget},
     }
+
+
+class ResourceRSSAdmin(admin.ModelAdmin):
+    list_display = ['title', 'link', 'is_active', 'approved_by_default', 'sync_date']
+
 admin.site.register(models.News, NewsAdmin)
+admin.site.register(models.ResourceRSS, ResourceRSSAdmin)

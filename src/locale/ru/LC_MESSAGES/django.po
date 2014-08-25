@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-06 16:36+0300\n"
+"POT-Creation-Date: 2014-08-25 16:04+0300\n"
 "PO-Revision-Date: 2013-11-21 12:43+0200\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -1202,20 +1202,20 @@ msgid "Users"
 msgstr "Пользователи"
 
 #: accounts/models.py:162 code_review/models.py:16 examples/models.py:35
-#: news/models.py:10 videos/models.py:11
+#: news/models.py:17 news/models.py:56 videos/models.py:11
 msgid "title"
 msgstr "тема"
 
-#: accounts/models.py:163
+#: accounts/models.py:163 news/models.py:58
 msgid "link"
 msgstr "ссылка"
 
 #: accounts/models.py:164 code_review/models.py:52 doc_comments/models.py:18
-#: examples/models.py:36 main/models.py:36 news/models.py:11
+#: examples/models.py:36 main/models.py:36 news/models.py:18
 msgid "content"
 msgstr "содержимое"
 
-#: accounts/models.py:164 news/models.py:11
+#: accounts/models.py:164 news/models.py:18
 msgid "Use Markdown and HTML"
 msgstr "Иcпользуйте Markdown или HTML"
 
@@ -1225,7 +1225,7 @@ msgstr "активно?"
 
 #: accounts/models.py:166 code_review/models.py:21 code_review/models.py:65
 #: examples/models.py:37 forum/models.py:179 main/models.py:10
-#: news/models.py:12 videos/models.py:15
+#: news/models.py:19 videos/models.py:15
 msgid "created"
 msgstr "создано"
 
@@ -1264,6 +1264,7 @@ msgid "name"
 msgstr "имя"
 
 #: accounts/models.py:189 code_review/models.py:17 main/models.py:11
+#: news/models.py:57
 msgid "description"
 msgstr "описание"
 
@@ -1460,6 +1461,7 @@ msgid "Main snippet language"
 msgstr "Язык сниппета"
 
 #: code_review/models.py:20 code_review/models.py:64 doc_comments/models.py:19
+#: news/models.py:62
 msgid "author"
 msgstr "автор"
 
@@ -1723,11 +1725,11 @@ msgstr ""
 "Используйте <a target=\"blank\" href=\"http://daringfireball.net/projects/"
 "markdown/syntax\">Markdown</a> и HTML"
 
-#: examples/models.py:39
+#: examples/models.py:39 news/models.py:21
 msgid "approved"
 msgstr "разрешено"
 
-#: examples/models.py:39
+#: examples/models.py:39 news/models.py:22
 msgid "Can be used for draft"
 msgstr "Может быть использовано для черновиков"
 
@@ -1754,6 +1756,14 @@ msgid ""
 msgstr ""
 "Рецепт был добавлен успешно и будет проверен, как только появится "
 "возможность."
+
+#: forum/feeds.py:19
+msgid "Last messages on forum in categories {0}"
+msgstr ""
+
+#: forum/feeds.py:46
+msgid "Last messages on forum in all categories"
+msgstr ""
 
 #: forum/forms.py:47 forum/models.py:308 main/forms.py:25
 msgid "Message"
@@ -1828,7 +1838,7 @@ msgstr "Отправить письмо для подтверждение адр
 msgid "Topic"
 msgstr "Тема"
 
-#: forum/models.py:196 forum/templates/djforum/index.html:30
+#: forum/models.py:196 forum/templates/djforum/index.html:33
 msgid "Topics"
 msgstr "Темы"
 
@@ -1854,7 +1864,7 @@ msgid "Post"
 msgstr "Отправить"
 
 #: forum/models.py:317 forum/templates/djforum/_post_author.html:13
-#: forum/templates/djforum/index.html:31
+#: forum/templates/djforum/index.html:34
 msgid "Posts"
 msgstr "Откликов"
 
@@ -1891,6 +1901,9 @@ msgstr "Ответ"
 msgid "Edit"
 msgstr "Редактировать"
 
+msgid "Full version:"
+msgstr "Полная версия:"
+
 #: forum/templates/djforum/_post.html:69
 #: forum/templates/djforum/topic.html:115
 #: templates/comments/_display_item.html:16 templates/comments/_item.html:21
@@ -1911,7 +1924,7 @@ msgid "Views"
 msgstr "Просмотров"
 
 #: forum/templates/djforum/_topic_list.html:9
-#: forum/templates/djforum/index.html:32
+#: forum/templates/djforum/index.html:35
 msgid "Last post"
 msgstr "Последнее сообщение"
 
@@ -1949,6 +1962,7 @@ msgstr "Отправить"
 #: forum/templates/djforum/add_post.html:27
 #: forum/templates/djforum/add_topic.html:36
 #: forum/templates/djforum/edit_post.html:27
+#: forum/templates/djforum/topic.html:152
 #, python-format
 msgid ""
 "\n"
@@ -1982,51 +1996,55 @@ msgid ""
 "%(url)s</a>\n"
 msgstr ""
 
-#: forum/templates/djforum/forum.html:20 forum/templates/djforum/index.html:12
+#: forum/templates/djforum/forum.html:20 forum/templates/djforum/index.html:13
 #: forum/templates/djforum/topic.html:76
 #: forum/templates/djforum/unread_topics.html:6
 #: forum/templates/djforum/unread_topics.html:13
 msgid "Unread topics"
 msgstr "Непрочтённые темы"
 
-#: forum/templates/djforum/forum.html:28 forum/templates/djforum/index.html:16
+#: forum/templates/djforum/forum.html:28 forum/templates/djforum/index.html:17
 #: forum/templates/djforum/unread_topics.html:22
 msgid "Mark all as read"
 msgstr "Отметить все темы как прочитанные"
 
-#: forum/templates/djforum/index.html:9 templates/main/search.html:5
+#: forum/templates/djforum/forum.html:32 forum/templates/djforum/index.html:20
+msgid "RSS"
+msgstr ""
+
+#: forum/templates/djforum/index.html:8 templates/main/search.html:5
 #: templates/main/search.html.py:13
 msgid "Search"
 msgstr "Поиск"
 
-#: forum/templates/djforum/index.html:15
+#: forum/templates/djforum/index.html:16
 #: forum/templates/djforum/my_topics.html:6
 #: forum/templates/djforum/my_topics.html:13
 #: forum/templates/djforum/unread_topics.html:18
 msgid "My topics"
 msgstr "Мои темы"
 
-#: forum/templates/djforum/index.html:67
+#: forum/templates/djforum/index.html:70
 msgid "Total number of registered users:"
 msgstr "Общее количество зарегистрированных пользователей:"
 
-#: forum/templates/djforum/index.html:68
+#: forum/templates/djforum/index.html:71
 msgid "Total number of topics:"
 msgstr "Общее количество тем:"
 
-#: forum/templates/djforum/index.html:69
+#: forum/templates/djforum/index.html:72
 msgid "Total number of posts:"
 msgstr "Общее количество откликов:"
 
-#: forum/templates/djforum/index.html:72
+#: forum/templates/djforum/index.html:75
 msgid "Registered users online:"
 msgstr "Зарегистрированные пользователи в онлайне:"
 
-#: forum/templates/djforum/index.html:73
+#: forum/templates/djforum/index.html:76
 msgid "Guests online:"
 msgstr "Гости в онлайне:"
 
-#: forum/templates/djforum/index.html:75
+#: forum/templates/djforum/index.html:78
 msgid "Online:"
 msgstr "Онлайн:"
 
@@ -2183,7 +2201,7 @@ msgstr "Все"
 msgid "Recipes"
 msgstr "Рецепты"
 
-#: main/forms.py:131 news/models.py:17 news/models.py:18 news/models.py:28
+#: main/forms.py:131 news/models.py:27 news/models.py:28 news/models.py:40
 #: templates/_menu.html:11 templates/news/_last_news.html:2
 #: templates/news/base.html:5 templates/news/base.html.py:7
 #: templates/news/news.html:25
@@ -2241,6 +2259,33 @@ msgstr "Отзыв успешно отправлен!"
 #: news/feeds.py:13 templates/base.html:21
 msgid "The freshest news about Russian version of DjangoBook"
 msgstr "Последние новости с Russian DjangoBook"
+
+#: news/models.py:23
+msgid "link to original"
+msgstr ""
+
+#: news/models.py:59
+#, fuzzy
+msgid "active?"
+msgstr "активно?"
+
+#: news/models.py:60
+#, fuzzy
+msgid "last update"
+msgstr "обновлено"
+
+#: news/models.py:64
+msgid "approved by default?"
+msgstr ""
+
+#: news/models.py:70
+msgid "RSS source"
+msgstr ""
+
+#: news/models.py:71
+#, fuzzy
+msgid "RSS sources"
+msgstr "исходники"
 
 #: templates/404.html:9
 msgid "Forgotten page..."
@@ -2706,11 +2751,11 @@ msgstr "Черновик"
 msgid "Discuss this recipe"
 msgstr "Обсудить рецепт"
 
-#: templates/examples/detail.html:60 templates/news/news.html:56
+#: templates/examples/detail.html:60 templates/news/news.html:61
 msgid "older"
 msgstr "предыдущие"
 
-#: templates/examples/detail.html:63 templates/news/news.html:59
+#: templates/examples/detail.html:63 templates/news/news.html:64
 msgid "newer"
 msgstr "следующие"
 
@@ -2733,6 +2778,11 @@ msgstr "Мы рады получить ваши вопросы, коммента
 #: templates/main/search.html:34 templates/news/index.html:25
 msgid "Read More"
 msgstr "Читать дальше"
+
+#: templates/news/news.html:43
+#, fuzzy
+msgid "Full version:"
+msgstr "Полная версия:"
 
 #: templates/openid_consumer/signin.html:5
 msgid "Sign in with your OpenID"
@@ -3393,9 +3443,6 @@ msgstr "видео"
 #~ "Введите имя пользователя для поиска. Поле с именем может быть оставлено "
 #~ "пустым. Сортировка пользователей по имени, дате регистрации или "
 #~ "количеству откликов в любом порядке."
-
-#~ msgid "Full Version:"
-#~ msgstr "Полная версия:"
 
 #~ msgid "IMPORTANT:"
 #~ msgstr "ВАЖНО:"
