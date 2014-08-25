@@ -45,14 +45,11 @@
                 <ul class="blogposts clearfix">
                     <li>
                         <a href="http://pythondigest.ru/">
-                            <img src="http://pythondigest.ru/static/img/python_digest.png">
+                            <img src="{% static 'img/python_digest.png' %}">
                         </a>
                     </li>
                 </ul>
             </aside>
-            {% last_videos %}
-        </div>
-        <div class="span4 offset1">
             {% last_videos %}
         </div>
     </div>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-06 16:36+0300\n"
+"POT-Creation-Date: 2014-08-25 16:05+0300\n"
 "PO-Revision-Date: 2014-04-06 16:37+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: feeds.py:19
+msgid "Last messages on forum in categories {0}"
+msgstr ""
+
+#: feeds.py:46
+msgid "Last messages on forum in all categories"
+msgstr ""
 
 #: forms.py:47 models.py:308
 msgid "Message"
@@ -119,7 +127,7 @@ msgstr "отправлять email про новые ответы"
 msgid "Topic"
 msgstr "Тема"
 
-#: models.py:196 templates/djforum/index.html:30
+#: models.py:196 templates/djforum/index.html:33
 msgid "Topics"
 msgstr "Темы"
 
@@ -149,7 +157,7 @@ msgid "Post"
 msgstr "Отклик"
 
 #: models.py:317 templates/djforum/_post_author.html:13
-#: templates/djforum/index.html:31
+#: templates/djforum/index.html:34
 msgid "Posts"
 msgstr "Отклики"
 
@@ -203,7 +211,7 @@ msgstr "Откликов"
 msgid "Views"
 msgstr "Просмотров"
 
-#: templates/djforum/_topic_list.html:9 templates/djforum/index.html:32
+#: templates/djforum/_topic_list.html:9 templates/djforum/index.html:35
 msgid "Last post"
 msgstr "Последний отклик"
 
@@ -237,7 +245,7 @@ msgid "Submit"
 msgstr "Отправить"
 
 #: templates/djforum/add_post.html:27 templates/djforum/add_topic.html:36
-#: templates/djforum/edit_post.html:27
+#: templates/djforum/edit_post.html:27 templates/djforum/topic.html:152
 #, python-format
 msgid ""
 "\n"
@@ -272,47 +280,51 @@ msgstr ""
 "<a href=\"%(protocol)s://%(domain)s%(url)s\">%(protocol)s://%(domain)s"
 "%(url)s</a>\n"
 
-#: templates/djforum/forum.html:20 templates/djforum/index.html:12
+#: templates/djforum/forum.html:20 templates/djforum/index.html:13
 #: templates/djforum/topic.html:76 templates/djforum/unread_topics.html:6
 #: templates/djforum/unread_topics.html:13
 msgid "Unread topics"
 msgstr "Непрочитанные темы"
 
-#: templates/djforum/forum.html:28 templates/djforum/index.html:16
+#: templates/djforum/forum.html:28 templates/djforum/index.html:17
 #: templates/djforum/unread_topics.html:22
 msgid "Mark all as read"
 msgstr "Пометить всё как прочитанное"
 
-#: templates/djforum/index.html:9
+#: templates/djforum/forum.html:32 templates/djforum/index.html:20
+msgid "RSS"
+msgstr ""
+
+#: templates/djforum/index.html:8
 msgid "Search"
 msgstr "Поиск"
 
-#: templates/djforum/index.html:15 templates/djforum/my_topics.html:6
+#: templates/djforum/index.html:16 templates/djforum/my_topics.html:6
 #: templates/djforum/my_topics.html:13 templates/djforum/unread_topics.html:18
 msgid "My topics"
 msgstr "Мои темы"
 
-#: templates/djforum/index.html:67
+#: templates/djforum/index.html:70
 msgid "Total number of registered users:"
 msgstr "Пользователей зарегистрировано:"
 
-#: templates/djforum/index.html:68
+#: templates/djforum/index.html:71
 msgid "Total number of topics:"
 msgstr "Тем создано"
 
-#: templates/djforum/index.html:69
+#: templates/djforum/index.html:72
 msgid "Total number of posts:"
 msgstr "Откликов написано:"
 
-#: templates/djforum/index.html:72
+#: templates/djforum/index.html:75
 msgid "Registered users online:"
 msgstr "Пользователей онлайн:"
 
-#: templates/djforum/index.html:73
+#: templates/djforum/index.html:76
 msgid "Guests online:"
 msgstr "Гостей онлайн:"
 
-#: templates/djforum/index.html:75
+#: templates/djforum/index.html:78
 msgid "Online:"
 msgstr "Онлайн:"
 

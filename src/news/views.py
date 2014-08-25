@@ -9,7 +9,7 @@ from . import models
 
 
 def index(request):
-    qs = models.News.objects.all()
+    qs = models.News.objects.approved()
     extra_context = {}
     return object_list(request, qs, 10,
                        template_name='news/index.html',
@@ -19,5 +19,5 @@ def index(request):
 @render_to('news/news.html')
 def news(request, pk):
     return {
-        'obj': get_object_or_404(models.News, pk=pk)
+        'obj': get_object_or_404(models.News.objects.approved(), pk=pk)
     }

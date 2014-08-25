@@ -13,5 +13,5 @@ NEWS_ON_PAGE = getattr(settings, 'NEWS_ON_PAGE', 2)
 @register.inclusion_tag('news/_last_news.html')
 def last_news():
     return {
-        'news': models.News.objects.all()[:NEWS_ON_PAGE]
+        'news': models.News.objects.approved()[:NEWS_ON_PAGE]
     }
