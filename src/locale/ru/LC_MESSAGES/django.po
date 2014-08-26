@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-25 16:04+0300\n"
+"POT-Creation-Date: 2014-08-26 12:44+0400\n"
 "PO-Revision-Date: 2013-11-21 12:43+0200\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -1901,9 +1901,6 @@ msgstr "Ответ"
 msgid "Edit"
 msgstr "Редактировать"
 
-msgid "Full version:"
-msgstr "Полная версия:"
-
 #: forum/templates/djforum/_post.html:69
 #: forum/templates/djforum/topic.html:115
 #: templates/comments/_display_item.html:16 templates/comments/_item.html:21
@@ -2780,7 +2777,6 @@ msgid "Read More"
 msgstr "Читать дальше"
 
 #: templates/news/news.html:43
-#, fuzzy
 msgid "Full version:"
 msgstr "Полная версия:"
 
