@@ -145,6 +145,9 @@ nav.user a:hover {color:#138358;}
     border-bottom-color:#d8dfe5
 }
 
+.preheader .donate {
+    margin: 6px 0 0 2px;
+}
 /* main navigation / desktop styles
 ================================================== */
 .mobile_nav { display: none } /* hide trigger for desktop */
@@ -323,15 +326,11 @@ main_menu li.parent.foo.active a /***! added foo.active a **/
 ******************************************************
 ====================================================== */
 @media only screen and (max-width: 600px) {
-
 a.tele {
     cursor: pointer;
     pointer-events: visible;
 }
-
 }/**** end max width 600 ****/
-
-
 
 /*====================================================
 ******************************************************
@@ -340,6 +339,10 @@ a.tele {
 ====================================================== */
 @media only screen and (max-width: 767px) {
 /*** Header / Logo / Preheader Mobile Adjustments ***/
+
+.preheader .donate {
+    margin: 6px 0 0 50px;
+}
 
 nav.user {float:right;line-height:55px;}
 nav.user a {margin:0 10px 0 0;padding:0}
@@ -550,10 +553,19 @@ body.tall-logo nav.user {margin-left:0;}
     border-left:0px solid #fff;
     border-right:0px solid #fff;
 }
-
-
 }/**** end max width 767 ****/
 
+
+/*====================================================
+******************************************************
+/*  DEVICES less than 480px pixels wide
+******************************************************
+====================================================== */
+@media only screen and (max-width: 480px) {
+    .preheader .donate {
+        margin: 6px 0 0 10px;
+    }
+}/**** end max width 480px ****/
 
 
 /* ==================================================

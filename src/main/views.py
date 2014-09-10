@@ -73,6 +73,11 @@ def feedback(request):
     }
 
 
+@render_to('main/thanks.html')
+def thanks(request):
+    return {}
+
+
 def test_error_email(request):
     raise Exception('Test!')
     return
