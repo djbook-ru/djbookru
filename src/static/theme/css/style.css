@@ -10,6 +10,14 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu&subset=latin,cyrillic-ext,cyrillic);
 @import url('http://fonts.googleapis.com/css?family=Raleway:300,500,600,700');/*fonts*/
 
+#digital_ocean_referal {
+    background-image: url(../images/ssd-virtual-servers-banner-320x50.jpg);
+    display: inline-block;
+    margin: 0 auto;
+    width: 320px;
+    height: 50px;
+}
+
 .form-horizontal .control-label {
     width: 120px;
 }
@@ -1242,7 +1250,7 @@ font-size:70%!important;
 }
 #footer .footerCredits ul {
     list-style: none;
-    padding: 10px 0;
+    padding: 10px 0 0;
     margin: 0;
     position: relative;
     left: -10px;
