@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the translation package.
 # Ruslan Popov <ruslan.popov@gmail.com>, 2010.
 # Ruslan Popob <ruslan.popov@gmail.com>, 2011, 2012.
-# Dmitriy Kostochko <alerion.um@gmail.com>, 2013.
+# Dmitriy Kostochko <alerion.um@gmail.com>, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-26 12:44+0400\n"
-"PO-Revision-Date: 2013-11-21 12:43+0200\n"
+"POT-Creation-Date: 2014-09-27 15:17+0400\n"
+"PO-Revision-Date: 2014-09-27 15:23+0400\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -1830,7 +1830,6 @@ msgid "votes"
 msgstr "голоса"
 
 #: forum/models.py:191
-#, fuzzy
 msgid "send response on email"
 msgstr "Отправить письмо для подтверждение адреса электронной почты"
 
@@ -1845,7 +1844,7 @@ msgstr "Темы"
 #: forum/models.py:290
 #, python-format
 msgid "New post for your topic \"%(topic)s\""
-msgstr ""
+msgstr "Новая запись в вашей ветке \"%(topic)s\""
 
 #: forum/models.py:305
 msgid "Created"
@@ -1888,6 +1887,10 @@ msgid ""
 "strong>.\n"
 "                        "
 msgstr ""
+"\n"
+"                            Обновлено <strong>%(updated_by)s</strong> в "
+"%(updated)s.\n"
+"                        "
 
 #: forum/templates/djforum/_post.html:51 forum/templates/djforum/_post.html:55
 #: forum/templates/djforum/topic.html:119 templates/comments/_item.html:15
@@ -2007,7 +2010,7 @@ msgstr "Отметить все темы как прочитанные"
 
 #: forum/templates/djforum/forum.html:32 forum/templates/djforum/index.html:20
 msgid "RSS"
-msgstr ""
+msgstr "RSS"
 
 #: forum/templates/djforum/index.html:8 templates/main/search.html:5
 #: templates/main/search.html.py:13
@@ -2370,19 +2373,19 @@ msgstr "Поиск:"
 msgid "search + enter"
 msgstr "поиск + ввод"
 
-#: templates/base.html:135
+#: templates/base.html:136
 msgid "Subscribe to our RSS"
 msgstr "Подписаться на наш RSS"
 
-#: templates/base.html:137
+#: templates/base.html:139
 msgid "Documentation translation"
 msgstr "Перевод документации"
 
-#: templates/base.html:163
+#: templates/base.html:165
 msgid "Confirm you email"
 msgstr "Подтвердите адрес вашей электронной почты"
 
-#: templates/base.html:165
+#: templates/base.html:167
 msgid ""
 "\n"
 "                            You account does not have confirmed email.\n"
@@ -2397,15 +2400,15 @@ msgstr ""
 "почты и подтвердить его.\n"
 "                        "
 
-#: templates/base.html:171
+#: templates/base.html:173
 msgid "Your current email is:"
 msgstr "Текущий адрес электронной почты:"
 
-#: templates/base.html:172
+#: templates/base.html:174
 msgid "Send confirmation email"
 msgstr "Отправить письмо для подтверждение адреса электронной почты"
 
-#: templates/base.html:183
+#: templates/base.html:185
 msgid "Please, write feedback if something does not work"
 msgstr "Пожалуйста, дайте нам знать, если что-то не работает."
 
@@ -2760,6 +2763,10 @@ msgstr "следующие"
 msgid "Table of contents"
 msgstr "Содержимое"
 
+#: templates/main/donation.html:2
+msgid "Donations"
+msgstr "Пожертвование"
+
 #: templates/main/feedback.html:5
 msgid "Feedback"
 msgstr "Обратная связь"
@@ -2775,6 +2782,14 @@ msgstr "Мы рады получить ваши вопросы, коммента
 #: templates/main/search.html:34 templates/news/index.html:25
 msgid "Read More"
 msgstr "Читать дальше"
+
+#: templates/main/thanks.html:5
+msgid "Help Our Project"
+msgstr "Помогите нашему проекту"
+
+#: templates/main/thanks.html:10
+msgid "Thank you!"
+msgstr "Спасибо!"
 
 #: templates/news/news.html:43
 msgid "Full version:"
@@ -3756,10 +3771,6 @@ msgstr "видео"
 
 #~ msgid "more"
 #~ msgstr "ещё"
-
-#, fuzzy
-#~ msgid "Project"
-#~ msgstr "Идентификатор объекта"
 
 #, fuzzy
 #~ msgid "Component Name"
