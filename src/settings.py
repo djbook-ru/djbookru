@@ -363,7 +363,7 @@ def get_doc_pages(path, ext):
             for item in glob.glob('%s/*.%s' % (directory, ext)):
                 yield item
 
-DJANGO_DOCUMENTATION_URL = '/rel1.6/'
+DJANGO_DOCUMENTATION_URL = '/rel1.7/'
 
 INSTALLED_APPS += ('haystack', 'haystack_static_pages')
 HAYSTACK_SITECONF = 'src.search_sites'
