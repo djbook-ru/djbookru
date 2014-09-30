@@ -7,7 +7,7 @@ from .. import models
 
 register = template.Library()
 
-NEWS_ON_PAGE = getattr(settings, 'NEWS_ON_PAGE', 2)
+NEWS_ON_PAGE = getattr(settings, 'NEWS_ON_PAGE', 1)
 
 
 @register.inclusion_tag('news/_last_news.html')
