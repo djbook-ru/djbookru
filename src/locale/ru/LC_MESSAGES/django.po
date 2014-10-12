@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-27 15:17+0400\n"
+"POT-Creation-Date: 2014-10-12 16:41+0400\n"
 "PO-Revision-Date: 2014-09-27 15:23+0400\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -92,7 +92,7 @@ msgstr "Русский"
 msgid "English"
 msgstr "English"
 
-#: settings.py:405
+#: settings.py:385
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
 
@@ -2766,6 +2766,10 @@ msgstr "Содержимое"
 #: templates/main/donation.html:2
 msgid "Donations"
 msgstr "Пожертвование"
+
+#: templates/main/donation.html:16
+msgid "Use our referral code"
+msgstr "Воспользуйтесь нашей реферралкой"
 
 #: templates/main/feedback.html:5
 msgid "Feedback"
