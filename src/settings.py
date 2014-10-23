@@ -31,6 +31,8 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
+SECRET_KEY = 'somedefaultsecretkey'
+
 DATABASES = {
     'default': dict(
         ENGINE='django.db.backends.mysql',
@@ -137,7 +139,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.core.context_processors.request',
 
-    'adzone.context_processors.get_source_ip',
     'social_auth.context_processors.social_auth_backends',
 
     'src.context_processors.custom',
@@ -250,17 +251,13 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'django.contrib.markup',
     'django.contrib.flatpages',
 
-    'adzone',
     'bootstrapform',
     'chunks',
-    'google_analytics',
     'pagedown',
     'oembed',
     'pagination',
-    'report_tools',
     'sorl.thumbnail',
     'staging',
     'tagging',
@@ -325,21 +322,6 @@ AUTHENTICATION_BACKENDS += (
 ### SOCIAL_AUTH: END
 
 
-### ADMIN-TOOLS: BEGIN
-INSTALLED_APPS = (
-    'admin_tools',
-    'admin_tools.theming',
-    'admin_tools.menu',
-    'admin_tools.dashboard',
-) + INSTALLED_APPS
-
-ADMIN_TOOLS_INDEX_DASHBOARD = 'src.dashboard.CustomIndexDashboard'
-ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'src.dashboard.CustomAppIndexDashboard'
-ADMIN_TOOLS_MENU = 'src.menu.CustomMenu'
-ADMIN_TOOLS_THEMING_CSS = 'theme/css/admin.css'
-### ADMIN-TOOLS: END
-
-
 ### HAYSTACK: BEGIN
 def get_doc_pages(path, ext):
     if not isinstance(path, list):
@@ -364,20 +346,6 @@ HAYSTACK_STATIC_MAPPING = {
     os.path.expanduser('~/devel/djdoc/source/_build/html'): 'http://127.0.0.1:8000%s' % DJANGO_DOCUMENTATION_URL
     }
 ### HAYSTACK: END
-
-
-### SENTRY: BEGIN
-INSTALLED_APPS += (
-    'indexer',
-    'paging',
-    'sentry',
-    'sentry.client',
-    'sentry.plugins.sentry_servers',
-    'sentry.plugins.sentry_sites',
-    'sentry.plugins.sentry_urls',
-)
-MIDDLEWARE_CLASSES += ('sentry.client.middleware.SentryResponseErrorIdMiddleware', )
-### SENTRY: END
 
 
 ### FEEDBACK: BEGIN

@@ -71,7 +71,7 @@ class Example(models.Model):
     def get_edit_url(self):
         return ('admin:examples_example_change', [self.pk])
 
-    @transaction.commit_on_success
+    @transaction.atomic
     def save(self):
         is_create = self.pk is None
 

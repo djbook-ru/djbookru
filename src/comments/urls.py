@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django.conf.urls.defaults import url, patterns
+from django.conf.urls import patterns, url
 
 urlpatterns = patterns('src.comments.views',
     url('post/$', 'post', name='post'),

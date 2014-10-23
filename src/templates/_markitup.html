@@ -2,7 +2,7 @@
 <script type="text/javascript" src="{% static "markitup/jquery.markitup.js" %}></script>
 <script type="text/javascript">
         var MEDIA_URL = "{{ STATIC_URL }}";
-        var POST_PREVIEW_URL = "{% url main:markdown_preview %}";
+        var POST_PREVIEW_URL = "{% url 'main:markdown_preview' %}";
 </script>
 <script type="text/javascript" src="{% static "markitup/sets/markdown/set.js" %}"></script>
 <link rel="stylesheet" type="text/css" href="{% static "markitup/skins/markitup/style.css" %}" />

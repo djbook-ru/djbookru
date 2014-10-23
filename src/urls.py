@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.conf import settings
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls import patterns, url, include
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
@@ -12,7 +12,6 @@ from src.main import feeds
 from src.utils.views import direct_to_template
 
 haystack_autodiscover()
-admin.autodiscover()
 sites_flatpages_patch()
 
 js_info_dict = {
@@ -23,10 +22,7 @@ urlpatterns = patterns('',
     url(r'^', include('src.main.urls', 'main')),
     url(r'^', include('social_auth.urls')),
     url(r'^feed/$', feeds.LatestFeed(), name='rss'),
-    url(r'^admin_tools/', include('admin_tools.urls')),
-    url(r'^sentry/', include('sentry.urls')),
     url(r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict, name='js_i18n_catalog'),
-    url(r'^adzone/', include('adzone.urls')),
     url(r'^news/', include('src.news.urls', 'news')),
     url(r'^videos/', include('src.videos.urls', 'videos')),
     url(r'^claims/', include('src.claims.urls', 'claims')),
@@ -34,7 +30,6 @@ urlpatterns = patterns('',
     url(r'^examples/', include('src.examples.urls', 'examples')),
     url(r'^auth/', include('src.accounts.urls', 'accounts')),
     url(r'^forum/', include('src.forum.urls', 'forum')),
-    url(r'^admin_tools/', include('admin_tools.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^doc_comments/', include('src.doc_comments.urls', 'doc_comments')),
     url(r'^comments/', include('src.comments.urls', 'comments')),

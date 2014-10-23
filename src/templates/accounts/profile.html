@@ -1,7 +1,6 @@
 {% extends 'accounts/base.html' %}
 
 {% load thumbnail i18n staticfiles accounts_tags %}
-{% load url from future %}
 
 {% block title %}{{ user_obj }} | {{ block.super }}{% endblock %}
 {% block head %}
@@ -30,7 +29,7 @@
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 	}).addTo(map);
-        
+
 	  // define markers
 	var UserMarker = L.Icon.extend({
 	    options: {

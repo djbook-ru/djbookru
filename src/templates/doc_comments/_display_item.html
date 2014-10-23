@@ -12,12 +12,12 @@
             <time class="published" datetime="{{ item.created|date:'DATETIME_FORMAT' }}">{{ item.created|date:'DATE_FORMAT' }}</time>
             | <a class="permalink" href="{{ item.get_absolute_url }}">{% trans 'Permalink' %}</a>
             {% if user.is_staff and perms.comments.delete_comment %}
-                | <a href="{% url admin:doc_comments_comment_delete item.pk %}" target="blank" class="permalink">
+                | <a href="{% url 'admin:doc_comments_comment_delete' item.pk %}" target="blank" class="permalink">
                     {% trans 'Delete' %}
                 </a>
             {% endif %}
             {% if user.is_staff and perms.comments.change_comment %}
-                | <a href="{% url admin:doc_comments_comment_change item.pk %}" target="blank" class="permalink">
+                | <a href="{% url 'admin:doc_comments_comment_change' item.pk %}" target="blank" class="permalink">
                     {% trans 'Edit' %}
                 </a>
             {% endif %}

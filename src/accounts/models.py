@@ -11,7 +11,6 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models.signals import post_save
 from django.utils import timezone
-from django.utils.hashcompat import sha_constructor
 from django.utils.translation import ugettext_lazy as _
 
 from src.accounts.countries import CountryField
@@ -59,7 +58,7 @@ class UserManager(BaseUserManager):
 
 class User(BaseUser):
     biography = models.TextField(_(u'biography'), blank=True)
-    homepage = models.URLField(_(u'homepage'), verify_exists=False, blank=True)
+    homepage = models.URLField(_(u'homepage'), blank=True)
     is_valid_email = models.BooleanField(_(u'is valid email?'), default=False)
     achievements = models.ManyToManyField('Achievement', verbose_name=_(u'achievements'), through='UserAchievement')
     signature = models.TextField(_('forum signature'), blank=True,  max_length=1024)
@@ -216,8 +215,8 @@ class EmailConfirmationManager(models.Manager):
 
         self.filter(user=user).delete()
 
-        salt = sha_constructor(str(random.random()) + settings.SECRET_KEY).hexdigest()[:5]
-        confirmation_key = sha_constructor(salt + user.email.encode('utf8')).hexdigest()
+        salt = hashlib.sha1(str(random.random()) + settings.SECRET_KEY).hexdigest()[:5]
+        confirmation_key = hashlib.sha1(salt + user.email.encode('utf8')).hexdigest()
         try:
             current_site = Site.objects.get_current()
         except Site.DoesNotExist:

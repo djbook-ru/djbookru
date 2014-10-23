@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, url
 
 from src.forum.feeds import FeedLatestPosts, FeedLatestPostsByForum
 from src.forum.models import Topic, Post

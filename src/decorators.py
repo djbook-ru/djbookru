@@ -1,9 +1,10 @@
 import json
+from functools import update_wrapper
+
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from django.http import HttpResponse
 from django.core.serializers.json import DjangoJSONEncoder
-from django.utils.functional import update_wrapper
 
 
 def render_to(template, processor=None):

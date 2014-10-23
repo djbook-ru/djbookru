@@ -5,12 +5,12 @@
 </ul>
 <script type="text/javascript">
     function update_comments(){
-        jQuery.post('{% url comments:update_comments %}', {
+        jQuery.post("{% url 'comments:update_comments' %}", {
             ct: '{{ content_type.pk }}',
             last_comment_id: jQuery('#comments .comments-list li:last').attr('comment_id') || '',
             obj_id: '{{ obj.pk }}'
         }, function(data){
-            jQuery('#comments .comments-list').append(data)
-        }, 'html')
+            jQuery('#comments .comments-list').append(data);
+        }, 'html');
     }
 </script>
