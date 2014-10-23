@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from ..decorators import render_to
 from .import models
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-from django.views.generic.list_detail import object_list
 from tagging.models import TaggedItem, Tag
 
 VIDEOS_ON_PAGE = getattr(settings, 'VIDEOS_ON_PAGE', 8)
 
 
 def index(request):
+    from django.views.generic.list_detail import object_list
     qs = models.Video.objects.all()
     tag_name = request.GET.get('tag', None)
     tag = None

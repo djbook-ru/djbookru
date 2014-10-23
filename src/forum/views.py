@@ -9,7 +9,6 @@ from django.shortcuts import get_object_or_404, redirect
 from django.utils.translation import ugettext_lazy as _
 from django.utils.timezone import now
 from django.views.generic.list import ListView
-from django.views.generic.list_detail import object_list
 
 from src.accounts.models import User
 from src.decorators import render_to
@@ -17,7 +16,7 @@ from src.forum.forms import AddTopicForm, AddPostForm
 from src.forum.forms import EditPostForm, MoveTopicForm
 from src.forum.models import Category, Forum, Topic, Post
 from src.forum.settings import POSTS_ON_PAGE
-from src.utils.views import JsonResponse
+from src.utils.views import JsonResponse, object_list
 
 
 @render_to('djforum/index.html')
