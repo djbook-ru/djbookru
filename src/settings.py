@@ -350,6 +350,7 @@ def get_doc_pages(path, ext):
                 yield item
 
 DJANGO_DOCUMENTATION_URL = '/rel1.7/'
+DJANGO_DOCUMENTATION_SITEMAP_URL = '/rel1.7/sitemap.xml'
 
 INSTALLED_APPS += ('haystack', 'haystack_static_pages')
 HAYSTACK_SITECONF = 'src.search_sites'
