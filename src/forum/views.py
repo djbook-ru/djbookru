@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
+import pygal
+from pygal.style import LightGreenStyle
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.cache import cache
-from django.db.models import F
-from django.http import Http404
+from django.db.models import F, Sum, Count
+from django.http import Http404, HttpResponse
 from django.shortcuts import get_object_or_404, redirect
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _, ugettext
 from django.utils.timezone import now
 from django.views.generic.list import ListView
 from django.views.generic.list_detail import object_list
@@ -324,3 +326,43 @@ def vote(request, pk, model):
         'rating': obj.rating,
         'voted': voted
     })
+
+
+@render_to('djforum/statistic.html')
+def statistic(request):
+    most_active_users = User.objects.annotate(Count('forum_posts')) \
+        .order_by('-forum_posts__count')[:10]
+    most_topics_users = User.objects.annotate(Count('forum_topics')) \
+        .order_by('-forum_topics__count')[:10]
+
+    return {
+        'active_users_count': User.objects.exclude(forum_posts=None).count(),
+        'topics_count': Topic.objects.count(),
+        'posts_count': Post.objects.count(),
+        'first_post_created': Post.objects.order_by('created')[0].created,
+        'views_count': Topic.objects.aggregate(Sum('views'))['views__sum'],
+        'most_viewed_topics': Topic.objects.order_by('-views')[:10],
+        'most_active_users': most_active_users,
+        'most_topics_users': most_topics_users
+    }
+
+
+def posts_per_month_chart(request):
+    posts_per_month = Post.objects \
+        .extra(select={'year': "EXTRACT(year FROM created)",
+               'month': "EXTRACT(month from created)"}) \
+        .values('year', 'month').annotate(Count('id')) \
+        .order_by('year', 'month')
+
+    posts_per_month_chart = pygal.Bar(show_legend=False, style=LightGreenStyle, x_label_rotation=45)
+    posts_per_month_chart.title = ugettext('Posts per month')
+    posts_per_month_chart.x_labels = \
+        ['%s.%s' % (item['month'], item['year']) for item in posts_per_month]
+
+    data = [{
+        'value': item['id__count'],
+        'label': '%s.%s' % (item['month'], item['year'])
+    } for item in posts_per_month]
+    posts_per_month_chart.add(ugettext('Posts count'), data)
+    content = posts_per_month_chart.render()
+    return HttpResponse(content, content_type='image/svg+xml')
