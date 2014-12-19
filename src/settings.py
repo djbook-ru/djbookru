@@ -262,6 +262,10 @@ INSTALLED_APPS = (
     'staging',
     'tagging',
     'ordered_model',
+    'social_auth',
+    'haystack',
+    'haystack_static_pages',
+    'south',
 
     'src.forum',
     'src.accounts',
@@ -280,6 +284,7 @@ INSTALLED_APPS = (
 
 
 ### AUTH: BEGIN
+#AUTH_USER_MODEL = 'accounts.User'
 LOGIN_URL = '/auth/login/'
 LOGIN_ERROR_URL = LOGIN_URL
 LOGIN_REDIRECT_URL = '/'
@@ -295,7 +300,6 @@ TWITTER_CONSUMER_SECRET = 'see production settings'
 
 
 ### SOCIAL_AUTH: BEGIN
-INSTALLED_APPS += ('social_auth', )
 SOCIAL_AUTH_USER_MODEL = 'accounts.User'
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 SOCIAL_AUTH_PIPELINE = (
@@ -334,7 +338,6 @@ def get_doc_pages(path, ext):
 DJANGO_DOCUMENTATION_URL = '/rel1.7/'
 DJANGO_DOCUMENTATION_SITEMAP_URL = '/rel1.7/sitemap.xml'
 
-INSTALLED_APPS += ('haystack', 'haystack_static_pages')
 HAYSTACK_SITECONF = 'src.search_sites'
 HAYSTACK_SEARCH_ENGINE = 'xapian'
 HAYSTACK_XAPIAN_PATH = rel_project('search', 'xapian_index')
@@ -356,7 +359,6 @@ FEEDBACK_SUBJECT = gettext_noop(u'Feedback message from Djbook.ru')
 
 
 ### SOUTH: BEGIN
-INSTALLED_APPS += ('south', )
 SKIP_SOUTH_TESTS = True
 SOUTH_TESTS_MIGRATE = False
 ### SOUTH: END

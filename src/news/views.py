@@ -9,7 +9,7 @@ from .models import News
 
 class NewsListView(ListView):
     queryset = News.objects.approved()
-    template = 'news/index.html'
+    template_name = 'news/index.html'
     paginate_by = 10
 
 index = NewsListView.as_view()
