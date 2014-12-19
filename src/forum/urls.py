@@ -25,5 +25,7 @@ urlpatterns = patterns('src.forum.views',
     url(r'^subscribe/(\d+)/$', 'subscribe', name='subscribe'),
     url(r'^unsubscribe/(\d+)/$', 'unsubscribe', name='unsubscribe'),
     url(r'^feeds/(?P<forum_id>\d+)/$', FeedLatestPostsByForum(), name='feed_latest_forum_entries'),
-    url(r'^feeds/$', FeedLatestPosts(), name='feed_latest_entries')
+    url(r'^feeds/$', FeedLatestPosts(), name='feed_latest_entries'),
+    url(r'^statistic/$', 'statistic', name='statistic'),
+    url(r'^statistic/posts_per_month_chart\.svg$', 'posts_per_month_chart', name='posts_per_month_chart'),
 )

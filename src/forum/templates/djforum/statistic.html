@@ -1,0 +1,90 @@
+{% extends "djforum/base.html" %}
+
+{% load i18n staticfiles %}
+{% load url from future %}
+
+{% block content %}
+    <aside class="widget forum">
+        <h5 class="short_headline"><span>{% trans "General" %}</span></h5>
+
+        <table>
+            <tbody>
+                <tr>
+                    <td>{% trans 'First post date:' %}</td>
+                    <td>{{ first_post_created }} ({{ first_post_created|timesince}})</td>
+                </tr>
+                <tr>
+                    <td title="{% trans 'User has at least one post' %}">{% trans 'Active users:' %}</td>
+                    <td>{{ active_users_count }}</td>
+                </tr>
+                <tr>
+                    <td>{% trans 'Topics:' %}</td>
+                    <td>{{ topics_count }}</td>
+                </tr>
+                <tr>
+                    <td>{% trans 'Posts:' %}</td>
+                    <td>{{ posts_count }}</td>
+                </tr>
+                <tr>
+                    <td>{% trans "Topic views:" %}</td>
+                    <td>{{ views_count }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </aside>
+
+    <aside class="widget forum">
+        <h5 class="short_headline"><span>{% trans "Most viewed topics" %}</span></h5>
+
+        <table>
+            <tbody>
+                {% for topic in most_viewed_topics %}
+                <tr>
+                    <td><a href="{{ topic.get_absolute_url }}">{{ topic }}</a></td>
+                    <td>{{ topic.views }} {% trans "views" %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </aside>
+
+    <aside class="widget forum">
+        <h5 class="short_headline"><span>{% trans "Most active users" %}</span></h5>
+
+        <table>
+            <tbody>
+                {% for user in most_active_users %}
+                <tr>
+                    <td>
+                        <a href="{{ user.get_absolute_url }}">{{ user }}</a>
+                    </td>
+                    <td>{{ user.forum_posts__count }} {% trans "posts" %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </aside>
+
+    <aside class="widget forum">
+        <h5 class="short_headline"><span>{% trans "Users with most topics" %}</span></h5>
+
+        <table>
+            <tbody>
+                {% for user in most_topics_users %}
+                <tr>
+                    <td>
+                        <a href="{{ user.get_absolute_url }}">{{ user }}</a>
+                    </td>
+                    <td>{{ user.forum_topics__count }} {% trans "topics" %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </aside>
+
+    <aside class="widget forum">
+        <figure>
+            <embed type="image/svg+xml" src="{% url 'forum:posts_per_month_chart' %}" />
+        </figure>
+    </aside>
+{% endblock %}

@@ -19,6 +19,7 @@ python-dateutil==1.5
 python_openid==2.2.5
 South==1.0.1
 pytils==0.2.3
+pygal==1.5.1
 pytz
 sorl-thumbnail==11.12
 xapian-haystack==1.1.5beta
