@@ -17,6 +17,7 @@ class CustomUserChangeForm(UserChangeForm):
 
     class Meta:
         model = models.User
+        fields = '__all__'
 
 
 class CustomUserAdmin(UserAdmin):

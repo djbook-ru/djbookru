@@ -18,6 +18,7 @@ class ExampleForm(ModelForm):
 
     class Meta:
         model = models.Example
+        fields = '__all__'
 
 
 class ExampleAdmin(admin.ModelAdmin):

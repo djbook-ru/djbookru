@@ -12,6 +12,7 @@ class VideoAdminForm(forms.ModelForm):
 
     class Meta:
         model = models.Video
+        fields = '__all__'
 
     def clean_video(self):
         video_link = self.cleaned_data.get('video')
