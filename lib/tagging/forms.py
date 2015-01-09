@@ -8,9 +8,11 @@ from tagging import settings
 from tagging.models import Tag
 from tagging.utils import parse_tag_input
 
+
 class TagAdminForm(forms.ModelForm):
     class Meta:
         model = Tag
+        fields = '__all__'
 
     def clean_name(self):
         value = self.cleaned_data['name']
@@ -22,6 +24,7 @@ class TagAdminForm(forms.ModelForm):
                 _('A tag may be no more than %s characters long.') %
                     settings.MAX_TAG_LENGTH)
         return value
+
 
 class TagField(forms.CharField):
     """

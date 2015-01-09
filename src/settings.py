@@ -265,7 +265,6 @@ INSTALLED_APPS = (
     'social_auth',
     'haystack',
     'haystack_static_pages',
-    'south',
 
     'src.forum',
     'src.accounts',

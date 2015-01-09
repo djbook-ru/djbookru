@@ -7,7 +7,6 @@ django-model-utils==1.0.0
 django-pagedown==0.0.5
 python-oembed==0.2.1
 django-salmonella==0.5.1
-django-social-auth==0.7.28
 django-tagging==0.3.4
 django-tastypie==0.9.11
 django-ordered-model==0.4.0
