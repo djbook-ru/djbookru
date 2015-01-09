@@ -365,6 +365,10 @@ SOUTH_TESTS_MIGRATE = False
 RECAPTCHA_PUBLIC = ''
 RECAPTCHA_PRIVATE = ''
 
+MIGRATION_MODULES = {
+    'auth': 'src.main.migrations_auth',
+}
+
 try:
     LOCAL_SETTINGS
 except NameError:
