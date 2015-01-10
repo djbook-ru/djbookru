@@ -79,7 +79,7 @@ class Nonce(models.Model, NonceMixin):
 
     class Meta:
         app_label = 'social_auth'
-        unique_together = ('server_url', 'timestamp', 'salt')
+        unique_together = ('timestamp', 'salt', 'server_url')
 
 
 class Association(models.Model, AssociationMixin):

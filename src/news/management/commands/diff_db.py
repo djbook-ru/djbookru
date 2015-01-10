@@ -5,6 +5,7 @@ pip install terminaltables
 import difflib
 import hashlib
 import os
+import sqlparse
 import subprocess
 import warnings
 
@@ -19,16 +20,49 @@ from django.core.management.base import BaseCommand
 from django.db import connections, DEFAULT_DB_ALIAS
 from django.db.utils import DatabaseError
 
+from src.settings import rel_project
+
 
 DJANGO_DB_ALIAS = 'django'
 BEFORE_DUMP_PATH = '/tmp/dump/before'
 AFTER_DUMP_PATH = '/tmp/dump/after'
+PATCH_PATH = 'db_fix_patch.sql'
+REMOVE_TABLES = (
+    'admin_tools_dashboard_preferences',
+    'admin_tools_menu_bookmark',
+    'adzone_adbase',
+    'adzone_adcategory',
+    'adzone_adclick',
+    'adzone_adimpression',
+    'adzone_advertiser',
+    'adzone_adzone',
+    'adzone_bannerad',
+    'adzone_textad',
+    'auth_message',
+    'google_analytics_analytics',
+    'indexer_index',
+    'poll_choice',
+    'poll_item',
+    'poll_poll',
+    'poll_poll_votes',
+    'poll_queue',
+    'poll_vote',
+    'robots_rule',
+    'robots_rule_allowed',
+    'robots_rule_disallowed',
+    'robots_rule_sites',
+    'robots_url',
+    'sentry_filtervalue',
+    'sentry_groupedmessage',
+    'sentry_message',
+    'south_migrationhistory',
+)
 
 
 class Command(BaseCommand):
     option_list = BaseCommand.option_list + (
-        make_option('--dump', action='store', dest='../dump',
-                    default='dump.sql', help='Path to DB dump.'),
+        make_option('--dump', action='store', dest='dump',
+                    default='../20141029.sql', help='Path to DB dump.'),
     )
 
     requires_system_checks = False
@@ -39,10 +73,13 @@ class Command(BaseCommand):
 
         if options.get('dump'):
             print(self.style.MIGRATE_HEADING(u'Load dump to default database...'))
-            prod.load_dump(settings.rel_project(options.get('dump')))
+            prod.load_dump(rel_project(options.get('dump')))
 
         print(self.style.MIGRATE_HEADING(u'Dump data before final migrations...'))
         prod.make_dump(BEFORE_DUMP_PATH)
+
+        print(self.style.MIGRATE_HEADING(u'Apply patch...'))
+        prod.apply_sql(rel_project(PATCH_PATH))
 
         print(self.style.MIGRATE_HEADING(u'Run final migrations...'))
         call_command('migrate', interactive=False)
@@ -82,6 +119,146 @@ class Command(BaseCommand):
 
         print(self.style.MIGRATE_HEADING(u'Check data...'))
         self.data_diff(BEFORE_DUMP_PATH, AFTER_DUMP_PATH)
+
+    def tables_diff(self, db1, db2):
+        db1_tables = set(db1.get_table_list())
+        db2_tables = set(db2.get_table_list())
+
+        assert not db1_tables.intersection(set(REMOVE_TABLES))
+        assert not db2_tables.intersection(set(REMOVE_TABLES))
+
+        db1_diff = db1_tables.difference(db2_tables)
+        db2_diff = db2_tables.difference(db1_tables)
+
+        def print_diff(db_diff, db, style):
+            if db_diff:
+                print(style.ERROR('These tables exist only in %s:' % db.db_name))
+                for table_name in db_diff:
+                    print(style.HTTP_INFO('%s rows: %s DROP TABLE `%s`;' % (table_name, db.rows_count(table_name), table_name)))
+                print('')
+
+        print_diff(db1_diff, db1, self.style)
+
+        return db1_tables.intersection(db2_tables)
+
+    def table_diff(self, table_name, db1, db2):
+        columns1 = db1.get_columns(table_name)
+        columns2 = db2.get_columns(table_name)
+
+        diff = list(difflib.unified_diff(columns1, columns2))
+        if diff:
+            print(self.style.ERROR(table_name))
+            print(db1.get_create_table(table_name))
+            print('')
+            print(db2.get_create_table(table_name))
+            table = DiffTable(
+                ['', 'Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+                diff, db1.alias, db2.alias)
+
+            print(table.table)
+
+    def index_diff(self, table_name, db1, db2):
+        indexes1 = db1.get_indexes(table_name)
+        indexes2 = db2.get_indexes(table_name)
+
+        diff = list(difflib.unified_diff(indexes1, indexes2))
+
+        if diff:
+            print(self.style.ERROR(table_name))
+            print(db1.get_create_table(table_name))
+            print('')
+            print(db2.get_create_table(table_name))
+            table = DiffTable(
+                ['', 'Field', 'Primary', 'Unique'],
+                diff, db1.alias, db2.alias)
+            print(table.table)
+
+    def constraints_diff(self, table_name, db1, db2):
+        constraints1 = db1.get_constraints(table_name)
+        constraints2 = db2.get_constraints(table_name)
+
+        diff = list(difflib.unified_diff(constraints1, constraints2))
+
+        if diff:
+            print(self.style.ERROR(table_name))
+            print(db1.get_create_table(table_name))
+            print('')
+            print(db2.get_create_table(table_name))
+            table = DiffTable(
+                ['', 'Columns', 'FK', 'PK', 'Unique'],
+                diff, db1.alias, db2.alias)
+            print(table.table)
+
+    def data_diff(self, before_path, after_path):
+        for file_path in os.listdir(before_path):
+            if not file_path.endswith('.txt'):
+                continue
+
+            file_before = open(os.path.join(before_path, file_path))
+            file_after = open(os.path.join(after_path, file_path))
+
+            hash_before = hashlib.sha256(file_before.read()).hexdigest()
+            hash_after = hashlib.sha256(file_after.read()).hexdigest()
+
+            if hash_before != hash_after:
+                print(self.style.ERROR('Broken data after patch: %s' % file_path.split('.')[0]))
+
+    def triggers_diff(self, db1, db2):
+        triggers1 = db1.get_triggers()
+        triggers2 = db2.get_triggers()
+
+        diff = list(difflib.unified_diff(triggers1, triggers2))
+
+        if diff:
+            table = DiffTable(
+                ['', 'Name', 'Table', 'Event', 'Timing', 'MD5(Statment)'],
+                diff, db1.alias, db2.alias)
+            print(table.table)
+
+    def content_types_diff(self, db1, db2):
+        content_types1 = db1.get_content_types()
+        content_types2 = db2.get_content_types()
+
+        diff = list(difflib.unified_diff(content_types1, content_types2))
+
+        if diff:
+            table = DiffTable(
+                ['', 'Name', 'App label', 'Model'],
+                diff, db1.alias, db2.alias)
+            print(table.table)
+
+    def permissions_diff(self, db1, db2):
+        permissions1 = db1.get_permissions()
+        permissions2 = db2.get_permissions()
+
+        diff = list(difflib.unified_diff(permissions1, permissions2))
+
+        if diff:
+            table = DiffTable(
+                ['', 'Name', 'Code', 'CT name', 'App label', 'Model'],
+                diff, db1.alias, db2.alias)
+            print(table.table)
+
+    def migrations_diff(self, db1, db2):
+        migrations1 = db1.get_migrations()
+        migrations2 = db2.get_migrations()
+
+        diff = list(difflib.unified_diff(migrations1, migrations2))
+
+        if diff:
+            table = DiffTable(
+                ['', 'App', 'Name'],
+                diff, db1.alias, db2.alias)
+            print(table.table)
+
+
+def format_output(rows):
+    output = []
+    for row in rows:
+        row = [unicode(item) for item in row]
+        output.append(u'|'.join(row))
+    output.sort()
+    return output
 
 
 class DBSchema(object):
@@ -183,10 +360,12 @@ class DBSchema(object):
         cursor = self.connection.cursor()
 
         with open(path) as f:
-            statements = parse_mysql_script(f.read())
-
-            for statement in statements:
+            for statement in sqlparse.split(f.read()):
                 statement = statement.strip()
+
+                if not statement:
+                    continue
+
                 with warnings.catch_warnings(record=True) as query_warnings:
                     try:
                         cursor.execute(statement.replace('%', '%%'))

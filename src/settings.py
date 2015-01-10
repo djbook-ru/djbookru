@@ -308,6 +308,8 @@ SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.social.associate_user',
     'social_auth.backends.pipeline.social.load_extra_data',
 )
+SOCIAL_AUTH_ASSOCIATION_SERVER_URL_LENGTH = 250
+SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 83
 OPENID_REDIRECT_NEXT = '/socialauth/openid/done/'
 
 GITHUB_APP_ID = ''

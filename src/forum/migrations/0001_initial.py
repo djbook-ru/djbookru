@@ -10,7 +10,6 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('accounts', '0001_initial'),
-        ('auth', '0002_make_email_unique'),
     ]
 
     operations = [

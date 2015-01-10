@@ -10,7 +10,7 @@ from django.conf import settings
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('auth', '0002_make_email_unique'),
+        ('auth', '0001_initial'),
     ]
 
     operations = [
