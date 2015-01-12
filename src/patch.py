@@ -15,6 +15,7 @@ class FlatpageForm(forms.ModelForm):
 
     class Meta:
         model = FlatPage
+        fields = '__all__'
 
 
 class FlatPageAdmin(admin.ModelAdmin):

@@ -253,7 +253,6 @@ INSTALLED_APPS = (
     'oembed',
     'pagination',
     'sorl.thumbnail',
-    'staging',
     'tagging',
     'ordered_model',
     'social.apps.django_app.default',
