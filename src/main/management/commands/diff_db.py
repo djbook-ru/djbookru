@@ -40,6 +40,10 @@ REMOVE_TABLES = (
     'adzone_bannerad',
     'adzone_textad',
     'auth_message',
+    'code_review_comment'
+    'code_review_file',
+    'code_review_snipet',
+    'code_review_snipet_rated_by',
     'google_analytics_analytics',
     'indexer_index',
     'poll_choice',
@@ -115,11 +119,11 @@ class Command(BaseCommand):
         print(self.style.MIGRATE_HEADING(u'Check migrations...'))
         self.migrations_diff(prod, django)
 
-        print(self.style.MIGRATE_HEADING(u'Dump data after patch...'))
-        prod.make_dump(AFTER_DUMP_PATH)
+        #print(self.style.MIGRATE_HEADING(u'Dump data after patch...'))
+        #prod.make_dump(AFTER_DUMP_PATH)
 
-        print(self.style.MIGRATE_HEADING(u'Check data...'))
-        self.data_diff(BEFORE_DUMP_PATH, AFTER_DUMP_PATH)
+        #print(self.style.MIGRATE_HEADING(u'Check data...'))
+        #self.data_diff(BEFORE_DUMP_PATH, AFTER_DUMP_PATH)
 
     def tables_diff(self, db1, db2):
         db1_tables = set(db1.get_table_list())

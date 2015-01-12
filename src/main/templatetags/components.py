@@ -158,6 +158,10 @@ def search_model_name(result_item):
 
 @register.filter
 def fix_auth_backend_name(name):
-    if name == 'Google-Oauth2':
+    if name == 'google-oauth2':
         return 'Google'
+    if name == 'yandex-openid':
+        return 'Yandex'
+    if name == 'github':
+        return 'GitHub'
     return name

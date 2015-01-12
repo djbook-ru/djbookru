@@ -46,14 +46,14 @@ def index(request):
 
 @render_to('djforum/forum.html')
 def forum(request, pk):
-    forum = get_object_or_404(Forum, pk=pk)
+    forum_obj = get_object_or_404(Forum, pk=pk)
 
-    if not forum.has_access(request.user):
+    if not forum_obj.has_access(request.user):
         raise Http404
 
-    qs = forum.topics.all()
+    qs = forum_obj.topics.all()
     extra_context = {
-        'forum': forum
+        'forum': forum_obj
     }
     return object_list(request, qs, 20,
                        template_name='djforum/forum.html',

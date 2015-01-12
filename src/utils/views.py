@@ -102,8 +102,8 @@ def object_list(request, queryset, paginate_by=None, page=None,
             'has_next': page_obj.has_next(),
             'has_previous': page_obj.has_previous(),
             'page': page_obj.number,
-            'next': page_obj.next_page_number(),
-            'previous': page_obj.previous_page_number(),
+            'next': page_obj.next_page_number() if page_obj.has_next() else None,
+            'previous': page_obj.previous_page_number() if page_obj.has_previous() else None,
             'first_on_page': page_obj.start_index(),
             'last_on_page': page_obj.end_index(),
             'pages': paginator.num_pages,
@@ -128,4 +128,4 @@ def object_list(request, queryset, paginate_by=None, page=None,
         model = queryset.model
         template_name = "%s/%s_list.html" % (model._meta.app_label, model._meta.object_name.lower())
     t = template_loader.get_template(template_name)
-    return HttpResponse(t.render(c), mimetype=mimetype)
+    return HttpResponse(t.render(c), content_type=mimetype)

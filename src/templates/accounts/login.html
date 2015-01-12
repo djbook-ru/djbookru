@@ -43,10 +43,10 @@
 
                     <div class="float-left">
                         <ul>
-                            {% for backend in social_auth.backends %}
+                            {% for backend in backends.backends %}
                                 <li>
-                                    <a class="btn" style="width: 160px" href="{% url 'socialauth_begin' backend %}?next={{ next }}">
-                                        {% trans 'Sign in with' %} {{ backend.title|fix_auth_backend_name }}
+                                    <a class="btn" style="width: 160px" href="{% url 'social:begin' backend %}?next={{ next }}">
+                                        {% trans 'Sign in with' %} {{ backend|fix_auth_backend_name }}
                                     </a>
                                 </li>
                             {% endfor %}

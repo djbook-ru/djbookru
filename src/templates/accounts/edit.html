@@ -8,14 +8,15 @@
 <div class="register-box clearfix">
     <h2 class="short_headline"><span>{% trans "Connect accounts" %}</span></h2>
 
-    {% for backend in social_auth.associated %}
-        <a href="{% url 'socialauth_disconnect' backend.provider %}?next={{ request.path_info|urlencode }}" class="btn btn-success" title="{% trans 'Disconnect account' %}">
-            {{ backend.provider.title|fix_auth_backend_name }}
-        </a>
+    {% for backend in backends.associated %}
+        <form method="POST" action="{% url 'social:disconnect' backend.provider %}?next={{ request.path_info|urlencode }}" style="display: inline">
+            {% csrf_token %}
+            <button class="btn btn-success">{{ backend.provider|fix_auth_backend_name }}</button>
+        </form>
     {% endfor %}
-    {% for backend in social_auth.not_associated %}
-        <a href="{% url 'socialauth_begin' backend %}?next={{ request.path_info|urlencode }}" class="btn btn-info" title="{% trans 'Connect account' %}">
-            {{ backend.title|fix_auth_backend_name }}
+    {% for backend in backends.not_associated %}
+        <a href="{% url 'social:begin' backend %}?next={{ request.path_info|urlencode }}" class="btn btn-info" title="{% trans 'Connect account' %}">
+            {{ backend|fix_auth_backend_name }}
         </a>
     {% endfor %}
 </div>

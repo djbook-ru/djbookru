@@ -28,5 +28,5 @@ def render_to_json(func):
     def wrapper(request, *args, **kwargs):
         result = func(request, *args, **kwargs)
         data = json.dumps(result, cls=DjangoJSONEncoder)
-        return HttpResponse(data, mimetype="application/json")
+        return HttpResponse(data, content_type="application/json")
     return update_wrapper(wrapper, func)
