@@ -5,6 +5,7 @@ pip install terminaltables
 import difflib
 import hashlib
 import os
+import shutil
 import sqlparse
 import subprocess
 import warnings
@@ -194,6 +195,10 @@ class Command(BaseCommand):
             if not file_path.endswith('.txt'):
                 continue
 
+            table_name = file_path.split('.')[0]
+            if table_name in REMOVE_TABLES:
+                continue
+
             file_before = open(os.path.join(before_path, file_path))
             file_after = open(os.path.join(after_path, file_path))
 
@@ -223,7 +228,7 @@ class Command(BaseCommand):
 
         if diff:
             table = DiffTable(
-                ['', 'Name', 'App label', 'Model'],
+                ['', 'App label', 'Model'],
                 diff, db1.alias, db2.alias)
             print(table.table)
 
@@ -235,7 +240,7 @@ class Command(BaseCommand):
 
         if diff:
             table = DiffTable(
-                ['', 'Name', 'Code', 'CT name', 'App label', 'Model'],
+                ['', 'Code', 'App label', 'Model'],
                 diff, db1.alias, db2.alias)
             print(table.table)
 
@@ -330,9 +335,7 @@ class DBSchema(object):
         cursor.close()
         return output
 
-    def reset_db(self):
-        assert self.alias != DEFAULT_DB_ALIAS
-
+    def recreate_db(self):
         cursor = self.connection.cursor()
 
         cursor.execute('DROP DATABASE %s' % self.db_name)
@@ -340,15 +343,12 @@ class DBSchema(object):
         cursor.execute('USE %s' % self.db_name)
         cursor.close()
 
+    def reset_db(self):
+        self.recreate_db()
         call_command('migrate', database=self.alias)
 
     def load_dump(self, dump_path):
-        cursor = self.connection.cursor()
-
-        cursor.execute('DROP DATABASE %s' % self.db_name)
-        cursor.execute('CREATE DATABASE %s' % self.db_name)
-        cursor.execute('USE %s' % self.db_name)
-        cursor.close()
+        self.recreate_db()
 
         cmd = 'mysql -h%s -u%s -p%s %s < %s' % (
             self.conf['HOST'], self.conf['USER'],
@@ -387,10 +387,11 @@ class DBSchema(object):
         return output
 
     def make_dump(self, dir_path):
-        if not os.path.exists(dir_path):
-            os.makedirs(dir_path)
-            # markdirs may ignore mask on some OS
-            subprocess.call('chmod -R 0777 %s' % dir_path, shell=True)
+        shutil.rmtree(dir_path)
+
+        os.makedirs(dir_path)
+        # markdirs may ignore mask on some OS
+        subprocess.call('chmod -R 0777 %s' % dir_path, shell=True)
 
         cmd = 'mysqldump --no-create-info --tab=/%s --fields-terminated-by=";" -h%s -u%s -p%s %s'
         cmd = cmd % (
@@ -401,14 +402,14 @@ class DBSchema(object):
 
     def get_content_types(self):
         cursor = self.connection.cursor()
-        cursor.execute('SELECT name, app_label, model FROM django_content_type')
+        cursor.execute('SELECT app_label, model FROM django_content_type')
         output = format_output(cursor.fetchall())
         cursor.close()
         return output
 
     def get_permissions(self):
         cursor = self.connection.cursor()
-        cursor.execute('SELECT ap.name, ap.codename, ct.name, ct.app_label, ct.model FROM '
+        cursor.execute('SELECT ap.codename, ct.app_label, ct.model FROM '
                        'auth_permission ap JOIN django_content_type ct ON '
                        '(ap.content_type_id=ct.id)')
         output = format_output(cursor.fetchall())

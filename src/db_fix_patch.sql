@@ -40,4 +40,24 @@ ALTER TABLE `oembed_storedprovider` MODIFY `active` tinyint(1) NOT NULL;
 ALTER TABLE `oembed_storedprovider` MODIFY `provides` tinyint(1) NOT NULL;
 DROP INDEX `social_auth_association2` ON `social_auth_association`;
 
+DELETE FROM `django_content_type` WHERE `app_label`="adzone";
+DELETE FROM `django_content_type` WHERE `app_label`="auth" AND `model`="message";
+DELETE FROM `django_content_type` WHERE `app_label`="claims" AND `model`="claimstatus";
+DELETE FROM `django_content_type` WHERE `app_label`="claims" AND `model`="text";
+DELETE FROM `django_content_type` WHERE `app_label`="dashboard" AND `model`="dashboardpreferences";
+DELETE FROM `django_content_type` WHERE `app_label`="dinette";
+DELETE FROM `django_content_type` WHERE `app_label`="djangobb_forum";
+DELETE FROM `django_content_type` WHERE `app_label`="google_analytics";
+DELETE FROM `django_content_type` WHERE `app_label`="indexer" AND `model`="index";
+DELETE FROM `django_content_type` WHERE `app_label`="menu" AND `model`="bookmark";
+DELETE FROM `django_content_type` WHERE `app_label`="nezabudka";
+DELETE FROM `django_content_type` WHERE `app_label`="openid_consumer";
+DELETE FROM `django_content_type` WHERE `app_label`="poll";
+DELETE FROM `django_content_type` WHERE `app_label`="robots";
+DELETE FROM `django_content_type` WHERE `app_label`="sentry";
+DELETE FROM `django_content_type` WHERE `app_label`="socialauth";
+DELETE FROM `django_content_type` WHERE `app_label`="south";
+
+DELETE ap FROM `auth_permission` ap LEFT JOIN `django_content_type` ct ON (ap.`content_type_id`=ct.id) WHERE ct.`name` IS NULL;
+
 COMMIT;
