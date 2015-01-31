@@ -2,10 +2,10 @@ from django.core import mail
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
-from ... utils import forms
-from .. models import User, EmailConfirmation
+from src.utils import forms
+from src.accounts.models import User, EmailConfirmation
 
-from . factories import *
+from .factories import *
 
 forms.ReCaptchaField.clean = lambda self, data, initial: data
 
@@ -13,10 +13,10 @@ forms.ReCaptchaField.clean = lambda self, data, initial: data
 class ViewsTest(TestCase):
 
     def setUp(self):
-        self.user = UserFactory(username='user', password='user')
+        self.user = UserFactory(username='user', email='user@test.com', password='user')
 
     def login(self):
-        self.client.login(username='user', password='user')
+        self.assertTrue(self.client.login(username='user@test.com', password='user'))
 
     def test_create(self):
         url = reverse('accounts:create')
@@ -37,7 +37,7 @@ class ViewsTest(TestCase):
         user = User.objects.get(username=data['username'])
         self.assertFalse(user.is_valid_email)
         self.assertEqual(len(mail.outbox), 1)
-        self.assertTrue(self.client.login(username=user.username, password=data['password1']))
+        self.assertTrue(self.client.login(username=user.email, password=data['password1']))
 
         # confirm email
         confirmation = user.emailconfirmation_set.all()[:1].get()
@@ -98,6 +98,7 @@ class ViewsTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
         data = {
+            'username': 'username',
             'email': 'newemail@example.org'
         }
         mail.outbox = []

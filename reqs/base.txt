@@ -1,4 +1,5 @@
 # Список зависимостей для работы проекта.
+setuptools==12.0.5
 Django==1.7.1
 django-autoslug-field==0.2.3
 django-extensions==1.2.2

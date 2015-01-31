@@ -229,7 +229,7 @@ LOGGING = {
         ),
         'django.db.backends': dict(
             handlers=['profile_db_log'],
-            level='DEBUG',
+            level='ERROR',
             propagate=True,
         )
     }
@@ -258,6 +258,7 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
     'haystack',
     'haystack_static_pages',
+    'django_nose',
 
     'src.forum',
     'src.accounts',
@@ -353,6 +354,18 @@ RECAPTCHA_PRIVATE = ''
 MIGRATION_MODULES = {
     'auth': 'src.main.migrations_auth',
 }
+
+# testing
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = [
+    '--nocapture',
+    '--with-runnable-test-names',
+    '--nologcapture'
+]
+
+NOSE_PLUGINS = [
+    'nose_runnable_test_names.RunnableTestNames'
+]
 
 try:
     LOCAL_SETTINGS
