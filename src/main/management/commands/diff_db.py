@@ -80,8 +80,8 @@ class Command(BaseCommand):
             print(self.style.MIGRATE_HEADING(u'Load dump to default database...'))
             prod.load_dump(rel_project(options.get('dump')))
 
-        print(self.style.MIGRATE_HEADING(u'Dump data before final migrations...'))
-        prod.make_dump(BEFORE_DUMP_PATH)
+        #print(self.style.MIGRATE_HEADING(u'Dump data before final migrations...'))
+        #prod.make_dump(BEFORE_DUMP_PATH)
 
         print(self.style.MIGRATE_HEADING(u'Apply patch...'))
         prod.apply_sql(rel_project(PATCH_PATH))

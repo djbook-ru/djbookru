@@ -12,6 +12,7 @@ from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic.base import RedirectView
 from src.forum.util import urlize
+from src.utils.views import object_list
 
 from .. decorators import render_to
 
@@ -43,8 +44,6 @@ def page(request, slug):
 
 
 def search(request):
-    # FIXME
-    from django.views.generic.list_detail import object_list
     q = request.GET.get('q', '')
     form = forms.SearchForm(request.GET)
     search_qs = form.search()
