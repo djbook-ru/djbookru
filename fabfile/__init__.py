@@ -31,7 +31,7 @@ def deploy_server(**kwargs):
                     map(
                         lambda x: '--exclude "%s"' % x,
                         ['.git/', '.gitignore', '*.sql', '*.sh', '*.rst', '*.po', '*.pyc', '*.sqlite', '*template',
-                         'cache/', 'env/', 'fabfile/', 'logs/', 'sshfs/', 'tmp/',
+                         'cache/', 'env/', 'fabfile/', 'dumps/', 'logs/', 'sshfs/', 'tmp/',
                          'src/public/', 'src/search',
                          'wsgi.py', 'settings_dump.py', 'test_settings.py',
                          'local_settings.py', 'prod_settings.py'
