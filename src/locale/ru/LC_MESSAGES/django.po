@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the translation package.
 # Ruslan Popov <ruslan.popov@gmail.com>, 2010.
 # Ruslan Popob <ruslan.popov@gmail.com>, 2011, 2012.
-# Dmitriy Kostochko <alerion.um@gmail.com>, 2013, 2014.
+# Dmitriy Kostochko <alerion.um@gmail.com>, 2013, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-12 16:41+0400\n"
-"PO-Revision-Date: 2014-09-27 15:23+0400\n"
+"POT-Creation-Date: 2015-02-13 10:00+0300\n"
+"PO-Revision-Date: 2015-02-13 10:14+0300\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -92,7 +92,7 @@ msgstr "Русский"
 msgid "English"
 msgstr "English"
 
-#: settings.py:385
+#: settings.py:386
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
 
@@ -118,7 +118,7 @@ msgstr ""
 
 #: accounts/countries.py:13
 msgid "Afghanistan"
-msgstr ""
+msgstr "Афганистан"
 
 #: accounts/countries.py:14
 msgid "Antigua & Barbuda"
@@ -130,11 +130,11 @@ msgstr ""
 
 #: accounts/countries.py:16
 msgid "Albania"
-msgstr ""
+msgstr "Албания"
 
 #: accounts/countries.py:17
 msgid "Armenia"
-msgstr ""
+msgstr "Армения"
 
 #: accounts/countries.py:18
 msgid "Netherlands Antilles"
@@ -142,7 +142,7 @@ msgstr ""
 
 #: accounts/countries.py:19
 msgid "Angola"
-msgstr ""
+msgstr "Ангола"
 
 #: accounts/countries.py:20
 msgid "Antarctica"
@@ -158,11 +158,11 @@ msgstr ""
 
 #: accounts/countries.py:23
 msgid "Austria"
-msgstr ""
+msgstr "Австрия"
 
 #: accounts/countries.py:24
 msgid "Australia"
-msgstr ""
+msgstr "Австралия"
 
 #: accounts/countries.py:25
 msgid "Aruba"
@@ -170,11 +170,11 @@ msgstr ""
 
 #: accounts/countries.py:26
 msgid "Azerbaijan"
-msgstr ""
+msgstr "Азербайджан"
 
 #: accounts/countries.py:27
 msgid "Bosnia and Herzegovina"
-msgstr ""
+msgstr "Босния и Герцеговина"
 
 #: accounts/countries.py:28
 msgid "Barbados"
@@ -186,19 +186,19 @@ msgstr ""
 
 #: accounts/countries.py:30
 msgid "Belgium"
-msgstr ""
+msgstr "Бельгия"
 
 #: accounts/countries.py:31
 msgid "Burkina Faso"
-msgstr ""
+msgstr "Буркина Фасо"
 
 #: accounts/countries.py:32
 msgid "Bulgaria"
-msgstr ""
+msgstr "Болгария"
 
 #: accounts/countries.py:33
 msgid "Bahrain"
-msgstr ""
+msgstr "Бахрейн"
 
 #: accounts/countries.py:34
 msgid "Burundi"
@@ -210,7 +210,7 @@ msgstr ""
 
 #: accounts/countries.py:36
 msgid "Bermuda"
-msgstr ""
+msgstr "Бермуды"
 
 #: accounts/countries.py:37
 msgid "Brunei Darussalam"
@@ -226,7 +226,7 @@ msgstr "Бразилия"
 
 #: accounts/countries.py:40
 msgid "Bahama"
-msgstr ""
+msgstr "Багамы"
 
 #: accounts/countries.py:41
 msgid "Bhutan"
@@ -238,11 +238,11 @@ msgstr ""
 
 #: accounts/countries.py:43
 msgid "Botswana"
-msgstr ""
+msgstr "Ботсвана"
 
 #: accounts/countries.py:44
 msgid "Belarus"
-msgstr ""
+msgstr "Белоруссия"
 
 #: accounts/countries.py:45
 msgid "Belize"
@@ -250,7 +250,7 @@ msgstr ""
 
 #: accounts/countries.py:46
 msgid "Canada"
-msgstr ""
+msgstr "Канада"
 
 #: accounts/countries.py:47
 msgid "Cocos (Keeling) Islands"
@@ -262,11 +262,11 @@ msgstr ""
 
 #: accounts/countries.py:49
 msgid "Congo"
-msgstr ""
+msgstr "Конго"
 
 #: accounts/countries.py:50
 msgid "Switzerland"
-msgstr ""
+msgstr "Швейцария"
 
 #: accounts/countries.py:51
 msgid "Ivory Coast"
@@ -274,31 +274,31 @@ msgstr ""
 
 #: accounts/countries.py:52
 msgid "Cook Islands"
-msgstr ""
+msgstr "Острова Кука"
 
 #: accounts/countries.py:53
 msgid "Chile"
-msgstr ""
+msgstr "Чили"
 
 #: accounts/countries.py:54
 msgid "Cameroon"
-msgstr ""
+msgstr "Камерун"
 
 #: accounts/countries.py:55
 msgid "China"
-msgstr ""
+msgstr "Китай"
 
 #: accounts/countries.py:56
 msgid "Colombia"
-msgstr ""
+msgstr "Колумбия"
 
 #: accounts/countries.py:57
 msgid "Costa Rica"
-msgstr ""
+msgstr "Коста Рика"
 
 #: accounts/countries.py:58
 msgid "Cuba"
-msgstr ""
+msgstr "Куба"
 
 #: accounts/countries.py:59
 msgid "Cape Verde"
@@ -310,11 +310,11 @@ msgstr ""
 
 #: accounts/countries.py:61
 msgid "Cyprus"
-msgstr ""
+msgstr "Кипр"
 
 #: accounts/countries.py:62
 msgid "Czech Republic"
-msgstr ""
+msgstr "Чехия"
 
 #: accounts/countries.py:63
 msgid "Germany"
@@ -326,7 +326,7 @@ msgstr "Джибути"
 
 #: accounts/countries.py:65
 msgid "Denmark"
-msgstr ""
+msgstr "Дания"
 
 #: accounts/countries.py:66
 msgid "Dominica"
@@ -338,43 +338,43 @@ msgstr ""
 
 #: accounts/countries.py:68
 msgid "Algeria"
-msgstr ""
+msgstr "Алжир"
 
 #: accounts/countries.py:69
 msgid "Ecuador"
-msgstr ""
+msgstr "Эквадор"
 
 #: accounts/countries.py:70
 msgid "Estonia"
-msgstr ""
+msgstr "Эстония"
 
 #: accounts/countries.py:71
 msgid "Egypt"
-msgstr ""
+msgstr "Египет"
 
 #: accounts/countries.py:72
 msgid "Western Sahara"
-msgstr ""
+msgstr "Западная Сахара"
 
 #: accounts/countries.py:73
 msgid "Eritrea"
-msgstr ""
+msgstr "Эритрея"
 
 #: accounts/countries.py:74
 msgid "Spain"
-msgstr ""
+msgstr "Испания"
 
 #: accounts/countries.py:75
 msgid "Ethiopia"
-msgstr ""
+msgstr "Эфиопия"
 
 #: accounts/countries.py:76
 msgid "Finland"
-msgstr ""
+msgstr "Финляндия"
 
 #: accounts/countries.py:77
 msgid "Fiji"
-msgstr ""
+msgstr "Фиджи"
 
 #: accounts/countries.py:78
 msgid "Falkland Islands (Malvinas)"
@@ -382,7 +382,7 @@ msgstr ""
 
 #: accounts/countries.py:79
 msgid "Micronesia"
-msgstr ""
+msgstr "Микронезия"
 
 #: accounts/countries.py:80
 msgid "Faroe Islands"
@@ -398,19 +398,19 @@ msgstr ""
 
 #: accounts/countries.py:83
 msgid "Gabon"
-msgstr ""
+msgstr "Габон"
 
 #: accounts/countries.py:84
 msgid "United Kingdom (Great Britain)"
-msgstr ""
+msgstr "Англия"
 
 #: accounts/countries.py:85
 msgid "Grenada"
-msgstr ""
+msgstr "Гренада"
 
 #: accounts/countries.py:86
 msgid "Georgia"
-msgstr ""
+msgstr "Грузия"
 
 #: accounts/countries.py:87
 msgid "French Guiana"
@@ -422,7 +422,7 @@ msgstr ""
 
 #: accounts/countries.py:89
 msgid "Gibraltar"
-msgstr ""
+msgstr "Гибралтар"
 
 #: accounts/countries.py:90
 msgid "Greenland"
@@ -434,11 +434,11 @@ msgstr ""
 
 #: accounts/countries.py:92
 msgid "Guinea"
-msgstr ""
+msgstr "Гвинея"
 
 #: accounts/countries.py:93
 msgid "Guadeloupe"
-msgstr ""
+msgstr "Гваделупа"
 
 #: accounts/countries.py:94
 msgid "Equatorial Guinea"
@@ -446,7 +446,7 @@ msgstr ""
 
 #: accounts/countries.py:95
 msgid "Greece"
-msgstr ""
+msgstr "Греция"
 
 #: accounts/countries.py:96
 msgid "South Georgia and the South Sandwich Islands"
@@ -458,7 +458,7 @@ msgstr ""
 
 #: accounts/countries.py:98
 msgid "Guam"
-msgstr ""
+msgstr "Гуам"
 
 #: accounts/countries.py:99
 msgid "Guinea-Bissau"
@@ -470,7 +470,7 @@ msgstr ""
 
 #: accounts/countries.py:101
 msgid "Hong Kong"
-msgstr ""
+msgstr "Гонконг"
 
 #: accounts/countries.py:102
 msgid "Heard & McDonald Islands"
@@ -478,7 +478,7 @@ msgstr ""
 
 #: accounts/countries.py:103
 msgid "Honduras"
-msgstr ""
+msgstr "Гондурас"
 
 #: accounts/countries.py:104
 msgid "Croatia"
@@ -486,23 +486,23 @@ msgstr ""
 
 #: accounts/countries.py:105
 msgid "Haiti"
-msgstr ""
+msgstr "Гаити"
 
 #: accounts/countries.py:106
 msgid "Hungary"
-msgstr ""
+msgstr "Венгрия"
 
 #: accounts/countries.py:107
 msgid "Indonesia"
-msgstr ""
+msgstr "Индонезия"
 
 #: accounts/countries.py:108
 msgid "Ireland"
-msgstr ""
+msgstr "Ирландия"
 
 #: accounts/countries.py:109
 msgid "Israel"
-msgstr ""
+msgstr "Израиль"
 
 #: accounts/countries.py:110
 msgid "India"
@@ -518,11 +518,11 @@ msgstr "Ирак"
 
 #: accounts/countries.py:113
 msgid "Islamic Republic of Iran"
-msgstr ""
+msgstr "Иран"
 
 #: accounts/countries.py:114
 msgid "Iceland"
-msgstr ""
+msgstr "Исландия"
 
 #: accounts/countries.py:115
 msgid "Italy"
@@ -530,11 +530,11 @@ msgstr "Италия"
 
 #: accounts/countries.py:116
 msgid "Jamaica"
-msgstr ""
+msgstr "Джамайка"
 
 #: accounts/countries.py:117
 msgid "Jordan"
-msgstr ""
+msgstr "Иордания"
 
 #: accounts/countries.py:118
 msgid "Japan"
@@ -546,7 +546,7 @@ msgstr "Кения"
 
 #: accounts/countries.py:120
 msgid "Kyrgyzstan"
-msgstr ""
+msgstr "Киргизия"
 
 #: accounts/countries.py:121
 msgid "Cambodia"
@@ -566,23 +566,23 @@ msgstr ""
 
 #: accounts/countries.py:125
 msgid "Korea, Democratic People's Republic of"
-msgstr ""
+msgstr "КНДР"
 
 #: accounts/countries.py:126
 msgid "Korea, Republic of"
-msgstr ""
+msgstr "Южная Корея"
 
 #: accounts/countries.py:127
 msgid "Kuwait"
-msgstr ""
+msgstr "Кувейт"
 
 #: accounts/countries.py:128
 msgid "Cayman Islands"
-msgstr ""
+msgstr "Каймановы Острова"
 
 #: accounts/countries.py:129
 msgid "Kazakhstan"
-msgstr ""
+msgstr "Казахстан"
 
 #: accounts/countries.py:130
 msgid "Lao People's Democratic Republic"
@@ -590,7 +590,7 @@ msgstr ""
 
 #: accounts/countries.py:131
 msgid "Lebanon"
-msgstr ""
+msgstr "Ливан"
 
 #: accounts/countries.py:132
 msgid "Saint Lucia"
@@ -598,11 +598,11 @@ msgstr ""
 
 #: accounts/countries.py:133
 msgid "Liechtenstein"
-msgstr ""
+msgstr "Лихтенштейн"
 
 #: accounts/countries.py:134
 msgid "Sri Lanka"
-msgstr ""
+msgstr "Шриланка"
 
 #: accounts/countries.py:135
 msgid "Liberia"
@@ -610,19 +610,19 @@ msgstr ""
 
 #: accounts/countries.py:136
 msgid "Lesotho"
-msgstr ""
+msgstr "Лесото"
 
 #: accounts/countries.py:137
 msgid "Lithuania"
-msgstr ""
+msgstr "Литва"
 
 #: accounts/countries.py:138
 msgid "Luxembourg"
-msgstr ""
+msgstr "Люксембург"
 
 #: accounts/countries.py:139
 msgid "Latvia"
-msgstr ""
+msgstr "Латвия"
 
 #: accounts/countries.py:140
 msgid "Libyan Arab Jamahiriya"
@@ -630,19 +630,19 @@ msgstr ""
 
 #: accounts/countries.py:141
 msgid "Morocco"
-msgstr ""
+msgstr "Морокко"
 
 #: accounts/countries.py:142
 msgid "Monaco"
-msgstr ""
+msgstr "Монако"
 
 #: accounts/countries.py:143
 msgid "Moldova, Republic of"
-msgstr ""
+msgstr "Молдавия"
 
 #: accounts/countries.py:144
 msgid "Madagascar"
-msgstr ""
+msgstr "Мадагаскар"
 
 #: accounts/countries.py:145
 msgid "Marshall Islands"
@@ -650,15 +650,15 @@ msgstr "Маршалловы Острова"
 
 #: accounts/countries.py:146
 msgid "Mali"
-msgstr ""
+msgstr "Мали"
 
 #: accounts/countries.py:147
 msgid "Mongolia"
-msgstr ""
+msgstr "Монголия"
 
 #: accounts/countries.py:148
 msgid "Myanmar"
-msgstr ""
+msgstr "Мьянма"
 
 #: accounts/countries.py:149
 msgid "Macau"
@@ -674,7 +674,7 @@ msgstr ""
 
 #: accounts/countries.py:152
 msgid "Mauritania"
-msgstr ""
+msgstr "Мавритания"
 
 #: accounts/countries.py:153
 msgid "Monserrat"
@@ -682,7 +682,7 @@ msgstr ""
 
 #: accounts/countries.py:154
 msgid "Malta"
-msgstr ""
+msgstr "Мальта"
 
 #: accounts/countries.py:155
 msgid "Mauritius"
@@ -690,35 +690,35 @@ msgstr ""
 
 #: accounts/countries.py:156
 msgid "Maldives"
-msgstr ""
+msgstr "Мальдивы"
 
 #: accounts/countries.py:157
 msgid "Malawi"
-msgstr ""
+msgstr "Малави"
 
 #: accounts/countries.py:158
 msgid "Mexico"
-msgstr ""
+msgstr "Мексика"
 
 #: accounts/countries.py:159
 msgid "Malaysia"
-msgstr ""
+msgstr "Малайзия"
 
 #: accounts/countries.py:160
 msgid "Mozambique"
-msgstr ""
+msgstr "Мозамбик"
 
 #: accounts/countries.py:161
 msgid "Namibia"
-msgstr ""
+msgstr "Намибия"
 
 #: accounts/countries.py:162
 msgid "New Caledonia"
-msgstr ""
+msgstr "Новая Каледония"
 
 #: accounts/countries.py:163
 msgid "Niger"
-msgstr ""
+msgstr "Нигер"
 
 #: accounts/countries.py:164
 msgid "Norfolk Island"
@@ -726,23 +726,23 @@ msgstr ""
 
 #: accounts/countries.py:165
 msgid "Nigeria"
-msgstr ""
+msgstr "Нигерия"
 
 #: accounts/countries.py:166
 msgid "Nicaragua"
-msgstr ""
+msgstr "Никарагуа"
 
 #: accounts/countries.py:167
 msgid "Netherlands"
-msgstr ""
+msgstr "Нидерланды"
 
 #: accounts/countries.py:168
 msgid "Norway"
-msgstr ""
+msgstr "Норвегия"
 
 #: accounts/countries.py:169
 msgid "Nepal"
-msgstr ""
+msgstr "Непал"
 
 #: accounts/countries.py:170
 msgid "Nauru"
@@ -758,23 +758,23 @@ msgstr "Новая Зеландия"
 
 #: accounts/countries.py:173
 msgid "Oman"
-msgstr ""
+msgstr "Оман"
 
 #: accounts/countries.py:174
 msgid "Panama"
-msgstr ""
+msgstr "Панама"
 
 #: accounts/countries.py:175
 msgid "Peru"
-msgstr ""
+msgstr "Перу"
 
 #: accounts/countries.py:176
 msgid "French Polynesia"
-msgstr ""
+msgstr "Французская Полинезия"
 
 #: accounts/countries.py:177
 msgid "Papua New Guinea"
-msgstr ""
+msgstr "Папуа Новая Гвинея"
 
 #: accounts/countries.py:178
 msgid "Philippines"
@@ -782,11 +782,11 @@ msgstr ""
 
 #: accounts/countries.py:179
 msgid "Pakistan"
-msgstr ""
+msgstr "Пакистан"
 
 #: accounts/countries.py:180
 msgid "Poland"
-msgstr ""
+msgstr "Польша"
 
 #: accounts/countries.py:181
 msgid "St. Pierre & Miquelon"
@@ -798,19 +798,19 @@ msgstr ""
 
 #: accounts/countries.py:183
 msgid "Puerto Rico"
-msgstr ""
+msgstr "Пуэрто Рико"
 
 #: accounts/countries.py:184
 msgid "Portugal"
-msgstr ""
+msgstr "Португалия"
 
 #: accounts/countries.py:185
 msgid "Palau"
-msgstr ""
+msgstr "Палау"
 
 #: accounts/countries.py:186
 msgid "Paraguay"
-msgstr ""
+msgstr "Парагвай"
 
 #: accounts/countries.py:187
 msgid "Qatar"
@@ -822,39 +822,39 @@ msgstr ""
 
 #: accounts/countries.py:189
 msgid "Romania"
-msgstr ""
+msgstr "Румыния"
 
 #: accounts/countries.py:190
 msgid "Russian Federation"
-msgstr ""
+msgstr "Российская Федерация"
 
 #: accounts/countries.py:191
 msgid "Rwanda"
-msgstr ""
+msgstr "Руанда"
 
 #: accounts/countries.py:192
 msgid "Saudi Arabia"
-msgstr ""
+msgstr "Саудовская Аравия"
 
 #: accounts/countries.py:193
 msgid "Solomon Islands"
-msgstr ""
+msgstr "Соломоновы Острова"
 
 #: accounts/countries.py:194
 msgid "Seychelles"
-msgstr ""
+msgstr "Сейшеллы"
 
 #: accounts/countries.py:195
 msgid "Sudan"
-msgstr ""
+msgstr "Судан"
 
 #: accounts/countries.py:196
 msgid "Sweden"
-msgstr ""
+msgstr "Швеция"
 
 #: accounts/countries.py:197
 msgid "Singapore"
-msgstr ""
+msgstr "Сингапур"
 
 #: accounts/countries.py:198
 msgid "St. Helena"
@@ -862,7 +862,7 @@ msgstr ""
 
 #: accounts/countries.py:199
 msgid "Slovenia"
-msgstr ""
+msgstr "Словения"
 
 #: accounts/countries.py:200
 msgid "Svalbard & Jan Mayen Islands"
@@ -870,11 +870,11 @@ msgstr ""
 
 #: accounts/countries.py:201
 msgid "Slovakia"
-msgstr ""
+msgstr "Словакия"
 
 #: accounts/countries.py:202
 msgid "Sierra Leone"
-msgstr ""
+msgstr "Сьерра Лионе"
 
 #: accounts/countries.py:203
 msgid "San Marino"
@@ -882,11 +882,11 @@ msgstr ""
 
 #: accounts/countries.py:204
 msgid "Senegal"
-msgstr ""
+msgstr "Сенегал"
 
 #: accounts/countries.py:205
 msgid "Somalia"
-msgstr ""
+msgstr "Сомали"
 
 #: accounts/countries.py:206
 msgid "Suriname"
@@ -902,11 +902,11 @@ msgstr ""
 
 #: accounts/countries.py:209
 msgid "Syrian Arab Republic"
-msgstr ""
+msgstr "Сирия"
 
 #: accounts/countries.py:210
 msgid "Swaziland"
-msgstr ""
+msgstr "Свазиленж"
 
 #: accounts/countries.py:211
 msgid "Turks & Caicos Islands"
@@ -914,7 +914,7 @@ msgstr ""
 
 #: accounts/countries.py:212
 msgid "Chad"
-msgstr ""
+msgstr "Чад"
 
 #: accounts/countries.py:213
 msgid "French Southern Territories"
@@ -922,15 +922,15 @@ msgstr ""
 
 #: accounts/countries.py:214
 msgid "Togo"
-msgstr ""
+msgstr "Того"
 
 #: accounts/countries.py:215
 msgid "Thailand"
-msgstr ""
+msgstr "Тайланд"
 
 #: accounts/countries.py:216
 msgid "Tajikistan"
-msgstr ""
+msgstr "Таджикистан"
 
 #: accounts/countries.py:217
 msgid "Tokelau"
@@ -938,23 +938,23 @@ msgstr ""
 
 #: accounts/countries.py:218
 msgid "Turkmenistan"
-msgstr ""
+msgstr "Туркменистан"
 
 #: accounts/countries.py:219
 msgid "Tunisia"
-msgstr ""
+msgstr "Тунис"
 
 #: accounts/countries.py:220
 msgid "Tonga"
-msgstr ""
+msgstr "Тонга"
 
 #: accounts/countries.py:221
 msgid "East Timor"
-msgstr ""
+msgstr "Восточный Тимор"
 
 #: accounts/countries.py:222
 msgid "Turkey"
-msgstr ""
+msgstr "Турция"
 
 #: accounts/countries.py:223
 msgid "Trinidad & Tobago"
@@ -966,11 +966,11 @@ msgstr ""
 
 #: accounts/countries.py:225
 msgid "Taiwan, Province of China"
-msgstr ""
+msgstr "Тайвань"
 
 #: accounts/countries.py:226
 msgid "Tanzania, United Republic of"
-msgstr ""
+msgstr "Танзания"
 
 #: accounts/countries.py:227
 msgid "Ukraine"
@@ -978,7 +978,7 @@ msgstr "Украина"
 
 #: accounts/countries.py:228
 msgid "Uganda"
-msgstr ""
+msgstr "Уганда"
 
 #: accounts/countries.py:229
 msgid "United States Minor Outlying Islands"
@@ -986,19 +986,19 @@ msgstr ""
 
 #: accounts/countries.py:230
 msgid "United States of America"
-msgstr ""
+msgstr "США"
 
 #: accounts/countries.py:231
 msgid "Uruguay"
-msgstr ""
+msgstr "Уругвай"
 
 #: accounts/countries.py:232
 msgid "Uzbekistan"
-msgstr ""
+msgstr "Узбекистан"
 
 #: accounts/countries.py:233
 msgid "Vatican City State (Holy See)"
-msgstr ""
+msgstr "Ватикан"
 
 #: accounts/countries.py:234
 msgid "St. Vincent & the Grenadines"
@@ -1006,7 +1006,7 @@ msgstr ""
 
 #: accounts/countries.py:235
 msgid "Venezuela"
-msgstr ""
+msgstr "Венесуэла"
 
 #: accounts/countries.py:236
 msgid "British Virgin Islands"
@@ -1018,11 +1018,11 @@ msgstr ""
 
 #: accounts/countries.py:238
 msgid "Viet Nam"
-msgstr ""
+msgstr "Вьетнам"
 
 #: accounts/countries.py:239
 msgid "Vanuatu"
-msgstr ""
+msgstr "Ванату"
 
 #: accounts/countries.py:240
 msgid "Wallis & Futuna Islands"
@@ -1030,11 +1030,11 @@ msgstr ""
 
 #: accounts/countries.py:241
 msgid "Samoa"
-msgstr ""
+msgstr "Самоа"
 
 #: accounts/countries.py:242
 msgid "Yemen"
-msgstr ""
+msgstr "Йемен"
 
 #: accounts/countries.py:243
 msgid "Mayotte"
@@ -1042,7 +1042,7 @@ msgstr ""
 
 #: accounts/countries.py:244
 msgid "Yugoslavia"
-msgstr ""
+msgstr "Югославия"
 
 #: accounts/countries.py:245
 msgid "South Africa"
@@ -1867,13 +1867,21 @@ msgstr "Отправить"
 msgid "Posts"
 msgstr "Откликов"
 
-#: forum/views.py:152
+#: forum/views.py:154
 msgid "You have no permission edit this post"
 msgstr "У вас нет прав на редактирование этого сообщения"
 
-#: forum/views.py:308
+#: forum/views.py:310
 msgid "Authentication required."
 msgstr "Необходимо авторизоваться"
+
+#: forum/views.py:358
+msgid "Posts per month"
+msgstr "Откликов за месяц"
+
+#: forum/views.py:366
+msgid "Posts count"
+msgstr "Откликов"
 
 #: forum/templates/djforum/_post.html:15 forum/templates/djforum/_post.html:45
 msgid "Online"
@@ -2065,6 +2073,59 @@ msgstr "Сохранить"
 #: forum/templates/djforum/unread_topics.html:12
 msgid "Home"
 msgstr "Домой"
+
+#: forum/templates/djforum/statistic.html:8
+msgid "General"
+msgstr ""
+
+#: forum/templates/djforum/statistic.html:13
+#, fuzzy
+msgid "First post date:"
+msgstr "Последний отклик:"
+
+#: forum/templates/djforum/statistic.html:17
+msgid "User has at least one post"
+msgstr ""
+
+#: forum/templates/djforum/statistic.html:17
+msgid "Active users:"
+msgstr "Активные пользователи:"
+
+#: forum/templates/djforum/statistic.html:21
+msgid "Topics:"
+msgstr "Темы:"
+
+#: forum/templates/djforum/statistic.html:25
+msgid "Posts:"
+msgstr "Откликов:"
+
+#: forum/templates/djforum/statistic.html:29
+msgid "Topic views:"
+msgstr "Просмотры тем:"
+
+#: forum/templates/djforum/statistic.html:37
+msgid "Most viewed topics"
+msgstr "Популярные темы"
+
+#: forum/templates/djforum/statistic.html:44
+msgid "views"
+msgstr "просмотров"
+
+#: forum/templates/djforum/statistic.html:52
+msgid "Most active users"
+msgstr "Беспокойные пользователи"
+
+#: forum/templates/djforum/statistic.html:61
+msgid "posts"
+msgstr "сообщений"
+
+#: forum/templates/djforum/statistic.html:69
+msgid "Users with most topics"
+msgstr "Пользователи с кучей тем"
+
+#: forum/templates/djforum/statistic.html:78
+msgid "topics"
+msgstr "темы"
 
 #: forum/templates/djforum/topic.html:15
 msgid "Enter message"
@@ -2262,15 +2323,13 @@ msgstr "Последние новости с Russian DjangoBook"
 
 #: news/models.py:23
 msgid "link to original"
-msgstr ""
+msgstr "ссылка на оригинал"
 
 #: news/models.py:59
-#, fuzzy
 msgid "active?"
 msgstr "активно?"
 
 #: news/models.py:60
-#, fuzzy
 msgid "last update"
 msgstr "обновлено"
 
@@ -2567,11 +2626,11 @@ msgstr "Вы должны быть авторизированы."
 
 #: templates/accounts/map.html:143
 msgid ""
-"Green marker should appear on your position, otherwise put marker on map to "
-"mark you position."
+"Green marker should appear at your position, otherwise put the marker on the "
+"map to mark you position."
 msgstr ""
-"Зеленый маркер появится там, где вы находитесь. Если ваш барузер не "
-"поддерживает geolocation, добавьте маркер, просто перетащив его с панельки на карту."
+"Зелёный маркер появится там, где вы находитесь. Если ваш браузер не "
+"поддерживает геолокацию, то просто добавьте маркер, перетащив его с панельки "
 "на карту."
 
 #: templates/accounts/notifications.html:13
@@ -2959,9 +3018,6 @@ msgstr "видео"
 
 #~ msgid "Moderators"
 #~ msgstr "Модераторы"
-
-#~ msgid "Post count"
-#~ msgstr "Откликов"
 
 #~ msgid "Topic count"
 #~ msgstr "Тем"
@@ -3432,14 +3488,8 @@ msgstr "видео"
 #~ msgid "User activity"
 #~ msgstr "Действия пользователя"
 
-#~ msgid "Posts:"
-#~ msgstr "Откликов:"
-
 #~ msgid "Show all posts"
 #~ msgstr "Показать все отклики"
-
-#~ msgid "Last post:"
-#~ msgstr "Последний отклик:"
 
 #~ msgid "Registered:"
 #~ msgstr "Зарегистрирован:"
@@ -3464,9 +3514,6 @@ msgstr "видео"
 
 #~ msgid "replies"
 #~ msgstr "откликов"
-
-#~ msgid "posts"
-#~ msgstr "сообщений"
 
 #~ msgid "Delete (administrators only) or ban user"
 #~ msgstr "Удалить (только для администраторов) или забанить пользователя"
