@@ -1,2 +1,2 @@
 clean:
-    find . -name "*.pyc" -exec rm -rf {} \;
+	find . -name "*.pyc" -exec rm -rf {} \;

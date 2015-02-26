@@ -1,4 +1,4 @@
-# Run migrations:
-
-$ ./manage.py migrate accounts 0001
-$ ./manage.py migrate accounts
+$ make clean
+Recreate virtual env.
+$ mysql -uroot -p djbook < src/db_fix_patch.sql
+$ ./manage.py migrate

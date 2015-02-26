@@ -25,5 +25,7 @@ def check_email(backend, details, user=None, *args, **kwargs):
             raise AuthException(backend, _('"%(email)s" is already used by other account. If it is your account, login and connect it on profile edit page.') % {
                 'email': email
             })
+    else:
+        raise AuthException(backend, _('Social service does not return email. Use registration form.'))
 
     return {}
