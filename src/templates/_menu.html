@@ -8,22 +8,13 @@
             <nav id="main_menu">
                 <ul class="accordmobile">
                     <li><a href="{{ DJANGO_DOCUMENTATION_URL }}">Документация</a></li>
-                    <li><a href="{% url news:index %}" >{% trans 'News' %}</a></li>
-                    <li><a href="{% url videos:index %}" >{% trans 'Videos' %}</a></li>
-                    <li><a href="{% url forum:index %}" >{% trans 'Forum' %}</a></li>
-                    {% comment %}
-                    <li class="parent"><a href="javascript:void(0)">{% trans 'Code Review' %}<i></i></a>
-                        <ul>
-                            <li><a href="{% url code_review:index %}">{% trans "View snipets" %}</a></li>
-                            <li><a href="{% url code_review:add %}">{% trans "Add snipet" %}</a></li>
-                            <li><a href="{% url code_review:comments %}">{% trans "Comments" %}</a></li>
-                        </ul>
-                    </li>
-                    {% endcomment %}
+                    <li><a href="{% url 'news:index' %}" >{% trans 'News' %}</a></li>
+                    <li><a href="{% url 'videos:index' %}" >{% trans 'Videos' %}</a></li>
+                    <li><a href="{% url 'forum:index' %}" >{% trans 'Forum' %}</a></li>
                     <li class="parent"><a href="javascript:void(0)">{% trans 'Recipes' %}<i></i></a>
                         <ul>
-                            <li><a href="{% url examples:index %}">{% trans "All" %}</a></li>
-                            <li><a href="{% url examples:add %}">{% trans "Add recipe" %}</a></li>
+                            <li><a href="{% url 'examples:index' %}">{% trans "All" %}</a></li>
+                            <li><a href="{% url 'examples:add' %}">{% trans "Add recipe" %}</a></li>
                             {% for item in example_categories %}
                                 <li><a href="{{ item.get_absolute_url }}">{{ item }}</a></li>
                             {% endfor %}

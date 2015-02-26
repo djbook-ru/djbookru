@@ -27,7 +27,7 @@ class ExampleManager(models.Manager):
     use_for_related_fields = True
 
     def approved(self):
-        return self.get_query_set().exclude(approved=False)
+        return self.get_queryset().exclude(approved=False)
 
 
 class Example(models.Model):
@@ -71,7 +71,7 @@ class Example(models.Model):
     def get_edit_url(self):
         return ('admin:examples_example_change', [self.pk])
 
-    @transaction.commit_on_success
+    @transaction.atomic
     def save(self):
         is_create = self.pk is None
 

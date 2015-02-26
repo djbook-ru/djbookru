@@ -5,7 +5,7 @@
 # http://xml.coverpages.org/country3166.html
 
 from django.db.models.fields import CharField
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 COUNTRIES = [
     ('AD', _('Andorra')),
@@ -248,12 +248,13 @@ COUNTRIES = [
     ('ZW', _('Zimbabwe')),
 ]
 
-COUNTRIES.sort(lambda x,y:cmp(x[1],y[1]))
 COUNTRIES.append(('ZZ', _('Unknown or unspecified country')))
+
 
 def isValidCountry(field_data, all_data):
     if not field_data in [lang[0] for lang in COUNTRIES]:
         raise ValidationError, _("This value must be in COUNTRIES setting in localflavor.generic package.")
+
 
 class CountryField(CharField):
     def __init__(self, *args, **kwargs):

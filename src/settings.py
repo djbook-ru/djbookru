@@ -31,6 +31,8 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
+SECRET_KEY = 'somedefaultsecretkey'
+
 DATABASES = {
     'default': dict(
         ENGINE='django.db.backends.mysql',
@@ -103,10 +105,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-AUTHENTICATION_BACKENDS = (
-    'src.accounts.backends.CustomUserBackend',
-)
-
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -117,7 +115,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'src.forum.middleware.LastLoginMiddleware',
     'src.forum.middleware.UsersOnline',
-    'social_auth.middleware.SocialAuthExceptionMiddleware',
+    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 
     'pagination.middleware.PaginationMiddleware',
@@ -136,10 +134,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.core.context_processors.request',
-
-    'adzone.context_processors.get_source_ip',
-    'social_auth.context_processors.social_auth_backends',
-
+    'social.apps.django_app.context_processors.backends',
     'src.context_processors.custom',
 )
 
@@ -234,7 +229,7 @@ LOGGING = {
         ),
         'django.db.backends': dict(
             handlers=['profile_db_log'],
-            level='DEBUG',
+            level='ERROR',
             propagate=True,
         )
     }
@@ -250,21 +245,20 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'django.contrib.markup',
     'django.contrib.flatpages',
 
-    'adzone',
     'bootstrapform',
     'chunks',
-    'google_analytics',
     'pagedown',
     'oembed',
     'pagination',
-    'report_tools',
     'sorl.thumbnail',
-    'staging',
     'tagging',
     'ordered_model',
+    'social.apps.django_app.default',
+    'haystack',
+    'haystack_static_pages',
+    'django_nose',
 
     'src.forum',
     'src.accounts',
@@ -276,68 +270,51 @@ INSTALLED_APPS = (
     'src.news',
     'src.utils',
     'src.videos',
-    'src.code_review',
     'src.links',
     'src.header_messages',
 )
 
 
 ### AUTH: BEGIN
+#AUTH_USER_MODEL = 'accounts.User'
 LOGIN_URL = '/auth/login/'
 LOGIN_ERROR_URL = LOGIN_URL
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
-OPENID_SREG = {"required": "nickname, email", "optional": "postcode, country", "policy_url": ""}
-OPENID_AX = [{"type_uri": "http://axschema.org/contact/email", "count": 1, "required": True, "alias": "email"},
-             {"type_uri": "fullname", "count": 1, "required": False, "alias": "fullname"}]
-
-TWITTER_CONSUMER_KEY = 'see production settings'
-TWITTER_CONSUMER_SECRET = 'see production settings'
 ### AUTH: END
 
 
 ### SOCIAL_AUTH: BEGIN
-INSTALLED_APPS += ('social_auth', )
 SOCIAL_AUTH_USER_MODEL = 'accounts.User'
+SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
+SOCIAL_AUTH_STORAGE = 'social.apps.django_app.default.models.DjangoStorage'
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+
 SOCIAL_AUTH_PIPELINE = (
-    'social_auth.backends.pipeline.social.social_auth_user',
-    'social_auth.backends.pipeline.user.get_username',
-    'src.accounts.social_auth_pipelines.create_user',
-    'social_auth.backends.pipeline.social.associate_user',
-    'social_auth.backends.pipeline.social.load_extra_data',
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'src.accounts.social_auth_pipelines.check_email',
+    'social.pipeline.user.get_username',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user'
 )
-OPENID_REDIRECT_NEXT = '/socialauth/openid/done/'
 
-GITHUB_APP_ID = ''
-GITHUB_API_SECRET = ''
-GITHUB_EXTENDED_PERMISSIONS = ['email']
+SOCIAL_AUTH_GITHUB_APP_ID = ''
+SOCIAL_AUTH_GITHUB_API_SECRET = ''
+SOCIAL_AUTH_GITHUB_SCOPE = ['user:email']
 
-GOOGLE_OAUTH2_CLIENT_ID = ''
-GOOGLE_OAUTH2_CLIENT_SECRET = ''
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
 
-AUTHENTICATION_BACKENDS += (
-    'social_auth.backends.google.GoogleOAuth2Backend',
-    'social_auth.backends.contrib.github.GithubBackend',
-    'social_auth.backends.contrib.yandex.YandexBackend',
+AUTHENTICATION_BACKENDS = (
+    'social.backends.google.GoogleOAuth2',
+    'social.backends.github.GithubOAuth2',
+    'social.backends.yandex.YandexOpenId',
+    'src.accounts.backends.CustomUserBackend',
 )
 ### SOCIAL_AUTH: END
-
-
-### ADMIN-TOOLS: BEGIN
-INSTALLED_APPS = (
-    'admin_tools',
-    'admin_tools.theming',
-    'admin_tools.menu',
-    'admin_tools.dashboard',
-) + INSTALLED_APPS
-
-ADMIN_TOOLS_INDEX_DASHBOARD = 'src.dashboard.CustomIndexDashboard'
-ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'src.dashboard.CustomAppIndexDashboard'
-ADMIN_TOOLS_MENU = 'src.menu.CustomMenu'
-ADMIN_TOOLS_THEMING_CSS = 'theme/css/admin.css'
-### ADMIN-TOOLS: END
 
 
 ### HAYSTACK: BEGIN
@@ -352,7 +329,6 @@ def get_doc_pages(path, ext):
 DJANGO_DOCUMENTATION_URL = '/rel1.7/'
 DJANGO_DOCUMENTATION_SITEMAP_URL = '/rel1.7/sitemap.xml'
 
-INSTALLED_APPS += ('haystack', 'haystack_static_pages')
 HAYSTACK_SITECONF = 'src.search_sites'
 HAYSTACK_SEARCH_ENGINE = 'xapian'
 HAYSTACK_XAPIAN_PATH = rel_project('search', 'xapian_index')
@@ -366,35 +342,30 @@ HAYSTACK_STATIC_MAPPING = {
 ### HAYSTACK: END
 
 
-### SENTRY: BEGIN
-INSTALLED_APPS += (
-    'indexer',
-    'paging',
-    'sentry',
-    'sentry.client',
-    'sentry.plugins.sentry_servers',
-    'sentry.plugins.sentry_sites',
-    'sentry.plugins.sentry_urls',
-)
-MIDDLEWARE_CLASSES += ('sentry.client.middleware.SentryResponseErrorIdMiddleware', )
-### SENTRY: END
-
-
 ### FEEDBACK: BEGIN
 EMAIL_SUBJECT_PREFIX = '[Djbook.ru]'
 DATETIME_FORMAT = 'j N Y, G:i'
 FEEDBACK_SUBJECT = gettext_noop(u'Feedback message from Djbook.ru')
 ### FEEDBACK: END
 
-
-### SOUTH: BEGIN
-INSTALLED_APPS += ('south', )
-SKIP_SOUTH_TESTS = True
-SOUTH_TESTS_MIGRATE = False
-### SOUTH: END
-
 RECAPTCHA_PUBLIC = ''
 RECAPTCHA_PRIVATE = ''
+
+MIGRATION_MODULES = {
+    'auth': 'src.main.migrations_auth',
+}
+
+# testing
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = [
+    '--nocapture',
+    '--with-runnable-test-names',
+    '--nologcapture'
+]
+
+NOSE_PLUGINS = [
+    'nose_runnable_test_names.RunnableTestNames'
+]
 
 try:
     LOCAL_SETTINGS

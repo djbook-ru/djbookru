@@ -27,10 +27,8 @@ class AuthenticationForm(forms.Form):
     password = forms.CharField(label=_("Password"), widget=forms.PasswordInput)
 
     error_messages = {
-        'invalid_login': _("Please enter a correct username and password. "
+        'invalid_login': _("Please enter a correct email and password. "
                            "Note that both fields are case-sensitive."),
-        'no_cookies': _("Your Web browser doesn't appear to have cookies "
-                        "enabled. Cookies are required for logging in."),
         'inactive': _("This account is inactive."),
     }
 
@@ -48,15 +46,28 @@ class AuthenticationForm(forms.Form):
                                            password=password)
             if self.user_cache is None:
                 raise forms.ValidationError(
-                    self.error_messages['invalid_login'])
-            elif not self.user_cache.is_active:
-                raise forms.ValidationError(self.error_messages['inactive'])
-        self.check_for_test_cookie()
+                    self.error_messages['invalid_login'],
+                    code='invalid_login'
+                )
+            else:
+                self.confirm_login_allowed(self.user_cache)
+
         return self.cleaned_data
 
-    def check_for_test_cookie(self):
-        if self.request and not self.request.session.test_cookie_worked():
-            raise forms.ValidationError(self.error_messages['no_cookies'])
+    def confirm_login_allowed(self, user):
+        """
+        Controls whether the given User may log in. This is a policy setting,
+        independent of end-user authentication. This default behavior is to
+        allow login by active users, and reject login by inactive users.
+        If the given user cannot log in, this method should raise a
+        ``forms.ValidationError``.
+        If the given user may log in, this method should return None.
+        """
+        if not user.is_active:
+            raise forms.ValidationError(
+                self.error_messages['inactive'],
+                code='inactive',
+            )
 
     def get_user_id(self):
         if self.user_cache:

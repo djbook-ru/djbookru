@@ -15,6 +15,7 @@ class FlatpageForm(forms.ModelForm):
 
     class Meta:
         model = FlatPage
+        fields = '__all__'
 
 
 class FlatPageAdmin(admin.ModelAdmin):
@@ -41,10 +42,5 @@ class FlatPageAdmin(admin.ModelAdmin):
 
 
 def sites_flatpages_patch():
-    try:
-        admin.site.unregister(Site)
-    except admin.sites.NotRegistered:
-        print 'Model Site is not registered. See patch.py in projects root.'
-
     admin.site.unregister(FlatPage)
     admin.site.register(FlatPage, FlatPageAdmin)

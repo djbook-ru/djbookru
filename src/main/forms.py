@@ -123,15 +123,24 @@ class BookAdminForm(forms.ModelForm):
         return obj
 
 
-class SearchForm(HaystackSearchForm):
-    CONTENT_CHOICES = (
+def content_choices():
+    choices = (
         ('', _(u'All')),
-        (ContentType.objects.get_for_model(Example).pk, _(u'Recipes')),
-        (ContentType.objects.get_for_model(Topic).pk, _(u'Forum')),
-        (ContentType.objects.get_for_model(News).pk, _(u'News')),
-        (ContentType.objects.get_for_model(StaticPage).pk, _(u'Documentation')),
     )
-    content = forms.ChoiceField(choices=CONTENT_CHOICES, label=_(u'Search by'), required=False)
+    try:
+        choices += (
+            (ContentType.objects.get_for_model(Example).pk, _(u'Recipes')),
+            (ContentType.objects.get_for_model(Topic).pk, _(u'Forum')),
+            (ContentType.objects.get_for_model(News).pk, _(u'News')),
+            (ContentType.objects.get_for_model(StaticPage).pk, _(u'Documentation')),
+        )
+    except RuntimeError:
+        pass
+    return choices
+
+
+class SearchForm(HaystackSearchForm):
+    content = forms.ChoiceField(choices=content_choices(), label=_(u'Search by'), required=False)
 
     def search(self):
         if not self.is_valid():

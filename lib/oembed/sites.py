@@ -1,10 +1,10 @@
 import datetime
+import json
 import re
 
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from django.db.models import signals
-from django.utils import simplejson as json
 from django.utils import timezone
 
 from oembed.constants import DEFAULT_OEMBED_TTL, MIN_OEMBED_TTL, RESOURCE_TYPES

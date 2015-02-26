@@ -12,6 +12,7 @@ class NewsForm(ModelForm):
 
     class Meta:
         model = models.News
+        fields = '__all__'
 
 
 class NewsAdmin(admin.ModelAdmin):

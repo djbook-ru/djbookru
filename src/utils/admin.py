@@ -69,7 +69,7 @@ class LogModelAdmin(admin.ModelAdmin):
             entry_extend.save()
 
     @admin.options.csrf_protect_m
-    @transaction.commit_on_success
+    @transaction.atomic
     def change_view(self, request, object_id, extra_context=None):
         "The 'change' admin view for this model."
         model = self.model

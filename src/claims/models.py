@@ -25,9 +25,9 @@ class Claims(models.Model):
     status_applied = models.DateTimeField(verbose_name=_(u'Status Applied'), auto_now_add=True)
     comment = models.TextField(verbose_name=_(u'Reader\'s Comment'))
     reply = models.TextField(verbose_name=_(u'Enter here the reply for the Reader'), blank=True)
-    url = models.URLField(verbose_name=_(u'Context URL'), verify_exists=False)
+    url = models.URLField(verbose_name=_(u'Context URL'))
     email = models.EmailField(verbose_name=_(u'Reader\'s E-mail'))
-    notify = models.BooleanField(verbose_name=_(u'Reader wants the Notify'))
+    notify = models.BooleanField(verbose_name=_(u'Reader wants the Notify'), default=False)
     reg_datetime = models.DateTimeField(verbose_name=_(u'Registered'), auto_now_add=True)
 
     class Meta:

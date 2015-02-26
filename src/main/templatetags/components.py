@@ -18,7 +18,7 @@ from src.comments.models import Comment
 from src.doc_comments.models import Comment as DocComment
 from src.examples.models import Category, Example
 from src.forum.models import Topic
-from src.main.forms import SearchForm
+from src.main.forms import SearchForm, content_choices
 from src.header_messages.models import HeaderMessage
 
 
@@ -131,8 +131,8 @@ def random_recipes():
 
 @register.inclusion_tag('main/_random_forum_topics.html')
 def random_forum_topics():
-    ids = list(Topic.objects.filter(forum__category__groups__isnull=True) \
-        .order_by('-updated').values_list('pk', flat=True))
+    ids = list(Topic.objects.filter(forum__category__groups__isnull=True)
+               .order_by('-updated').values_list('pk', flat=True))
     shuffle(ids)
     return {
         'topics': Topic.objects.filter(pk__in=ids[:FORUM_TOPIC_ON_MAIN])
@@ -153,11 +153,15 @@ def pretty_date(date_obj, extra_class=''):
 @register.filter
 def search_model_name(result_item):
     model_pk = ContentType.objects.get_for_model(result_item.model).pk
-    return dict(SearchForm.CONTENT_CHOICES)[model_pk]
+    return dict(content_choices())[model_pk]
 
 
 @register.filter
 def fix_auth_backend_name(name):
-    if name == 'Google-Oauth2':
+    if name == 'google-oauth2':
         return 'Google'
+    if name == 'yandex-openid':
+        return 'Yandex'
+    if name == 'github':
+        return 'GitHub'
     return name

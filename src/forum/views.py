@@ -11,7 +11,6 @@ from django.shortcuts import get_object_or_404, redirect
 from django.utils.translation import ugettext_lazy as _, ugettext
 from django.utils.timezone import now
 from django.views.generic.list import ListView
-from django.views.generic.list_detail import object_list
 
 from src.accounts.models import User
 from src.decorators import render_to
@@ -19,7 +18,7 @@ from src.forum.forms import AddTopicForm, AddPostForm
 from src.forum.forms import EditPostForm, MoveTopicForm
 from src.forum.models import Category, Forum, Topic, Post
 from src.forum.settings import POSTS_ON_PAGE
-from src.utils.views import JsonResponse
+from src.utils.views import JsonResponse, object_list
 
 
 @render_to('djforum/index.html')
@@ -47,14 +46,14 @@ def index(request):
 
 @render_to('djforum/forum.html')
 def forum(request, pk):
-    forum = get_object_or_404(Forum, pk=pk)
+    forum_obj = get_object_or_404(Forum, pk=pk)
 
-    if not forum.has_access(request.user):
+    if not forum_obj.has_access(request.user):
         raise Http404
 
-    qs = forum.topics.all()
+    qs = forum_obj.topics.all()
     extra_context = {
-        'forum': forum
+        'forum': forum_obj
     }
     return object_list(request, qs, 20,
                        template_name='djforum/forum.html',

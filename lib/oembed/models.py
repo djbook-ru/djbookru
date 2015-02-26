@@ -1,9 +1,10 @@
+import json
+
 from django import VERSION
 from django.conf import settings
 from django.contrib.contenttypes.generic import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
-from django.utils import simplejson
 
 from oembed.constants import RESOURCE_CHOICES
 from oembed.providers import HTTPProvider
@@ -27,7 +28,7 @@ class StoredOEmbed(models.Model):
     # generic bits
     object_id = models.IntegerField(blank=True, null=True)
     content_type = models.ForeignKey(ContentType, blank=True, null=True,
-            related_name="related_%(class)s")
+                                     related_name="related_%(class)s")
     content_object = GenericForeignKey()
 
     class Meta:
@@ -39,15 +40,16 @@ class StoredOEmbed(models.Model):
 
     def __unicode__(self):
         return self.match
-    
+
     @property
     def response(self):
-        return simplejson.loads(self.response_json)
+        return json.loads(self.response_json)
 
 
 class StoredProviderManager(models.Manager):
     def active(self):
         return self.filter(active=True)
+
 
 class StoredProvider(models.Model, HTTPProvider):
     """
@@ -57,7 +59,7 @@ class StoredProvider(models.Model, HTTPProvider):
     endpoint_url = models.CharField(max_length=255)
     regex = models.CharField(max_length=255)
     wildcard_regex = models.CharField(max_length=255, blank=True,
-        help_text='Wild-card version of regex')
+                                      help_text='Wild-card version of regex')
     resource_type = models.CharField(choices=RESOURCE_CHOICES, max_length=8)
     active = models.BooleanField(default=False)
     provides = models.BooleanField(default=False, help_text='Provide upstream')
@@ -87,7 +89,7 @@ class AggregateMediaDescriptor(property):
     def contribute_to_class(self, cls, name):
         self.name = name
         setattr(cls, self.name, self)
-        
+
     def __get__(self, instance, cls=None):
         if instance.content_object:
             return instance.content_object
@@ -115,12 +117,12 @@ class AggregateMedia(models.Model):
     content_type = models.ForeignKey(ContentType, blank=True, null=True,
             related_name="aggregate_media")
     content_object = GenericForeignKey()
-    
+
     media = AggregateMediaDescriptor()
-    
+
     def __unicode__(self):
         return self.url
-    
+
     def get_absolute_url(self):
         if self.content_object and hasattr(self.content_object, 'get_absolute_url'):
             return self.content_object.get_absolute_url()

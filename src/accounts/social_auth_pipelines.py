@@ -1,17 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import hashlib
-import datetime
-
-from django.core.exceptions import ObjectDoesNotExist
 from django.utils.translation import ugettext_lazy as _
 
-from social_auth.exceptions import AuthException
-from social_auth.models import UserSocialAuth
+from social.exceptions import AuthException
 
 
-def create_user(backend, details, response, uid, username, user=None, *args,
-                **kwargs):
+def check_email(backend, details, user=None, *args, **kwargs):
     """
         Create user. Depends on get_username pipeline.
         This pipeline rise exception if some use has same email.
@@ -21,29 +15,17 @@ def create_user(backend, details, response, uid, username, user=None, *args,
         but it works as we like.
     """
     if user:
-        return {'user': user}
-    if not username:
-        return None
+        return {}
 
     email = details.get('email')
 
     if email:
-        try:
-            UserSocialAuth.get_user_by_email(email=email)
+        users = list(backend.strategy.storage.user.get_users_by_email(email))
+        if users:
             raise AuthException(backend, _('"%(email)s" is already used by other account. If it is your account, login and connect it on profile edit page.') % {
                 'email': email
             })
-        except ObjectDoesNotExist:
-            pass
-
-        user = UserSocialAuth.create_user(username=username, email=email, force_email_valid=True)
     else:
-        m = hashlib.md5()
-        m.update(str(datetime.datetime.now()))
-        email = '%s.%s@example.com' % (m.hexdigest(), backend.name)
-        user = UserSocialAuth.create_user(username=username, email=email, send_email_confirmation=False)
+        raise AuthException(backend, _('Social service does not return email. Use registration form.'))
 
-    return {
-        'user': user,
-        'is_new': True
-    }
+    return {}

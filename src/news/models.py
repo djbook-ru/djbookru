@@ -10,7 +10,7 @@ class NewsManager(models.Manager):
     use_for_related_fields = True
 
     def approved(self):
-        return self.get_query_set().exclude(approved=False)
+        return self.get_queryset().exclude(approved=False)
 
 
 class News(models.Model):
