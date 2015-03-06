@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 11:15+0300\n"
-"PO-Revision-Date: 2015-03-06 11:22+0300\n"
+"POT-Creation-Date: 2015-03-06 15:52+0300\n"
+"PO-Revision-Date: 2015-03-06 15:55+0300\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -363,31 +363,39 @@ msgstr ""
 "Ссылка для сброса пароля неверна, возможно, потому что она уже была "
 "использована. Пожалуйста, запросите ссылку ещё раз."
 
-#: templates/accounts/profile.html:75
+#: templates/accounts/profile.html:76 templates/accounts/profile_voted.html:33
 msgid "Forum posts count"
 msgstr "Количество откликов в форуме"
 
-#: templates/accounts/profile.html:80
+#: templates/accounts/profile.html:81 templates/accounts/profile_voted.html:38
 msgid "Comments count"
 msgstr "Комментариев"
 
-#: templates/accounts/profile.html:85
+#: templates/accounts/profile.html:86 templates/accounts/profile_voted.html:43
 msgid "Date of join"
 msgstr "Дата вступления"
 
-#: templates/accounts/profile.html:90
+#: templates/accounts/profile.html:91 templates/accounts/profile_voted.html:48
 msgid "Date of last login"
 msgstr "Авторизовался"
 
-#: templates/accounts/profile.html:98
-#| msgid "No topics"
+#: templates/accounts/profile.html:99
 msgid "Voted topics"
 msgstr "Отметил темы"
 
-#: templates/accounts/profile.html:107
-#| msgid "Go to post"
+#: templates/accounts/profile.html:106 templates/accounts/profile.html:118
+#| msgid "View on site"
+msgid "View more"
+msgstr "Посмотреть больше"
+
+#: templates/accounts/profile.html:111
 msgid "Voted posts"
-msgstr "Отметил отклики"
+msgstr "Отмеченные отклики"
+
+#: templates/accounts/profile_voted.html:69
+#| msgid "Edit Profile"
+msgid "Back to Profile"
+msgstr "Вернуться к профилю"
 
 #: templates/admin/examples/change_form.html:11
 msgid "History"
@@ -407,7 +415,6 @@ msgstr ""
 "сайте\" аккуратно."
 
 #: templates/admin/login.html:17
-#| msgid "Please correct the error below."
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
 msgstr[0] "Пожалуйста, исправьте ошибку указанную ниже."
@@ -563,7 +570,6 @@ msgstr "Пожалуйста, произведите вход для отпра�
 #: templates/comments/list_with_form.html:5
 #: templates/examples/_category.html:18 templates/examples/detail.html:17
 #: templates/news/index.html:15
-#| msgid "comment"
 msgid "comment"
 msgid_plural "comments"
 msgstr[0] "комментарий"

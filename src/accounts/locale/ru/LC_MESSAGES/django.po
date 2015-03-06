@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 11:15+0300\n"
-"PO-Revision-Date: 2015-03-06 11:19+0300\n"
+"POT-Creation-Date: 2015-03-06 15:52+0300\n"
+"PO-Revision-Date: 2015-03-06 15:53+0300\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -1000,9 +1000,6 @@ msgid "Password"
 msgstr "Пароль"
 
 #: forms.py:30
-#| msgid ""
-#| "Please enter a correct username and password. Note that both fields are "
-#| "case-sensitive."
 msgid ""
 "Please enter a correct email and password. Note that both fields are case-"
 "sensitive."
@@ -1213,45 +1210,53 @@ msgstr ""
 "Социальный сервис не вернул адрес электронной почты. Воспользуйтесь "
 "регистрационной формой."
 
-#: views.py:53
+#: views.py:56
 msgid "Authenticate please!"
 msgstr "Аутентифицируйтесь, пожалуйста!"
 
-#: views.py:62
+#: views.py:65
 msgid "invalid form"
 msgstr "неправильная форма"
 
-#: views.py:72
+#: views.py:75
 msgid "Account created success! Confirm your email."
 msgstr "Аккаунт успешно создан! Подтвердите свою почту."
 
-#: views.py:74 views.py:109
+#: views.py:77 views.py:148
 msgid "Please correct the error below."
 msgstr "Пожалуйста, исправьте ошибки перечисленные далее."
 
-#: views.py:107
+#: views.py:115
+msgid "voted topics"
+msgstr "отмеченные темы"
+
+#: views.py:133
+msgid "voted posts"
+msgstr "отмеченные отклики"
+
+#: views.py:146
 msgid "Profile changed success! Confirm your email if it was changed."
 msgstr ""
 "Профиль успешно изменён! Подтвердите адрес вашей электронной почты, если он "
 "был изменен."
 
-#: views.py:148
+#: views.py:187
 msgid "Confirmation key expired."
 msgstr "Ключ подтверждения почты просрочен."
 
-#: views.py:151
+#: views.py:190
 msgid "Email is confirmed."
 msgstr "Адрес электронной почты подтверждён."
 
-#: views.py:165
+#: views.py:204
 msgid "Your email is already confirmed."
 msgstr "Данный адрес электронной почты уже используется."
 
-#: views.py:167
+#: views.py:206
 msgid "Add email to your profile."
 msgstr "Добавьте электронный адрес в свой профиль"
 
-#: views.py:171
+#: views.py:210
 #, python-format
 msgid ""
 "We have sent you confirmation email. New one you can get in %(days)s days"
@@ -1259,11 +1264,11 @@ msgstr ""
 "Мы отправили вам письмо для подтверждения адреса электронной почты. "
 "Следующий запрос вы сможете сделать через  %(days)s дня."
 
-#: views.py:176
+#: views.py:215
 msgid "Confirmation email is sent."
 msgstr "Отправлено письмо для подтверждения адреса электронной почты."
 
-#: views.py:188
+#: views.py:227
 msgid "Email with instruction how reset password is sent."
 msgstr "Выслано письмо с инструкцией для сброса вашего пароля."
 
