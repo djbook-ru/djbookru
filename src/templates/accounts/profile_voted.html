@@ -55,13 +55,13 @@
       <div class="span9 offset2">
         <h4>{{ title|capfirst }}</h4>
 
-        {% if is_paginated %}
-        {% paginate %}
-        {% endif %}
+        {% if is_paginated %}{% paginate %}{% endif %}
 
-        {% for item in user_obj.voted_topics.all|slice:":10" %}
+        {% for item in object_list|slice:":10" %}
         <div class="span11"><a href="{{ item.get_absolute_url }}">{{ item }}</a></div>
         {% endfor %}
+
+        {% if is_paginated %}{% paginate %}{% endif %}
       </div>
     </div>
 

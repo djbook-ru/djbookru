@@ -92,8 +92,8 @@
       <div class="span3">{{ user_obj.last_login|naturalday }}</div>
     </div>
 
+    {% if user_obj.voted_topics.all|length > 0 %}
     <div class="row">&nbsp;</div>
-
     <div class="row">
       <div class="span9 offset2">
         <div>{% trans 'Voted topics' %}</div>
@@ -102,10 +102,15 @@
         {% endfor %}
       </div>
     </div>
-    <div class="row">
-      <div class="span2 offset9"><a href="{% url 'accounts:profile_more_topics' pk=user_obj.pk %}">{% trans "View more" %}</a></div>
-    </div>
 
+    {% if user_obj.voted_topics.all|length > 10 %}
+    <div class="row">
+      <div class="span3 offset8"><a href="{% url 'accounts:profile_more_topics' pk=user_obj.pk %}">{% trans "View more" %}</a></div>
+    </div>
+    {% endif %}
+    {% endif %}
+
+    {% if user_obj.voted_posts.all|length > 0 %}
     <div class="row">
       <div class="span9 offset2">
         <div>{% trans 'Voted posts' %}</div>
@@ -114,9 +119,13 @@
         {% endfor %}
       </div>
     </div>
+
+    {% if user_obj.voted_posts.all|length > 10 %}
     <div class="row">
-      <div class="span2 offset9"><a href="{% url 'accounts:profile_more_posts' pk=user_obj.pk %}">{% trans "View more" %}</a></div>
+      <div class="span3 offset8"><a href="{% url 'accounts:profile_more_posts' pk=user_obj.pk %}">{% trans "View more" %}</a></div>
     </div>
+    {% endif %}
+    {% endif %}
 
     {% if user_position_json != "null" %}
     <div class="row">&nbsp;</div>
