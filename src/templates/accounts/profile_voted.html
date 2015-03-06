@@ -1,0 +1,73 @@
+{% extends 'accounts/base.html' %}
+
+{% load humanize %}
+{% load pagination_tags %}
+{% load thumbnail i18n staticfiles accounts_tags %}
+
+{% block title %}{{ user_obj }} | {{ title|capfirst }} | {{ block.super }}{% endblock %}
+{% block head %}{% endblock %}
+{% block content %}
+    <div class="row">
+      <div class="span5 offset2">
+        <h2>{{ user_obj }}</h2>
+        {% if user_obj.first_name or user_obj.last_name %}
+        <h4>{{ user_obj.first_name }} {{ user_obj.last_name }}</h4>
+        {% endif %}
+        {% achievements user_obj %}
+      </div>
+      <div class="span5">
+        <img src="{{ user_obj.avatar }}" class="img-polaroid"/>
+      </div>
+    </div>
+
+    {% if user_obj.biography %}
+    <div class="row">&nbsp;</div>
+    <div class="row well">
+      <div class="span9 offset2">
+        {{ user_obj.biography|linebreaksbr }}
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="row">
+      <div class="span5 offset2">{% trans 'Forum posts count' %}:</div>
+      <div class="span3">{{ user_obj.forum_post_count }}</div>
+    </div>
+
+    <div class="row">
+      <div class="span5 offset2">{% trans 'Comments count' %}:</div>
+      <div class="span3">{{ user_obj.comments_count }}</div>
+    </div>
+
+    <div class="row">
+      <div class="span5 offset2">{% trans 'Date of join' %}:</div>
+      <div class="span3">{{ user_obj.date_joined|naturalday }}</div>
+    </div>
+
+    <div class="row">
+      <div class="span5 offset2">{% trans 'Date of last login' %}:</div>
+      <div class="span3">{{ user_obj.last_login|naturalday }}</div>
+    </div>
+
+    <div class="row">&nbsp;</div>
+
+    <div class="row">
+      <div class="span9 offset2">
+        <h4>{{ title|capfirst }}</h4>
+
+        {% if is_paginated %}
+        {% paginate %}
+        {% endif %}
+
+        {% for item in user_obj.voted_topics.all|slice:":10" %}
+        <div class="span11"><a href="{{ item.get_absolute_url }}">{{ item }}</a></div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span3 offset8">
+        <a href="{% url 'accounts:profile' pk=user_obj.pk %}">{% trans "Back to Profile" %}</a>
+      </div>
+    </div>
+{% endblock %}

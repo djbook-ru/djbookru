@@ -1,6 +1,7 @@
 {% extends 'accounts/base.html' %}
 
 {% load humanize %}
+{% load pagination_tags %}
 {% load thumbnail i18n staticfiles accounts_tags %}
 
 {% block title %}{{ user_obj }} | {{ block.super }}{% endblock %}
@@ -96,19 +97,25 @@
     <div class="row">
       <div class="span9 offset2">
         <div>{% trans 'Voted topics' %}</div>
-        {% for item in user_obj.voted_topics.all %}
+        {% for item in user_obj.voted_topics.all|slice:":10" %}
         <div class="span11"><a href="{{ item.get_absolute_url }}">{{ item }}</a></div>
         {% endfor %}
       </div>
+    </div>
+    <div class="row">
+      <div class="span2 offset9"><a href="{% url 'accounts:profile_more_topics' pk=user_obj.pk %}">{% trans "View more" %}</a></div>
     </div>
 
     <div class="row">
       <div class="span9 offset2">
         <div>{% trans 'Voted posts' %}</div>
-        {% for item in user_obj.voted_posts.all %}
+        {% for item in user_obj.voted_posts.all|slice:":10" %}
         <div class="span11"><a href="{{ item.get_absolute_url }}">{{ item }}</a></div>
         {% endfor %}
       </div>
+    </div>
+    <div class="row">
+      <div class="span2 offset9"><a href="{% url 'accounts:profile_more_posts' pk=user_obj.pk %}">{% trans "View more" %}</a></div>
     </div>
 
     {% if user_position_json != "null" %}
