@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-13 10:00+0300\n"
-"PO-Revision-Date: 2015-02-13 10:14+0300\n"
+"POT-Creation-Date: 2015-03-06 11:15+0300\n"
+"PO-Revision-Date: 2015-03-06 11:22+0300\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -19,49 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: dashboard.py:23
-msgid "Applications"
-msgstr "Приложения"
+#: header_messages/models.py:8 header_messages/models.py:11
+msgid "Phrase"
+msgstr "Фраза"
 
-#: dashboard.py:25
-msgid "Content"
-msgstr "Содержимое"
+#: header_messages/models.py:12
+msgid "Phrases"
+msgstr "Фразы"
 
-#: dashboard.py:31
-msgid "From users"
-msgstr "От пользователей"
-
-#: dashboard.py:36
-msgid "Links"
-msgstr "Ссылки"
-
-#: dashboard.py:43 dashboard.py:62
-msgid "Recent Actions"
-msgstr "Недавние действия"
-
-#: menu.py:22
-msgid "Dashboard"
-msgstr "Доска"
-
-#: menu.py:24
-msgid "Administration"
-msgstr "Управление"
-
-#: menu.py:26
-msgid "Sentry"
-msgstr "Sentry"
-
-#: menu.py:27
-msgid "Go to site"
-msgstr "Перейти к сайту"
-
-#: menu.py:28 forum/models.py:66 forum/models.py:212
-#: forum/templates/djforum/base.html:4 main/forms.py:130
-#: templates/_menu.html:13 templates/_user_activities.html:5
-msgid "Forum"
-msgstr "Форум"
-
-#: patch.py:12 examples/models.py:41
+#: patch.py:12
 msgid "URL"
 msgstr "URL"
 
@@ -80,2271 +46,21 @@ msgstr ""
 "Данное значение должно содержать только буквы, цифры, символы подчёркивания, "
 "тире или слеши."
 
-#: patch.py:24
+#: patch.py:25
 msgid "Advanced options"
 msgstr "Дополнительные возможности"
 
-#: settings.py:62
+#: settings.py:64
 msgid "Russian"
 msgstr "Русский"
 
-#: settings.py:63
+#: settings.py:65
 msgid "English"
 msgstr "English"
 
-#: settings.py:386
+#: settings.py:348
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
-
-#: accounts/admin.py:35
-msgid "Personal info"
-msgstr "Персональные данные"
-
-#: accounts/admin.py:36
-msgid "Permissions"
-msgstr "Права доступа"
-
-#: accounts/admin.py:38
-msgid "Important dates"
-msgstr "Важные даты"
-
-#: accounts/countries.py:11
-msgid "Andorra"
-msgstr "Андора"
-
-#: accounts/countries.py:12
-msgid "United Arab Emirates"
-msgstr ""
-
-#: accounts/countries.py:13
-msgid "Afghanistan"
-msgstr "Афганистан"
-
-#: accounts/countries.py:14
-msgid "Antigua & Barbuda"
-msgstr ""
-
-#: accounts/countries.py:15
-msgid "Anguilla"
-msgstr ""
-
-#: accounts/countries.py:16
-msgid "Albania"
-msgstr "Албания"
-
-#: accounts/countries.py:17
-msgid "Armenia"
-msgstr "Армения"
-
-#: accounts/countries.py:18
-msgid "Netherlands Antilles"
-msgstr ""
-
-#: accounts/countries.py:19
-msgid "Angola"
-msgstr "Ангола"
-
-#: accounts/countries.py:20
-msgid "Antarctica"
-msgstr ""
-
-#: accounts/countries.py:21
-msgid "Argentina"
-msgstr "Аргентина"
-
-#: accounts/countries.py:22
-msgid "American Samoa"
-msgstr ""
-
-#: accounts/countries.py:23
-msgid "Austria"
-msgstr "Австрия"
-
-#: accounts/countries.py:24
-msgid "Australia"
-msgstr "Австралия"
-
-#: accounts/countries.py:25
-msgid "Aruba"
-msgstr ""
-
-#: accounts/countries.py:26
-msgid "Azerbaijan"
-msgstr "Азербайджан"
-
-#: accounts/countries.py:27
-msgid "Bosnia and Herzegovina"
-msgstr "Босния и Герцеговина"
-
-#: accounts/countries.py:28
-msgid "Barbados"
-msgstr ""
-
-#: accounts/countries.py:29
-msgid "Bangladesh"
-msgstr ""
-
-#: accounts/countries.py:30
-msgid "Belgium"
-msgstr "Бельгия"
-
-#: accounts/countries.py:31
-msgid "Burkina Faso"
-msgstr "Буркина Фасо"
-
-#: accounts/countries.py:32
-msgid "Bulgaria"
-msgstr "Болгария"
-
-#: accounts/countries.py:33
-msgid "Bahrain"
-msgstr "Бахрейн"
-
-#: accounts/countries.py:34
-msgid "Burundi"
-msgstr ""
-
-#: accounts/countries.py:35
-msgid "Benin"
-msgstr ""
-
-#: accounts/countries.py:36
-msgid "Bermuda"
-msgstr "Бермуды"
-
-#: accounts/countries.py:37
-msgid "Brunei Darussalam"
-msgstr ""
-
-#: accounts/countries.py:38
-msgid "Bolivia"
-msgstr "Боливия"
-
-#: accounts/countries.py:39
-msgid "Brazil"
-msgstr "Бразилия"
-
-#: accounts/countries.py:40
-msgid "Bahama"
-msgstr "Багамы"
-
-#: accounts/countries.py:41
-msgid "Bhutan"
-msgstr ""
-
-#: accounts/countries.py:42
-msgid "Bouvet Island"
-msgstr ""
-
-#: accounts/countries.py:43
-msgid "Botswana"
-msgstr "Ботсвана"
-
-#: accounts/countries.py:44
-msgid "Belarus"
-msgstr "Белоруссия"
-
-#: accounts/countries.py:45
-msgid "Belize"
-msgstr ""
-
-#: accounts/countries.py:46
-msgid "Canada"
-msgstr "Канада"
-
-#: accounts/countries.py:47
-msgid "Cocos (Keeling) Islands"
-msgstr ""
-
-#: accounts/countries.py:48
-msgid "Central African Republic"
-msgstr ""
-
-#: accounts/countries.py:49
-msgid "Congo"
-msgstr "Конго"
-
-#: accounts/countries.py:50
-msgid "Switzerland"
-msgstr "Швейцария"
-
-#: accounts/countries.py:51
-msgid "Ivory Coast"
-msgstr ""
-
-#: accounts/countries.py:52
-msgid "Cook Islands"
-msgstr "Острова Кука"
-
-#: accounts/countries.py:53
-msgid "Chile"
-msgstr "Чили"
-
-#: accounts/countries.py:54
-msgid "Cameroon"
-msgstr "Камерун"
-
-#: accounts/countries.py:55
-msgid "China"
-msgstr "Китай"
-
-#: accounts/countries.py:56
-msgid "Colombia"
-msgstr "Колумбия"
-
-#: accounts/countries.py:57
-msgid "Costa Rica"
-msgstr "Коста Рика"
-
-#: accounts/countries.py:58
-msgid "Cuba"
-msgstr "Куба"
-
-#: accounts/countries.py:59
-msgid "Cape Verde"
-msgstr ""
-
-#: accounts/countries.py:60
-msgid "Christmas Island"
-msgstr ""
-
-#: accounts/countries.py:61
-msgid "Cyprus"
-msgstr "Кипр"
-
-#: accounts/countries.py:62
-msgid "Czech Republic"
-msgstr "Чехия"
-
-#: accounts/countries.py:63
-msgid "Germany"
-msgstr "Германия"
-
-#: accounts/countries.py:64
-msgid "Djibouti"
-msgstr "Джибути"
-
-#: accounts/countries.py:65
-msgid "Denmark"
-msgstr "Дания"
-
-#: accounts/countries.py:66
-msgid "Dominica"
-msgstr ""
-
-#: accounts/countries.py:67
-msgid "Dominican Republic"
-msgstr ""
-
-#: accounts/countries.py:68
-msgid "Algeria"
-msgstr "Алжир"
-
-#: accounts/countries.py:69
-msgid "Ecuador"
-msgstr "Эквадор"
-
-#: accounts/countries.py:70
-msgid "Estonia"
-msgstr "Эстония"
-
-#: accounts/countries.py:71
-msgid "Egypt"
-msgstr "Египет"
-
-#: accounts/countries.py:72
-msgid "Western Sahara"
-msgstr "Западная Сахара"
-
-#: accounts/countries.py:73
-msgid "Eritrea"
-msgstr "Эритрея"
-
-#: accounts/countries.py:74
-msgid "Spain"
-msgstr "Испания"
-
-#: accounts/countries.py:75
-msgid "Ethiopia"
-msgstr "Эфиопия"
-
-#: accounts/countries.py:76
-msgid "Finland"
-msgstr "Финляндия"
-
-#: accounts/countries.py:77
-msgid "Fiji"
-msgstr "Фиджи"
-
-#: accounts/countries.py:78
-msgid "Falkland Islands (Malvinas)"
-msgstr ""
-
-#: accounts/countries.py:79
-msgid "Micronesia"
-msgstr "Микронезия"
-
-#: accounts/countries.py:80
-msgid "Faroe Islands"
-msgstr ""
-
-#: accounts/countries.py:81
-msgid "France"
-msgstr "Франция"
-
-#: accounts/countries.py:82
-msgid "France, Metropolitan"
-msgstr ""
-
-#: accounts/countries.py:83
-msgid "Gabon"
-msgstr "Габон"
-
-#: accounts/countries.py:84
-msgid "United Kingdom (Great Britain)"
-msgstr "Англия"
-
-#: accounts/countries.py:85
-msgid "Grenada"
-msgstr "Гренада"
-
-#: accounts/countries.py:86
-msgid "Georgia"
-msgstr "Грузия"
-
-#: accounts/countries.py:87
-msgid "French Guiana"
-msgstr ""
-
-#: accounts/countries.py:88
-msgid "Ghana"
-msgstr ""
-
-#: accounts/countries.py:89
-msgid "Gibraltar"
-msgstr "Гибралтар"
-
-#: accounts/countries.py:90
-msgid "Greenland"
-msgstr ""
-
-#: accounts/countries.py:91
-msgid "Gambia"
-msgstr ""
-
-#: accounts/countries.py:92
-msgid "Guinea"
-msgstr "Гвинея"
-
-#: accounts/countries.py:93
-msgid "Guadeloupe"
-msgstr "Гваделупа"
-
-#: accounts/countries.py:94
-msgid "Equatorial Guinea"
-msgstr ""
-
-#: accounts/countries.py:95
-msgid "Greece"
-msgstr "Греция"
-
-#: accounts/countries.py:96
-msgid "South Georgia and the South Sandwich Islands"
-msgstr ""
-
-#: accounts/countries.py:97
-msgid "Guatemala"
-msgstr ""
-
-#: accounts/countries.py:98
-msgid "Guam"
-msgstr "Гуам"
-
-#: accounts/countries.py:99
-msgid "Guinea-Bissau"
-msgstr ""
-
-#: accounts/countries.py:100
-msgid "Guyana"
-msgstr ""
-
-#: accounts/countries.py:101
-msgid "Hong Kong"
-msgstr "Гонконг"
-
-#: accounts/countries.py:102
-msgid "Heard & McDonald Islands"
-msgstr ""
-
-#: accounts/countries.py:103
-msgid "Honduras"
-msgstr "Гондурас"
-
-#: accounts/countries.py:104
-msgid "Croatia"
-msgstr ""
-
-#: accounts/countries.py:105
-msgid "Haiti"
-msgstr "Гаити"
-
-#: accounts/countries.py:106
-msgid "Hungary"
-msgstr "Венгрия"
-
-#: accounts/countries.py:107
-msgid "Indonesia"
-msgstr "Индонезия"
-
-#: accounts/countries.py:108
-msgid "Ireland"
-msgstr "Ирландия"
-
-#: accounts/countries.py:109
-msgid "Israel"
-msgstr "Израиль"
-
-#: accounts/countries.py:110
-msgid "India"
-msgstr "Индия"
-
-#: accounts/countries.py:111
-msgid "British Indian Ocean Territory"
-msgstr ""
-
-#: accounts/countries.py:112
-msgid "Iraq"
-msgstr "Ирак"
-
-#: accounts/countries.py:113
-msgid "Islamic Republic of Iran"
-msgstr "Иран"
-
-#: accounts/countries.py:114
-msgid "Iceland"
-msgstr "Исландия"
-
-#: accounts/countries.py:115
-msgid "Italy"
-msgstr "Италия"
-
-#: accounts/countries.py:116
-msgid "Jamaica"
-msgstr "Джамайка"
-
-#: accounts/countries.py:117
-msgid "Jordan"
-msgstr "Иордания"
-
-#: accounts/countries.py:118
-msgid "Japan"
-msgstr "Япония"
-
-#: accounts/countries.py:119
-msgid "Kenya"
-msgstr "Кения"
-
-#: accounts/countries.py:120
-msgid "Kyrgyzstan"
-msgstr "Киргизия"
-
-#: accounts/countries.py:121
-msgid "Cambodia"
-msgstr ""
-
-#: accounts/countries.py:122
-msgid "Kiribati"
-msgstr ""
-
-#: accounts/countries.py:123
-msgid "Comoros"
-msgstr ""
-
-#: accounts/countries.py:124
-msgid "St. Kitts and Nevis"
-msgstr ""
-
-#: accounts/countries.py:125
-msgid "Korea, Democratic People's Republic of"
-msgstr "КНДР"
-
-#: accounts/countries.py:126
-msgid "Korea, Republic of"
-msgstr "Южная Корея"
-
-#: accounts/countries.py:127
-msgid "Kuwait"
-msgstr "Кувейт"
-
-#: accounts/countries.py:128
-msgid "Cayman Islands"
-msgstr "Каймановы Острова"
-
-#: accounts/countries.py:129
-msgid "Kazakhstan"
-msgstr "Казахстан"
-
-#: accounts/countries.py:130
-msgid "Lao People's Democratic Republic"
-msgstr ""
-
-#: accounts/countries.py:131
-msgid "Lebanon"
-msgstr "Ливан"
-
-#: accounts/countries.py:132
-msgid "Saint Lucia"
-msgstr ""
-
-#: accounts/countries.py:133
-msgid "Liechtenstein"
-msgstr "Лихтенштейн"
-
-#: accounts/countries.py:134
-msgid "Sri Lanka"
-msgstr "Шриланка"
-
-#: accounts/countries.py:135
-msgid "Liberia"
-msgstr ""
-
-#: accounts/countries.py:136
-msgid "Lesotho"
-msgstr "Лесото"
-
-#: accounts/countries.py:137
-msgid "Lithuania"
-msgstr "Литва"
-
-#: accounts/countries.py:138
-msgid "Luxembourg"
-msgstr "Люксембург"
-
-#: accounts/countries.py:139
-msgid "Latvia"
-msgstr "Латвия"
-
-#: accounts/countries.py:140
-msgid "Libyan Arab Jamahiriya"
-msgstr ""
-
-#: accounts/countries.py:141
-msgid "Morocco"
-msgstr "Морокко"
-
-#: accounts/countries.py:142
-msgid "Monaco"
-msgstr "Монако"
-
-#: accounts/countries.py:143
-msgid "Moldova, Republic of"
-msgstr "Молдавия"
-
-#: accounts/countries.py:144
-msgid "Madagascar"
-msgstr "Мадагаскар"
-
-#: accounts/countries.py:145
-msgid "Marshall Islands"
-msgstr "Маршалловы Острова"
-
-#: accounts/countries.py:146
-msgid "Mali"
-msgstr "Мали"
-
-#: accounts/countries.py:147
-msgid "Mongolia"
-msgstr "Монголия"
-
-#: accounts/countries.py:148
-msgid "Myanmar"
-msgstr "Мьянма"
-
-#: accounts/countries.py:149
-msgid "Macau"
-msgstr ""
-
-#: accounts/countries.py:150
-msgid "Northern Mariana Islands"
-msgstr ""
-
-#: accounts/countries.py:151
-msgid "Martinique"
-msgstr ""
-
-#: accounts/countries.py:152
-msgid "Mauritania"
-msgstr "Мавритания"
-
-#: accounts/countries.py:153
-msgid "Monserrat"
-msgstr ""
-
-#: accounts/countries.py:154
-msgid "Malta"
-msgstr "Мальта"
-
-#: accounts/countries.py:155
-msgid "Mauritius"
-msgstr ""
-
-#: accounts/countries.py:156
-msgid "Maldives"
-msgstr "Мальдивы"
-
-#: accounts/countries.py:157
-msgid "Malawi"
-msgstr "Малави"
-
-#: accounts/countries.py:158
-msgid "Mexico"
-msgstr "Мексика"
-
-#: accounts/countries.py:159
-msgid "Malaysia"
-msgstr "Малайзия"
-
-#: accounts/countries.py:160
-msgid "Mozambique"
-msgstr "Мозамбик"
-
-#: accounts/countries.py:161
-msgid "Namibia"
-msgstr "Намибия"
-
-#: accounts/countries.py:162
-msgid "New Caledonia"
-msgstr "Новая Каледония"
-
-#: accounts/countries.py:163
-msgid "Niger"
-msgstr "Нигер"
-
-#: accounts/countries.py:164
-msgid "Norfolk Island"
-msgstr ""
-
-#: accounts/countries.py:165
-msgid "Nigeria"
-msgstr "Нигерия"
-
-#: accounts/countries.py:166
-msgid "Nicaragua"
-msgstr "Никарагуа"
-
-#: accounts/countries.py:167
-msgid "Netherlands"
-msgstr "Нидерланды"
-
-#: accounts/countries.py:168
-msgid "Norway"
-msgstr "Норвегия"
-
-#: accounts/countries.py:169
-msgid "Nepal"
-msgstr "Непал"
-
-#: accounts/countries.py:170
-msgid "Nauru"
-msgstr ""
-
-#: accounts/countries.py:171
-msgid "Niue"
-msgstr ""
-
-#: accounts/countries.py:172
-msgid "New Zealand"
-msgstr "Новая Зеландия"
-
-#: accounts/countries.py:173
-msgid "Oman"
-msgstr "Оман"
-
-#: accounts/countries.py:174
-msgid "Panama"
-msgstr "Панама"
-
-#: accounts/countries.py:175
-msgid "Peru"
-msgstr "Перу"
-
-#: accounts/countries.py:176
-msgid "French Polynesia"
-msgstr "Французская Полинезия"
-
-#: accounts/countries.py:177
-msgid "Papua New Guinea"
-msgstr "Папуа Новая Гвинея"
-
-#: accounts/countries.py:178
-msgid "Philippines"
-msgstr ""
-
-#: accounts/countries.py:179
-msgid "Pakistan"
-msgstr "Пакистан"
-
-#: accounts/countries.py:180
-msgid "Poland"
-msgstr "Польша"
-
-#: accounts/countries.py:181
-msgid "St. Pierre & Miquelon"
-msgstr ""
-
-#: accounts/countries.py:182
-msgid "Pitcairn"
-msgstr ""
-
-#: accounts/countries.py:183
-msgid "Puerto Rico"
-msgstr "Пуэрто Рико"
-
-#: accounts/countries.py:184
-msgid "Portugal"
-msgstr "Португалия"
-
-#: accounts/countries.py:185
-msgid "Palau"
-msgstr "Палау"
-
-#: accounts/countries.py:186
-msgid "Paraguay"
-msgstr "Парагвай"
-
-#: accounts/countries.py:187
-msgid "Qatar"
-msgstr "Катар"
-
-#: accounts/countries.py:188
-msgid "Reunion"
-msgstr ""
-
-#: accounts/countries.py:189
-msgid "Romania"
-msgstr "Румыния"
-
-#: accounts/countries.py:190
-msgid "Russian Federation"
-msgstr "Российская Федерация"
-
-#: accounts/countries.py:191
-msgid "Rwanda"
-msgstr "Руанда"
-
-#: accounts/countries.py:192
-msgid "Saudi Arabia"
-msgstr "Саудовская Аравия"
-
-#: accounts/countries.py:193
-msgid "Solomon Islands"
-msgstr "Соломоновы Острова"
-
-#: accounts/countries.py:194
-msgid "Seychelles"
-msgstr "Сейшеллы"
-
-#: accounts/countries.py:195
-msgid "Sudan"
-msgstr "Судан"
-
-#: accounts/countries.py:196
-msgid "Sweden"
-msgstr "Швеция"
-
-#: accounts/countries.py:197
-msgid "Singapore"
-msgstr "Сингапур"
-
-#: accounts/countries.py:198
-msgid "St. Helena"
-msgstr ""
-
-#: accounts/countries.py:199
-msgid "Slovenia"
-msgstr "Словения"
-
-#: accounts/countries.py:200
-msgid "Svalbard & Jan Mayen Islands"
-msgstr ""
-
-#: accounts/countries.py:201
-msgid "Slovakia"
-msgstr "Словакия"
-
-#: accounts/countries.py:202
-msgid "Sierra Leone"
-msgstr "Сьерра Лионе"
-
-#: accounts/countries.py:203
-msgid "San Marino"
-msgstr ""
-
-#: accounts/countries.py:204
-msgid "Senegal"
-msgstr "Сенегал"
-
-#: accounts/countries.py:205
-msgid "Somalia"
-msgstr "Сомали"
-
-#: accounts/countries.py:206
-msgid "Suriname"
-msgstr "Суринам"
-
-#: accounts/countries.py:207
-msgid "Sao Tome & Principe"
-msgstr ""
-
-#: accounts/countries.py:208
-msgid "El Salvador"
-msgstr ""
-
-#: accounts/countries.py:209
-msgid "Syrian Arab Republic"
-msgstr "Сирия"
-
-#: accounts/countries.py:210
-msgid "Swaziland"
-msgstr "Свазиленж"
-
-#: accounts/countries.py:211
-msgid "Turks & Caicos Islands"
-msgstr ""
-
-#: accounts/countries.py:212
-msgid "Chad"
-msgstr "Чад"
-
-#: accounts/countries.py:213
-msgid "French Southern Territories"
-msgstr ""
-
-#: accounts/countries.py:214
-msgid "Togo"
-msgstr "Того"
-
-#: accounts/countries.py:215
-msgid "Thailand"
-msgstr "Тайланд"
-
-#: accounts/countries.py:216
-msgid "Tajikistan"
-msgstr "Таджикистан"
-
-#: accounts/countries.py:217
-msgid "Tokelau"
-msgstr ""
-
-#: accounts/countries.py:218
-msgid "Turkmenistan"
-msgstr "Туркменистан"
-
-#: accounts/countries.py:219
-msgid "Tunisia"
-msgstr "Тунис"
-
-#: accounts/countries.py:220
-msgid "Tonga"
-msgstr "Тонга"
-
-#: accounts/countries.py:221
-msgid "East Timor"
-msgstr "Восточный Тимор"
-
-#: accounts/countries.py:222
-msgid "Turkey"
-msgstr "Турция"
-
-#: accounts/countries.py:223
-msgid "Trinidad & Tobago"
-msgstr ""
-
-#: accounts/countries.py:224
-msgid "Tuvalu"
-msgstr ""
-
-#: accounts/countries.py:225
-msgid "Taiwan, Province of China"
-msgstr "Тайвань"
-
-#: accounts/countries.py:226
-msgid "Tanzania, United Republic of"
-msgstr "Танзания"
-
-#: accounts/countries.py:227
-msgid "Ukraine"
-msgstr "Украина"
-
-#: accounts/countries.py:228
-msgid "Uganda"
-msgstr "Уганда"
-
-#: accounts/countries.py:229
-msgid "United States Minor Outlying Islands"
-msgstr ""
-
-#: accounts/countries.py:230
-msgid "United States of America"
-msgstr "США"
-
-#: accounts/countries.py:231
-msgid "Uruguay"
-msgstr "Уругвай"
-
-#: accounts/countries.py:232
-msgid "Uzbekistan"
-msgstr "Узбекистан"
-
-#: accounts/countries.py:233
-msgid "Vatican City State (Holy See)"
-msgstr "Ватикан"
-
-#: accounts/countries.py:234
-msgid "St. Vincent & the Grenadines"
-msgstr ""
-
-#: accounts/countries.py:235
-msgid "Venezuela"
-msgstr "Венесуэла"
-
-#: accounts/countries.py:236
-msgid "British Virgin Islands"
-msgstr ""
-
-#: accounts/countries.py:237
-msgid "United States Virgin Islands"
-msgstr ""
-
-#: accounts/countries.py:238
-msgid "Viet Nam"
-msgstr "Вьетнам"
-
-#: accounts/countries.py:239
-msgid "Vanuatu"
-msgstr "Ванату"
-
-#: accounts/countries.py:240
-msgid "Wallis & Futuna Islands"
-msgstr ""
-
-#: accounts/countries.py:241
-msgid "Samoa"
-msgstr "Самоа"
-
-#: accounts/countries.py:242
-msgid "Yemen"
-msgstr "Йемен"
-
-#: accounts/countries.py:243
-msgid "Mayotte"
-msgstr ""
-
-#: accounts/countries.py:244
-msgid "Yugoslavia"
-msgstr "Югославия"
-
-#: accounts/countries.py:245
-msgid "South Africa"
-msgstr "Южная Африка"
-
-#: accounts/countries.py:246
-msgid "Zambia"
-msgstr "Замбия"
-
-#: accounts/countries.py:247
-msgid "Zaire"
-msgstr "Заир"
-
-#: accounts/countries.py:248
-msgid "Zimbabwe"
-msgstr "Зимбабве"
-
-#: accounts/countries.py:252
-msgid "Unknown or unspecified country"
-msgstr "Неизвестная страна"
-
-#: accounts/countries.py:256
-msgid "This value must be in COUNTRIES setting in localflavor.generic package."
-msgstr ""
-"Значение должно быть из настройки COUNTRIES пакета localflavor.generic."
-
-#: accounts/forms.py:26 main/forms.py:24
-msgid "Email"
-msgstr "Е-почта"
-
-#: accounts/forms.py:27
-msgid "Password"
-msgstr "Пароль"
-
-#: accounts/forms.py:30
-msgid ""
-"Please enter a correct username and password. Note that both fields are case-"
-"sensitive."
-msgstr ""
-"Пожалуйста введите правильные пароль и имя пользователя. Оба поля "
-"чувствительны к регистру."
-
-#: accounts/forms.py:32
-msgid ""
-"Your Web browser doesn't appear to have cookies enabled. Cookies are "
-"required for logging in."
-msgstr "Ваш браузер не поддерживает куки, которые необходимы для авторизации."
-
-#: accounts/forms.py:34
-msgid "This account is inactive."
-msgstr "Аккаунт не активен."
-
-#: accounts/forms.py:71
-msgid "captcha"
-msgstr "капча"
-
-#: accounts/forms.py:80
-msgid "Current password"
-msgstr "Текущий пароль"
-
-#: accounts/forms.py:81
-msgid ""
-"Ignore if you do not have one yet. We recommend setup password, so you can "
-"use it to login, because sometime we broke login via some external service."
-msgstr ""
-"Не обязательно, если у вас нет пароля. Советуем установить пароль, т.к. "
-"периодически у нас бывают проблемы с авторизацией через внешние ресурсы."
-
-#: accounts/forms.py:82
-msgid "New password"
-msgstr "Новый пароль"
-
-#: accounts/forms.py:83
-msgid "Confirm new password"
-msgstr "Подтверждение нового пароля"
-
-#: accounts/forms.py:92
-msgid "We use this an small pieces of info."
-msgstr "Мы используем эти кусочки информации"
-
-#: accounts/forms.py:99
-msgid "Invalid password."
-msgstr "Неправильный пароль."
-
-#: accounts/forms.py:101
-msgid "The two passwords did not match."
-msgstr "Введённые пароли не совпадают."
-
-#: accounts/forms.py:107
-msgid "A user with that username already exists."
-msgstr "Пользователь с таким именем уже существует."
-
-#: accounts/forms.py:115
-msgid "This email is used already."
-msgstr "Данный адрес электронной почты уже используется."
-
-#: accounts/forms.py:137
-msgid ""
-"That e-mail address doesn't have an associated active user account. Are you "
-"sure you've registered and e-mail is confirmed?"
-msgstr ""
-"Эта почта не привязана к активному аккаунту. Вы уверены, что вы у нас "
-"зарегистрированы и ввели адрес почты правильно?"
-
-#: accounts/forms.py:162
-#, python-format
-msgid "Password reset on %s"
-msgstr "Сброшен пароль для %s"
-
-#: accounts/models.py:46
-#, python-format
-msgid "You just created account on %(site)s"
-msgstr "Вы зарегистрировались на %(site)s"
-
-#: accounts/models.py:61
-msgid "biography"
-msgstr "биография"
-
-#: accounts/models.py:62
-msgid "homepage"
-msgstr "домашняя страница"
-
-#: accounts/models.py:63
-msgid "is valid email?"
-msgstr "почта верна?"
-
-#: accounts/models.py:64 accounts/models.py:195
-msgid "achievements"
-msgstr "Достижения"
-
-#: accounts/models.py:65
-msgid "forum signature"
-msgstr "подпись на форуме"
-
-#: accounts/models.py:69
-msgid "longitude"
-msgstr "долгота"
-
-#: accounts/models.py:70
-msgid "latitude"
-msgstr "широта"
-
-#: accounts/models.py:73
-msgid "last comments read"
-msgstr "Последний просмотр комментариев"
-
-#: accounts/models.py:74
-msgid "last doc. comments read"
-msgstr "Последний просмотр комментариев к документации"
-
-#: accounts/models.py:79 forum/models.py:304
-msgid "User"
-msgstr "Пользователь"
-
-#: accounts/models.py:80
-msgid "Users"
-msgstr "Пользователи"
-
-#: accounts/models.py:162 code_review/models.py:16 examples/models.py:35
-#: news/models.py:17 news/models.py:56 videos/models.py:11
-msgid "title"
-msgstr "тема"
-
-#: accounts/models.py:163 news/models.py:58
-msgid "link"
-msgstr "ссылка"
-
-#: accounts/models.py:164 code_review/models.py:52 doc_comments/models.py:18
-#: examples/models.py:36 main/models.py:36 news/models.py:18
-msgid "content"
-msgstr "содержимое"
-
-#: accounts/models.py:164 news/models.py:18
-msgid "Use Markdown and HTML"
-msgstr "Иcпользуйте Markdown или HTML"
-
-#: accounts/models.py:165
-msgid "is active?"
-msgstr "активно?"
-
-#: accounts/models.py:166 code_review/models.py:21 code_review/models.py:65
-#: examples/models.py:37 forum/models.py:179 main/models.py:10
-#: news/models.py:19 videos/models.py:15
-msgid "created"
-msgstr "создано"
-
-#: accounts/models.py:169
-msgid "announcement"
-msgstr "Объявление"
-
-#: accounts/models.py:170
-msgid "announcements"
-msgstr "объявления"
-
-#: accounts/models.py:177 comments/models.py:19 forum/models.py:124
-#: forum/models.py:181
-msgid "user"
-msgstr "пользователь"
-
-#: accounts/models.py:178 accounts/models.py:194
-msgid "achievement"
-msgstr "Достижение"
-
-#: accounts/models.py:179 examples/models.py:40
-msgid "note"
-msgstr "заметка"
-
-#: accounts/models.py:182
-msgid "user achievement"
-msgstr "Достижение пользователя"
-
-#: accounts/models.py:183
-msgid "user achievements"
-msgstr "Достижения пользователя"
-
-#: accounts/models.py:188 examples/models.py:11 links/models.py:8
-#: links/models.py:24 links/models.py:40 main/models.py:9 main/models.py:34
-msgid "name"
-msgstr "имя"
-
-#: accounts/models.py:189 code_review/models.py:17 main/models.py:11
-#: news/models.py:57
-msgid "description"
-msgstr "описание"
-
-#: accounts/models.py:190
-msgid "active icon"
-msgstr "Активная иконка"
-
-#: accounts/models.py:233
-#, python-format
-msgid "Please confirm your email address for %(site)s"
-msgstr "Пожалуйста, подтвердите адрес вашей электронной почты для %(site)s"
-
-#: accounts/models.py:256
-msgid "e-mail confirmation"
-msgstr "подтверждение почты"
-
-#: accounts/models.py:257
-msgid "e-mail confirmations"
-msgstr "подтверждения почты"
-
-#: accounts/social_auth_pipelines.py:33
-#, python-format
-msgid ""
-"\"%(email)s\" is already used by other account. If it is your account, login "
-"and connect it on profile edit page."
-msgstr ""
-"Е-почта \"%(email)s\" используется для другого аккаунта. Если это ваш "
-"аккаунт, войдите и подключите его на странице редактирования профиля."
-
-#: accounts/views.py:53 templates/accounts/map.html:126
-msgid "Authenticate please!"
-msgstr "Вы должны быть авторизированы."
-
-#: accounts/views.py:62
-msgid "invalid form"
-msgstr "Ошибка валидации"
-
-#: accounts/views.py:72
-msgid "Account created success! Confirm your email."
-msgstr "Аккаунт успешно создан! Подтвердите свою почту."
-
-#: accounts/views.py:74 accounts/views.py:109 templates/admin/login.html:18
-msgid "Please correct the error below."
-msgstr "Пожалуйста, исправьте ошибки перечисленные далее."
-
-#: accounts/views.py:107
-msgid "Profile changed success! Confirm your email if it was changed."
-msgstr "Профиль успешно изменён! Подтвердите адрес вашей электронной почты."
-
-#: accounts/views.py:148
-msgid "Confirmation key expired."
-msgstr "Ключ подтверждения почты просрочен."
-
-#: accounts/views.py:151
-msgid "Email is confirmed."
-msgstr "Адрес электронной почты подтверждён."
-
-#: accounts/views.py:165
-msgid "Your email is already confirmed."
-msgstr "Данный адрес электронной почты уже используется."
-
-#: accounts/views.py:167
-msgid "Add email to your profile."
-msgstr "Добавьте электронный адрес в свой профиль"
-
-#: accounts/views.py:171
-#, python-format
-msgid ""
-"We have sent you confirmation email. New one you can get in %(days)s days"
-msgstr ""
-"Мы отправили вам письмо для подтверждения адреса электронной почты. "
-"Следующий запрос вы сможете сделать через  %(days)s дня."
-
-#: accounts/views.py:176
-msgid "Confirmation email is sent."
-msgstr "Отправлено письмо для подтверждения адреса электронной почты."
-
-#: accounts/views.py:188
-msgid "Email with instruction how reset password is sent."
-msgstr "Выслано письмо с инструкцией для сброса вашего пароля."
-
-#: claims/admin.py:16
-msgid "Meta"
-msgstr "Мета"
-
-#: claims/admin.py:17
-msgid "Error"
-msgstr "Ошибка"
-
-#: claims/admin.py:18 comments/forms.py:14 comments/models.py:26
-msgid "Comment"
-msgstr "Комментарий"
-
-#: claims/admin.py:30
-msgid "Status"
-msgstr "Состояние"
-
-#: claims/admin.py:51 claims/models.py:17
-msgid "Fixed"
-msgstr "Исправлена"
-
-#: claims/admin.py:56 claims/models.py:18
-msgid "Invalid"
-msgstr "Отклонена"
-
-#: claims/models.py:15
-msgid "New"
-msgstr "Новая"
-
-#: claims/models.py:16
-msgid "Assigned"
-msgstr "Принята"
-
-#: claims/models.py:21
-msgid "Left Context Value"
-msgstr "Контекст слева"
-
-#: claims/models.py:22
-msgid "Selected Text"
-msgstr "Выделенные текст"
-
-#: claims/models.py:23
-msgid "Right Context Value"
-msgstr "Контекст справа"
-
-#: claims/models.py:24
-msgid "Status of the Claim"
-msgstr "Состояние жалобы"
-
-#: claims/models.py:25
-msgid "Status Applied"
-msgstr "Состояние изменено"
-
-#: claims/models.py:26
-msgid "Reader's Comment"
-msgstr "Комментарий читателя"
-
-#: claims/models.py:27
-msgid "Enter here the reply for the Reader"
-msgstr "Введите здесь сообщение для читателя"
-
-#: claims/models.py:28
-msgid "Context URL"
-msgstr "URL контекста"
-
-#: claims/models.py:29
-msgid "Reader's E-mail"
-msgstr "Е-почта читателя"
-
-#: claims/models.py:30
-msgid "Reader wants the Notify"
-msgstr "Уведомлять читателя"
-
-#: claims/models.py:31
-msgid "Registered"
-msgstr "Зарегистрировано"
-
-#: claims/models.py:34
-msgid "Claim"
-msgstr "Жалоба"
-
-#: claims/models.py:35
-msgid "Claims"
-msgstr "Жалобы"
-
-#: claims/models.py:48
-msgid "DjangoBook in russian: Claim's state was changed to"
-msgstr "DjangoBook по-русски: Состояние жалобы было изменено на"
-
-#: claims/models.py:50
-msgid "This is automatic generated message, you do not need to answer on it."
-msgstr ""
-"Это сообщение сгенерировано автоматически, вам не требуется отвечать на него."
-
-#: claims/models.py:54
-#, python-format
-msgid ""
-"%(auto)s\n"
-"\n"
-"The reply on your comment is:\n"
-"%(reply)s"
-msgstr ""
-"%(auto)s\n"
-"\n"
-"Ответ на ваш комментарий:\n"
-"%(reply)s"
-
-#: code_review/models.py:18 code_review/models.py:54
-msgid "language"
-msgstr "язык"
-
-#: code_review/models.py:19
-msgid "Main snippet language"
-msgstr "Язык сниппета"
-
-#: code_review/models.py:20 code_review/models.py:64 doc_comments/models.py:19
-#: news/models.py:62
-msgid "author"
-msgstr "автор"
-
-#: code_review/models.py:22 videos/models.py:14
-msgid "tags"
-msgstr "таги"
-
-#: code_review/models.py:23 code_review/templates/code_review/details.html:108
-#: code_review/templates/code_review/index.html:33 forum/models.py:188
-#: forum/models.py:309
-msgid "rating"
-msgstr "рейтинг"
-
-#: code_review/models.py:24
-msgid "rated by"
-msgstr "повлиял"
-
-#: code_review/models.py:51
-msgid "file name"
-msgstr "имя файла"
-
-#: code_review/models.py:61
-msgid "file"
-msgstr "файл"
-
-#: code_review/models.py:62
-msgid "row"
-msgstr "строка"
-
-#: code_review/models.py:63 comments/models.py:21
-#: templates/comments/list_with_form.html:5
-#: templates/examples/_category.html:18 templates/examples/detail.html:18
-#: templates/news/index.html:15
-msgid "comment"
-msgstr "комментарий"
-
-#: code_review/views.py:58
-msgid "Add at least one file"
-msgstr "Добавьте файл"
-
-#: code_review/templates/code_review/add.html:6
-#: code_review/templates/code_review/comments.html:6
-#: code_review/templates/code_review/details.html:6
-#: code_review/templates/code_review/index.html:6
-msgid "Code Review"
-msgstr "Code Review"
-
-#: code_review/templates/code_review/add.html:23
-#: code_review/templates/code_review/comments.html:9
-#: code_review/templates/code_review/index.html:18
-msgid "Add snippet"
-msgstr "Добавить сниппет"
-
-#: code_review/templates/code_review/add.html:24
-#: code_review/templates/code_review/add.html:37
-#: templates/accounts/create.html:19 templates/examples/add.html:32
-msgid "Create"
-msgstr "Создать"
-
-#: code_review/templates/code_review/add.html:25
-#: code_review/templates/code_review/add.html:38
-msgid "Cancel"
-msgstr "Отмена"
-
-#: code_review/templates/code_review/add.html:33
-msgid "Files"
-msgstr "Файлы"
-
-#: code_review/templates/code_review/comments.html:10
-msgid "View snipets"
-msgstr "Просмотреть сниппеты"
-
-#: code_review/templates/code_review/comments.html:13
-#: code_review/templates/code_review/index.html:21
-msgid "Show all"
-msgstr "Показать все"
-
-#: code_review/templates/code_review/comments.html:15
-msgid "To my snippets"
-msgstr "К моим сниппетам"
-
-#: code_review/templates/code_review/details.html:80
-msgid "Help"
-msgstr "Помощь"
-
-#: code_review/templates/code_review/details.html:83
-msgid "Click on row number to add comment."
-msgstr "Кликните на номер строки для добавления комментария."
-
-#: code_review/templates/code_review/details.html:84
-msgid ""
-"There is button on toolbar to show/hide comments. This can be usefull while "
-"code copying."
-msgstr ""
-"На панели есть кнопка для отображения/скрытия комментариев, что может быть "
-"полезно при копировании кода."
-
-#: code_review/templates/code_review/details.html:85
-msgid "You can use Markdown in comments."
-msgstr "Вы можете использовать Markdown в комментариях."
-
-#: code_review/templates/code_review/details.html:86
-msgid "At the bottom you can left comment related to whole snippet."
-msgstr ""
-"В конце страницы вы можете оставить комментарий, который относится ко всему "
-"сниппету."
-
-#: code_review/templates/code_review/details.html:98
-msgid "back"
-msgstr "Вернуться"
-
-#: code_review/templates/code_review/details.html:111
-#: code_review/templates/code_review/index.html:40
-msgid "tags:"
-msgstr "таги:"
-
-#: code_review/templates/code_review/index.html:11
-msgid "Welcome to our new application: Code review and snippets!"
-msgstr "Добро пожаловать в новый раздел: Code Review и сниппеты"
-
-#: code_review/templates/code_review/index.html:12
-msgid ""
-"Here you can post your code to share experience and solutions, or get "
-"feedback from comunity how improve it."
-msgstr ""
-"Здесь вы можете добавить пример своего кода, что бы поделиться решением или "
-"опытом, или получить советы от сообщества как сделать код его лучше."
-
-#: code_review/templates/code_review/index.html:13
-msgid ""
-"Try post working code and small enought. More code, less chance someone "
-"review it."
-msgstr ""
-"Старайтесь добавлять рабочий код и не слишком большой. Чем больше и сложнее "
-"код, тем меньше шанс, что его кто-то будет смотреть."
-
-#: code_review/templates/code_review/index.html:19 comments/models.py:27
-#: templates/_user_activities.html:6 templates/accounts/notifications.html:12
-msgid "Comments"
-msgstr "Комментарии"
-
-#: comments/forms.py:38
-msgid "You can reply to the comments of the same object only"
-msgstr "Отвечать можно только на комментарии с этой страницы"
-
-#: comments/models.py:17
-msgid "object ID"
-msgstr "Идентификатор объекта"
-
-#: comments/models.py:20
-msgid "reply to"
-msgstr "ответить"
-
-#: comments/models.py:22
-msgid "submit date"
-msgstr "дата отправки"
-
-#: doc_comments/models.py:14
-msgid "none"
-msgstr "none"
-
-#: doc_comments/models.py:15
-msgid "accepted"
-msgstr "принят"
-
-#: doc_comments/models.py:16 forum/models.py:184
-msgid "closed"
-msgstr "закрыт"
-
-#: doc_comments/models.py:20
-msgid "path to page"
-msgstr "путь к странице"
-
-#: doc_comments/models.py:21
-msgid "page title"
-msgstr "заголовок станицы"
-
-#: doc_comments/models.py:22
-msgid "xpath"
-msgstr "xpath"
-
-#: doc_comments/models.py:24
-msgid "status"
-msgstr "статус"
-
-#: doc_comments/models.py:27
-msgid "doc. comment"
-msgstr "комментарии к доке"
-
-#: doc_comments/models.py:28
-msgid "doc. comments"
-msgstr "комментарии к доке"
-
-#: doc_comments/views.py:86
-msgid "You are not authenticated."
-msgstr "Вы не авторизированы"
-
-#: examples/feeds.py:11
-msgid "Russian DjangoBook Examples"
-msgstr "Примеры с Russian DjangoBook"
-
-#: examples/feeds.py:13 main/feeds.py:16 templates/base.html:22
-msgid "Newly examples from Russian DjangoBook"
-msgstr "Последние примеры с Russian DjangoBook"
-
-#: examples/forms.py:20
-msgid ""
-"Choose the category for your recipe in which it should be placed in. If no "
-"category is matching your needs, choose any and write note to us. We will "
-"add new category as far as we can."
-msgstr ""
-"Выберите категорию для вашего рецепта, в которой он должен быть размещён. "
-"Если подходящей категории не найдено, укажите любую и напишите нам "
-"сообщение. Мы добавим новую категорию как только сможем."
-
-#: examples/forms.py:24
-msgid "Use Markdown for formating the content. All HTML will be escaped."
-msgstr ""
-"Используйте Markdown для форматирования текста. Весь HTML будет экранирован."
-
-#: examples/forms.py:26
-msgid ""
-"Left the note for us. For instance, your email for this recipe, if it does "
-"not exist in your profile."
-msgstr ""
-"Оставьте нам сообщение. Например, ваш адрес электронной почты, если он "
-"отсутствует в вашем профайле."
-
-#: examples/forms.py:35
-msgid "New recipe has been added on djbook.ru"
-msgstr "Новый рецепт добавлен на djbook.ru"
-
-#: examples/forms.py:36
-#, python-format
-msgid ""
-"User %(author)s added a new recipe on djbook.ru.\n"
-"\n"
-"Please check and approve it. URL: %(link)s"
-msgstr ""
-"Пользователь %(author)s добавил новый рецепт на djbook.ru.\n"
-"\n"
-"Пожалуйста, проверьте и подтвердите его. URL: %(link)s"
-
-#: examples/models.py:15 forum/models.py:34 forum/models.py:59
-msgid "Category"
-msgstr "Категория"
-
-#: examples/models.py:16 forum/models.py:35
-msgid "Categories"
-msgstr "Категории"
-
-#: examples/models.py:34
-msgid "category"
-msgstr "категория"
-
-#: examples/models.py:36
-msgid ""
-"Use <a target=\"blank\" href=\"http://daringfireball.net/projects/markdown/"
-"syntax\">Markdown</a> and HTML"
-msgstr ""
-"Используйте <a target=\"blank\" href=\"http://daringfireball.net/projects/"
-"markdown/syntax\">Markdown</a> и HTML"
-
-#: examples/models.py:39 news/models.py:21
-msgid "approved"
-msgstr "разрешено"
-
-#: examples/models.py:39 news/models.py:22
-msgid "Can be used for draft"
-msgstr "Может быть использовано для черновиков"
-
-#: examples/models.py:40
-msgid "author's note, is not visible on site"
-msgstr "авторская заметка, не отображается на сайте"
-
-#: examples/models.py:42
-msgid "Topic ID"
-msgstr "Идентификатор темы"
-
-#: examples/models.py:45 examples/models.py:99
-msgid "Example"
-msgstr "Пример"
-
-#: examples/models.py:46
-msgid "Examples"
-msgstr "Примеры"
-
-#: examples/views.py:29
-msgid ""
-"The recipe has been added successfully and will be reviewed as soon as "
-"possible."
-msgstr ""
-"Рецепт был добавлен успешно и будет проверен, как только появится "
-"возможность."
-
-#: forum/feeds.py:19
-msgid "Last messages on forum in categories {0}"
-msgstr ""
-
-#: forum/feeds.py:46
-msgid "Last messages on forum in all categories"
-msgstr ""
-
-#: forum/forms.py:47 forum/models.py:308 main/forms.py:25
-msgid "Message"
-msgstr "Сообщение"
-
-#: forum/models.py:27 forum/models.py:60
-msgid "Name"
-msgstr "Имя"
-
-#: forum/models.py:28
-msgid "Groups"
-msgstr "Группы"
-
-#: forum/models.py:29
-msgid "Only users from these groups can see this category"
-msgstr "Только пользователи из этих групп могут читать данную категорию"
-
-#: forum/models.py:30 forum/models.py:61
-msgid "Position"
-msgstr "Позиция"
-
-#: forum/models.py:62
-msgid "Description"
-msgstr "Описание"
-
-#: forum/models.py:67
-msgid "Forums"
-msgstr "Форумов"
-
-#: forum/models.py:125
-msgid "topic"
-msgstr "тема"
-
-#: forum/models.py:126
-msgid "time"
-msgstr "время"
-
-#: forum/models.py:177
-msgid "forum"
-msgstr "форум"
-
-#: forum/models.py:178
-msgid "subject"
-msgstr "заголовок"
-
-#: forum/models.py:180
-msgid "updated"
-msgstr "обновлено"
-
-#: forum/models.py:182
-msgid "views count"
-msgstr "просмотров"
-
-#: forum/models.py:183
-msgid "sticky"
-msgstr "прикреплён"
-
-#: forum/models.py:185 forum/templates/djforum/topic.html:95
-msgid "heresy"
-msgstr "ересь"
-
-#: forum/models.py:189 forum/models.py:310
-msgid "votes"
-msgstr "голоса"
-
-#: forum/models.py:191
-msgid "send response on email"
-msgstr "Отправить письмо для подтверждение адреса электронной почты"
-
-#: forum/models.py:195 forum/models.py:303
-msgid "Topic"
-msgstr "Тема"
-
-#: forum/models.py:196 forum/templates/djforum/index.html:33
-msgid "Topics"
-msgstr "Темы"
-
-#: forum/models.py:290
-#, python-format
-msgid "New post for your topic \"%(topic)s\""
-msgstr "Новая запись в вашей ветке \"%(topic)s\""
-
-#: forum/models.py:305
-msgid "Created"
-msgstr "Создано"
-
-#: forum/models.py:306
-msgid "Updated"
-msgstr "Обновлено"
-
-#: forum/models.py:307
-msgid "Updated by"
-msgstr "Обновлено"
-
-#: forum/models.py:316
-msgid "Post"
-msgstr "Отправить"
-
-#: forum/models.py:317 forum/templates/djforum/_post_author.html:13
-#: forum/templates/djforum/index.html:34
-msgid "Posts"
-msgstr "Откликов"
-
-#: forum/views.py:154
-msgid "You have no permission edit this post"
-msgstr "У вас нет прав на редактирование этого сообщения"
-
-#: forum/views.py:310
-msgid "Authentication required."
-msgstr "Необходимо авторизоваться"
-
-#: forum/views.py:358
-msgid "Posts per month"
-msgstr "Откликов за месяц"
-
-#: forum/views.py:366
-msgid "Posts count"
-msgstr "Откликов"
-
-#: forum/templates/djforum/_post.html:15 forum/templates/djforum/_post.html:45
-msgid "Online"
-msgstr "Онлайн"
-
-#: forum/templates/djforum/_post.html:26
-#, python-format
-msgid ""
-"\n"
-"                            Updated %(updated)s by <strong>%(updated_by)s</"
-"strong>.\n"
-"                        "
-msgstr ""
-"\n"
-"                            Обновлено <strong>%(updated_by)s</strong> в "
-"%(updated)s.\n"
-"                        "
-
-#: forum/templates/djforum/_post.html:51 forum/templates/djforum/_post.html:55
-#: forum/templates/djforum/topic.html:119 templates/comments/_item.html:15
-msgid "Answer"
-msgstr "Ответ"
-
-#: forum/templates/djforum/_post.html:62 templates/accounts/_menu.html:12
-#: templates/comments/_display_item.html:21 templates/comments/_item.html:26
-#: templates/doc_comments/_display_item.html:21
-#: templates/examples/detail.html:24 templates/news/news.html:28
-msgid "Edit"
-msgstr "Редактировать"
-
-#: forum/templates/djforum/_post.html:69
-#: forum/templates/djforum/topic.html:115
-#: templates/comments/_display_item.html:16 templates/comments/_item.html:21
-#: templates/doc_comments/_display_item.html:16
-msgid "Delete"
-msgstr "Удалить"
-
-#: forum/templates/djforum/_post_author.html:15
-msgid "Location"
-msgstr "Из"
-
-#: forum/templates/djforum/_topic_list.html:7
-msgid "Replies"
-msgstr "Отклики"
-
-#: forum/templates/djforum/_topic_list.html:8
-msgid "Views"
-msgstr "Просмотров"
-
-#: forum/templates/djforum/_topic_list.html:9
-#: forum/templates/djforum/index.html:35
-msgid "Last post"
-msgstr "Последнее сообщение"
-
-#: forum/templates/djforum/_topic_list.html:37
-msgid "No topics"
-msgstr "Тем нет"
-
-#: forum/templates/djforum/_topic_statuses.html:4
-msgid "Herecy"
-msgstr "Ересь"
-
-#: forum/templates/djforum/_topic_statuses.html:8
-msgid "Closed"
-msgstr "Закрыт"
-
-#: forum/templates/djforum/_topic_statuses.html:12
-msgid "Sticky"
-msgstr "Прикреплён"
-
-#: forum/templates/djforum/add_post.html:6
-msgid "Add post"
-msgstr "Добавить отклик"
-
-#: forum/templates/djforum/add_post.html:19
-msgid "New post"
-msgstr "Новые сообщение"
-
-#: forum/templates/djforum/add_post.html:24
-#: forum/templates/djforum/add_topic.html:33
-#: forum/templates/djforum/edit_post.html:24
-#: forum/templates/djforum/topic.html:149
-msgid "Submit"
-msgstr "Отправить"
-
-#: forum/templates/djforum/add_post.html:27
-#: forum/templates/djforum/add_topic.html:36
-#: forum/templates/djforum/edit_post.html:27
-#: forum/templates/djforum/topic.html:152
-#, python-format
-msgid ""
-"\n"
-"                Use <a href=\"%(url)s\">Markdown</a> to format text.\n"
-"                "
-msgstr ""
-"\n"
-"                Используйте <a href=\"%(url)s\">Markdown</a> для "
-"форматирования текста.\n"
-"                "
-
-#: forum/templates/djforum/add_topic.html:6
-msgid "Add topic to"
-msgstr "Добавить отклик для"
-
-#: forum/templates/djforum/add_topic.html:26
-#: forum/templates/djforum/forum.html:25
-msgid "New topic"
-msgstr "Новая тема"
-
-#: forum/templates/djforum/edit_post.html:6
-#: forum/templates/djforum/edit_post.html:19
-msgid "Edit post"
-msgstr "Изменить отклик"
-
-#: forum/templates/djforum/email_new_post.html:1
-#, python-format
-msgid ""
-"\n"
-"<a href=\"%(protocol)s://%(domain)s%(url)s\">%(protocol)s://%(domain)s"
-"%(url)s</a>\n"
-msgstr ""
-
-#: forum/templates/djforum/forum.html:20 forum/templates/djforum/index.html:13
-#: forum/templates/djforum/topic.html:76
-#: forum/templates/djforum/unread_topics.html:6
-#: forum/templates/djforum/unread_topics.html:13
-msgid "Unread topics"
-msgstr "Непрочтённые темы"
-
-#: forum/templates/djforum/forum.html:28 forum/templates/djforum/index.html:17
-#: forum/templates/djforum/unread_topics.html:22
-msgid "Mark all as read"
-msgstr "Отметить все темы как прочитанные"
-
-#: forum/templates/djforum/forum.html:32 forum/templates/djforum/index.html:20
-msgid "RSS"
-msgstr "RSS"
-
-#: forum/templates/djforum/index.html:8 templates/main/search.html:5
-#: templates/main/search.html.py:13
-msgid "Search"
-msgstr "Поиск"
-
-#: forum/templates/djforum/index.html:16
-#: forum/templates/djforum/my_topics.html:6
-#: forum/templates/djforum/my_topics.html:13
-#: forum/templates/djforum/unread_topics.html:18
-msgid "My topics"
-msgstr "Мои темы"
-
-#: forum/templates/djforum/index.html:70
-msgid "Total number of registered users:"
-msgstr "Общее количество зарегистрированных пользователей:"
-
-#: forum/templates/djforum/index.html:71
-msgid "Total number of topics:"
-msgstr "Общее количество тем:"
-
-#: forum/templates/djforum/index.html:72
-msgid "Total number of posts:"
-msgstr "Общее количество откликов:"
-
-#: forum/templates/djforum/index.html:75
-msgid "Registered users online:"
-msgstr "Зарегистрированные пользователи в онлайне:"
-
-#: forum/templates/djforum/index.html:76
-msgid "Guests online:"
-msgstr "Гости в онлайне:"
-
-#: forum/templates/djforum/index.html:78
-msgid "Online:"
-msgstr "Онлайн:"
-
-#: forum/templates/djforum/move_topic.html:6
-msgid "Move topic"
-msgstr "Переместить тему"
-
-#: forum/templates/djforum/move_topic.html:19
-#: forum/templates/djforum/topic.html:90
-msgid "Move"
-msgstr "Переместить"
-
-#: forum/templates/djforum/move_topic.html:26
-msgid "Save"
-msgstr "Сохранить"
-
-#: forum/templates/djforum/my_topics.html:12
-#: forum/templates/djforum/unread_topics.html:12
-msgid "Home"
-msgstr "Домой"
-
-#: forum/templates/djforum/statistic.html:8
-msgid "General"
-msgstr ""
-
-#: forum/templates/djforum/statistic.html:13
-#, fuzzy
-msgid "First post date:"
-msgstr "Последний отклик:"
-
-#: forum/templates/djforum/statistic.html:17
-msgid "User has at least one post"
-msgstr ""
-
-#: forum/templates/djforum/statistic.html:17
-msgid "Active users:"
-msgstr "Активные пользователи:"
-
-#: forum/templates/djforum/statistic.html:21
-msgid "Topics:"
-msgstr "Темы:"
-
-#: forum/templates/djforum/statistic.html:25
-msgid "Posts:"
-msgstr "Откликов:"
-
-#: forum/templates/djforum/statistic.html:29
-msgid "Topic views:"
-msgstr "Просмотры тем:"
-
-#: forum/templates/djforum/statistic.html:37
-msgid "Most viewed topics"
-msgstr "Популярные темы"
-
-#: forum/templates/djforum/statistic.html:44
-msgid "views"
-msgstr "просмотров"
-
-#: forum/templates/djforum/statistic.html:52
-msgid "Most active users"
-msgstr "Беспокойные пользователи"
-
-#: forum/templates/djforum/statistic.html:61
-msgid "posts"
-msgstr "сообщений"
-
-#: forum/templates/djforum/statistic.html:69
-msgid "Users with most topics"
-msgstr "Пользователи с кучей тем"
-
-#: forum/templates/djforum/statistic.html:78
-msgid "topics"
-msgstr "темы"
-
-#: forum/templates/djforum/topic.html:15
-msgid "Enter message"
-msgstr "Введите сообщение"
-
-#: forum/templates/djforum/topic.html:32
-msgid "Do you wish delete this post?"
-msgstr "Вы уверены, что этот отклик надо удалить?"
-
-#: forum/templates/djforum/topic.html:36
-msgid "Do you wish delete this topic?"
-msgstr "Вы уверены, что эту тему надо удалить?"
-
-#: forum/templates/djforum/topic.html:40
-msgid "Do you wish open this topic?"
-msgstr "Вы желаете открыть эту тему?"
-
-#: forum/templates/djforum/topic.html:40
-msgid "Do you wish close this topic?"
-msgstr "Вы желаете закрыть эту тему?"
-
-#: forum/templates/djforum/topic.html:44
-msgid "do you wish remove heresy mark for this topic?"
-msgstr "вы желаете снять отметку ереси с этой темы?"
-
-#: forum/templates/djforum/topic.html:44
-msgid "do you wish mark this topic as heresy?"
-msgstr "вы желаете отметить тему как ересь?"
-
-#: forum/templates/djforum/topic.html:48
-msgid "Do you wish unstick this topic?"
-msgstr "Вы желаете открепить эту тему?"
-
-#: forum/templates/djforum/topic.html:48
-msgid "Do you wish stick this topic?"
-msgstr "Вы желаете прикрепить эту тему?"
-
-#: forum/templates/djforum/topic.html:84
-msgid "manage"
-msgstr "изменить"
-
-#: forum/templates/djforum/topic.html:95
-msgid "not heresy"
-msgstr "не ересь"
-
-#: forum/templates/djforum/topic.html:100
-msgid "Unstick"
-msgstr "Открепить"
-
-#: forum/templates/djforum/topic.html:100
-msgid "Stick"
-msgstr "Прикрепить"
-
-#: forum/templates/djforum/topic.html:105
-msgid "Open"
-msgstr "Открыть"
-
-#: forum/templates/djforum/topic.html:105
-msgid "Close"
-msgstr "Закрыть"
-
-#: forum/templates/djforum/topic.html:123
-msgid "Unsubscribe"
-msgstr "Отписаться"
-
-#: forum/templates/djforum/topic.html:125
-msgid "Subscribe"
-msgstr "Подписаться"
-
-#: forum/templatetags/forum_tags.py:88
-msgid "Post rating"
-msgstr "рейтинга ответа"
-
-#: forum/templatetags/forum_tags.py:90
-msgid "Topic rating"
-msgstr "рейтинг темы"
-
-#: header_messages/models.py:8 header_messages/models.py:11
-msgid "Phrase"
-msgstr "Фраза"
-
-#: header_messages/models.py:12
-msgid "Phrases"
-msgstr "Фразы"
-
-#: links/models.py:11
-msgid "useful link"
-msgstr "полезная ссылка"
-
-#: links/models.py:12 templates/links/_useful_links.html:2
-msgid "useful links"
-msgstr "полезные ссылки"
-
-#: links/models.py:27 templates/links/_source_codes.html:2
-msgid "source code"
-msgstr "исходники"
-
-#: links/models.py:28
-msgid "source codes"
-msgstr "исходники"
-
-#: links/models.py:43
-msgid "archive link"
-msgstr "архивная ссылка"
-
-#: links/models.py:44
-msgid "archive links"
-msgstr "архивные ссылки"
-
-#: main/feeds.py:14 news/feeds.py:11
-msgid "Russian DjangoBook"
-msgstr "Russian DjangoBook"
-
-#: main/forms.py:27
-msgid "Captcha"
-msgstr "Капча"
-
-#: main/forms.py:43 templates/links/_archive.html:2
-msgid "archive"
-msgstr "архив"
-
-#: main/forms.py:59
-msgid "This should be zip archive"
-msgstr "Хочу zip архив"
-
-#: main/forms.py:128 templates/_menu.html:26
-#: templates/examples/_examples_menu.html:4
-msgid "All"
-msgstr "Все"
-
-#: main/forms.py:129 templates/_menu.html:24 templates/_recipes.html:2
-#: templates/examples/base.html:5 templates/examples/base.html.py:7
-#: templates/examples/detail.html:21
-msgid "Recipes"
-msgstr "Рецепты"
-
-#: main/forms.py:131 news/models.py:27 news/models.py:28 news/models.py:40
-#: templates/_menu.html:11 templates/news/_last_news.html:2
-#: templates/news/base.html:5 templates/news/base.html.py:7
-#: templates/news/news.html:25
-msgid "News"
-msgstr "Новости"
-
-#: main/forms.py:132 templates/_user_activities.html:7
-msgid "Documentation"
-msgstr "Документация"
-
-#: main/forms.py:134
-msgid "Search by"
-msgstr "Поиск по"
-
-#: main/models.py:12
-msgid "ToC"
-msgstr "Оглавление"
-
-#: main/models.py:16
-msgid "Book"
-msgstr "Книга"
-
-#: main/models.py:17
-msgid "Books"
-msgstr "Книги"
-
-#: main/models.py:35
-msgid "slug"
-msgstr "метка"
-
-#: main/models.py:37
-msgid "book"
-msgstr "книга"
-
-#: main/models.py:38
-msgid "chapter"
-msgstr "глава"
-
-#: main/models.py:39
-msgid "section"
-msgstr "раздел"
-
-#: main/models.py:44
-msgid "Page"
-msgstr "Страница"
-
-#: main/models.py:45
-msgid "Pages"
-msgstr "Страницы"
-
-#: main/views.py:67
-msgid "Feedback sent success!"
-msgstr "Отзыв успешно отправлен!"
-
-#: news/feeds.py:13 templates/base.html:21
-msgid "The freshest news about Russian version of DjangoBook"
-msgstr "Последние новости с Russian DjangoBook"
-
-#: news/models.py:23
-msgid "link to original"
-msgstr "ссылка на оригинал"
-
-#: news/models.py:59
-msgid "active?"
-msgstr "активно?"
-
-#: news/models.py:60
-msgid "last update"
-msgstr "обновлено"
-
-#: news/models.py:64
-msgid "approved by default?"
-msgstr ""
-
-#: news/models.py:70
-msgid "RSS source"
-msgstr ""
-
-#: news/models.py:71
-#, fuzzy
-msgid "RSS sources"
-msgstr "исходники"
 
 #: templates/404.html:9
 msgid "Forgotten page..."
@@ -2354,21 +70,41 @@ msgstr "Потерянная страница..."
 msgid "We have broken..."
 msgstr "Что-то поломалось..."
 
+#: templates/_menu.html:11 templates/news/_last_news.html:2
+#: templates/news/base.html:5 templates/news/base.html.py:7
+#: templates/news/news.html:24
+msgid "News"
+msgstr "Новости"
+
 #: templates/_menu.html:12 templates/videos/base.html:5
 #: templates/videos/base.html.py:7
 msgid "Videos"
 msgstr "Видео"
 
-#: templates/_menu.html:27
+#: templates/_menu.html:13 templates/_user_activities.html:5
+msgid "Forum"
+msgstr "Форум"
+
+#: templates/_menu.html:14 templates/_recipes.html:2
+#: templates/examples/base.html:5 templates/examples/base.html.py:7
+#: templates/examples/detail.html:20
+msgid "Recipes"
+msgstr "Рецепты"
+
+#: templates/_menu.html:16 templates/examples/_examples_menu.html:4
+msgid "All"
+msgstr "Все"
+
+#: templates/_menu.html:17
 msgid "Add recipe"
 msgstr "Добавить рецепт"
 
-#: templates/_menu.html:33
+#: templates/_menu.html:23
 msgid "About"
 msgstr "О проекте"
 
 #: templates/_recipes.html:27 templates/news/_last_news.html:14
-#: templates/news/news.html:20
+#: templates/news/news.html:19
 #, python-format
 msgid "%(counter)s comment"
 msgid_plural "%(counter)s comments"
@@ -2392,88 +128,20 @@ msgstr "Выделите её мышкой и нажмите"
 msgid "User activites"
 msgstr "Активность пользователей"
 
+#: templates/_user_activities.html:6 templates/accounts/notifications.html:11
+msgid "Comments"
+msgstr "Комментарии"
+
+#: templates/_user_activities.html:7
+msgid "Documentation"
+msgstr "Документация"
+
 #: templates/_user_activities.html:25
 msgid "reply"
 msgid_plural "replies"
 msgstr[0] "отклик"
 msgstr[1] "отклика"
 msgstr[2] "откликов"
-
-#: templates/base.html:23
-msgid "DjangoBook RSS feed"
-msgstr ""
-
-#: templates/base.html:92
-msgid "Skip to navigation"
-msgstr "Пропустить до навигации"
-
-#: templates/base.html:93
-msgid "Skip to content"
-msgstr "Пропустить до содержимого"
-
-#: templates/base.html:109
-msgid "Logout"
-msgstr "Выйти"
-
-#: templates/base.html:112 templates/accounts/login.html:37
-#: templates/openid_consumer/signin.html:10
-msgid "Login"
-msgstr "Вход"
-
-#: templates/base.html:116
-msgid "Admin UI"
-msgstr "Админка"
-
-#: templates/base.html:130
-msgid "Search:"
-msgstr "Поиск:"
-
-#: templates/base.html:131
-msgid "search + enter"
-msgstr "поиск + ввод"
-
-#: templates/base.html:136
-msgid "Subscribe to our RSS"
-msgstr "Подписаться на наш RSS"
-
-#: templates/base.html:139
-msgid "Documentation translation"
-msgstr "Перевод документации"
-
-#: templates/base.html:165
-msgid "Confirm you email"
-msgstr "Подтвердите адрес вашей электронной почты"
-
-#: templates/base.html:167
-msgid ""
-"\n"
-"                            You account does not have confirmed email.\n"
-"                            You should edit email if your profile has "
-"incorrect one and confirm it.\n"
-"                        "
-msgstr ""
-"\n"
-"                            Ваш аккаунт использует неподтверждённый адрес "
-"электронной почты.\n"
-"                            Вы должны ввести правильный адрес электронной "
-"почты и подтвердить его.\n"
-"                        "
-
-#: templates/base.html:173
-msgid "Your current email is:"
-msgstr "Текущий адрес электронной почты:"
-
-#: templates/base.html:174
-msgid "Send confirmation email"
-msgstr "Отправить письмо для подтверждение адреса электронной почты"
-
-#: templates/base.html:185
-msgid "Please, write feedback if something does not work"
-msgstr "Пожалуйста, дайте нам знать, если что-то не работает."
-
-#: templates/basepage.html:7
-msgid "Menu"
-msgstr "Меню"
 
 #: templates/accounts/_menu.html:3
 msgid "My profile"
@@ -2483,13 +151,24 @@ msgstr "Мой профиль"
 msgid "Profile"
 msgstr "Профиль"
 
-#: templates/accounts/_menu.html:9 templates/accounts/notifications.html:6
+#: templates/accounts/_menu.html:9 templates/accounts/notifications.html:5
 msgid "Notifications"
 msgstr "События"
+
+#: templates/accounts/_menu.html:12 templates/comments/_display_item.html:21
+#: templates/comments/_item.html:26
+#: templates/doc_comments/_display_item.html:21
+#: templates/examples/detail.html:23 templates/news/news.html:27
+msgid "Edit"
+msgstr "Редактировать"
 
 #: templates/accounts/create.html:6 templates/accounts/create.html.py:12
 msgid "Register"
 msgstr "Регистрация"
+
+#: templates/accounts/create.html:19 templates/examples/add.html:32
+msgid "Create"
+msgstr "Создать"
 
 #: templates/accounts/edit.html:5
 msgid "Edit Profile"
@@ -2499,23 +178,19 @@ msgstr "Изменить профиль"
 msgid "Connect accounts"
 msgstr "Связанные аккаунты"
 
-#: templates/accounts/edit.html:12
-msgid "Disconnect account"
-msgstr "Отвязать аккаунт"
-
-#: templates/accounts/edit.html:17
+#: templates/accounts/edit.html:18
 msgid "Connect account"
 msgstr "Привязать аккаунт"
 
-#: templates/accounts/edit.html:24
+#: templates/accounts/edit.html:25
 msgid "Edit your profile"
 msgstr "Изменить ваш профиль"
 
-#: templates/accounts/edit.html:28
+#: templates/accounts/edit.html:29
 msgid "You can edit your avatar on"
 msgstr "Аватарку можно поменять на"
 
-#: templates/accounts/edit.html:35
+#: templates/accounts/edit.html:36
 msgid "Update"
 msgstr "Обновить"
 
@@ -2574,57 +249,65 @@ msgstr ""
 msgid "You are going reset password for"
 msgstr "Вы сбрасываете пароль для"
 
-#: templates/accounts/login.html:13
+#: templates/accounts/login.html:12
 msgid "Forgot Password? Please enter your email and we’ll send it you."
 msgstr "Забыли пароль? Пожалуйста, введите свою е-почту и мы пришлём вам его."
 
-#: templates/accounts/login.html:17
+#: templates/accounts/login.html:16
 msgid "Email Address"
 msgstr "Адрес электронной почты"
 
-#: templates/accounts/login.html:18
-#: templates/accounts/password_reset_confirm.html:20
+#: templates/accounts/login.html:17
+#: templates/accounts/password_reset_confirm.html:19
 #: templates/main/feedback.html:21
 msgid "Send"
 msgstr "Отправить"
 
-#: templates/accounts/login.html:28
+#: templates/accounts/login.html:27
 msgid "Login to your account..."
 msgstr "Авторизуйтесь..."
 
-#: templates/accounts/login.html:41
+#: templates/accounts/login.html:36 templates/base.html:111
+msgid "Login"
+msgstr "Вход"
+
+#: templates/accounts/login.html:40
 msgid "Forgot Password?"
 msgstr "Забыли пароль?"
 
-#: templates/accounts/login.html:50
+#: templates/accounts/login.html:49
 msgid "Sign in with"
 msgstr "Вход с помощью"
 
-#: templates/accounts/login.html:55
+#: templates/accounts/login.html:54
 msgid "Not a member? Join today!"
 msgstr "Вне тусовки? Присоединяйтесь сейчас!"
 
-#: templates/accounts/login.html:59
+#: templates/accounts/login.html:58
 msgid "You are authenticated already"
 msgstr "Вы уже аутентифицированы"
 
-#: templates/accounts/map.html:6
+#: templates/accounts/map.html:5
 msgid "Map"
 msgstr "Карта"
 
-#: templates/accounts/map.html:140
+#: templates/accounts/map.html:125
+msgid "Authenticate please!"
+msgstr "Вы должны быть авторизированы."
+
+#: templates/accounts/map.html:139
 msgid "Add yourself on the map!"
 msgstr "Добавь себя на карту!"
 
-#: templates/accounts/map.html:141
+#: templates/accounts/map.html:140
 msgid "This is just for fun."
 msgstr "Это все просто для фана."
 
-#: templates/accounts/map.html:142
+#: templates/accounts/map.html:141
 msgid "You should be authenticated."
 msgstr "Вы должны быть авторизированы."
 
-#: templates/accounts/map.html:143
+#: templates/accounts/map.html:142
 msgid ""
 "Green marker should appear at your position, otherwise put the marker on the "
 "map to mark you position."
@@ -2633,46 +316,46 @@ msgstr ""
 "поддерживает геолокацию, то просто добавьте маркер, перетащив его с панельки "
 "на карту."
 
-#: templates/accounts/notifications.html:13
+#: templates/accounts/notifications.html:12
 msgid "Doc. comments"
 msgstr "Док. комментарии"
 
-#: templates/accounts/password_reset.html:6
-#: templates/accounts/password_reset_complete.html:6
-#: templates/accounts/password_reset_confirm.html:6
+#: templates/accounts/password_reset.html:5
+#: templates/accounts/password_reset_complete.html:5
+#: templates/accounts/password_reset_confirm.html:5
 msgid "Reset password"
 msgstr "Сброс пароля"
 
-#: templates/accounts/password_reset.html:12
+#: templates/accounts/password_reset.html:11
 msgid "Forgot password? Please enter your email"
 msgstr "Забыли пароль? Пожалуйста, введите свою е-почту"
 
-#: templates/accounts/password_reset.html:19
+#: templates/accounts/password_reset.html:18
 msgid "Send Password"
 msgstr "Отправить пароль"
 
-#: templates/accounts/password_reset_complete.html:13
+#: templates/accounts/password_reset_complete.html:12
 msgid "Password reset complete"
 msgstr "Сброс пароля завершён"
 
-#: templates/accounts/password_reset_complete.html:14
+#: templates/accounts/password_reset_complete.html:13
 msgid "Your password has been set.  You may go ahead and log in now."
 msgstr "Ваш пароль установлен. Вы можете войти на сайт."
 
-#: templates/accounts/password_reset_complete.html:15
-#: templates/admin/login.html:49
+#: templates/accounts/password_reset_complete.html:14
+#: templates/admin/login.html:48
 msgid "Log in"
 msgstr "Вход"
 
-#: templates/accounts/password_reset_confirm.html:13
+#: templates/accounts/password_reset_confirm.html:12
 msgid "Enter new password"
 msgstr "Введите новый пароль"
 
-#: templates/accounts/password_reset_confirm.html:25
+#: templates/accounts/password_reset_confirm.html:24
 msgid "Password reset unsuccessful"
 msgstr "Сброс пароля не прошёл"
 
-#: templates/accounts/password_reset_confirm.html:26
+#: templates/accounts/password_reset_confirm.html:25
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used. Please request a new password reset."
@@ -2680,25 +363,31 @@ msgstr ""
 "Ссылка для сброса пароля неверна, возможно, потому что она уже была "
 "использована. Пожалуйста, запросите ссылку ещё раз."
 
-#: templates/accounts/profile.html:63
+#: templates/accounts/profile.html:75
 msgid "Forum posts count"
 msgstr "Количество откликов в форуме"
 
-#: templates/accounts/profile.html:64
+#: templates/accounts/profile.html:80
 msgid "Comments count"
 msgstr "Комментариев"
 
-#: templates/admin/login.html:34
-msgid "Email:"
-msgstr "Е-почта:"
+#: templates/accounts/profile.html:85
+msgid "Date of join"
+msgstr "Дата вступления"
 
-#: templates/admin/login.html:38
-msgid "Password:"
-msgstr "Пароль:"
+#: templates/accounts/profile.html:90
+msgid "Date of last login"
+msgstr "Авторизовался"
 
-#: templates/admin/login.html:45
-msgid "Forgotten your password or username?"
-msgstr "Забыли пароль или имя пользователя?"
+#: templates/accounts/profile.html:98
+#| msgid "No topics"
+msgid "Voted topics"
+msgstr "Отметил темы"
+
+#: templates/accounts/profile.html:107
+#| msgid "Go to post"
+msgid "Voted posts"
+msgstr "Отметил отклики"
 
 #: templates/admin/examples/change_form.html:11
 msgid "History"
@@ -2717,24 +406,132 @@ msgstr ""
 "пользователей. Оно может содержать XSS, т.е. используйте \"Посмотреть на "
 "сайте\" аккуратно."
 
+#: templates/admin/login.html:17
+#| msgid "Please correct the error below."
+msgid "Please correct the error below."
+msgid_plural "Please correct the errors below."
+msgstr[0] "Пожалуйста, исправьте ошибку указанную ниже."
+msgstr[1] "Пожалуйста, исправьте ошибки перечисленные далее."
+msgstr[2] "Пожалуйста, исправьте ошибки перечисленные далее."
+
+#: templates/admin/login.html:33
+msgid "Email:"
+msgstr "Е-почта:"
+
+#: templates/admin/login.html:37
+msgid "Password:"
+msgstr "Пароль:"
+
+#: templates/admin/login.html:44
+msgid "Forgotten your password or username?"
+msgstr "Забыли пароль или имя пользователя?"
+
+#: templates/base.html:21
+msgid "The freshest news about Russian version of DjangoBook"
+msgstr "Последние новости с Russian DjangoBook"
+
+#: templates/base.html:22
+msgid "Newly examples from Russian DjangoBook"
+msgstr "Последние примеры с Russian DjangoBook"
+
+#: templates/base.html:23
+msgid "DjangoBook RSS feed"
+msgstr ""
+
+#: templates/base.html:91
+msgid "Skip to navigation"
+msgstr "Пропустить до навигации"
+
+#: templates/base.html:92
+msgid "Skip to content"
+msgstr "Пропустить до содержимого"
+
+#: templates/base.html:108
+msgid "Logout"
+msgstr "Выйти"
+
+#: templates/base.html:115
+msgid "Admin UI"
+msgstr "Админка"
+
+#: templates/base.html:129
+msgid "Search:"
+msgstr "Поиск:"
+
+#: templates/base.html:130
+msgid "search + enter"
+msgstr "поиск + ввод"
+
+#: templates/base.html:135
+msgid "Subscribe to our RSS"
+msgstr "Подписаться на наш RSS"
+
+#: templates/base.html:138
+msgid "Documentation translation"
+msgstr "Перевод документации"
+
+#: templates/base.html:164
+msgid "Confirm you email"
+msgstr "Подтвердите адрес вашей электронной почты"
+
+#: templates/base.html:166
+msgid ""
+"\n"
+"                            You account does not have confirmed email.\n"
+"                            You should edit email if your profile has "
+"incorrect one and confirm it.\n"
+"                        "
+msgstr ""
+"\n"
+"                            Ваш аккаунт использует неподтверждённый адрес "
+"электронной почты.\n"
+"                            Вы должны ввести правильный адрес электронной "
+"почты и подтвердить его.\n"
+"                        "
+
+#: templates/base.html:172
+msgid "Your current email is:"
+msgstr "Текущий адрес электронной почты:"
+
+#: templates/base.html:173
+msgid "Send confirmation email"
+msgstr "Отправить письмо для подтверждение адреса электронной почты"
+
+#: templates/base.html:184
+msgid "Please, write feedback if something does not work"
+msgstr "Пожалуйста, дайте нам знать, если что-то не работает."
+
+#: templates/basepage.html:7
+msgid "Menu"
+msgstr "Меню"
+
 #: templates/comments/_display_item.html:13 templates/comments/_item.html:13
 #: templates/doc_comments/_display_item.html:13
 msgid "Permalink"
 msgstr "Ссылка"
 
+#: templates/comments/_display_item.html:16 templates/comments/_item.html:21
+#: templates/doc_comments/_display_item.html:16
+msgid "Delete"
+msgstr "Удалить"
+
 #: templates/comments/_display_item.html:29 templates/comments/_item.html:34
 msgid "answer to"
 msgstr "Ответ на"
+
+#: templates/comments/_item.html:15
+msgid "Answer"
+msgstr "Ответ"
 
 #: templates/comments/_item.html:17
 msgid "Reply"
 msgstr "Отклик"
 
-#: templates/comments/form.html:7
+#: templates/comments/form.html:5
 msgid "Leave a Comment"
 msgstr "Оставить комментарий"
 
-#: templates/comments/form.html:20
+#: templates/comments/form.html:18
 #, python-format
 msgid ""
 "\n"
@@ -2747,21 +544,31 @@ msgstr ""
 "\"%(forum_index_url)s\">нашем форуме</a>.\n"
 "                "
 
-#: templates/comments/form.html:25
+#: templates/comments/form.html:23
 msgid "Add Comment"
 msgstr "Добавить комментарий"
 
-#: templates/comments/form.html:55
+#: templates/comments/form.html:53
 msgid "Enter comment please."
 msgstr "Введите комментарий, пожалуйста."
 
-#: templates/comments/form.html:67
+#: templates/comments/form.html:65
 msgid "Answering to: "
 msgstr "Ответ на: "
 
-#: templates/comments/form.html:74
+#: templates/comments/form.html:72
 msgid "Login please to post comment"
 msgstr "Пожалуйста, произведите вход для отправки комментария"
+
+#: templates/comments/list_with_form.html:5
+#: templates/examples/_category.html:18 templates/examples/detail.html:17
+#: templates/news/index.html:15
+#| msgid "comment"
+msgid "comment"
+msgid_plural "comments"
+msgstr[0] "комментарий"
+msgstr[1] "комментария"
+msgstr[2] "комментариев"
 
 #: templates/comments/list_with_form.html:7
 msgid "Make a comment"
@@ -2802,21 +609,33 @@ msgstr ""
 "\">Markdown</a> для форматирования текста. Пожалуйста, используйте его для "
 "ускорения процесса принятия вашего рецепта."
 
-#: templates/examples/detail.html:14
+#: templates/examples/detail.html:13
 msgid "Draft"
 msgstr "Черновик"
 
-#: templates/examples/detail.html:36
+#: templates/examples/detail.html:35
 msgid "Discuss this recipe"
 msgstr "Обсудить рецепт"
 
-#: templates/examples/detail.html:60 templates/news/news.html:61
+#: templates/examples/detail.html:59 templates/news/news.html:60
 msgid "older"
 msgstr "предыдущие"
 
-#: templates/examples/detail.html:63 templates/news/news.html:64
+#: templates/examples/detail.html:62 templates/news/news.html:63
 msgid "newer"
 msgstr "следующие"
+
+#: templates/links/_archive.html:2
+msgid "archive"
+msgstr "архив"
+
+#: templates/links/_source_codes.html:2
+msgid "source code"
+msgstr "исходники"
+
+#: templates/links/_useful_links.html:2
+msgid "useful links"
+msgstr "полезные ссылки"
 
 #: templates/main/_toc.html:3
 msgid "Table of contents"
@@ -2842,6 +661,10 @@ msgstr "Вы можете отправить нам сообщение"
 msgid "We are glad to hear your questions, comments or suggestions!"
 msgstr "Мы рады получить ваши вопросы, комментарии или предложения!"
 
+#: templates/main/search.html:5 templates/main/search.html.py:13
+msgid "Search"
+msgstr "Поиск"
+
 #: templates/main/search.html:34 templates/news/index.html:25
 msgid "Read More"
 msgstr "Читать дальше"
@@ -2854,13 +677,9 @@ msgstr "Помогите нашему проекту"
 msgid "Thank you!"
 msgstr "Спасибо!"
 
-#: templates/news/news.html:43
+#: templates/news/news.html:42
 msgid "Full version:"
 msgstr "Полная версия:"
-
-#: templates/openid_consumer/signin.html:5
-msgid "Sign in with your OpenID"
-msgstr "Вход с помощью OpenID"
 
 #: templates/videos/_last_videos.html:2
 msgid "Something to watch"
@@ -2876,21 +695,1409 @@ msgstr "объект %(name)s с первичным ключом %(key)r не с
 msgid "Change %s"
 msgstr "Изменить %s"
 
-#: videos/forms.py:23
-msgid "Incorrect video URL"
-msgstr "Неправильный URL видео"
+#~ msgid "Applications"
+#~ msgstr "Приложения"
 
-#: videos/models.py:12
-msgid "video URL"
-msgstr "URL видео"
+#~ msgid "Content"
+#~ msgstr "Содержимое"
 
-#: videos/models.py:19
-msgid "video"
-msgstr "видео"
+#~ msgid "From users"
+#~ msgstr "От пользователей"
 
-#: videos/models.py:20
-msgid "videos"
-msgstr "видео"
+#~ msgid "Links"
+#~ msgstr "Ссылки"
+
+#~ msgid "Recent Actions"
+#~ msgstr "Недавние действия"
+
+#~ msgid "Dashboard"
+#~ msgstr "Доска"
+
+#~ msgid "Administration"
+#~ msgstr "Управление"
+
+#~ msgid "Sentry"
+#~ msgstr "Sentry"
+
+#~ msgid "Go to site"
+#~ msgstr "Перейти к сайту"
+
+#~ msgid "Personal info"
+#~ msgstr "Персональные данные"
+
+#~ msgid "Permissions"
+#~ msgstr "Права доступа"
+
+#~ msgid "Important dates"
+#~ msgstr "Важные даты"
+
+#~ msgid "Andorra"
+#~ msgstr "Андора"
+
+#~ msgid "Afghanistan"
+#~ msgstr "Афганистан"
+
+#~ msgid "Albania"
+#~ msgstr "Албания"
+
+#~ msgid "Armenia"
+#~ msgstr "Армения"
+
+#~ msgid "Angola"
+#~ msgstr "Ангола"
+
+#~ msgid "Argentina"
+#~ msgstr "Аргентина"
+
+#~ msgid "Austria"
+#~ msgstr "Австрия"
+
+#~ msgid "Australia"
+#~ msgstr "Австралия"
+
+#~ msgid "Azerbaijan"
+#~ msgstr "Азербайджан"
+
+#~ msgid "Bosnia and Herzegovina"
+#~ msgstr "Босния и Герцеговина"
+
+#~ msgid "Belgium"
+#~ msgstr "Бельгия"
+
+#~ msgid "Burkina Faso"
+#~ msgstr "Буркина Фасо"
+
+#~ msgid "Bulgaria"
+#~ msgstr "Болгария"
+
+#~ msgid "Bahrain"
+#~ msgstr "Бахрейн"
+
+#~ msgid "Bermuda"
+#~ msgstr "Бермуды"
+
+#~ msgid "Bolivia"
+#~ msgstr "Боливия"
+
+#~ msgid "Brazil"
+#~ msgstr "Бразилия"
+
+#~ msgid "Bahama"
+#~ msgstr "Багамы"
+
+#~ msgid "Botswana"
+#~ msgstr "Ботсвана"
+
+#~ msgid "Belarus"
+#~ msgstr "Белоруссия"
+
+#~ msgid "Canada"
+#~ msgstr "Канада"
+
+#~ msgid "Congo"
+#~ msgstr "Конго"
+
+#~ msgid "Switzerland"
+#~ msgstr "Швейцария"
+
+#~ msgid "Cook Islands"
+#~ msgstr "Острова Кука"
+
+#~ msgid "Chile"
+#~ msgstr "Чили"
+
+#~ msgid "Cameroon"
+#~ msgstr "Камерун"
+
+#~ msgid "China"
+#~ msgstr "Китай"
+
+#~ msgid "Colombia"
+#~ msgstr "Колумбия"
+
+#~ msgid "Costa Rica"
+#~ msgstr "Коста Рика"
+
+#~ msgid "Cuba"
+#~ msgstr "Куба"
+
+#~ msgid "Cyprus"
+#~ msgstr "Кипр"
+
+#~ msgid "Czech Republic"
+#~ msgstr "Чехия"
+
+#~ msgid "Germany"
+#~ msgstr "Германия"
+
+#~ msgid "Djibouti"
+#~ msgstr "Джибути"
+
+#~ msgid "Denmark"
+#~ msgstr "Дания"
+
+#~ msgid "Algeria"
+#~ msgstr "Алжир"
+
+#~ msgid "Ecuador"
+#~ msgstr "Эквадор"
+
+#~ msgid "Estonia"
+#~ msgstr "Эстония"
+
+#~ msgid "Egypt"
+#~ msgstr "Египет"
+
+#~ msgid "Western Sahara"
+#~ msgstr "Западная Сахара"
+
+#~ msgid "Eritrea"
+#~ msgstr "Эритрея"
+
+#~ msgid "Spain"
+#~ msgstr "Испания"
+
+#~ msgid "Ethiopia"
+#~ msgstr "Эфиопия"
+
+#~ msgid "Finland"
+#~ msgstr "Финляндия"
+
+#~ msgid "Fiji"
+#~ msgstr "Фиджи"
+
+#~ msgid "Micronesia"
+#~ msgstr "Микронезия"
+
+#~ msgid "France"
+#~ msgstr "Франция"
+
+#~ msgid "Gabon"
+#~ msgstr "Габон"
+
+#~ msgid "United Kingdom (Great Britain)"
+#~ msgstr "Англия"
+
+#~ msgid "Grenada"
+#~ msgstr "Гренада"
+
+#~ msgid "Georgia"
+#~ msgstr "Грузия"
+
+#~ msgid "Gibraltar"
+#~ msgstr "Гибралтар"
+
+#~ msgid "Guinea"
+#~ msgstr "Гвинея"
+
+#~ msgid "Guadeloupe"
+#~ msgstr "Гваделупа"
+
+#~ msgid "Greece"
+#~ msgstr "Греция"
+
+#~ msgid "Guam"
+#~ msgstr "Гуам"
+
+#~ msgid "Hong Kong"
+#~ msgstr "Гонконг"
+
+#~ msgid "Honduras"
+#~ msgstr "Гондурас"
+
+#~ msgid "Haiti"
+#~ msgstr "Гаити"
+
+#~ msgid "Hungary"
+#~ msgstr "Венгрия"
+
+#~ msgid "Indonesia"
+#~ msgstr "Индонезия"
+
+#~ msgid "Ireland"
+#~ msgstr "Ирландия"
+
+#~ msgid "Israel"
+#~ msgstr "Израиль"
+
+#~ msgid "India"
+#~ msgstr "Индия"
+
+#~ msgid "Iraq"
+#~ msgstr "Ирак"
+
+#~ msgid "Islamic Republic of Iran"
+#~ msgstr "Иран"
+
+#~ msgid "Iceland"
+#~ msgstr "Исландия"
+
+#~ msgid "Italy"
+#~ msgstr "Италия"
+
+#~ msgid "Jamaica"
+#~ msgstr "Джамайка"
+
+#~ msgid "Jordan"
+#~ msgstr "Иордания"
+
+#~ msgid "Japan"
+#~ msgstr "Япония"
+
+#~ msgid "Kenya"
+#~ msgstr "Кения"
+
+#~ msgid "Kyrgyzstan"
+#~ msgstr "Киргизия"
+
+#~ msgid "Korea, Democratic People's Republic of"
+#~ msgstr "КНДР"
+
+#~ msgid "Korea, Republic of"
+#~ msgstr "Южная Корея"
+
+#~ msgid "Kuwait"
+#~ msgstr "Кувейт"
+
+#~ msgid "Cayman Islands"
+#~ msgstr "Каймановы Острова"
+
+#~ msgid "Kazakhstan"
+#~ msgstr "Казахстан"
+
+#~ msgid "Lebanon"
+#~ msgstr "Ливан"
+
+#~ msgid "Liechtenstein"
+#~ msgstr "Лихтенштейн"
+
+#~ msgid "Sri Lanka"
+#~ msgstr "Шриланка"
+
+#~ msgid "Lesotho"
+#~ msgstr "Лесото"
+
+#~ msgid "Lithuania"
+#~ msgstr "Литва"
+
+#~ msgid "Luxembourg"
+#~ msgstr "Люксембург"
+
+#~ msgid "Latvia"
+#~ msgstr "Латвия"
+
+#~ msgid "Morocco"
+#~ msgstr "Морокко"
+
+#~ msgid "Monaco"
+#~ msgstr "Монако"
+
+#~ msgid "Moldova, Republic of"
+#~ msgstr "Молдавия"
+
+#~ msgid "Madagascar"
+#~ msgstr "Мадагаскар"
+
+#~ msgid "Marshall Islands"
+#~ msgstr "Маршалловы Острова"
+
+#~ msgid "Mali"
+#~ msgstr "Мали"
+
+#~ msgid "Mongolia"
+#~ msgstr "Монголия"
+
+#~ msgid "Myanmar"
+#~ msgstr "Мьянма"
+
+#~ msgid "Mauritania"
+#~ msgstr "Мавритания"
+
+#~ msgid "Malta"
+#~ msgstr "Мальта"
+
+#~ msgid "Maldives"
+#~ msgstr "Мальдивы"
+
+#~ msgid "Malawi"
+#~ msgstr "Малави"
+
+#~ msgid "Mexico"
+#~ msgstr "Мексика"
+
+#~ msgid "Malaysia"
+#~ msgstr "Малайзия"
+
+#~ msgid "Mozambique"
+#~ msgstr "Мозамбик"
+
+#~ msgid "Namibia"
+#~ msgstr "Намибия"
+
+#~ msgid "New Caledonia"
+#~ msgstr "Новая Каледония"
+
+#~ msgid "Niger"
+#~ msgstr "Нигер"
+
+#~ msgid "Nigeria"
+#~ msgstr "Нигерия"
+
+#~ msgid "Nicaragua"
+#~ msgstr "Никарагуа"
+
+#~ msgid "Netherlands"
+#~ msgstr "Нидерланды"
+
+#~ msgid "Norway"
+#~ msgstr "Норвегия"
+
+#~ msgid "Nepal"
+#~ msgstr "Непал"
+
+#~ msgid "New Zealand"
+#~ msgstr "Новая Зеландия"
+
+#~ msgid "Oman"
+#~ msgstr "Оман"
+
+#~ msgid "Panama"
+#~ msgstr "Панама"
+
+#~ msgid "Peru"
+#~ msgstr "Перу"
+
+#~ msgid "French Polynesia"
+#~ msgstr "Французская Полинезия"
+
+#~ msgid "Papua New Guinea"
+#~ msgstr "Папуа Новая Гвинея"
+
+#~ msgid "Pakistan"
+#~ msgstr "Пакистан"
+
+#~ msgid "Poland"
+#~ msgstr "Польша"
+
+#~ msgid "Puerto Rico"
+#~ msgstr "Пуэрто Рико"
+
+#~ msgid "Portugal"
+#~ msgstr "Португалия"
+
+#~ msgid "Palau"
+#~ msgstr "Палау"
+
+#~ msgid "Paraguay"
+#~ msgstr "Парагвай"
+
+#~ msgid "Qatar"
+#~ msgstr "Катар"
+
+#~ msgid "Romania"
+#~ msgstr "Румыния"
+
+#~ msgid "Russian Federation"
+#~ msgstr "Российская Федерация"
+
+#~ msgid "Rwanda"
+#~ msgstr "Руанда"
+
+#~ msgid "Saudi Arabia"
+#~ msgstr "Саудовская Аравия"
+
+#~ msgid "Solomon Islands"
+#~ msgstr "Соломоновы Острова"
+
+#~ msgid "Seychelles"
+#~ msgstr "Сейшеллы"
+
+#~ msgid "Sudan"
+#~ msgstr "Судан"
+
+#~ msgid "Sweden"
+#~ msgstr "Швеция"
+
+#~ msgid "Singapore"
+#~ msgstr "Сингапур"
+
+#~ msgid "Slovenia"
+#~ msgstr "Словения"
+
+#~ msgid "Slovakia"
+#~ msgstr "Словакия"
+
+#~ msgid "Sierra Leone"
+#~ msgstr "Сьерра Лионе"
+
+#~ msgid "Senegal"
+#~ msgstr "Сенегал"
+
+#~ msgid "Somalia"
+#~ msgstr "Сомали"
+
+#~ msgid "Suriname"
+#~ msgstr "Суринам"
+
+#~ msgid "Syrian Arab Republic"
+#~ msgstr "Сирия"
+
+#~ msgid "Swaziland"
+#~ msgstr "Свазиленж"
+
+#~ msgid "Chad"
+#~ msgstr "Чад"
+
+#~ msgid "Togo"
+#~ msgstr "Того"
+
+#~ msgid "Thailand"
+#~ msgstr "Тайланд"
+
+#~ msgid "Tajikistan"
+#~ msgstr "Таджикистан"
+
+#~ msgid "Turkmenistan"
+#~ msgstr "Туркменистан"
+
+#~ msgid "Tunisia"
+#~ msgstr "Тунис"
+
+#~ msgid "Tonga"
+#~ msgstr "Тонга"
+
+#~ msgid "East Timor"
+#~ msgstr "Восточный Тимор"
+
+#~ msgid "Turkey"
+#~ msgstr "Турция"
+
+#~ msgid "Taiwan, Province of China"
+#~ msgstr "Тайвань"
+
+#~ msgid "Tanzania, United Republic of"
+#~ msgstr "Танзания"
+
+#~ msgid "Ukraine"
+#~ msgstr "Украина"
+
+#~ msgid "Uganda"
+#~ msgstr "Уганда"
+
+#~ msgid "United States of America"
+#~ msgstr "США"
+
+#~ msgid "Uruguay"
+#~ msgstr "Уругвай"
+
+#~ msgid "Uzbekistan"
+#~ msgstr "Узбекистан"
+
+#~ msgid "Vatican City State (Holy See)"
+#~ msgstr "Ватикан"
+
+#~ msgid "Venezuela"
+#~ msgstr "Венесуэла"
+
+#~ msgid "Viet Nam"
+#~ msgstr "Вьетнам"
+
+#~ msgid "Vanuatu"
+#~ msgstr "Ванату"
+
+#~ msgid "Samoa"
+#~ msgstr "Самоа"
+
+#~ msgid "Yemen"
+#~ msgstr "Йемен"
+
+#~ msgid "Yugoslavia"
+#~ msgstr "Югославия"
+
+#~ msgid "South Africa"
+#~ msgstr "Южная Африка"
+
+#~ msgid "Zambia"
+#~ msgstr "Замбия"
+
+#~ msgid "Zaire"
+#~ msgstr "Заир"
+
+#~ msgid "Zimbabwe"
+#~ msgstr "Зимбабве"
+
+#~ msgid "Unknown or unspecified country"
+#~ msgstr "Неизвестная страна"
+
+#~ msgid ""
+#~ "This value must be in COUNTRIES setting in localflavor.generic package."
+#~ msgstr ""
+#~ "Значение должно быть из настройки COUNTRIES пакета localflavor.generic."
+
+#~ msgid "Email"
+#~ msgstr "Е-почта"
+
+#~ msgid "Password"
+#~ msgstr "Пароль"
+
+#~ msgid ""
+#~ "Please enter a correct username and password. Note that both fields are "
+#~ "case-sensitive."
+#~ msgstr ""
+#~ "Пожалуйста введите правильные пароль и имя пользователя. Оба поля "
+#~ "чувствительны к регистру."
+
+#~ msgid ""
+#~ "Your Web browser doesn't appear to have cookies enabled. Cookies are "
+#~ "required for logging in."
+#~ msgstr ""
+#~ "Ваш браузер не поддерживает куки, которые необходимы для авторизации."
+
+#~ msgid "This account is inactive."
+#~ msgstr "Аккаунт не активен."
+
+#~ msgid "captcha"
+#~ msgstr "капча"
+
+#~ msgid "Current password"
+#~ msgstr "Текущий пароль"
+
+#~ msgid ""
+#~ "Ignore if you do not have one yet. We recommend setup password, so you "
+#~ "can use it to login, because sometime we broke login via some external "
+#~ "service."
+#~ msgstr ""
+#~ "Не обязательно, если у вас нет пароля. Советуем установить пароль, т.к. "
+#~ "периодически у нас бывают проблемы с авторизацией через внешние ресурсы."
+
+#~ msgid "New password"
+#~ msgstr "Новый пароль"
+
+#~ msgid "Confirm new password"
+#~ msgstr "Подтверждение нового пароля"
+
+#~ msgid "We use this an small pieces of info."
+#~ msgstr "Мы используем эти кусочки информации"
+
+#~ msgid "Invalid password."
+#~ msgstr "Неправильный пароль."
+
+#~ msgid "The two passwords did not match."
+#~ msgstr "Введённые пароли не совпадают."
+
+#~ msgid "A user with that username already exists."
+#~ msgstr "Пользователь с таким именем уже существует."
+
+#~ msgid "This email is used already."
+#~ msgstr "Данный адрес электронной почты уже используется."
+
+#~ msgid ""
+#~ "That e-mail address doesn't have an associated active user account. Are "
+#~ "you sure you've registered and e-mail is confirmed?"
+#~ msgstr ""
+#~ "Эта почта не привязана к активному аккаунту. Вы уверены, что вы у нас "
+#~ "зарегистрированы и ввели адрес почты правильно?"
+
+#~ msgid "Password reset on %s"
+#~ msgstr "Сброшен пароль для %s"
+
+#~ msgid "You just created account on %(site)s"
+#~ msgstr "Вы зарегистрировались на %(site)s"
+
+#~ msgid "biography"
+#~ msgstr "биография"
+
+#~ msgid "homepage"
+#~ msgstr "домашняя страница"
+
+#~ msgid "is valid email?"
+#~ msgstr "почта верна?"
+
+#~ msgid "achievements"
+#~ msgstr "Достижения"
+
+#~ msgid "forum signature"
+#~ msgstr "подпись на форуме"
+
+#~ msgid "longitude"
+#~ msgstr "долгота"
+
+#~ msgid "latitude"
+#~ msgstr "широта"
+
+#~ msgid "last comments read"
+#~ msgstr "Последний просмотр комментариев"
+
+#~ msgid "last doc. comments read"
+#~ msgstr "Последний просмотр комментариев к документации"
+
+#~ msgid "User"
+#~ msgstr "Пользователь"
+
+#~ msgid "Users"
+#~ msgstr "Пользователи"
+
+#~ msgid "title"
+#~ msgstr "тема"
+
+#~ msgid "link"
+#~ msgstr "ссылка"
+
+#~ msgid "content"
+#~ msgstr "содержимое"
+
+#~ msgid "Use Markdown and HTML"
+#~ msgstr "Иcпользуйте Markdown или HTML"
+
+#~ msgid "is active?"
+#~ msgstr "активно?"
+
+#~ msgid "created"
+#~ msgstr "создано"
+
+#~ msgid "announcement"
+#~ msgstr "Объявление"
+
+#~ msgid "announcements"
+#~ msgstr "объявления"
+
+#~ msgid "user"
+#~ msgstr "пользователь"
+
+#~ msgid "achievement"
+#~ msgstr "Достижение"
+
+#~ msgid "note"
+#~ msgstr "заметка"
+
+#~ msgid "user achievement"
+#~ msgstr "Достижение пользователя"
+
+#~ msgid "user achievements"
+#~ msgstr "Достижения пользователя"
+
+#~ msgid "name"
+#~ msgstr "имя"
+
+#~ msgid "description"
+#~ msgstr "описание"
+
+#~ msgid "active icon"
+#~ msgstr "Активная иконка"
+
+#~ msgid "Please confirm your email address for %(site)s"
+#~ msgstr "Пожалуйста, подтвердите адрес вашей электронной почты для %(site)s"
+
+#~ msgid "e-mail confirmation"
+#~ msgstr "подтверждение почты"
+
+#~ msgid "e-mail confirmations"
+#~ msgstr "подтверждения почты"
+
+#~ msgid ""
+#~ "\"%(email)s\" is already used by other account. If it is your account, "
+#~ "login and connect it on profile edit page."
+#~ msgstr ""
+#~ "Е-почта \"%(email)s\" используется для другого аккаунта. Если это ваш "
+#~ "аккаунт, войдите и подключите его на странице редактирования профиля."
+
+#~ msgid "invalid form"
+#~ msgstr "Ошибка валидации"
+
+#~ msgid "Account created success! Confirm your email."
+#~ msgstr "Аккаунт успешно создан! Подтвердите свою почту."
+
+#~ msgid "Profile changed success! Confirm your email if it was changed."
+#~ msgstr "Профиль успешно изменён! Подтвердите адрес вашей электронной почты."
+
+#~ msgid "Confirmation key expired."
+#~ msgstr "Ключ подтверждения почты просрочен."
+
+#~ msgid "Email is confirmed."
+#~ msgstr "Адрес электронной почты подтверждён."
+
+#~ msgid "Your email is already confirmed."
+#~ msgstr "Данный адрес электронной почты уже используется."
+
+#~ msgid "Add email to your profile."
+#~ msgstr "Добавьте электронный адрес в свой профиль"
+
+#~ msgid ""
+#~ "We have sent you confirmation email. New one you can get in %(days)s days"
+#~ msgstr ""
+#~ "Мы отправили вам письмо для подтверждения адреса электронной почты. "
+#~ "Следующий запрос вы сможете сделать через  %(days)s дня."
+
+#~ msgid "Confirmation email is sent."
+#~ msgstr "Отправлено письмо для подтверждения адреса электронной почты."
+
+#~ msgid "Email with instruction how reset password is sent."
+#~ msgstr "Выслано письмо с инструкцией для сброса вашего пароля."
+
+#~ msgid "Meta"
+#~ msgstr "Мета"
+
+#~ msgid "Error"
+#~ msgstr "Ошибка"
+
+#~ msgid "Comment"
+#~ msgstr "Комментарий"
+
+#~ msgid "Status"
+#~ msgstr "Состояние"
+
+#~ msgid "Fixed"
+#~ msgstr "Исправлена"
+
+#~ msgid "Invalid"
+#~ msgstr "Отклонена"
+
+#~ msgid "New"
+#~ msgstr "Новая"
+
+#~ msgid "Assigned"
+#~ msgstr "Принята"
+
+#~ msgid "Left Context Value"
+#~ msgstr "Контекст слева"
+
+#~ msgid "Selected Text"
+#~ msgstr "Выделенные текст"
+
+#~ msgid "Right Context Value"
+#~ msgstr "Контекст справа"
+
+#~ msgid "Status of the Claim"
+#~ msgstr "Состояние жалобы"
+
+#~ msgid "Status Applied"
+#~ msgstr "Состояние изменено"
+
+#~ msgid "Reader's Comment"
+#~ msgstr "Комментарий читателя"
+
+#~ msgid "Enter here the reply for the Reader"
+#~ msgstr "Введите здесь сообщение для читателя"
+
+#~ msgid "Context URL"
+#~ msgstr "URL контекста"
+
+#~ msgid "Reader's E-mail"
+#~ msgstr "Е-почта читателя"
+
+#~ msgid "Reader wants the Notify"
+#~ msgstr "Уведомлять читателя"
+
+#~ msgid "Registered"
+#~ msgstr "Зарегистрировано"
+
+#~ msgid "Claim"
+#~ msgstr "Жалоба"
+
+#~ msgid "Claims"
+#~ msgstr "Жалобы"
+
+#~ msgid "DjangoBook in russian: Claim's state was changed to"
+#~ msgstr "DjangoBook по-русски: Состояние жалобы было изменено на"
+
+#~ msgid ""
+#~ "This is automatic generated message, you do not need to answer on it."
+#~ msgstr ""
+#~ "Это сообщение сгенерировано автоматически, вам не требуется отвечать на "
+#~ "него."
+
+#~ msgid ""
+#~ "%(auto)s\n"
+#~ "\n"
+#~ "The reply on your comment is:\n"
+#~ "%(reply)s"
+#~ msgstr ""
+#~ "%(auto)s\n"
+#~ "\n"
+#~ "Ответ на ваш комментарий:\n"
+#~ "%(reply)s"
+
+#~ msgid "language"
+#~ msgstr "язык"
+
+#~ msgid "Main snippet language"
+#~ msgstr "Язык сниппета"
+
+#~ msgid "author"
+#~ msgstr "автор"
+
+#~ msgid "tags"
+#~ msgstr "таги"
+
+#~ msgid "rating"
+#~ msgstr "рейтинг"
+
+#~ msgid "rated by"
+#~ msgstr "повлиял"
+
+#~ msgid "file name"
+#~ msgstr "имя файла"
+
+#~ msgid "file"
+#~ msgstr "файл"
+
+#~ msgid "row"
+#~ msgstr "строка"
+
+#~ msgid "Add at least one file"
+#~ msgstr "Добавьте файл"
+
+#~ msgid "Code Review"
+#~ msgstr "Code Review"
+
+#~ msgid "Add snippet"
+#~ msgstr "Добавить сниппет"
+
+#~ msgid "Cancel"
+#~ msgstr "Отмена"
+
+#~ msgid "Files"
+#~ msgstr "Файлы"
+
+#~ msgid "View snipets"
+#~ msgstr "Просмотреть сниппеты"
+
+#~ msgid "Show all"
+#~ msgstr "Показать все"
+
+#~ msgid "To my snippets"
+#~ msgstr "К моим сниппетам"
+
+#~ msgid "Help"
+#~ msgstr "Помощь"
+
+#~ msgid "Click on row number to add comment."
+#~ msgstr "Кликните на номер строки для добавления комментария."
+
+#~ msgid ""
+#~ "There is button on toolbar to show/hide comments. This can be usefull "
+#~ "while code copying."
+#~ msgstr ""
+#~ "На панели есть кнопка для отображения/скрытия комментариев, что может "
+#~ "быть полезно при копировании кода."
+
+#~ msgid "You can use Markdown in comments."
+#~ msgstr "Вы можете использовать Markdown в комментариях."
+
+#~ msgid "At the bottom you can left comment related to whole snippet."
+#~ msgstr ""
+#~ "В конце страницы вы можете оставить комментарий, который относится ко "
+#~ "всему сниппету."
+
+#~ msgid "back"
+#~ msgstr "Вернуться"
+
+#~ msgid "tags:"
+#~ msgstr "таги:"
+
+#~ msgid "Welcome to our new application: Code review and snippets!"
+#~ msgstr "Добро пожаловать в новый раздел: Code Review и сниппеты"
+
+#~ msgid ""
+#~ "Here you can post your code to share experience and solutions, or get "
+#~ "feedback from comunity how improve it."
+#~ msgstr ""
+#~ "Здесь вы можете добавить пример своего кода, что бы поделиться решением "
+#~ "или опытом, или получить советы от сообщества как сделать код его лучше."
+
+#~ msgid ""
+#~ "Try post working code and small enought. More code, less chance someone "
+#~ "review it."
+#~ msgstr ""
+#~ "Старайтесь добавлять рабочий код и не слишком большой. Чем больше и "
+#~ "сложнее код, тем меньше шанс, что его кто-то будет смотреть."
+
+#~ msgid "You can reply to the comments of the same object only"
+#~ msgstr "Отвечать можно только на комментарии с этой страницы"
+
+#~ msgid "object ID"
+#~ msgstr "Идентификатор объекта"
+
+#~ msgid "reply to"
+#~ msgstr "ответить"
+
+#~ msgid "submit date"
+#~ msgstr "дата отправки"
+
+#~ msgid "none"
+#~ msgstr "none"
+
+#~ msgid "accepted"
+#~ msgstr "принят"
+
+#~ msgid "closed"
+#~ msgstr "закрыт"
+
+#~ msgid "path to page"
+#~ msgstr "путь к странице"
+
+#~ msgid "page title"
+#~ msgstr "заголовок станицы"
+
+#~ msgid "xpath"
+#~ msgstr "xpath"
+
+#~ msgid "status"
+#~ msgstr "статус"
+
+#~ msgid "doc. comment"
+#~ msgstr "комментарии к доке"
+
+#~ msgid "doc. comments"
+#~ msgstr "комментарии к доке"
+
+#~ msgid "You are not authenticated."
+#~ msgstr "Вы не авторизированы"
+
+#~ msgid "Russian DjangoBook Examples"
+#~ msgstr "Примеры с Russian DjangoBook"
+
+#~ msgid ""
+#~ "Choose the category for your recipe in which it should be placed in. If "
+#~ "no category is matching your needs, choose any and write note to us. We "
+#~ "will add new category as far as we can."
+#~ msgstr ""
+#~ "Выберите категорию для вашего рецепта, в которой он должен быть размещён. "
+#~ "Если подходящей категории не найдено, укажите любую и напишите нам "
+#~ "сообщение. Мы добавим новую категорию как только сможем."
+
+#~ msgid "Use Markdown for formating the content. All HTML will be escaped."
+#~ msgstr ""
+#~ "Используйте Markdown для форматирования текста. Весь HTML будет "
+#~ "экранирован."
+
+#~ msgid ""
+#~ "Left the note for us. For instance, your email for this recipe, if it "
+#~ "does not exist in your profile."
+#~ msgstr ""
+#~ "Оставьте нам сообщение. Например, ваш адрес электронной почты, если он "
+#~ "отсутствует в вашем профайле."
+
+#~ msgid "New recipe has been added on djbook.ru"
+#~ msgstr "Новый рецепт добавлен на djbook.ru"
+
+#~ msgid ""
+#~ "User %(author)s added a new recipe on djbook.ru.\n"
+#~ "\n"
+#~ "Please check and approve it. URL: %(link)s"
+#~ msgstr ""
+#~ "Пользователь %(author)s добавил новый рецепт на djbook.ru.\n"
+#~ "\n"
+#~ "Пожалуйста, проверьте и подтвердите его. URL: %(link)s"
+
+#~ msgid "Category"
+#~ msgstr "Категория"
+
+#~ msgid "Categories"
+#~ msgstr "Категории"
+
+#~ msgid "category"
+#~ msgstr "категория"
+
+#~ msgid ""
+#~ "Use <a target=\"blank\" href=\"http://daringfireball.net/projects/"
+#~ "markdown/syntax\">Markdown</a> and HTML"
+#~ msgstr ""
+#~ "Используйте <a target=\"blank\" href=\"http://daringfireball.net/projects/"
+#~ "markdown/syntax\">Markdown</a> и HTML"
+
+#~ msgid "approved"
+#~ msgstr "разрешено"
+
+#~ msgid "Can be used for draft"
+#~ msgstr "Может быть использовано для черновиков"
+
+#~ msgid "author's note, is not visible on site"
+#~ msgstr "авторская заметка, не отображается на сайте"
+
+#~ msgid "Topic ID"
+#~ msgstr "Идентификатор темы"
+
+#~ msgid "Example"
+#~ msgstr "Пример"
+
+#~ msgid "Examples"
+#~ msgstr "Примеры"
+
+#~ msgid ""
+#~ "The recipe has been added successfully and will be reviewed as soon as "
+#~ "possible."
+#~ msgstr ""
+#~ "Рецепт был добавлен успешно и будет проверен, как только появится "
+#~ "возможность."
+
+#~ msgid "Message"
+#~ msgstr "Сообщение"
+
+#~ msgid "Name"
+#~ msgstr "Имя"
+
+#~ msgid "Groups"
+#~ msgstr "Группы"
+
+#~ msgid "Only users from these groups can see this category"
+#~ msgstr "Только пользователи из этих групп могут читать данную категорию"
+
+#~ msgid "Position"
+#~ msgstr "Позиция"
+
+#~ msgid "Description"
+#~ msgstr "Описание"
+
+#~ msgid "Forums"
+#~ msgstr "Форумов"
+
+#~ msgid "topic"
+#~ msgstr "тема"
+
+#~ msgid "time"
+#~ msgstr "время"
+
+#~ msgid "forum"
+#~ msgstr "форум"
+
+#~ msgid "subject"
+#~ msgstr "заголовок"
+
+#~ msgid "updated"
+#~ msgstr "обновлено"
+
+#~ msgid "views count"
+#~ msgstr "просмотров"
+
+#~ msgid "sticky"
+#~ msgstr "прикреплён"
+
+#~ msgid "heresy"
+#~ msgstr "ересь"
+
+#~ msgid "votes"
+#~ msgstr "голоса"
+
+#~ msgid "send response on email"
+#~ msgstr "Отправить письмо для подтверждение адреса электронной почты"
+
+#~ msgid "Topic"
+#~ msgstr "Тема"
+
+#~ msgid "Topics"
+#~ msgstr "Темы"
+
+#~ msgid "New post for your topic \"%(topic)s\""
+#~ msgstr "Новая запись в вашей ветке \"%(topic)s\""
+
+#~ msgid "Created"
+#~ msgstr "Создано"
+
+#~ msgid "Updated"
+#~ msgstr "Обновлено"
+
+#~ msgid "Updated by"
+#~ msgstr "Обновлено"
+
+#~ msgid "Post"
+#~ msgstr "Отправить"
+
+#~ msgid "Posts"
+#~ msgstr "Откликов"
+
+#~ msgid "You have no permission edit this post"
+#~ msgstr "У вас нет прав на редактирование этого сообщения"
+
+#~ msgid "Authentication required."
+#~ msgstr "Необходимо авторизоваться"
+
+#~ msgid "Posts per month"
+#~ msgstr "Откликов за месяц"
+
+#~ msgid "Posts count"
+#~ msgstr "Откликов"
+
+#~ msgid "Online"
+#~ msgstr "Онлайн"
+
+#~ msgid ""
+#~ "\n"
+#~ "                            Updated %(updated)s by <strong>%(updated_by)"
+#~ "s</strong>.\n"
+#~ "                        "
+#~ msgstr ""
+#~ "\n"
+#~ "                            Обновлено <strong>%(updated_by)s</strong> в "
+#~ "%(updated)s.\n"
+#~ "                        "
+
+#~ msgid "Location"
+#~ msgstr "Из"
+
+#~ msgid "Replies"
+#~ msgstr "Отклики"
+
+#~ msgid "Views"
+#~ msgstr "Просмотров"
+
+#~ msgid "Last post"
+#~ msgstr "Последнее сообщение"
+
+#~ msgid "Herecy"
+#~ msgstr "Ересь"
+
+#~ msgid "Closed"
+#~ msgstr "Закрыт"
+
+#~ msgid "Sticky"
+#~ msgstr "Прикреплён"
+
+#~ msgid "Add post"
+#~ msgstr "Добавить отклик"
+
+#~ msgid "New post"
+#~ msgstr "Новые сообщение"
+
+#~ msgid "Submit"
+#~ msgstr "Отправить"
+
+#~ msgid ""
+#~ "\n"
+#~ "                Use <a href=\"%(url)s\">Markdown</a> to format text.\n"
+#~ "                "
+#~ msgstr ""
+#~ "\n"
+#~ "                Используйте <a href=\"%(url)s\">Markdown</a> для "
+#~ "форматирования текста.\n"
+#~ "                "
+
+#~ msgid "Add topic to"
+#~ msgstr "Добавить отклик для"
+
+#~ msgid "New topic"
+#~ msgstr "Новая тема"
+
+#~ msgid "Edit post"
+#~ msgstr "Изменить отклик"
+
+#~ msgid "Unread topics"
+#~ msgstr "Непрочтённые темы"
+
+#~ msgid "Mark all as read"
+#~ msgstr "Отметить все темы как прочитанные"
+
+#~ msgid "RSS"
+#~ msgstr "RSS"
+
+#~ msgid "My topics"
+#~ msgstr "Мои темы"
+
+#~ msgid "Total number of registered users:"
+#~ msgstr "Общее количество зарегистрированных пользователей:"
+
+#~ msgid "Total number of topics:"
+#~ msgstr "Общее количество тем:"
+
+#~ msgid "Total number of posts:"
+#~ msgstr "Общее количество откликов:"
+
+#~ msgid "Registered users online:"
+#~ msgstr "Зарегистрированные пользователи в онлайне:"
+
+#~ msgid "Guests online:"
+#~ msgstr "Гости в онлайне:"
+
+#~ msgid "Online:"
+#~ msgstr "Онлайн:"
+
+#~ msgid "Move topic"
+#~ msgstr "Переместить тему"
+
+#~ msgid "Move"
+#~ msgstr "Переместить"
+
+#~ msgid "Save"
+#~ msgstr "Сохранить"
+
+#~ msgid "Home"
+#~ msgstr "Домой"
+
+#, fuzzy
+#~ msgid "First post date:"
+#~ msgstr "Последний отклик:"
+
+#~ msgid "Active users:"
+#~ msgstr "Активные пользователи:"
+
+#~ msgid "Topics:"
+#~ msgstr "Темы:"
+
+#~ msgid "Posts:"
+#~ msgstr "Откликов:"
+
+#~ msgid "Topic views:"
+#~ msgstr "Просмотры тем:"
+
+#~ msgid "Most viewed topics"
+#~ msgstr "Популярные темы"
+
+#~ msgid "views"
+#~ msgstr "просмотров"
+
+#~ msgid "Most active users"
+#~ msgstr "Беспокойные пользователи"
+
+#~ msgid "posts"
+#~ msgstr "сообщений"
+
+#~ msgid "Users with most topics"
+#~ msgstr "Пользователи с кучей тем"
+
+#~ msgid "topics"
+#~ msgstr "темы"
+
+#~ msgid "Enter message"
+#~ msgstr "Введите сообщение"
+
+#~ msgid "Do you wish delete this post?"
+#~ msgstr "Вы уверены, что этот отклик надо удалить?"
+
+#~ msgid "Do you wish delete this topic?"
+#~ msgstr "Вы уверены, что эту тему надо удалить?"
+
+#~ msgid "Do you wish open this topic?"
+#~ msgstr "Вы желаете открыть эту тему?"
+
+#~ msgid "Do you wish close this topic?"
+#~ msgstr "Вы желаете закрыть эту тему?"
+
+#~ msgid "do you wish remove heresy mark for this topic?"
+#~ msgstr "вы желаете снять отметку ереси с этой темы?"
+
+#~ msgid "do you wish mark this topic as heresy?"
+#~ msgstr "вы желаете отметить тему как ересь?"
+
+#~ msgid "Do you wish unstick this topic?"
+#~ msgstr "Вы желаете открепить эту тему?"
+
+#~ msgid "Do you wish stick this topic?"
+#~ msgstr "Вы желаете прикрепить эту тему?"
+
+#~ msgid "manage"
+#~ msgstr "изменить"
+
+#~ msgid "not heresy"
+#~ msgstr "не ересь"
+
+#~ msgid "Unstick"
+#~ msgstr "Открепить"
+
+#~ msgid "Stick"
+#~ msgstr "Прикрепить"
+
+#~ msgid "Open"
+#~ msgstr "Открыть"
+
+#~ msgid "Close"
+#~ msgstr "Закрыть"
+
+#~ msgid "Unsubscribe"
+#~ msgstr "Отписаться"
+
+#~ msgid "Subscribe"
+#~ msgstr "Подписаться"
+
+#~ msgid "Post rating"
+#~ msgstr "рейтинга ответа"
+
+#~ msgid "Topic rating"
+#~ msgstr "рейтинг темы"
+
+#~ msgid "useful link"
+#~ msgstr "полезная ссылка"
+
+#~ msgid "source codes"
+#~ msgstr "исходники"
+
+#~ msgid "archive link"
+#~ msgstr "архивная ссылка"
+
+#~ msgid "archive links"
+#~ msgstr "архивные ссылки"
+
+#~ msgid "Russian DjangoBook"
+#~ msgstr "Russian DjangoBook"
+
+#~ msgid "Captcha"
+#~ msgstr "Капча"
+
+#~ msgid "This should be zip archive"
+#~ msgstr "Хочу zip архив"
+
+#~ msgid "Search by"
+#~ msgstr "Поиск по"
+
+#~ msgid "ToC"
+#~ msgstr "Оглавление"
+
+#~ msgid "Book"
+#~ msgstr "Книга"
+
+#~ msgid "Books"
+#~ msgstr "Книги"
+
+#~ msgid "slug"
+#~ msgstr "метка"
+
+#~ msgid "book"
+#~ msgstr "книга"
+
+#~ msgid "chapter"
+#~ msgstr "глава"
+
+#~ msgid "section"
+#~ msgstr "раздел"
+
+#~ msgid "Page"
+#~ msgstr "Страница"
+
+#~ msgid "Pages"
+#~ msgstr "Страницы"
+
+#~ msgid "Feedback sent success!"
+#~ msgstr "Отзыв успешно отправлен!"
+
+#~ msgid "link to original"
+#~ msgstr "ссылка на оригинал"
+
+#~ msgid "active?"
+#~ msgstr "активно?"
+
+#~ msgid "last update"
+#~ msgstr "обновлено"
+
+#, fuzzy
+#~ msgid "RSS sources"
+#~ msgstr "исходники"
+
+#~ msgid "Disconnect account"
+#~ msgstr "Отвязать аккаунт"
+
+#~ msgid "Sign in with your OpenID"
+#~ msgstr "Вход с помощью OpenID"
+
+#~ msgid "Incorrect video URL"
+#~ msgstr "Неправильный URL видео"
+
+#~ msgid "video URL"
+#~ msgstr "URL видео"
+
+#~ msgid "video"
+#~ msgstr "видео"
+
+#~ msgid "videos"
+#~ msgstr "видео"
 
 #, fuzzy
 #~ msgid "Replies/Views"
@@ -3347,9 +2554,6 @@ msgstr "видео"
 
 #~ msgid "You can choose how you wish to sort and show your results."
 #~ msgstr "Вы можете выбрать способ отображения и сортировки результатов."
-
-#~ msgid "Go to post"
-#~ msgstr "Перейти к отклику"
 
 #~ msgid "Info"
 #~ msgstr "Информация"

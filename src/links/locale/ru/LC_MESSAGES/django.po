@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-06 12:11+0300\n"
+"POT-Creation-Date: 2015-03-06 11:15+0300\n"
 "PO-Revision-Date: 2013-05-16 23:09+0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,30 +19,30 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
-#: models.py:8 models.py:24 models.py:40
+#: links/models.py:8 links/models.py:24 links/models.py:40
 msgid "name"
 msgstr "название"
 
-#: models.py:11
+#: links/models.py:11
 msgid "useful link"
 msgstr "полезная ссылка"
 
-#: models.py:12
+#: links/models.py:12
 msgid "useful links"
 msgstr "полезные ссылки"
 
-#: models.py:27
+#: links/models.py:27
 msgid "source code"
 msgstr "исходный код"
 
-#: models.py:28
+#: links/models.py:28
 msgid "source codes"
 msgstr "исходные коды"
 
-#: models.py:43
+#: links/models.py:43
 msgid "archive link"
 msgstr "архивная ссылка"
 
-#: models.py:44
+#: links/models.py:44
 msgid "archive links"
 msgstr "архивные ссылки"
