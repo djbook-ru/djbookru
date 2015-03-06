@@ -72,6 +72,13 @@
     </div>
     {% endif %}
 
+    {% if user.is_staff %}
+    <div class="row">
+      <div class="span5 offset2">Email:</div>
+      <div class="span3" title="{% trans "This is visible for staff only." %}">{{ user_obj.email }}</div>
+    </div>
+    {% endif %}
+
     <div class="row">
       <div class="span5 offset2">{% trans "Forum posts count" %}:</div>
       <div class="span3">{{ user_obj.forum_post_count }}</div>
