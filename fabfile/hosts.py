@@ -20,6 +20,6 @@ def production():
         DB_NAME=settings.PROD_DB_NAME,
         DB_USER=settings.PROD_DB_USER,
         DB_PASS=settings.PROD_DB_PASS,
-        MIGRATE_DUMP=settings.PRE_MIGRATE_DUMP,
+        #MIGRATE_DUMP=settings.PRE_MIGRATE_DUMP,
         CONFIG='prod_settings.py',
     )
