@@ -7,6 +7,9 @@ LANGUAGES="ru"
 PROJECTS="src"
 APPS="main accounts claims code_review comments djangobb_forum doc_comments examples forum news videos links"
 
+export PYTHONPATH=$PYTHONPATH:`pwd`
+export DJANGO_SETTINGS_MODULE=src.settings
+
 if test $# -gt 0; then
     APPS=$@
 fi
