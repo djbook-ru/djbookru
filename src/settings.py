@@ -33,6 +33,8 @@ MANAGERS = ADMINS
 
 SECRET_KEY = 'somedefaultsecretkey'
 
+ALLOWED_HOSTS = ('djbook.ru', 'www.djbook.ru')
+
 DATABASES = {
     'default': dict(
         ENGINE='django.db.backends.mysql',
