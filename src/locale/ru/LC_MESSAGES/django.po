@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-13 10:00+0300\n"
+"POT-Creation-Date: 2015-03-06 09:19+0200\n"
 "PO-Revision-Date: 2015-02-13 10:14+0300\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -18,48 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-
-#: dashboard.py:23
-msgid "Applications"
-msgstr "Приложения"
-
-#: dashboard.py:25
-msgid "Content"
-msgstr "Содержимое"
-
-#: dashboard.py:31
-msgid "From users"
-msgstr "От пользователей"
-
-#: dashboard.py:36
-msgid "Links"
-msgstr "Ссылки"
-
-#: dashboard.py:43 dashboard.py:62
-msgid "Recent Actions"
-msgstr "Недавние действия"
-
-#: menu.py:22
-msgid "Dashboard"
-msgstr "Доска"
-
-#: menu.py:24
-msgid "Administration"
-msgstr "Управление"
-
-#: menu.py:26
-msgid "Sentry"
-msgstr "Sentry"
-
-#: menu.py:27
-msgid "Go to site"
-msgstr "Перейти к сайту"
-
-#: menu.py:28 forum/models.py:66 forum/models.py:212
-#: forum/templates/djforum/base.html:4 main/forms.py:130
-#: templates/_menu.html:13 templates/_user_activities.html:5
-msgid "Forum"
-msgstr "Форум"
 
 #: patch.py:12 examples/models.py:41
 msgid "URL"
@@ -80,31 +38,31 @@ msgstr ""
 "Данное значение должно содержать только буквы, цифры, символы подчёркивания, "
 "тире или слеши."
 
-#: patch.py:24
+#: patch.py:25
 msgid "Advanced options"
 msgstr "Дополнительные возможности"
 
-#: settings.py:62
+#: settings.py:64
 msgid "Russian"
 msgstr "Русский"
 
-#: settings.py:63
+#: settings.py:65
 msgid "English"
 msgstr "English"
 
-#: settings.py:386
+#: settings.py:348
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
 
-#: accounts/admin.py:35
+#: accounts/admin.py:36
 msgid "Personal info"
 msgstr "Персональные данные"
 
-#: accounts/admin.py:36
+#: accounts/admin.py:37
 msgid "Permissions"
 msgstr "Права доступа"
 
-#: accounts/admin.py:38
+#: accounts/admin.py:39
 msgid "Important dates"
 msgstr "Важные даты"
 
@@ -1060,7 +1018,7 @@ msgstr "Заир"
 msgid "Zimbabwe"
 msgstr "Зимбабве"
 
-#: accounts/countries.py:252
+#: accounts/countries.py:251
 msgid "Unknown or unspecified country"
 msgstr "Неизвестная страна"
 
@@ -1078,32 +1036,27 @@ msgid "Password"
 msgstr "Пароль"
 
 #: accounts/forms.py:30
+#, fuzzy
 msgid ""
-"Please enter a correct username and password. Note that both fields are case-"
+"Please enter a correct email and password. Note that both fields are case-"
 "sensitive."
 msgstr ""
 "Пожалуйста введите правильные пароль и имя пользователя. Оба поля "
 "чувствительны к регистру."
 
 #: accounts/forms.py:32
-msgid ""
-"Your Web browser doesn't appear to have cookies enabled. Cookies are "
-"required for logging in."
-msgstr "Ваш браузер не поддерживает куки, которые необходимы для авторизации."
-
-#: accounts/forms.py:34
 msgid "This account is inactive."
 msgstr "Аккаунт не активен."
 
-#: accounts/forms.py:71
+#: accounts/forms.py:82
 msgid "captcha"
 msgstr "капча"
 
-#: accounts/forms.py:80
+#: accounts/forms.py:91
 msgid "Current password"
 msgstr "Текущий пароль"
 
-#: accounts/forms.py:81
+#: accounts/forms.py:92
 msgid ""
 "Ignore if you do not have one yet. We recommend setup password, so you can "
 "use it to login, because sometime we broke login via some external service."
@@ -1111,35 +1064,35 @@ msgstr ""
 "Не обязательно, если у вас нет пароля. Советуем установить пароль, т.к. "
 "периодически у нас бывают проблемы с авторизацией через внешние ресурсы."
 
-#: accounts/forms.py:82
+#: accounts/forms.py:93
 msgid "New password"
 msgstr "Новый пароль"
 
-#: accounts/forms.py:83
+#: accounts/forms.py:94
 msgid "Confirm new password"
 msgstr "Подтверждение нового пароля"
 
-#: accounts/forms.py:92
+#: accounts/forms.py:103
 msgid "We use this an small pieces of info."
 msgstr "Мы используем эти кусочки информации"
 
-#: accounts/forms.py:99
+#: accounts/forms.py:110
 msgid "Invalid password."
 msgstr "Неправильный пароль."
 
-#: accounts/forms.py:101
+#: accounts/forms.py:112
 msgid "The two passwords did not match."
 msgstr "Введённые пароли не совпадают."
 
-#: accounts/forms.py:107
+#: accounts/forms.py:118
 msgid "A user with that username already exists."
 msgstr "Пользователь с таким именем уже существует."
 
-#: accounts/forms.py:115
+#: accounts/forms.py:126
 msgid "This email is used already."
 msgstr "Данный адрес электронной почты уже используется."
 
-#: accounts/forms.py:137
+#: accounts/forms.py:148
 msgid ""
 "That e-mail address doesn't have an associated active user account. Are you "
 "sure you've registered and e-mail is confirmed?"
@@ -1147,145 +1100,143 @@ msgstr ""
 "Эта почта не привязана к активному аккаунту. Вы уверены, что вы у нас "
 "зарегистрированы и ввели адрес почты правильно?"
 
-#: accounts/forms.py:162
+#: accounts/forms.py:173
 #, python-format
 msgid "Password reset on %s"
 msgstr "Сброшен пароль для %s"
 
-#: accounts/models.py:46
+#: accounts/models.py:45
 #, python-format
 msgid "You just created account on %(site)s"
 msgstr "Вы зарегистрировались на %(site)s"
 
-#: accounts/models.py:61
+#: accounts/models.py:60
 msgid "biography"
 msgstr "биография"
 
-#: accounts/models.py:62
+#: accounts/models.py:61
 msgid "homepage"
 msgstr "домашняя страница"
 
-#: accounts/models.py:63
+#: accounts/models.py:62
 msgid "is valid email?"
 msgstr "почта верна?"
 
-#: accounts/models.py:64 accounts/models.py:195
+#: accounts/models.py:63 accounts/models.py:194
 msgid "achievements"
 msgstr "Достижения"
 
-#: accounts/models.py:65
+#: accounts/models.py:64
 msgid "forum signature"
 msgstr "подпись на форуме"
 
-#: accounts/models.py:69
+#: accounts/models.py:68
 msgid "longitude"
 msgstr "долгота"
 
-#: accounts/models.py:70
+#: accounts/models.py:69
 msgid "latitude"
 msgstr "широта"
 
-#: accounts/models.py:73
+#: accounts/models.py:72
 msgid "last comments read"
 msgstr "Последний просмотр комментариев"
 
-#: accounts/models.py:74
+#: accounts/models.py:73
 msgid "last doc. comments read"
 msgstr "Последний просмотр комментариев к документации"
 
-#: accounts/models.py:79 forum/models.py:304
+#: accounts/models.py:78 forum/models.py:304
 msgid "User"
 msgstr "Пользователь"
 
-#: accounts/models.py:80
+#: accounts/models.py:79
 msgid "Users"
 msgstr "Пользователи"
 
-#: accounts/models.py:162 code_review/models.py:16 examples/models.py:35
-#: news/models.py:17 news/models.py:56 videos/models.py:11
+#: accounts/models.py:161 examples/models.py:35 news/models.py:17
+#: news/models.py:56 videos/models.py:11
 msgid "title"
 msgstr "тема"
 
-#: accounts/models.py:163 news/models.py:58
+#: accounts/models.py:162 news/models.py:58
 msgid "link"
 msgstr "ссылка"
 
-#: accounts/models.py:164 code_review/models.py:52 doc_comments/models.py:18
-#: examples/models.py:36 main/models.py:36 news/models.py:18
+#: accounts/models.py:163 doc_comments/models.py:18 examples/models.py:36
+#: main/models.py:36 news/models.py:18
 msgid "content"
 msgstr "содержимое"
 
-#: accounts/models.py:164 news/models.py:18
+#: accounts/models.py:163 news/models.py:18
 msgid "Use Markdown and HTML"
 msgstr "Иcпользуйте Markdown или HTML"
 
-#: accounts/models.py:165
+#: accounts/models.py:164
 msgid "is active?"
 msgstr "активно?"
 
-#: accounts/models.py:166 code_review/models.py:21 code_review/models.py:65
-#: examples/models.py:37 forum/models.py:179 main/models.py:10
-#: news/models.py:19 videos/models.py:15
+#: accounts/models.py:165 examples/models.py:37 forum/models.py:179
+#: main/models.py:10 news/models.py:19 videos/models.py:15
 msgid "created"
 msgstr "создано"
 
-#: accounts/models.py:169
+#: accounts/models.py:168
 msgid "announcement"
 msgstr "Объявление"
 
-#: accounts/models.py:170
+#: accounts/models.py:169
 msgid "announcements"
 msgstr "объявления"
 
-#: accounts/models.py:177 comments/models.py:19 forum/models.py:124
+#: accounts/models.py:176 comments/models.py:19 forum/models.py:124
 #: forum/models.py:181
 msgid "user"
 msgstr "пользователь"
 
-#: accounts/models.py:178 accounts/models.py:194
+#: accounts/models.py:177 accounts/models.py:193
 msgid "achievement"
 msgstr "Достижение"
 
-#: accounts/models.py:179 examples/models.py:40
+#: accounts/models.py:178 examples/models.py:40
 msgid "note"
 msgstr "заметка"
 
-#: accounts/models.py:182
+#: accounts/models.py:181
 msgid "user achievement"
 msgstr "Достижение пользователя"
 
-#: accounts/models.py:183
+#: accounts/models.py:182
 msgid "user achievements"
 msgstr "Достижения пользователя"
 
-#: accounts/models.py:188 examples/models.py:11 links/models.py:8
+#: accounts/models.py:187 examples/models.py:11 links/models.py:8
 #: links/models.py:24 links/models.py:40 main/models.py:9 main/models.py:34
 msgid "name"
 msgstr "имя"
 
-#: accounts/models.py:189 code_review/models.py:17 main/models.py:11
-#: news/models.py:57
+#: accounts/models.py:188 main/models.py:11 news/models.py:57
 msgid "description"
 msgstr "описание"
 
-#: accounts/models.py:190
+#: accounts/models.py:189
 msgid "active icon"
 msgstr "Активная иконка"
 
-#: accounts/models.py:233
+#: accounts/models.py:232
 #, python-format
 msgid "Please confirm your email address for %(site)s"
 msgstr "Пожалуйста, подтвердите адрес вашей электронной почты для %(site)s"
 
-#: accounts/models.py:256
+#: accounts/models.py:255
 msgid "e-mail confirmation"
 msgstr "подтверждение почты"
 
-#: accounts/models.py:257
+#: accounts/models.py:256
 msgid "e-mail confirmations"
 msgstr "подтверждения почты"
 
-#: accounts/social_auth_pipelines.py:33
+#: accounts/social_auth_pipelines.py:25
 #, python-format
 msgid ""
 "\"%(email)s\" is already used by other account. If it is your account, login "
@@ -1294,7 +1245,11 @@ msgstr ""
 "Е-почта \"%(email)s\" используется для другого аккаунта. Если это ваш "
 "аккаунт, войдите и подключите его на странице редактирования профиля."
 
-#: accounts/views.py:53 templates/accounts/map.html:126
+#: accounts/social_auth_pipelines.py:29
+msgid "Social service does not return email. Use registration form."
+msgstr ""
+
+#: accounts/views.py:53 templates/accounts/map.html:125
 msgid "Authenticate please!"
 msgstr "Вы должны быть авторизированы."
 
@@ -1306,7 +1261,7 @@ msgstr "Ошибка валидации"
 msgid "Account created success! Confirm your email."
 msgstr "Аккаунт успешно создан! Подтвердите свою почту."
 
-#: accounts/views.py:74 accounts/views.py:109 templates/admin/login.html:18
+#: accounts/views.py:74 accounts/views.py:109 templates/admin/login.html:17
 msgid "Please correct the error below."
 msgstr "Пожалуйста, исправьте ошибки перечисленные далее."
 
@@ -1452,157 +1407,6 @@ msgstr ""
 "Ответ на ваш комментарий:\n"
 "%(reply)s"
 
-#: code_review/models.py:18 code_review/models.py:54
-msgid "language"
-msgstr "язык"
-
-#: code_review/models.py:19
-msgid "Main snippet language"
-msgstr "Язык сниппета"
-
-#: code_review/models.py:20 code_review/models.py:64 doc_comments/models.py:19
-#: news/models.py:62
-msgid "author"
-msgstr "автор"
-
-#: code_review/models.py:22 videos/models.py:14
-msgid "tags"
-msgstr "таги"
-
-#: code_review/models.py:23 code_review/templates/code_review/details.html:108
-#: code_review/templates/code_review/index.html:33 forum/models.py:188
-#: forum/models.py:309
-msgid "rating"
-msgstr "рейтинг"
-
-#: code_review/models.py:24
-msgid "rated by"
-msgstr "повлиял"
-
-#: code_review/models.py:51
-msgid "file name"
-msgstr "имя файла"
-
-#: code_review/models.py:61
-msgid "file"
-msgstr "файл"
-
-#: code_review/models.py:62
-msgid "row"
-msgstr "строка"
-
-#: code_review/models.py:63 comments/models.py:21
-#: templates/comments/list_with_form.html:5
-#: templates/examples/_category.html:18 templates/examples/detail.html:18
-#: templates/news/index.html:15
-msgid "comment"
-msgstr "комментарий"
-
-#: code_review/views.py:58
-msgid "Add at least one file"
-msgstr "Добавьте файл"
-
-#: code_review/templates/code_review/add.html:6
-#: code_review/templates/code_review/comments.html:6
-#: code_review/templates/code_review/details.html:6
-#: code_review/templates/code_review/index.html:6
-msgid "Code Review"
-msgstr "Code Review"
-
-#: code_review/templates/code_review/add.html:23
-#: code_review/templates/code_review/comments.html:9
-#: code_review/templates/code_review/index.html:18
-msgid "Add snippet"
-msgstr "Добавить сниппет"
-
-#: code_review/templates/code_review/add.html:24
-#: code_review/templates/code_review/add.html:37
-#: templates/accounts/create.html:19 templates/examples/add.html:32
-msgid "Create"
-msgstr "Создать"
-
-#: code_review/templates/code_review/add.html:25
-#: code_review/templates/code_review/add.html:38
-msgid "Cancel"
-msgstr "Отмена"
-
-#: code_review/templates/code_review/add.html:33
-msgid "Files"
-msgstr "Файлы"
-
-#: code_review/templates/code_review/comments.html:10
-msgid "View snipets"
-msgstr "Просмотреть сниппеты"
-
-#: code_review/templates/code_review/comments.html:13
-#: code_review/templates/code_review/index.html:21
-msgid "Show all"
-msgstr "Показать все"
-
-#: code_review/templates/code_review/comments.html:15
-msgid "To my snippets"
-msgstr "К моим сниппетам"
-
-#: code_review/templates/code_review/details.html:80
-msgid "Help"
-msgstr "Помощь"
-
-#: code_review/templates/code_review/details.html:83
-msgid "Click on row number to add comment."
-msgstr "Кликните на номер строки для добавления комментария."
-
-#: code_review/templates/code_review/details.html:84
-msgid ""
-"There is button on toolbar to show/hide comments. This can be usefull while "
-"code copying."
-msgstr ""
-"На панели есть кнопка для отображения/скрытия комментариев, что может быть "
-"полезно при копировании кода."
-
-#: code_review/templates/code_review/details.html:85
-msgid "You can use Markdown in comments."
-msgstr "Вы можете использовать Markdown в комментариях."
-
-#: code_review/templates/code_review/details.html:86
-msgid "At the bottom you can left comment related to whole snippet."
-msgstr ""
-"В конце страницы вы можете оставить комментарий, который относится ко всему "
-"сниппету."
-
-#: code_review/templates/code_review/details.html:98
-msgid "back"
-msgstr "Вернуться"
-
-#: code_review/templates/code_review/details.html:111
-#: code_review/templates/code_review/index.html:40
-msgid "tags:"
-msgstr "таги:"
-
-#: code_review/templates/code_review/index.html:11
-msgid "Welcome to our new application: Code review and snippets!"
-msgstr "Добро пожаловать в новый раздел: Code Review и сниппеты"
-
-#: code_review/templates/code_review/index.html:12
-msgid ""
-"Here you can post your code to share experience and solutions, or get "
-"feedback from comunity how improve it."
-msgstr ""
-"Здесь вы можете добавить пример своего кода, что бы поделиться решением или "
-"опытом, или получить советы от сообщества как сделать код его лучше."
-
-#: code_review/templates/code_review/index.html:13
-msgid ""
-"Try post working code and small enought. More code, less chance someone "
-"review it."
-msgstr ""
-"Старайтесь добавлять рабочий код и не слишком большой. Чем больше и сложнее "
-"код, тем меньше шанс, что его кто-то будет смотреть."
-
-#: code_review/templates/code_review/index.html:19 comments/models.py:27
-#: templates/_user_activities.html:6 templates/accounts/notifications.html:12
-msgid "Comments"
-msgstr "Комментарии"
-
 #: comments/forms.py:38
 msgid "You can reply to the comments of the same object only"
 msgstr "Отвечать можно только на комментарии с этой страницы"
@@ -1615,9 +1419,20 @@ msgstr "Идентификатор объекта"
 msgid "reply to"
 msgstr "ответить"
 
+#: comments/models.py:21 templates/comments/list_with_form.html:5
+#: templates/examples/_category.html:18 templates/examples/detail.html:17
+#: templates/news/index.html:15
+msgid "comment"
+msgstr "комментарий"
+
 #: comments/models.py:22
 msgid "submit date"
 msgstr "дата отправки"
+
+#: comments/models.py:27 templates/_user_activities.html:6
+#: templates/accounts/notifications.html:11
+msgid "Comments"
+msgstr "Комментарии"
 
 #: doc_comments/models.py:14
 msgid "none"
@@ -1630,6 +1445,10 @@ msgstr "принят"
 #: doc_comments/models.py:16 forum/models.py:184
 msgid "closed"
 msgstr "закрыт"
+
+#: doc_comments/models.py:19 news/models.py:62
+msgid "author"
+msgstr "автор"
 
 #: doc_comments/models.py:20
 msgid "path to page"
@@ -1789,6 +1608,11 @@ msgstr "Позиция"
 msgid "Description"
 msgstr "Описание"
 
+#: forum/models.py:66 forum/models.py:212 forum/templates/djforum/base.html:4
+#: main/forms.py:133 templates/_menu.html:13 templates/_user_activities.html:5
+msgid "Forum"
+msgstr "Форум"
+
 #: forum/models.py:67
 msgid "Forums"
 msgstr "Форумов"
@@ -1824,6 +1648,10 @@ msgstr "прикреплён"
 #: forum/models.py:185 forum/templates/djforum/topic.html:95
 msgid "heresy"
 msgstr "ересь"
+
+#: forum/models.py:188 forum/models.py:309
+msgid "rating"
+msgstr "рейтинг"
 
 #: forum/models.py:189 forum/models.py:310
 msgid "votes"
@@ -1867,19 +1695,19 @@ msgstr "Отправить"
 msgid "Posts"
 msgstr "Откликов"
 
-#: forum/views.py:154
+#: forum/views.py:153
 msgid "You have no permission edit this post"
 msgstr "У вас нет прав на редактирование этого сообщения"
 
-#: forum/views.py:310
+#: forum/views.py:309
 msgid "Authentication required."
 msgstr "Необходимо авторизоваться"
 
-#: forum/views.py:358
+#: forum/views.py:357
 msgid "Posts per month"
 msgstr "Откликов за месяц"
 
-#: forum/views.py:366
+#: forum/views.py:365
 msgid "Posts count"
 msgstr "Откликов"
 
@@ -1908,7 +1736,7 @@ msgstr "Ответ"
 #: forum/templates/djforum/_post.html:62 templates/accounts/_menu.html:12
 #: templates/comments/_display_item.html:21 templates/comments/_item.html:26
 #: templates/doc_comments/_display_item.html:21
-#: templates/examples/detail.html:24 templates/news/news.html:28
+#: templates/examples/detail.html:23 templates/news/news.html:27
 msgid "Edit"
 msgstr "Редактировать"
 
@@ -2251,29 +2079,29 @@ msgstr "архив"
 msgid "This should be zip archive"
 msgstr "Хочу zip архив"
 
-#: main/forms.py:128 templates/_menu.html:26
+#: main/forms.py:128 templates/_menu.html:16
 #: templates/examples/_examples_menu.html:4
 msgid "All"
 msgstr "Все"
 
-#: main/forms.py:129 templates/_menu.html:24 templates/_recipes.html:2
+#: main/forms.py:132 templates/_menu.html:14 templates/_recipes.html:2
 #: templates/examples/base.html:5 templates/examples/base.html.py:7
-#: templates/examples/detail.html:21
+#: templates/examples/detail.html:20
 msgid "Recipes"
 msgstr "Рецепты"
 
-#: main/forms.py:131 news/models.py:27 news/models.py:28 news/models.py:40
+#: main/forms.py:134 news/models.py:27 news/models.py:28 news/models.py:40
 #: templates/_menu.html:11 templates/news/_last_news.html:2
 #: templates/news/base.html:5 templates/news/base.html.py:7
-#: templates/news/news.html:25
+#: templates/news/news.html:24
 msgid "News"
 msgstr "Новости"
 
-#: main/forms.py:132 templates/_user_activities.html:7
+#: main/forms.py:135 templates/_user_activities.html:7
 msgid "Documentation"
 msgstr "Документация"
 
-#: main/forms.py:134
+#: main/forms.py:143
 msgid "Search by"
 msgstr "Поиск по"
 
@@ -2359,16 +2187,16 @@ msgstr "Что-то поломалось..."
 msgid "Videos"
 msgstr "Видео"
 
-#: templates/_menu.html:27
+#: templates/_menu.html:17
 msgid "Add recipe"
 msgstr "Добавить рецепт"
 
-#: templates/_menu.html:33
+#: templates/_menu.html:23
 msgid "About"
 msgstr "О проекте"
 
 #: templates/_recipes.html:27 templates/news/_last_news.html:14
-#: templates/news/news.html:20
+#: templates/news/news.html:19
 #, python-format
 msgid "%(counter)s comment"
 msgid_plural "%(counter)s comments"
@@ -2403,48 +2231,47 @@ msgstr[2] "откликов"
 msgid "DjangoBook RSS feed"
 msgstr ""
 
-#: templates/base.html:92
+#: templates/base.html:91
 msgid "Skip to navigation"
 msgstr "Пропустить до навигации"
 
-#: templates/base.html:93
+#: templates/base.html:92
 msgid "Skip to content"
 msgstr "Пропустить до содержимого"
 
-#: templates/base.html:109
+#: templates/base.html:108
 msgid "Logout"
 msgstr "Выйти"
 
-#: templates/base.html:112 templates/accounts/login.html:37
-#: templates/openid_consumer/signin.html:10
+#: templates/base.html:111 templates/accounts/login.html:36
 msgid "Login"
 msgstr "Вход"
 
-#: templates/base.html:116
+#: templates/base.html:115
 msgid "Admin UI"
 msgstr "Админка"
 
-#: templates/base.html:130
+#: templates/base.html:129
 msgid "Search:"
 msgstr "Поиск:"
 
-#: templates/base.html:131
+#: templates/base.html:130
 msgid "search + enter"
 msgstr "поиск + ввод"
 
-#: templates/base.html:136
+#: templates/base.html:135
 msgid "Subscribe to our RSS"
 msgstr "Подписаться на наш RSS"
 
-#: templates/base.html:139
+#: templates/base.html:138
 msgid "Documentation translation"
 msgstr "Перевод документации"
 
-#: templates/base.html:165
+#: templates/base.html:164
 msgid "Confirm you email"
 msgstr "Подтвердите адрес вашей электронной почты"
 
-#: templates/base.html:167
+#: templates/base.html:166
 msgid ""
 "\n"
 "                            You account does not have confirmed email.\n"
@@ -2459,15 +2286,15 @@ msgstr ""
 "почты и подтвердить его.\n"
 "                        "
 
-#: templates/base.html:173
+#: templates/base.html:172
 msgid "Your current email is:"
 msgstr "Текущий адрес электронной почты:"
 
-#: templates/base.html:174
+#: templates/base.html:173
 msgid "Send confirmation email"
 msgstr "Отправить письмо для подтверждение адреса электронной почты"
 
-#: templates/base.html:185
+#: templates/base.html:184
 msgid "Please, write feedback if something does not work"
 msgstr "Пожалуйста, дайте нам знать, если что-то не работает."
 
@@ -2483,13 +2310,17 @@ msgstr "Мой профиль"
 msgid "Profile"
 msgstr "Профиль"
 
-#: templates/accounts/_menu.html:9 templates/accounts/notifications.html:6
+#: templates/accounts/_menu.html:9 templates/accounts/notifications.html:5
 msgid "Notifications"
 msgstr "События"
 
 #: templates/accounts/create.html:6 templates/accounts/create.html.py:12
 msgid "Register"
 msgstr "Регистрация"
+
+#: templates/accounts/create.html:19 templates/examples/add.html:32
+msgid "Create"
+msgstr "Создать"
 
 #: templates/accounts/edit.html:5
 msgid "Edit Profile"
@@ -2499,23 +2330,19 @@ msgstr "Изменить профиль"
 msgid "Connect accounts"
 msgstr "Связанные аккаунты"
 
-#: templates/accounts/edit.html:12
-msgid "Disconnect account"
-msgstr "Отвязать аккаунт"
-
-#: templates/accounts/edit.html:17
+#: templates/accounts/edit.html:18
 msgid "Connect account"
 msgstr "Привязать аккаунт"
 
-#: templates/accounts/edit.html:24
+#: templates/accounts/edit.html:25
 msgid "Edit your profile"
 msgstr "Изменить ваш профиль"
 
-#: templates/accounts/edit.html:28
+#: templates/accounts/edit.html:29
 msgid "You can edit your avatar on"
 msgstr "Аватарку можно поменять на"
 
-#: templates/accounts/edit.html:35
+#: templates/accounts/edit.html:36
 msgid "Update"
 msgstr "Обновить"
 
@@ -2574,57 +2401,57 @@ msgstr ""
 msgid "You are going reset password for"
 msgstr "Вы сбрасываете пароль для"
 
-#: templates/accounts/login.html:13
+#: templates/accounts/login.html:12
 msgid "Forgot Password? Please enter your email and we’ll send it you."
 msgstr "Забыли пароль? Пожалуйста, введите свою е-почту и мы пришлём вам его."
 
-#: templates/accounts/login.html:17
+#: templates/accounts/login.html:16
 msgid "Email Address"
 msgstr "Адрес электронной почты"
 
-#: templates/accounts/login.html:18
-#: templates/accounts/password_reset_confirm.html:20
+#: templates/accounts/login.html:17
+#: templates/accounts/password_reset_confirm.html:19
 #: templates/main/feedback.html:21
 msgid "Send"
 msgstr "Отправить"
 
-#: templates/accounts/login.html:28
+#: templates/accounts/login.html:27
 msgid "Login to your account..."
 msgstr "Авторизуйтесь..."
 
-#: templates/accounts/login.html:41
+#: templates/accounts/login.html:40
 msgid "Forgot Password?"
 msgstr "Забыли пароль?"
 
-#: templates/accounts/login.html:50
+#: templates/accounts/login.html:49
 msgid "Sign in with"
 msgstr "Вход с помощью"
 
-#: templates/accounts/login.html:55
+#: templates/accounts/login.html:54
 msgid "Not a member? Join today!"
 msgstr "Вне тусовки? Присоединяйтесь сейчас!"
 
-#: templates/accounts/login.html:59
+#: templates/accounts/login.html:58
 msgid "You are authenticated already"
 msgstr "Вы уже аутентифицированы"
 
-#: templates/accounts/map.html:6
+#: templates/accounts/map.html:5
 msgid "Map"
 msgstr "Карта"
 
-#: templates/accounts/map.html:140
+#: templates/accounts/map.html:139
 msgid "Add yourself on the map!"
 msgstr "Добавь себя на карту!"
 
-#: templates/accounts/map.html:141
+#: templates/accounts/map.html:140
 msgid "This is just for fun."
 msgstr "Это все просто для фана."
 
-#: templates/accounts/map.html:142
+#: templates/accounts/map.html:141
 msgid "You should be authenticated."
 msgstr "Вы должны быть авторизированы."
 
-#: templates/accounts/map.html:143
+#: templates/accounts/map.html:142
 msgid ""
 "Green marker should appear at your position, otherwise put the marker on the "
 "map to mark you position."
@@ -2633,46 +2460,46 @@ msgstr ""
 "поддерживает геолокацию, то просто добавьте маркер, перетащив его с панельки "
 "на карту."
 
-#: templates/accounts/notifications.html:13
+#: templates/accounts/notifications.html:12
 msgid "Doc. comments"
 msgstr "Док. комментарии"
 
-#: templates/accounts/password_reset.html:6
-#: templates/accounts/password_reset_complete.html:6
-#: templates/accounts/password_reset_confirm.html:6
+#: templates/accounts/password_reset.html:5
+#: templates/accounts/password_reset_complete.html:5
+#: templates/accounts/password_reset_confirm.html:5
 msgid "Reset password"
 msgstr "Сброс пароля"
 
-#: templates/accounts/password_reset.html:12
+#: templates/accounts/password_reset.html:11
 msgid "Forgot password? Please enter your email"
 msgstr "Забыли пароль? Пожалуйста, введите свою е-почту"
 
-#: templates/accounts/password_reset.html:19
+#: templates/accounts/password_reset.html:18
 msgid "Send Password"
 msgstr "Отправить пароль"
 
-#: templates/accounts/password_reset_complete.html:13
+#: templates/accounts/password_reset_complete.html:12
 msgid "Password reset complete"
 msgstr "Сброс пароля завершён"
 
-#: templates/accounts/password_reset_complete.html:14
+#: templates/accounts/password_reset_complete.html:13
 msgid "Your password has been set.  You may go ahead and log in now."
 msgstr "Ваш пароль установлен. Вы можете войти на сайт."
 
-#: templates/accounts/password_reset_complete.html:15
-#: templates/admin/login.html:49
+#: templates/accounts/password_reset_complete.html:14
+#: templates/admin/login.html:48
 msgid "Log in"
 msgstr "Вход"
 
-#: templates/accounts/password_reset_confirm.html:13
+#: templates/accounts/password_reset_confirm.html:12
 msgid "Enter new password"
 msgstr "Введите новый пароль"
 
-#: templates/accounts/password_reset_confirm.html:25
+#: templates/accounts/password_reset_confirm.html:24
 msgid "Password reset unsuccessful"
 msgstr "Сброс пароля не прошёл"
 
-#: templates/accounts/password_reset_confirm.html:26
+#: templates/accounts/password_reset_confirm.html:25
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used. Please request a new password reset."
@@ -2680,23 +2507,23 @@ msgstr ""
 "Ссылка для сброса пароля неверна, возможно, потому что она уже была "
 "использована. Пожалуйста, запросите ссылку ещё раз."
 
-#: templates/accounts/profile.html:63
+#: templates/accounts/profile.html:62
 msgid "Forum posts count"
 msgstr "Количество откликов в форуме"
 
-#: templates/accounts/profile.html:64
+#: templates/accounts/profile.html:63
 msgid "Comments count"
 msgstr "Комментариев"
 
-#: templates/admin/login.html:34
+#: templates/admin/login.html:33
 msgid "Email:"
 msgstr "Е-почта:"
 
-#: templates/admin/login.html:38
+#: templates/admin/login.html:37
 msgid "Password:"
 msgstr "Пароль:"
 
-#: templates/admin/login.html:45
+#: templates/admin/login.html:44
 msgid "Forgotten your password or username?"
 msgstr "Забыли пароль или имя пользователя?"
 
@@ -2730,11 +2557,11 @@ msgstr "Ответ на"
 msgid "Reply"
 msgstr "Отклик"
 
-#: templates/comments/form.html:7
+#: templates/comments/form.html:5
 msgid "Leave a Comment"
 msgstr "Оставить комментарий"
 
-#: templates/comments/form.html:20
+#: templates/comments/form.html:18
 #, python-format
 msgid ""
 "\n"
@@ -2747,19 +2574,19 @@ msgstr ""
 "\"%(forum_index_url)s\">нашем форуме</a>.\n"
 "                "
 
-#: templates/comments/form.html:25
+#: templates/comments/form.html:23
 msgid "Add Comment"
 msgstr "Добавить комментарий"
 
-#: templates/comments/form.html:55
+#: templates/comments/form.html:53
 msgid "Enter comment please."
 msgstr "Введите комментарий, пожалуйста."
 
-#: templates/comments/form.html:67
+#: templates/comments/form.html:65
 msgid "Answering to: "
 msgstr "Ответ на: "
 
-#: templates/comments/form.html:74
+#: templates/comments/form.html:72
 msgid "Login please to post comment"
 msgstr "Пожалуйста, произведите вход для отправки комментария"
 
@@ -2802,19 +2629,19 @@ msgstr ""
 "\">Markdown</a> для форматирования текста. Пожалуйста, используйте его для "
 "ускорения процесса принятия вашего рецепта."
 
-#: templates/examples/detail.html:14
+#: templates/examples/detail.html:13
 msgid "Draft"
 msgstr "Черновик"
 
-#: templates/examples/detail.html:36
+#: templates/examples/detail.html:35
 msgid "Discuss this recipe"
 msgstr "Обсудить рецепт"
 
-#: templates/examples/detail.html:60 templates/news/news.html:61
+#: templates/examples/detail.html:59 templates/news/news.html:60
 msgid "older"
 msgstr "предыдущие"
 
-#: templates/examples/detail.html:63 templates/news/news.html:64
+#: templates/examples/detail.html:62 templates/news/news.html:63
 msgid "newer"
 msgstr "следующие"
 
@@ -2854,13 +2681,9 @@ msgstr "Помогите нашему проекту"
 msgid "Thank you!"
 msgstr "Спасибо!"
 
-#: templates/news/news.html:43
+#: templates/news/news.html:42
 msgid "Full version:"
 msgstr "Полная версия:"
-
-#: templates/openid_consumer/signin.html:5
-msgid "Sign in with your OpenID"
-msgstr "Вход с помощью OpenID"
 
 #: templates/videos/_last_videos.html:2
 msgid "Something to watch"
@@ -2876,13 +2699,17 @@ msgstr "объект %(name)s с первичным ключом %(key)r не с
 msgid "Change %s"
 msgstr "Изменить %s"
 
-#: videos/forms.py:23
+#: videos/forms.py:24
 msgid "Incorrect video URL"
 msgstr "Неправильный URL видео"
 
 #: videos/models.py:12
 msgid "video URL"
 msgstr "URL видео"
+
+#: videos/models.py:14
+msgid "tags"
+msgstr "таги"
 
 #: videos/models.py:19
 msgid "video"
@@ -2891,6 +2718,131 @@ msgstr "видео"
 #: videos/models.py:20
 msgid "videos"
 msgstr "видео"
+
+#~ msgid "Applications"
+#~ msgstr "Приложения"
+
+#~ msgid "Content"
+#~ msgstr "Содержимое"
+
+#~ msgid "From users"
+#~ msgstr "От пользователей"
+
+#~ msgid "Links"
+#~ msgstr "Ссылки"
+
+#~ msgid "Recent Actions"
+#~ msgstr "Недавние действия"
+
+#~ msgid "Dashboard"
+#~ msgstr "Доска"
+
+#~ msgid "Administration"
+#~ msgstr "Управление"
+
+#~ msgid "Sentry"
+#~ msgstr "Sentry"
+
+#~ msgid "Go to site"
+#~ msgstr "Перейти к сайту"
+
+#~ msgid ""
+#~ "Your Web browser doesn't appear to have cookies enabled. Cookies are "
+#~ "required for logging in."
+#~ msgstr ""
+#~ "Ваш браузер не поддерживает куки, которые необходимы для авторизации."
+
+#~ msgid "language"
+#~ msgstr "язык"
+
+#~ msgid "Main snippet language"
+#~ msgstr "Язык сниппета"
+
+#~ msgid "rated by"
+#~ msgstr "повлиял"
+
+#~ msgid "file name"
+#~ msgstr "имя файла"
+
+#~ msgid "file"
+#~ msgstr "файл"
+
+#~ msgid "row"
+#~ msgstr "строка"
+
+#~ msgid "Add at least one file"
+#~ msgstr "Добавьте файл"
+
+#~ msgid "Code Review"
+#~ msgstr "Code Review"
+
+#~ msgid "Add snippet"
+#~ msgstr "Добавить сниппет"
+
+#~ msgid "Cancel"
+#~ msgstr "Отмена"
+
+#~ msgid "Files"
+#~ msgstr "Файлы"
+
+#~ msgid "View snipets"
+#~ msgstr "Просмотреть сниппеты"
+
+#~ msgid "Show all"
+#~ msgstr "Показать все"
+
+#~ msgid "To my snippets"
+#~ msgstr "К моим сниппетам"
+
+#~ msgid "Help"
+#~ msgstr "Помощь"
+
+#~ msgid "Click on row number to add comment."
+#~ msgstr "Кликните на номер строки для добавления комментария."
+
+#~ msgid ""
+#~ "There is button on toolbar to show/hide comments. This can be usefull "
+#~ "while code copying."
+#~ msgstr ""
+#~ "На панели есть кнопка для отображения/скрытия комментариев, что может "
+#~ "быть полезно при копировании кода."
+
+#~ msgid "You can use Markdown in comments."
+#~ msgstr "Вы можете использовать Markdown в комментариях."
+
+#~ msgid "At the bottom you can left comment related to whole snippet."
+#~ msgstr ""
+#~ "В конце страницы вы можете оставить комментарий, который относится ко "
+#~ "всему сниппету."
+
+#~ msgid "back"
+#~ msgstr "Вернуться"
+
+#~ msgid "tags:"
+#~ msgstr "таги:"
+
+#~ msgid "Welcome to our new application: Code review and snippets!"
+#~ msgstr "Добро пожаловать в новый раздел: Code Review и сниппеты"
+
+#~ msgid ""
+#~ "Here you can post your code to share experience and solutions, or get "
+#~ "feedback from comunity how improve it."
+#~ msgstr ""
+#~ "Здесь вы можете добавить пример своего кода, что бы поделиться решением "
+#~ "или опытом, или получить советы от сообщества как сделать код его лучше."
+
+#~ msgid ""
+#~ "Try post working code and small enought. More code, less chance someone "
+#~ "review it."
+#~ msgstr ""
+#~ "Старайтесь добавлять рабочий код и не слишком большой. Чем больше и "
+#~ "сложнее код, тем меньше шанс, что его кто-то будет смотреть."
+
+#~ msgid "Disconnect account"
+#~ msgstr "Отвязать аккаунт"
+
+#~ msgid "Sign in with your OpenID"
+#~ msgstr "Вход с помощью OpenID"
 
 #, fuzzy
 #~ msgid "Replies/Views"
