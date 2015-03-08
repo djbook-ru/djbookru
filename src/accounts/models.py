@@ -197,6 +197,29 @@ class Achievement(models.Model):
         return self.title
 
 
+class UserRepository(models.Model):
+    GITHUB, BITBUCKET = 1, 2
+    REPO_TYPE_CHOICES = (
+        (GITHUB, u'GitHub'),
+        (BITBUCKET, u'BitBucket')
+    )
+    REPO_URL_TEMPLATES = {
+        GITHUB: u'https://github.com/{}/',
+        BITBUCKET: u'https://bitbucket.org/{}/'
+    }
+
+    user = models.ForeignKey(User, verbose_name=_(u'user'))
+    repo_type = models.PositiveIntegerField(_(u'type'), choices=REPO_TYPE_CHOICES)
+    user_name = models.CharField(_(u'login'), max_length=64)
+
+    class Meta:
+        verbose_name = _(u'user repository')
+        verbose_name_plural = _(u'user repositories')
+
+    def __unicode__(self):
+        return self.REPO_URL_TEMPLATES[self.repo_type].format(self.user_name)
+
+
 class EmailConfirmationManager(models.Manager):
 
     def confirm_email(self, confirmation_key):

@@ -20,6 +20,17 @@ class CustomUserChangeForm(UserChangeForm):
         fields = '__all__'
 
 
+class UserRepositoryAdmin(admin.ModelAdmin):
+    list_display = ('user', '__unicode__')
+    list_filter = ('repo_type',)
+    search_fields = ('user', 'user_name')
+
+
+class UserRepositoryInline(admin.TabularInline):
+    model = models.UserRepository
+    fields = ('repo_type', 'user_name')
+
+
 class CustomUserAdmin(UserAdmin):
     save_on_top = True
     form = CustomUserChangeForm
@@ -38,7 +49,7 @@ class CustomUserAdmin(UserAdmin):
                                        'groups', 'user_permissions')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
-    inlines = [UserAchievementInline]
+    inlines = [UserAchievementInline, UserRepositoryInline]
 
 
 class AnnouncementAdmin(admin.ModelAdmin):
@@ -67,3 +78,4 @@ admin.site.unregister(DjangoUser)
 admin.site.register(models.User, CustomUserAdmin)
 admin.site.register(models.EmailConfirmation, EmailConfirmationAdmin)
 admin.site.register(models.Achievement, AchievementAdmin)
+admin.site.register(models.UserRepository, UserRepositoryAdmin)
