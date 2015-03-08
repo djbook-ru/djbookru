@@ -6,7 +6,6 @@ django-extensions==1.2.2
 django-haystack==1.2.7
 django-model-utils==1.0.0
 django-pagedown==0.0.5
-python-oembed==0.2.1
 python-social-auth==0.2.2
 django-salmonella==0.5.1
 django-tagging==0.3.4
