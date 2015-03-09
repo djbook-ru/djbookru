@@ -10,7 +10,8 @@ def direct_to_template(request, template, extra_context=None, mimetype=None, **k
     Render a given template with any extra URL parameters in the context as
     ``{{ params }}``.
     """
-    if extra_context is None: extra_context = {}
+    if extra_context is None:
+        extra_context = {}
     dictionary = {'params': kwargs}
     for key, value in extra_context.items():
         if callable(value):
@@ -29,7 +30,7 @@ class JsonResponse(HttpResponse):
     def __init__(self, content, mimetype='application/json', status=None):
         super(JsonResponse, self).__init__(
             content=json.dumps(content),
-            mimetype=mimetype,
+            content_type=mimetype,
             status=status
         )
 
@@ -72,7 +73,8 @@ def object_list(request, queryset, paginate_by=None, page=None,
         page_range:
             A list of the page numbers (1-indexed).
     """
-    if extra_context is None: extra_context = {}
+    if extra_context is None:
+        extra_context = {}
     queryset = queryset._clone()
     if paginate_by:
         paginator = Paginator(queryset, paginate_by, allow_empty_first_page=allow_empty)
