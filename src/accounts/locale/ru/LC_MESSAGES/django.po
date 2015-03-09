@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the translation package.
 # Ruslan Popov <ruslan.popov@gmail.com>, 2010.
 # Ruslan Popob <ruslan.popov@gmail.com>, 2011, 2012, 2013.
-# Dmitriy Kostochko <alerion.um@gmail.com>, 2013.
+# Dmitriy Kostochko <alerion.um@gmail.com>, 2013, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 09:19+0200\n"
-"PO-Revision-Date: 2013-06-26 11:59+0400\n"
+"POT-Creation-Date: 2015-03-06 15:52+0300\n"
+"PO-Revision-Date: 2015-03-06 15:53+0300\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -37,7 +37,7 @@ msgstr "Андорра"
 
 #: countries.py:12
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "Объединённые Арабские Эмираты"
 
 #: countries.py:13
 msgid "Afghanistan"
@@ -649,11 +649,11 @@ msgstr ""
 
 #: countries.py:165
 msgid "Nigeria"
-msgstr ""
+msgstr "Нигерия"
 
 #: countries.py:166
 msgid "Nicaragua"
-msgstr ""
+msgstr "Никарагуа"
 
 #: countries.py:167
 msgid "Netherlands"
@@ -681,7 +681,7 @@ msgstr "Новая Зеландия"
 
 #: countries.py:173
 msgid "Oman"
-msgstr ""
+msgstr "Оман"
 
 #: countries.py:174
 msgid "Panama"
@@ -693,11 +693,11 @@ msgstr "Перу"
 
 #: countries.py:176
 msgid "French Polynesia"
-msgstr ""
+msgstr "Французская Полинезия"
 
 #: countries.py:177
 msgid "Papua New Guinea"
-msgstr ""
+msgstr "Папуа Новая Гвинея"
 
 #: countries.py:178
 msgid "Philippines"
@@ -733,7 +733,7 @@ msgstr ""
 
 #: countries.py:186
 msgid "Paraguay"
-msgstr ""
+msgstr "Парагвай"
 
 #: countries.py:187
 msgid "Qatar"
@@ -753,23 +753,23 @@ msgstr "Россия"
 
 #: countries.py:191
 msgid "Rwanda"
-msgstr ""
+msgstr "Руанда"
 
 #: countries.py:192
 msgid "Saudi Arabia"
-msgstr ""
+msgstr "Саудовская Аравия"
 
 #: countries.py:193
 msgid "Solomon Islands"
-msgstr ""
+msgstr "Соломоновы Острова"
 
 #: countries.py:194
 msgid "Seychelles"
-msgstr ""
+msgstr "Сейшеллы"
 
 #: countries.py:195
 msgid "Sudan"
-msgstr ""
+msgstr "Судан"
 
 #: countries.py:196
 msgid "Sweden"
@@ -805,16 +805,15 @@ msgstr ""
 
 #: countries.py:204
 msgid "Senegal"
-msgstr ""
+msgstr "Сенегал"
 
 #: countries.py:205
 msgid "Somalia"
 msgstr "Сомали"
 
 #: countries.py:206
-#, fuzzy
 msgid "Suriname"
-msgstr "имя"
+msgstr ""
 
 #: countries.py:207
 msgid "Sao Tome & Principe"
@@ -822,7 +821,7 @@ msgstr ""
 
 #: countries.py:208
 msgid "El Salvador"
-msgstr ""
+msgstr "Сальвадор"
 
 #: countries.py:209
 msgid "Syrian Arab Republic"
@@ -830,7 +829,7 @@ msgstr ""
 
 #: countries.py:210
 msgid "Swaziland"
-msgstr ""
+msgstr "Свазиленд"
 
 #: countries.py:211
 msgid "Turks & Caicos Islands"
@@ -846,7 +845,7 @@ msgstr ""
 
 #: countries.py:214
 msgid "Togo"
-msgstr ""
+msgstr "Того"
 
 #: countries.py:215
 msgid "Thailand"
@@ -866,7 +865,7 @@ msgstr "Туркменистан"
 
 #: countries.py:219
 msgid "Tunisia"
-msgstr ""
+msgstr "Тунис"
 
 #: countries.py:220
 msgid "Tonga"
@@ -874,7 +873,7 @@ msgstr ""
 
 #: countries.py:221
 msgid "East Timor"
-msgstr ""
+msgstr "Восточный Тимор"
 
 #: countries.py:222
 msgid "Turkey"
@@ -946,7 +945,7 @@ msgstr "Вьетнам"
 
 #: countries.py:239
 msgid "Vanuatu"
-msgstr ""
+msgstr "Вануату"
 
 #: countries.py:240
 msgid "Wallis & Futuna Islands"
@@ -954,7 +953,7 @@ msgstr ""
 
 #: countries.py:241
 msgid "Samoa"
-msgstr ""
+msgstr "Самоа"
 
 #: countries.py:242
 msgid "Yemen"
@@ -970,19 +969,19 @@ msgstr "Югославия"
 
 #: countries.py:245
 msgid "South Africa"
-msgstr ""
+msgstr "Южная Африка"
 
 #: countries.py:246
 msgid "Zambia"
-msgstr ""
+msgstr "Замбия"
 
 #: countries.py:247
 msgid "Zaire"
-msgstr ""
+msgstr "Заир"
 
 #: countries.py:248
 msgid "Zimbabwe"
-msgstr ""
+msgstr "Зимбабве"
 
 #: countries.py:251
 msgid "Unknown or unspecified country"
@@ -1001,12 +1000,11 @@ msgid "Password"
 msgstr "Пароль"
 
 #: forms.py:30
-#, fuzzy
 msgid ""
 "Please enter a correct email and password. Note that both fields are case-"
 "sensitive."
 msgstr ""
-"Пожалуйста введите правильные пароль и имя пользователя. Оба поля "
+"Пожалуйста введите правильные адрес электронной почты и пароль. Оба поля "
 "чувствительны к регистру."
 
 #: forms.py:32
@@ -1209,46 +1207,56 @@ msgstr ""
 #: social_auth_pipelines.py:29
 msgid "Social service does not return email. Use registration form."
 msgstr ""
+"Социальный сервис не вернул адрес электронной почты. Воспользуйтесь "
+"регистрационной формой."
 
-#: views.py:53
+#: views.py:56
 msgid "Authenticate please!"
 msgstr "Аутентифицируйтесь, пожалуйста!"
 
-#: views.py:62
+#: views.py:65
 msgid "invalid form"
 msgstr "неправильная форма"
 
-#: views.py:72
+#: views.py:75
 msgid "Account created success! Confirm your email."
 msgstr "Аккаунт успешно создан! Подтвердите свою почту."
 
-#: views.py:74 views.py:109
+#: views.py:77 views.py:148
 msgid "Please correct the error below."
 msgstr "Пожалуйста, исправьте ошибки перечисленные далее."
 
-#: views.py:107
+#: views.py:115
+msgid "voted topics"
+msgstr "отмеченные темы"
+
+#: views.py:133
+msgid "voted posts"
+msgstr "отмеченные отклики"
+
+#: views.py:146
 msgid "Profile changed success! Confirm your email if it was changed."
 msgstr ""
 "Профиль успешно изменён! Подтвердите адрес вашей электронной почты, если он "
 "был изменен."
 
-#: views.py:148
+#: views.py:187
 msgid "Confirmation key expired."
 msgstr "Ключ подтверждения почты просрочен."
 
-#: views.py:151
+#: views.py:190
 msgid "Email is confirmed."
 msgstr "Адрес электронной почты подтверждён."
 
-#: views.py:165
+#: views.py:204
 msgid "Your email is already confirmed."
 msgstr "Данный адрес электронной почты уже используется."
 
-#: views.py:167
+#: views.py:206
 msgid "Add email to your profile."
 msgstr "Добавьте электронный адрес в свой профиль"
 
-#: views.py:171
+#: views.py:210
 #, python-format
 msgid ""
 "We have sent you confirmation email. New one you can get in %(days)s days"
@@ -1256,11 +1264,11 @@ msgstr ""
 "Мы отправили вам письмо для подтверждения адреса электронной почты. "
 "Следующий запрос вы сможете сделать через  %(days)s дня."
 
-#: views.py:176
+#: views.py:215
 msgid "Confirmation email is sent."
 msgstr "Отправлено письмо для подтверждения адреса электронной почты."
 
-#: views.py:188
+#: views.py:227
 msgid "Email with instruction how reset password is sent."
 msgstr "Выслано письмо с инструкцией для сброса вашего пароля."
 

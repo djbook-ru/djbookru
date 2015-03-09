@@ -13,6 +13,7 @@ from django.contrib import messages
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import password_reset as auth_password_reset, password_reset_confirm as auth_password_reset_confirm
+from django.views.generic import ListView
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect
@@ -22,6 +23,8 @@ from django.utils.translation import ugettext_lazy as _, ugettext
 
 LOGIN_REDIRECT_URL = getattr(settings, 'LOGIN_REDIRECT_URL', '/')
 LOGOUT_REDIRECT_URL = getattr(settings, 'LOGOUT_REDIRECT_URL', '/')
+PAGINATED_TOPICS_COUNT = getattr(settings, 'PAGINATED_TOPICS_COUNT', 10)
+PAGINATED_POSTS_COUNT = getattr(settings, 'PAGINATED_POSTS_COUNT', 10)
 
 
 @render_to('accounts/map.html')
@@ -95,6 +98,42 @@ def profile(request, pk):
         'user_obj': user_obj,
         'user_position_json': json.dumps(user_position)
     }
+
+
+class VotedTopicsListView(ListView):
+    model = User
+    template_name = 'accounts/profile_voted.html'
+    paginate_by = PAGINATED_TOPICS_COUNT
+
+    def get_queryset(self):
+        self.user = get_object_or_404(self.model, pk=self.kwargs['pk'])
+        return self.user.voted_topics.all()
+
+    def get_context_data(self, **kwargs):
+        context = super(self.__class__, self).get_context_data(**kwargs)
+        context['user_obj'] = self.user
+        context['title'] = _('voted topics')
+        return context
+
+profile_topics = VotedTopicsListView.as_view()
+
+
+class VotedPostsListView(ListView):
+    model = User
+    template_name = 'accounts/profile_voted.html'
+    paginate_by = PAGINATED_POSTS_COUNT
+
+    def get_queryset(self):
+        self.user = get_object_or_404(self.model, pk=self.kwargs['pk'])
+        return self.user.voted_posts.all()
+
+    def get_context_data(self, **kwargs):
+        context = super(self.__class__, self).get_context_data(**kwargs)
+        context['user_obj'] = self.user
+        context['title'] = _('voted posts')
+        return context
+
+profile_posts = VotedPostsListView.as_view()
 
 
 @render_to('accounts/edit.html')

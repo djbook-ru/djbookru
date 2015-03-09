@@ -1,5 +1,7 @@
 {% extends 'accounts/base.html' %}
 
+{% load humanize %}
+{% load pagination_tags %}
 {% load thumbnail i18n staticfiles accounts_tags %}
 
 {% block title %}{{ user_obj }} | {{ block.super }}{% endblock %}
@@ -49,34 +51,91 @@
 {% endblock %}
 {% block content %}
     <div class="row">
-        <div class="span5 offset2">
-            <h2>{{ user_obj }}</h2>
-
-            <p>
-            {% if user_obj.first_name or user_obj.last_name %}
-                <h4>{{ user_obj.first_name }} {{ user_obj.last_name }}</h4>
-            {% endif %}
-            </p>
-
-            <p>
-                <strong>{% trans 'Forum posts count' %}:</strong> {{ user_obj.forum_post_count }}<br/>
-                <strong>{% trans 'Comments count' %}:</strong> {{ user_obj.comments_count }}
-            </p>
-
-            {% if user_obj.biography %}
-            <p class="well" style="margin-top: 5px">
-                {{ user_obj.biography|linebreaksbr }}
-            </p>
-            {% endif %}
-
-            {% achievements user_obj %}
-        </div>
-        <div class="span3">
-            <img src="{{ user_obj.avatar }}" class="img-polaroid"/>
-        </div>
+      <div class="span5 offset2">
+        <h2>{{ user_obj }}</h2>
+        {% if user_obj.first_name or user_obj.last_name %}
+        <h4>{{ user_obj.first_name }} {{ user_obj.last_name }}</h4>
+        {% endif %}
+        {% achievements user_obj %}
+      </div>
+      <div class="span5">
+        <img src="{{ user_obj.avatar }}" class="img-polaroid"/>
+      </div>
     </div>
+
+    {% if user_obj.biography %}
+    <div class="row">&nbsp;</div>
+    <div class="row well">
+      <div class="span9 offset2">
+        {{ user_obj.biography|linebreaksbr }}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if user.is_staff %}
+    <div class="row">
+      <div class="span5 offset2">Email:</div>
+      <div class="span3" title="{% trans "This is visible for staff only." %}">{{ user_obj.email }}</div>
+    </div>
+    {% endif %}
+
+    <div class="row">
+      <div class="span5 offset2">{% trans "Forum posts count" %}:</div>
+      <div class="span3">{{ user_obj.forum_post_count }}</div>
+    </div>
+
+    <div class="row">
+      <div class="span5 offset2">{% trans "Comments count" %}:</div>
+      <div class="span3">{{ user_obj.comments_count }}</div>
+    </div>
+
+    <div class="row">
+      <div class="span5 offset2">{% trans "Date of join" %}:</div>
+      <div class="span3">{{ user_obj.date_joined|naturalday }}</div>
+    </div>
+
+    <div class="row">
+      <div class="span5 offset2">{% trans "Date of last login" %}:</div>
+      <div class="span3">{{ user_obj.last_login|naturalday }}</div>
+    </div>
+
+    {% if user_obj.voted_topics.all|length > 0 %}
+    <div class="row">&nbsp;</div>
+    <div class="row">
+      <div class="span9 offset2">
+        <div>{% trans 'Voted topics' %}</div>
+        {% for item in user_obj.voted_topics.all|slice:":10" %}
+        <div class="span11"><a href="{{ item.get_absolute_url }}">{{ item }}</a></div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if user_obj.voted_topics.all|length > 10 %}
+    <div class="row">
+      <div class="span3 offset8"><a href="{% url 'accounts:profile_more_topics' pk=user_obj.pk %}">{% trans "View more" %}</a></div>
+    </div>
+    {% endif %}
+    {% endif %}
+
+    {% if user_obj.voted_posts.all|length > 0 %}
+    <div class="row">
+      <div class="span9 offset2">
+        <div>{% trans 'Voted posts' %}</div>
+        {% for item in user_obj.voted_posts.all|slice:":10" %}
+        <div class="span11"><a href="{{ item.get_absolute_url }}">{{ item }}</a></div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if user_obj.voted_posts.all|length > 10 %}
+    <div class="row">
+      <div class="span3 offset8"><a href="{% url 'accounts:profile_more_posts' pk=user_obj.pk %}">{% trans "View more" %}</a></div>
+    </div>
+    {% endif %}
+    {% endif %}
+
     {% if user_position_json != "null" %}
-    <br>
+    <div class="row">&nbsp;</div>
     <div class="row">
       <div class="span9 offset2">
 	<div id="map"></div>
