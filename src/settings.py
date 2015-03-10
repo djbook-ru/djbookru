@@ -312,8 +312,10 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
 
 AUTHENTICATION_BACKENDS = (
     'social.backends.google.GoogleOAuth2',
+    'social.backends.google.GoogleOAuth',
     'social.backends.github.GithubOAuth2',
     'social.backends.yandex.YandexOpenId',
+    'social.backends.vk.VKOAuth2',
     'src.accounts.backends.CustomUserBackend',
 )
 ### SOCIAL_AUTH: END
