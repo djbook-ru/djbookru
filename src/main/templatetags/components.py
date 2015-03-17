@@ -164,4 +164,6 @@ def fix_auth_backend_name(name):
         return 'Yandex'
     if name == 'github':
         return 'GitHub'
+    if name == 'vk-oauth2':
+        return 'VK'
     return name

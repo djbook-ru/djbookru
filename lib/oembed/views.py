@@ -24,35 +24,35 @@ def json(request, *args, **kwargs):
     """
     # coerce to dictionary
     params = dict(request.GET.items())
-    
+
     callback = params.pop('callback', None)
     url = params.pop('url', None)
-    
+
     if not url:
         return HttpResponseBadRequest('Required parameter missing: URL')
-    
+
     try:
         provider = oembed.site.provider_for_url(url)
         if not provider.provides:
             raise OEmbedMissingEndpoint()
     except OEmbedMissingEndpoint:
         raise Http404('No provider found for %s' % url)
-    
+
     query = dict([(smart_str(k), smart_str(v)) for k, v in params.items() if v])
-    
+
     try:
         resource = oembed.site.embed(url, **query)
     except OEmbedException, e:
         raise Http404('Error embedding %s: %s' % (url, str(e)))
 
-    response = HttpResponse(mimetype='application/json')
+    response = HttpResponse(content_type='application/json')
     json = resource.json
-    
+
     if callback:
         response.write('%s(%s)' % (defaultfilters.force_escape(callback), json))
     else:
         response.write(json)
-    
+
     return response
 
 
@@ -72,7 +72,7 @@ def consume_json(request):
         list of dictionaries with oembed metadata and renderings, json encoded
     """
     client = OEmbedConsumer()
-    
+
     urls = request.GET.getlist('urls')
     width = request.GET.get('width')
     height = request.GET.get('height')
@@ -96,7 +96,7 @@ def consume_json(request):
             'rendered': rendered,
         }
 
-    return HttpResponse(simplejson.dumps(output), mimetype='application/json')
+    return HttpResponse(simplejson.dumps(output), content_type='application/json')
 
 def oembed_schema(request):
     """
@@ -114,7 +114,7 @@ def oembed_schema(request):
         # first make sure this provider class is exposed at the public endpoint
         if not provider.provides:
             continue
-        
+
         match = None
         if isinstance(provider, DjangoProvider):
             # django providers define their regex_list by using urlreversing
@@ -136,9 +136,9 @@ def oembed_schema(request):
                 'matches': match,
                 'endpoint': endpoint
             })
-    
+
     url_schemes.sort(key=lambda item: item['matches'])
-    
-    response = HttpResponse(mimetype='application/json')
+
+    response = HttpResponse(content_type='application/json')
     response.write(simplejson.dumps(url_schemes))
     return response
