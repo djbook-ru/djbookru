@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
-LOCAL_SETTINGS = True
-from settings import *
+from settings import REL
 
-SITE_ID = 2
 DEBUG = True
 TEMPLATE_DEBUG = True
 
