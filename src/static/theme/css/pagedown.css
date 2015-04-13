@@ -1,0 +1,12 @@
+.wmd-panel {
+    margin: 0;
+}
+
+.wmd-input {
+    background-color: #fff;
+}
+
+.wmd-preview {
+    background-color: #eee;
+    padding: 0 5px;
+}

@@ -4,6 +4,11 @@
 
 {% block title %}{% trans "Add" %} | {{ block.super }}{% endblock %}
 
+{% block head %}
+    {{ block.super }}
+    {{ form.media }}
+{% endblock %}
+
 {% block header_container %}{% endblock %}
 
 {% block content %}
