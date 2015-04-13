@@ -332,8 +332,8 @@ def get_doc_pages(path, ext):
             for item in glob.glob('%s/*.%s' % (directory, ext)):
                 yield item
 
-DJANGO_DOCUMENTATION_URL = '/rel1.7/'
-DJANGO_DOCUMENTATION_SITEMAP_URL = '/rel1.7/sitemap.xml'
+DJANGO_DOCUMENTATION_URL = '/rel1.8/'
+DJANGO_DOCUMENTATION_SITEMAP_URL = '/rel1.8/sitemap.xml'
 
 HAYSTACK_SITECONF = 'src.search_sites'
 HAYSTACK_SEARCH_ENGINE = 'xapian'
