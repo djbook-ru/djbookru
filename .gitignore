@@ -4,9 +4,10 @@
 /env
 /logs
 /src/search/xapian_index/
-/src/coverage
+/cover
 *.sqlite
 /src/local_settings.py
 *.sublime-*
 /src/static/html
 /src/public/media/uploads
+.coverage

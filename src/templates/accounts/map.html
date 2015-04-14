@@ -92,7 +92,7 @@
 
         map.addLayer(markers);
 
-        if (navigator.geolocation && ! userMarker)
+        if (navigator.geolocation && ! userMarker && IS_AUTHENTICATED)
         {
             navigator.geolocation.getCurrentPosition(function(position){
                 saveMarker({

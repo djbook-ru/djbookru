@@ -1,3 +1,5 @@
+import json
+
 from django.core import mail
 from django.core.urlresolvers import reverse
 from django.test import TestCase
@@ -5,12 +7,12 @@ from django.test import TestCase
 from src.utils import forms
 from src.accounts.models import User, EmailConfirmation
 
-from .factories import *
+from .factories import UserFactory
 
 forms.ReCaptchaField.clean = lambda self, data, initial: data
 
 
-class ViewsTest(TestCase):
+class ViewsTests(TestCase):
 
     def setUp(self):
         self.user = UserFactory(username='user', email='user@test.com', password='user')
@@ -108,3 +110,30 @@ class ViewsTest(TestCase):
         self.assertEqual(user.email, data['email'])
         self.assertFalse(user.is_valid_email)
         self.assertEqual(len(mail.outbox), 1)
+
+    def test_user_map(self):
+        # Create some users with position
+        for _ in range(10):
+            UserFactory(lng=32.87109375, lat=55.7023550933)
+
+        url = reverse('accounts:map')
+
+        # test anonymous user
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['user_position_json'], 'null')
+        other_positions = json.loads(response.context['other_positions_json'])
+        self.assertEqual(len(other_positions), 10)
+
+        # test authenticated user
+        self.login()
+        self.user.lat = 1
+        self.user.lng = 1
+        self.user.save()
+
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        user_position = json.loads(response.context['user_position_json'])
+        self.assertEqual(user_position, self.user.get_position())
+        other_positions = json.loads(response.context['other_positions_json'])
+        self.assertEqual(len(other_positions), 10)

@@ -2,7 +2,7 @@
 
 import json
 from . backends import CustomUserBackend
-from . forms import UserEditForm, CreateUserForm, PasswordResetForm, SavePositionForm
+from . forms import UserEditForm, CreateUserForm, SavePositionForm
 from . models import User, EmailConfirmation, EMAIL_CONFIRMATION_DAYS
 from .. comments.models import Comment
 from .. decorators import render_to, render_to_json
@@ -12,10 +12,7 @@ from django.contrib import auth
 from django.contrib import messages
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import password_reset as auth_password_reset, password_reset_confirm as auth_password_reset_confirm
 from django.views.generic import ListView
-from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _, ugettext
@@ -28,7 +25,7 @@ PAGINATED_POSTS_COUNT = getattr(settings, 'PAGINATED_POSTS_COUNT', 10)
 
 
 @render_to('accounts/map.html')
-def map(request):
+def user_map(request):
     user = request.user
     other_users = User.objects.all()
 
@@ -214,24 +211,3 @@ def resend_confirmation_email(request):
             EmailConfirmation.objects.send_confirmation(request.user)
             messages.success(request, _(u'Confirmation email is sent.'))
     return redirect(request.META.get('HTTP_REFERER', '/'))
-
-
-def password_reset(request):
-    response = auth_password_reset(request,
-        template_name='accounts/password_reset.html',
-        email_template_name='accounts/email_password_reset.html',
-        password_reset_form=PasswordResetForm,
-        post_reset_redirect='/')
-
-    if isinstance(response, HttpResponseRedirect):
-        messages.success(request, _(u'Email with instruction how reset password is sent.'))
-        return response
-
-    return response
-
-
-def password_reset_confirm(request, uidb36, token):
-    return auth_password_reset_confirm(request, uidb36, token,
-        post_reset_redirect=reverse('accounts:password_reset_complete'),
-        template_name='accounts/password_reset_confirm.html'
-    )

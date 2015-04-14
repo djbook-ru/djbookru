@@ -251,12 +251,8 @@ COUNTRIES = [
 COUNTRIES.append(('ZZ', _('Unknown or unspecified country')))
 
 
-def isValidCountry(field_data, all_data):
-    if not field_data in [lang[0] for lang in COUNTRIES]:
-        raise ValidationError, _("This value must be in COUNTRIES setting in localflavor.generic package.")
-
-
 class CountryField(CharField):
+
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('max_length', 2)
         kwargs.setdefault('choices', COUNTRIES)
@@ -264,7 +260,3 @@ class CountryField(CharField):
 
     def get_internal_type(self):
         return "CharField"
-
-
-from south.modelsinspector import add_introspection_rules
-add_introspection_rules([], ["^src\.accounts\.countries\.CountryField"])

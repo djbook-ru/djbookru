@@ -39,15 +39,28 @@ class CustomUserAdmin(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('username', 'email', 'password1', 'password2')}
-        ),
+            'fields': ('username', 'email', 'password1', 'password2')
+        })
     )
     fieldsets = (
-        (None, {'fields': ('username', 'password')}),
-        (_('Personal info'), {'fields': ('first_name', 'last_name', 'email', 'homepage', 'biography', 'signature', 'lng', 'lat')}),
-        (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser', 'is_valid_email',
-                                       'groups', 'user_permissions')}),
-        (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
+        (None, {
+            'fields': ('username', 'password')
+        }),
+        (_('Personal info'), {
+            'fields': (
+                'first_name', 'last_name', 'email', 'homepage', 'biography', 'signature',
+                'lng', 'lat'
+            )
+        }),
+        (_('Permissions'), {
+            'fields': (
+                'is_active', 'is_staff', 'is_superuser', 'is_valid_email', 'groups',
+                'user_permissions'
+            )
+        }),
+        (_('Important dates'), {
+            'fields': ('last_login', 'date_joined')
+        }),
     )
     inlines = [UserAchievementInline, UserRepositoryInline]
 

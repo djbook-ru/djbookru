@@ -366,7 +366,11 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = [
     '--nocapture',
     '--with-runnable-test-names',
-    '--nologcapture'
+    '--nologcapture',
+    # '--with-coverage',
+    # '--cover-html',
+    # '--cover-package=src',
+    # '--cover-inclusive'
 ]
 
 NOSE_PLUGINS = [

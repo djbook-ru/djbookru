@@ -74,6 +74,15 @@
 
     {% if user.is_staff %}
     <div class="row">
+      <div class="span5 offset2"></div>
+      <div class="span3" title="{% trans "This is visible for staff only." %}">
+        <a href="{% url 'admin:accounts_user_change' user_obj.pk %}">
+            <i class="fa fa-pencil"></i> {% trans "Edit" %}
+        </a>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="span5 offset2">Email:</div>
       <div class="span3" title="{% trans "This is visible for staff only." %}">{{ user_obj.email }}</div>
     </div>
