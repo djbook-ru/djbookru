@@ -260,7 +260,6 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
     'haystack',
     'haystack_static_pages',
-    'django_nose',
 
     'src.forum',
     'src.accounts',
@@ -362,7 +361,7 @@ MIGRATION_MODULES = {
 }
 
 # testing
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+# TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = [
     '--nocapture',
     '--with-runnable-test-names',

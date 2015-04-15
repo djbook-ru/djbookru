@@ -21,7 +21,7 @@ class Claims(models.Model):
     ctx_left = models.CharField(verbose_name=_(u'Left Context Value'), max_length=255, blank=True)
     selected = models.CharField(verbose_name=_(u'Selected Text'), max_length=255)
     ctx_right = models.CharField(verbose_name=_(u'Right Context Value'), max_length=255, blank=True)
-    status = models.IntegerField(verbose_name=_(u'Status of the Claim'), max_length=1, choices=CLAIM_STATUSES)
+    status = models.IntegerField(verbose_name=_(u'Status of the Claim'), choices=CLAIM_STATUSES)
     status_applied = models.DateTimeField(verbose_name=_(u'Status Applied'), auto_now_add=True)
     comment = models.TextField(verbose_name=_(u'Reader\'s Comment'))
     reply = models.TextField(verbose_name=_(u'Enter here the reply for the Reader'), blank=True)
