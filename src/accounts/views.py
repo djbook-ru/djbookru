@@ -80,10 +80,11 @@ def create(request):
 
 
 def logout(request):
+    # FIXME: Looks like cant be replaced with build-in view
     from django.contrib.auth import logout
 
     logout(request)
-    redirect_to = request.REQUEST.get(auth.REDIRECT_FIELD_NAME, LOGOUT_REDIRECT_URL)
+    redirect_to = request.GET.get(auth.REDIRECT_FIELD_NAME, LOGOUT_REDIRECT_URL)
     return redirect(redirect_to)
 
 

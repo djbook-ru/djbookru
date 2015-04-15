@@ -105,5 +105,6 @@ def lang(request, code):
 
 class BookRedirectView(RedirectView):
     url = '/%(slug)s.html'
+    permanent = True
 
 book_redirect = BookRedirectView.as_view()

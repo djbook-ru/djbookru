@@ -1,7 +1,6 @@
 {% extends 'videos/base.html' %}
 
 {% load pagination_tags i18n markup comments_tags components tagging_tags %}
-{% load url from future %}
 
 {% block header %}
     {{ block.super }}{% if tag %}: "{{ tag }}"{% endif %}
