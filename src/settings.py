@@ -258,7 +258,7 @@ INSTALLED_APPS = (
     'ordered_model',
     'social.apps.django_app.default',
     'haystack',
-    'haystack_static_pages',
+    # 'haystack_static_pages',
 
     'src.forum',
     'src.accounts',
@@ -332,9 +332,15 @@ def get_doc_pages(path, ext):
 DJANGO_DOCUMENTATION_URL = '/rel1.8/'
 DJANGO_DOCUMENTATION_SITEMAP_URL = '/rel1.8/sitemap.xml'
 
-HAYSTACK_SITECONF = 'src.search_sites'
-HAYSTACK_SEARCH_ENGINE = 'xapian'
-HAYSTACK_XAPIAN_PATH = rel_project('search', 'xapian_index')
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'xapian_backend.XapianEngine',
+        'PATH': rel_project('search', 'xapian_index'),
+        'HAYSTACK_XAPIAN_LANGUAGE': 'ru',
+        # 'INCLUDE_SPELLING': True  # FIXME: add this
+    },
+}
+# FIXME: fix and add haystack static pages
 HAYSTACK_STATIC_PAGES = tuple(
     get_doc_pages([
         os.path.expanduser('~/devel/djdoc/source/_build/html'),

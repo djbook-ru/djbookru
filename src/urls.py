@@ -5,13 +5,10 @@ from django.conf.urls import patterns, url, include
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from haystack import autodiscover as haystack_autodiscover
-
 from patch import sites_flatpages_patch
 from src.main import feeds
 from src.utils.views import direct_to_template
 
-haystack_autodiscover()
 sites_flatpages_patch()
 
 js_info_dict = {

@@ -3,7 +3,7 @@ setuptools==12.0.5
 Django>=1.8
 django-autoslug-field==0.2.3
 django-extensions==1.2.2
-django-haystack==1.2.7
+django-haystack==2.3.1
 django-model-utils==1.0.0
 django-pagedown==0.0.5
 python-social-auth==0.2.6
@@ -21,6 +21,7 @@ pygal==1.5.1
 sqlparse==0.1.14
 pytz
 sorl-thumbnail==12.2
-xapian-haystack==1.1.5beta
 -e git+http://github.com/clintecker/django-google-analytics.git/#egg=django-google_analytics
 -e git+https://github.com/RaD/haystack-static-pages.git/#egg=haystack-static-pages
+# -e git+https://github.com/notanumber/xapian-haystack.git/#egg=xapian-haystack
+-e git+https://github.com/viorels/xapian-haystack.git/#egg=xapian-haystack

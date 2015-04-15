@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from haystack.indexes import *
-from haystack import site
-from django.utils.translation import ugettext_lazy as _
-from . import models
+from haystack import indexes
+from .models import News
 
 
-class NewsIndex(SearchIndex):
-    text = CharField(document=True, use_template=True)
-    title = CharField(model_attr='title')
-    created = DateTimeField(model_attr='created')
+class NewsIndex(indexes.SearchIndex, indexes.Indexable):
+    text = indexes.CharField(document=True, use_template=True)
+    title = indexes.CharField(model_attr='title')
+    created = indexes.DateTimeField(model_attr='created')
 
-site.register(models.News, NewsIndex)
+    def get_model(self):
+        return News

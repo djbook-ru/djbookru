@@ -1,3 +1,5 @@
 1) $ make clean
 2) Recreate virtual env.
 3) $ ./manage.py migrate
+4) Rebuild search index: ./manage.py rebuild_index
+5) Check search

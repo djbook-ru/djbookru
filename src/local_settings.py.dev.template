@@ -16,4 +16,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # make symlink from /django_documentation/_build/html/ to /djbookru/src/static/html
 # e.g. ln -s ~/Workspace/django_documentation/_build/html/ ~/Workspace/djbookru/src/static/html
 DJANGO_DOCUMENTATION_URL = '/static/html/index.html'
-HAYSTACK_SEARCH_ENGINE = 'dummy'
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+    },
+}
