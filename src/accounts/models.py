@@ -24,7 +24,8 @@ BaseUser._meta.get_field('email').blank = False
 
 class UserManager(BaseUserManager):
 
-    def create_user(self, username, email=None, password=None, force_email_valid=False, send_email_confirmation=True):
+    def create_user(self, username, email=None, password=None, force_email_valid=False,
+                    send_email_confirmation=True):
         """
         Creates and saves a User with the given username, email and password.
         """
@@ -49,7 +50,8 @@ class UserManager(BaseUserManager):
                 'password': password,
                 'current_site': current_site
             }
-            send_templated_email(user.email, subject, 'accounts/email_new_user.html', context, fail_silently=settings.DEBUG)
+            send_templated_email(user.email, subject, 'accounts/email_new_user.html', context,
+                                 fail_silently=settings.DEBUG)
 
         user.set_password(password)
         user.save(using=self._db, send_email_confirmation=send_email_confirmation)
@@ -60,8 +62,9 @@ class User(BaseUser):
     biography = models.TextField(_(u'biography'), blank=True)
     homepage = models.URLField(_(u'homepage'), blank=True)
     is_valid_email = models.BooleanField(_(u'is valid email?'), default=False)
-    achievements = models.ManyToManyField('Achievement', verbose_name=_(u'achievements'), through='UserAchievement')
-    signature = models.TextField(_('forum signature'), blank=True,  max_length=1024)
+    achievements = models.ManyToManyField(
+        'Achievement', verbose_name=_(u'achievements'), through='UserAchievement')
+    signature = models.TextField(_('forum signature'), blank=True, max_length=1024)
     location = models.CharField(max_length=64, null=True, blank=True)
     country = CountryField(null=True, blank=True)
 
@@ -70,7 +73,8 @@ class User(BaseUser):
 
     # for notification
     last_comments_read = models.DateTimeField(_(u'last comments read'), default=timezone.now)
-    last_doc_comments_read = models.DateTimeField(_(u'last doc. comments read'), default=timezone.now)
+    last_doc_comments_read = models.DateTimeField(
+        _(u'last doc. comments read'), default=timezone.now)
 
     objects = UserManager()
 
@@ -79,7 +83,7 @@ class User(BaseUser):
         verbose_name_plural = _(u'Users')
 
     def get_position(self):
-        if not self.lng is None and not self.lat is None:
+        if self.lng is not None and self.lat is not None:
             return {
                 'lat': self.lat,
                 'lng': self.lng,

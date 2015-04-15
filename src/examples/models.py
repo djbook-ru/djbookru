@@ -33,11 +33,15 @@ class ExampleManager(models.Manager):
 class Example(models.Model):
     category = models.ForeignKey(Category, related_name='examples', verbose_name=_(u'category'))
     title = models.CharField(_(u'title'), max_length=255)
-    content = models.TextField(_(u'content'), help_text=_('Use <a target="blank" href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> and HTML'))
+    content = models.TextField(_(u'content'), help_text=_(
+        'Use <a target="blank" href="http://daringfireball.net/projects/'
+        'markdown/syntax">Markdown</a> and HTML'))
     created = models.DateTimeField(_(u'created'), auto_now_add=True)
     author = models.ForeignKey(User)
-    approved = models.BooleanField(_(u'approved'), default=True, help_text=_(u'Can be used for draft'))
-    note = models.TextField(_(u'note'), blank=True, help_text=_(u'author\'s note, is not visible on site'))
+    approved = models.BooleanField(
+        _(u'approved'), default=True, help_text=_(u'Can be used for draft'))
+    note = models.TextField(
+        _(u'note'), blank=True, help_text=_(u'author\'s note, is not visible on site'))
     url = models.URLField(_(u'URL'), blank=True)
     topic_id = models.IntegerField(_(u'Topic ID'), default='0')
 
@@ -57,13 +61,15 @@ class Example(models.Model):
 
     def get_next(self):
         try:
-            return Example.objects.approved().filter(created__gt=self.created).exclude(pk=self.pk).order_by('created')[:1].get()
+            return Example.objects.approved().filter(created__gt=self.created).exclude(pk=self.pk) \
+                .order_by('created')[:1].get()
         except Example.DoesNotExist:
             return
 
     def get_prev(self):
         try:
-            return Example.objects.approved().filter(created__lt=self.created).exclude(pk=self.pk).order_by('-created')[:1].get()
+            return Example.objects.approved().filter(created__lt=self.created).exclude(pk=self.pk) \
+                .order_by('-created')[:1].get()
         except Example.DoesNotExist:
             return
 
