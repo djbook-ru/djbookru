@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from . import models
+from .models import Comment
 from .. decorators import render_to_json
 from .forms import CommentForm
 from django.db.models import Count
@@ -10,11 +10,11 @@ from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 @render_to_json
 def close_comment(request):
-    id = request.POST.get('id')
+    comment_id = request.POST.get('id')
     user = request.user
 
-    if id and user.is_authenticated() and user.has_perm('doc_comments.change_comment'):
-        models.Comment.objects.filter(pk=id).update(status=models.Comment.CLOSED)
+    if comment_id and user.is_authenticated() and user.has_perm('doc_comments.change_comment'):
+        Comment.objects.filter(pk=comment_id).update(status=Comment.CLOSED)
 
     return {}
 
@@ -22,11 +22,11 @@ def close_comment(request):
 @csrf_exempt
 @render_to_json
 def accept_comment(request):
-    id = request.POST.get('id')
+    comment_id = request.POST.get('id')
     user = request.user
 
-    if id and user.is_authenticated() and user.has_perm('doc_comments.change_comment'):
-        models.Comment.objects.filter(pk=id).update(status=models.Comment.ACCEPTED)
+    if comment_id and user.is_authenticated() and user.has_perm('doc_comments.change_comment'):
+        Comment.objects.filter(pk=comment_id).update(status=Comment.ACCEPTED)
 
     return {}
 
@@ -34,12 +34,12 @@ def accept_comment(request):
 @csrf_exempt
 @render_to_json
 def load_comments(request):
-    page = request.POST.get('page')
-    xpath = request.POST.get('xpath')
+    page = request.GET.get('page')
+    xpath = request.GET.get('xpath')
     output = []
 
     if page and xpath:
-        qs = models.Comment.objects.filter(page=page, xpath=xpath)
+        qs = Comment.objects.filter(page=page, xpath=xpath)
         for obj in qs:
             output.append({
                 'id': obj.pk,
@@ -59,17 +59,17 @@ def load_comments(request):
 @csrf_exempt
 @render_to_json
 def load_comments_info(request):
-    page = request.POST.get('page')
+    page = request.GET.get('page')
     output = []
 
     if page:
-        output = list(models.Comment.objects.filter(page=page).values('page', 'xpath') \
-            .annotate(count=Count('id'))
+        output = list(
+            Comment.objects.filter(page=page).values('page', 'xpath').annotate(count=Count('id'))
         )
 
         for info in output:
-            qs = models.Comment.objects.filter(page=info['page'], xpath=info['xpath']) \
-                .exclude(status=models.Comment.CLOSED)
+            qs = Comment.objects.filter(page=info['page'], xpath=info['xpath']) \
+                .exclude(status=Comment.CLOSED)
 
             info['unclosed'] = qs.count()
 

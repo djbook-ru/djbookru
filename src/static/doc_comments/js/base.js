@@ -177,7 +177,7 @@ jQuery.noConflict();
         };
 
         this.loadComments = function(){
-            jQuery.post(this.urls.loadComments, {
+            jQuery.get(this.urls.loadComments, {
                 'page': this.page,
                 'xpath': this.xpath
             }, function(resp){
@@ -210,7 +210,7 @@ jQuery.noConflict();
         };
 
         this.loadCommentsInfo = function(){
-            jQuery.post(this.urls.loadCommentsInfo, {
+            jQuery.get(this.urls.loadCommentsInfo, {
                 'page': this.page
             }, function(resp){
                 for (var i=0, len=resp.data.length; i<len; i++){
