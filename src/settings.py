@@ -250,7 +250,6 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
 
     'bootstrapform',
-    'chunks',
     'pagedown',
     'oembed',
     'pagination',
@@ -269,7 +268,6 @@ INSTALLED_APPS = (
     'src.examples',
     'src.main',
     'src.news',
-    'src.utils',
     'src.videos',
     'src.links',
     'src.header_messages',

@@ -19,14 +19,15 @@ from src.utils.mail import send_templated_email
 class CategoryManager(models.Manager):
 
     def for_user(self, user):
-        qs = super(CategoryManager, self).get_query_set()
+        qs = super(CategoryManager, self).get_queryset()
         return qs.filter(Q(groups=None) | Q(groups__user=user))
 
 
 class Category(models.Model):
     name = models.CharField(_('Name'), max_length=80)
-    groups = models.ManyToManyField(Group, blank=True, verbose_name=_('Groups'),
-        help_text=_('Only users from these groups can see this category'), related_name='forum_categories')
+    groups = models.ManyToManyField(
+        Group, blank=True, verbose_name=_('Groups'), related_name='forum_categories',
+        help_text=_('Only users from these groups can see this category'))
     position = models.IntegerField(_('Position'), default=0)
 
     class Meta:

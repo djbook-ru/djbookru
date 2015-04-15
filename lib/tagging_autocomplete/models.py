@@ -1,8 +1,6 @@
-from django.db import models
 from tagging.fields import TagField
 from tagging_autocomplete.widgets import TagAutocomplete
 from django.contrib.admin.widgets import AdminTextInputWidget
-from south.modelsinspector import add_introspection_rules
 
 # The following code is based on models.py file from django-tinymce by Joost Cassee
 
@@ -20,5 +18,3 @@ class TagAutocompleteField(TagField):
             defaults['widget'] = TagAutocomplete
 
         return super(TagAutocompleteField, self).formfield(**defaults)
-
-add_introspection_rules([], ["^tagging_autocomplete\.models\.TagAutocompleteField"])

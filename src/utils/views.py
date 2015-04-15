@@ -3,8 +3,10 @@ import json
 from django.template import loader, RequestContext
 from django.http import HttpResponse, Http404
 from django.core.paginator import Paginator, InvalidPage
+from django.template.response import TemplateResponse
 
 
+# FIXME: remove this
 def direct_to_template(request, template, extra_context=None, mimetype=None, **kwargs):
     """
     Render a given template with any extra URL parameters in the context as
@@ -23,6 +25,7 @@ def direct_to_template(request, template, extra_context=None, mimetype=None, **k
     return HttpResponse(t.render(c), content_type=mimetype)
 
 
+# FIXME: use build in
 class JsonResponse(HttpResponse):
     """
         JSON response
@@ -35,6 +38,7 @@ class JsonResponse(HttpResponse):
         )
 
 
+# FIXME: Remove this
 def object_list(request, queryset, paginate_by=None, page=None,
         allow_empty=True, template_name=None, template_loader=loader,
         extra_context=None, context_processors=None, template_object_name='object',
@@ -92,7 +96,7 @@ def object_list(request, queryset, paginate_by=None, page=None,
             page_obj = paginator.page(page_number)
         except InvalidPage:
             raise Http404
-        c = RequestContext(request, {
+        c = {
             '%s_list' % template_object_name: page_obj.object_list,
             'paginator': paginator,
             'page_obj': page_obj,
@@ -111,14 +115,14 @@ def object_list(request, queryset, paginate_by=None, page=None,
             'pages': paginator.num_pages,
             'hits': paginator.count,
             'page_range': paginator.page_range,
-        }, context_processors)
+        }
     else:
-        c = RequestContext(request, {
+        c = {
             '%s_list' % template_object_name: queryset,
             'paginator': None,
             'page_obj': None,
             'is_paginated': False,
-        }, context_processors)
+        }
         if not allow_empty and len(queryset) == 0:
             raise Http404
     for key, value in extra_context.items():
@@ -129,5 +133,5 @@ def object_list(request, queryset, paginate_by=None, page=None,
     if not template_name:
         model = queryset.model
         template_name = "%s/%s_list.html" % (model._meta.app_label, model._meta.object_name.lower())
-    t = template_loader.get_template(template_name)
-    return HttpResponse(t.render(c), content_type=mimetype)
+    c = RequestContext(request, c, context_processors)
+    return TemplateResponse(request, template_name, c)
