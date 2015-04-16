@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
+from __future__ import absolute_import, unicode_literals
 
-from datetime import timedelta
 import hashlib
 import random
+from datetime import timedelta
 
 from django.conf import settings
 from django.contrib.auth.models import UserManager as BaseUserManager, User as BaseUser
@@ -13,7 +14,7 @@ from django.db.models.signals import post_save
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
-from src.accounts.countries import CountryField
+from src.utils.db.fields.country_field import CountryField
 from src.utils.mail import send_templated_email
 
 EMAIL_CONFIRMATION_DAYS = getattr(settings, 'EMAIL_CONFIRMATION_DAYS', 3)
@@ -43,7 +44,7 @@ class UserManager(BaseUserManager):
             password = self.make_random_password()
 
             current_site = Site.objects.get_current()
-            subject = _(u'You just created account on %(site)s') % {'site': current_site.name}
+            subject = _('You just created account on %(site)s') % {'site': current_site.name}
 
             context = {
                 'email': user.email,
@@ -59,28 +60,23 @@ class UserManager(BaseUserManager):
 
 
 class User(BaseUser):
-    biography = models.TextField(_(u'biography'), blank=True)
-    homepage = models.URLField(_(u'homepage'), blank=True)
-    is_valid_email = models.BooleanField(_(u'is valid email?'), default=False)
+    biography = models.TextField(_('biography'), blank=True)
+    homepage = models.URLField(_('homepage'), blank=True)
+    is_valid_email = models.BooleanField(_('is valid email?'), default=False)
     achievements = models.ManyToManyField(
-        'Achievement', verbose_name=_(u'achievements'), through='UserAchievement')
+        'Achievement', verbose_name=_('achievements'), through='UserAchievement')
     signature = models.TextField(_('forum signature'), blank=True, max_length=1024)
-    location = models.CharField(max_length=64, null=True, blank=True)
-    country = CountryField(null=True, blank=True)
+    location = models.CharField(max_length=64, blank=True)
+    country = CountryField(blank=True)
 
-    lng = models.FloatField(_(u'longitude'), blank=True, null=True)
-    lat = models.FloatField(_(u'latitude'), blank=True, null=True)
-
-    # for notification
-    last_comments_read = models.DateTimeField(_(u'last comments read'), default=timezone.now)
-    last_doc_comments_read = models.DateTimeField(
-        _(u'last doc. comments read'), default=timezone.now)
+    lng = models.FloatField(_('longitude'), blank=True, null=True)
+    lat = models.FloatField(_('latitude'), blank=True, null=True)
 
     objects = UserManager()
 
     class Meta:
-        verbose_name = _(u'User')
-        verbose_name_plural = _(u'Users')
+        verbose_name = _('User')
+        verbose_name_plural = _('Users')
 
     def get_position(self):
         if self.lng is not None and self.lat is not None:
@@ -133,12 +129,12 @@ class User(BaseUser):
 
     def getMD5(self):
         m = hashlib.md5()
-        m.update(self.user.email.encode('utf8') or self.user.username + u'@djbook.ru')
+        m.update(self.user.email.encode('utf8') or self.user.username + '@djbook.ru')
         return m.hexdigest()
 
     @property
     def nickname(self):
-        #for easy change of user name display
+        # for easy change of user name display
         return self.username
 
     @property
@@ -162,63 +158,68 @@ post_save.connect(create_custom_user, BaseUser)
 
 
 class Announcement(models.Model):
-    title = models.CharField(_(u'title'), max_length=300)
-    link = models.URLField(_(u'link'), blank=True)
-    content = models.TextField(_(u'content'), help_text=_('Use Markdown and HTML'))
-    is_active = models.BooleanField(_(u'is active?'), default=True)
-    created = models.DateTimeField(_(u'created'), auto_now_add=True)
+    title = models.CharField(_('title'), max_length=300)
+    link = models.URLField(_('link'), blank=True)
+    content = models.TextField(_('content'), help_text=_('Use Markdown and HTML'))
+    is_active = models.BooleanField(_('is active?'), default=True)
+    created = models.DateTimeField(_('created'), auto_now_add=True)
 
     class Meta:
-        verbose_name = _(u'announcement')
-        verbose_name_plural = _(u'announcements')
+        verbose_name = _('announcement')
+        verbose_name_plural = _('announcements')
 
     def __unicode__(self):
         return self.title
 
 
 class UserAchievement(models.Model):
-    user = models.ForeignKey(User, verbose_name=_(u'user'))
-    achievement = models.ForeignKey('Achievement', verbose_name=_(u'achievement'))
-    note = models.TextField(_(u'note'), blank=True)
+    user = models.ForeignKey(User, verbose_name=_('user'))
+    achievement = models.ForeignKey('Achievement', verbose_name=_('achievement'))
+    note = models.TextField(_('note'), blank=True)
 
     class Meta:
-        verbose_name = _(u'user achievement')
-        verbose_name_plural = _(u'user achievements')
+        verbose_name = _('user achievement')
+        verbose_name_plural = _('user achievements')
         unique_together = (('user', 'achievement'),)
 
 
 class Achievement(models.Model):
-    title = models.CharField(_(u'name'), max_length=500)
-    description = models.TextField(_(u'description'), blank=True)
-    active_icon = models.ImageField(_(u'active icon'), upload_to='uploads/Achievement/', help_text='http://mapicons.nicolasmollet.com/ #95ce4a')
-    inactive_icon = models.ImageField(u'inactive icon', upload_to='uploads/Achievement/', help_text='http://mapicons.nicolasmollet.com/ #d5d5d5')
+    title = models.CharField(_('name'), max_length=500)
+    description = models.TextField(_('description'), blank=True)
+    active_icon = models.ImageField(
+        _('active icon'), upload_to='uploads/Achievement/',
+        help_text='http://mapicons.nicolasmollet.com/ #95ce4a')
+    inactive_icon = models.ImageField(
+        'inactive icon', upload_to='uploads/Achievement/',
+        help_text='http://mapicons.nicolasmollet.com/ #d5d5d5')
 
     class Meta:
-        verbose_name = _(u'achievement')
-        verbose_name_plural = _(u'achievements')
+        verbose_name = _('achievement')
+        verbose_name_plural = _('achievements')
 
     def __unicode__(self):
         return self.title
 
 
 class UserRepository(models.Model):
+    # FIXME: User strings, so DB contains some readable data, not just 1 or 2
     GITHUB, BITBUCKET = 1, 2
     REPO_TYPE_CHOICES = (
-        (GITHUB, u'GitHub'),
-        (BITBUCKET, u'BitBucket')
+        (GITHUB, 'GitHub'),
+        (BITBUCKET, 'BitBucket')
     )
     REPO_URL_TEMPLATES = {
-        GITHUB: u'https://github.com/{}/',
-        BITBUCKET: u'https://bitbucket.org/{}/'
+        GITHUB: 'https://github.com/{}/',
+        BITBUCKET: 'https://bitbucket.org/{}/'
     }
 
-    user = models.ForeignKey(User, verbose_name=_(u'user'))
-    repo_type = models.PositiveIntegerField(_(u'type'), choices=REPO_TYPE_CHOICES)
-    user_name = models.CharField(_(u'login'), max_length=64)
+    user = models.ForeignKey(User, verbose_name=_('user'))
+    repo_type = models.PositiveIntegerField(_('type'), choices=REPO_TYPE_CHOICES)
+    user_name = models.CharField(_('login'), max_length=64)
 
     class Meta:
-        verbose_name = _(u'user repository')
-        verbose_name_plural = _(u'user repositories')
+        verbose_name = _('user repository')
+        verbose_name_plural = _('user repositories')
 
     def __unicode__(self):
         return self.REPO_URL_TEMPLATES[self.repo_type].format(self.user_name)
@@ -248,16 +249,17 @@ class EmailConfirmationManager(models.Manager):
             current_site = Site.objects.get_current()
         except Site.DoesNotExist:
             return
-        path = reverse("accounts:confirm_email", args=[confirmation_key])
-        activate_url = u"http://%s%s" % (unicode(current_site.domain), path)
+        path = reverse('accounts:confirm_email', args=[confirmation_key])
+        activate_url = 'http://%s%s' % (unicode(current_site.domain), path)
         context = {
-            "user": user,
-            "activate_url": activate_url,
-            "current_site": current_site,
-            "confirmation_key": confirmation_key,
+            'user': user,
+            'activate_url': activate_url,
+            'current_site': current_site,
+            'confirmation_key': confirmation_key,
         }
-        subject = _(u'Please confirm your email address for %(site)s') % {'site': current_site.name}
-        send_templated_email(user.email, subject, 'accounts/email_confirmation_message.html', context, fail_silently=settings.DEBUG)
+        subject = _('Please confirm your email address for %(site)s') % {'site': current_site.name}
+        send_templated_email(user.email, subject, 'accounts/email_confirmation_message.html',
+                             context, fail_silently=settings.DEBUG)
         return self.create(
             user=user,
             sent=timezone.now(),
@@ -275,12 +277,12 @@ class EmailConfirmation(models.Model):
 
     objects = EmailConfirmationManager()
 
-    def __unicode__(self):
-        return u"confirmation for %s" % self.user.email
-
     class Meta:
-        verbose_name = _("e-mail confirmation")
-        verbose_name_plural = _("e-mail confirmations")
+        verbose_name = _('e-mail confirmation')
+        verbose_name_plural = _('e-mail confirmations')
+
+    def __unicode__(self):
+        return 'confirmation for %s' % self.user.email
 
     def key_expired(self):
         expiration_date = self.sent + timedelta(days=EMAIL_CONFIRMATION_DAYS)

@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+from __future__ import absolute_import, unicode_literals
+
 # Code obtained from: https://raw.github.com/jazzido/django-profile/master/userprofile/countries.py
 # Code obtained from: http://code.djangoproject.com/attachment/ticket/5446/country_and_language_fields_trunk.2.patch
 

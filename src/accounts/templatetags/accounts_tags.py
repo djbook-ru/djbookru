@@ -4,8 +4,6 @@ from __future__ import absolute_import, unicode_literals
 from django import template
 
 from src.accounts.models import Announcement, Achievement
-from src.comments.models import Comment
-from src.doc_comments.models import Comment as DocComment
 
 register = template.Library()
 

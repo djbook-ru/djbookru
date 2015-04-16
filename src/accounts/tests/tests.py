@@ -1,15 +1,15 @@
+# -*- coding: utf-8 -*-
+from __future__ import absolute_import, unicode_literals
+
 import json
+import mock
 
 from django.core import mail
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
-from src.utils import forms
 from src.accounts.models import User, EmailConfirmation
-
-from .factories import UserFactory
-
-forms.ReCaptchaField.clean = lambda self, data, initial: data
+from src.accounts.tests.factories import UserFactory
 
 
 class ViewsTests(TestCase):
@@ -20,7 +20,8 @@ class ViewsTests(TestCase):
     def login(self):
         self.assertTrue(self.client.login(username='user@test.com', password='user'))
 
-    def test_create(self):
+    @mock.patch('src.utils.forms.ReCaptchaField.clean', side_effect=lambda data, initial: data)
+    def test_create(self, recaptcha_clean_mock):
         url = reverse('accounts:create')
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)

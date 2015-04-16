@@ -1,22 +1,26 @@
 # -*- coding: utf-8 -*-
+from __future__ import absolute_import, unicode_literals
 
-from . import models
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.models import User as DjangoUser
 from django.utils.translation import ugettext_lazy as _
 
+from src.accounts.models import (
+    UserAchievement, User, UserRepository, Announcement, EmailConfirmation, Achievement
+)
+
 
 class UserAchievementInline(admin.TabularInline):
-    model = models.UserAchievement
+    model = UserAchievement
     extra = 1
 
 
 class CustomUserChangeForm(UserChangeForm):
 
     class Meta:
-        model = models.User
+        model = User
         fields = '__all__'
 
 
@@ -27,7 +31,7 @@ class UserRepositoryAdmin(admin.ModelAdmin):
 
 
 class UserRepositoryInline(admin.TabularInline):
-    model = models.UserRepository
+    model = UserRepository
     fields = ('repo_type', 'user_name')
 
 
@@ -86,9 +90,9 @@ class AchievementAdmin(admin.ModelAdmin):
     list_display = ('__unicode__',)
 
 
-admin.site.register(models.Announcement, AnnouncementAdmin)
+admin.site.register(Achievement, AchievementAdmin)
+admin.site.register(Announcement, AnnouncementAdmin)
+admin.site.register(EmailConfirmation, EmailConfirmationAdmin)
+admin.site.register(User, CustomUserAdmin)
+admin.site.register(UserRepository, UserRepositoryAdmin)
 admin.site.unregister(DjangoUser)
-admin.site.register(models.User, CustomUserAdmin)
-admin.site.register(models.EmailConfirmation, EmailConfirmationAdmin)
-admin.site.register(models.Achievement, AchievementAdmin)
-admin.site.register(models.UserRepository, UserRepositoryAdmin)

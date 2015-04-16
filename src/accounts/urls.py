@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
 
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth import views as auth_views
 
-from src.accounts import forms
-from src.accounts import views
+from src.accounts import forms, views
 
 urlpatterns = [
-    url('^login/$', auth_views.login,
+    url(r'^login/$', auth_views.login,
         {
             'template_name': 'accounts/login.html',
             'authentication_form': forms.AuthenticationForm

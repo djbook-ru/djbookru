@@ -40,7 +40,7 @@ class Comment(models.Model):
         return self.page + '?xpath=' + urlquote(self.xpath)
 
     @classmethod
-    def get_reply_comments(cls, user, only_new=True):
+    def get_reply_comments(cls, user):
         your_comments = cls.objects.filter(author=user)
 
         if not your_comments.exists():
@@ -54,8 +54,5 @@ class Comment(models.Model):
                 f = models.Q(page=c.page, xpath=c.xpath, created__gt=c.created)
 
         qs = cls.objects.filter(f).exclude(author=user)
-
-        if only_new and user.last_doc_comments_read:
-            qs = qs.filter(created__gt=user.last_doc_comments_read)
 
         return qs

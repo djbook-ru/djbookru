@@ -1,23 +1,24 @@
 # -*- coding: utf-8 -*-
+from __future__ import absolute_import, unicode_literals
 
 from django import forms
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.utils.translation import ugettext_lazy as _
 
-from src.accounts import models
-from src.utils.forms import ReCaptchaField, EmailInput
+from src.accounts.models import User
+from src.utils.forms import ReCaptchaField
 
 
 class SavePositionForm(forms.ModelForm):
 
     class Meta:
-        model = models.User
+        model = User
         fields = ('lng', 'lat')
 
 
 class AuthenticationForm(forms.Form):
-    email = forms.EmailField(label=_("Email"), max_length=30, widget=EmailInput)
+    email = forms.EmailField(label=_("Email"))
     password = forms.CharField(label=_("Password"), widget=forms.PasswordInput)
 
     error_messages = {
@@ -73,26 +74,26 @@ class AuthenticationForm(forms.Form):
 
 
 class CreateUserForm(UserCreationForm):
-    captcha = ReCaptchaField(label=_(u'captcha'))
+    captcha = ReCaptchaField(label=_('captcha'))
 
     class Meta:
-        model = models.User
+        model = User
         fields = ('username', 'email', 'password1', 'password2', 'captcha')
 
 
 class UserEditForm(forms.ModelForm):
     current_password = forms.CharField(
-        label=_(u'Current password'), widget=forms.PasswordInput, required=False,
-        help_text=_(u'Ignore if you do not have one yet. We recommend setup password, '
+        label=_('Current password'), widget=forms.PasswordInput, required=False,
+        help_text=_('Ignore if you do not have one yet. We recommend setup password, '
                     'so you can use it to login, because sometime we broke login via '
                     'some external service.'))
     new_password = forms.CharField(
-        label=_(u'New password'), widget=forms.PasswordInput, required=False)
+        label=_('New password'), widget=forms.PasswordInput, required=False)
     new_password_verify = forms.CharField(
-        label=_(u'Confirm new password'), widget=forms.PasswordInput, required=False)
+        label=_('Confirm new password'), widget=forms.PasswordInput, required=False)
 
     class Meta:
-        model = models.User
+        model = User
         fields = ('username', 'biography', 'email', 'country', 'location', 'signature')
 
     def __init__(self, *args, **kwargs):
@@ -105,24 +106,24 @@ class UserEditForm(forms.ModelForm):
             ('current_password', 'new_password', 'new_password_verify'))
         if current and self.instance.has_usable_password() \
                 and not self.instance.check_password(current):
-            raise forms.ValidationError(_(u'Invalid password.'))
+            raise forms.ValidationError(_('Invalid password.'))
         if new and new != verify:
-            raise forms.ValidationError(_(u'The two passwords did not match.'))
+            raise forms.ValidationError(_('The two passwords did not match.'))
         return self.cleaned_data
 
     def clean_username(self):
         username = self.cleaned_data['username'].strip()
-        if models.User.objects.exclude(pk=self.instance.pk).filter(username__iexact=username):
-            raise forms.ValidationError(_(u'A user with that username already exists.'))
+        if User.objects.exclude(pk=self.instance.pk).filter(username__iexact=username):
+            raise forms.ValidationError(_('A user with that username already exists.'))
         return username
 
     def clean_email(self):
         value = self.cleaned_data['email']
         if value:
             try:
-                models.User.objects.exclude(pk=self.instance.pk).get(email=value)
-                raise forms.ValidationError(_(u'This email is used already.'))
-            except models.User.DoesNotExist:
+                User.objects.exclude(pk=self.instance.pk).get(email=value)
+                raise forms.ValidationError(_('This email is used already.'))
+            except User.DoesNotExist:
                 pass
         return value
 

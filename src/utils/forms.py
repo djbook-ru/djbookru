@@ -7,10 +7,6 @@ from django.utils.safestring import mark_safe
 from recaptcha.client import captcha
 
 
-class EmailInput(forms.widgets.Input):
-    input_type = 'email'
-
-
 class PlaceholderMixin(object):
 
     def __init__(self, *args, **kwargs):
