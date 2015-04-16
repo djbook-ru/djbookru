@@ -6,7 +6,6 @@ from django.contrib.syndication.views import Feed
 from django.utils.translation import ugettext_lazy as _
 from src.main.templatetags.components import filter_markdown
 from django.core.urlresolvers import reverse_lazy
-from django.utils.safestring import mark_safe
 from operator import attrgetter
 
 
@@ -17,7 +16,7 @@ class LatestFeed(Feed):
 
     def items(self):
         examples = Example.objects.approved().order_by('-created')[:15]
-        news = News.objects.order_by('-created')[:20]
+        news = News.objects.approved().order_by('-created')[:20]
 
         objects = list(examples) + list(news)
 

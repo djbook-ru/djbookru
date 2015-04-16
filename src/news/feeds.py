@@ -13,7 +13,7 @@ class LatestNewsFeed(Feed):
     description = _("The freshest news about Russian version of DjangoBook")
 
     def items(self):
-        return models.News.objects.order_by('-created')[:10]
+        return models.News.objects.approved().order_by('-created')[:10]
 
     def item_title(self, item):
         return item.title
