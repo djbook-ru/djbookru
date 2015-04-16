@@ -1,5 +1,9 @@
+# -*- coding: utf-8 -*-
+from __future__ import absolute_import, unicode_literals
+
 from django.contrib import admin
-from .models import Category, Forum, Topic, Post
+
+from src.forum.models import Category, Forum, Topic, Post
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -15,7 +19,8 @@ class ForumAdmin(admin.ModelAdmin):
 
 class TopicAdmin(admin.ModelAdmin):
     list_filter = ['sticky', 'closed', 'heresy', 'send_response']
-    list_display = ['name', 'forum', 'created', 'updated', 'user', 'views', 'rating', 'sticky', 'send_response']
+    list_display = ['name', 'forum', 'created', 'updated', 'user', 'views', 'rating', 'sticky',
+                    'send_response']
     search_fields = ('name',)
 
 
@@ -23,7 +28,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ['__unicode__', 'topic', 'user', 'rating', 'created', 'updated', 'updated_by']
     search_fields = ('topic__name', 'body')
 
-admin.site.register(Post, PostAdmin)
-admin.site.register(Topic, TopicAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Forum, ForumAdmin)
+admin.site.register(Post, PostAdmin)
+admin.site.register(Topic, TopicAdmin)

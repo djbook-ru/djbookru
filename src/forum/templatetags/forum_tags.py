@@ -1,9 +1,13 @@
+# -*- coding: utf-8 -*-
+from __future__ import absolute_import, unicode_literals
+
 from django import template
 from django.core.cache import cache
 from django.template.defaultfilters import stringfilter
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
+
 from src.forum.models import Topic
 
 register = template.Library()
@@ -48,7 +52,7 @@ def has_unread(obj, user):
 @stringfilter
 def softwraphtml(value, max_line_length=24):
     import re
-    whitespace_re = re.compile('\s')
+    whitespace_re = re.compile(r'\s')
     new_value = []
     unbroken_chars = 0
     in_tag = False
@@ -85,9 +89,9 @@ def rating(context, obj):
     model = obj.__class__.__name__
 
     if model == 'Post':
-        title = _(u'Post rating')
+        title = _('Post rating')
     elif model == 'Topic':
-        title = _(u'Topic rating')
+        title = _('Topic rating')
     else:
         title = ''
 

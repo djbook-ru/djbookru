@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from __future__ import absolute_import, unicode_literals
+
 from django.contrib.syndication.views import Feed
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import get_object_or_404
@@ -16,16 +18,16 @@ class FeedLatestPostsByForum(Feed):
         return obj.get_absolute_url()
 
     def title(self, obj):
-        return _(u"Last messages on forum in categories {0}".format(obj.name))
+        return _('Last messages on forum in categories {0}'.format(obj.name))
 
     def item_title(self, item):
-        return unicode(item.topic.name)
+        return item.topic.name
 
     def item_description(self, item):
         return item.body
 
     def item_author_name(self, item):
-        return unicode(item.user.username)
+        return item.user.username
 
     def item_pubdate(self, item):
         return item.created
@@ -34,25 +36,26 @@ class FeedLatestPostsByForum(Feed):
         return item.updated
 
     def items(self, obj):
-        return Post.objects.filter(topic__forum=obj, topic__forum__category__groups__isnull=True).order_by('-updated')[:30]
+        return Post.objects.filter(topic__forum=obj, topic__forum__category__groups__isnull=True) \
+            .order_by('-updated')[:30]
 
 
 class FeedLatestPosts(Feed):
 
     def link(self):
-        return reverse_lazy("forum:index")
+        return reverse_lazy('forum:index')
 
     def title(self):
-        return _(u"Last messages on forum in all categories")
+        return _('Last messages on forum in all categories')
 
     def item_title(self, item):
-        return unicode(item.topic.name)
+        return item.topic.name
 
     def item_description(self, item):
         return item.body
 
     def item_author_name(self, item):
-        return unicode(item.user.username)
+        return item.user.username
 
     def item_pubdate(self, item):
         return item.created
@@ -61,4 +64,5 @@ class FeedLatestPosts(Feed):
         return item.updated
 
     def items(self):
-        return Post.objects.filter(topic__forum__category__groups__isnull=True).order_by('-updated')[:30]
+        return Post.objects.filter(topic__forum__category__groups__isnull=True) \
+            .order_by('-updated')[:30]

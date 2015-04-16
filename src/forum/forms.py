@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import absolute_import, unicode_literals
 
 from django import forms
 from django.utils.translation import ugettext_lazy as _
@@ -14,12 +15,14 @@ class AddPostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ('body',)
+        widgets = {
+            'body': PagedownWidget(),
+        }
 
     def __init__(self, topic, user, *args, **kwargs):
         self.topic = topic
         self.user = user
         super(AddPostForm, self).__init__(*args, **kwargs)
-        self.fields['body'].widget = PagedownWidget()
 
     def save(self):
         post = super(AddPostForm, self).save(commit=False)
@@ -37,24 +40,25 @@ class EditPostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ('body',)
-
-    def __init__(self, *args, **kwargs):
-        super(EditPostForm, self).__init__(*args, **kwargs)
-        self.fields['body'].widget = PagedownWidget()
+        widgets = {
+            'body': PagedownWidget(),
+        }
 
 
 class AddTopicForm(PlaceholderMixin, forms.ModelForm):
-    body = forms.CharField(label=_(u'Message'), widget=forms.Textarea)
+    body = forms.CharField(label=_('Message'), widget=forms.Textarea)
 
     class Meta:
         model = Topic
         fields = ('name', 'body', 'send_response')
+        widgets = {
+            'body': PagedownWidget(),
+        }
 
     def __init__(self, forum, user, *args, **kwargs):
         self.forum = forum
         self.user = user
         super(AddTopicForm, self).__init__(*args, **kwargs)
-        self.fields['body'].widget = PagedownWidget()
 
     def save(self):
         data = self.cleaned_data

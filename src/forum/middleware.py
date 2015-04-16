@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+from __future__ import absolute_import, unicode_literals
+
 from datetime import timedelta
 from django.conf import settings
 from django.core.cache import cache
