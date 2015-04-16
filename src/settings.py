@@ -8,7 +8,7 @@ gettext_noop = lambda s: s
 
 
 def rel_project(*x):
-    return os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
+    return os.path.abspath(os.path.join(os.path.abspath(os.path.dirname(__file__)), *x))
 
 
 def REL(*x):
@@ -258,7 +258,7 @@ INSTALLED_APPS = (
     'ordered_model',
     'social.apps.django_app.default',
     'haystack',
-    # 'haystack_static_pages',
+    'haystack_static_pages',
 
     'src.forum',
     'src.accounts',
@@ -319,35 +319,33 @@ AUTHENTICATION_BACKENDS = (
 )
 ### SOCIAL_AUTH: END
 
+### DOCUMENTATION: BEGIN
+DJANGO_DOCUMENTATION_VERSION = '1.8'
+DJANGO_DOCUMENTATION_HTML = REL('../docs/rel%s/' % DJANGO_DOCUMENTATION_VERSION)
+DJANGO_DOCUMENTATION_URL = '/rel%s/' % DJANGO_DOCUMENTATION_VERSION
+DJANGO_DOCUMENTATION_SITEMAP_URL = '%ssitemap.xml' % DJANGO_DOCUMENTATION_URL
+### DOCUMENTATION: END
 
 ### HAYSTACK: BEGIN
-def get_doc_pages(path, ext):
-    if not isinstance(path, list):
-        path = [path]
-    for p in path:
-        for directory, dirnames, filenames in os.walk(p):
-            for item in glob.glob('%s/*.%s' % (directory, ext)):
-                yield item
-
-DJANGO_DOCUMENTATION_URL = '/rel1.8/'
-DJANGO_DOCUMENTATION_SITEMAP_URL = '/rel1.8/sitemap.xml'
-
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'xapian_backend.XapianEngine',
         'PATH': rel_project('search', 'xapian_index'),
         'HAYSTACK_XAPIAN_LANGUAGE': 'ru',
-        # 'INCLUDE_SPELLING': True  # FIXME: add this
+        # 'INCLUDE_SPELLING': True  # TODO: use this
     },
 }
-# FIXME: fix and add haystack static pages
-HAYSTACK_STATIC_PAGES = tuple(
-    get_doc_pages([
-        os.path.expanduser('~/devel/djdoc/source/_build/html'),
-    ], 'html'))
+
+
+def get_doc_pages():
+    for directory, dirnames, filenames in os.walk(DJANGO_DOCUMENTATION_HTML):
+        for item in glob.glob('%s/*.html' % directory):
+            yield item
+
+HAYSTACK_STATIC_PAGES = tuple(get_doc_pages())
 HAYSTACK_STATIC_MAPPING = {
-    os.path.expanduser('~/devel/djdoc/source/_build/html'): 'http://127.0.0.1:8000%s' % DJANGO_DOCUMENTATION_URL
-    }
+    DJANGO_DOCUMENTATION_HTML: DJANGO_DOCUMENTATION_URL
+}
 ### HAYSTACK: END
 
 

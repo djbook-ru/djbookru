@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-from settings import REL
+from settings import *
 
 DEBUG = True
 TEMPLATE_DEBUG = True
+SITE_URL = 'http://127.0.0.1:8000/'
 
 DATABASES = {
     'default': dict(
@@ -13,11 +14,16 @@ DATABASES = {
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# make symlink from /django_documentation/_build/html/ to /djbookru/src/static/html
-# e.g. ln -s ~/Workspace/django_documentation/_build/html/ ~/Workspace/djbookru/src/static/html
-DJANGO_DOCUMENTATION_URL = '/static/html/index.html'
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
     },
 }
+
+# make symlink from /django_documentation/_build/html/ to /djbookru/docs/rel<version>
+# e.g. ln -s ~/workspace/django_documentation/_build/html/ ~/workspace/djbookru/docs/rel1.8
+STATICFILES_DIRS += (
+    rel_project('../docs/'),
+)
+DJANGO_DOCUMENTATION_URL = '/static/rel%s/index.html' % DJANGO_DOCUMENTATION_VERSION
+DJANGO_DOCUMENTATION_SITEMAP_URL = '/static/rel%s/sitemap.xml' % DJANGO_DOCUMENTATION_VERSION
