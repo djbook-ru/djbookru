@@ -114,10 +114,14 @@
                     lat: userMarker.getLatLng().lat,
                     lng: userMarker.getLatLng().lng
                 }
-                $.post(SAVE_URL, data, function(data){
-                    if (data.error){
+                $.ajax({
+                    type: "POST",
+                    url: SAVE_URL,
+                    data: data,
+                    error: function (jqXHR) {
                         markers.removeLayer(userMarker);
-                        alert(data.error);
+                        var data = JSON.parse(jqXHR.responseText);
+                        alert(data.error || 'Error!');
                     }
                 });
             } else {

@@ -26,6 +26,19 @@ class ViewsTests(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
 
+        # check invalid data
+        data = {
+            'username': 'newuser',
+            'email': 'newuser@e',
+            'password1': 'newuser',
+            'password2': 'newuser',
+            'captcha': '123'
+        }
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.context['form'].errors['email'])
+
+        # check valid request
         data = {
             'username': 'newuser',
             'email': 'newuser@example.org',
@@ -138,3 +151,45 @@ class ViewsTests(TestCase):
         self.assertEqual(user_position, self.user.get_position())
         other_positions = json.loads(response.context['other_positions_json'])
         self.assertEqual(len(other_positions), 10)
+
+    def test_save_user_position(self):
+        url = reverse('accounts:save_user_position')
+
+        response = self.client.post(url)
+        self.assertEqual(response.status_code, 400)
+
+        self.login()
+
+        response = self.client.post(url, {
+            'lng': '3.333',
+            'lat': '2.222'
+        })
+        self.assertEqual(response.status_code, 200)
+        self.user.refresh_from_db()
+        position = self.user.get_position()
+        self.assertEqual(position['lat'], 2.222)
+        self.assertEqual(position['lng'], 3.333)
+
+        response = self.client.post(url, {
+            'lng': 'abc',
+            'lat': '2.222'
+        })
+        self.assertEqual(response.status_code, 400)
+        self.user.refresh_from_db()
+        position = self.user.get_position()
+        self.assertEqual(position['lat'], 2.222)
+        self.assertEqual(position['lng'], 3.333)
+
+    def test_profile_posts(self):
+        url = reverse('accounts:profile_more_posts', args=(self.user.pk,))
+
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.context['object_list']), 0)
+
+    def test_profile_topics(self):
+        url = reverse('accounts:profile_more_topics', args=(self.user.pk,))
+
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.context['object_list']), 0)

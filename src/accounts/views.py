@@ -6,18 +6,18 @@ import json
 from django.contrib import messages
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect
+from django.template.response import TemplateResponse
 from django.utils.translation import ugettext_lazy as _, ugettext
 from django.views.generic import ListView
 
 from src.accounts.backends import CustomUserBackend
 from src.accounts.forms import UserEditForm, CreateUserForm, SavePositionForm
 from src.accounts.models import User, EmailConfirmation, EMAIL_CONFIRMATION_DAYS
-from src.decorators import render_to, render_to_json
 
 
-@render_to('accounts/map.html')
-def user_map(request):
+def users_map(request):
     user = request.user
     other_users = User.objects.all()
 
@@ -30,32 +30,31 @@ def user_map(request):
     other_positions = (u.get_position() for u in other_users)
     other_positions = [p for p in other_positions if p]
 
-    return {
+    context = {
         'user_position_json': json.dumps(user_position),
         'other_positions_json': json.dumps(other_positions)
     }
+    return TemplateResponse(request, 'accounts/map.html', context)
 
 
-@render_to_json
 def save_user_position(request):
     user = request.user
 
     if not user.is_authenticated():
-        return {
+        return JsonResponse({
             'error': ugettext('Authenticate please!')
-        }
+        }, status=400)
 
     form = SavePositionForm(request.POST, instance=user)
     if form.is_valid():
         form.save()
-        return {}
+        return JsonResponse({})
     else:
-        return {
+        return JsonResponse({
             'error': ugettext('invalid form')
-        }
+        }, status=400)
 
 
-@render_to('accounts/create.html')
 def create(request):
     if request.method == 'POST':
         form = CreateUserForm(request.POST, initial={'captcha': request.META['REMOTE_ADDR']})
@@ -66,19 +65,20 @@ def create(request):
         messages.error(request, _('Please correct the error below.'))
     else:
         form = CreateUserForm()
-    return {
+
+    context = {
         'form': form
     }
+    return TemplateResponse(request, 'accounts/create.html', context)
 
 
-@render_to('accounts/profile.html')
 def profile(request, pk):
     user_obj = get_object_or_404(User, pk=pk)
-    user_position = user_obj.get_position()
-    return {
+    context = {
         'user_obj': user_obj,
-        'user_position_json': json.dumps(user_position)
+        'user_position_json': json.dumps(user_obj.get_position())
     }
+    return TemplateResponse(request, 'accounts/profile.html', context)
 
 
 class VotedTopicsListView(ListView):
@@ -115,7 +115,6 @@ class VotedPostsListView(ListView):
 profile_posts = VotedPostsListView.as_view()
 
 
-@render_to('accounts/edit.html')
 @login_required
 def edit(request):
     if request.method == 'POST':
@@ -128,9 +127,11 @@ def edit(request):
         messages.error(request, _('Please correct the error below.'))
     else:
         form = UserEditForm(instance=request.user)
-    return {
+
+    context = {
         'form': form,
     }
+    return TemplateResponse(request, 'accounts/edit.html', context)
 
 
 def confirm_email(request, confirmation_key):
@@ -143,13 +144,10 @@ def confirm_email(request, confirmation_key):
     else:
         messages.success(request, _('Email is confirmed.'))
 
+    # FIXME: Do not hardcode backend
     user.backend = "%s.%s" % (CustomUserBackend.__module__, CustomUserBackend.__name__)
     user = auth_login(request, user)
-
-    if request.user.is_authenticated():
-        return redirect('accounts:edit')
-
-    return redirect('/')
+    return redirect('accounts:edit')
 
 
 @login_required
