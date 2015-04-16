@@ -2,4 +2,8 @@ clean:
 	find . -name "*.pyc" -exec rm -rf {} \;
 
 test:
-	python manage.py test -k
+	coverage run --source='./src' manage.py test --keepdb
+	coverage html -d cover
+
+open_coverage_report:
+	google-chrome ./cover/index.html

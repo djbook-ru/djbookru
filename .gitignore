@@ -1,13 +1,12 @@
 *.pyc
 *.mo
 *~
+*.sqlite
+*.sublime-*
+.coverage
+/cover
 /env
 /logs
 /search/xapian_index/
-/cover
-*.sqlite
 /src/local_settings.py
-*.sublime-*
-/src/static/html
 /src/public/media/uploads
-.coverage
