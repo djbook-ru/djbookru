@@ -1,3 +1,2 @@
 factory_boy
-nose_runnable_test_names
 coverage

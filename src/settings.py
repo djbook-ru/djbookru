@@ -12,7 +12,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def rel_project(*x):
     return os.path.abspath(os.path.join(BASE_DIR, *x))
 
-
 # get local software repositories
 # FIXME: Remove lib
 sys.path.insert(0, rel_project('lib'))
@@ -240,22 +239,6 @@ FEEDBACK_SUBJECT = gettext_noop(u'Feedback message from Djbook.ru')
 
 RECAPTCHA_PUBLIC = ''
 RECAPTCHA_PRIVATE = ''
-
-# testing
-# TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-NOSE_ARGS = [
-    '--nocapture',
-    '--with-runnable-test-names',
-    '--nologcapture',
-    # '--with-coverage',
-    # '--cover-html',
-    # '--cover-package=src',
-    # '--cover-inclusive'
-]
-
-NOSE_PLUGINS = [
-    'nose_runnable_test_names.RunnableTestNames'
-]
 
 LOGGING = {
     'version': 1,
