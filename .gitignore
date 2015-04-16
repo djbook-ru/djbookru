@@ -3,7 +3,7 @@
 *~
 /env
 /logs
-/src/search/xapian_index/
+/search/xapian_index/
 /cover
 *.sqlite
 /src/local_settings.py

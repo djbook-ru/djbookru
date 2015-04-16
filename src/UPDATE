@@ -11,3 +11,5 @@
     - Update static pages data: `./manage.py crawl_static_pages`
     - Rebuild search index: `./manage.py rebuild_index`
     - Check search
+
+* `rel_project` now add to root, not './src'
