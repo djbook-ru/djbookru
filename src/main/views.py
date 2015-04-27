@@ -9,6 +9,7 @@ from django.db.models import ObjectDoesNotExist
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import redirect
 from django.utils import translation
+from django.utils.http import is_safe_url
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic.base import RedirectView
 from src.forum.util import urlize
@@ -91,15 +92,19 @@ def markdown_preview(request):
     return {'data': data}
 
 
-def lang(request, code):
-    next = request.META.get('HTTP_REFERER', '/')
+def lang(request, lang_code):
+    next = request.META.get('HTTP_REFERER')
+    if not is_safe_url(url=next, host=request.get_host()):
+        next = '/'
     response = HttpResponseRedirect(next)
-    if code and translation.check_for_language(code):
+    if lang_code and translation.check_for_language(lang_code):
         if hasattr(request, 'session'):
-            request.session['django_language'] = code
+            request.session[translation.LANGUAGE_SESSION_KEY] = lang_code
         else:
-            response.set_cookie(settings.LANGUAGE_COOKIE_NAME, code)
-        translation.activate(code)
+            response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code,
+                                max_age=settings.LANGUAGE_COOKIE_AGE,
+                                path=settings.LANGUAGE_COOKIE_PATH,
+                                domain=settings.LANGUAGE_COOKIE_DOMAIN)
     return response
 
 
