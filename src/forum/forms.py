@@ -44,7 +44,7 @@ class EditPostForm(forms.ModelForm):
 
 
 class AddTopicForm(PlaceholderMixin, forms.ModelForm):
-    body = forms.CharField(label=_(u'Message'), widget=forms.Textarea)
+    body = forms.CharField(label=_('Message'), widget=PagedownWidget())
 
     class Meta:
         model = Topic
@@ -54,7 +54,6 @@ class AddTopicForm(PlaceholderMixin, forms.ModelForm):
         self.forum = forum
         self.user = user
         super(AddTopicForm, self).__init__(*args, **kwargs)
-        self.fields['body'].widget = PagedownWidget()
 
     def save(self):
         data = self.cleaned_data
