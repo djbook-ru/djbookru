@@ -306,7 +306,7 @@ def vote(request, pk, model):
 
     if not user.is_authenticated():
         return JsonResponse({
-            'error': _(u'Authentication required.')
+            'error': ugettext(u'Authentication required.')
         })
 
     if not obj.has_access(user):
