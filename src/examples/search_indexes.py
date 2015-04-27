@@ -12,3 +12,10 @@ class ExampleIndex(indexes.SearchIndex, indexes.Indexable):
 
     def get_model(self):
         return Example
+
+    def prepare(self, obj):
+        # Fix Xapian error about terms longer then 245
+        self.prepared_data = super(ExampleIndex, self).prepare(obj)
+        terms = self.prepared_data['text'].split(' ')
+        self.prepared_data['text'] = u' '.join(term[:230] for term in terms)
+        return self.prepared_data
