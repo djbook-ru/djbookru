@@ -26,7 +26,7 @@
             {% paginate float='left' %}
         {% endif %}
 
-        {% include 'djforum/_topic_list.html' %}
+        {% include 'djforum/_topic_list.html' with show_info="yes" %}
 
         {% if is_paginated %}
             {% paginate float='left' %}
