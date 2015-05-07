@@ -3,6 +3,7 @@ from __future__ import absolute_import, unicode_literals
 
 import json
 import mock
+from BeautifulSoup import BeautifulSoup
 
 from django.core import mail
 from django.core.urlresolvers import reverse
@@ -193,3 +194,34 @@ class ViewsTests(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.context['object_list']), 0)
+
+    def test_password_reset(self):
+        mail.outbox = []
+        reset_password_url = reverse('accounts:password_reset')
+
+        # request email with link to password reset page
+        response = self.client.post(reset_password_url, {'email': self.user.email})
+        self.assertRedirects(response, reverse('accounts:password_reset_done'))
+
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].to, [self.user.email])
+        soup = BeautifulSoup(mail.outbox[0].body)
+        password_reset_confirm_url = soup.find('a')['href']
+        self.assertTrue(password_reset_confirm_url.startswith('http://example.com'))
+        password_reset_confirm_url = password_reset_confirm_url[len('http://example.com'):]
+
+        # reset password on password reset page
+        response = self.client.get(password_reset_confirm_url)
+        self.assertEqual(response.status_code, 200)
+
+        new_password = 'newpassword'
+        data = {
+            'new_password1': new_password,
+            'new_password2': new_password
+        }
+        response = self.client.post(password_reset_confirm_url, data=data)
+        self.assertRedirects(response, reverse('accounts:password_reset_complete'))
+
+        # check new password
+        self.assertFalse(self.client.login(username=self.user.email, password='user'))
+        self.assertTrue(self.client.login(username=self.user.email, password=new_password))
