@@ -309,7 +309,7 @@ class Post(models.Model, RatingMixin):
     body = models.TextField(_('Message'))
     rating = models.IntegerField(_('rating'), default=0)
     votes = models.ManyToManyField('accounts.User', verbose_name=_('votes'),
-        related_name='voted_posts', editable=False)
+                                   related_name='voted_posts', editable=False)
 
     class Meta:
         ordering = ['created']

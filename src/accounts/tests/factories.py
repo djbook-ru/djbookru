@@ -3,6 +3,7 @@ from __future__ import absolute_import, unicode_literals
 
 import factory
 
+from django.contrib.auth.models import Group
 from src.accounts.models import User
 
 
@@ -16,3 +17,10 @@ class UserFactory(factory.django.DjangoModelFactory):
 
     class Meta:
         model = User
+
+
+class GroupFactory(factory.django.DjangoModelFactory):
+    name = factory.Sequence(lambda i: 'Group %s' % i)
+
+    class Meta:
+        model = Group
