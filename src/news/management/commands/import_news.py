@@ -1,9 +1,14 @@
-import feedparser
 from datetime import datetime
-from django.conf import settings
+
 from django.core.mail import mail_admins
 from django.core.management import BaseCommand
 from django.db import transaction
+
+import feedparser
+
+
+def to_datetime(feed_date):
+    return datetime(*(feed_date[0:6]))
 
 
 class Command(BaseCommand):
@@ -17,7 +22,8 @@ class Command(BaseCommand):
                 updated = True
 
         if updated:
-            mail_admins(u'Some news imported from RSS!', u'Some news imported from RSS!')
+            mail_admins(u'Some news imported from RSS!',
+                        u'Some news imported from RSS!')
 
     def parse(self, feed):
         from src.news.models import News
@@ -41,7 +47,7 @@ class Command(BaseCommand):
             return
 
         updated = 0
-        with transaction.commit_on_success():
+        with transaction.atomic():
             for item in data.entries:
                 item_exists = News.objects.filter(link=item.link).exists()
                 if item_exists:
@@ -65,6 +71,3 @@ class Command(BaseCommand):
             feed.save()
 
         return updated
-
-def to_datetime(feed_date):
-    return datetime(*(feed_date[0:6]))
