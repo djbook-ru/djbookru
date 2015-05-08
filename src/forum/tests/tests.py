@@ -107,15 +107,57 @@ class ViewsTests(BaseTestCase):
         self.assertEqual(len(response.context['categories']), 0)
 
     def test_forum(self):
-        forum = ForumFactory()
-
-        url = reverse('forum:forum', args=(forum.pk,))
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
-
+        # test 404
         url = reverse('forum:forum', args=(123,))
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
+
+        public_forum = ForumFactory()
+        for _ in range(3):
+            TopicFactory(forum=public_forum)
+        private_forum = ForumFactory()
+        private_forum.category.groups.add(self.group)
+
+        # test anonymous
+        url = reverse('forum:forum', args=(public_forum.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['forum'], public_forum)
+        self.assertEqual(len(response.context['object_list']), 3)
+
+        url = reverse('forum:forum', args=(private_forum.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+
+        # test some_user
+        self.login(self.some_user)
+        url = reverse('forum:forum', args=(public_forum.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        url = reverse('forum:forum', args=(private_forum.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+
+        # test group_user
+        self.login(self.group_user)
+        url = reverse('forum:forum', args=(public_forum.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        url = reverse('forum:forum', args=(private_forum.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        # test superuser
+        self.login(self.superuser)
+        url = reverse('forum:forum', args=(public_forum.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        url = reverse('forum:forum', args=(private_forum.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
 
 
 class ModelTests(BaseTestCase):
