@@ -21,7 +21,9 @@ class CategoryManager(models.Manager):
     # TODO: Make queryset, so you can use this with more complex queries
     def for_user(self, user):
         qs = super(CategoryManager, self).get_queryset()
-        if user.is_authenticated():
+        if user.is_superuser and user.is_active:
+            return qs
+        elif user.is_authenticated():
             return qs.filter(Q(groups=None) | Q(groups__user=user))
         else:
             return qs.filter(groups=None)
@@ -50,6 +52,9 @@ class Category(models.Model):
 
     def has_access(self, user):
         if self.groups.count() > 0:
+            if user.is_active and user.is_superuser:
+                return True
+
             if user.is_authenticated():
                 try:
                     self.groups.get(user__pk=user.id)
@@ -181,6 +186,7 @@ class RatingMixin(object):
         return self.votes.filter(pk=user.pk).exists()
 
     def update_rating(self):
+        # FIXME: Use signal on votes add/remove
         self.rating = self.votes.count()
         self.save()
 
@@ -216,6 +222,9 @@ class Topic(models.Model, RatingMixin):
     @models.permalink
     def get_absolute_url(self):
         return ('forum:topic', [self.pk])
+
+    def has_access(self, user):
+        return self.forum.has_access(user)
 
     def search(self):
         try:
@@ -257,9 +266,6 @@ class Topic(models.Model, RatingMixin):
 
     def can_edit(self, user):
         return user.is_active and user.is_superuser
-
-    def has_access(self, user):
-        return self.forum.has_access(user)
 
     def can_post(self, user):
         return self.has_access(user) and not self.closed and user.is_authenticated()

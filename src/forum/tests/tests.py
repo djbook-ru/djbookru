@@ -3,12 +3,16 @@ from __future__ import absolute_import, unicode_literals
 
 from time import sleep
 
+from datetime import timedelta
+
 from django.contrib.auth.models import AnonymousUser
 from django.core.urlresolvers import reverse
 from django.test import TestCase
+from django.utils import timezone
 
 from src.accounts.tests.factories import UserFactory, GroupFactory
 from src.forum.models import Category, Forum, Topic
+from src.forum.settings import FORUM_EDIT_TIMEOUT
 from src.forum.tests.factories import CategoryFactory, ForumFactory, TopicFactory, PostFactory
 
 
@@ -16,6 +20,9 @@ class BaseTestCase(TestCase):
 
     def setUp(self):
         self.anonymous_user = AnonymousUser()
+        self.superuser = UserFactory(
+            username='superuser', email='superuser@test.com', password='superuser',
+            is_superuser=True)
         self.some_user = UserFactory(username='user', email='user@test.com', password='user')
         self.group_user = UserFactory(username='user1', email='user1@test.com', password='user1')
         self.group = GroupFactory()
@@ -52,6 +59,12 @@ class ViewsTests(BaseTestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(list(response.context['categories']), [public_category, private_category])
 
+        # test superuser
+        self.login(self.superuser)
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(list(response.context['categories']), [public_category, private_category])
+
         # add more data
         for _ in range(2):
             ForumFactory(category=public_category)
@@ -74,6 +87,12 @@ class ViewsTests(BaseTestCase):
 
         # test group user
         self.login(self.group_user)
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.context['categories']), 4)
+
+        # test superuser
+        self.login(self.superuser)
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.context['categories']), 4)
@@ -111,14 +130,18 @@ class ModelTests(BaseTestCase):
         self.assertTrue(public_category.has_access(self.anonymous_user))
         self.assertTrue(public_category.has_access(self.some_user))
         self.assertTrue(public_category.has_access(self.group_user))
+        self.assertTrue(public_category.has_access(self.superuser))
 
         self.assertFalse(private_category.has_access(self.anonymous_user))
         self.assertFalse(private_category.has_access(self.some_user))
         self.assertTrue(private_category.has_access(self.group_user))
+        self.assertTrue(private_category.has_access(self.superuser))
 
         self.assertEqual(list(Category.objects.for_user(self.anonymous_user)), [public_category])
         self.assertEqual(list(Category.objects.for_user(self.some_user)), [public_category])
         self.assertEqual(list(Category.objects.for_user(self.group_user)),
+                         [public_category, private_category])
+        self.assertEqual(list(Category.objects.for_user(self.superuser)),
                          [public_category, private_category])
 
     def test_forum(self):
@@ -131,10 +154,12 @@ class ModelTests(BaseTestCase):
         self.assertTrue(public_forum.has_access(self.anonymous_user))
         self.assertTrue(public_forum.has_access(self.some_user))
         self.assertTrue(public_forum.has_access(self.group_user))
+        self.assertTrue(public_forum.has_access(self.superuser))
 
         self.assertFalse(private_forum.has_access(self.anonymous_user))
         self.assertFalse(private_forum.has_access(self.some_user))
         self.assertTrue(private_forum.has_access(self.group_user))
+        self.assertTrue(private_forum.has_access(self.superuser))
 
     def test_topic(self):
         public_topic = TopicFactory()
@@ -143,13 +168,76 @@ class ModelTests(BaseTestCase):
 
         self.assertTrue(public_topic.get_absolute_url())
 
+        # test access
         self.assertTrue(public_topic.has_access(self.anonymous_user))
         self.assertTrue(public_topic.has_access(self.some_user))
         self.assertTrue(public_topic.has_access(self.group_user))
+        self.assertTrue(public_topic.has_access(self.superuser))
 
         self.assertFalse(private_topic.has_access(self.anonymous_user))
         self.assertFalse(private_topic.has_access(self.some_user))
         self.assertTrue(private_topic.has_access(self.group_user))
+        self.assertTrue(private_topic.has_access(self.superuser))
+
+        # test marks
+        self.assertFalse(public_topic.heresy)
+        public_topic.mark_heresy()
+        public_topic.refresh_from_db()
+        self.assertTrue(public_topic.heresy)
+        public_topic.unmark_heresy()
+        public_topic.refresh_from_db()
+        self.assertFalse(public_topic.heresy)
+
+        self.assertFalse(public_topic.sticky)
+        public_topic.stick()
+        public_topic.refresh_from_db()
+        self.assertTrue(public_topic.sticky)
+        public_topic.unstick()
+        public_topic.refresh_from_db()
+        self.assertFalse(public_topic.sticky)
+
+        self.assertFalse(public_topic.closed)
+        public_topic.close()
+        public_topic.refresh_from_db()
+        self.assertTrue(public_topic.closed)
+        public_topic.open()
+        public_topic.refresh_from_db()
+        self.assertFalse(public_topic.closed)
+
+        # check can_delete
+        self.assertFalse(public_topic.can_delete(self.anonymous_user))
+        self.assertFalse(public_topic.can_delete(self.some_user))
+        self.assertTrue(public_topic.can_delete(self.superuser))
+        self.assertFalse(private_topic.can_delete(self.group_user))
+
+        # check can_edit
+        self.assertFalse(public_topic.can_edit(self.anonymous_user))
+        self.assertFalse(public_topic.can_edit(self.some_user))
+        self.assertTrue(public_topic.can_edit(self.superuser))
+        self.assertFalse(private_topic.can_edit(self.group_user))
+
+        # check can_post
+        self.assertFalse(public_topic.can_post(self.anonymous_user))
+        self.assertTrue(public_topic.can_post(self.some_user))
+        self.assertTrue(public_topic.can_post(self.group_user))
+        self.assertTrue(public_topic.can_post(self.superuser))
+        public_topic.close()
+        public_topic.refresh_from_db()
+        self.assertFalse(public_topic.can_post(self.anonymous_user))
+        self.assertFalse(public_topic.can_post(self.some_user))
+        self.assertFalse(public_topic.can_post(self.group_user))
+        self.assertFalse(public_topic.can_post(self.superuser))
+
+        self.assertFalse(private_topic.can_post(self.anonymous_user))
+        self.assertFalse(private_topic.can_post(self.some_user))
+        self.assertTrue(private_topic.can_post(self.group_user))
+        self.assertTrue(private_topic.can_post(self.superuser))
+
+        # check all posts delete
+        for post in public_topic.posts.all():
+            post.delete()
+
+        self.assertFalse(Topic.objects.filter(pk=public_topic.pk).exists())
 
     def test_post(self):
         public_post = PostFactory()
@@ -157,14 +245,60 @@ class ModelTests(BaseTestCase):
         private_post.topic.forum.category.groups.add(self.group)
 
         self.assertTrue(public_post.get_absolute_url())
+        self.assertFalse(public_post.expired)
 
         self.assertTrue(public_post.has_access(self.anonymous_user))
         self.assertTrue(public_post.has_access(self.some_user))
         self.assertTrue(public_post.has_access(self.group_user))
+        self.assertTrue(public_post.has_access(self.superuser))
 
         self.assertFalse(private_post.has_access(self.anonymous_user))
         self.assertFalse(private_post.has_access(self.some_user))
         self.assertTrue(private_post.has_access(self.group_user))
+        self.assertTrue(private_post.has_access(self.superuser))
+
+        # check can_delete
+        self.assertFalse(public_post.can_delete(self.anonymous_user))
+        self.assertFalse(public_post.can_delete(self.some_user))
+        self.assertTrue(public_post.can_delete(self.superuser))
+        self.assertFalse(private_post.can_delete(self.group_user))
+
+        # check can_edit
+        self.assertFalse(public_post.can_edit(self.anonymous_user))
+        self.assertFalse(public_post.can_edit(self.some_user))
+        self.assertTrue(public_post.can_edit(self.superuser))
+        self.assertTrue(public_post.can_edit(public_post.user))
+        public_post.user.is_active = False
+        public_post.user.save()
+        public_post.refresh_from_db()
+        self.assertFalse(public_post.can_edit(public_post.user))
+        public_post.user.is_active = True
+        public_post.user.save()
+
+        public_post.topic.close()
+        public_post.refresh_from_db()
+        self.assertFalse(public_post.can_edit(self.anonymous_user))
+        self.assertFalse(public_post.can_edit(self.some_user))
+        self.assertTrue(public_post.can_edit(self.superuser))
+        self.assertFalse(public_post.can_edit(public_post.user))
+
+        public_post.topic.open()
+        public_post.created = timezone.now() - timedelta(seconds=(FORUM_EDIT_TIMEOUT * 60 + 1))
+        public_post.save()
+        public_post.refresh_from_db()
+        self.assertTrue(public_post.expired)
+        self.assertFalse(public_post.can_edit(self.anonymous_user))
+        self.assertFalse(public_post.can_edit(self.some_user))
+        self.assertTrue(public_post.can_edit(self.superuser))
+        self.assertFalse(public_post.can_edit(public_post.user))
+
+        # check topic updates
+        updated = timezone.now() + timedelta(days=1)
+        self.assertNotEqual(public_post.topic.updated, updated)
+        public_post.updated = updated
+        public_post.save()
+        public_post.refresh_from_db()
+        self.assertEqual(public_post.topic.updated, updated)
 
     def test_read_unread(self):
         # we do not track this for anonymous user, so just test API
@@ -240,6 +374,7 @@ class ModelTests(BaseTestCase):
         self.assertEqual(
             list(Topic.objects.unread_for_forum(self.some_user, private_forum)),
             [])
+
         self.assertEqual(
             list(Topic.objects.unread_for_forum(self.group_user, public_forum)),
             [pubic_topic])
@@ -248,11 +383,22 @@ class ModelTests(BaseTestCase):
             [private_topic])
 
         self.assertEqual(
+            list(Topic.objects.unread_for_forum(self.superuser, public_forum)),
+            [pubic_topic])
+        self.assertEqual(
+            list(Topic.objects.unread_for_forum(self.superuser, private_forum)),
+            [private_topic])
+
+        self.assertEqual(
             list(Topic.objects.unread(self.some_user)),
             [pubic_topic])
         self.assertEqual(
             list(Topic.objects.unread(self.group_user)),
             [pubic_topic, private_topic])
+        self.assertEqual(
+            list(Topic.objects.unread(self.superuser)),
+            [pubic_topic, private_topic])
 
         self.assertEqual(Topic.objects.unread_count(self.some_user), 1)
         self.assertEqual(Topic.objects.unread_count(self.group_user), 2)
+        self.assertEqual(Topic.objects.unread_count(self.superuser), 2)
