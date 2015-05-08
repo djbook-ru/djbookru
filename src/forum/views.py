@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from __future__ import absolute_import, unicode_literals
+
 import pygal
 from pygal.style import LightGreenStyle
 
@@ -145,7 +147,7 @@ def edit_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
 
     if not post.can_edit(request.user):
-        messages.error(request, _(u'You have no permission edit this post'))
+        messages.error(request, _('You have no permission edit this post'))
         return redirect(post.topic)
 
     form = EditPostForm(request.POST or None, instance=post)
@@ -301,7 +303,7 @@ def vote(request, pk, model):
 
     if not user.is_authenticated():
         return JsonResponse({
-            'error': ugettext(u'Authentication required.')
+            'error': ugettext('Authentication required.')
         })
 
     if not obj.has_access(user):
@@ -348,15 +350,15 @@ def posts_per_month_chart(request):
         .values('year', 'month').annotate(Count('id')) \
         .order_by('year', 'month')
 
-    posts_per_month_chart = pygal.Bar(show_legend=False, style=LightGreenStyle, x_label_rotation=45)
-    posts_per_month_chart.title = ugettext('Posts per month')
-    posts_per_month_chart.x_labels = \
+    chart = pygal.Bar(show_legend=False, style=LightGreenStyle, x_label_rotation=45)
+    chart.title = ugettext('Posts per month')
+    chart.x_labels = \
         ['%s.%s' % (item['month'], item['year']) for item in posts_per_month]
 
     data = [{
         'value': item['id__count'],
         'label': '%s.%s' % (item['month'], item['year'])
     } for item in posts_per_month]
-    posts_per_month_chart.add(ugettext('Posts count'), data)
-    content = posts_per_month_chart.render()
+    chart.add(ugettext('Posts count'), data)
+    content = chart.render()
     return HttpResponse(content, content_type='image/svg+xml')

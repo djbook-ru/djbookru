@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
 
+import re
+
 from django import template
 from django.core.cache import cache
 from django.template.defaultfilters import stringfilter
@@ -51,7 +53,6 @@ def has_unread(obj, user):
 @register.filter
 @stringfilter
 def softwraphtml(value, max_line_length=24):
-    import re
     whitespace_re = re.compile(r'\s')
     new_value = []
     unbroken_chars = 0

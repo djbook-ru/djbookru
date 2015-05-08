@@ -1,7 +1,9 @@
 # encoding: utf-8
+from __future__ import absolute_import, unicode_literals
 
 from haystack import indexes
-from .models import Topic
+
+from src.forum.models import Topic
 
 
 class TopicIndex(indexes.SearchIndex, indexes.Indexable):
@@ -22,5 +24,5 @@ class TopicIndex(indexes.SearchIndex, indexes.Indexable):
         # Fix Xapian error about terms longer then 245
         self.prepared_data = super(TopicIndex, self).prepare(obj)
         terms = self.prepared_data['text'].split(' ')
-        self.prepared_data['text'] = u' '.join(term[:230] for term in terms)
+        self.prepared_data['text'] = ' '.join(term[:230] for term in terms)
         return self.prepared_data

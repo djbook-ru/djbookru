@@ -13,8 +13,8 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
 from src.forum.settings import FORUM_EDIT_TIMEOUT, POSTS_ON_PAGE
-from src.forum.util import urlize
 from src.utils.mail import send_templated_email
+from src.utils.urlize import urlize
 
 
 class CategoryManager(models.Manager):
@@ -322,7 +322,9 @@ class Post(models.Model, RatingMixin):
     user = models.ForeignKey('accounts.User', related_name='forum_posts', verbose_name=_('User'))
     created = models.DateTimeField(_('Created'), auto_now_add=True)
     updated = models.DateTimeField(_('Updated'), blank=True, null=True)
-    updated_by = models.ForeignKey('accounts.User', verbose_name=_('Updated by'), related_name='forum_updated_posts', blank=True, null=True)
+    updated_by = models.ForeignKey(
+        'accounts.User', verbose_name=_('Updated by'), related_name='forum_updated_posts',
+        blank=True, null=True)
     body = models.TextField(_('Message'))
     rating = models.IntegerField(_('rating'), default=0)
     votes = models.ManyToManyField('accounts.User', verbose_name=_('votes'),
