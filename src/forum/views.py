@@ -27,17 +27,12 @@ def index(request):
     users_online = users_cached and User.objects.filter(
         id__in=users_cached.keys()) or []
     guests_cached = cache.get('guests_online', {})
-    guest_count = len(guests_cached)
-    users_count = len(users_online)
-
-    categories = [obj for obj in Category.objects.all()
-                  if obj.has_access(request.user)]
 
     return {
-        'categories': categories,
+        'categories': Category.objects.for_user(request.user),
         'users_online': users_online,
-        'online_count': users_count,
-        'guest_count': guest_count,
+        'online_count': len(users_online),
+        'guest_count': len(guests_cached),
         'users_count': User.objects.count(),
         'topics_count': Topic.objects.count(),
         'posts_count': Post.objects.count()
@@ -65,11 +60,11 @@ class UnreadView(ListView):
     template_name = 'djforum/unread_topics.html'
 
     def get_queryset(self):
-        return Topic.objects.unread_for_user(user=self.request.user)
+        return Topic.objects.unread(user=self.request.user)
 
     def get_paginator(self, *args, **kwargs):
         paginator = super(UnreadView, self).get_paginator(*args, **kwargs)
-        paginator._count = Topic.objects.unread_for_user_count(
+        paginator._count = Topic.objects.unread_count(
             user=self.request.user)
         return paginator
 

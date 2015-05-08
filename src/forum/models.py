@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
+from __future__ import absolute_import, unicode_literals
+
+import markdown
 
 from django.conf import settings
 from django.contrib.auth.models import Group
 from django.core.urlresolvers import reverse
-from django.db import models
+from django.db import connection, models
 from django.db.models import Q
 from django.utils import timezone
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
-
-import markdown
 
 from src.forum.settings import FORUM_EDIT_TIMEOUT, POSTS_ON_PAGE
 from src.forum.util import urlize
@@ -17,10 +18,13 @@ from src.utils.mail import send_templated_email
 
 
 class CategoryManager(models.Manager):
-
+    # TODO: Make queryset, so you can use this with more complex queries
     def for_user(self, user):
         qs = super(CategoryManager, self).get_queryset()
-        return qs.filter(Q(groups=None) | Q(groups__user=user))
+        if user.is_authenticated():
+            return qs.filter(Q(groups=None) | Q(groups__user=user))
+        else:
+            return qs.filter(groups=None)
 
 
 class Category(models.Model):
@@ -30,12 +34,12 @@ class Category(models.Model):
         help_text=_('Only users from these groups can see this category'))
     position = models.IntegerField(_('Position'), default=0)
 
+    objects = CategoryManager()
+
     class Meta:
         ordering = ['position']
         verbose_name = _('Category')
         verbose_name_plural = _('Categories')
-
-    objects = CategoryManager()
 
     def __unicode__(self):
         return self.name
@@ -74,6 +78,9 @@ class Forum(models.Model):
     def get_absolute_url(self):
         return ('forum:forum', [self.pk])
 
+    def has_access(self, user):
+        return self.category.has_access(user)
+
     @property
     def topics_count(self):
         return Topic.objects.filter(forum=self).count()
@@ -106,25 +113,24 @@ class Forum(models.Model):
             return
 
         now = timezone.now()
-        unread_topics = Topic.objects.unread(user, self)
+        unread_topics = Topic.objects.unread_for_forum(user, self)
+        unread_ids = [obj.pk for obj in unread_topics]
 
-        Visit.objects.filter(topic__id__in=[obj.pk for obj in unread_topics], user=user).update(time=now)
+        # update visits
+        Visit.objects.filter(topic__id__in=unread_ids, user=user).update(time=now)
 
+        # create visits that does not exist
         visits = []
-
-        for topic in Topic.objects.filter(pk__in=[obj.pk for obj in unread_topics]).exclude(visit__user=user):
+        topics_to_visit = Topic.objects.filter(pk__in=unread_ids).exclude(visit__user=user)
+        for topic in topics_to_visit:
             visits.append(Visit(user=user, topic=topic, time=now))
-
         Visit.objects.bulk_create(visits)
-
-    def has_access(self, user):
-        return self.category.has_access(user)
 
 
 class Visit(models.Model):
-    user = models.ForeignKey('accounts.User', verbose_name=_(u'user'), related_name='forum_visits')
-    topic = models.ForeignKey('Topic', verbose_name=_(u'topic'))
-    time = models.DateTimeField(_(u'time'), default=timezone.now)
+    user = models.ForeignKey('accounts.User', verbose_name=_('user'), related_name='forum_visits')
+    topic = models.ForeignKey('Topic', verbose_name=_('topic'))
+    time = models.DateTimeField(_('time'), default=timezone.now)
 
     class Meta:
         unique_together = ('user', 'topic')
@@ -132,12 +138,17 @@ class Visit(models.Model):
 
 class TopicManager(models.Manager):
 
-    def unread(self, user, forum):
+    def unread_for_forum(self, user, forum):
+        # return user unread topics for forum
+        if not forum.has_access(user):
+            return Topic.objects.none()
+
         query = '''SELECT ft.* FROM forum_topic ft LEFT JOIN forum_visit fv ON ft.id = fv.topic_id AND fv.user_id = %s
 WHERE ft.forum_id = %s AND (fv.time IS NULL OR fv.time < ft.updated);'''
         return self.raw(query, [user.pk, forum.pk])
 
-    def unread_for_user(self, user):
+    def unread(self, user):
+        # return all unread topics for user
         category_ids = Category.objects.for_user(user).values_list('pk', flat=True)
         category_ids = ', '.join(str(id) for id in category_ids)
 
@@ -147,11 +158,11 @@ WHERE ff.category_id IN (%s) AND (fv.time IS NULL OR fv.time < ft.updated);''' %
 
         return self.raw(query, [user.pk])
 
-    def unread_for_user_count(self, user):
+    def unread_count(self, user):
+        # return count of unread topics
         category_ids = Category.objects.for_user(user).values_list('pk', flat=True)
         category_ids = ', '.join(str(id) for id in category_ids)
 
-        from django.db import connection
         cursor = connection.cursor()
 
         query = '''SELECT COUNT(*) FROM forum_topic ft INNER JOIN forum_forum ff ON ft.forum_id = ff.id
@@ -175,28 +186,29 @@ class RatingMixin(object):
 
 
 class Topic(models.Model, RatingMixin):
-    forum = models.ForeignKey(Forum, related_name='topics', verbose_name=_(u'forum'))
-    name = models.CharField(_(u'subject'), max_length=255)
-    created = models.DateTimeField(_(u'created'), auto_now_add=True)
-    updated = models.DateTimeField(_(u'updated'), default=timezone.now)
-    user = models.ForeignKey('accounts.User', verbose_name=_(u'user'), related_name='forum_topics')
-    views = models.IntegerField(_(u'views count'), default=0)
-    sticky = models.BooleanField(_(u'sticky'), default=False)
-    closed = models.BooleanField(_(u'closed'), default=False)
-    heresy = models.BooleanField(_(u'heresy'), default=False)
-    visited_by = models.ManyToManyField('accounts.User', verbose_name='visited_by', blank=True,
-                                        through=Visit, related_name='visited_topics')
+    forum = models.ForeignKey(Forum, related_name='topics', verbose_name=_('forum'))
+    name = models.CharField(_('subject'), max_length=255)
+    created = models.DateTimeField(_('created'), auto_now_add=True)
+    updated = models.DateTimeField(_('updated'), default=timezone.now)
+    user = models.ForeignKey('accounts.User', verbose_name=_('user'), related_name='forum_topics')
+    views = models.IntegerField(_('views count'), default=0)
+    sticky = models.BooleanField(_('sticky'), default=False)
+    closed = models.BooleanField(_('closed'), default=False)
+    heresy = models.BooleanField(_('heresy'), default=False)
+    visited_by = models.ManyToManyField(
+        'accounts.User', verbose_name='visited_by', blank=True, through=Visit,
+        related_name='visited_topics')
     rating = models.IntegerField(_('rating'), default=0)
-    votes = models.ManyToManyField('accounts.User', verbose_name=_('votes'),
-        related_name='voted_topics', editable=False)
-    send_response = models.BooleanField(_(u'send response on email'), default=False)
+    votes = models.ManyToManyField(
+        'accounts.User', verbose_name=_('votes'), related_name='voted_topics', editable=False)
+    send_response = models.BooleanField(_('send response on email'), default=False)
+
+    objects = TopicManager()
 
     class Meta:
         ordering = ['-sticky', '-updated']
         verbose_name = _('Topic')
         verbose_name_plural = _('Topics')
-
-    objects = TopicManager()
 
     def __unicode__(self):
         return self.name
@@ -209,8 +221,8 @@ class Topic(models.Model, RatingMixin):
         try:
             content = self.posts.all()[:1].get().get_content()
         except Post.DoesNotExist:
-            content
-        return dict(source=_(u'Forum'), title=self.name, desc=content)
+            content = ''
+        return dict(source=_('Forum'), title=self.name, desc=content)
 
     @property
     def reply_count(self):
@@ -281,14 +293,13 @@ class Topic(models.Model, RatingMixin):
         # Do not track for anonymous users
         if not user.is_authenticated():
             return False
-
         return not Visit.objects.filter(user=user, topic=self, time__gte=self.updated).exists()
 
     def send_email_about_post(self, post):
         if not self.do_send_notification():
             return
 
-        subject = _(u'New post for your topic "%(topic)s"') % {'topic': self}
+        subject = _('New post for your topic "%(topic)s"') % {'topic': self}
         context = {
             'post': post
         }
@@ -350,8 +361,7 @@ class Post(models.Model, RatingMixin):
 
     @property
     def expired(self):
-        u"""Возвращает признак невозможности внесения исправлений в
-        опубликованное сообщение."""
+        # If expired author can't edit post
         timeout = FORUM_EDIT_TIMEOUT * 60
         return timeout < (timezone.now() - self.created).seconds
 
