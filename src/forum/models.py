@@ -155,6 +155,8 @@ WHERE ft.forum_id = %s AND (fv.time IS NULL OR fv.time < ft.updated);'''
     def unread(self, user):
         # return all unread topics for user
         category_ids = Category.objects.for_user(user).values_list('pk', flat=True)
+        if not category_ids:
+            return []
         category_ids = ', '.join(str(id) for id in category_ids)
 
         query = '''SELECT ft.* FROM forum_topic ft INNER JOIN forum_forum ff ON ft.forum_id = ff.id
@@ -166,6 +168,8 @@ WHERE ff.category_id IN (%s) AND (fv.time IS NULL OR fv.time < ft.updated);''' %
     def unread_count(self, user):
         # return count of unread topics
         category_ids = Category.objects.for_user(user).values_list('pk', flat=True)
+        if not category_ids:
+            return 0
         category_ids = ', '.join(str(id) for id in category_ids)
 
         cursor = connection.cursor()

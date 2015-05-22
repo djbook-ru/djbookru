@@ -99,7 +99,7 @@ class ViewsTests(BaseTestCase):
 
         # TODO: add tests for users online
 
-        # test with empty DB, this is common issue to ignore new projects with empty DB
+        # test with empty DB, this is common issue to ignore new installation with empty DB
         self.client.logout()
         Category.objects.all().delete()
         response = self.client.get(url)
@@ -158,6 +158,172 @@ class ViewsTests(BaseTestCase):
         url = reverse('forum:forum', args=(private_forum.pk,))
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
+
+    def test_topic(self):
+        # test 404
+        url = reverse('forum:topic', args=(123,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+
+        public_topic = TopicFactory()
+        private_topic = TopicFactory()
+        private_topic.forum.category.groups.add(self.group)
+
+        # test anonymous
+        prev_views = public_topic.views
+        url = reverse('forum:topic', args=(public_topic.pk,))
+        response = self.client.get(url)
+        public_topic.refresh_from_db()
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['topic'], public_topic)
+        self.assertEqual(response.context['form'], None)
+        self.assertEqual(prev_views + 1, public_topic.views)
+
+        url = reverse('forum:topic', args=(private_topic.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+
+        # test some_user
+        self.login(self.some_user)
+        prev_views = public_topic.views
+        url = reverse('forum:topic', args=(public_topic.pk,))
+        self.assertTrue(public_topic.has_unread(self.some_user))
+        response = self.client.get(url)
+        public_topic.refresh_from_db()
+
+        self.assertEqual(response.status_code, 200)
+        self.assertNotEqual(response.context['form'], None)
+        self.assertEqual(prev_views + 1, public_topic.views)
+        self.assertFalse(public_topic.has_unread(self.some_user))
+
+        public_topic.close()
+        response = self.client.get(url)
+        self.assertEqual(response.context['form'], None)
+        public_topic.open()
+
+        url = reverse('forum:topic', args=(private_topic.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+
+        # test group_user
+        self.login(self.group_user)
+        url = reverse('forum:topic', args=(public_topic.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        url = reverse('forum:topic', args=(private_topic.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        # test superuser
+        self.login(self.superuser)
+        url = reverse('forum:topic', args=(public_topic.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        url = reverse('forum:topic', args=(private_topic.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+    def test_unread_topics(self):
+        url = reverse('forum:unread_topics')
+
+        # test anonymous
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)
+
+        # test some_user
+        self.login(self.some_user)
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.context['object_list']), 0)
+
+        public_topic = TopicFactory()
+        private_topic = TopicFactory()
+        private_topic.forum.category.groups.add(self.group)
+
+        response = self.client.get(url)
+        self.assertEqual(list(response.context['object_list']), [public_topic])
+
+        response = self.client.get(reverse('forum:mark_read_all'))
+        self.assertEqual(response.status_code, 302)
+
+        response = self.client.get(url)
+        self.assertEqual(list(response.context['object_list']), [])
+
+        # test group_user
+        self.login(self.group_user)
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(list(response.context['object_list']), [public_topic, private_topic])
+
+        response = self.client.get(reverse('forum:mark_read_forum', args=(public_topic.forum.pk,)))
+        self.assertEqual(response.status_code, 302)
+
+        response = self.client.get(url)
+        self.assertEqual(list(response.context['object_list']), [private_topic])
+
+        # test superuser
+        self.login(self.superuser)
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(list(response.context['object_list']), [public_topic, private_topic])
+
+    def test_my_topics(self):
+        url = reverse('forum:my_topics')
+
+        # test anonymous
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)
+
+        # test some_user
+        self.login(self.some_user)
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.context['object_list']), 0)
+
+        topic = TopicFactory(user=self.some_user)
+        for _ in range(3):
+            TopicFactory()
+
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(list(response.context['object_list']), [topic])
+
+    def test_add_topic(self):
+        public_forum = ForumFactory()
+        private_forum = ForumFactory()
+        private_forum.category.groups.add(self.group)
+
+        # test anonymous
+        response = self.client.get(reverse('forum:add_topic', args=(public_forum.pk,)))
+        self.assertEqual(response.status_code, 302)
+
+        # test some user
+        self.login(self.some_user)
+        url = reverse('forum:add_topic', args=(private_forum.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+
+        self.assertFalse(public_forum.topics.exists())
+        url = reverse('forum:add_topic', args=(public_forum.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        data = {
+            'name': 'Topic name',
+            'body': 'Topic body'
+        }
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(public_forum.topics.count(), 1)
+        new_topic = public_forum.topics.first()
+        self.assertEqual(new_topic.name, data['name'])
+        self.assertEqual(new_topic.posts.first().body, data['body'])
+
+    def test_move_topic(self):
+        pass
 
 
 class ModelTests(BaseTestCase):

@@ -57,6 +57,33 @@ def forum(request, pk):
                        extra_context=extra_context)
 
 
+def topic(request, pk):
+    user = request.user
+    topic = get_object_or_404(Topic, pk=pk)
+
+    if not topic.has_access(user):
+        raise Http404
+
+    Topic.objects.filter(pk=pk).update(views=F('views') + 1)
+    qs = topic.posts.all()
+    form = None
+
+    if topic.can_post(user):
+        form = AddPostForm(topic, user)
+
+    topic.mark_visited_for(user)
+
+    extra_context = {
+        'form': form,
+        'forum': topic.forum,
+        'topic': topic,
+        'has_access': topic.has_access(user)
+    }
+    return object_list(request, qs, POSTS_ON_PAGE,
+                       template_name='djforum/topic.html',
+                       extra_context=extra_context)
+
+
 class UnreadView(ListView):
     paginate_by = 20
     template_name = 'djforum/unread_topics.html'
@@ -71,6 +98,24 @@ class UnreadView(ListView):
         return paginator
 
 unread_topics = login_required(UnreadView.as_view())
+
+
+@login_required
+def mark_read_all(request):
+    for forum in Forum.objects.all():
+        if forum.has_access(request.user):
+            forum.mark_read(request.user)
+    return redirect('forum:index')
+
+
+@login_required
+def mark_read_forum(request, pk):
+    forum = get_object_or_404(Forum, pk=pk)
+
+    if forum.has_access(request.user):
+        forum.mark_read(request.user)
+
+    return redirect(forum)
 
 
 @login_required
@@ -250,51 +295,6 @@ def delete_post(request, pk):
         return redirect(Topic.objects.get(pk=topic_id))
     except Topic.DoesNotExist:
         return redirect(forum)
-
-
-@login_required
-def mark_read_all(request):
-    for forum in Forum.objects.all():
-        if forum.has_access(request.user):
-            forum.mark_read(request.user)
-    return redirect('forum:index')
-
-
-@login_required
-def mark_read_forum(request, pk):
-    forum = get_object_or_404(Forum, pk=pk)
-
-    if forum.has_access(request.user):
-        forum.mark_read(request.user)
-
-    return redirect(forum)
-
-
-def topic(request, pk):
-    user = request.user
-    topic = get_object_or_404(Topic, pk=pk)
-
-    if not topic.has_access(user):
-        raise Http404
-
-    Topic.objects.filter(pk=pk).update(views=F('views') + 1)
-    qs = topic.posts.all()
-    form = None
-
-    if topic.can_post(user):
-        form = AddPostForm(topic, user)
-
-    topic.mark_visited_for(user)
-
-    extra_context = {
-        'form': form,
-        'forum': topic.forum,
-        'topic': topic,
-        'has_access': topic.has_access(user)
-    }
-    return object_list(request, qs, POSTS_ON_PAGE,
-                       template_name='djforum/topic.html',
-                       extra_context=extra_context)
 
 
 def vote(request, pk, model):

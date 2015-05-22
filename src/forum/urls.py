@@ -1,6 +1,6 @@
 from __future__ import absolute_import, unicode_literals
 
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
 from src.forum.feeds import FeedLatestPosts, FeedLatestPostsByForum
 from src.forum.models import Topic, Post
