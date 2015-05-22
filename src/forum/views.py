@@ -172,7 +172,7 @@ def add_post(request, pk):
     topic = get_object_or_404(Topic, pk=pk)
 
     if not topic.has_access(request.user):
-        return redirect(topic)
+        raise Http404
 
     form = AddPostForm(topic, request.user, request.POST or None)
     if form.is_valid():

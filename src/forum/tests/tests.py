@@ -323,6 +323,35 @@ class ViewsTests(BaseTestCase):
         self.assertEqual(new_topic.posts.first().body, data['body'])
 
     def test_move_topic(self):
+        forum1 = ForumFactory()
+        forum2 = ForumFactory()
+        topic = TopicFactory(user=self.some_user, forum=forum1)
+
+        url = reverse('forum:move_topic', args=(topic.pk,))
+
+        # test anonymous
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)
+
+        # test some user
+        self.login(self.some_user)
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+
+        # test superuser
+        self.login(self.superuser)
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        data = {
+            'forum': forum2.pk
+        }
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 302)
+        topic.refresh_from_db()
+        self.assertEqual(topic.forum, forum2)
+
+    def test_add_post(self):
         pass
 
 
