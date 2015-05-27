@@ -2,8 +2,8 @@
 ================================================== */
 body.login nav.user {display:none!important;} /* hide the login on the login page duh ;-)*/
 nav.user {float:left;line-height:43px;}
-nav.user a {text-decoration:none; ~float:left; padding:0 5px;margin-right:5px;color:#356635;}
-nav.user a:hover {color:#138358;}
+nav.user a {text-decoration:none; ~float:left; padding:0 5px;margin-right:5px;color:#f7f7f7;}
+nav.user a:hover {color:#87af77;}
 
 /* header / logo (desktop)
 ================================================== */
@@ -15,7 +15,7 @@ nav.user a:hover {color:#138358;}
     padding: 0 0 20px 0;
     display:block;
     position:absolute;
-    margin:16px 0 0 0;
+    margin:0 0 0 0;
     clear:both;
 }
 #logo em {
@@ -33,7 +33,6 @@ nav.user a:hover {color:#138358;}
     clear:both;
     padding:0;
     height:95px;
-    background: #0c3907;
     border-bottom:45px solid #87af77;
     z-index: 999 /*ie 7*/
 }
@@ -41,7 +40,7 @@ nav.user a:hover {color:#138358;}
     float:right;
     margin:0;
     padding:0;
-    color:#9bd9e9;
+    color:#0c3907;
     font-style:italic;
     width: 600px;
     text-align: right;
@@ -59,9 +58,13 @@ nav.user a:hover {color:#138358;}
 .header .container {
     position: relative
 }
+.preheader-wrapper {
+    background: #0c3907;
+}
 .container.preheader {
     right:-10px;
-    position:relative
+    position:relative;
+    color:#fff;
 }
 .container.preheader form {
     margin:0;
@@ -126,7 +129,7 @@ nav.user a:hover {color:#138358;}
     padding-right:20px;
 }
 .preheader .social a {
-    color:#356635;
+    color:#f7f7f7;
     position:relative;
     top:10px;
     position:relative;
@@ -345,7 +348,7 @@ a.tele {
 }
 
 nav.user {float:right;line-height:55px;}
-nav.user a {margin:0 10px 0 0;padding:0}
+nav.user a {margin:0 10px 0 0;padding:0;color:#356635;}
 body.tall-logo nav.user {margin-left:0;}
 
 .header .tagline {
