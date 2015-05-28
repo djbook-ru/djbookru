@@ -309,6 +309,9 @@ class Topic(models.Model, RatingMixin):
         if not self.do_send_notification():
             return
 
+        if post.user == self.user:
+            return
+
         subject = _('New post for your topic "%(topic)s"') % {'topic': self}
         context = {
             'post': post

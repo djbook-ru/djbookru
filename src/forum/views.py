@@ -7,11 +7,12 @@ from pygal.style import LightGreenStyle
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.cache import cache
+from django.core.exceptions import PermissionDenied
 from django.db.models import F, Sum, Count
 from django.http import Http404, HttpResponse
 from django.shortcuts import get_object_or_404, redirect
-from django.utils.translation import ugettext_lazy as _, ugettext
 from django.utils.timezone import now
+from django.utils.translation import ugettext_lazy as _, ugettext
 from django.views.generic.list import ListView
 
 from src.accounts.models import User
@@ -211,24 +212,18 @@ def edit_post(request, pk):
 
 
 @login_required
-def unsubscribe(request, pk):
-    topic = get_object_or_404(Topic, pk=pk)
-
-    if topic.user == request.user:
-        topic.send_response = False
-        topic.save()
-
+def subscribe(request, pk):
+    topic = get_object_or_404(Topic, pk=pk, user=request.user)
+    topic.send_response = True
+    topic.save()
     return redirect(topic)
 
 
 @login_required
-def subscribe(request, pk):
-    topic = get_object_or_404(Topic, pk=pk)
-
-    if topic.user == request.user:
-        topic.send_response = True
-        topic.save()
-
+def unsubscribe(request, pk):
+    topic = get_object_or_404(Topic, pk=pk, user=request.user)
+    topic.send_response = False
+    topic.save()
     return redirect(topic)
 
 
@@ -236,11 +231,13 @@ def subscribe(request, pk):
 def heresy_unheresy_topic(request, pk):
     topic = get_object_or_404(Topic, pk=pk)
 
-    if topic.can_edit(request.user):
-        if topic.heresy:
-            topic.unmark_heresy()
-        else:
-            topic.mark_heresy()
+    if not topic.can_edit(request.user):
+        raise PermissionDenied
+
+    if topic.heresy:
+        topic.unmark_heresy()
+    else:
+        topic.mark_heresy()
 
     return redirect(topic)
 
@@ -249,11 +246,13 @@ def heresy_unheresy_topic(request, pk):
 def close_open_topic(request, pk):
     topic = get_object_or_404(Topic, pk=pk)
 
-    if topic.can_edit(request.user):
-        if topic.closed:
-            topic.open()
-        else:
-            topic.close()
+    if not topic.can_edit(request.user):
+        raise PermissionDenied
+
+    if topic.closed:
+        topic.open()
+    else:
+        topic.close()
 
     return redirect(topic)
 
@@ -262,11 +261,13 @@ def close_open_topic(request, pk):
 def stick_unstick_topic(request, pk):
     topic = get_object_or_404(Topic, pk=pk)
 
-    if topic.can_edit(request.user):
-        if topic.sticky:
-            topic.unstick()
-        else:
-            topic.stick()
+    if not topic.can_edit(request.user):
+        raise PermissionDenied
+
+    if topic.sticky:
+        topic.unstick()
+    else:
+        topic.stick()
 
     return redirect(topic)
 
