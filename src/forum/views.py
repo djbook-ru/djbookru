@@ -17,11 +17,10 @@ from django.utils.translation import ugettext_lazy as _, ugettext
 from django.views.generic.list import ListView
 
 from src.accounts.models import User
-from src.decorators import render_to
 from src.forum.forms import AddTopicForm, AddPostForm
 from src.forum.forms import EditPostForm, MoveTopicForm
 from src.forum.models import Category, Forum, Topic, Post
-from src.forum.settings import POSTS_ON_PAGE
+from src.forum.settings import POSTS_ON_PAGE, TOPICS_ON_PAGE
 from src.utils.views import JsonResponse, object_list
 
 
@@ -43,22 +42,22 @@ def index(request):
     return TemplateResponse(request, 'djforum/index.html', context)
 
 
-def forum(request, pk):
-    forum_obj = get_object_or_404(Forum, pk=pk)
+def forum_page(request, pk):
+    forum = get_object_or_404(Forum, pk=pk)
 
-    if not forum_obj.has_access(request.user):
+    if not forum.has_access(request.user):
         raise Http404
 
-    qs = forum_obj.topics.all()
+    qs = forum.topics.all()
     extra_context = {
-        'forum': forum_obj
+        'forum': forum
     }
-    return object_list(request, qs, 20,
+    return object_list(request, qs, TOPICS_ON_PAGE,
                        template_name='djforum/forum.html',
                        extra_context=extra_context)
 
 
-def topic(request, pk):
+def topic_page(request, pk):
     user = request.user
     topic = get_object_or_404(Topic, pk=pk)
 
@@ -86,7 +85,7 @@ def topic(request, pk):
 
 
 class UnreadView(ListView):
-    paginate_by = 20
+    paginate_by = TOPICS_ON_PAGE
     template_name = 'djforum/unread_topics.html'
 
     def get_queryset(self):
@@ -94,6 +93,7 @@ class UnreadView(ListView):
 
     def get_paginator(self, *args, **kwargs):
         paginator = super(UnreadView, self).get_paginator(*args, **kwargs)
+        # Fix paginator with raw SQL
         paginator._count = Topic.objects.unread_count(
             user=self.request.user)
         return paginator
@@ -119,17 +119,17 @@ def mark_read_forum(request, pk):
     return redirect(forum)
 
 
-@login_required
-def my_topics(request):
-    qs = Topic.objects.filter(user=request.user)
-    extra_context = {}
-    return object_list(request, qs, 20,
-                       template_name='djforum/my_topics.html',
-                       extra_context=extra_context)
+class MyTopicsView(ListView):
+    paginate_by = TOPICS_ON_PAGE
+    template_name = 'djforum/my_topics.html'
+
+    def get_queryset(self):
+        return Topic.objects.filter(user=self.request.user)
+
+my_topics = login_required(MyTopicsView.as_view())
 
 
 @login_required
-@render_to('djforum/add_topic.html')
 def add_topic(request, pk):
     forum = get_object_or_404(Forum, pk=pk)
 
@@ -140,14 +140,16 @@ def add_topic(request, pk):
     if form.is_valid():
         topic = form.save()
         return redirect(topic)
-    return {
+
+    context = {
         'form': form,
         'forum': forum
     }
 
+    return TemplateResponse(request, 'djforum/add_topic.html', context)
+
 
 @login_required
-@render_to('djforum/move_topic.html')
 def move_topic(request, pk):
     topic = get_object_or_404(Topic, pk=pk)
 
@@ -160,15 +162,16 @@ def move_topic(request, pk):
         form.save()
         return redirect(topic)
 
-    return {
+    context = {
         'form': form,
         'topic': topic,
         'forum': topic.forum
     }
 
+    return TemplateResponse(request, 'djforum/move_topic.html', context)
+
 
 @login_required
-@render_to('djforum/add_post.html')
 def add_post(request, pk):
     topic = get_object_or_404(Topic, pk=pk)
 
@@ -180,15 +183,15 @@ def add_post(request, pk):
         post = form.save()
         return redirect(post)
 
-    return {
+    context = {
         'form': form,
         'topic': topic,
         'forum': topic.forum
     }
+    return TemplateResponse(request, 'djforum/add_post.html', context)
 
 
 @login_required
-@render_to('djforum/edit_post.html')
 def edit_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
 
@@ -204,11 +207,12 @@ def edit_post(request, pk):
         post.save()
         return redirect(post)
 
-    return {
+    context = {
         'form': form,
         'topic': post.topic,
         'forum': post.topic.forum
     }
+    return TemplateResponse(request, 'djforum/edit_post.html', context)
 
 
 @login_required
@@ -325,14 +329,13 @@ def vote(request, pk, model):
     })
 
 
-@render_to('djforum/statistic.html')
 def statistic(request):
     most_active_users = User.objects.annotate(Count('forum_posts')) \
         .order_by('-forum_posts__count')[:10]
     most_topics_users = User.objects.annotate(Count('forum_topics')) \
         .order_by('-forum_topics__count')[:10]
 
-    return {
+    context = {
         'active_users_count': User.objects.exclude(forum_posts=None).count(),
         'topics_count': Topic.objects.count(),
         'posts_count': Post.objects.count(),
@@ -342,6 +345,7 @@ def statistic(request):
         'most_active_users': most_active_users,
         'most_topics_users': most_topics_users
     }
+    return TemplateResponse(request, 'djforum/statistic.html', context)
 
 
 def posts_per_month_chart(request):
