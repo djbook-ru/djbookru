@@ -275,27 +275,29 @@ def stick_unstick_topic(request, pk):
 @login_required
 def delete_topic(request, pk):
     topic = get_object_or_404(Topic, pk=pk)
-    forum = topic.forum
 
-    if topic.can_delete(request.user) and request.method == 'POST':
+    if not topic.can_delete(request.user):
+        raise PermissionDenied
+
+    if request.method == 'POST':
         topic.delete()
 
-    return redirect(forum)
+    return redirect(topic.forum)
 
 
 @login_required
 def delete_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    topic_id = post.topic_id
-    forum = post.topic.forum
 
-    if post.can_delete(request.user):
-        post.delete()
+    if not post.can_delete(request.user):
+        raise PermissionDenied
+
+    post.delete()
 
     try:
-        return redirect(Topic.objects.get(pk=topic_id))
+        return redirect(Topic.objects.get(pk=post.topic_id))
     except Topic.DoesNotExist:
-        return redirect(forum)
+        return redirect(post.topic.forum)
 
 
 def vote(request, pk, model):
@@ -303,12 +305,10 @@ def vote(request, pk, model):
     obj = get_object_or_404(model, pk=pk)
 
     if not user.is_authenticated():
-        return JsonResponse({
-            'error': ugettext('Authentication required.')
-        })
+        raise PermissionDenied
 
     if not obj.has_access(user):
-        raise Http404
+        raise PermissionDenied
 
     if obj.votes.filter(pk=user.pk).exists():
         obj.votes.remove(user)

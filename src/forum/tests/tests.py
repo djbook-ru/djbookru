@@ -569,6 +569,157 @@ class ViewsTests(BaseTestCase):
     def test_stick_unstick_topic(self):
         self._test_topic_property_change('forum:stick_unstick_topic', 'sticky')
 
+    def test_delete_topic(self):
+        topic = TopicFactory(user=self.some_user)
+        url = reverse('forum:delete_topic', args=(topic.pk,))
+
+        # test anonymous
+        response = self.client.get(url)
+        self.assertRedirects(response, '%s?next=%s' % (settings.LOGIN_URL, url))
+
+        # test user
+        self.login(self.some_user)
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 403)
+        self.assertTrue(Topic.objects.filter(pk=topic.pk).exists())
+
+        # test superuser
+        self.login(self.superuser)
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(Topic.objects.filter(pk=topic.pk).exists())
+
+        response = self.client.post(url)
+        self.assertEqual(response.status_code, 302)
+        self.assertFalse(Topic.objects.filter(pk=topic.pk).exists())
+
+    def test_delete_post(self):
+        post = PostFactory(user=self.some_user)
+        url = reverse('forum:delete_post', args=(post.pk,))
+
+        # test anonymous
+        response = self.client.get(url)
+        self.assertRedirects(response, '%s?next=%s' % (settings.LOGIN_URL, url))
+
+        # test user
+        self.login(self.some_user)
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 403)
+        self.assertTrue(Post.objects.filter(pk=post.pk).exists())
+
+        # test superuser
+        self.login(self.superuser)
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)
+        self.assertFalse(Post.objects.filter(pk=post.pk).exists())
+
+    def _test_vote(self, public_obj, private_obj, public_url, private_url):
+        self.assertEqual(public_obj.rating, 0)
+        self.assertEqual(private_obj.rating, 0)
+
+        # test anonymous
+        response = self.client.get(public_url)
+        self.assertEqual(response.status_code, 403)
+        response = self.client.get(private_url)
+        self.assertEqual(response.status_code, 403)
+
+        public_obj.refresh_from_db()
+        private_obj.refresh_from_db()
+        self.assertEqual(public_obj.rating, 0)
+        self.assertEqual(private_obj.rating, 0)
+
+        # test some user
+        self.login(self.some_user)
+
+        response = self.client.get(public_url)
+        self.assertEqual(response.status_code, 200)
+        public_obj.refresh_from_db()
+        self.assertEqual(public_obj.rating, 1)
+
+        response = self.client.get(public_url)
+        self.assertEqual(response.status_code, 200)
+        public_obj.refresh_from_db()
+        self.assertEqual(public_obj.rating, 0)
+
+        response = self.client.get(private_url)
+        self.assertEqual(response.status_code, 403)
+        public_obj.refresh_from_db()
+        self.assertEqual(public_obj.rating, 0)
+
+        # test group user
+        self.login(self.group_user)
+
+        response = self.client.get(private_url)
+        self.assertEqual(response.status_code, 200)
+        private_obj.refresh_from_db()
+        self.assertEqual(private_obj.rating, 1)
+
+        response = self.client.get(private_url)
+        self.assertEqual(response.status_code, 200)
+        private_obj.refresh_from_db()
+        self.assertEqual(private_obj.rating, 0)
+
+        # test superuser
+        self.login(self.group_user)
+
+        response = self.client.get(private_url)
+        self.assertEqual(response.status_code, 200)
+        private_obj.refresh_from_db()
+        self.assertEqual(private_obj.rating, 1)
+
+        response = self.client.get(private_url)
+        self.assertEqual(response.status_code, 200)
+        private_obj.refresh_from_db()
+        self.assertEqual(private_obj.rating, 0)
+
+    def test_vote_topic(self):
+        public_topic = TopicFactory()
+        private_topic = TopicFactory()
+        private_topic.forum.category.groups.add(self.group)
+
+        public_url = reverse('forum:vote_topic', args=(public_topic.pk,))
+        private_url = reverse('forum:vote_topic', args=(private_topic.pk,))
+
+        self._test_vote(public_topic, private_topic, public_url, private_url)
+
+    def test_vote_post(self):
+        public_post = PostFactory()
+        private_post = PostFactory()
+        private_post.topic.forum.category.groups.add(self.group)
+
+        public_url = reverse('forum:vote_post', args=(public_post.pk,))
+        private_url = reverse('forum:vote_post', args=(private_post.pk,))
+
+        self._test_vote(public_post, private_post, public_url, private_url)
+
+    def test_statistic(self):
+        for _ in range(10):
+            PostFactory()
+
+        url = reverse('forum:statistic')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        url = reverse('forum:posts_per_month_chart')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+    def test_feeds(self):
+        forum = ForumFactory()
+
+        for _ in range(5):
+            topic = TopicFactory(forum=forum)
+            PostFactory(topic=topic)
+            PostFactory(topic=topic)
+
+        url = reverse('forum:feed_latest_forum_entries', args=(forum.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        url = reverse('forum:feed_latest_entries')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
 
 class ModelTests(BaseTestCase):
 
