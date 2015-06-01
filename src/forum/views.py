@@ -11,6 +11,7 @@ from django.core.exceptions import PermissionDenied
 from django.db.models import F, Sum, Count
 from django.http import Http404, HttpResponse
 from django.shortcuts import get_object_or_404, redirect
+from django.template.response import TemplateResponse
 from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _, ugettext
 from django.views.generic.list import ListView
@@ -24,14 +25,13 @@ from src.forum.settings import POSTS_ON_PAGE
 from src.utils.views import JsonResponse, object_list
 
 
-@render_to('djforum/index.html')
 def index(request):
     users_cached = cache.get('users_online', {})
     users_online = users_cached and User.objects.filter(
         id__in=users_cached.keys()) or []
     guests_cached = cache.get('guests_online', {})
 
-    return {
+    context = {
         'categories': Category.objects.for_user(request.user),
         'users_online': users_online,
         'online_count': len(users_online),
@@ -40,9 +40,9 @@ def index(request):
         'topics_count': Topic.objects.count(),
         'posts_count': Post.objects.count()
     }
+    return TemplateResponse(request, 'djforum/index.html', context)
 
 
-@render_to('djforum/forum.html')
 def forum(request, pk):
     forum_obj = get_object_or_404(Forum, pk=pk)
 
