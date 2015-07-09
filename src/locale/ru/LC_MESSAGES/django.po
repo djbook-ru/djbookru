@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 15:52+0300\n"
-"PO-Revision-Date: 2015-03-06 15:55+0300\n"
+"POT-Creation-Date: 2015-07-09 21:02+0300\n"
+"PO-Revision-Date: 2015-07-09 21:01+0300\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
 "Language: \n"
@@ -50,15 +50,15 @@ msgstr ""
 msgid "Advanced options"
 msgstr "Дополнительные возможности"
 
-#: settings.py:64
+#: settings.py:147
 msgid "Russian"
 msgstr "Русский"
 
-#: settings.py:65
+#: settings.py:148
 msgid "English"
 msgstr "English"
 
-#: settings.py:348
+#: settings.py:239
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
 
@@ -128,7 +128,7 @@ msgstr "Выделите её мышкой и нажмите"
 msgid "User activites"
 msgstr "Активность пользователей"
 
-#: templates/_user_activities.html:6 templates/accounts/notifications.html:11
+#: templates/_user_activities.html:6
 msgid "Comments"
 msgstr "Комментарии"
 
@@ -143,269 +143,7 @@ msgstr[0] "отклик"
 msgstr[1] "отклика"
 msgstr[2] "откликов"
 
-#: templates/accounts/_menu.html:3
-msgid "My profile"
-msgstr "Мой профиль"
-
-#: templates/accounts/_menu.html:6 templates/accounts/base.html:5
-msgid "Profile"
-msgstr "Профиль"
-
-#: templates/accounts/_menu.html:9 templates/accounts/notifications.html:5
-msgid "Notifications"
-msgstr "События"
-
-#: templates/accounts/_menu.html:12 templates/comments/_display_item.html:21
-#: templates/comments/_item.html:26
-#: templates/doc_comments/_display_item.html:21
-#: templates/examples/detail.html:23 templates/news/news.html:27
-msgid "Edit"
-msgstr "Редактировать"
-
-#: templates/accounts/create.html:6 templates/accounts/create.html.py:12
-msgid "Register"
-msgstr "Регистрация"
-
-#: templates/accounts/create.html:19 templates/examples/add.html:32
-msgid "Create"
-msgstr "Создать"
-
-#: templates/accounts/edit.html:5
-msgid "Edit Profile"
-msgstr "Изменить профиль"
-
-#: templates/accounts/edit.html:9
-msgid "Connect accounts"
-msgstr "Связанные аккаунты"
-
-#: templates/accounts/edit.html:18
-msgid "Connect account"
-msgstr "Привязать аккаунт"
-
-#: templates/accounts/edit.html:25
-msgid "Edit your profile"
-msgstr "Изменить ваш профиль"
-
-#: templates/accounts/edit.html:29
-msgid "You can edit your avatar on"
-msgstr "Аватарку можно поменять на"
-
-#: templates/accounts/edit.html:36
-msgid "Update"
-msgstr "Обновить"
-
-#: templates/accounts/email_confirmation_message.html:1
-#, python-format
-msgid ""
-"\n"
-"<p>You just registred on %(site_name)s.</p>\n"
-"\n"
-"<p>Confirm your email visting link <a href=\"%(activate_url)s\">"
-"%(activate_url)s</a>.</p>\n"
-"\n"
-"<p>If you do not know what happen, just ignore this email.</p>\n"
-"\n"
-"<p>With best regards, %(site_name)s team.</p>\n"
-msgstr ""
-"\n"
-"<p>You just registred on %(site_name)s.</p>\n"
-"\n"
-"<p>Confirm your email visting link <a href=\"%(activate_url)s\">"
-"%(activate_url)s</a>.</p>\n"
-"\n"
-"<p>Если вы не понимаете, что происходит, просто проигнорируйте это письмо.</"
-"p>\n"
-"\n"
-"<p>С наилучшими пожеланиями, команда %(site_name)s.</p>\n"
-
-#: templates/accounts/email_new_user.html:1
-#, python-format
-msgid ""
-"\n"
-"<p>Thanks for registering on %(site_name)s.</p>\n"
-"\n"
-"<p>\n"
-"    Since you registered via social network, your automatically assigned "
-"email is %(email)s and your password is %(password)s.<br>\n"
-"    You can use it to login, if something happens with authentication via "
-"external services.\n"
-"</p>\n"
-"\n"
-"<p>With best regards, %(site_name)s team.</p>\n"
-msgstr ""
-"\n"
-"<p>Спасибо за регистрацию на %(site_name)s.</p>\n"
-"\n"
-"<p>\n"
-"   Так как вы зарегистрировались через внешний сервис, вам автоматически был "
-"присвоен email %(email)s и пароль %(password)s.<br>\n"
-"    Вы можете использовать их для авторизации, если что-то случиться с "
-"авторизацией через внешний сервис.\n"
-"</p>\n"
-"\n"
-"<p>С наилучшими пожеланиями, команда %(site_name)s.</p>\n"
-
-#: templates/accounts/email_password_reset.html:3
-msgid "You are going reset password for"
-msgstr "Вы сбрасываете пароль для"
-
-#: templates/accounts/login.html:12
-msgid "Forgot Password? Please enter your email and we’ll send it you."
-msgstr "Забыли пароль? Пожалуйста, введите свою е-почту и мы пришлём вам его."
-
-#: templates/accounts/login.html:16
-msgid "Email Address"
-msgstr "Адрес электронной почты"
-
-#: templates/accounts/login.html:17
-#: templates/accounts/password_reset_confirm.html:19
-#: templates/main/feedback.html:21
-msgid "Send"
-msgstr "Отправить"
-
-#: templates/accounts/login.html:27
-msgid "Login to your account..."
-msgstr "Авторизуйтесь..."
-
-#: templates/accounts/login.html:36 templates/base.html:111
-msgid "Login"
-msgstr "Вход"
-
-#: templates/accounts/login.html:40
-msgid "Forgot Password?"
-msgstr "Забыли пароль?"
-
-#: templates/accounts/login.html:49
-msgid "Sign in with"
-msgstr "Вход с помощью"
-
-#: templates/accounts/login.html:54
-msgid "Not a member? Join today!"
-msgstr "Вне тусовки? Присоединяйтесь сейчас!"
-
-#: templates/accounts/login.html:58
-msgid "You are authenticated already"
-msgstr "Вы уже аутентифицированы"
-
-#: templates/accounts/map.html:5
-msgid "Map"
-msgstr "Карта"
-
-#: templates/accounts/map.html:125
-msgid "Authenticate please!"
-msgstr "Вы должны быть авторизированы."
-
-#: templates/accounts/map.html:139
-msgid "Add yourself on the map!"
-msgstr "Добавь себя на карту!"
-
-#: templates/accounts/map.html:140
-msgid "This is just for fun."
-msgstr "Это все просто для фана."
-
-#: templates/accounts/map.html:141
-msgid "You should be authenticated."
-msgstr "Вы должны быть авторизированы."
-
-#: templates/accounts/map.html:142
-msgid ""
-"Green marker should appear at your position, otherwise put the marker on the "
-"map to mark you position."
-msgstr ""
-"Зелёный маркер появится там, где вы находитесь. Если ваш браузер не "
-"поддерживает геолокацию, то просто добавьте маркер, перетащив его с панельки "
-"на карту."
-
-#: templates/accounts/notifications.html:12
-msgid "Doc. comments"
-msgstr "Док. комментарии"
-
-#: templates/accounts/password_reset.html:5
-#: templates/accounts/password_reset_complete.html:5
-#: templates/accounts/password_reset_confirm.html:5
-msgid "Reset password"
-msgstr "Сброс пароля"
-
-#: templates/accounts/password_reset.html:11
-msgid "Forgot password? Please enter your email"
-msgstr "Забыли пароль? Пожалуйста, введите свою е-почту"
-
-#: templates/accounts/password_reset.html:18
-msgid "Send Password"
-msgstr "Отправить пароль"
-
-#: templates/accounts/password_reset_complete.html:12
-msgid "Password reset complete"
-msgstr "Сброс пароля завершён"
-
-#: templates/accounts/password_reset_complete.html:13
-msgid "Your password has been set.  You may go ahead and log in now."
-msgstr "Ваш пароль установлен. Вы можете войти на сайт."
-
-#: templates/accounts/password_reset_complete.html:14
-#: templates/admin/login.html:48
-msgid "Log in"
-msgstr "Вход"
-
-#: templates/accounts/password_reset_confirm.html:12
-msgid "Enter new password"
-msgstr "Введите новый пароль"
-
-#: templates/accounts/password_reset_confirm.html:24
-msgid "Password reset unsuccessful"
-msgstr "Сброс пароля не прошёл"
-
-#: templates/accounts/password_reset_confirm.html:25
-msgid ""
-"The password reset link was invalid, possibly because it has already been "
-"used. Please request a new password reset."
-msgstr ""
-"Ссылка для сброса пароля неверна, возможно, потому что она уже была "
-"использована. Пожалуйста, запросите ссылку ещё раз."
-
-#: templates/accounts/profile.html:76 templates/accounts/profile_voted.html:33
-msgid "Forum posts count"
-msgstr "Количество откликов в форуме"
-
-#: templates/accounts/profile.html:81 templates/accounts/profile_voted.html:38
-msgid "Comments count"
-msgstr "Комментариев"
-
-#: templates/accounts/profile.html:86 templates/accounts/profile_voted.html:43
-msgid "Date of join"
-msgstr "Дата вступления"
-
-#: templates/accounts/profile.html:91 templates/accounts/profile_voted.html:48
-msgid "Date of last login"
-msgstr "Авторизовался"
-
-#: templates/accounts/profile.html:99
-msgid "Voted topics"
-msgstr "Отметил темы"
-
-#: templates/accounts/profile.html:106 templates/accounts/profile.html:118
-#| msgid "View on site"
-msgid "View more"
-msgstr "Посмотреть больше"
-
-#: templates/accounts/profile.html:111
-msgid "Voted posts"
-msgstr "Отмеченные отклики"
-
-#: templates/accounts/profile_voted.html:69
-#| msgid "Edit Profile"
-msgid "Back to Profile"
-msgstr "Вернуться к профилю"
-
-#: templates/admin/examples/change_form.html:11
-msgid "History"
-msgstr "История"
-
 #: templates/admin/examples/change_form.html:12
-msgid "View on site"
-msgstr "Посмотреть на сайте"
-
-#: templates/admin/examples/change_form.html:17
 msgid ""
 "Pay attention! This post is not approved and can be from users. It can "
 "contain XSS in content, so use 'View on site' carefully."
@@ -433,6 +171,10 @@ msgstr "Пароль:"
 msgid "Forgotten your password or username?"
 msgstr "Забыли пароль или имя пользователя?"
 
+#: templates/admin/login.html:48
+msgid "Log in"
+msgstr "Вход"
+
 #: templates/base.html:21
 msgid "The freshest news about Russian version of DjangoBook"
 msgstr "Последние новости с Russian DjangoBook"
@@ -443,7 +185,7 @@ msgstr "Последние примеры с Russian DjangoBook"
 
 #: templates/base.html:23
 msgid "DjangoBook RSS feed"
-msgstr ""
+msgstr "DjangoBook RSS feed"
 
 #: templates/base.html:91
 msgid "Skip to navigation"
@@ -456,6 +198,10 @@ msgstr "Пропустить до содержимого"
 #: templates/base.html:108
 msgid "Logout"
 msgstr "Выйти"
+
+#: templates/base.html:111
+msgid "Login"
+msgstr "Вход"
 
 #: templates/base.html:115
 msgid "Admin UI"
@@ -521,6 +267,12 @@ msgstr "Ссылка"
 #: templates/doc_comments/_display_item.html:16
 msgid "Delete"
 msgstr "Удалить"
+
+#: templates/comments/_display_item.html:21 templates/comments/_item.html:26
+#: templates/doc_comments/_display_item.html:21
+#: templates/examples/detail.html:23 templates/news/news.html:27
+msgid "Edit"
+msgstr "Редактировать"
 
 #: templates/comments/_display_item.html:29 templates/comments/_item.html:34
 msgid "answer to"
@@ -588,11 +340,11 @@ msgstr "Категории рецепта"
 msgid "Add"
 msgstr "Добавить"
 
-#: templates/examples/add.html:11
+#: templates/examples/add.html:16
 msgid "Add new recipe"
 msgstr "Добавить новый рецепт"
 
-#: templates/examples/add.html:14
+#: templates/examples/add.html:19
 msgid ""
 "You can share your receipt for\n"
 "          django-society. It can be solution for the problem that you have\n"
@@ -603,7 +355,7 @@ msgstr ""
 "что найденное решение проблемы. Или это может быть интересный трюк, о "
 "котором даже Google ещё ничего не знает."
 
-#: templates/examples/add.html:21
+#: templates/examples/add.html:26
 msgid ""
 "We\n"
 "          use <a href=\"http://daringfireball.net/projects/markdown/syntax"
@@ -614,6 +366,10 @@ msgstr ""
 "Мы используем <a href=\"http://daringfireball.net/projects/markdown/syntax"
 "\">Markdown</a> для форматирования текста. Пожалуйста, используйте его для "
 "ускорения процесса принятия вашего рецепта."
+
+#: templates/examples/add.html:37
+msgid "Create"
+msgstr "Создать"
 
 #: templates/examples/detail.html:13
 msgid "Draft"
@@ -643,17 +399,17 @@ msgstr "исходники"
 msgid "useful links"
 msgstr "полезные ссылки"
 
-#: templates/main/_toc.html:3
-msgid "Table of contents"
-msgstr "Содержимое"
-
-#: templates/main/donation.html:2
+#: templates/main/_donation.html:2
 msgid "Donations"
 msgstr "Пожертвование"
 
-#: templates/main/donation.html:16
+#: templates/main/_donation.html:16
 msgid "Use our referral code"
 msgstr "Воспользуйтесь нашей реферралкой"
+
+#: templates/main/_toc.html:3
+msgid "Table of contents"
+msgstr "Содержимое"
 
 #: templates/main/feedback.html:5
 msgid "Feedback"
@@ -666,6 +422,10 @@ msgstr "Вы можете отправить нам сообщение"
 #: templates/main/feedback.html:12
 msgid "We are glad to hear your questions, comments or suggestions!"
 msgstr "Мы рады получить ваши вопросы, комментарии или предложения!"
+
+#: templates/main/feedback.html:21
+msgid "Send"
+msgstr "Отправить"
 
 #: templates/main/search.html:5 templates/main/search.html.py:13
 msgid "Search"
@@ -691,15 +451,1193 @@ msgstr "Полная версия:"
 msgid "Something to watch"
 msgstr "Рекомендуем посмотреть"
 
-#: utils/admin.py:85
-#, python-format
-msgid "%(name)s object with primary key %(key)r does not exist."
-msgstr "объект %(name)s с первичным ключом %(key)r не существует."
+#: utils/db/fields/country_field.py:14
+msgid "Andorra"
+msgstr "Андора"
 
-#: utils/admin.py:150
-#, python-format
-msgid "Change %s"
-msgstr "Изменить %s"
+#: utils/db/fields/country_field.py:15
+msgid "United Arab Emirates"
+msgstr "Объединённые Арабские Эмираты"
+
+#: utils/db/fields/country_field.py:16
+msgid "Afghanistan"
+msgstr "Афганистан"
+
+#: utils/db/fields/country_field.py:17
+msgid "Antigua & Barbuda"
+msgstr "Антигуа и Барбуда"
+
+#: utils/db/fields/country_field.py:18
+msgid "Anguilla"
+msgstr "Ангилья"
+
+#: utils/db/fields/country_field.py:19
+msgid "Albania"
+msgstr "Албания"
+
+#: utils/db/fields/country_field.py:20
+msgid "Armenia"
+msgstr "Армения"
+
+#: utils/db/fields/country_field.py:21
+msgid "Netherlands Antilles"
+msgstr "Нидерландские Антильские острова"
+
+#: utils/db/fields/country_field.py:22
+msgid "Angola"
+msgstr "Ангола"
+
+#: utils/db/fields/country_field.py:23
+msgid "Antarctica"
+msgstr ""
+
+#: utils/db/fields/country_field.py:24
+msgid "Argentina"
+msgstr "Аргентина"
+
+#: utils/db/fields/country_field.py:25
+msgid "American Samoa"
+msgstr ""
+
+#: utils/db/fields/country_field.py:26
+msgid "Austria"
+msgstr "Австрия"
+
+#: utils/db/fields/country_field.py:27
+msgid "Australia"
+msgstr "Австралия"
+
+#: utils/db/fields/country_field.py:28
+msgid "Aruba"
+msgstr ""
+
+#: utils/db/fields/country_field.py:29
+msgid "Azerbaijan"
+msgstr "Азербайджан"
+
+#: utils/db/fields/country_field.py:30
+msgid "Bosnia and Herzegovina"
+msgstr "Босния и Герцеговина"
+
+#: utils/db/fields/country_field.py:31
+msgid "Barbados"
+msgstr ""
+
+#: utils/db/fields/country_field.py:32
+msgid "Bangladesh"
+msgstr ""
+
+#: utils/db/fields/country_field.py:33
+msgid "Belgium"
+msgstr "Бельгия"
+
+#: utils/db/fields/country_field.py:34
+msgid "Burkina Faso"
+msgstr "Буркина Фасо"
+
+#: utils/db/fields/country_field.py:35
+msgid "Bulgaria"
+msgstr "Болгария"
+
+#: utils/db/fields/country_field.py:36
+msgid "Bahrain"
+msgstr "Бахрейн"
+
+#: utils/db/fields/country_field.py:37
+msgid "Burundi"
+msgstr ""
+
+#: utils/db/fields/country_field.py:38
+msgid "Benin"
+msgstr ""
+
+#: utils/db/fields/country_field.py:39
+msgid "Bermuda"
+msgstr "Бермуды"
+
+#: utils/db/fields/country_field.py:40
+msgid "Brunei Darussalam"
+msgstr ""
+
+#: utils/db/fields/country_field.py:41
+msgid "Bolivia"
+msgstr "Боливия"
+
+#: utils/db/fields/country_field.py:42
+msgid "Brazil"
+msgstr "Бразилия"
+
+#: utils/db/fields/country_field.py:43
+msgid "Bahama"
+msgstr "Багамы"
+
+#: utils/db/fields/country_field.py:44
+msgid "Bhutan"
+msgstr ""
+
+#: utils/db/fields/country_field.py:45
+#, fuzzy
+#| msgid "Cook Islands"
+msgid "Bouvet Island"
+msgstr "Острова Кука"
+
+#: utils/db/fields/country_field.py:46
+msgid "Botswana"
+msgstr "Ботсвана"
+
+#: utils/db/fields/country_field.py:47
+msgid "Belarus"
+msgstr "Белоруссия"
+
+#: utils/db/fields/country_field.py:48
+msgid "Belize"
+msgstr ""
+
+#: utils/db/fields/country_field.py:49
+msgid "Canada"
+msgstr "Канада"
+
+#: utils/db/fields/country_field.py:50
+#, fuzzy
+#| msgid "Cook Islands"
+msgid "Cocos (Keeling) Islands"
+msgstr "Острова Кука"
+
+#: utils/db/fields/country_field.py:51
+#, fuzzy
+#| msgid "Syrian Arab Republic"
+msgid "Central African Republic"
+msgstr "Сирия"
+
+#: utils/db/fields/country_field.py:52
+msgid "Congo"
+msgstr "Конго"
+
+#: utils/db/fields/country_field.py:53
+msgid "Switzerland"
+msgstr "Швейцария"
+
+#: utils/db/fields/country_field.py:54
+msgid "Ivory Coast"
+msgstr ""
+
+#: utils/db/fields/country_field.py:55
+msgid "Cook Islands"
+msgstr "Острова Кука"
+
+#: utils/db/fields/country_field.py:56
+msgid "Chile"
+msgstr "Чили"
+
+#: utils/db/fields/country_field.py:57
+msgid "Cameroon"
+msgstr "Камерун"
+
+#: utils/db/fields/country_field.py:58
+msgid "China"
+msgstr "Китай"
+
+#: utils/db/fields/country_field.py:59
+msgid "Colombia"
+msgstr "Колумбия"
+
+#: utils/db/fields/country_field.py:60
+msgid "Costa Rica"
+msgstr "Коста Рика"
+
+#: utils/db/fields/country_field.py:61
+msgid "Cuba"
+msgstr "Куба"
+
+#: utils/db/fields/country_field.py:62
+msgid "Cape Verde"
+msgstr ""
+
+#: utils/db/fields/country_field.py:63
+#, fuzzy
+#| msgid "Cayman Islands"
+msgid "Christmas Island"
+msgstr "Каймановы Острова"
+
+#: utils/db/fields/country_field.py:64
+msgid "Cyprus"
+msgstr "Кипр"
+
+#: utils/db/fields/country_field.py:65
+msgid "Czech Republic"
+msgstr "Чехия"
+
+#: utils/db/fields/country_field.py:66
+msgid "Germany"
+msgstr "Германия"
+
+#: utils/db/fields/country_field.py:67
+msgid "Djibouti"
+msgstr "Джибути"
+
+#: utils/db/fields/country_field.py:68
+msgid "Denmark"
+msgstr "Дания"
+
+#: utils/db/fields/country_field.py:69
+msgid "Dominica"
+msgstr ""
+
+#: utils/db/fields/country_field.py:70
+#, fuzzy
+#| msgid "Syrian Arab Republic"
+msgid "Dominican Republic"
+msgstr "Сирия"
+
+#: utils/db/fields/country_field.py:71
+msgid "Algeria"
+msgstr "Алжир"
+
+#: utils/db/fields/country_field.py:72
+msgid "Ecuador"
+msgstr "Эквадор"
+
+#: utils/db/fields/country_field.py:73
+msgid "Estonia"
+msgstr "Эстония"
+
+#: utils/db/fields/country_field.py:74
+msgid "Egypt"
+msgstr "Египет"
+
+#: utils/db/fields/country_field.py:75
+msgid "Western Sahara"
+msgstr "Западная Сахара"
+
+#: utils/db/fields/country_field.py:76
+msgid "Eritrea"
+msgstr "Эритрея"
+
+#: utils/db/fields/country_field.py:77
+msgid "Spain"
+msgstr "Испания"
+
+#: utils/db/fields/country_field.py:78
+msgid "Ethiopia"
+msgstr "Эфиопия"
+
+#: utils/db/fields/country_field.py:79
+msgid "Finland"
+msgstr "Финляндия"
+
+#: utils/db/fields/country_field.py:80
+msgid "Fiji"
+msgstr "Фиджи"
+
+#: utils/db/fields/country_field.py:81
+msgid "Falkland Islands (Malvinas)"
+msgstr ""
+
+#: utils/db/fields/country_field.py:82
+msgid "Micronesia"
+msgstr "Микронезия"
+
+#: utils/db/fields/country_field.py:83
+#, fuzzy
+#| msgid "Cook Islands"
+msgid "Faroe Islands"
+msgstr "Острова Кука"
+
+#: utils/db/fields/country_field.py:84
+msgid "France"
+msgstr "Франция"
+
+#: utils/db/fields/country_field.py:85
+msgid "France, Metropolitan"
+msgstr ""
+
+#: utils/db/fields/country_field.py:86
+msgid "Gabon"
+msgstr "Габон"
+
+#: utils/db/fields/country_field.py:87
+msgid "United Kingdom (Great Britain)"
+msgstr "Англия"
+
+#: utils/db/fields/country_field.py:88
+msgid "Grenada"
+msgstr "Гренада"
+
+#: utils/db/fields/country_field.py:89
+msgid "Georgia"
+msgstr "Грузия"
+
+#: utils/db/fields/country_field.py:90
+#, fuzzy
+#| msgid "French Polynesia"
+msgid "French Guiana"
+msgstr "Французская Полинезия"
+
+#: utils/db/fields/country_field.py:91
+msgid "Ghana"
+msgstr ""
+
+#: utils/db/fields/country_field.py:92
+msgid "Gibraltar"
+msgstr "Гибралтар"
+
+#: utils/db/fields/country_field.py:93
+#, fuzzy
+#| msgid "Ireland"
+msgid "Greenland"
+msgstr "Ирландия"
+
+#: utils/db/fields/country_field.py:94
+#, fuzzy
+#| msgid "Zambia"
+msgid "Gambia"
+msgstr "Замбия"
+
+#: utils/db/fields/country_field.py:95
+msgid "Guinea"
+msgstr "Гвинея"
+
+#: utils/db/fields/country_field.py:96
+msgid "Guadeloupe"
+msgstr "Гваделупа"
+
+#: utils/db/fields/country_field.py:97
+msgid "Equatorial Guinea"
+msgstr ""
+
+#: utils/db/fields/country_field.py:98
+msgid "Greece"
+msgstr "Греция"
+
+#: utils/db/fields/country_field.py:99
+msgid "South Georgia and the South Sandwich Islands"
+msgstr ""
+
+#: utils/db/fields/country_field.py:100
+msgid "Guatemala"
+msgstr ""
+
+#: utils/db/fields/country_field.py:101
+msgid "Guam"
+msgstr "Гуам"
+
+#: utils/db/fields/country_field.py:102
+#, fuzzy
+#| msgid "Guinea"
+msgid "Guinea-Bissau"
+msgstr "Гвинея"
+
+#: utils/db/fields/country_field.py:103
+msgid "Guyana"
+msgstr ""
+
+#: utils/db/fields/country_field.py:104
+msgid "Hong Kong"
+msgstr "Гонконг"
+
+#: utils/db/fields/country_field.py:105
+#, fuzzy
+#| msgid "Marshall Islands"
+msgid "Heard & McDonald Islands"
+msgstr "Маршалловы Острова"
+
+#: utils/db/fields/country_field.py:106
+msgid "Honduras"
+msgstr "Гондурас"
+
+#: utils/db/fields/country_field.py:107
+msgid "Croatia"
+msgstr ""
+
+#: utils/db/fields/country_field.py:108
+msgid "Haiti"
+msgstr "Гаити"
+
+#: utils/db/fields/country_field.py:109
+msgid "Hungary"
+msgstr "Венгрия"
+
+#: utils/db/fields/country_field.py:110
+msgid "Indonesia"
+msgstr "Индонезия"
+
+#: utils/db/fields/country_field.py:111
+msgid "Ireland"
+msgstr "Ирландия"
+
+#: utils/db/fields/country_field.py:112
+msgid "Israel"
+msgstr "Израиль"
+
+#: utils/db/fields/country_field.py:113
+msgid "India"
+msgstr "Индия"
+
+#: utils/db/fields/country_field.py:114
+msgid "British Indian Ocean Territory"
+msgstr ""
+
+#: utils/db/fields/country_field.py:115
+msgid "Iraq"
+msgstr "Ирак"
+
+#: utils/db/fields/country_field.py:116
+msgid "Islamic Republic of Iran"
+msgstr "Иран"
+
+#: utils/db/fields/country_field.py:117
+msgid "Iceland"
+msgstr "Исландия"
+
+#: utils/db/fields/country_field.py:118
+msgid "Italy"
+msgstr "Италия"
+
+#: utils/db/fields/country_field.py:119
+msgid "Jamaica"
+msgstr "Джамайка"
+
+#: utils/db/fields/country_field.py:120
+msgid "Jordan"
+msgstr "Иордания"
+
+#: utils/db/fields/country_field.py:121
+msgid "Japan"
+msgstr "Япония"
+
+#: utils/db/fields/country_field.py:122
+msgid "Kenya"
+msgstr "Кения"
+
+#: utils/db/fields/country_field.py:123
+msgid "Kyrgyzstan"
+msgstr "Киргизия"
+
+#: utils/db/fields/country_field.py:124
+msgid "Cambodia"
+msgstr ""
+
+#: utils/db/fields/country_field.py:125
+msgid "Kiribati"
+msgstr ""
+
+#: utils/db/fields/country_field.py:126
+msgid "Comoros"
+msgstr ""
+
+#: utils/db/fields/country_field.py:127
+msgid "St. Kitts and Nevis"
+msgstr ""
+
+#: utils/db/fields/country_field.py:128
+msgid "Korea, Democratic People's Republic of"
+msgstr "КНДР"
+
+#: utils/db/fields/country_field.py:129
+msgid "Korea, Republic of"
+msgstr "Южная Корея"
+
+#: utils/db/fields/country_field.py:130
+msgid "Kuwait"
+msgstr "Кувейт"
+
+#: utils/db/fields/country_field.py:131
+msgid "Cayman Islands"
+msgstr "Каймановы Острова"
+
+#: utils/db/fields/country_field.py:132
+msgid "Kazakhstan"
+msgstr "Казахстан"
+
+#: utils/db/fields/country_field.py:133
+#, fuzzy
+#| msgid "Korea, Democratic People's Republic of"
+msgid "Lao People's Democratic Republic"
+msgstr "КНДР"
+
+#: utils/db/fields/country_field.py:134
+msgid "Lebanon"
+msgstr "Ливан"
+
+#: utils/db/fields/country_field.py:135
+msgid "Saint Lucia"
+msgstr ""
+
+#: utils/db/fields/country_field.py:136
+msgid "Liechtenstein"
+msgstr "Лихтенштейн"
+
+#: utils/db/fields/country_field.py:137
+msgid "Sri Lanka"
+msgstr "Шриланка"
+
+#: utils/db/fields/country_field.py:138
+#, fuzzy
+#| msgid "Nigeria"
+msgid "Liberia"
+msgstr "Нигерия"
+
+#: utils/db/fields/country_field.py:139
+msgid "Lesotho"
+msgstr "Лесото"
+
+#: utils/db/fields/country_field.py:140
+msgid "Lithuania"
+msgstr "Литва"
+
+#: utils/db/fields/country_field.py:141
+msgid "Luxembourg"
+msgstr "Люксембург"
+
+#: utils/db/fields/country_field.py:142
+msgid "Latvia"
+msgstr "Латвия"
+
+#: utils/db/fields/country_field.py:143
+msgid "Libyan Arab Jamahiriya"
+msgstr ""
+
+#: utils/db/fields/country_field.py:144
+msgid "Morocco"
+msgstr "Морокко"
+
+#: utils/db/fields/country_field.py:145
+msgid "Monaco"
+msgstr "Монако"
+
+#: utils/db/fields/country_field.py:146
+msgid "Moldova, Republic of"
+msgstr "Молдавия"
+
+#: utils/db/fields/country_field.py:147
+msgid "Madagascar"
+msgstr "Мадагаскар"
+
+#: utils/db/fields/country_field.py:148
+msgid "Marshall Islands"
+msgstr "Маршалловы Острова"
+
+#: utils/db/fields/country_field.py:149
+msgid "Mali"
+msgstr "Мали"
+
+#: utils/db/fields/country_field.py:150
+msgid "Mongolia"
+msgstr "Монголия"
+
+#: utils/db/fields/country_field.py:151
+msgid "Myanmar"
+msgstr "Мьянма"
+
+#: utils/db/fields/country_field.py:152
+msgid "Macau"
+msgstr ""
+
+#: utils/db/fields/country_field.py:153
+#, fuzzy
+#| msgid "Marshall Islands"
+msgid "Northern Mariana Islands"
+msgstr "Маршалловы Острова"
+
+#: utils/db/fields/country_field.py:154
+#, fuzzy
+#| msgid "Mozambique"
+msgid "Martinique"
+msgstr "Мозамбик"
+
+#: utils/db/fields/country_field.py:155
+msgid "Mauritania"
+msgstr "Мавритания"
+
+#: utils/db/fields/country_field.py:156
+msgid "Monserrat"
+msgstr ""
+
+#: utils/db/fields/country_field.py:157
+msgid "Malta"
+msgstr "Мальта"
+
+#: utils/db/fields/country_field.py:158
+#, fuzzy
+#| msgid "Mauritania"
+msgid "Mauritius"
+msgstr "Мавритания"
+
+#: utils/db/fields/country_field.py:159
+msgid "Maldives"
+msgstr "Мальдивы"
+
+#: utils/db/fields/country_field.py:160
+msgid "Malawi"
+msgstr "Малави"
+
+#: utils/db/fields/country_field.py:161
+msgid "Mexico"
+msgstr "Мексика"
+
+#: utils/db/fields/country_field.py:162
+msgid "Malaysia"
+msgstr "Малайзия"
+
+#: utils/db/fields/country_field.py:163
+msgid "Mozambique"
+msgstr "Мозамбик"
+
+#: utils/db/fields/country_field.py:164
+msgid "Namibia"
+msgstr "Намибия"
+
+#: utils/db/fields/country_field.py:165
+msgid "New Caledonia"
+msgstr "Новая Каледония"
+
+#: utils/db/fields/country_field.py:166
+msgid "Niger"
+msgstr "Нигер"
+
+#: utils/db/fields/country_field.py:167
+#, fuzzy
+#| msgid "Cook Islands"
+msgid "Norfolk Island"
+msgstr "Острова Кука"
+
+#: utils/db/fields/country_field.py:168
+msgid "Nigeria"
+msgstr "Нигерия"
+
+#: utils/db/fields/country_field.py:169
+msgid "Nicaragua"
+msgstr "Никарагуа"
+
+#: utils/db/fields/country_field.py:170
+msgid "Netherlands"
+msgstr "Нидерланды"
+
+#: utils/db/fields/country_field.py:171
+msgid "Norway"
+msgstr "Норвегия"
+
+#: utils/db/fields/country_field.py:172
+msgid "Nepal"
+msgstr "Непал"
+
+#: utils/db/fields/country_field.py:173
+msgid "Nauru"
+msgstr ""
+
+#: utils/db/fields/country_field.py:174
+msgid "Niue"
+msgstr ""
+
+#: utils/db/fields/country_field.py:175
+msgid "New Zealand"
+msgstr "Новая Зеландия"
+
+#: utils/db/fields/country_field.py:176
+msgid "Oman"
+msgstr "Оман"
+
+#: utils/db/fields/country_field.py:177
+msgid "Panama"
+msgstr "Панама"
+
+#: utils/db/fields/country_field.py:178
+msgid "Peru"
+msgstr "Перу"
+
+#: utils/db/fields/country_field.py:179
+msgid "French Polynesia"
+msgstr "Французская Полинезия"
+
+#: utils/db/fields/country_field.py:180
+msgid "Papua New Guinea"
+msgstr "Папуа Новая Гвинея"
+
+#: utils/db/fields/country_field.py:181
+msgid "Philippines"
+msgstr ""
+
+#: utils/db/fields/country_field.py:182
+msgid "Pakistan"
+msgstr "Пакистан"
+
+#: utils/db/fields/country_field.py:183
+msgid "Poland"
+msgstr "Польша"
+
+#: utils/db/fields/country_field.py:184
+msgid "St. Pierre & Miquelon"
+msgstr ""
+
+#: utils/db/fields/country_field.py:185
+msgid "Pitcairn"
+msgstr ""
+
+#: utils/db/fields/country_field.py:186
+msgid "Puerto Rico"
+msgstr "Пуэрто Рико"
+
+#: utils/db/fields/country_field.py:187
+msgid "Portugal"
+msgstr "Португалия"
+
+#: utils/db/fields/country_field.py:188
+msgid "Palau"
+msgstr "Палау"
+
+#: utils/db/fields/country_field.py:189
+msgid "Paraguay"
+msgstr "Парагвай"
+
+#: utils/db/fields/country_field.py:190
+msgid "Qatar"
+msgstr "Катар"
+
+#: utils/db/fields/country_field.py:191
+msgid "Reunion"
+msgstr ""
+
+#: utils/db/fields/country_field.py:192
+msgid "Romania"
+msgstr "Румыния"
+
+#: utils/db/fields/country_field.py:193
+msgid "Russian Federation"
+msgstr "Российская Федерация"
+
+#: utils/db/fields/country_field.py:194
+msgid "Rwanda"
+msgstr "Руанда"
+
+#: utils/db/fields/country_field.py:195
+msgid "Saudi Arabia"
+msgstr "Саудовская Аравия"
+
+#: utils/db/fields/country_field.py:196
+msgid "Solomon Islands"
+msgstr "Соломоновы Острова"
+
+#: utils/db/fields/country_field.py:197
+msgid "Seychelles"
+msgstr "Сейшеллы"
+
+#: utils/db/fields/country_field.py:198
+msgid "Sudan"
+msgstr "Судан"
+
+#: utils/db/fields/country_field.py:199
+msgid "Sweden"
+msgstr "Швеция"
+
+#: utils/db/fields/country_field.py:200
+msgid "Singapore"
+msgstr "Сингапур"
+
+#: utils/db/fields/country_field.py:201
+msgid "St. Helena"
+msgstr ""
+
+#: utils/db/fields/country_field.py:202
+msgid "Slovenia"
+msgstr "Словения"
+
+#: utils/db/fields/country_field.py:203
+msgid "Svalbard & Jan Mayen Islands"
+msgstr ""
+
+#: utils/db/fields/country_field.py:204
+msgid "Slovakia"
+msgstr "Словакия"
+
+#: utils/db/fields/country_field.py:205
+msgid "Sierra Leone"
+msgstr "Сьерра Лионе"
+
+#: utils/db/fields/country_field.py:206
+msgid "San Marino"
+msgstr ""
+
+#: utils/db/fields/country_field.py:207
+msgid "Senegal"
+msgstr "Сенегал"
+
+#: utils/db/fields/country_field.py:208
+msgid "Somalia"
+msgstr "Сомали"
+
+#: utils/db/fields/country_field.py:209
+msgid "Suriname"
+msgstr "Суринам"
+
+#: utils/db/fields/country_field.py:210
+msgid "Sao Tome & Principe"
+msgstr ""
+
+#: utils/db/fields/country_field.py:211
+msgid "El Salvador"
+msgstr ""
+
+#: utils/db/fields/country_field.py:212
+msgid "Syrian Arab Republic"
+msgstr "Сирия"
+
+#: utils/db/fields/country_field.py:213
+msgid "Swaziland"
+msgstr "Свазиленж"
+
+#: utils/db/fields/country_field.py:214
+msgid "Turks & Caicos Islands"
+msgstr ""
+
+#: utils/db/fields/country_field.py:215
+msgid "Chad"
+msgstr "Чад"
+
+#: utils/db/fields/country_field.py:216
+msgid "French Southern Territories"
+msgstr ""
+
+#: utils/db/fields/country_field.py:217
+msgid "Togo"
+msgstr "Того"
+
+#: utils/db/fields/country_field.py:218
+msgid "Thailand"
+msgstr "Тайланд"
+
+#: utils/db/fields/country_field.py:219
+msgid "Tajikistan"
+msgstr "Таджикистан"
+
+#: utils/db/fields/country_field.py:220
+msgid "Tokelau"
+msgstr ""
+
+#: utils/db/fields/country_field.py:221
+msgid "Turkmenistan"
+msgstr "Туркменистан"
+
+#: utils/db/fields/country_field.py:222
+msgid "Tunisia"
+msgstr "Тунис"
+
+#: utils/db/fields/country_field.py:223
+msgid "Tonga"
+msgstr "Тонга"
+
+#: utils/db/fields/country_field.py:224
+msgid "East Timor"
+msgstr "Восточный Тимор"
+
+#: utils/db/fields/country_field.py:225
+msgid "Turkey"
+msgstr "Турция"
+
+#: utils/db/fields/country_field.py:226
+msgid "Trinidad & Tobago"
+msgstr ""
+
+#: utils/db/fields/country_field.py:227
+msgid "Tuvalu"
+msgstr ""
+
+#: utils/db/fields/country_field.py:228
+msgid "Taiwan, Province of China"
+msgstr "Тайвань"
+
+#: utils/db/fields/country_field.py:229
+msgid "Tanzania, United Republic of"
+msgstr "Танзания"
+
+#: utils/db/fields/country_field.py:230
+msgid "Ukraine"
+msgstr "Украина"
+
+#: utils/db/fields/country_field.py:231
+msgid "Uganda"
+msgstr "Уганда"
+
+#: utils/db/fields/country_field.py:232
+#, fuzzy
+#| msgid "United States of America"
+msgid "United States Minor Outlying Islands"
+msgstr "США"
+
+#: utils/db/fields/country_field.py:233
+msgid "United States of America"
+msgstr "США"
+
+#: utils/db/fields/country_field.py:234
+msgid "Uruguay"
+msgstr "Уругвай"
+
+#: utils/db/fields/country_field.py:235
+msgid "Uzbekistan"
+msgstr "Узбекистан"
+
+#: utils/db/fields/country_field.py:236
+msgid "Vatican City State (Holy See)"
+msgstr "Ватикан"
+
+#: utils/db/fields/country_field.py:237
+msgid "St. Vincent & the Grenadines"
+msgstr ""
+
+#: utils/db/fields/country_field.py:238
+msgid "Venezuela"
+msgstr "Венесуэла"
+
+#: utils/db/fields/country_field.py:239
+msgid "British Virgin Islands"
+msgstr ""
+
+#: utils/db/fields/country_field.py:240
+#, fuzzy
+#| msgid "United States of America"
+msgid "United States Virgin Islands"
+msgstr "США"
+
+#: utils/db/fields/country_field.py:241
+msgid "Viet Nam"
+msgstr "Вьетнам"
+
+#: utils/db/fields/country_field.py:242
+msgid "Vanuatu"
+msgstr "Ванату"
+
+#: utils/db/fields/country_field.py:243
+msgid "Wallis & Futuna Islands"
+msgstr ""
+
+#: utils/db/fields/country_field.py:244
+msgid "Samoa"
+msgstr "Самоа"
+
+#: utils/db/fields/country_field.py:245
+msgid "Yemen"
+msgstr "Йемен"
+
+#: utils/db/fields/country_field.py:246
+msgid "Mayotte"
+msgstr ""
+
+#: utils/db/fields/country_field.py:247
+msgid "Yugoslavia"
+msgstr "Югославия"
+
+#: utils/db/fields/country_field.py:248
+msgid "South Africa"
+msgstr "Южная Африка"
+
+#: utils/db/fields/country_field.py:249
+msgid "Zambia"
+msgstr "Замбия"
+
+#: utils/db/fields/country_field.py:250
+msgid "Zaire"
+msgstr "Заир"
+
+#: utils/db/fields/country_field.py:251
+msgid "Zimbabwe"
+msgstr "Зимбабве"
+
+#: utils/db/fields/country_field.py:254
+msgid "Unknown or unspecified country"
+msgstr "Неизвестная страна"
+
+#~ msgid "My profile"
+#~ msgstr "Мой профиль"
+
+#~ msgid "Profile"
+#~ msgstr "Профиль"
+
+#~ msgid "Notifications"
+#~ msgstr "События"
+
+#~ msgid "Register"
+#~ msgstr "Регистрация"
+
+#~ msgid "Edit Profile"
+#~ msgstr "Изменить профиль"
+
+#~ msgid "Connect accounts"
+#~ msgstr "Связанные аккаунты"
+
+#~ msgid "Connect account"
+#~ msgstr "Привязать аккаунт"
+
+#~ msgid "Edit your profile"
+#~ msgstr "Изменить ваш профиль"
+
+#~ msgid "You can edit your avatar on"
+#~ msgstr "Аватарку можно поменять на"
+
+#~ msgid "Update"
+#~ msgstr "Обновить"
+
+#~ msgid ""
+#~ "\n"
+#~ "<p>You just registred on %(site_name)s.</p>\n"
+#~ "\n"
+#~ "<p>Confirm your email visting link <a href=\"%(activate_url)s\">"
+#~ "%(activate_url)s</a>.</p>\n"
+#~ "\n"
+#~ "<p>If you do not know what happen, just ignore this email.</p>\n"
+#~ "\n"
+#~ "<p>With best regards, %(site_name)s team.</p>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<p>You just registred on %(site_name)s.</p>\n"
+#~ "\n"
+#~ "<p>Confirm your email visting link <a href=\"%(activate_url)s\">"
+#~ "%(activate_url)s</a>.</p>\n"
+#~ "\n"
+#~ "<p>Если вы не понимаете, что происходит, просто проигнорируйте это письмо."
+#~ "</p>\n"
+#~ "\n"
+#~ "<p>С наилучшими пожеланиями, команда %(site_name)s.</p>\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "<p>Thanks for registering on %(site_name)s.</p>\n"
+#~ "\n"
+#~ "<p>\n"
+#~ "    Since you registered via social network, your automatically assigned "
+#~ "email is %(email)s and your password is %(password)s.<br>\n"
+#~ "    You can use it to login, if something happens with authentication via "
+#~ "external services.\n"
+#~ "</p>\n"
+#~ "\n"
+#~ "<p>With best regards, %(site_name)s team.</p>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<p>Спасибо за регистрацию на %(site_name)s.</p>\n"
+#~ "\n"
+#~ "<p>\n"
+#~ "   Так как вы зарегистрировались через внешний сервис, вам автоматически "
+#~ "был присвоен email %(email)s и пароль %(password)s.<br>\n"
+#~ "    Вы можете использовать их для авторизации, если что-то случиться с "
+#~ "авторизацией через внешний сервис.\n"
+#~ "</p>\n"
+#~ "\n"
+#~ "<p>С наилучшими пожеланиями, команда %(site_name)s.</p>\n"
+
+#~ msgid "You are going reset password for"
+#~ msgstr "Вы сбрасываете пароль для"
+
+#~ msgid "Forgot Password? Please enter your email and we’ll send it you."
+#~ msgstr ""
+#~ "Забыли пароль? Пожалуйста, введите свою е-почту и мы пришлём вам его."
+
+#~ msgid "Email Address"
+#~ msgstr "Адрес электронной почты"
+
+#~ msgid "Login to your account..."
+#~ msgstr "Авторизуйтесь..."
+
+#~ msgid "Forgot Password?"
+#~ msgstr "Забыли пароль?"
+
+#~ msgid "Sign in with"
+#~ msgstr "Вход с помощью"
+
+#~ msgid "Not a member? Join today!"
+#~ msgstr "Вне тусовки? Присоединяйтесь сейчас!"
+
+#~ msgid "You are authenticated already"
+#~ msgstr "Вы уже аутентифицированы"
+
+#~ msgid "Map"
+#~ msgstr "Карта"
+
+#~ msgid "Authenticate please!"
+#~ msgstr "Вы должны быть авторизированы."
+
+#~ msgid "Add yourself on the map!"
+#~ msgstr "Добавь себя на карту!"
+
+#~ msgid "This is just for fun."
+#~ msgstr "Это все просто для фана."
+
+#~ msgid "You should be authenticated."
+#~ msgstr "Вы должны быть авторизированы."
+
+#~ msgid ""
+#~ "Green marker should appear at your position, otherwise put the marker on "
+#~ "the map to mark you position."
+#~ msgstr ""
+#~ "Зелёный маркер появится там, где вы находитесь. Если ваш браузер не "
+#~ "поддерживает геолокацию, то просто добавьте маркер, перетащив его с "
+#~ "панельки на карту."
+
+#~ msgid "Doc. comments"
+#~ msgstr "Док. комментарии"
+
+#~ msgid "Reset password"
+#~ msgstr "Сброс пароля"
+
+#~ msgid "Forgot password? Please enter your email"
+#~ msgstr "Забыли пароль? Пожалуйста, введите свою е-почту"
+
+#~ msgid "Send Password"
+#~ msgstr "Отправить пароль"
+
+#~ msgid "Password reset complete"
+#~ msgstr "Сброс пароля завершён"
+
+#~ msgid "Your password has been set.  You may go ahead and log in now."
+#~ msgstr "Ваш пароль установлен. Вы можете войти на сайт."
+
+#~ msgid "Enter new password"
+#~ msgstr "Введите новый пароль"
+
+#~ msgid "Password reset unsuccessful"
+#~ msgstr "Сброс пароля не прошёл"
+
+#~ msgid ""
+#~ "The password reset link was invalid, possibly because it has already been "
+#~ "used. Please request a new password reset."
+#~ msgstr ""
+#~ "Ссылка для сброса пароля неверна, возможно, потому что она уже была "
+#~ "использована. Пожалуйста, запросите ссылку ещё раз."
+
+#~ msgid "Forum posts count"
+#~ msgstr "Количество откликов в форуме"
+
+#~ msgid "Comments count"
+#~ msgstr "Комментариев"
+
+#~ msgid "Date of join"
+#~ msgstr "Дата вступления"
+
+#~ msgid "Date of last login"
+#~ msgstr "Авторизовался"
+
+#~ msgid "Voted topics"
+#~ msgstr "Отметил темы"
+
+#~| msgid "View on site"
+#~ msgid "View more"
+#~ msgstr "Посмотреть больше"
+
+#~ msgid "Voted posts"
+#~ msgstr "Отмеченные отклики"
+
+#~| msgid "Edit Profile"
+#~ msgid "Back to Profile"
+#~ msgstr "Вернуться к профилю"
+
+#~ msgid "History"
+#~ msgstr "История"
+
+#~ msgid "View on site"
+#~ msgstr "Посмотреть на сайте"
+
+#~ msgid "%(name)s object with primary key %(key)r does not exist."
+#~ msgstr "объект %(name)s с первичным ключом %(key)r не существует."
+
+#~ msgid "Change %s"
+#~ msgstr "Изменить %s"
 
 #~ msgid "Applications"
 #~ msgstr "Приложения"
@@ -736,504 +1674,6 @@ msgstr "Изменить %s"
 
 #~ msgid "Important dates"
 #~ msgstr "Важные даты"
-
-#~ msgid "Andorra"
-#~ msgstr "Андора"
-
-#~ msgid "Afghanistan"
-#~ msgstr "Афганистан"
-
-#~ msgid "Albania"
-#~ msgstr "Албания"
-
-#~ msgid "Armenia"
-#~ msgstr "Армения"
-
-#~ msgid "Angola"
-#~ msgstr "Ангола"
-
-#~ msgid "Argentina"
-#~ msgstr "Аргентина"
-
-#~ msgid "Austria"
-#~ msgstr "Австрия"
-
-#~ msgid "Australia"
-#~ msgstr "Австралия"
-
-#~ msgid "Azerbaijan"
-#~ msgstr "Азербайджан"
-
-#~ msgid "Bosnia and Herzegovina"
-#~ msgstr "Босния и Герцеговина"
-
-#~ msgid "Belgium"
-#~ msgstr "Бельгия"
-
-#~ msgid "Burkina Faso"
-#~ msgstr "Буркина Фасо"
-
-#~ msgid "Bulgaria"
-#~ msgstr "Болгария"
-
-#~ msgid "Bahrain"
-#~ msgstr "Бахрейн"
-
-#~ msgid "Bermuda"
-#~ msgstr "Бермуды"
-
-#~ msgid "Bolivia"
-#~ msgstr "Боливия"
-
-#~ msgid "Brazil"
-#~ msgstr "Бразилия"
-
-#~ msgid "Bahama"
-#~ msgstr "Багамы"
-
-#~ msgid "Botswana"
-#~ msgstr "Ботсвана"
-
-#~ msgid "Belarus"
-#~ msgstr "Белоруссия"
-
-#~ msgid "Canada"
-#~ msgstr "Канада"
-
-#~ msgid "Congo"
-#~ msgstr "Конго"
-
-#~ msgid "Switzerland"
-#~ msgstr "Швейцария"
-
-#~ msgid "Cook Islands"
-#~ msgstr "Острова Кука"
-
-#~ msgid "Chile"
-#~ msgstr "Чили"
-
-#~ msgid "Cameroon"
-#~ msgstr "Камерун"
-
-#~ msgid "China"
-#~ msgstr "Китай"
-
-#~ msgid "Colombia"
-#~ msgstr "Колумбия"
-
-#~ msgid "Costa Rica"
-#~ msgstr "Коста Рика"
-
-#~ msgid "Cuba"
-#~ msgstr "Куба"
-
-#~ msgid "Cyprus"
-#~ msgstr "Кипр"
-
-#~ msgid "Czech Republic"
-#~ msgstr "Чехия"
-
-#~ msgid "Germany"
-#~ msgstr "Германия"
-
-#~ msgid "Djibouti"
-#~ msgstr "Джибути"
-
-#~ msgid "Denmark"
-#~ msgstr "Дания"
-
-#~ msgid "Algeria"
-#~ msgstr "Алжир"
-
-#~ msgid "Ecuador"
-#~ msgstr "Эквадор"
-
-#~ msgid "Estonia"
-#~ msgstr "Эстония"
-
-#~ msgid "Egypt"
-#~ msgstr "Египет"
-
-#~ msgid "Western Sahara"
-#~ msgstr "Западная Сахара"
-
-#~ msgid "Eritrea"
-#~ msgstr "Эритрея"
-
-#~ msgid "Spain"
-#~ msgstr "Испания"
-
-#~ msgid "Ethiopia"
-#~ msgstr "Эфиопия"
-
-#~ msgid "Finland"
-#~ msgstr "Финляндия"
-
-#~ msgid "Fiji"
-#~ msgstr "Фиджи"
-
-#~ msgid "Micronesia"
-#~ msgstr "Микронезия"
-
-#~ msgid "France"
-#~ msgstr "Франция"
-
-#~ msgid "Gabon"
-#~ msgstr "Габон"
-
-#~ msgid "United Kingdom (Great Britain)"
-#~ msgstr "Англия"
-
-#~ msgid "Grenada"
-#~ msgstr "Гренада"
-
-#~ msgid "Georgia"
-#~ msgstr "Грузия"
-
-#~ msgid "Gibraltar"
-#~ msgstr "Гибралтар"
-
-#~ msgid "Guinea"
-#~ msgstr "Гвинея"
-
-#~ msgid "Guadeloupe"
-#~ msgstr "Гваделупа"
-
-#~ msgid "Greece"
-#~ msgstr "Греция"
-
-#~ msgid "Guam"
-#~ msgstr "Гуам"
-
-#~ msgid "Hong Kong"
-#~ msgstr "Гонконг"
-
-#~ msgid "Honduras"
-#~ msgstr "Гондурас"
-
-#~ msgid "Haiti"
-#~ msgstr "Гаити"
-
-#~ msgid "Hungary"
-#~ msgstr "Венгрия"
-
-#~ msgid "Indonesia"
-#~ msgstr "Индонезия"
-
-#~ msgid "Ireland"
-#~ msgstr "Ирландия"
-
-#~ msgid "Israel"
-#~ msgstr "Израиль"
-
-#~ msgid "India"
-#~ msgstr "Индия"
-
-#~ msgid "Iraq"
-#~ msgstr "Ирак"
-
-#~ msgid "Islamic Republic of Iran"
-#~ msgstr "Иран"
-
-#~ msgid "Iceland"
-#~ msgstr "Исландия"
-
-#~ msgid "Italy"
-#~ msgstr "Италия"
-
-#~ msgid "Jamaica"
-#~ msgstr "Джамайка"
-
-#~ msgid "Jordan"
-#~ msgstr "Иордания"
-
-#~ msgid "Japan"
-#~ msgstr "Япония"
-
-#~ msgid "Kenya"
-#~ msgstr "Кения"
-
-#~ msgid "Kyrgyzstan"
-#~ msgstr "Киргизия"
-
-#~ msgid "Korea, Democratic People's Republic of"
-#~ msgstr "КНДР"
-
-#~ msgid "Korea, Republic of"
-#~ msgstr "Южная Корея"
-
-#~ msgid "Kuwait"
-#~ msgstr "Кувейт"
-
-#~ msgid "Cayman Islands"
-#~ msgstr "Каймановы Острова"
-
-#~ msgid "Kazakhstan"
-#~ msgstr "Казахстан"
-
-#~ msgid "Lebanon"
-#~ msgstr "Ливан"
-
-#~ msgid "Liechtenstein"
-#~ msgstr "Лихтенштейн"
-
-#~ msgid "Sri Lanka"
-#~ msgstr "Шриланка"
-
-#~ msgid "Lesotho"
-#~ msgstr "Лесото"
-
-#~ msgid "Lithuania"
-#~ msgstr "Литва"
-
-#~ msgid "Luxembourg"
-#~ msgstr "Люксембург"
-
-#~ msgid "Latvia"
-#~ msgstr "Латвия"
-
-#~ msgid "Morocco"
-#~ msgstr "Морокко"
-
-#~ msgid "Monaco"
-#~ msgstr "Монако"
-
-#~ msgid "Moldova, Republic of"
-#~ msgstr "Молдавия"
-
-#~ msgid "Madagascar"
-#~ msgstr "Мадагаскар"
-
-#~ msgid "Marshall Islands"
-#~ msgstr "Маршалловы Острова"
-
-#~ msgid "Mali"
-#~ msgstr "Мали"
-
-#~ msgid "Mongolia"
-#~ msgstr "Монголия"
-
-#~ msgid "Myanmar"
-#~ msgstr "Мьянма"
-
-#~ msgid "Mauritania"
-#~ msgstr "Мавритания"
-
-#~ msgid "Malta"
-#~ msgstr "Мальта"
-
-#~ msgid "Maldives"
-#~ msgstr "Мальдивы"
-
-#~ msgid "Malawi"
-#~ msgstr "Малави"
-
-#~ msgid "Mexico"
-#~ msgstr "Мексика"
-
-#~ msgid "Malaysia"
-#~ msgstr "Малайзия"
-
-#~ msgid "Mozambique"
-#~ msgstr "Мозамбик"
-
-#~ msgid "Namibia"
-#~ msgstr "Намибия"
-
-#~ msgid "New Caledonia"
-#~ msgstr "Новая Каледония"
-
-#~ msgid "Niger"
-#~ msgstr "Нигер"
-
-#~ msgid "Nigeria"
-#~ msgstr "Нигерия"
-
-#~ msgid "Nicaragua"
-#~ msgstr "Никарагуа"
-
-#~ msgid "Netherlands"
-#~ msgstr "Нидерланды"
-
-#~ msgid "Norway"
-#~ msgstr "Норвегия"
-
-#~ msgid "Nepal"
-#~ msgstr "Непал"
-
-#~ msgid "New Zealand"
-#~ msgstr "Новая Зеландия"
-
-#~ msgid "Oman"
-#~ msgstr "Оман"
-
-#~ msgid "Panama"
-#~ msgstr "Панама"
-
-#~ msgid "Peru"
-#~ msgstr "Перу"
-
-#~ msgid "French Polynesia"
-#~ msgstr "Французская Полинезия"
-
-#~ msgid "Papua New Guinea"
-#~ msgstr "Папуа Новая Гвинея"
-
-#~ msgid "Pakistan"
-#~ msgstr "Пакистан"
-
-#~ msgid "Poland"
-#~ msgstr "Польша"
-
-#~ msgid "Puerto Rico"
-#~ msgstr "Пуэрто Рико"
-
-#~ msgid "Portugal"
-#~ msgstr "Португалия"
-
-#~ msgid "Palau"
-#~ msgstr "Палау"
-
-#~ msgid "Paraguay"
-#~ msgstr "Парагвай"
-
-#~ msgid "Qatar"
-#~ msgstr "Катар"
-
-#~ msgid "Romania"
-#~ msgstr "Румыния"
-
-#~ msgid "Russian Federation"
-#~ msgstr "Российская Федерация"
-
-#~ msgid "Rwanda"
-#~ msgstr "Руанда"
-
-#~ msgid "Saudi Arabia"
-#~ msgstr "Саудовская Аравия"
-
-#~ msgid "Solomon Islands"
-#~ msgstr "Соломоновы Острова"
-
-#~ msgid "Seychelles"
-#~ msgstr "Сейшеллы"
-
-#~ msgid "Sudan"
-#~ msgstr "Судан"
-
-#~ msgid "Sweden"
-#~ msgstr "Швеция"
-
-#~ msgid "Singapore"
-#~ msgstr "Сингапур"
-
-#~ msgid "Slovenia"
-#~ msgstr "Словения"
-
-#~ msgid "Slovakia"
-#~ msgstr "Словакия"
-
-#~ msgid "Sierra Leone"
-#~ msgstr "Сьерра Лионе"
-
-#~ msgid "Senegal"
-#~ msgstr "Сенегал"
-
-#~ msgid "Somalia"
-#~ msgstr "Сомали"
-
-#~ msgid "Suriname"
-#~ msgstr "Суринам"
-
-#~ msgid "Syrian Arab Republic"
-#~ msgstr "Сирия"
-
-#~ msgid "Swaziland"
-#~ msgstr "Свазиленж"
-
-#~ msgid "Chad"
-#~ msgstr "Чад"
-
-#~ msgid "Togo"
-#~ msgstr "Того"
-
-#~ msgid "Thailand"
-#~ msgstr "Тайланд"
-
-#~ msgid "Tajikistan"
-#~ msgstr "Таджикистан"
-
-#~ msgid "Turkmenistan"
-#~ msgstr "Туркменистан"
-
-#~ msgid "Tunisia"
-#~ msgstr "Тунис"
-
-#~ msgid "Tonga"
-#~ msgstr "Тонга"
-
-#~ msgid "East Timor"
-#~ msgstr "Восточный Тимор"
-
-#~ msgid "Turkey"
-#~ msgstr "Турция"
-
-#~ msgid "Taiwan, Province of China"
-#~ msgstr "Тайвань"
-
-#~ msgid "Tanzania, United Republic of"
-#~ msgstr "Танзания"
-
-#~ msgid "Ukraine"
-#~ msgstr "Украина"
-
-#~ msgid "Uganda"
-#~ msgstr "Уганда"
-
-#~ msgid "United States of America"
-#~ msgstr "США"
-
-#~ msgid "Uruguay"
-#~ msgstr "Уругвай"
-
-#~ msgid "Uzbekistan"
-#~ msgstr "Узбекистан"
-
-#~ msgid "Vatican City State (Holy See)"
-#~ msgstr "Ватикан"
-
-#~ msgid "Venezuela"
-#~ msgstr "Венесуэла"
-
-#~ msgid "Viet Nam"
-#~ msgstr "Вьетнам"
-
-#~ msgid "Vanuatu"
-#~ msgstr "Ванату"
-
-#~ msgid "Samoa"
-#~ msgstr "Самоа"
-
-#~ msgid "Yemen"
-#~ msgstr "Йемен"
-
-#~ msgid "Yugoslavia"
-#~ msgstr "Югославия"
-
-#~ msgid "South Africa"
-#~ msgstr "Южная Африка"
-
-#~ msgid "Zambia"
-#~ msgstr "Замбия"
-
-#~ msgid "Zaire"
-#~ msgstr "Заир"
-
-#~ msgid "Zimbabwe"
-#~ msgstr "Зимбабве"
-
-#~ msgid "Unknown or unspecified country"
-#~ msgstr "Неизвестная страна"
 
 #~ msgid ""
 #~ "This value must be in COUNTRIES setting in localflavor.generic package."

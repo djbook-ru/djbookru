@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 11:15+0300\n"
+"POT-Creation-Date: 2015-07-09 21:02+0300\n"
 "PO-Revision-Date: 2014-09-27 15:18+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -18,111 +18,111 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: main/feeds.py:14
+#: feeds.py:13
 msgid "Russian DjangoBook"
 msgstr "Книга о Django на русском"
 
-#: main/feeds.py:16
+#: feeds.py:15
 msgid "Newly examples from Russian DjangoBook"
 msgstr "Свежие примеры от русского Django"
 
-#: main/forms.py:24
+#: forms.py:24
 msgid "Email"
 msgstr "е-почта"
 
-#: main/forms.py:25
+#: forms.py:25
 msgid "Message"
 msgstr "сообщение"
 
-#: main/forms.py:27
+#: forms.py:27
 msgid "Captcha"
 msgstr "капча"
 
-#: main/forms.py:43
+#: forms.py:43
 msgid "archive"
 msgstr "архив"
 
-#: main/forms.py:59
+#: forms.py:59
 msgid "This should be zip archive"
 msgstr "Хочу zip архив"
 
-#: main/forms.py:128
+#: forms.py:128
 msgid "All"
 msgstr "Все"
 
-#: main/forms.py:132
+#: forms.py:132
 msgid "Recipes"
 msgstr "Рецепты"
 
-#: main/forms.py:133
+#: forms.py:133
 msgid "Forum"
 msgstr "Форум"
 
-#: main/forms.py:134
+#: forms.py:134
 msgid "News"
 msgstr "Новости"
 
-#: main/forms.py:135
+#: forms.py:135
 msgid "Documentation"
 msgstr "Документация"
 
-#: main/forms.py:143
+#: forms.py:143
 msgid "Search by"
 msgstr "Поиск по"
 
-#: main/models.py:9 main/models.py:34
+#: models.py:9 models.py:34
 msgid "name"
 msgstr "имя"
 
-#: main/models.py:10
+#: models.py:10
 msgid "created"
 msgstr "создано"
 
-#: main/models.py:11
+#: models.py:11
 msgid "description"
 msgstr "описание"
 
-#: main/models.py:12
+#: models.py:12
 msgid "ToC"
 msgstr "Оглавление"
 
-#: main/models.py:16
+#: models.py:16
 msgid "Book"
 msgstr "Книга"
 
-#: main/models.py:17
+#: models.py:17
 msgid "Books"
 msgstr "Книги"
 
-#: main/models.py:35
+#: models.py:35
 msgid "slug"
 msgstr "метка"
 
-#: main/models.py:36
+#: models.py:36
 msgid "content"
 msgstr "содержимое"
 
-#: main/models.py:37
+#: models.py:37
 msgid "book"
 msgstr "книга"
 
-#: main/models.py:38
+#: models.py:38
 msgid "chapter"
 msgstr "глава"
 
-#: main/models.py:39
+#: models.py:39
 msgid "section"
 msgstr "раздел"
 
-#: main/models.py:44
+#: models.py:44
 msgid "Page"
 msgstr "Страница"
 
-#: main/models.py:45
+#: models.py:45
 msgid "Pages"
 msgstr "Страницы"
 
-#: main/views.py:67
+#: views.py:68
 msgid "Feedback sent success!"
 msgstr "Отзыв успешно отправлен!"
 
