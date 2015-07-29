@@ -93,6 +93,7 @@ INSTALLED_APPS = (
     'src.videos',
     'src.links',
     'src.header_messages',
+    'src.jobs',
 )
 
 TEMPLATES = [
