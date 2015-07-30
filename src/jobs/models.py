@@ -67,3 +67,6 @@ class Jobs(models.Model):
     def __unicode__(self):
         message = 'Position %s in %s' % (self.title, self.location)
         return message
+
+    def get_absolute_url(self):
+        return reverse('jobs:job_detail', args=[str(self.id)])
