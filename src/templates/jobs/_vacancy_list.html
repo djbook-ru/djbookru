@@ -1,0 +1,9 @@
+{% extends "jobs/base.html" %}
+
+{% load i18n components %}
+
+{% block content %}
+   {% for obj in object_list %}
+       {{ obj }}
+   {% endfor %}
+{% endblock %}

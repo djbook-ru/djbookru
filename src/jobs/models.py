@@ -12,7 +12,7 @@ class JobsManager(models.Manager):
     def published_jobs(self):
         return self.get_queryset().exclude(status='DRT')
 
-    def remote(self):
+    def remote_work(self):
         return self.get_queryset().exclude(remote_work=True)
 
 
@@ -65,8 +65,11 @@ class Jobs(models.Model):
         ordering = ['-pub_date']
 
     def __unicode__(self):
-        message = 'Position %s in %s' % (self.title, self.location)
-        return message
+        return '%s' % self.title
 
     def get_absolute_url(self):
         return reverse('jobs:job_detail', args=[str(self.id)])
+
+    def get_all_vacancies_company(self):
+        # TODO: get rid of the gaps in the URL
+        return reverse('jobs:all_vacancies_company', kwargs={'company': self.company_name.lower()})

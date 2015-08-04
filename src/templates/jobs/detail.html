@@ -2,7 +2,7 @@
 
 {% load i18n markup components %}
 
-{% block title %}{{ obj.title }} | {{ block.super }}{% endblock %}
+{% block title %}{{ obj }} | {{ block.super }}{% endblock %}
 
 {% block content_class %}blog-detail{% endblock %}
 
@@ -10,12 +10,18 @@
     <!-- begin primary column -->
     <article class="entry-post">
         <header class="entry-column">
-            <h1>{{ obj.title }}</h1>
+            <h1>
+            {% if obj.status != obj.PUBLISHED %}
+                <span class="label label-important">{% trans "Draft" %}</span>&nbsp;{{ obj }}
+            {% else %}
+                {{ obj }}
+            {% endif %}
+            </h1>
             <div class="byline">
-                <i class="fa fa-clock-o"></i>&nbsp;<abbr class="published" title="{{ obj.pub_date|date:'DATETIME_FORMAT' }}">{{ obj.pub_date|date:'DATE_FORMAT' }}</abbr>&nbsp;&nbsp;<i class="fa fa-location-arrow">&nbsp;{{ obj.location }}</i>&nbsp;&nbsp;<i class="fa fa-user">&nbsp;{{ obj.company_name }}</i>&nbsp;&mdash;&nbsp;<i>{{ obj.get_employment_type_display }}</i>
+                <i class="fa fa-clock-o"></i>&nbsp;<abbr class="published" title="{{ obj.pub_date|date:'DATETIME_FORMAT' }}">{{ obj.pub_date|date:'DATE_FORMAT' }}</abbr>
             </div>
             <div class="entry-meta">
-                <i class="fa fa-folder-open"></i>&nbsp;<a href="{% url 'jobs:index' %}">{% trans "Jobs" %}</a>
+                <i class="fa fa-folder-open"></i>&nbsp;<a href="{% url 'jobs:index' %}">{% trans "Jobs" %}</a>&nbsp;&nbsp;<i class="fa fa-location-arrow"></i>&nbsp;{{ obj.location }}&nbsp;&nbsp;<i class="fa fa-user"></i>&nbsp;{{ obj.company_name }}&nbsp;&mdash;&nbsp;{{ obj.get_employment_type_display }}
             </div>
         </header>
     </article>

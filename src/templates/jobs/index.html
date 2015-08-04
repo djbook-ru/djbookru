@@ -1,30 +1,24 @@
-{% extends 'jobs/base.html' %}
+{% extends "jobs/base.html" %}
 
-{% load pagination_tags i18n markup components %}
+{% load components pagination_tags i18n %}
+
+{% block title %}
+    {% trans "All positions" %} | {{ block.super }}
+{% endblock %}
 
 {% block content %}
-    {% for obj in object_list %}
-    <article class="entry-post">
-        <header class="entry-header">
-            <h3 class="entry-title">
-                <a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a>
-            </h3>
-            <div class="byline">
-                <i class="fa fa-clock-o"></i>&nbsp;<abbr class="published" title="{{ obj.pub_date|date:'DATETIME_FORMAT' }}">{{ obj.pub_date|date:'DATE_FORMAT' }}</abbr>&nbsp;&nbsp;<i class="fa fa-location-arrow">&nbsp;{{ obj.location }}</i>&nbsp;&nbsp;<i class="fa fa-user">&nbsp;<a href="#">{{ obj.company_name }}</a></i>&nbsp;&mdash;&nbsp;<i>{{ obj.get_employment_type_display }}</i>
-            </div>
-        </header>
-        <!--end entry-header -->
-        <!--begin loop of entry-posts for summary page-->
-        <div class="entry-content">
-            {{ obj.description|filter_markdown:35 }}
-            <p class="more right"><a class="btn" href="{{ obj.get_absolute_url }}">{% trans 'Read More' %}&nbsp;&rarr;</a></p>
-        </div>
-        <!-- close entry-content -->
-        <footer class="entry-footer">
-            {{ obj.pub_date|pretty_date:'blog' }}
-        </footer>
-    </article>
-    {% endfor %}
+    <aside class="widget">
+        <ul class="blogposts clearfix">
+            {% for obj in object_list %}
+            <li>
+                {{ obj.pub_date|pretty_date }}
+                <h3><a href="{{ obj.get_absolute_url }}">{{ obj }}</a></h3>
+                <a href="{{ obj.get_all_vacancies_company }}"><p><i class="fa fa-user"></i>&nbsp;{{ obj.company_name }}</p></a>
+                <p class="pull-right" style="margin-top: -1.1em"><i class="fa fa-location-arrow"></i>&nbsp;{{ obj.location }}&nbsp;&mdash;&nbsp;{{ obj.get_employment_type_display }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </aside>
 
     {% if is_paginated %}
         {% paginate %}
