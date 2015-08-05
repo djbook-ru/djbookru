@@ -34,6 +34,16 @@
         <div class="entry-content">
             {{ obj.description|markdown:"safe" }}
         </div>
+        <section class="entry-comments clearfix">
+            <h3>
+            {{ obj.company_name }}&nbsp;|&nbsp;
+            <a href="/jobs/company/github">2 other jobs</a></h3>
+            {% if obj.company_website %}
+                <a rel="nofollow" href="{{ obj.company_website }}">{{ obj.company_website }}</a>
+            {% endif %}
+            <h3>{% trans "How to apply" %}</h3>
+            {{ obj.how_to_apply }}
+        </section>
         <!-- end entry-description -->
         <div class="entry-footer">
             {{ obj.pub_date|pretty_date:"blog" }}
