@@ -20,9 +20,16 @@ class CompanyAllVacanciesListView(ListView):
         context = super(CompanyAllVacanciesListView, self).get_context_data(**kwargs)
         # getting company name
         context['company'] = self.object_list[0].company_name
+        # get a number of positions in the company
+        context['count_positions'] = len(self.object_list)
         return context
 
 
 def job_detail(request, pk):
     obj = get_object_or_404(Jobs.objects.published_jobs(), pk=pk)
     return render(request, 'jobs/detail.html', {'obj': obj})
+
+
+def vacancy_edit(request, pk):
+    # function for edit vacancy
+    pass

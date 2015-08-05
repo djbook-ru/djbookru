@@ -9,4 +9,6 @@ urlpatterns = [
     url(r'^(?P<pk>\d+)/$', 'src.jobs.views.job_detail', name="job_detail"),
     url(r'^company/(?P<company>\w+)/$', CompanyAllVacanciesListView.as_view(),
         name='all_vacancies_company'),
+    url(r'^vacancy_edit/(?P<pk>\d+)/$', 'src.jobs.views.vacancy_edit',
+        name='vacancy_edit'),
 ]

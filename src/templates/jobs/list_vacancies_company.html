@@ -3,7 +3,7 @@
 {% load components pagination_tags i18n %}
 
 {% block title %}
-    {% trans "Job listings" %} | {{ block.super }}
+    {{ company }}&nbsp;{% trans "job listings" %} | {{ block.super }}
 {% endblock %}
 
 {% block content %}

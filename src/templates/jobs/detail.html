@@ -9,7 +9,7 @@
 {% block content %}
     <!-- begin primary column -->
     <article class="entry-post">
-        <header class="entry-column">
+        <header class="entry-header">
             <h1>
             {% if obj.status != obj.PUBLISHED %}
                 <span class="label label-important">{% trans "Draft" %}</span>&nbsp;{{ obj }}
@@ -21,8 +21,23 @@
                 <i class="fa fa-clock-o"></i>&nbsp;<abbr class="published" title="{{ obj.pub_date|date:'DATETIME_FORMAT' }}">{{ obj.pub_date|date:'DATE_FORMAT' }}</abbr>
             </div>
             <div class="entry-meta">
-                <i class="fa fa-folder-open"></i>&nbsp;<a href="{% url 'jobs:index' %}">{% trans "Jobs" %}</a>&nbsp;&nbsp;<i class="fa fa-location-arrow"></i>&nbsp;{{ obj.location }}&nbsp;&nbsp;<i class="fa fa-user"></i>&nbsp;{{ obj.company_name }}&nbsp;&mdash;&nbsp;{{ obj.get_employment_type_display }}
+                <i class="fa fa-angle-left"></i>&nbsp;<a href="{% url 'jobs:index' %}">{% trans "All jobs" %}</a>&nbsp;&nbsp;<i class="fa fa-location-arrow"></i>&nbsp;{{ obj.location }}&nbsp;&mdash;&nbsp;{{ obj.get_employment_type_display }}
+                {% if user == obj.author and user.is_authenticated %}
+                    <a class="pull-right" href="{% url 'jobs:vacancy_edit' obj.pk %}">
+                        <i class="fa fa-pencil"></i>&nbsp;{% trans "Edit" %}
+                    </a>
+                {% endif %}
             </div>
+            {% include "_addthis.html" %}
         </header>
+        <!-- end entry-header -->
+        <div class="entry-content">
+            {{ obj.description|markdown:"safe" }}
+        </div>
+        <!-- end entry-description -->
+        <div class="entry-footer">
+            {{ obj.pub_date|pretty_date:"blog" }}
+            {% include "_addthis.html" %}
+        </div>
     </article>
 {% endblock %}
