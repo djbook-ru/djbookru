@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.views.generic import ListView
+from django.http import HttpResponse
 
 from src.jobs.models import Jobs
 
@@ -32,4 +33,5 @@ def job_detail(request, pk):
 
 def vacancy_edit(request, pk):
     # function for edit vacancy
-    pass
+    resp = u'Soon...'
+    return HttpResponse(resp)
