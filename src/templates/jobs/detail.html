@@ -2,7 +2,7 @@
 
 {% load i18n markup components %}
 
-{% block title %}{{ obj }} | {{ block.super }}{% endblock %}
+{% block title %}{{ object }} | {{ block.super }}{% endblock %}
 
 {% block content_class %}blog-detail{% endblock %}
 
@@ -11,19 +11,19 @@
     <article class="entry-post">
         <header class="entry-header">
             <h1>
-            {% if obj.status != obj.PUBLISHED %}
-                <span class="label label-important">{% trans "Draft" %}</span>&nbsp;{{ obj }}
+            {% if object.status != object.PUBLISHED %}
+                <span class="label label-important">{% trans "Draft" %}</span>&nbsp;{{ object }}
             {% else %}
-                {{ obj }}
+                {{ object }}
             {% endif %}
             </h1>
             <div class="byline">
-                <i class="fa fa-clock-o"></i>&nbsp;<abbr class="published" title="{{ obj.pub_date|date:'DATETIME_FORMAT' }}">{{ obj.pub_date|date:'DATE_FORMAT' }}</abbr>
+                <i class="fa fa-clock-o"></i>&nbsp;<abbr class="published" title="{{ object.pub_date|date:'DATETIME_FORMAT' }}">{{ object.pub_date|date:'DATE_FORMAT' }}</abbr>
             </div>
             <div class="entry-meta">
-                <i class="fa fa-angle-left"></i>&nbsp;<a href="{% url 'jobs:index' %}">{% trans "All jobs" %}</a>&nbsp;&nbsp;<i class="fa fa-location-arrow"></i>&nbsp;{{ obj.location }}&nbsp;&mdash;&nbsp;{{ obj.get_employment_type_display }}
-                {% if user == obj.author and user.is_authenticated %}
-                    <a class="pull-right" href="{% url 'jobs:vacancy_edit' obj.pk %}">
+                <i class="fa fa-angle-left"></i>&nbsp;<a href="{% url 'jobs:index' %}">{% trans "All jobs" %}</a>&nbsp;&nbsp;<i class="fa fa-location-arrow"></i>&nbsp;{{ object.location }}&nbsp;&mdash;&nbsp;{{ object.get_employment_type_display }}
+                {% if user == object.author and user.is_authenticated %}
+                    <a class="pull-right" href="{% url 'jobs:vacancy_edit' object.pk %}">
                         <i class="fa fa-pencil"></i>&nbsp;{% trans "Edit" %}
                     </a>
                 {% endif %}
@@ -32,22 +32,26 @@
         </header>
         <!-- end entry-header -->
         <div class="entry-content">
-            {{ obj.description|markdown:"safe" }}
+            {{ object.description|markdown:"safe" }}
         </div>
         <div class="entry-footer">
-            {{ obj.pub_date|pretty_date:"blog" }}
+            {{ object.pub_date|pretty_date:"blog" }}
             {% include "_addthis.html" %}
         </div>
         <section class="entry-comments clearfix">
             <h3>
-            {{ obj.company_name }}&nbsp;|&nbsp;
-            <!-- jobs counter as yet not worked -->
-            <a href="/jobs/company/github">2 other jobs</a></h3>
-            {% if obj.company_website %}
-                <a rel="nofollow" href="{{ obj.company_website }}">{{ obj.company_website }}</a>
+            {{ object.company_name }}&nbsp;|&nbsp;
+            {% if num_of_vac > 1 %}
+                <a href="{{ object.get_all_vacancies_company }}">{% blocktrans %}{{ num_of_vac }} other jobs{% endblocktrans %}</a>
+            {% else %}
+                {% trans "No more vacancies" %}
+            {% endif %}
+            </h3>
+            {% if object.company_website %}
+                <a rel="nofollow" href="{{ object.company_website }}" target="_blank">{{ object.company_website }}</a>
             {% endif %}
             <h3>{% trans "How to apply" %}</h3>
-            {{ obj.how_to_apply }}
+            {{ object.how_to_apply }}
         </section>
         <!-- end entry-description -->
     </article>
