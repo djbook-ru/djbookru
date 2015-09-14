@@ -73,3 +73,5 @@ class Jobs(models.Model):
     def get_all_vacancies_company(self):
         # TODO: get rid of the gaps in the URL
         return reverse('jobs:all_vacancies_company', kwargs={'company': self.company_name.lower()})
+
+    # TODO: attach markup markdovn field descriptions and how to contact
