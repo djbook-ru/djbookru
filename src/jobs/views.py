@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
+from django.utils.encoding import uri_to_iri
 
 from src.jobs.models import Jobs
 
@@ -15,7 +16,9 @@ class CompanyAllVacanciesListView(ListView):
     template_name = 'jobs/list_vacancies_company.html'
 
     def get_queryset(self):
-        return get_list_or_404(Jobs, company_name__iexact=self.kwargs['company'])
+        # transform a URL string to a string IRI
+        company = uri_to_iri(self.kwargs['company'])
+        return get_list_or_404(Jobs, company_name__iexact=company)
 
     def get_context_data(self, **kwargs):
         context = super(CompanyAllVacanciesListView, self).get_context_data(**kwargs)

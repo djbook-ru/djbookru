@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.utils.http import urlquote
+from django.utils.encoding import iri_to_uri, uri_to_iri
 from django.utils.translation import ugettext_lazy as _
 
 from src.accounts.models import User
@@ -72,6 +74,7 @@ class Jobs(models.Model):
 
     def get_all_vacancies_company(self):
         # TODO: get rid of the gaps in the URL
-        return reverse('jobs:all_vacancies_company', kwargs={'company': self.company_name.lower()})
+        url = iri_to_uri(urlquote(self.company_name.lower()))
+        return reverse('jobs:all_vacancies_company', kwargs={'company': url})
 
     # TODO: attach markup markdovn field descriptions and how to contact
