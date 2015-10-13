@@ -73,7 +73,6 @@ class Jobs(models.Model):
         return reverse('jobs:job_detail', args=[str(self.id)])
 
     def get_all_vacancies_company(self):
-        # TODO: get rid of the gaps in the URL
         url = iri_to_uri(urlquote(self.company_name.lower()))
         return reverse('jobs:all_vacancies_company', kwargs={'company': url})
 
