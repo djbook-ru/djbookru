@@ -45,7 +45,9 @@ class Jobs(models.Model):
     author = models.ForeignKey(User, verbose_name=_(u'author'))
     title = models.CharField(max_length=255, verbose_name=_(u'job title'))
     description = models.TextField(verbose_name=_(u'job description'),
-                                   help_text=_(u'Formatted with Markdown'))
+                                   help_text=_('Use <a target="blank"'
+                                    'href="http://daringfireball.net/projects/'
+                                    'markdown/syntax">Markdown</a> and HTML'))
     company_name = models.CharField(max_length=255, verbose_name=_(u'company name'))
     company_website = models.URLField(verbose_name=_(u'company website'),
                                       blank=True)
@@ -75,5 +77,3 @@ class Jobs(models.Model):
     def get_all_vacancies_company(self):
         url = iri_to_uri(urlquote(self.company_name.lower()))
         return reverse('jobs:all_vacancies_company', kwargs={'company': url})
-
-    # TODO: attach markup markdovn field descriptions and how to contact
