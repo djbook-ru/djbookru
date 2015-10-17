@@ -18,7 +18,7 @@ class ExampleForm(ModelForm):
 
     class Meta:
         model = models.Example
-        fields = '__all__'
+        exclude = ['is_draft_for']
 
 
 class ExampleAdmin(admin.ModelAdmin):

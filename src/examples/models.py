@@ -44,6 +44,7 @@ class Example(models.Model):
         _(u'note'), blank=True, help_text=_(u'author\'s note, is not visible on site'))
     url = models.URLField(_(u'URL'), blank=True)
     topic_id = models.IntegerField(_(u'Topic ID'), default='0')
+    is_draft_for = models.ForeignKey('self', verbose_name=_('is draft for'), blank=True, null=True)
 
     class Meta:
         verbose_name = _(u'Example')
@@ -79,7 +80,17 @@ class Example(models.Model):
 
     @transaction.atomic
     def save(self):
-        is_create = self.pk is None
+        is_create = self.pk is None and not self.is_draft_for
+        is_draft_apply = self.is_draft_for and self.approved
+
+        if is_draft_apply:
+            original = Example.objects.get(id=self.is_draft_for.id)
+            original.title = self.title
+            original.category = self.category
+            original.content = self.content
+            original.note = self.note
+            original.save()
+            self.delete()
 
         if is_create:
             user = self.author
@@ -90,7 +101,8 @@ class Example(models.Model):
 
             self.topic_id = topic.pk
 
-        super(Example, self).save()
+        if not is_draft_apply:
+            super(Example, self).save()
 
         if is_create:
             body = u"""Обсуждение рецепта "%s" (http://djbook.ru%s)."""
@@ -112,3 +124,12 @@ class Example(models.Model):
             topic = None
 
         return topic
+
+    def can_edit(self, user):
+        if not user.is_authenticated():
+            return False
+
+        if user.is_superuser:
+            return True
+
+        return user.is_active and self.author == user

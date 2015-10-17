@@ -10,7 +10,7 @@ from pagedown.widgets import PagedownWidget
 from . import models
 
 
-class AddExampleForm(forms.ModelForm):
+class ExampleForm(forms.ModelForm):
 
     class Meta:
         model = models.Example
@@ -22,7 +22,7 @@ class AddExampleForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
-        super(AddExampleForm, self).__init__(*args, **kwargs)
+        super(ExampleForm, self).__init__(*args, **kwargs)
         self.fields['category'].help_text = _(
             u'Choose the category for your recipe in which it should be placed in. '
             'If no category is matching your needs, choose any and write note to us. '
@@ -33,6 +33,9 @@ class AddExampleForm(forms.ModelForm):
         self.fields['note'].help_text = _(
             u'Left the note for us. For instance, your email for this recipe, '
             'if it does not exist in your profile.')
+
+
+class AddExampleForm(ExampleForm):
 
     def save(self, user):
         obj = super(AddExampleForm, self).save(False)
@@ -47,3 +50,28 @@ class AddExampleForm(forms.ModelForm):
             'author': obj.author}
         mail_managers(subject, message, True)
         return obj
+
+
+class EditExampleForm(ExampleForm):
+
+    def save(self, user):
+        if user.is_superuser:
+            return super(EditExampleForm, self).save()
+        else:
+            obj = super(EditExampleForm, self).save(False)
+            try:
+                obj.is_draft_for = models.Example.objects.get(pk=obj.pk)
+                obj.approved = False
+                obj.pk = None
+                obj.save()
+
+
+                subject = _(u'Recipe has been edited on djbook.ru')
+                message = _(u'User %(author)s edited a recipe on djbook.ru.\n\n'
+                            'Please check and approve it. URL: %(link)s') % {
+                    'link': 'http://%s%s' % (Site.objects.get_current().domain, obj.get_edit_url()),
+                    'author': obj.author}
+                mail_managers(subject, message, True)
+            except (models.Example.DoesNotExist, models.Example.MultipleObjectsReturned):
+                pass
+            return obj
