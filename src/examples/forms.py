@@ -58,7 +58,7 @@ class EditExampleForm(ExampleForm):
         if user.is_superuser:
             return super(EditExampleForm, self).save()
         else:
-            obj = super(EditExampleForm, self).save(False)
+            obj = super(EditExampleForm, self).save(commit=False)
             try:
                 obj.is_draft_for = models.Example.objects.get(pk=obj.pk)
                 obj.approved = False
@@ -71,7 +71,7 @@ class EditExampleForm(ExampleForm):
                             'Please check and approve it. URL: %(link)s') % {
                     'link': 'http://%s%s' % (Site.objects.get_current().domain, obj.get_edit_url()),
                     'author': obj.author}
-                mail_managers(subject, message, True)
+                mail_managers(subject, message, fail_silently=True)
             except (models.Example.DoesNotExist, models.Example.MultipleObjectsReturned):
                 pass
             return obj
