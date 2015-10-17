@@ -38,7 +38,7 @@ def add(request):
 @login_required
 def edit(request, pk):
     example = get_object_or_404(models.Example, pk=pk)
-    if example.author != request.user and not request.user.is_superuser:
+    if not example.can_edit(request.user):
         raise Http404
     form = forms.EditExampleForm(request.POST or None, instance=example)
 
