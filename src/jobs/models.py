@@ -45,9 +45,9 @@ class Jobs(models.Model):
     author = models.ForeignKey(User, verbose_name=_(u'author'))
     title = models.CharField(max_length=255, verbose_name=_(u'job title'))
     description = models.TextField(verbose_name=_(u'job description'),
-                                   help_text=_('Use <a target="blank"'
-                                    'href="http://daringfireball.net/projects/'
-                                    'markdown/syntax">Markdown</a> and HTML'))
+                                   help_text=_(u'Use <a target="blank"'
+                                    u'href="http://daringfireball.net/projects/'
+                                    u'markdown/syntax">Markdown</a> and HTML'))
     company_name = models.CharField(max_length=255, verbose_name=_(u'company name'))
     company_website = models.URLField(verbose_name=_(u'company website'),
                                       blank=True)

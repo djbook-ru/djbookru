@@ -1,9 +1,11 @@
-from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
+from django.contrib import messages
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
 from django.utils.encoding import uri_to_iri
 
-from src.jobs.models import Jobs
+from .models import Jobs
+from .forms import AddPositionForm
 
 
 class JobsListView(ListView):
@@ -41,7 +43,18 @@ class JobDetailView(DetailView):
 		return context
 
 
-def vacancy_edit(request, pk):
+def add_position(request):
+    form = AddPositionForm(request.POST or None)
+
+    if form.is_valid():
+        form.save(request.user)
+        messages.success(request, _(u'The vacancy has been added successfully and will be reviewed as soon as possible.'))
+        return redirect('/')
+
+    return render(request, 'jobs/add.html', {'form': form})
+
+
+def edit_position(request, pk):
     # function for edit vacancy
     resp = u'Soon...'
     return HttpResponse(resp)
