@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
+from django.core.urlresolvers import reverse
+from django.utils.translation import gettext as _
 from django.contrib import messages
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
@@ -49,7 +51,7 @@ def add_position(request):
     if form.is_valid():
         form.save(request.user)
         messages.success(request, _(u'The vacancy has been added successfully and will be reviewed as soon as possible.'))
-        return redirect('/')
+        return redirect(reverse('jobs:index'))
 
     return render(request, 'jobs/add.html', {'form': form})
 

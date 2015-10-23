@@ -30,6 +30,7 @@ class AddPositionForm(forms.ModelForm):
 	def save(self, user):
 		obj = super(AddPositionForm, self).save(False)
 		obj.author = user
+		obj.status = obj.PUBLISHED
 		obj.save()
 
 		return obj

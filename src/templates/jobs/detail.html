@@ -23,7 +23,7 @@
             <div class="entry-meta">
                 <i class="fa fa-angle-left"></i>&nbsp;<a href="{% url 'jobs:index' %}">{% trans "All jobs" %}</a>&nbsp;&nbsp;<i class="fa fa-location-arrow"></i>&nbsp;{{ object.location }}&nbsp;&mdash;&nbsp;{{ object.get_employment_type_display }}
                 {% if user == object.author and user.is_authenticated %}
-                    <a class="pull-right" href="{% url 'jobs:vacancy_edit' object.pk %}">
+                    <a class="pull-right" href="{% url 'jobs:edit_position' object.pk %}">
                         <i class="fa fa-pencil"></i>&nbsp;{% trans "Edit" %}
                     </a>
                 {% endif %}
