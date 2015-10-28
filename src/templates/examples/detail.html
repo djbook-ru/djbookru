@@ -18,11 +18,22 @@
             </div>
             <div class="entry-meta">
                 <i class="fa fa-folder-open"></i> <a href="{% url 'examples:index' %}">{% trans "Recipes" %}</a> - <a href="{{ obj.category.get_absolute_url }}">{{ obj.category }}</a>
+
                 {% if user.is_superuser %}
-                <a class="pull-right" href="{% url 'admin:examples_example_change' obj.pk %}">
+                <a class="pull-right" href="{% url 'admin:examples_example_change' obj.pk %}" style="margin-left: 10px;">
                     <i class="fa fa-pencil"></i> {% trans "Edit" %}
                 </a>
+                {% else %}
+                    {% if obj|can_edit:user %}
+                    <a class="pull-right" href="{% url "examples:edit" obj.id %}" style="margin-left: 10px;">
+                        <i class="fa fa-pencil"></i> {% trans "Edit" %}
+                    </a>
+                    {% endif %}
                 {% endif %}
+
+                <a class="pull-right" href="{{ obj.topic.get_absolute_url }}">
+                    <i class="fa fa-comment"></i> {% trans "Discuss this recipe" %}
+                </a>
             </div>
 
             <!--add this share buttons for mobile viewers-->
@@ -32,12 +43,6 @@
 
         <div class="entry-content">
             {{ obj.content|markdown:"safe" }}
-            <div class="pull-right">
-                {% if obj|can_edit:user %}
-                <a href="{% url "examples:edit" obj.id %}" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i> {% trans "Edit" %}</a>
-                {% endif %}
-                <a href="{{ obj.topic.get_absolute_url }}" class="btn">{% trans "Discuss this recipe" %}</a>
-            </div>
         </div>
         <!--end entry-content-->
 
