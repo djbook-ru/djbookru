@@ -1,6 +1,6 @@
 {% extends 'examples/base.html' %}
 
-{% load i18n markup components %}
+{% load i18n markup components example_tags %}
 
 {% block title %}{{ obj }} | {{ block.super }}{% endblock %}
 
@@ -32,7 +32,12 @@
 
         <div class="entry-content">
             {{ obj.content|markdown:"safe" }}
-            <a href="{{ obj.topic.get_absolute_url }}" class="btn" style="float: right">{% trans "Discuss this recipe" %}</a>
+            <div class="pull-right">
+                {% if obj|can_edit:user %}
+                <a href="{% url "examples:edit" obj.id %}" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i> {% trans "Edit" %}</a>
+                {% endif %}
+                <a href="{{ obj.topic.get_absolute_url }}" class="btn">{% trans "Discuss this recipe" %}</a>
+            </div>
         </div>
         <!--end entry-content-->
 

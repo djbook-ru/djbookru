@@ -344,6 +344,10 @@ msgstr "Добавить"
 msgid "Add new recipe"
 msgstr "Добавить новый рецепт"
 
+#: templates/examples/edit.html:16
+msgid "Edit recipe"
+msgstr "Редактировать рецепт"
+
 #: templates/examples/add.html:19
 msgid ""
 "You can share your receipt for\n"

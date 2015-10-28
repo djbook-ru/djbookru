@@ -34,6 +34,24 @@ def add(request):
     }
 
 
+@render_to('examples/edit.html')
+@login_required
+def edit(request, pk):
+    example = get_object_or_404(models.Example, pk=pk)
+    if not example.can_edit(request.user):
+        raise Http404
+    form = forms.EditExampleForm(request.POST or None, instance=example)
+
+    if form.is_valid():
+        form.save(request.user)
+        messages.success(request, _(u'The recipe has been edited successfully and will be reviewed as soon as possible.'))
+        return redirect('/')
+
+    return {
+        'form': form
+    }
+
+
 @render_to('examples/category.html')
 def category(request, pk):
     obj = get_object_or_404(models.Category, pk=pk)

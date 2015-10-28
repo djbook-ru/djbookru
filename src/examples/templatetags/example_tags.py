@@ -10,3 +10,8 @@ def examples_menu():
     return {
         'categories': Category.objects.all()
     }
+
+
+@register.filter
+def can_edit(obj, user):
+    return obj.can_edit(user)
