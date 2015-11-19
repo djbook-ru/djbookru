@@ -701,6 +701,8 @@ class ViewsTests(BaseTestCase):
         self.assertEqual(response.status_code, 200)
 
         url = reverse('forum:posts_per_month_chart')
+        # TODO OperationalError: near "from": syntax error
+        # Предположительно возникает из-за используемой БД (sqlite)
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
 
