@@ -11,187 +11,338 @@ from src.forum.tests.factories import CategoryFactory, ForumFactory, TopicFactor
 from src.forum.settings import FORUM_EDIT_TIMEOUT
 from .base import BaseTestCase
 
-class ModelTests(BaseTestCase):
 
-    def test_category(self):
-        public_category = CategoryFactory()
-        private_category = CategoryFactory()
-        private_category.groups.add(self.group)
+class CategoryTest(BaseTestCase):
 
-        self.assertTrue(public_category.get_absolute_url())
+    @classmethod
+    def setUpTestData(cls):
+        super(CategoryTest, cls).setUpTestData()
 
-        self.assertTrue(public_category.has_access(self.anonymous_user))
-        self.assertTrue(public_category.has_access(self.some_user))
-        self.assertTrue(public_category.has_access(self.group_user))
-        self.assertTrue(public_category.has_access(self.superuser))
+        cls.public_category = CategoryFactory()
+        cls.private_category = CategoryFactory()
+        cls.private_category.groups.add(cls.group)
 
-        self.assertFalse(private_category.has_access(self.anonymous_user))
-        self.assertFalse(private_category.has_access(self.some_user))
-        self.assertTrue(private_category.has_access(self.group_user))
-        self.assertTrue(private_category.has_access(self.superuser))
+    def test_get_absolute_url(self):
 
-        self.assertEqual(list(Category.objects.for_user(self.anonymous_user)), [public_category])
-        self.assertEqual(list(Category.objects.for_user(self.some_user)), [public_category])
-        self.assertEqual(list(Category.objects.for_user(self.group_user)),
-                         [public_category, private_category])
-        self.assertEqual(list(Category.objects.for_user(self.superuser)),
-                         [public_category, private_category])
+        self.assertTrue(self.public_category.get_absolute_url())
 
-    def test_forum(self):
-        public_forum = ForumFactory()
-        private_forum = ForumFactory()
-        private_forum.category.groups.add(self.group)
+    def test_anonymous_user_has_access_to_public_category(self):
+        self.assertTrue(self.public_category.has_access(self.anonymous_user))
 
-        self.assertTrue(public_forum.get_absolute_url())
+    def test_some_user_has_access_to_public_category(self):
+        self.assertTrue(self.public_category.has_access(self.some_user))
 
-        self.assertTrue(public_forum.has_access(self.anonymous_user))
-        self.assertTrue(public_forum.has_access(self.some_user))
-        self.assertTrue(public_forum.has_access(self.group_user))
-        self.assertTrue(public_forum.has_access(self.superuser))
+    def test_group_user_has_access_to_public_category(self):
+        self.assertTrue(self.public_category.has_access(self.group_user))
 
-        self.assertFalse(private_forum.has_access(self.anonymous_user))
-        self.assertFalse(private_forum.has_access(self.some_user))
-        self.assertTrue(private_forum.has_access(self.group_user))
-        self.assertTrue(private_forum.has_access(self.superuser))
+    def test_superuser_user_has_access_to_public_category(self):
+        self.assertTrue(self.public_category.has_access(self.superuser))
 
-    def test_topic(self):
-        public_topic = TopicFactory()
-        private_topic = TopicFactory()
-        private_topic.forum.category.groups.add(self.group)
+    def test_anonymous_user_has_no_access_to_private_category(self):
+        self.assertFalse(self.private_category.has_access(self.anonymous_user))
 
-        self.assertTrue(public_topic.get_absolute_url())
+    def test_some_user_has_no_access_to_private_category(self):
+        self.assertFalse(self.private_category.has_access(self.some_user))
 
-        # test access
-        self.assertTrue(public_topic.has_access(self.anonymous_user))
-        self.assertTrue(public_topic.has_access(self.some_user))
-        self.assertTrue(public_topic.has_access(self.group_user))
-        self.assertTrue(public_topic.has_access(self.superuser))
+    def test_group_user_has_access_to_private_category(self):
+        self.assertTrue(self.private_category.has_access(self.group_user))
 
-        self.assertFalse(private_topic.has_access(self.anonymous_user))
-        self.assertFalse(private_topic.has_access(self.some_user))
-        self.assertTrue(private_topic.has_access(self.group_user))
-        self.assertTrue(private_topic.has_access(self.superuser))
+    def test_superuser_user_has_access_to_private_category(self):
+        self.assertTrue(self.private_category.has_access(self.superuser))
 
-        # test marks
-        self.assertFalse(public_topic.heresy)
-        public_topic.mark_heresy()
-        public_topic.refresh_from_db()
-        self.assertTrue(public_topic.heresy)
-        public_topic.unmark_heresy()
-        public_topic.refresh_from_db()
-        self.assertFalse(public_topic.heresy)
+    def test_anonymous_user_accessable_categories(self):
+        self.assertSequenceEqual(list(Category.objects.for_user(self.anonymous_user)), [self.public_category])
 
-        self.assertFalse(public_topic.sticky)
-        public_topic.stick()
-        public_topic.refresh_from_db()
-        self.assertTrue(public_topic.sticky)
-        public_topic.unstick()
-        public_topic.refresh_from_db()
-        self.assertFalse(public_topic.sticky)
+    def test_some_user_accessable_categories(self):
+        self.assertSequenceEqual(list(Category.objects.for_user(self.some_user)), [self.public_category])
 
-        self.assertFalse(public_topic.closed)
-        public_topic.close()
-        public_topic.refresh_from_db()
-        self.assertTrue(public_topic.closed)
-        public_topic.open()
-        public_topic.refresh_from_db()
-        self.assertFalse(public_topic.closed)
+    def test_group_user_accessable_categories(self):
+        self.assertSequenceEqual(list(Category.objects.for_user(self.group_user)), [self.public_category, self.private_category])
 
-        # check can_delete
-        self.assertFalse(public_topic.can_delete(self.anonymous_user))
-        self.assertFalse(public_topic.can_delete(self.some_user))
-        self.assertTrue(public_topic.can_delete(self.superuser))
-        self.assertFalse(private_topic.can_delete(self.group_user))
+    def test_superuser_accessable_categories(self):
+        self.assertSequenceEqual(list(Category.objects.for_user(self.superuser)), [self.public_category, self.private_category])
 
-        # check can_edit
-        self.assertFalse(public_topic.can_edit(self.anonymous_user))
-        self.assertFalse(public_topic.can_edit(self.some_user))
-        self.assertTrue(public_topic.can_edit(self.superuser))
-        self.assertFalse(private_topic.can_edit(self.group_user))
 
-        # check can_post
-        self.assertFalse(public_topic.can_post(self.anonymous_user))
-        self.assertTrue(public_topic.can_post(self.some_user))
-        self.assertTrue(public_topic.can_post(self.group_user))
-        self.assertTrue(public_topic.can_post(self.superuser))
-        public_topic.close()
-        public_topic.refresh_from_db()
-        self.assertFalse(public_topic.can_post(self.anonymous_user))
-        self.assertFalse(public_topic.can_post(self.some_user))
-        self.assertFalse(public_topic.can_post(self.group_user))
-        self.assertFalse(public_topic.can_post(self.superuser))
+class ForumTest(BaseTestCase):
 
-        self.assertFalse(private_topic.can_post(self.anonymous_user))
-        self.assertFalse(private_topic.can_post(self.some_user))
-        self.assertTrue(private_topic.can_post(self.group_user))
-        self.assertTrue(private_topic.can_post(self.superuser))
+    @classmethod
+    def setUpTestData(cls):
+        super(ForumTest, cls).setUpTestData()
 
-        # check all posts delete
-        for post in public_topic.posts.all():
-            post.delete()
+        cls.public_forum = ForumFactory()
+        cls.private_forum = ForumFactory()
+        cls.private_forum.category.groups.add(cls.group)
 
-        self.assertFalse(Topic.objects.filter(pk=public_topic.pk).exists())
+    def test_get_absolute_url(self):
+        self.assertTrue(self.public_forum.get_absolute_url())
 
-    def test_post(self):
-        public_post = PostFactory()
-        private_post = PostFactory()
-        private_post.topic.forum.category.groups.add(self.group)
+    def test_anonymous_user_has_access_to_public_forum(self):
+        self.assertTrue(self.public_forum.has_access(self.anonymous_user))
 
-        self.assertTrue(public_post.get_absolute_url())
-        self.assertFalse(public_post.expired)
+    def test_some_user_user_has_access_to_public_forum(self):
+        self.assertTrue(self.public_forum.has_access(self.some_user))
 
-        self.assertTrue(public_post.has_access(self.anonymous_user))
-        self.assertTrue(public_post.has_access(self.some_user))
-        self.assertTrue(public_post.has_access(self.group_user))
-        self.assertTrue(public_post.has_access(self.superuser))
+    def test_group_user_user_has_access_to_public_forum(self):
+        self.assertTrue(self.public_forum.has_access(self.group_user))
 
-        self.assertFalse(private_post.has_access(self.anonymous_user))
-        self.assertFalse(private_post.has_access(self.some_user))
-        self.assertTrue(private_post.has_access(self.group_user))
-        self.assertTrue(private_post.has_access(self.superuser))
+    def test_superuser_user_has_access_to_public_forum(self):
+        self.assertTrue(self.public_forum.has_access(self.superuser))
 
-        # check can_delete
-        self.assertFalse(public_post.can_delete(self.anonymous_user))
-        self.assertFalse(public_post.can_delete(self.some_user))
-        self.assertTrue(public_post.can_delete(self.superuser))
-        self.assertFalse(private_post.can_delete(self.group_user))
+    def test_anonymous_user_has_no_accesse_to_private_forum(self):
+        self.assertFalse(self.private_forum.has_access(self.anonymous_user))
 
-        # check can_edit
-        self.assertFalse(public_post.can_edit(self.anonymous_user))
-        self.assertFalse(public_post.can_edit(self.some_user))
-        self.assertTrue(public_post.can_edit(self.superuser))
-        self.assertTrue(public_post.can_edit(public_post.user))
-        public_post.user.is_active = False
-        public_post.user.save()
-        public_post.refresh_from_db()
-        self.assertFalse(public_post.can_edit(public_post.user))
-        public_post.user.is_active = True
-        public_post.user.save()
+    def test_some_user_user_has_no_accesse_to_private_forum(self):
+        self.assertFalse(self.private_forum.has_access(self.some_user))
 
-        public_post.topic.close()
-        public_post.refresh_from_db()
-        self.assertFalse(public_post.can_edit(self.anonymous_user))
-        self.assertFalse(public_post.can_edit(self.some_user))
-        self.assertTrue(public_post.can_edit(self.superuser))
-        self.assertFalse(public_post.can_edit(public_post.user))
+    def test_group_user_user_has_accesse_to_private_forum(self):
+        self.assertTrue(self.private_forum.has_access(self.group_user))
 
-        public_post.topic.open()
-        public_post.created = timezone.now() - timedelta(seconds=(FORUM_EDIT_TIMEOUT * 60 + 1))
-        public_post.save()
-        public_post.refresh_from_db()
-        self.assertTrue(public_post.expired)
-        self.assertFalse(public_post.can_edit(self.anonymous_user))
-        self.assertFalse(public_post.can_edit(self.some_user))
-        self.assertTrue(public_post.can_edit(self.superuser))
-        self.assertFalse(public_post.can_edit(public_post.user))
+    def test_superuser_user_has_accesse_to_private_forum(self):
+        self.assertTrue(self.private_forum.has_access(self.superuser))
 
-        # check topic updates
+
+class PostTest(BaseTestCase):
+
+    @classmethod
+    def setUpTestData(cls):
+        super(PostTest, cls).setUpTestData()
+
+        cls.public_post = PostFactory()
+        cls.private_post = PostFactory()
+        cls.private_post.topic.forum.category.groups.add(cls.group)
+
+    def test_get_absolute_url(self):
+
+        self.assertTrue(self.public_post.get_absolute_url())
+
+    def test_post_is_expired(self):
+        self.assertFalse(self.public_post.expired)
+
+    def test_anonymous_user_has_access_to_public_post(self):
+        self.assertTrue(self.public_post.has_access(self.anonymous_user))
+
+    def test_some_user_user_has_access_to_public_post(self):
+        self.assertTrue(self.public_post.has_access(self.some_user))
+
+    def test_group_user_user_has_access_to_public_post(self):
+        self.assertTrue(self.public_post.has_access(self.group_user))
+
+    def test_superuser_user_has_access_to_public_post(self):
+        self.assertTrue(self.public_post.has_access(self.superuser))
+
+    def test_anonymous_user_has_no_accesse_to_private_post(self):
+        self.assertFalse(self.private_post.has_access(self.anonymous_user))
+
+    def test_some_user_user_has_no_accesse_to_private_post(self):
+        self.assertFalse(self.private_post.has_access(self.some_user))
+
+    def test_group_user_user_has_accesse_to_private_post(self):
+        self.assertTrue(self.private_post.has_access(self.group_user))
+
+    def test_superuser_user_has_accesse_to_private_post(self):
+        self.assertTrue(self.private_post.has_access(self.superuser))
+
+    def test_anonymous_user_cannot_delete_public_post(self):
+        self.assertFalse(self.public_post.can_delete(self.anonymous_user))
+
+    def test_some_user_cannot_delete_public_post(self):
+        self.assertFalse(self.public_post.can_delete(self.some_user))
+
+    def test_group_user_cannot_delete_private_post(self): # XXX private
+        self.assertFalse(self.private_post.can_delete(self.group_user))
+
+    def test_superuser_can_delete_public_post(self):
+        self.assertTrue(self.public_post.can_delete(self.superuser))
+
+    def test_anonymous_user_cannot_edite_public_post(self):
+        self.assertFalse(self.public_post.can_edit(self.anonymous_user))
+
+    def test_some_user_cannot_edite_public_post(self):
+        self.assertFalse(self.public_post.can_edit(self.some_user))
+
+    # TODO
+    def test__user_can_edite_public_post(self):
+        self.assertTrue(self.public_post.can_edit(self.public_post.user))
+
+    def test_superuser_can_edite_public_post(self):
+        self.assertTrue(self.public_post.can_edit(self.superuser))
+
+    def test_inactive_user_cannot_edit_post(self):
+
+        self.public_post.user.is_active = False
+        self.public_post.user.save()
+
+        self.assertFalse(self.public_post.can_edit(self.public_post.user))
+
+    def test_anonymous_user_cannot_edit_closed_topic(self):
+        self.public_post.topic.close()
+
+        self.assertFalse(self.public_post.can_edit(self.anonymous_user))
+
+    def test_some_user_cannot_edit_closed_topic(self):
+        self.public_post.topic.close()
+
+        self.assertFalse(self.public_post.can_edit(self.some_user))
+
+    # TODO
+    def test__user_cannot_edit_closed_topic(self):
+        self.public_post.topic.close()
+
+        self.assertFalse(self.public_post.can_edit(self.public_post.user))
+
+    def test_superuser_can_edit_closed_topic(self):
+        self.public_post.topic.close()
+
+        self.assertTrue(self.public_post.can_edit(self.superuser))
+
+
+    def test_anonymous_user_cannot_edit_expired_topic(self):
+        self.public_post.created = timezone.now() - timedelta(seconds=(FORUM_EDIT_TIMEOUT * 60 + 1))
+        self.public_post.save()
+
+        self.assertFalse(self.public_post.can_edit(self.anonymous_user))
+
+    def test_some_user_cannot_edit_expired_topic(self):
+        self.public_post.created = timezone.now() - timedelta(seconds=(FORUM_EDIT_TIMEOUT * 60 + 1))
+        self.public_post.save()
+
+        self.assertFalse(self.public_post.can_edit(self.some_user))
+
+    # TODO
+    def test__user_cannot_edit_expired_topic(self):
+        self.public_post.created = timezone.now() - timedelta(seconds=(FORUM_EDIT_TIMEOUT * 60 + 1))
+        self.public_post.save()
+
+        self.assertFalse(self.public_post.can_edit(self.public_post.user))
+
+    def test_superuser_can_edit_expired_topic(self):
+        self.public_post.created = timezone.now() - timedelta(seconds=(FORUM_EDIT_TIMEOUT * 60 + 1))
+        self.public_post.save()
+
+        self.assertTrue(self.public_post.can_edit(self.superuser))
+
+    # TODO
+    def test_expired(self):
+        self.public_post.created = timezone.now() - timedelta(seconds=(FORUM_EDIT_TIMEOUT * 60 + 1))
+        self.public_post.save()
+
+        self.assertTrue(self.public_post.expired)
+
+    # TODO
+    def test_topic_updates(self):
+
         updated = timezone.now() + timedelta(days=1)
-        self.assertNotEqual(public_post.topic.updated, updated)
-        public_post.updated = updated
-        public_post.save()
-        public_post.refresh_from_db()
-        self.assertEqual(public_post.topic.updated, updated)
+        self.assertNotEqual(self.public_post.topic.updated, updated)
+        self.public_post.updated = updated
+        self.public_post.save()
+
+        self.assertEqual(self.public_post.topic.updated, updated)
+
+
+class TopicTest(BaseTestCase):
+
+    @classmethod
+    def setUpTestData(cls):
+        super(TopicTest, cls).setUpTestData()
+
+        cls.public_topic = TopicFactory()
+        cls.private_topic = TopicFactory()
+        cls.private_topic.forum.category.groups.add(cls.group)
+
+    def test_get_absolute_url(self):
+        self.assertTrue(self.public_topic.get_absolute_url())
+
+    def test_anonymous_user_has_access_to_public_topic(self):
+        self.assertTrue(self.public_topic.has_access(self.anonymous_user))
+
+    def test_some_user_has_access_to_public_topic(self):
+        self.assertTrue(self.public_topic.has_access(self.some_user))
+
+    def test_group_user_has_access_to_public_topic(self):
+        self.assertTrue(self.public_topic.has_access(self.group_user))
+
+    def test_superuser_user_has_access_to_public_topic(self):
+        self.assertTrue(self.public_topic.has_access(self.superuser))
+
+    def test_anonymous_user_has_no_access_to_private_topic(self):
+        self.assertFalse(self.private_topic.has_access(self.anonymous_user))
+
+    def test_some_user_has_no_access_to_private_topic(self):
+        self.assertFalse(self.private_topic.has_access(self.some_user))
+
+    def test_group_user_has_access_to_private_topic(self):
+        self.assertTrue(self.private_topic.has_access(self.group_user))
+
+    def test_superuser_user_has_access_to_private_topic(self):
+        self.assertTrue(self.private_topic.has_access(self.superuser))
+
+    def test_marks(self):
+
+        self.assertFalse(self.public_topic.heresy)
+        self.public_topic.mark_heresy()
+        self.public_topic.refresh_from_db()
+        self.assertTrue(self.public_topic.heresy)
+        self.public_topic.unmark_heresy()
+        self.public_topic.refresh_from_db()
+        self.assertFalse(self.public_topic.heresy)
+
+        self.assertFalse(self.public_topic.sticky)
+        self.public_topic.stick()
+        self.public_topic.refresh_from_db()
+        self.assertTrue(self.public_topic.sticky)
+        self.public_topic.unstick()
+        self.public_topic.refresh_from_db()
+        self.assertFalse(self.public_topic.sticky)
+
+        self.assertFalse(self.public_topic.closed)
+        self.public_topic.close()
+        self.public_topic.refresh_from_db()
+        self.assertTrue(self.public_topic.closed)
+        self.public_topic.open()
+        self.public_topic.refresh_from_db()
+        self.assertFalse(self.public_topic.closed)
+
+    def test_anonymous_user_cannot_delete_public_topic(self):
+        self.assertFalse(self.public_topic.can_delete(self.anonymous_user))
+
+    def test_some_user_cannot_delete_public_topic(self):
+        self.assertFalse(self.public_topic.can_delete(self.some_user))
+
+    def test_group_user_cannot_delete_private_topic(self): # XXX private
+        self.assertFalse(self.private_topic.can_delete(self.group_user))
+
+    def test_superuser_can_delete_public_topic(self):
+        self.assertTrue(self.public_topic.can_delete(self.superuser))
+
+    def test_anonymous_user_cannot_edite_public_post(self):
+        self.assertFalse(self.public_topic.can_edit(self.anonymous_user))
+
+    def test_some_user_cannot_edite_public_post(self):
+        self.assertFalse(self.public_topic.can_edit(self.some_user))
+
+    def test_group_user_can_edite_public_post(self): # TODO private
+        self.assertFalse(self.private_topic.can_edit(self.group_user))
+
+    def test_superuser_can_edite_public_post(self):
+        self.assertTrue(self.public_topic.can_edit(self.superuser))
+
+    def test_can_post(self):
+
+        self.assertFalse(self.public_topic.can_post(self.anonymous_user))
+        self.assertTrue(self.public_topic.can_post(self.some_user))
+        self.assertTrue(self.public_topic.can_post(self.group_user))
+        self.assertTrue(self.public_topic.can_post(self.superuser))
+        self.public_topic.close()
+        self.public_topic.refresh_from_db()
+        self.assertFalse(self.public_topic.can_post(self.anonymous_user))
+        self.assertFalse(self.public_topic.can_post(self.some_user))
+        self.assertFalse(self.public_topic.can_post(self.group_user))
+        self.assertFalse(self.public_topic.can_post(self.superuser))
+
+        self.assertFalse(self.private_topic.can_post(self.anonymous_user))
+        self.assertFalse(self.private_topic.can_post(self.some_user))
+        self.assertTrue(self.private_topic.can_post(self.group_user))
+        self.assertTrue(self.private_topic.can_post(self.superuser))
 
     def test_read_unread(self):
         # we do not track this for anonymous user, so just test API
@@ -252,6 +403,8 @@ class ModelTests(BaseTestCase):
         self.assertTrue(topic1.has_unread(self.group_user))
         self.assertTrue(topic.has_unread(self.group_user))
         self.assertTrue(topic.forum.has_unread(self.group_user))
+
+class TopicManagerTest(BaseTestCase):
 
     def test_topic_manager(self):
         public_forum = ForumFactory()

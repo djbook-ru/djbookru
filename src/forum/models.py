@@ -21,6 +21,7 @@ class CategoryManager(models.Manager):
     # TODO: Make queryset, so you can use this with more complex queries
     def for_user(self, user):
         qs = super(CategoryManager, self).get_queryset()
+
         if user.is_superuser and user.is_active:
             return qs
         elif user.is_authenticated():
