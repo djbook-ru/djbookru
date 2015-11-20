@@ -7,7 +7,7 @@ from django.conf import settings
 from django.contrib.auth.models import Group
 from django.core.urlresolvers import reverse
 from django.db import connection, models
-from django.db.models import Q
+from django.db.models import Q, F
 from django.utils import timezone
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
@@ -168,16 +168,22 @@ WHERE ff.category_id IN (%s) AND (fv.time IS NULL OR fv.time < ft.updated);''' %
 
     def unread_count(self, user):
         # return count of unread topics
+        # return self.filter(Q(visit__time__lt=F('updated')) & Q(visit__user__id=user.pk), forum__category__id__in=category_ids).count()
         category_ids = Category.objects.for_user(user).values_list('pk', flat=True)
+
         if not category_ids:
             return 0
+
         category_ids = ', '.join(str(id) for id in category_ids)
 
         cursor = connection.cursor()
 
-        query = '''SELECT COUNT(*) FROM forum_topic ft INNER JOIN forum_forum ff ON ft.forum_id = ff.id
-LEFT JOIN forum_visit fv ON ft.id = fv.topic_id AND fv.user_id = %%s
-WHERE ff.category_id IN (%s) AND (fv.time IS NULL OR fv.time < ft.updated);''' % category_ids
+        query = '''
+        SELECT COUNT(*)
+        FROM forum_topic ft
+            INNER JOIN forum_forum ff ON ft.forum_id = ff.id
+            LEFT JOIN forum_visit fv ON ft.id = fv.topic_id AND fv.user_id = %%s
+        WHERE ff.category_id IN (%s) AND (fv.time IS NULL OR fv.time < ft.updated);''' % category_ids
 
         cursor.execute(query, [user.pk])
         row = cursor.fetchone()
