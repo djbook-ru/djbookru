@@ -145,6 +145,11 @@ class Visit(models.Model):
 class TopicManager(models.Manager):
 
     def unread_for_forum(self, user, forum):
+
+        """
+        Возвращает непрочитанные переданным пользователем темы на переданном форуме.
+        """
+
         # return user unread topics for forum
         if not forum.has_access(user):
             return Topic.objects.none()
@@ -154,10 +159,16 @@ WHERE ft.forum_id = %s AND (fv.time IS NULL OR fv.time < ft.updated);'''
         return self.raw(query, [user.pk, forum.pk])
 
     def unread(self, user):
-        # return all unread topics for user
+
+        """
+        Возвращает непрочитанные пользователем темы.
+        """
+
         category_ids = Category.objects.for_user(user).values_list('pk', flat=True)
+
         if not category_ids:
             return []
+
         category_ids = ', '.join(str(id) for id in category_ids)
 
         query = '''SELECT ft.* FROM forum_topic ft INNER JOIN forum_forum ff ON ft.forum_id = ff.id
@@ -167,7 +178,11 @@ WHERE ff.category_id IN (%s) AND (fv.time IS NULL OR fv.time < ft.updated);''' %
         return self.raw(query, [user.pk])
 
     def unread_count(self, user):
-        # return count of unread topics
+
+        """
+        Возвращает количество непрочитанных переданным пользователем тем.
+        """
+
         # return self.filter(Q(visit__time__lt=F('updated')) & Q(visit__user__id=user.pk), forum__category__id__in=category_ids).count()
         category_ids = Category.objects.for_user(user).values_list('pk', flat=True)
 
@@ -307,9 +322,11 @@ class Topic(models.Model, RatingMixin):
         return visit
 
     def has_unread(self, user):
+
         # Do not track for anonymous users
         if not user.is_authenticated():
             return False
+
         return not Visit.objects.filter(user=user, topic=self, time__gte=self.updated).exists()
 
     def send_email_about_post(self, post):
