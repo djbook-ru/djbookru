@@ -7,7 +7,7 @@ from django.conf import settings
 from django.contrib.auth.models import Group
 from django.core.urlresolvers import reverse
 from django.db import connection, models
-from django.db.models import Q, F
+from django.db.models import Q
 from django.utils import timezone
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
@@ -183,7 +183,7 @@ WHERE ff.category_id IN (%s) AND (fv.time IS NULL OR fv.time < ft.updated);''' %
         Возвращает количество непрочитанных переданным пользователем тем.
         """
 
-        # return self.filter(Q(visit__time__lt=F('updated')) & Q(visit__user__id=user.pk), forum__category__id__in=category_ids).count()
+        # return self.filter(Q(visit__time__lt=models.F('updated')) & Q(visit__user__id=user.pk), forum__category__id__in=category_ids).count()
         category_ids = Category.objects.for_user(user).values_list('pk', flat=True)
 
         if not category_ids:

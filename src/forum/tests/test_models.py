@@ -256,6 +256,9 @@ class TopicTest(BaseTestCase):
         for _ in range(3):
             PostFactory(topic=cls.topic)
 
+    def setUp(self):
+        self.public_topic.refresh_from_db()
+
     def test_get_absolute_url(self):
         self.assertTrue(self.public_topic.get_absolute_url())
 
