@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
 
+import unittest
+
 from time import sleep
 from datetime import timedelta
 
@@ -73,6 +75,47 @@ class ForumTest(BaseTestCase):
         cls.private_forum = ForumFactory()
         cls.private_forum.category.groups.add(cls.group)
 
+    # def test_read_unread(self):
+
+    #     # we do not track this for anonymous user, so just test API
+    #     topic = TopicFactory()
+
+    #     self.assertFalse(self.topic.forum.has_unread(self.anonymous_user))
+    #     self.assertTrue(self.topic.forum.has_unread(self.some_user))
+    #     self.assertTrue(self.topic.forum.has_unread(self.group_user))
+
+    #     # mark topic as read
+    #     self.topic.mark_visited_for(self.anonymous_user)
+    #     self.topic.mark_visited_for(self.some_user)
+
+    #     self.topic.refresh_from_db()
+    #     self.assertFalse(self.topic.forum.has_unread(self.some_user))
+    #     self.assertTrue(self.topic.forum.has_unread(self.group_user))
+
+    #     # add one more post
+    #     # FIXME: sleep is a crap, but MySQL does not save milliseconds, so visit time and
+    #     # new post time are equal
+    #     sleep(1)
+    #     PostFactory(topic=self.topic)
+    #     self.topic.refresh_from_db()
+    #     self.assertTrue(self.topic.forum.has_unread(self.some_user))
+    #     self.assertTrue(self.topic.forum.has_unread(self.group_user))
+
+    #     # test Forum.mark_read
+    #     self.topic.forum.mark_read(self.some_user)
+    #     self.topic.refresh_from_db()
+    #     self.assertFalse(self.topic.forum.has_unread(self.some_user))
+    #     self.assertTrue(self.topic.forum.has_unread(self.group_user))
+
+    #     topic1 = TopicFactory(forum=self.topic.forum)
+    #     self.assertTrue(self.topic.forum.has_unread(self.some_user))
+    #     self.assertTrue(self.topic.forum.has_unread(self.group_user))
+
+    #     self.topic.forum.mark_read(self.some_user)
+    #     self.topic.refresh_from_db()
+    #     self.assertFalse(self.topic.forum.has_unread(self.some_user))
+    #     self.assertTrue(self.topic.forum.has_unread(self.group_user))
+
     def test_get_absolute_url(self):
         self.assertTrue(self.public_forum.get_absolute_url())
 
@@ -111,8 +154,10 @@ class PostTest(BaseTestCase):
         cls.private_post = PostFactory()
         cls.private_post.topic.forum.category.groups.add(cls.group)
 
-    def test_get_absolute_url(self):
+    def setUp(self):
+        self.public_post.refresh_from_db()
 
+    def test_get_absolute_url(self):
         self.assertTrue(self.public_post.get_absolute_url())
 
     def test_post_is_expired(self):
@@ -258,6 +303,7 @@ class TopicTest(BaseTestCase):
 
     def setUp(self):
         self.public_topic.refresh_from_db()
+        self.topic.refresh_from_db()
 
     def test_get_absolute_url(self):
         self.assertTrue(self.public_topic.get_absolute_url())
@@ -341,7 +387,7 @@ class TopicTest(BaseTestCase):
     def test_authenticated_user_cannot_edite_public_post(self):
         self.assertFalse(self.public_topic.can_edit(self.some_user))
 
-    def test_group_user_can_edite_public_post(self): # TODO private
+    def test_group_user_can_edite_public_post(self): # XXX private
         self.assertFalse(self.private_topic.can_edit(self.group_user))
 
     def test_superuser_can_edite_public_post(self):
@@ -362,25 +408,21 @@ class TopicTest(BaseTestCase):
     def test_anonymous_user_cannot_to_post_in_closed_topic(self):
 
         self.public_topic.close()
-        self.public_topic.refresh_from_db()
         self.assertFalse(self.public_topic.can_post(self.anonymous_user))
 
     def test_authenticated_user_cannot_to_post_in_closed_topic(self):
 
         self.public_topic.close()
-        self.public_topic.refresh_from_db()
         self.assertFalse(self.public_topic.can_post(self.some_user))
 
     def test_group_user_cannot_to_post_in_closed_topic(self):
 
         self.public_topic.close()
-        self.public_topic.refresh_from_db()
         self.assertFalse(self.public_topic.can_post(self.group_user))
 
     def test_superuser_cannot_to_post_in_closed_topic(self):
 
         self.public_topic.close()
-        self.public_topic.refresh_from_db()
         self.assertFalse(self.public_topic.can_post(self.superuser))
 
     def test_anonymous_user_cannot_to_post_in_private_topic(self):
@@ -395,61 +437,58 @@ class TopicTest(BaseTestCase):
     def test_superuser_cannot_to_post_in_private_topic(self):
         self.assertTrue(self.private_topic.can_post(self.superuser))
 
-    def test_read_unread(self):
-
+    def test_has_unread_if_user_is_anonymous(self):
         self.assertFalse(self.topic.has_unread(self.anonymous_user))
+
+    def test_has_unread_if_user_is_authenticated(self):
         self.assertTrue(self.topic.has_unread(self.some_user))
+
+    def test_has_unread_if_user_is_group_user(self):
         self.assertTrue(self.topic.has_unread(self.group_user))
 
-        self.assertFalse(self.topic.forum.has_unread(self.anonymous_user))
-        self.assertTrue(self.topic.forum.has_unread(self.some_user))
-        self.assertTrue(self.topic.forum.has_unread(self.group_user))
-
-        # mark topic as read
-        self.topic.mark_visited_for(self.anonymous_user)
+    def test_has_unread_if_user_is_authenticated_and_if_topic_is_visited(self):
         self.topic.mark_visited_for(self.some_user)
 
-        self.topic.refresh_from_db()
         self.assertFalse(self.topic.has_unread(self.some_user))
-        self.assertFalse(self.topic.forum.has_unread(self.some_user))
         self.assertTrue(self.topic.has_unread(self.group_user))
-        self.assertTrue(self.topic.forum.has_unread(self.group_user))
 
-        # add one more post
-        # FIXME: sleep is a crap, but MySQL does not save milliseconds, so visit time and
-        # new post time are equal
+
+    def test_has_unread_if_user_is_authenticated_and_new_post_created(self):
+        # FIXME: sleep is a crap, but MySQL does not save milliseconds, so visit time and new post time are equal
         sleep(1)
         PostFactory(topic=self.topic)
-        self.topic.refresh_from_db()
         self.assertTrue(self.topic.has_unread(self.some_user))
-        self.assertTrue(self.topic.forum.has_unread(self.some_user))
-        self.assertTrue(self.topic.has_unread(self.group_user))
-        self.assertTrue(self.topic.forum.has_unread(self.group_user))
 
-        # test Forum.mark_read
-        self.topic.forum.mark_read(self.some_user)
-        self.topic.refresh_from_db()
-        self.assertFalse(self.topic.has_unread(self.some_user))
-        self.assertFalse(self.topic.forum.has_unread(self.some_user))
+    def test_has_unread_if_user_is_group_user_and_new_post_created(self):
+        # FIXME: sleep is a crap, but MySQL does not save milliseconds, so visit time and new post time are equal
+        sleep(1)
+        PostFactory(topic=self.topic)
         self.assertTrue(self.topic.has_unread(self.group_user))
-        self.assertTrue(self.topic.forum.has_unread(self.group_user))
+
+    def test_has_unread_if_forum_is_was_read(self):
+        self.topic.forum.mark_read(self.some_user)
+
+        self.assertFalse(self.topic.has_unread(self.some_user))
+        self.assertTrue(self.topic.has_unread(self.group_user))
+
+    def test_some_crap(self):
+        self.topic.mark_visited_for(self.some_user)
 
         topic1 = TopicFactory(forum=self.topic.forum)
         self.assertTrue(topic1.has_unread(self.some_user))
-        self.assertTrue(self.topic.forum.has_unread(self.some_user))
         self.assertFalse(self.topic.has_unread(self.some_user))
-        self.assertTrue(topic1.has_unread(self.group_user))
-        self.assertTrue(self.topic.has_unread(self.group_user))
-        self.assertTrue(self.topic.forum.has_unread(self.group_user))
 
+        self.assertTrue(topic1.has_unread(self.group_user))
+        self.assertTrue(self.topic.has_unread(self.group_user))
+
+
+    def test_some_crap_2(self):
+        topic1 = TopicFactory(forum=self.topic.forum)
         self.topic.forum.mark_read(self.some_user)
-        self.topic.refresh_from_db()
         self.assertFalse(topic1.has_unread(self.some_user))
-        self.assertFalse(self.topic.forum.has_unread(self.some_user))
         self.assertFalse(self.topic.has_unread(self.some_user))
         self.assertTrue(topic1.has_unread(self.group_user))
         self.assertTrue(self.topic.has_unread(self.group_user))
-        self.assertTrue(self.topic.forum.has_unread(self.group_user))
 
 class TopicManagerTest(BaseTestCase):
 
