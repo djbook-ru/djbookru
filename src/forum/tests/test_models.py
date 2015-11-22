@@ -78,19 +78,29 @@ class ForumTest(BaseTestCase):
         cls.forum = ForumFactory()
         cls.topic = TopicFactory(forum=cls.forum)
 
-    def test_read_unread(self):
+    def setUp(self):
+        self.topic.refresh_from_db()
 
+    def test_has_unread_for_anonymous_user(self):
         self.assertFalse(self.forum.has_unread(self.anonymous_user))
+
+    def test_has_unread_for_authenticated_user(self):
         self.assertTrue(self.forum.has_unread(self.some_user))
+
+    def test_has_unread_for_group_user(self):
         self.assertTrue(self.forum.has_unread(self.group_user))
 
-        # mark topic as read
+    def test_has_unread_if_topic_is_visited(self):
+
+        # XXX wtf?
         self.topic.mark_visited_for(self.anonymous_user)
         self.topic.mark_visited_for(self.some_user)
 
-        self.topic.refresh_from_db()
+        # XXX wtf?
         self.assertFalse(self.forum.has_unread(self.some_user))
         self.assertTrue(self.forum.has_unread(self.group_user))
+
+    def test_has_unread_for_authenticated_user_if_new_post_was_created(self):
 
         # add one more post
         # FIXME: sleep is a crap, but MySQL does not save milliseconds, so visit time and
@@ -99,21 +109,27 @@ class ForumTest(BaseTestCase):
         PostFactory(topic=self.topic)
         self.topic.refresh_from_db()
         self.assertTrue(self.forum.has_unread(self.some_user))
+
+    def test_has_unread_for_group_user_if_new_post_was_created(self):
+
+        # add one more post
+        # FIXME: sleep is a crap, but MySQL does not save milliseconds, so visit time and
+        # new post time are equal
+        sleep(1)
+        PostFactory(topic=self.topic)
+        self.topic.refresh_from_db()
         self.assertTrue(self.forum.has_unread(self.group_user))
 
-        # test Forum.mark_read
+    def test_has_unread_mark_read(self):
+
         self.forum.mark_read(self.some_user)
-        self.topic.refresh_from_db()
         self.assertFalse(self.forum.has_unread(self.some_user))
         self.assertTrue(self.forum.has_unread(self.group_user))
+
+    def test_has_unread_if_new_topic_created(self):
 
         topic1 = TopicFactory(forum=self.forum)
         self.assertTrue(self.forum.has_unread(self.some_user))
-        self.assertTrue(self.forum.has_unread(self.group_user))
-
-        self.forum.mark_read(self.some_user)
-        self.topic.refresh_from_db()
-        self.assertFalse(self.forum.has_unread(self.some_user))
         self.assertTrue(self.forum.has_unread(self.group_user))
 
     def test_get_absolute_url(self):
