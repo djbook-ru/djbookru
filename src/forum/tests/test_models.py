@@ -75,46 +75,46 @@ class ForumTest(BaseTestCase):
         cls.private_forum = ForumFactory()
         cls.private_forum.category.groups.add(cls.group)
 
-    # def test_read_unread(self):
+        cls.forum = ForumFactory()
+        cls.topic = TopicFactory(forum=cls.forum)
 
-    #     # we do not track this for anonymous user, so just test API
-    #     topic = TopicFactory()
+    def test_read_unread(self):
 
-    #     self.assertFalse(self.topic.forum.has_unread(self.anonymous_user))
-    #     self.assertTrue(self.topic.forum.has_unread(self.some_user))
-    #     self.assertTrue(self.topic.forum.has_unread(self.group_user))
+        self.assertFalse(self.forum.has_unread(self.anonymous_user))
+        self.assertTrue(self.forum.has_unread(self.some_user))
+        self.assertTrue(self.forum.has_unread(self.group_user))
 
-    #     # mark topic as read
-    #     self.topic.mark_visited_for(self.anonymous_user)
-    #     self.topic.mark_visited_for(self.some_user)
+        # mark topic as read
+        self.topic.mark_visited_for(self.anonymous_user)
+        self.topic.mark_visited_for(self.some_user)
 
-    #     self.topic.refresh_from_db()
-    #     self.assertFalse(self.topic.forum.has_unread(self.some_user))
-    #     self.assertTrue(self.topic.forum.has_unread(self.group_user))
+        self.topic.refresh_from_db()
+        self.assertFalse(self.forum.has_unread(self.some_user))
+        self.assertTrue(self.forum.has_unread(self.group_user))
 
-    #     # add one more post
-    #     # FIXME: sleep is a crap, but MySQL does not save milliseconds, so visit time and
-    #     # new post time are equal
-    #     sleep(1)
-    #     PostFactory(topic=self.topic)
-    #     self.topic.refresh_from_db()
-    #     self.assertTrue(self.topic.forum.has_unread(self.some_user))
-    #     self.assertTrue(self.topic.forum.has_unread(self.group_user))
+        # add one more post
+        # FIXME: sleep is a crap, but MySQL does not save milliseconds, so visit time and
+        # new post time are equal
+        sleep(1)
+        PostFactory(topic=self.topic)
+        self.topic.refresh_from_db()
+        self.assertTrue(self.forum.has_unread(self.some_user))
+        self.assertTrue(self.forum.has_unread(self.group_user))
 
-    #     # test Forum.mark_read
-    #     self.topic.forum.mark_read(self.some_user)
-    #     self.topic.refresh_from_db()
-    #     self.assertFalse(self.topic.forum.has_unread(self.some_user))
-    #     self.assertTrue(self.topic.forum.has_unread(self.group_user))
+        # test Forum.mark_read
+        self.forum.mark_read(self.some_user)
+        self.topic.refresh_from_db()
+        self.assertFalse(self.forum.has_unread(self.some_user))
+        self.assertTrue(self.forum.has_unread(self.group_user))
 
-    #     topic1 = TopicFactory(forum=self.topic.forum)
-    #     self.assertTrue(self.topic.forum.has_unread(self.some_user))
-    #     self.assertTrue(self.topic.forum.has_unread(self.group_user))
+        topic1 = TopicFactory(forum=self.forum)
+        self.assertTrue(self.forum.has_unread(self.some_user))
+        self.assertTrue(self.forum.has_unread(self.group_user))
 
-    #     self.topic.forum.mark_read(self.some_user)
-    #     self.topic.refresh_from_db()
-    #     self.assertFalse(self.topic.forum.has_unread(self.some_user))
-    #     self.assertTrue(self.topic.forum.has_unread(self.group_user))
+        self.forum.mark_read(self.some_user)
+        self.topic.refresh_from_db()
+        self.assertFalse(self.forum.has_unread(self.some_user))
+        self.assertTrue(self.forum.has_unread(self.group_user))
 
     def test_get_absolute_url(self):
         self.assertTrue(self.public_forum.get_absolute_url())
@@ -452,7 +452,6 @@ class TopicTest(BaseTestCase):
         self.assertFalse(self.topic.has_unread(self.some_user))
         self.assertTrue(self.topic.has_unread(self.group_user))
 
-
     def test_has_unread_if_user_is_authenticated_and_new_post_created(self):
         # FIXME: sleep is a crap, but MySQL does not save milliseconds, so visit time and new post time are equal
         sleep(1)
@@ -471,6 +470,7 @@ class TopicTest(BaseTestCase):
         self.assertFalse(self.topic.has_unread(self.some_user))
         self.assertTrue(self.topic.has_unread(self.group_user))
 
+    # TODO
     def test_some_crap(self):
         self.topic.mark_visited_for(self.some_user)
 
@@ -480,7 +480,6 @@ class TopicTest(BaseTestCase):
 
         self.assertTrue(topic1.has_unread(self.group_user))
         self.assertTrue(self.topic.has_unread(self.group_user))
-
 
     def test_some_crap_2(self):
         topic1 = TopicFactory(forum=self.topic.forum)
