@@ -486,23 +486,28 @@ class TopicTest(BaseTestCase):
         self.assertFalse(self.topic.has_unread(self.some_user))
         self.assertTrue(self.topic.has_unread(self.group_user))
 
-    # TODO
-    def test_some_crap(self):
+    def test_has_unread_with_visited_and_new_topic(self):
         self.topic.mark_visited_for(self.some_user)
 
-        topic1 = TopicFactory(forum=self.topic.forum)
-        self.assertTrue(topic1.has_unread(self.some_user))
+        another_topic = TopicFactory(forum=self.topic.forum)
+
+        self.assertTrue(another_topic.has_unread(self.some_user))
         self.assertFalse(self.topic.has_unread(self.some_user))
 
-        self.assertTrue(topic1.has_unread(self.group_user))
+        # check no side effects
+        self.assertTrue(another_topic.has_unread(self.group_user))
         self.assertTrue(self.topic.has_unread(self.group_user))
 
-    def test_some_crap_2(self):
-        topic1 = TopicFactory(forum=self.topic.forum)
+    def test_has_unread_with_readed_and_new_topic(self):
+        another_topic = TopicFactory(forum=self.topic.forum)
+
         self.topic.forum.mark_read(self.some_user)
-        self.assertFalse(topic1.has_unread(self.some_user))
+
+        self.assertFalse(another_topic.has_unread(self.some_user))
         self.assertFalse(self.topic.has_unread(self.some_user))
-        self.assertTrue(topic1.has_unread(self.group_user))
+
+        # check no side effects
+        self.assertTrue(another_topic.has_unread(self.group_user))
         self.assertTrue(self.topic.has_unread(self.group_user))
 
 class TopicManagerTest(BaseTestCase):
