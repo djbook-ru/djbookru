@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
 
+import unittest
 from datetime import timedelta
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core import mail
 from django.utils import timezone
+from django.db import connection
 
 from src.forum.models import Category, Topic, Post
 from src.forum.tests.factories import CategoryFactory, ForumFactory, TopicFactory, PostFactory
@@ -671,6 +673,9 @@ class ViewsTests(BaseTestCase):
 
         self._test_vote(public_post, private_post, public_url, private_url)
 
+    # TODO OperationalError: near "from": syntax error
+    # Предположительно возникает из-за используемой БД (sqlite)
+    @unittest.skipIf(connection.vendor == "sqlite", u'Ошибка синтаксиса SQL')
     def test_statistic(self):
         for _ in range(10):
             PostFactory()
@@ -680,8 +685,6 @@ class ViewsTests(BaseTestCase):
         self.assertEqual(response.status_code, 200)
 
         url = reverse('forum:posts_per_month_chart')
-        # TODO OperationalError: near "from": syntax error
-        # Предположительно возникает из-за используемой БД (sqlite)
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
 
