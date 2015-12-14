@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, get_list_or_404, redirec
 from django.core.urlresolvers import reverse
 from django.utils.translation import gettext as _
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
 from django.utils.encoding import uri_to_iri
@@ -45,6 +46,7 @@ class JobDetailView(DetailView):
 		return context
 
 
+@login_required
 def add_position(request):
     form = AddPositionForm(request.POST or None)
 
