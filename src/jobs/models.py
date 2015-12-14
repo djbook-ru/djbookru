@@ -74,6 +74,9 @@ class Jobs(models.Model):
     def get_absolute_url(self):
         return reverse('jobs:job_detail', args=[str(self.id)])
 
+    def get_edit_url(self):
+        return reverse('admin:jobs_jobs_change', args=[str(self.id)])
+
     def get_all_vacancies_company(self):
         url = iri_to_uri(urlquote(self.company_name.lower()))
         return reverse('jobs:all_vacancies_company', kwargs={'company': url})
