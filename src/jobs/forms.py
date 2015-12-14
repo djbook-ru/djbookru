@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from django import forms
+from django.core.mail import mail_managers
+from django.contrib.sites.models import Site
 from django.utils.translation import ugettext_lazy as _
 
 from pagedown.widgets import PagedownWidget
@@ -33,6 +35,12 @@ class AddPositionForm(forms.ModelForm):
 		obj.status = obj.PUBLISHED
 		obj.save()
 
-		return obj
+		# sending messages to the administrator about adding positions
+		subject = _(u'New vacancy has been added on djbook.ru')
+		message = _(u'User %(author)s added a new vacancy on djbook.ru.\n\n'
+			        'Please check and approve it. URL: %(link)s') % {
+		    'link': 'http://%s%s' % (Site.objects.get_current().domain, obj.get_edit_url()),
+		    'author': obj.author}
+		mail_managers(subject, message, True)
 
-# TODO: реализовать добавление данных из формы в БД.
+		return obj
