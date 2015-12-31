@@ -2,6 +2,7 @@
 
 import markdown
 import re
+import datetime
 from random import shuffle
 
 from django import template
@@ -69,6 +70,12 @@ def user_counter():
     return {
         'user_count': User.objects.count()
     }
+
+
+@register.assignment_tag
+def is_happy_new_year():
+    today = datetime.date.today()
+    return today.month == 12 and today.day == 31 or today.month == 1 and today.day in range(1, 11)
 
 
 @register.inclusion_tag('main/_facebook_like.html')
