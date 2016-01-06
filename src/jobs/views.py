@@ -62,16 +62,16 @@ def add_position(request):
 @login_required
 def edit_position(request, pk):
     job = get_object_or_404(Jobs, pk=pk)
+    # message with job title
+    msg = _(u'The vacancy "%s" has been successfully updated.' % job.title)
     # job_id for url action form attribute
     job_id = job.id
+    # bounded form
+    form = EditPositionForm(request.POST or None, instance=job)
 
-    if request.method == 'POST':
-        form = EditPositionForm(request.POST, instance=job)
-        if form.is_valid():
-            # TODO: logic for process new data from form must be implemented
-            pass
-    else:
-        form = EditPositionForm(instance=job)
+    if form.is_valid():
+        form.save(request.user)
+        messages.success(request, msg)
+        return redirect(reverse('jobs:job_detail', args=[job_id]))
 
     return render(request, 'jobs/edit.html', {'form': form, 'job_id': job_id})
-    # TODO: finish them

@@ -46,7 +46,31 @@ class AddPositionForm(forms.ModelForm):
 		return obj
 
 
-class EditPositionForm(AddPositionForm):
+class EditPositionForm(forms.ModelForm):
+	# TODO: Inherit from form AddPositionForm
+
+	class Meta(object):
+		model = Jobs
+		fields = ('employment_type', 'location', 'remote_work', 'title',
+			      'description', 'company_name', 'company_website',
+			      'how_to_apply')
+
+	class Media(object):
+		css = {
+		    'all': ('theme/css/pagedown.css',) # css rules for pagedown widget
+		}
+
 	def __init__(self, *args, **kwargs):
 		super(EditPositionForm, self).__init__(*args, **kwargs)
-		# form action ???
+		self.fields['description'].widget = PagedownWidget()
+		self.fields['description'].help_text = _(u'Use markdown')
+		self.fields['how_to_apply'].help_text = _(u'For example:'
+			' Email your resume to job@contact.me')
+
+	def save(self, user):
+		obj = super(EditPositionForm, self).save(False)
+		obj.author = user
+		obj.status = obj.PUBLISHED
+		obj.save()
+
+		return obj
