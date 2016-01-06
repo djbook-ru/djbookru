@@ -44,3 +44,9 @@ class AddPositionForm(forms.ModelForm):
 		mail_managers(subject, message, True)
 
 		return obj
+
+
+class EditPositionForm(AddPositionForm):
+	def __init__(self, *args, **kwargs):
+		super(EditPositionForm, self).__init__(*args, **kwargs)
+		# form action ???

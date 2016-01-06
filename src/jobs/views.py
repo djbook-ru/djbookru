@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from django.core.urlresolvers import reverse
 from django.utils.translation import gettext as _
@@ -8,7 +9,7 @@ from django.http import HttpResponse
 from django.utils.encoding import uri_to_iri
 
 from .models import Jobs
-from .forms import AddPositionForm
+from .forms import AddPositionForm, EditPositionForm
 
 
 class JobsListView(ListView):
@@ -58,7 +59,19 @@ def add_position(request):
     return render(request, 'jobs/add.html', {'form': form})
 
 
+@login_required
 def edit_position(request, pk):
-    # function for edit vacancy
-    resp = u'Soon...'
-    return HttpResponse(resp)
+    job = get_object_or_404(Jobs, pk=pk)
+    # job_id for url action form attribute
+    job_id = job.id
+
+    if request.method == 'POST':
+        form = EditPositionForm(request.POST, instance=job)
+        if form.is_valid():
+            # TODO: logic for process new data from form must be implemented
+            pass
+    else:
+        form = EditPositionForm(instance=job)
+
+    return render(request, 'jobs/edit.html', {'form': form, 'job_id': job_id})
+    # TODO: finish them

@@ -1,0 +1,26 @@
+{% extends "jobs/base.html" %}
+
+{% load i18n markup components bootstrap %}
+
+{% block title %}{% trans "Edit" %} | {{ block.super }}{% endblock %}
+
+{% block head %}
+    {{ block.super }}
+    {{ form.media }}
+{% endblock %}
+
+{% block header_container %}{% endblock %}
+
+{% block content %}
+    <div class="register-box clearfix">
+    <h2 class="short_headline"><span>{% trans "Edit position" %}</span></h2>
+    <form class="form-horizontal" id="registration-form" action='{% url "jobs:edit_position" pk=job_id %}' method="post" novalidate="novalidate">{% csrf_token %}
+        <fieldset>
+        	{% bootstrap form extra_class="span12" %}
+        	<div class="form-actions">
+        		<input class="btn btn-large" type="submit" name="create" value="{% trans 'Save' %}">
+        	</div>
+        </fieldset>
+    </form>
+    </div>
+{% endblock %}
