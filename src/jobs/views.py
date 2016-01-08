@@ -63,7 +63,8 @@ def add_position(request):
 def edit_position(request, pk):
     job = get_object_or_404(Jobs, pk=pk)
     # message with job title
-    msg = _(u'The vacancy "%s" has been successfully updated.' % job.title)
+    msg = _(u'The vacancy %(job_title)s has been successfully updated.') % \
+    {'job_title': job.title}
     # job_id for url action form attribute
     job_id = job.id
     # bounded form
