@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-09 21:02+0300\n"
+"POT-Creation-Date: 2016-01-08 17:38+0300\n"
 "PO-Revision-Date: 2015-07-09 21:01+0300\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -19,26 +19,1608 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: header_messages/models.py:8 header_messages/models.py:11
-msgid "Phrase"
-msgstr "Фраза"
+#: env/django_extensions/templates/django_extensions/widgets/foreignkey_searchinput.html:4
+msgid "Lookup"
+msgstr ""
 
-#: header_messages/models.py:12
-msgid "Phrases"
-msgstr "Фразы"
+#: env/lib/python2.7/site-packages/django/contrib/messages/apps.py:7
+#, fuzzy
+#| msgid "Message"
+msgid "Messages"
+msgstr "Сообщение"
 
-#: patch.py:12
+#: env/lib/python2.7/site-packages/django/contrib/sitemaps/apps.py:7
+#, fuzzy
+#| msgid "Site"
+msgid "Site Maps"
+msgstr "Сайт"
+
+#: env/lib/python2.7/site-packages/django/contrib/staticfiles/apps.py:7
+#, fuzzy
+msgid "Static Files"
+msgstr "Состояние изменено"
+
+#: env/lib/python2.7/site-packages/django/contrib/syndication/apps.py:7
+#, fuzzy
+#| msgid "Location"
+msgid "Syndication"
+msgstr "Из"
+
+#: env/lib/python2.7/site-packages/django/contrib/webdesign/apps.py:7
+msgid "Web Design"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/core/validators.py:20
+#, fuzzy
+#| msgid "Enter a valid e-mail address"
+msgid "Enter a valid value."
+msgstr "Введите адрес вашей Е-почты"
+
+#: env/lib/python2.7/site-packages/django/core/validators.py:87
+#: env/lib/python2.7/site-packages/django/forms/fields.py:712
+#, fuzzy
+#| msgid "Enter a valid e-mail address"
+msgid "Enter a valid URL."
+msgstr "Введите адрес вашей Е-почты"
+
+#: env/lib/python2.7/site-packages/django/core/validators.py:130
+#, fuzzy
+#| msgid "Enter a valid e-mail address"
+msgid "Enter a valid integer."
+msgstr "Введите адрес вашей Е-почты"
+
+#: env/lib/python2.7/site-packages/django/core/validators.py:141
+#, fuzzy
+#| msgid "Enter a valid e-mail address"
+msgid "Enter a valid email address."
+msgstr "Введите адрес вашей Е-почты"
+
+#: env/lib/python2.7/site-packages/django/core/validators.py:215
+#, fuzzy
+#| msgid ""
+#| "This value must contain only letters, numbers, underscores, dashes or "
+#| "slashes."
+msgid ""
+"Enter a valid 'slug' consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+"Данное значение должно содержать только буквы, цифры, символы подчёркивания, "
+"тире или слеши."
+
+#: env/lib/python2.7/site-packages/django/core/validators.py:220
+#: env/lib/python2.7/site-packages/django/core/validators.py:239
+#, fuzzy
+#| msgid "Enter a valid e-mail address"
+msgid "Enter a valid IPv4 address."
+msgstr "Введите адрес вашей Е-почты"
+
+#: env/lib/python2.7/site-packages/django/core/validators.py:225
+#: env/lib/python2.7/site-packages/django/core/validators.py:240
+#, fuzzy
+#| msgid "Enter a valid e-mail address"
+msgid "Enter a valid IPv6 address."
+msgstr "Введите адрес вашей Е-почты"
+
+#: env/lib/python2.7/site-packages/django/core/validators.py:235
+#: env/lib/python2.7/site-packages/django/core/validators.py:238
+#, fuzzy
+#| msgid "Enter a valid e-mail address"
+msgid "Enter a valid IPv4 or IPv6 address."
+msgstr "Введите адрес вашей Е-почты"
+
+#: env/lib/python2.7/site-packages/django/core/validators.py:263
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1144
+msgid "Enter only digits separated by commas."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/core/validators.py:272
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/core/validators.py:298
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/core/validators.py:305
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/core/validators.py:314
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: env/lib/python2.7/site-packages/django/core/validators.py:325
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: env/lib/python2.7/site-packages/django/db/models/base.py:1130
+#: env/lib/python2.7/site-packages/django/forms/models.py:722
+#: env/lib/python2.7/site-packages/django_extensions/admin/__init__.py:128
+#, fuzzy
+msgid "and"
+msgstr "Бан"
+
+#: env/lib/python2.7/site-packages/django/db/models/base.py:1132
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:107
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:108
+msgid "This field cannot be null."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:109
+msgid "This field cannot be blank."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:110
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or 'month'.
+#. Eg: "Title must be unique for pub_date year"
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:114
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:132
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:922
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1832
+msgid "Integer"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:926
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1830
+#, python-format
+msgid "'%(value)s' value must be an integer."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1001
+#, python-format
+msgid "'%(value)s' value must be either True or False."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1003
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1078
+#: env/lib/python2.7/site-packages/django_extensions/mongodb/fields/__init__.py:24
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1139
+msgid "Comma-separated integers"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1188
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1190
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1340
+#, python-format
+msgid ""
+"'%(value)s' value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1193
+msgid "Date (without time)"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1338
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
+"uuuuuu]][TZ] format."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1342
+#, python-format
+msgid ""
+"'%(value)s' value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1346
+msgid "Date (with time)"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1498
+#, python-format
+msgid "'%(value)s' value must be a decimal number."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1500
+#, fuzzy
+#| msgid "Users number"
+msgid "Decimal number"
+msgstr "Всего пользователей"
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1651
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid format. It must be in [DD] [HH:[MM:]]ss[."
+"uuuuuu] format."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1654
+#, fuzzy
+#| msgid "rating"
+msgid "Duration"
+msgstr "рейтинг"
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1705
+#, fuzzy
+#| msgid "Email Address"
+msgid "Email address"
+msgstr "Адрес электронной почты"
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1729
+msgid "File path"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1796
+#, python-format
+msgid "'%(value)s' value must be a float."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1798
+msgid "Floating point number"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1899
+msgid "Big (8 byte) integer"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1914
+msgid "IPv4 address"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1950
+#, fuzzy
+#| msgid "Email Address"
+msgid "IP address"
+msgstr "Адрес электронной почты"
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:2029
+#, python-format
+msgid "'%(value)s' value must be either None, True or False."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:2031
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:2091
+msgid "Positive integer"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:2103
+msgid "Positive small integer"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:2116
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:2145
+msgid "Small integer"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:2152
+msgid "Text"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:2175
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:2177
+#, python-format
+msgid ""
+"'%(value)s' value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:2180
+#: env/lib/python2.7/site-packages/haystack/templates/panels/haystack.html:8
+msgid "Time"
+msgstr "Время"
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:2308
+#: src/patch.py:12
 msgid "URL"
 msgstr "URL"
 
-#: patch.py:13
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:2331
+msgid "Raw binary data"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/__init__.py:2375
+#, python-format
+msgid "'%(value)s' is not a valid UUID."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/files.py:239
+#, fuzzy
+#| msgid "Files"
+msgid "File"
+msgstr "Файлы"
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/files.py:389
+msgid "Image"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/related.py:1802
+#, fuzzy, python-format
+#| msgid "%(name)s object with primary key %(key)r does not exist."
+msgid "%(model)s instance with %(field)s %(value)r does not exist."
+msgstr "объект %(name)s с первичным ключом %(key)r не существует."
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/related.py:1804
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/related.py:2034
+msgid "One-to-one relationship"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/db/models/fields/related.py:2124
+msgid "Many-to-many relationship"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:64
+#, fuzzy
+#| msgid "This email is used already."
+msgid "This field is required."
+msgstr "Данный адрес электронной почты уже используется."
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:237
+msgid "Enter a whole number."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:280
+#: env/lib/python2.7/site-packages/django/forms/fields.py:317
+#, fuzzy
+#| msgid "Users number"
+msgid "Enter a number."
+msgstr "Всего пользователей"
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:319
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:323
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:327
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:438
+#: env/lib/python2.7/site-packages/django/forms/fields.py:1193
+#, fuzzy
+#| msgid "Enter a valid e-mail address"
+msgid "Enter a valid date."
+msgstr "Введите адрес вашей Е-почты"
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:462
+#: env/lib/python2.7/site-packages/django/forms/fields.py:1194
+#, fuzzy
+#| msgid "Enter a valid e-mail address"
+msgid "Enter a valid time."
+msgstr "Введите адрес вашей Е-почты"
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:484
+#, fuzzy
+#| msgid "Enter a valid e-mail address"
+msgid "Enter a valid date/time."
+msgstr "Введите адрес вашей Е-почты"
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:525
+#, fuzzy
+#| msgid "Enter a valid e-mail address"
+msgid "Enter a valid duration."
+msgstr "Введите адрес вашей Е-почты"
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:591
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:592
+msgid "No file was submitted."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:593
+msgid "The submitted file is empty."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:595
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:598
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:660
+#: env/lib/python2.7/site-packages/sorl/thumbnail/fields.py:52
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:827
+#: env/lib/python2.7/site-packages/django/forms/fields.py:921
+#: env/lib/python2.7/site-packages/django/forms/models.py:1238
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:922
+#: env/lib/python2.7/site-packages/django/forms/fields.py:1037
+#: env/lib/python2.7/site-packages/django/forms/models.py:1237
+msgid "Enter a list of values."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:1038
+#, fuzzy
+#| msgid "Enter comment please."
+msgid "Enter a complete value."
+msgstr "Введите комментарий, пожалуйста."
+
+#: env/lib/python2.7/site-packages/django/forms/fields.py:1264
+msgid "Enter a valid UUID."
+msgstr ""
+
+#. Translators: This is the default suffix added to form field labels
+#: env/lib/python2.7/site-packages/django/forms/forms.py:129
+msgid ":"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/forms.py:214
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: env/lib/python2.7/site-packages/django/forms/forms.py:659
+msgid ":?.!"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/formsets.py:96
+msgid "ManagementForm data is missing or has been tampered with"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/formsets.py:333
+#, python-format
+msgid "Please submit %d or fewer forms."
+msgid_plural "Please submit %d or fewer forms."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: env/lib/python2.7/site-packages/django/forms/formsets.py:340
+#, python-format
+msgid "Please submit %d or more forms."
+msgid_plural "Please submit %d or more forms."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: env/lib/python2.7/site-packages/django/forms/formsets.py:368
+#: env/lib/python2.7/site-packages/django/forms/formsets.py:370
+msgid "Order"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/formsets.py:372
+#: src/templates/comments/_display_item.html:16
+#: src/templates/comments/_item.html:21
+#: src/templates/doc_comments/_display_item.html:16
+msgid "Delete"
+msgstr "Удалить"
+
+#: env/lib/python2.7/site-packages/django/forms/models.py:716
+#, fuzzy, python-format
+#| msgid "Please correct the error below."
+#| msgid_plural "Please correct the errors below."
+msgid "Please correct the duplicate data for %(field)s."
+msgstr "Пожалуйста, исправьте ошибку указанную ниже."
+
+#: env/lib/python2.7/site-packages/django/forms/models.py:720
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/models.py:726
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/models.py:734
+#, fuzzy
+#| msgid "Please correct the error below."
+#| msgid_plural "Please correct the errors below."
+msgid "Please correct the duplicate values below."
+msgstr "Пожалуйста, исправьте ошибку указанную ниже."
+
+#: env/lib/python2.7/site-packages/django/forms/models.py:1057
+msgid "The inline foreign key did not match the parent instance primary key."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/models.py:1123
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/models.py:1240
+#, python-format
+msgid "\"%(pk)s\" is not a valid value for a primary key."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/utils.py:165
+#, python-format
+msgid ""
+"%(datetime)s couldn't be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/widgets.py:345
+msgid "Currently"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/widgets.py:346
+#, fuzzy
+#| msgid "Change %s"
+msgid "Change"
+msgstr "Изменить %s"
+
+#: env/lib/python2.7/site-packages/django/forms/widgets.py:347
+msgid "Clear"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/widgets.py:555
+#, fuzzy
+#| msgid "(Unknown)"
+msgid "Unknown"
+msgstr "(Неизвестно)"
+
+#: env/lib/python2.7/site-packages/django/forms/widgets.py:556
+msgid "Yes"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/forms/widgets.py:557
+msgid "No"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/template/defaultfilters.py:865
+msgid "yes,no,maybe"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/template/defaultfilters.py:894
+#: env/lib/python2.7/site-packages/django/template/defaultfilters.py:906
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: env/lib/python2.7/site-packages/django/template/defaultfilters.py:908
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/template/defaultfilters.py:910
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/template/defaultfilters.py:912
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/template/defaultfilters.py:914
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/template/defaultfilters.py:916
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dateformat.py:61
+msgid "p.m."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dateformat.py:62
+msgid "a.m."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dateformat.py:67
+msgid "PM"
+msgstr "PM"
+
+#: env/lib/python2.7/site-packages/django/utils/dateformat.py:68
+#, fuzzy
+#| msgid "AIM"
+msgid "AM"
+msgstr "AIM"
+
+#: env/lib/python2.7/site-packages/django/utils/dateformat.py:151
+msgid "midnight"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dateformat.py:153
+msgid "noon"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:6
+msgid "Monday"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:6
+msgid "Tuesday"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:6
+msgid "Wednesday"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:6
+msgid "Thursday"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:6
+msgid "Friday"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:7
+msgid "Saturday"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:7
+msgid "Sunday"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:10
+#, fuzzy
+#| msgid "Monaco"
+msgid "Mon"
+msgstr "Монако"
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:10
+#, fuzzy
+#| msgid "Turkey"
+msgid "Tue"
+msgstr "Турция"
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:10
+msgid "Wed"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:10
+msgid "Thu"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:10
+msgid "Fri"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:11
+#, fuzzy
+#| msgid "Status"
+msgid "Sat"
+msgstr "Состояние"
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:11
+#, fuzzy
+#| msgid "Sudan"
+msgid "Sun"
+msgstr "Судан"
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:18
+msgid "January"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:18
+msgid "February"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:18
+#, fuzzy
+#| msgid "Search"
+msgid "March"
+msgstr "Поиск"
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:18
+msgid "April"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:18
+#, fuzzy
+#| msgid "Map"
+msgid "May"
+msgstr "Карта"
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:18
+msgid "June"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:19
+msgid "July"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:19
+msgid "August"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:19
+msgid "September"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:19
+msgid "October"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:19
+msgid "November"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:20
+msgid "December"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:23
+#, fuzzy
+#| msgid "Ban"
+msgid "jan"
+msgstr "Бан"
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:23
+msgid "feb"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:23
+#, fuzzy
+#| msgid "Denmark"
+msgid "mar"
+msgstr "Дания"
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:23
+#, fuzzy
+#| msgid "Map"
+msgid "apr"
+msgstr "Карта"
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:23
+#, fuzzy
+#| msgid "Germany"
+msgid "may"
+msgstr "Германия"
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:23
+msgid "jun"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:24
+msgid "jul"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:24
+#, fuzzy
+#| msgid "ago"
+msgid "aug"
+msgstr "прошло"
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:24
+msgid "sep"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:24
+msgid "oct"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:24
+msgid "nov"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:24
+msgid "dec"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:31
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:32
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:33
+#, fuzzy
+#| msgid "Search"
+msgctxt "abbrev. month"
+msgid "March"
+msgstr "Поиск"
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:34
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:35
+#, fuzzy
+#| msgid "Map"
+msgctxt "abbrev. month"
+msgid "May"
+msgstr "Карта"
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:36
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:37
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:38
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:39
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:40
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:41
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:42
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:45
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:46
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:47
+#, fuzzy
+#| msgid "Search"
+msgctxt "alt. month"
+msgid "March"
+msgstr "Поиск"
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:48
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:49
+#, fuzzy
+#| msgid "Map"
+msgctxt "alt. month"
+msgid "May"
+msgstr "Карта"
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:50
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:51
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:52
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:53
+msgctxt "alt. month"
+msgid "September"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:54
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:55
+msgctxt "alt. month"
+msgid "November"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/dates.py:56
+msgctxt "alt. month"
+msgid "December"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/ipv6.py:10
+#, fuzzy
+#| msgid "Enter a valid e-mail address"
+msgid "This is not a valid IPv6 address."
+msgstr "Введите адрес вашей Е-почты"
+
+#: env/lib/python2.7/site-packages/django/utils/text.py:79
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s..."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/text.py:248
+msgid "or"
+msgstr "или"
+
+#. Translators: This string is used as a separator between list elements
+#: env/lib/python2.7/site-packages/django/utils/text.py:267
+#: env/lib/python2.7/site-packages/django/utils/timesince.py:58
+msgid ", "
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/utils/timesince.py:10
+#, python-format
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: env/lib/python2.7/site-packages/django/utils/timesince.py:11
+#, python-format
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: env/lib/python2.7/site-packages/django/utils/timesince.py:12
+#, python-format
+msgid "%d week"
+msgid_plural "%d weeks"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: env/lib/python2.7/site-packages/django/utils/timesince.py:13
+#, python-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: env/lib/python2.7/site-packages/django/utils/timesince.py:14
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: env/lib/python2.7/site-packages/django/utils/timesince.py:15
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: env/lib/python2.7/site-packages/django/utils/timesince.py:47
+msgid "0 minutes"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/csrf.py:107
+msgid "Forbidden"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/csrf.py:108
+msgid "CSRF verification failed. Request aborted."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/csrf.py:112
+msgid ""
+"You are seeing this message because this HTTPS site requires a 'Referer "
+"header' to be sent by your Web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/csrf.py:117
+msgid ""
+"If you have configured your browser to disable 'Referer' headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for 'same-"
+"origin' requests."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/csrf.py:122
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/csrf.py:127
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for 'same-origin' requests."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/csrf.py:132
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/debug.py:583
+msgid "Welcome to Django"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/debug.py:584
+msgid "It worked!"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/debug.py:585
+msgid "Congratulations on your first Django-powered page."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/debug.py:586
+msgid ""
+"Of course, you haven't actually done any work yet. Next, start your first "
+"app by running <code>python manage.py startapp [app_label]</code>."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/debug.py:588
+msgid ""
+"You're seeing this message because you have <code>DEBUG = True</code> in "
+"your Django settings file and you haven't configured any URLs. Get to work!"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/generic/dates.py:48
+msgid "No year specified"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/generic/dates.py:104
+msgid "No month specified"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/generic/dates.py:163
+msgid "No day specified"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/generic/dates.py:219
+msgid "No week specified"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/generic/dates.py:378
+#: env/lib/python2.7/site-packages/django/views/generic/dates.py:406
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/generic/dates.py:660
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because %(class_name)s."
+"allow_future is False."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/generic/dates.py:694
+#, python-format
+msgid "Invalid date string '%(datestr)s' given format '%(format)s'"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/generic/detail.py:55
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/generic/list.py:76
+msgid "Page is not 'last', nor can it be converted to an int."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/generic/list.py:81
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/generic/list.py:172
+#, python-format
+msgid "Empty list and '%(class_name)s.allow_empty' is False."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/static.py:58
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django/views/static.py:60
+#, fuzzy, python-format
+#| msgid "User with login %s does not exist"
+msgid "\"%(path)s\" does not exist"
+msgstr "Пользователь с логином %s не существует"
+
+#: env/lib/python2.7/site-packages/django/views/static.py:100
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django_autoslug/forms.py:7
+#, fuzzy
+#| msgid ""
+#| "This value must contain only letters, numbers, underscores, dashes or "
+#| "slashes."
+msgid ""
+"Enter a valid 'slug' consisting of letters, slash, numbers, underscores or "
+"hyphens."
+msgstr ""
+"Данное значение должно содержать только буквы, цифры, символы подчёркивания, "
+"тире или слеши."
+
+#: env/lib/python2.7/site-packages/django_extensions/admin/__init__.py:130
+#, python-format
+msgid ""
+"Use the left field to do %(model_name)s lookups in the fields %(field_list)s."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django_extensions/db/models.py:22
+#: env/lib/python2.7/site-packages/django_extensions/mongodb/models.py:17
+#: env/lib/python2.7/site-packages/model_utils/models.py:59
+msgid "created"
+msgstr "создано"
+
+#: env/lib/python2.7/site-packages/django_extensions/db/models.py:23
+#: env/lib/python2.7/site-packages/django_extensions/mongodb/models.py:18
+#: env/lib/python2.7/site-packages/model_utils/models.py:60
+msgid "modified"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django_extensions/db/models.py:36
+#: env/lib/python2.7/site-packages/django_extensions/mongodb/models.py:29
+msgid "title"
+msgstr "тема"
+
+#: env/lib/python2.7/site-packages/django_extensions/db/models.py:37
+#: env/lib/python2.7/site-packages/django_extensions/mongodb/models.py:30
+msgid "slug"
+msgstr "метка"
+
+#: env/lib/python2.7/site-packages/django_extensions/db/models.py:38
+#: env/lib/python2.7/site-packages/django_extensions/mongodb/models.py:31
+msgid "description"
+msgstr "описание"
+
+#: env/lib/python2.7/site-packages/django_extensions/db/models.py:63
+#: env/lib/python2.7/site-packages/django_extensions/mongodb/models.py:55
+#, fuzzy
+#| msgid "active?"
+msgid "Inactive"
+msgstr "активно?"
+
+#: env/lib/python2.7/site-packages/django_extensions/db/models.py:64
+#: env/lib/python2.7/site-packages/django_extensions/mongodb/models.py:56
+#, fuzzy
+#| msgid "active?"
+msgid "Active"
+msgstr "активно?"
+
+#: env/lib/python2.7/site-packages/django_extensions/db/models.py:66
+#: env/lib/python2.7/site-packages/django_extensions/mongodb/models.py:58
+#: env/lib/python2.7/site-packages/model_utils/models.py:87
+msgid "status"
+msgstr "статус"
+
+#: env/lib/python2.7/site-packages/django_extensions/db/models.py:67
+#: env/lib/python2.7/site-packages/django_extensions/mongodb/models.py:59
+msgid "keep empty for an immediate activation"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/django_extensions/db/models.py:68
+#: env/lib/python2.7/site-packages/django_extensions/mongodb/models.py:60
+msgid "keep empty for indefinite activation"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/haystack/admin.py:128
+#, python-format
+msgid "0 of %(count)d selected"
+msgid_plural "of %(count)d selected"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: env/lib/python2.7/site-packages/haystack/admin.py:130
+#, python-format
+msgid "%(total_count)s selected"
+msgid_plural "All %(total_count)s selected"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: env/lib/python2.7/site-packages/haystack/forms.py:26
+#: src/templates/main/search.html:5 src/templates/main/search.html.py:13
+msgid "Search"
+msgstr "Поиск"
+
+#: env/lib/python2.7/site-packages/haystack/forms.py:100
+#, fuzzy
+#| msgid "Search in"
+msgid "Search In"
+msgstr "Поиск"
+
+#: env/lib/python2.7/site-packages/haystack/panels.py:26
+msgid "Haystack"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/haystack/panels.py:50
+#, fuzzy
+#| msgid "Search results"
+msgid "Search Queries"
+msgstr "Результаты поиска"
+
+#: env/lib/python2.7/site-packages/haystack/templates/panels/haystack.html:5
+msgid "Query"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/haystack/templates/panels/haystack.html:6
+msgid "Backend Alias"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/haystack/templates/panels/haystack.html:7
+#, fuzzy
+#| msgid "Time zone"
+msgid "Timeline"
+msgstr "Временная зона"
+
+#: env/lib/python2.7/site-packages/haystack/templates/panels/haystack.html:9
+msgid "Kwargs"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/httplib2/__init__.py:410
+#, python-format
+msgid "Content purported to be compressed with %s but failed to decompress."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/httplib2/__init__.py:520
+#, python-format
+msgid "Unsupported value for qop: %s."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/httplib2/__init__.py:523
+#: env/lib/python2.7/site-packages/httplib2/__init__.py:585
+#, python-format
+msgid "Unsupported value for algorithm: %s."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/httplib2/__init__.py:582
+msgid "The challenge doesn't contain a server nonce, or this one is empty."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/httplib2/__init__.py:588
+#, python-format
+msgid "Unsupported value for pw-algorithm: %s."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/httplib2/__init__.py:1373
+msgid "Redirected but the response is missing a Location: header."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/model_utils/models.py:72
+#, fuzzy
+#| msgid "Ban start"
+msgid "start"
+msgstr "Бан начинается"
+
+#: env/lib/python2.7/site-packages/model_utils/models.py:73
+#, fuzzy
+#| msgid "Send"
+msgid "end"
+msgstr "Отправить"
+
+#: env/lib/python2.7/site-packages/model_utils/models.py:88
+#, fuzzy
+#| msgid "status"
+msgid "status changed"
+msgstr "статус"
+
+#: env/lib/python2.7/site-packages/model_utils/tests/models.py:84
+#: env/lib/python2.7/site-packages/model_utils/tests/models.py:93
+#: env/lib/python2.7/site-packages/model_utils/tests/models.py:102
+#, fuzzy
+#| msgid "active?"
+msgid "active"
+msgstr "активно?"
+
+#: env/lib/python2.7/site-packages/model_utils/tests/models.py:85
+#: env/lib/python2.7/site-packages/model_utils/tests/models.py:94
+#: env/lib/python2.7/site-packages/model_utils/tests/models.py:103
+#, fuzzy
+#| msgid "Delete"
+msgid "deleted"
+msgstr "Удалить"
+
+#: env/lib/python2.7/site-packages/model_utils/tests/models.py:86
+#: env/lib/python2.7/site-packages/model_utils/tests/models.py:95
+#: env/lib/python2.7/site-packages/model_utils/tests/models.py:104
+msgid "on hold"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/sorl/thumbnail/admin/compat.py:61
+msgid "Clear image"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/fields.py:70
+#, python-format
+msgid "%s can only be set on instances."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/forms.py:21
+msgid "Multiple tags were given."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/forms.py:24
+#, python-format
+msgid "A tag may be no more than %s characters long."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/forms.py:41
+#, python-format
+msgid "Each tag may be no more than %s characters long."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/models.py:59
+#, python-format
+msgid "No tags were given: \"%s\"."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/models.py:61
+#, python-format
+msgid "Multiple tags were given: \"%s\"."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/models.py:466
+msgid "name"
+msgstr "имя"
+
+#: env/lib/python2.7/site-packages/tagging/models.py:472
+#: env/lib/python2.7/site-packages/tagging/models.py:484
+#, fuzzy
+#| msgid "tags"
+msgid "tag"
+msgstr "таги"
+
+#: env/lib/python2.7/site-packages/tagging/models.py:473
+msgid "tags"
+msgstr "таги"
+
+#: env/lib/python2.7/site-packages/tagging/models.py:485
+#, fuzzy
+#| msgid "Content type"
+msgid "content type"
+msgstr "Тип содержимого"
+
+#: env/lib/python2.7/site-packages/tagging/models.py:486
+#, fuzzy
+#| msgid "object ID"
+msgid "object id"
+msgstr "Идентификатор объекта"
+
+#: env/lib/python2.7/site-packages/tagging/models.py:494
+msgid "tagged item"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/models.py:495
+msgid "tagged items"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:21
+#, python-format
+msgid "tags_for_model tag was given an invalid model: %s"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:35
+#, python-format
+msgid "tag_cloud_for_model tag was given an invalid model: %s"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:61
+#, python-format
+msgid "tagged_objects tag was given an invalid model: %s"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:95
+#, python-format
+msgid "%s tag requires either three or five arguments"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:97
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:150
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:206
+#, python-format
+msgid "second argument to %s tag must be 'as'"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:100
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:154
+#, python-format
+msgid "if given, fourth argument to %s tag must be 'with'"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:102
+#, python-format
+msgid "if given, fifth argument to %s tag must be 'counts'"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:148
+#, python-format
+msgid "%s tag requires either three or between five and seven arguments"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:162
+#, python-format
+msgid "%(tag)s tag's '%(option)s' option was not a valid integer: '%(value)s'"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:171
+#, python-format
+msgid "%(tag)s tag's '%(option)s' option was not a valid choice: '%(value)s'"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:177
+#, python-format
+msgid "%(tag)s tag was given an invalid option: '%(option)s'"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:182
+#, python-format
+msgid "%(tag)s tag was given a badly formatted option: '%(option)s'"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:204
+#, python-format
+msgid "%s tag requires exactly three arguments"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:230
+#, python-format
+msgid "%s tag requires exactly five arguments"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:232
+#, python-format
+msgid "second argument to %s tag must be 'in'"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/templatetags/tagging_tags.py:234
+#, python-format
+msgid "fourth argument to %s tag must be 'as'"
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/utils.py:191
+msgid ""
+"If a list or tuple of tags is provided, they must all be tag names, Tag "
+"objects or Tag ids."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/utils.py:193
+msgid "The tag input given was invalid."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/utils.py:238
+#, python-format
+msgid "Invalid distribution algorithm specified: %s."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/views.py:34
+msgid "tagged_object_list must be called with a queryset or a model."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/views.py:40
+msgid "tagged_object_list must be called with a tag."
+msgstr ""
+
+#: env/lib/python2.7/site-packages/tagging/views.py:44
+#, python-format
+msgid "No Tag found matching \"%s\"."
+msgstr ""
+
+#: src/header_messages/models.py:8 src/header_messages/models.py:11
+msgid "Phrase"
+msgstr "Фраза"
+
+#: src/header_messages/models.py:12
+msgid "Phrases"
+msgstr "Фразы"
+
+#: src/patch.py:13
 msgid ""
 "Example: '/about/contact/'. Make sure to have leading and trailing slashes."
 msgstr ""
 "Пример: /about/contact/'. Проверьте наличие открывающего и завершающего "
 "слешей."
 
-#: patch.py:14
+#: src/patch.py:14
 msgid ""
 "This value must contain only letters, numbers, underscores, dashes or "
 "slashes."
@@ -46,65 +1628,81 @@ msgstr ""
 "Данное значение должно содержать только буквы, цифры, символы подчёркивания, "
 "тире или слеши."
 
-#: patch.py:25
+#: src/patch.py:25
 msgid "Advanced options"
 msgstr "Дополнительные возможности"
 
-#: settings.py:147
+#: src/settings.py:148
 msgid "Russian"
 msgstr "Русский"
 
-#: settings.py:148
+#: src/settings.py:149
 msgid "English"
 msgstr "English"
 
-#: settings.py:239
+#: src/settings.py:240
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
 
-#: templates/404.html:9
+#: src/templates/404.html:9
 msgid "Forgotten page..."
 msgstr "Потерянная страница..."
 
-#: templates/500.html:9
+#: src/templates/500.html:9
 msgid "We have broken..."
 msgstr "Что-то поломалось..."
 
-#: templates/_menu.html:11 templates/news/_last_news.html:2
-#: templates/news/base.html:5 templates/news/base.html.py:7
-#: templates/news/news.html:24
+#: src/templates/_menu.html:11 src/templates/news/_last_news.html:2
+#: src/templates/news/base.html:5 src/templates/news/base.html.py:7
+#: src/templates/news/news.html:24
 msgid "News"
 msgstr "Новости"
 
-#: templates/_menu.html:12 templates/videos/base.html:5
-#: templates/videos/base.html.py:7
+#: src/templates/_menu.html:12 src/templates/videos/base.html:5
+#: src/templates/videos/base.html.py:7
 msgid "Videos"
 msgstr "Видео"
 
-#: templates/_menu.html:13 templates/_user_activities.html:5
+#: src/templates/_menu.html:13 src/templates/_user_activities.html:5
 msgid "Forum"
 msgstr "Форум"
 
-#: templates/_menu.html:14 templates/_recipes.html:2
-#: templates/examples/base.html:5 templates/examples/base.html.py:7
-#: templates/examples/detail.html:20
+#: src/templates/_menu.html:14 src/templates/_recipes.html:2
+#: src/templates/examples/base.html:5 src/templates/examples/base.html.py:7
+#: src/templates/examples/detail.html:20
 msgid "Recipes"
 msgstr "Рецепты"
 
-#: templates/_menu.html:16 templates/examples/_examples_menu.html:4
+#: src/templates/_menu.html:16 src/templates/examples/_examples_menu.html:4
 msgid "All"
 msgstr "Все"
 
-#: templates/_menu.html:17
+#: src/templates/_menu.html:17
 msgid "Add recipe"
 msgstr "Добавить рецепт"
 
-#: templates/_menu.html:23
+#: src/templates/_menu.html:23 src/templates/jobs/base.html:8
+msgid "Jobs"
+msgstr "Вакансии"
+
+#: src/templates/_menu.html:24
+msgid "Job"
+msgstr "Работа"
+
+#: src/templates/_menu.html:26 src/templates/jobs/detail.html:24
+msgid "All jobs"
+msgstr "Все вакансии"
+
+#: src/templates/_menu.html:27
+msgid "Post a job"
+msgstr "Опубликовать вакансию"
+
+#: src/templates/_menu.html:30
 msgid "About"
 msgstr "О проекте"
 
-#: templates/_recipes.html:27 templates/news/_last_news.html:14
-#: templates/news/news.html:19
+#: src/templates/_recipes.html:27 src/templates/news/_last_news.html:14
+#: src/templates/news/news.html:19
 #, python-format
 msgid "%(counter)s comment"
 msgid_plural "%(counter)s comments"
@@ -112,38 +1710,38 @@ msgstr[0] "%(counter)s комментарий"
 msgstr[1] "%(counter)s  комментария"
 msgstr[2] "%(counter)s комментариев"
 
-#: templates/_sidebar.html:4
+#: src/templates/_sidebar.html:4
 msgid "Add yourself on map!"
 msgstr "Добавь себя на карту!"
 
-#: templates/_sidebar.html:9
+#: src/templates/_sidebar.html:9
 msgid "Found misprint?"
 msgstr "Нашли опечатку?"
 
-#: templates/_sidebar.html:11
+#: src/templates/_sidebar.html:11
 msgid "Select it with the mouse and hit"
 msgstr "Выделите её мышкой и нажмите"
 
-#: templates/_user_activities.html:2
+#: src/templates/_user_activities.html:2
 msgid "User activites"
 msgstr "Активность пользователей"
 
-#: templates/_user_activities.html:6
+#: src/templates/_user_activities.html:6
 msgid "Comments"
 msgstr "Комментарии"
 
-#: templates/_user_activities.html:7
+#: src/templates/_user_activities.html:7
 msgid "Documentation"
 msgstr "Документация"
 
-#: templates/_user_activities.html:25
+#: src/templates/_user_activities.html:25
 msgid "reply"
 msgid_plural "replies"
 msgstr[0] "отклик"
 msgstr[1] "отклика"
 msgstr[2] "откликов"
 
-#: templates/admin/examples/change_form.html:12
+#: src/templates/admin/examples/change_form.html:12
 msgid ""
 "Pay attention! This post is not approved and can be from users. It can "
 "contain XSS in content, so use 'View on site' carefully."
@@ -152,82 +1750,82 @@ msgstr ""
 "пользователей. Оно может содержать XSS, т.е. используйте \"Посмотреть на "
 "сайте\" аккуратно."
 
-#: templates/admin/login.html:17
+#: src/templates/admin/login.html:17
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
 msgstr[0] "Пожалуйста, исправьте ошибку указанную ниже."
 msgstr[1] "Пожалуйста, исправьте ошибки перечисленные далее."
 msgstr[2] "Пожалуйста, исправьте ошибки перечисленные далее."
 
-#: templates/admin/login.html:33
+#: src/templates/admin/login.html:33
 msgid "Email:"
 msgstr "Е-почта:"
 
-#: templates/admin/login.html:37
+#: src/templates/admin/login.html:37
 msgid "Password:"
 msgstr "Пароль:"
 
-#: templates/admin/login.html:44
+#: src/templates/admin/login.html:44
 msgid "Forgotten your password or username?"
 msgstr "Забыли пароль или имя пользователя?"
 
-#: templates/admin/login.html:48
+#: src/templates/admin/login.html:48
 msgid "Log in"
 msgstr "Вход"
 
-#: templates/base.html:21
+#: src/templates/base.html:21
 msgid "The freshest news about Russian version of DjangoBook"
 msgstr "Последние новости с Russian DjangoBook"
 
-#: templates/base.html:22
+#: src/templates/base.html:22
 msgid "Newly examples from Russian DjangoBook"
 msgstr "Последние примеры с Russian DjangoBook"
 
-#: templates/base.html:23
+#: src/templates/base.html:23
 msgid "DjangoBook RSS feed"
 msgstr "DjangoBook RSS feed"
 
-#: templates/base.html:91
+#: src/templates/base.html:91
 msgid "Skip to navigation"
 msgstr "Пропустить до навигации"
 
-#: templates/base.html:92
+#: src/templates/base.html:92
 msgid "Skip to content"
 msgstr "Пропустить до содержимого"
 
-#: templates/base.html:108
+#: src/templates/base.html:108
 msgid "Logout"
 msgstr "Выйти"
 
-#: templates/base.html:111
+#: src/templates/base.html:111
 msgid "Login"
 msgstr "Вход"
 
-#: templates/base.html:115
+#: src/templates/base.html:115
 msgid "Admin UI"
 msgstr "Админка"
 
-#: templates/base.html:129
+#: src/templates/base.html:129
 msgid "Search:"
 msgstr "Поиск:"
 
-#: templates/base.html:130
+#: src/templates/base.html:130
 msgid "search + enter"
 msgstr "поиск + ввод"
 
-#: templates/base.html:135
+#: src/templates/base.html:135
 msgid "Subscribe to our RSS"
 msgstr "Подписаться на наш RSS"
 
-#: templates/base.html:138
+#: src/templates/base.html:138
 msgid "Documentation translation"
 msgstr "Перевод документации"
 
-#: templates/base.html:164
+#: src/templates/base.html:164
 msgid "Confirm you email"
 msgstr "Подтвердите адрес вашей электронной почты"
 
-#: templates/base.html:166
+#: src/templates/base.html:166
 msgid ""
 "\n"
 "                            You account does not have confirmed email.\n"
@@ -242,55 +1840,54 @@ msgstr ""
 "почты и подтвердить его.\n"
 "                        "
 
-#: templates/base.html:172
+#: src/templates/base.html:172
 msgid "Your current email is:"
 msgstr "Текущий адрес электронной почты:"
 
-#: templates/base.html:173
+#: src/templates/base.html:173
 msgid "Send confirmation email"
 msgstr "Отправить письмо для подтверждение адреса электронной почты"
 
-#: templates/base.html:184
+#: src/templates/base.html:184
 msgid "Please, write feedback if something does not work"
 msgstr "Пожалуйста, дайте нам знать, если что-то не работает."
 
-#: templates/basepage.html:7
+#: src/templates/basepage.html:7
 msgid "Menu"
 msgstr "Меню"
 
-#: templates/comments/_display_item.html:13 templates/comments/_item.html:13
-#: templates/doc_comments/_display_item.html:13
+#: src/templates/comments/_display_item.html:13
+#: src/templates/comments/_item.html:13
+#: src/templates/doc_comments/_display_item.html:13
 msgid "Permalink"
 msgstr "Ссылка"
 
-#: templates/comments/_display_item.html:16 templates/comments/_item.html:21
-#: templates/doc_comments/_display_item.html:16
-msgid "Delete"
-msgstr "Удалить"
-
-#: templates/comments/_display_item.html:21 templates/comments/_item.html:26
-#: templates/doc_comments/_display_item.html:21
-#: templates/examples/detail.html:23 templates/news/news.html:27
+#: src/templates/comments/_display_item.html:21
+#: src/templates/comments/_item.html:26
+#: src/templates/doc_comments/_display_item.html:21
+#: src/templates/examples/detail.html:23 src/templates/jobs/detail.html:27
+#: src/templates/jobs/edit.html:5 src/templates/news/news.html:27
 msgid "Edit"
 msgstr "Редактировать"
 
-#: templates/comments/_display_item.html:29 templates/comments/_item.html:34
+#: src/templates/comments/_display_item.html:29
+#: src/templates/comments/_item.html:34
 msgid "answer to"
 msgstr "Ответ на"
 
-#: templates/comments/_item.html:15
+#: src/templates/comments/_item.html:15
 msgid "Answer"
 msgstr "Ответ"
 
-#: templates/comments/_item.html:17
+#: src/templates/comments/_item.html:17
 msgid "Reply"
 msgstr "Отклик"
 
-#: templates/comments/form.html:5
+#: src/templates/comments/form.html:5
 msgid "Leave a Comment"
 msgstr "Оставить комментарий"
 
-#: templates/comments/form.html:18
+#: src/templates/comments/form.html:18
 #, python-format
 msgid ""
 "\n"
@@ -303,48 +1900,48 @@ msgstr ""
 "\"%(forum_index_url)s\">нашем форуме</a>.\n"
 "                "
 
-#: templates/comments/form.html:23
+#: src/templates/comments/form.html:23
 msgid "Add Comment"
 msgstr "Добавить комментарий"
 
-#: templates/comments/form.html:53
+#: src/templates/comments/form.html:53
 msgid "Enter comment please."
 msgstr "Введите комментарий, пожалуйста."
 
-#: templates/comments/form.html:65
+#: src/templates/comments/form.html:65
 msgid "Answering to: "
 msgstr "Ответ на: "
 
-#: templates/comments/form.html:72
+#: src/templates/comments/form.html:72
 msgid "Login please to post comment"
 msgstr "Пожалуйста, произведите вход для отправки комментария"
 
-#: templates/comments/list_with_form.html:5
-#: templates/examples/_category.html:18 templates/examples/detail.html:17
-#: templates/news/index.html:15
+#: src/templates/comments/list_with_form.html:5
+#: src/templates/examples/_category.html:18
+#: src/templates/examples/detail.html:17 src/templates/news/index.html:15
 msgid "comment"
 msgid_plural "comments"
 msgstr[0] "комментарий"
 msgstr[1] "комментария"
 msgstr[2] "комментариев"
 
-#: templates/comments/list_with_form.html:7
+#: src/templates/comments/list_with_form.html:7
 msgid "Make a comment"
 msgstr "Оставьте комментарий"
 
-#: templates/examples/_examples_menu.html:2
+#: src/templates/examples/_examples_menu.html:2
 msgid "Recipe categories"
 msgstr "Категории рецепта"
 
-#: templates/examples/add.html:5
+#: src/templates/examples/add.html:5 src/templates/jobs/add.html:5
 msgid "Add"
 msgstr "Добавить"
 
-#: templates/examples/add.html:16
+#: src/templates/examples/add.html:16
 msgid "Add new recipe"
 msgstr "Добавить новый рецепт"
 
-#: templates/examples/add.html:19
+#: src/templates/examples/add.html:19
 msgid ""
 "You can share your receipt for\n"
 "          django-society. It can be solution for the problem that you have\n"
@@ -355,7 +1952,7 @@ msgstr ""
 "что найденное решение проблемы. Или это может быть интересный трюк, о "
 "котором даже Google ещё ничего не знает."
 
-#: templates/examples/add.html:26
+#: src/templates/examples/add.html:26
 msgid ""
 "We\n"
 "          use <a href=\"http://daringfireball.net/projects/markdown/syntax"
@@ -367,1081 +1964,1110 @@ msgstr ""
 "\">Markdown</a> для форматирования текста. Пожалуйста, используйте его для "
 "ускорения процесса принятия вашего рецепта."
 
-#: templates/examples/add.html:37
+#: src/templates/examples/add.html:37 src/templates/jobs/add.html:21
 msgid "Create"
 msgstr "Создать"
 
-#: templates/examples/detail.html:13
+#: src/templates/examples/detail.html:13 src/templates/jobs/detail.html:15
 msgid "Draft"
 msgstr "Черновик"
 
-#: templates/examples/detail.html:35
+#: src/templates/examples/detail.html:35
 msgid "Discuss this recipe"
 msgstr "Обсудить рецепт"
 
-#: templates/examples/detail.html:59 templates/news/news.html:60
+#: src/templates/examples/detail.html:59 src/templates/news/news.html:60
 msgid "older"
 msgstr "предыдущие"
 
-#: templates/examples/detail.html:62 templates/news/news.html:63
+#: src/templates/examples/detail.html:62 src/templates/news/news.html:63
 msgid "newer"
 msgstr "следующие"
 
-#: templates/links/_archive.html:2
+#: src/templates/jobs/add.html:16
+msgid "Add new position"
+msgstr "Добавить новую вакансию"
+
+#: src/templates/jobs/detail.html:45
+#, python-format
+msgid "%(num_of_vac)s other jobs"
+msgstr "%(num_of_vac)s другие вакансии"
+
+#: src/templates/jobs/detail.html:47
+msgid "No more vacancies"
+msgstr "Нет больше вакансий"
+
+#: src/templates/jobs/detail.html:53
+msgid "How to apply"
+msgstr "Как связаться"
+
+#: src/templates/jobs/edit.html:16
+msgid "Edit position"
+msgstr "Изменить вакансию"
+
+#: src/templates/jobs/edit.html:21
+msgid "Save"
+msgstr "Сохранить"
+
+#: src/templates/jobs/index.html:6
+msgid "Job listings"
+msgstr "Список вакансий"
+
+#: src/templates/jobs/list_vacancies_company.html:6
+msgid "job listings"
+msgstr "список вакансий"
+
+#: src/templates/links/_archive.html:2
 msgid "archive"
 msgstr "архив"
 
-#: templates/links/_source_codes.html:2
+#: src/templates/links/_source_codes.html:2
 msgid "source code"
 msgstr "исходники"
 
-#: templates/links/_useful_links.html:2
+#: src/templates/links/_useful_links.html:2
 msgid "useful links"
 msgstr "полезные ссылки"
 
-#: templates/main/_donation.html:2
+#: src/templates/main/_donation.html:2
 msgid "Donations"
 msgstr "Пожертвование"
 
-#: templates/main/_donation.html:16
+#: src/templates/main/_donation.html:16
 msgid "Use our referral code"
 msgstr "Воспользуйтесь нашей реферралкой"
 
-#: templates/main/_toc.html:3
+#: src/templates/main/_toc.html:3
 msgid "Table of contents"
 msgstr "Содержимое"
 
-#: templates/main/feedback.html:5
+#: src/templates/main/feedback.html:5
 msgid "Feedback"
 msgstr "Обратная связь"
 
-#: templates/main/feedback.html:9
+#: src/templates/main/feedback.html:9
 msgid "You can send message to us"
 msgstr "Вы можете отправить нам сообщение"
 
-#: templates/main/feedback.html:12
+#: src/templates/main/feedback.html:12
 msgid "We are glad to hear your questions, comments or suggestions!"
 msgstr "Мы рады получить ваши вопросы, комментарии или предложения!"
 
-#: templates/main/feedback.html:21
+#: src/templates/main/feedback.html:21
 msgid "Send"
 msgstr "Отправить"
 
-#: templates/main/search.html:5 templates/main/search.html.py:13
-msgid "Search"
-msgstr "Поиск"
-
-#: templates/main/search.html:34 templates/news/index.html:25
+#: src/templates/main/search.html:34 src/templates/news/index.html:25
 msgid "Read More"
 msgstr "Читать дальше"
 
-#: templates/main/thanks.html:5
+#: src/templates/main/thanks.html:5
 msgid "Help Our Project"
 msgstr "Помогите нашему проекту"
 
-#: templates/main/thanks.html:10
+#: src/templates/main/thanks.html:10
 msgid "Thank you!"
 msgstr "Спасибо!"
 
-#: templates/news/news.html:42
+#: src/templates/news/news.html:42
 msgid "Full version:"
 msgstr "Полная версия:"
 
-#: templates/videos/_last_videos.html:2
+#: src/templates/videos/_last_videos.html:2
 msgid "Something to watch"
 msgstr "Рекомендуем посмотреть"
 
-#: utils/db/fields/country_field.py:14
+#: src/utils/db/fields/country_field.py:14
 msgid "Andorra"
 msgstr "Андора"
 
-#: utils/db/fields/country_field.py:15
+#: src/utils/db/fields/country_field.py:15
 msgid "United Arab Emirates"
 msgstr "Объединённые Арабские Эмираты"
 
-#: utils/db/fields/country_field.py:16
+#: src/utils/db/fields/country_field.py:16
 msgid "Afghanistan"
 msgstr "Афганистан"
 
-#: utils/db/fields/country_field.py:17
+#: src/utils/db/fields/country_field.py:17
 msgid "Antigua & Barbuda"
 msgstr "Антигуа и Барбуда"
 
-#: utils/db/fields/country_field.py:18
+#: src/utils/db/fields/country_field.py:18
 msgid "Anguilla"
 msgstr "Ангилья"
 
-#: utils/db/fields/country_field.py:19
+#: src/utils/db/fields/country_field.py:19
 msgid "Albania"
 msgstr "Албания"
 
-#: utils/db/fields/country_field.py:20
+#: src/utils/db/fields/country_field.py:20
 msgid "Armenia"
 msgstr "Армения"
 
-#: utils/db/fields/country_field.py:21
+#: src/utils/db/fields/country_field.py:21
 msgid "Netherlands Antilles"
 msgstr "Нидерландские Антильские острова"
 
-#: utils/db/fields/country_field.py:22
+#: src/utils/db/fields/country_field.py:22
 msgid "Angola"
 msgstr "Ангола"
 
-#: utils/db/fields/country_field.py:23
+#: src/utils/db/fields/country_field.py:23
 msgid "Antarctica"
 msgstr ""
 
-#: utils/db/fields/country_field.py:24
+#: src/utils/db/fields/country_field.py:24
 msgid "Argentina"
 msgstr "Аргентина"
 
-#: utils/db/fields/country_field.py:25
+#: src/utils/db/fields/country_field.py:25
 msgid "American Samoa"
 msgstr ""
 
-#: utils/db/fields/country_field.py:26
+#: src/utils/db/fields/country_field.py:26
 msgid "Austria"
 msgstr "Австрия"
 
-#: utils/db/fields/country_field.py:27
+#: src/utils/db/fields/country_field.py:27
 msgid "Australia"
 msgstr "Австралия"
 
-#: utils/db/fields/country_field.py:28
+#: src/utils/db/fields/country_field.py:28
 msgid "Aruba"
 msgstr ""
 
-#: utils/db/fields/country_field.py:29
+#: src/utils/db/fields/country_field.py:29
 msgid "Azerbaijan"
 msgstr "Азербайджан"
 
-#: utils/db/fields/country_field.py:30
+#: src/utils/db/fields/country_field.py:30
 msgid "Bosnia and Herzegovina"
 msgstr "Босния и Герцеговина"
 
-#: utils/db/fields/country_field.py:31
+#: src/utils/db/fields/country_field.py:31
 msgid "Barbados"
 msgstr ""
 
-#: utils/db/fields/country_field.py:32
+#: src/utils/db/fields/country_field.py:32
 msgid "Bangladesh"
 msgstr ""
 
-#: utils/db/fields/country_field.py:33
+#: src/utils/db/fields/country_field.py:33
 msgid "Belgium"
 msgstr "Бельгия"
 
-#: utils/db/fields/country_field.py:34
+#: src/utils/db/fields/country_field.py:34
 msgid "Burkina Faso"
 msgstr "Буркина Фасо"
 
-#: utils/db/fields/country_field.py:35
+#: src/utils/db/fields/country_field.py:35
 msgid "Bulgaria"
 msgstr "Болгария"
 
-#: utils/db/fields/country_field.py:36
+#: src/utils/db/fields/country_field.py:36
 msgid "Bahrain"
 msgstr "Бахрейн"
 
-#: utils/db/fields/country_field.py:37
+#: src/utils/db/fields/country_field.py:37
 msgid "Burundi"
 msgstr ""
 
-#: utils/db/fields/country_field.py:38
+#: src/utils/db/fields/country_field.py:38
 msgid "Benin"
 msgstr ""
 
-#: utils/db/fields/country_field.py:39
+#: src/utils/db/fields/country_field.py:39
 msgid "Bermuda"
 msgstr "Бермуды"
 
-#: utils/db/fields/country_field.py:40
+#: src/utils/db/fields/country_field.py:40
 msgid "Brunei Darussalam"
 msgstr ""
 
-#: utils/db/fields/country_field.py:41
+#: src/utils/db/fields/country_field.py:41
 msgid "Bolivia"
 msgstr "Боливия"
 
-#: utils/db/fields/country_field.py:42
+#: src/utils/db/fields/country_field.py:42
 msgid "Brazil"
 msgstr "Бразилия"
 
-#: utils/db/fields/country_field.py:43
+#: src/utils/db/fields/country_field.py:43
 msgid "Bahama"
 msgstr "Багамы"
 
-#: utils/db/fields/country_field.py:44
+#: src/utils/db/fields/country_field.py:44
 msgid "Bhutan"
 msgstr ""
 
-#: utils/db/fields/country_field.py:45
+#: src/utils/db/fields/country_field.py:45
 #, fuzzy
 #| msgid "Cook Islands"
 msgid "Bouvet Island"
 msgstr "Острова Кука"
 
-#: utils/db/fields/country_field.py:46
+#: src/utils/db/fields/country_field.py:46
 msgid "Botswana"
 msgstr "Ботсвана"
 
-#: utils/db/fields/country_field.py:47
+#: src/utils/db/fields/country_field.py:47
 msgid "Belarus"
 msgstr "Белоруссия"
 
-#: utils/db/fields/country_field.py:48
+#: src/utils/db/fields/country_field.py:48
 msgid "Belize"
 msgstr ""
 
-#: utils/db/fields/country_field.py:49
+#: src/utils/db/fields/country_field.py:49
 msgid "Canada"
 msgstr "Канада"
 
-#: utils/db/fields/country_field.py:50
+#: src/utils/db/fields/country_field.py:50
 #, fuzzy
 #| msgid "Cook Islands"
 msgid "Cocos (Keeling) Islands"
 msgstr "Острова Кука"
 
-#: utils/db/fields/country_field.py:51
+#: src/utils/db/fields/country_field.py:51
 #, fuzzy
 #| msgid "Syrian Arab Republic"
 msgid "Central African Republic"
 msgstr "Сирия"
 
-#: utils/db/fields/country_field.py:52
+#: src/utils/db/fields/country_field.py:52
 msgid "Congo"
 msgstr "Конго"
 
-#: utils/db/fields/country_field.py:53
+#: src/utils/db/fields/country_field.py:53
 msgid "Switzerland"
 msgstr "Швейцария"
 
-#: utils/db/fields/country_field.py:54
+#: src/utils/db/fields/country_field.py:54
 msgid "Ivory Coast"
 msgstr ""
 
-#: utils/db/fields/country_field.py:55
+#: src/utils/db/fields/country_field.py:55
 msgid "Cook Islands"
 msgstr "Острова Кука"
 
-#: utils/db/fields/country_field.py:56
+#: src/utils/db/fields/country_field.py:56
 msgid "Chile"
 msgstr "Чили"
 
-#: utils/db/fields/country_field.py:57
+#: src/utils/db/fields/country_field.py:57
 msgid "Cameroon"
 msgstr "Камерун"
 
-#: utils/db/fields/country_field.py:58
+#: src/utils/db/fields/country_field.py:58
 msgid "China"
 msgstr "Китай"
 
-#: utils/db/fields/country_field.py:59
+#: src/utils/db/fields/country_field.py:59
 msgid "Colombia"
 msgstr "Колумбия"
 
-#: utils/db/fields/country_field.py:60
+#: src/utils/db/fields/country_field.py:60
 msgid "Costa Rica"
 msgstr "Коста Рика"
 
-#: utils/db/fields/country_field.py:61
+#: src/utils/db/fields/country_field.py:61
 msgid "Cuba"
 msgstr "Куба"
 
-#: utils/db/fields/country_field.py:62
+#: src/utils/db/fields/country_field.py:62
 msgid "Cape Verde"
 msgstr ""
 
-#: utils/db/fields/country_field.py:63
+#: src/utils/db/fields/country_field.py:63
 #, fuzzy
 #| msgid "Cayman Islands"
 msgid "Christmas Island"
 msgstr "Каймановы Острова"
 
-#: utils/db/fields/country_field.py:64
+#: src/utils/db/fields/country_field.py:64
 msgid "Cyprus"
 msgstr "Кипр"
 
-#: utils/db/fields/country_field.py:65
+#: src/utils/db/fields/country_field.py:65
 msgid "Czech Republic"
 msgstr "Чехия"
 
-#: utils/db/fields/country_field.py:66
+#: src/utils/db/fields/country_field.py:66
 msgid "Germany"
 msgstr "Германия"
 
-#: utils/db/fields/country_field.py:67
+#: src/utils/db/fields/country_field.py:67
 msgid "Djibouti"
 msgstr "Джибути"
 
-#: utils/db/fields/country_field.py:68
+#: src/utils/db/fields/country_field.py:68
 msgid "Denmark"
 msgstr "Дания"
 
-#: utils/db/fields/country_field.py:69
+#: src/utils/db/fields/country_field.py:69
 msgid "Dominica"
 msgstr ""
 
-#: utils/db/fields/country_field.py:70
+#: src/utils/db/fields/country_field.py:70
 #, fuzzy
 #| msgid "Syrian Arab Republic"
 msgid "Dominican Republic"
 msgstr "Сирия"
 
-#: utils/db/fields/country_field.py:71
+#: src/utils/db/fields/country_field.py:71
 msgid "Algeria"
 msgstr "Алжир"
 
-#: utils/db/fields/country_field.py:72
+#: src/utils/db/fields/country_field.py:72
 msgid "Ecuador"
 msgstr "Эквадор"
 
-#: utils/db/fields/country_field.py:73
+#: src/utils/db/fields/country_field.py:73
 msgid "Estonia"
 msgstr "Эстония"
 
-#: utils/db/fields/country_field.py:74
+#: src/utils/db/fields/country_field.py:74
 msgid "Egypt"
 msgstr "Египет"
 
-#: utils/db/fields/country_field.py:75
+#: src/utils/db/fields/country_field.py:75
 msgid "Western Sahara"
 msgstr "Западная Сахара"
 
-#: utils/db/fields/country_field.py:76
+#: src/utils/db/fields/country_field.py:76
 msgid "Eritrea"
 msgstr "Эритрея"
 
-#: utils/db/fields/country_field.py:77
+#: src/utils/db/fields/country_field.py:77
 msgid "Spain"
 msgstr "Испания"
 
-#: utils/db/fields/country_field.py:78
+#: src/utils/db/fields/country_field.py:78
 msgid "Ethiopia"
 msgstr "Эфиопия"
 
-#: utils/db/fields/country_field.py:79
+#: src/utils/db/fields/country_field.py:79
 msgid "Finland"
 msgstr "Финляндия"
 
-#: utils/db/fields/country_field.py:80
+#: src/utils/db/fields/country_field.py:80
 msgid "Fiji"
 msgstr "Фиджи"
 
-#: utils/db/fields/country_field.py:81
+#: src/utils/db/fields/country_field.py:81
 msgid "Falkland Islands (Malvinas)"
 msgstr ""
 
-#: utils/db/fields/country_field.py:82
+#: src/utils/db/fields/country_field.py:82
 msgid "Micronesia"
 msgstr "Микронезия"
 
-#: utils/db/fields/country_field.py:83
+#: src/utils/db/fields/country_field.py:83
 #, fuzzy
 #| msgid "Cook Islands"
 msgid "Faroe Islands"
 msgstr "Острова Кука"
 
-#: utils/db/fields/country_field.py:84
+#: src/utils/db/fields/country_field.py:84
 msgid "France"
 msgstr "Франция"
 
-#: utils/db/fields/country_field.py:85
+#: src/utils/db/fields/country_field.py:85
 msgid "France, Metropolitan"
 msgstr ""
 
-#: utils/db/fields/country_field.py:86
+#: src/utils/db/fields/country_field.py:86
 msgid "Gabon"
 msgstr "Габон"
 
-#: utils/db/fields/country_field.py:87
+#: src/utils/db/fields/country_field.py:87
 msgid "United Kingdom (Great Britain)"
 msgstr "Англия"
 
-#: utils/db/fields/country_field.py:88
+#: src/utils/db/fields/country_field.py:88
 msgid "Grenada"
 msgstr "Гренада"
 
-#: utils/db/fields/country_field.py:89
+#: src/utils/db/fields/country_field.py:89
 msgid "Georgia"
 msgstr "Грузия"
 
-#: utils/db/fields/country_field.py:90
+#: src/utils/db/fields/country_field.py:90
 #, fuzzy
 #| msgid "French Polynesia"
 msgid "French Guiana"
 msgstr "Французская Полинезия"
 
-#: utils/db/fields/country_field.py:91
+#: src/utils/db/fields/country_field.py:91
 msgid "Ghana"
 msgstr ""
 
-#: utils/db/fields/country_field.py:92
+#: src/utils/db/fields/country_field.py:92
 msgid "Gibraltar"
 msgstr "Гибралтар"
 
-#: utils/db/fields/country_field.py:93
+#: src/utils/db/fields/country_field.py:93
 #, fuzzy
 #| msgid "Ireland"
 msgid "Greenland"
 msgstr "Ирландия"
 
-#: utils/db/fields/country_field.py:94
+#: src/utils/db/fields/country_field.py:94
 #, fuzzy
 #| msgid "Zambia"
 msgid "Gambia"
 msgstr "Замбия"
 
-#: utils/db/fields/country_field.py:95
+#: src/utils/db/fields/country_field.py:95
 msgid "Guinea"
 msgstr "Гвинея"
 
-#: utils/db/fields/country_field.py:96
+#: src/utils/db/fields/country_field.py:96
 msgid "Guadeloupe"
 msgstr "Гваделупа"
 
-#: utils/db/fields/country_field.py:97
+#: src/utils/db/fields/country_field.py:97
 msgid "Equatorial Guinea"
 msgstr ""
 
-#: utils/db/fields/country_field.py:98
+#: src/utils/db/fields/country_field.py:98
 msgid "Greece"
 msgstr "Греция"
 
-#: utils/db/fields/country_field.py:99
+#: src/utils/db/fields/country_field.py:99
 msgid "South Georgia and the South Sandwich Islands"
 msgstr ""
 
-#: utils/db/fields/country_field.py:100
+#: src/utils/db/fields/country_field.py:100
 msgid "Guatemala"
 msgstr ""
 
-#: utils/db/fields/country_field.py:101
+#: src/utils/db/fields/country_field.py:101
 msgid "Guam"
 msgstr "Гуам"
 
-#: utils/db/fields/country_field.py:102
+#: src/utils/db/fields/country_field.py:102
 #, fuzzy
 #| msgid "Guinea"
 msgid "Guinea-Bissau"
 msgstr "Гвинея"
 
-#: utils/db/fields/country_field.py:103
+#: src/utils/db/fields/country_field.py:103
 msgid "Guyana"
 msgstr ""
 
-#: utils/db/fields/country_field.py:104
+#: src/utils/db/fields/country_field.py:104
 msgid "Hong Kong"
 msgstr "Гонконг"
 
-#: utils/db/fields/country_field.py:105
+#: src/utils/db/fields/country_field.py:105
 #, fuzzy
 #| msgid "Marshall Islands"
 msgid "Heard & McDonald Islands"
 msgstr "Маршалловы Острова"
 
-#: utils/db/fields/country_field.py:106
+#: src/utils/db/fields/country_field.py:106
 msgid "Honduras"
 msgstr "Гондурас"
 
-#: utils/db/fields/country_field.py:107
+#: src/utils/db/fields/country_field.py:107
 msgid "Croatia"
 msgstr ""
 
-#: utils/db/fields/country_field.py:108
+#: src/utils/db/fields/country_field.py:108
 msgid "Haiti"
 msgstr "Гаити"
 
-#: utils/db/fields/country_field.py:109
+#: src/utils/db/fields/country_field.py:109
 msgid "Hungary"
 msgstr "Венгрия"
 
-#: utils/db/fields/country_field.py:110
+#: src/utils/db/fields/country_field.py:110
 msgid "Indonesia"
 msgstr "Индонезия"
 
-#: utils/db/fields/country_field.py:111
+#: src/utils/db/fields/country_field.py:111
 msgid "Ireland"
 msgstr "Ирландия"
 
-#: utils/db/fields/country_field.py:112
+#: src/utils/db/fields/country_field.py:112
 msgid "Israel"
 msgstr "Израиль"
 
-#: utils/db/fields/country_field.py:113
+#: src/utils/db/fields/country_field.py:113
 msgid "India"
 msgstr "Индия"
 
-#: utils/db/fields/country_field.py:114
+#: src/utils/db/fields/country_field.py:114
 msgid "British Indian Ocean Territory"
 msgstr ""
 
-#: utils/db/fields/country_field.py:115
+#: src/utils/db/fields/country_field.py:115
 msgid "Iraq"
 msgstr "Ирак"
 
-#: utils/db/fields/country_field.py:116
+#: src/utils/db/fields/country_field.py:116
 msgid "Islamic Republic of Iran"
 msgstr "Иран"
 
-#: utils/db/fields/country_field.py:117
+#: src/utils/db/fields/country_field.py:117
 msgid "Iceland"
 msgstr "Исландия"
 
-#: utils/db/fields/country_field.py:118
+#: src/utils/db/fields/country_field.py:118
 msgid "Italy"
 msgstr "Италия"
 
-#: utils/db/fields/country_field.py:119
+#: src/utils/db/fields/country_field.py:119
 msgid "Jamaica"
 msgstr "Джамайка"
 
-#: utils/db/fields/country_field.py:120
+#: src/utils/db/fields/country_field.py:120
 msgid "Jordan"
 msgstr "Иордания"
 
-#: utils/db/fields/country_field.py:121
+#: src/utils/db/fields/country_field.py:121
 msgid "Japan"
 msgstr "Япония"
 
-#: utils/db/fields/country_field.py:122
+#: src/utils/db/fields/country_field.py:122
 msgid "Kenya"
 msgstr "Кения"
 
-#: utils/db/fields/country_field.py:123
+#: src/utils/db/fields/country_field.py:123
 msgid "Kyrgyzstan"
 msgstr "Киргизия"
 
-#: utils/db/fields/country_field.py:124
+#: src/utils/db/fields/country_field.py:124
 msgid "Cambodia"
 msgstr ""
 
-#: utils/db/fields/country_field.py:125
+#: src/utils/db/fields/country_field.py:125
 msgid "Kiribati"
 msgstr ""
 
-#: utils/db/fields/country_field.py:126
+#: src/utils/db/fields/country_field.py:126
 msgid "Comoros"
 msgstr ""
 
-#: utils/db/fields/country_field.py:127
+#: src/utils/db/fields/country_field.py:127
 msgid "St. Kitts and Nevis"
 msgstr ""
 
-#: utils/db/fields/country_field.py:128
+#: src/utils/db/fields/country_field.py:128
 msgid "Korea, Democratic People's Republic of"
 msgstr "КНДР"
 
-#: utils/db/fields/country_field.py:129
+#: src/utils/db/fields/country_field.py:129
 msgid "Korea, Republic of"
 msgstr "Южная Корея"
 
-#: utils/db/fields/country_field.py:130
+#: src/utils/db/fields/country_field.py:130
 msgid "Kuwait"
 msgstr "Кувейт"
 
-#: utils/db/fields/country_field.py:131
+#: src/utils/db/fields/country_field.py:131
 msgid "Cayman Islands"
 msgstr "Каймановы Острова"
 
-#: utils/db/fields/country_field.py:132
+#: src/utils/db/fields/country_field.py:132
 msgid "Kazakhstan"
 msgstr "Казахстан"
 
-#: utils/db/fields/country_field.py:133
+#: src/utils/db/fields/country_field.py:133
 #, fuzzy
 #| msgid "Korea, Democratic People's Republic of"
 msgid "Lao People's Democratic Republic"
 msgstr "КНДР"
 
-#: utils/db/fields/country_field.py:134
+#: src/utils/db/fields/country_field.py:134
 msgid "Lebanon"
 msgstr "Ливан"
 
-#: utils/db/fields/country_field.py:135
+#: src/utils/db/fields/country_field.py:135
 msgid "Saint Lucia"
 msgstr ""
 
-#: utils/db/fields/country_field.py:136
+#: src/utils/db/fields/country_field.py:136
 msgid "Liechtenstein"
 msgstr "Лихтенштейн"
 
-#: utils/db/fields/country_field.py:137
+#: src/utils/db/fields/country_field.py:137
 msgid "Sri Lanka"
 msgstr "Шриланка"
 
-#: utils/db/fields/country_field.py:138
+#: src/utils/db/fields/country_field.py:138
 #, fuzzy
 #| msgid "Nigeria"
 msgid "Liberia"
 msgstr "Нигерия"
 
-#: utils/db/fields/country_field.py:139
+#: src/utils/db/fields/country_field.py:139
 msgid "Lesotho"
 msgstr "Лесото"
 
-#: utils/db/fields/country_field.py:140
+#: src/utils/db/fields/country_field.py:140
 msgid "Lithuania"
 msgstr "Литва"
 
-#: utils/db/fields/country_field.py:141
+#: src/utils/db/fields/country_field.py:141
 msgid "Luxembourg"
 msgstr "Люксембург"
 
-#: utils/db/fields/country_field.py:142
+#: src/utils/db/fields/country_field.py:142
 msgid "Latvia"
 msgstr "Латвия"
 
-#: utils/db/fields/country_field.py:143
+#: src/utils/db/fields/country_field.py:143
 msgid "Libyan Arab Jamahiriya"
 msgstr ""
 
-#: utils/db/fields/country_field.py:144
+#: src/utils/db/fields/country_field.py:144
 msgid "Morocco"
 msgstr "Морокко"
 
-#: utils/db/fields/country_field.py:145
+#: src/utils/db/fields/country_field.py:145
 msgid "Monaco"
 msgstr "Монако"
 
-#: utils/db/fields/country_field.py:146
+#: src/utils/db/fields/country_field.py:146
 msgid "Moldova, Republic of"
 msgstr "Молдавия"
 
-#: utils/db/fields/country_field.py:147
+#: src/utils/db/fields/country_field.py:147
 msgid "Madagascar"
 msgstr "Мадагаскар"
 
-#: utils/db/fields/country_field.py:148
+#: src/utils/db/fields/country_field.py:148
 msgid "Marshall Islands"
 msgstr "Маршалловы Острова"
 
-#: utils/db/fields/country_field.py:149
+#: src/utils/db/fields/country_field.py:149
 msgid "Mali"
 msgstr "Мали"
 
-#: utils/db/fields/country_field.py:150
+#: src/utils/db/fields/country_field.py:150
 msgid "Mongolia"
 msgstr "Монголия"
 
-#: utils/db/fields/country_field.py:151
+#: src/utils/db/fields/country_field.py:151
 msgid "Myanmar"
 msgstr "Мьянма"
 
-#: utils/db/fields/country_field.py:152
+#: src/utils/db/fields/country_field.py:152
 msgid "Macau"
 msgstr ""
 
-#: utils/db/fields/country_field.py:153
+#: src/utils/db/fields/country_field.py:153
 #, fuzzy
 #| msgid "Marshall Islands"
 msgid "Northern Mariana Islands"
 msgstr "Маршалловы Острова"
 
-#: utils/db/fields/country_field.py:154
+#: src/utils/db/fields/country_field.py:154
 #, fuzzy
 #| msgid "Mozambique"
 msgid "Martinique"
 msgstr "Мозамбик"
 
-#: utils/db/fields/country_field.py:155
+#: src/utils/db/fields/country_field.py:155
 msgid "Mauritania"
 msgstr "Мавритания"
 
-#: utils/db/fields/country_field.py:156
+#: src/utils/db/fields/country_field.py:156
 msgid "Monserrat"
 msgstr ""
 
-#: utils/db/fields/country_field.py:157
+#: src/utils/db/fields/country_field.py:157
 msgid "Malta"
 msgstr "Мальта"
 
-#: utils/db/fields/country_field.py:158
+#: src/utils/db/fields/country_field.py:158
 #, fuzzy
 #| msgid "Mauritania"
 msgid "Mauritius"
 msgstr "Мавритания"
 
-#: utils/db/fields/country_field.py:159
+#: src/utils/db/fields/country_field.py:159
 msgid "Maldives"
 msgstr "Мальдивы"
 
-#: utils/db/fields/country_field.py:160
+#: src/utils/db/fields/country_field.py:160
 msgid "Malawi"
 msgstr "Малави"
 
-#: utils/db/fields/country_field.py:161
+#: src/utils/db/fields/country_field.py:161
 msgid "Mexico"
 msgstr "Мексика"
 
-#: utils/db/fields/country_field.py:162
+#: src/utils/db/fields/country_field.py:162
 msgid "Malaysia"
 msgstr "Малайзия"
 
-#: utils/db/fields/country_field.py:163
+#: src/utils/db/fields/country_field.py:163
 msgid "Mozambique"
 msgstr "Мозамбик"
 
-#: utils/db/fields/country_field.py:164
+#: src/utils/db/fields/country_field.py:164
 msgid "Namibia"
 msgstr "Намибия"
 
-#: utils/db/fields/country_field.py:165
+#: src/utils/db/fields/country_field.py:165
 msgid "New Caledonia"
 msgstr "Новая Каледония"
 
-#: utils/db/fields/country_field.py:166
+#: src/utils/db/fields/country_field.py:166
 msgid "Niger"
 msgstr "Нигер"
 
-#: utils/db/fields/country_field.py:167
+#: src/utils/db/fields/country_field.py:167
 #, fuzzy
 #| msgid "Cook Islands"
 msgid "Norfolk Island"
 msgstr "Острова Кука"
 
-#: utils/db/fields/country_field.py:168
+#: src/utils/db/fields/country_field.py:168
 msgid "Nigeria"
 msgstr "Нигерия"
 
-#: utils/db/fields/country_field.py:169
+#: src/utils/db/fields/country_field.py:169
 msgid "Nicaragua"
 msgstr "Никарагуа"
 
-#: utils/db/fields/country_field.py:170
+#: src/utils/db/fields/country_field.py:170
 msgid "Netherlands"
 msgstr "Нидерланды"
 
-#: utils/db/fields/country_field.py:171
+#: src/utils/db/fields/country_field.py:171
 msgid "Norway"
 msgstr "Норвегия"
 
-#: utils/db/fields/country_field.py:172
+#: src/utils/db/fields/country_field.py:172
 msgid "Nepal"
 msgstr "Непал"
 
-#: utils/db/fields/country_field.py:173
+#: src/utils/db/fields/country_field.py:173
 msgid "Nauru"
 msgstr ""
 
-#: utils/db/fields/country_field.py:174
+#: src/utils/db/fields/country_field.py:174
 msgid "Niue"
 msgstr ""
 
-#: utils/db/fields/country_field.py:175
+#: src/utils/db/fields/country_field.py:175
 msgid "New Zealand"
 msgstr "Новая Зеландия"
 
-#: utils/db/fields/country_field.py:176
+#: src/utils/db/fields/country_field.py:176
 msgid "Oman"
 msgstr "Оман"
 
-#: utils/db/fields/country_field.py:177
+#: src/utils/db/fields/country_field.py:177
 msgid "Panama"
 msgstr "Панама"
 
-#: utils/db/fields/country_field.py:178
+#: src/utils/db/fields/country_field.py:178
 msgid "Peru"
 msgstr "Перу"
 
-#: utils/db/fields/country_field.py:179
+#: src/utils/db/fields/country_field.py:179
 msgid "French Polynesia"
 msgstr "Французская Полинезия"
 
-#: utils/db/fields/country_field.py:180
+#: src/utils/db/fields/country_field.py:180
 msgid "Papua New Guinea"
 msgstr "Папуа Новая Гвинея"
 
-#: utils/db/fields/country_field.py:181
+#: src/utils/db/fields/country_field.py:181
 msgid "Philippines"
 msgstr ""
 
-#: utils/db/fields/country_field.py:182
+#: src/utils/db/fields/country_field.py:182
 msgid "Pakistan"
 msgstr "Пакистан"
 
-#: utils/db/fields/country_field.py:183
+#: src/utils/db/fields/country_field.py:183
 msgid "Poland"
 msgstr "Польша"
 
-#: utils/db/fields/country_field.py:184
+#: src/utils/db/fields/country_field.py:184
 msgid "St. Pierre & Miquelon"
 msgstr ""
 
-#: utils/db/fields/country_field.py:185
+#: src/utils/db/fields/country_field.py:185
 msgid "Pitcairn"
 msgstr ""
 
-#: utils/db/fields/country_field.py:186
+#: src/utils/db/fields/country_field.py:186
 msgid "Puerto Rico"
 msgstr "Пуэрто Рико"
 
-#: utils/db/fields/country_field.py:187
+#: src/utils/db/fields/country_field.py:187
 msgid "Portugal"
 msgstr "Португалия"
 
-#: utils/db/fields/country_field.py:188
+#: src/utils/db/fields/country_field.py:188
 msgid "Palau"
 msgstr "Палау"
 
-#: utils/db/fields/country_field.py:189
+#: src/utils/db/fields/country_field.py:189
 msgid "Paraguay"
 msgstr "Парагвай"
 
-#: utils/db/fields/country_field.py:190
+#: src/utils/db/fields/country_field.py:190
 msgid "Qatar"
 msgstr "Катар"
 
-#: utils/db/fields/country_field.py:191
+#: src/utils/db/fields/country_field.py:191
 msgid "Reunion"
 msgstr ""
 
-#: utils/db/fields/country_field.py:192
+#: src/utils/db/fields/country_field.py:192
 msgid "Romania"
 msgstr "Румыния"
 
-#: utils/db/fields/country_field.py:193
+#: src/utils/db/fields/country_field.py:193
 msgid "Russian Federation"
 msgstr "Российская Федерация"
 
-#: utils/db/fields/country_field.py:194
+#: src/utils/db/fields/country_field.py:194
 msgid "Rwanda"
 msgstr "Руанда"
 
-#: utils/db/fields/country_field.py:195
+#: src/utils/db/fields/country_field.py:195
 msgid "Saudi Arabia"
 msgstr "Саудовская Аравия"
 
-#: utils/db/fields/country_field.py:196
+#: src/utils/db/fields/country_field.py:196
 msgid "Solomon Islands"
 msgstr "Соломоновы Острова"
 
-#: utils/db/fields/country_field.py:197
+#: src/utils/db/fields/country_field.py:197
 msgid "Seychelles"
 msgstr "Сейшеллы"
 
-#: utils/db/fields/country_field.py:198
+#: src/utils/db/fields/country_field.py:198
 msgid "Sudan"
 msgstr "Судан"
 
-#: utils/db/fields/country_field.py:199
+#: src/utils/db/fields/country_field.py:199
 msgid "Sweden"
 msgstr "Швеция"
 
-#: utils/db/fields/country_field.py:200
+#: src/utils/db/fields/country_field.py:200
 msgid "Singapore"
 msgstr "Сингапур"
 
-#: utils/db/fields/country_field.py:201
+#: src/utils/db/fields/country_field.py:201
 msgid "St. Helena"
 msgstr ""
 
-#: utils/db/fields/country_field.py:202
+#: src/utils/db/fields/country_field.py:202
 msgid "Slovenia"
 msgstr "Словения"
 
-#: utils/db/fields/country_field.py:203
+#: src/utils/db/fields/country_field.py:203
 msgid "Svalbard & Jan Mayen Islands"
 msgstr ""
 
-#: utils/db/fields/country_field.py:204
+#: src/utils/db/fields/country_field.py:204
 msgid "Slovakia"
 msgstr "Словакия"
 
-#: utils/db/fields/country_field.py:205
+#: src/utils/db/fields/country_field.py:205
 msgid "Sierra Leone"
 msgstr "Сьерра Лионе"
 
-#: utils/db/fields/country_field.py:206
+#: src/utils/db/fields/country_field.py:206
 msgid "San Marino"
 msgstr ""
 
-#: utils/db/fields/country_field.py:207
+#: src/utils/db/fields/country_field.py:207
 msgid "Senegal"
 msgstr "Сенегал"
 
-#: utils/db/fields/country_field.py:208
+#: src/utils/db/fields/country_field.py:208
 msgid "Somalia"
 msgstr "Сомали"
 
-#: utils/db/fields/country_field.py:209
+#: src/utils/db/fields/country_field.py:209
 msgid "Suriname"
 msgstr "Суринам"
 
-#: utils/db/fields/country_field.py:210
+#: src/utils/db/fields/country_field.py:210
 msgid "Sao Tome & Principe"
 msgstr ""
 
-#: utils/db/fields/country_field.py:211
+#: src/utils/db/fields/country_field.py:211
 msgid "El Salvador"
 msgstr ""
 
-#: utils/db/fields/country_field.py:212
+#: src/utils/db/fields/country_field.py:212
 msgid "Syrian Arab Republic"
 msgstr "Сирия"
 
-#: utils/db/fields/country_field.py:213
+#: src/utils/db/fields/country_field.py:213
 msgid "Swaziland"
 msgstr "Свазиленж"
 
-#: utils/db/fields/country_field.py:214
+#: src/utils/db/fields/country_field.py:214
 msgid "Turks & Caicos Islands"
 msgstr ""
 
-#: utils/db/fields/country_field.py:215
+#: src/utils/db/fields/country_field.py:215
 msgid "Chad"
 msgstr "Чад"
 
-#: utils/db/fields/country_field.py:216
+#: src/utils/db/fields/country_field.py:216
 msgid "French Southern Territories"
 msgstr ""
 
-#: utils/db/fields/country_field.py:217
+#: src/utils/db/fields/country_field.py:217
 msgid "Togo"
 msgstr "Того"
 
-#: utils/db/fields/country_field.py:218
+#: src/utils/db/fields/country_field.py:218
 msgid "Thailand"
 msgstr "Тайланд"
 
-#: utils/db/fields/country_field.py:219
+#: src/utils/db/fields/country_field.py:219
 msgid "Tajikistan"
 msgstr "Таджикистан"
 
-#: utils/db/fields/country_field.py:220
+#: src/utils/db/fields/country_field.py:220
 msgid "Tokelau"
 msgstr ""
 
-#: utils/db/fields/country_field.py:221
+#: src/utils/db/fields/country_field.py:221
 msgid "Turkmenistan"
 msgstr "Туркменистан"
 
-#: utils/db/fields/country_field.py:222
+#: src/utils/db/fields/country_field.py:222
 msgid "Tunisia"
 msgstr "Тунис"
 
-#: utils/db/fields/country_field.py:223
+#: src/utils/db/fields/country_field.py:223
 msgid "Tonga"
 msgstr "Тонга"
 
-#: utils/db/fields/country_field.py:224
+#: src/utils/db/fields/country_field.py:224
 msgid "East Timor"
 msgstr "Восточный Тимор"
 
-#: utils/db/fields/country_field.py:225
+#: src/utils/db/fields/country_field.py:225
 msgid "Turkey"
 msgstr "Турция"
 
-#: utils/db/fields/country_field.py:226
+#: src/utils/db/fields/country_field.py:226
 msgid "Trinidad & Tobago"
 msgstr ""
 
-#: utils/db/fields/country_field.py:227
+#: src/utils/db/fields/country_field.py:227
 msgid "Tuvalu"
 msgstr ""
 
-#: utils/db/fields/country_field.py:228
+#: src/utils/db/fields/country_field.py:228
 msgid "Taiwan, Province of China"
 msgstr "Тайвань"
 
-#: utils/db/fields/country_field.py:229
+#: src/utils/db/fields/country_field.py:229
 msgid "Tanzania, United Republic of"
 msgstr "Танзания"
 
-#: utils/db/fields/country_field.py:230
+#: src/utils/db/fields/country_field.py:230
 msgid "Ukraine"
 msgstr "Украина"
 
-#: utils/db/fields/country_field.py:231
+#: src/utils/db/fields/country_field.py:231
 msgid "Uganda"
 msgstr "Уганда"
 
-#: utils/db/fields/country_field.py:232
+#: src/utils/db/fields/country_field.py:232
 #, fuzzy
 #| msgid "United States of America"
 msgid "United States Minor Outlying Islands"
 msgstr "США"
 
-#: utils/db/fields/country_field.py:233
+#: src/utils/db/fields/country_field.py:233
 msgid "United States of America"
 msgstr "США"
 
-#: utils/db/fields/country_field.py:234
+#: src/utils/db/fields/country_field.py:234
 msgid "Uruguay"
 msgstr "Уругвай"
 
-#: utils/db/fields/country_field.py:235
+#: src/utils/db/fields/country_field.py:235
 msgid "Uzbekistan"
 msgstr "Узбекистан"
 
-#: utils/db/fields/country_field.py:236
+#: src/utils/db/fields/country_field.py:236
 msgid "Vatican City State (Holy See)"
 msgstr "Ватикан"
 
-#: utils/db/fields/country_field.py:237
+#: src/utils/db/fields/country_field.py:237
 msgid "St. Vincent & the Grenadines"
 msgstr ""
 
-#: utils/db/fields/country_field.py:238
+#: src/utils/db/fields/country_field.py:238
 msgid "Venezuela"
 msgstr "Венесуэла"
 
-#: utils/db/fields/country_field.py:239
+#: src/utils/db/fields/country_field.py:239
 msgid "British Virgin Islands"
 msgstr ""
 
-#: utils/db/fields/country_field.py:240
+#: src/utils/db/fields/country_field.py:240
 #, fuzzy
 #| msgid "United States of America"
 msgid "United States Virgin Islands"
 msgstr "США"
 
-#: utils/db/fields/country_field.py:241
+#: src/utils/db/fields/country_field.py:241
 msgid "Viet Nam"
 msgstr "Вьетнам"
 
-#: utils/db/fields/country_field.py:242
+#: src/utils/db/fields/country_field.py:242
 msgid "Vanuatu"
 msgstr "Ванату"
 
-#: utils/db/fields/country_field.py:243
+#: src/utils/db/fields/country_field.py:243
 msgid "Wallis & Futuna Islands"
 msgstr ""
 
-#: utils/db/fields/country_field.py:244
+#: src/utils/db/fields/country_field.py:244
 msgid "Samoa"
 msgstr "Самоа"
 
-#: utils/db/fields/country_field.py:245
+#: src/utils/db/fields/country_field.py:245
 msgid "Yemen"
 msgstr "Йемен"
 
-#: utils/db/fields/country_field.py:246
+#: src/utils/db/fields/country_field.py:246
 msgid "Mayotte"
 msgstr ""
 
-#: utils/db/fields/country_field.py:247
+#: src/utils/db/fields/country_field.py:247
 msgid "Yugoslavia"
 msgstr "Югославия"
 
-#: utils/db/fields/country_field.py:248
+#: src/utils/db/fields/country_field.py:248
 msgid "South Africa"
 msgstr "Южная Африка"
 
-#: utils/db/fields/country_field.py:249
+#: src/utils/db/fields/country_field.py:249
 msgid "Zambia"
 msgstr "Замбия"
 
-#: utils/db/fields/country_field.py:250
+#: src/utils/db/fields/country_field.py:250
 msgid "Zaire"
 msgstr "Заир"
 
-#: utils/db/fields/country_field.py:251
+#: src/utils/db/fields/country_field.py:251
 msgid "Zimbabwe"
 msgstr "Зимбабве"
 
-#: utils/db/fields/country_field.py:254
+#: src/utils/db/fields/country_field.py:254
 msgid "Unknown or unspecified country"
 msgstr "Неизвестная страна"
 
@@ -1529,9 +3155,6 @@ msgstr "Неизвестная страна"
 #~ msgstr ""
 #~ "Забыли пароль? Пожалуйста, введите свою е-почту и мы пришлём вам его."
 
-#~ msgid "Email Address"
-#~ msgstr "Адрес электронной почты"
-
 #~ msgid "Login to your account..."
 #~ msgstr "Авторизуйтесь..."
 
@@ -1546,9 +3169,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "You are authenticated already"
 #~ msgstr "Вы уже аутентифицированы"
-
-#~ msgid "Map"
-#~ msgstr "Карта"
 
 #~ msgid "Authenticate please!"
 #~ msgstr "Вы должны быть авторизированы."
@@ -1632,12 +3252,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "View on site"
 #~ msgstr "Посмотреть на сайте"
-
-#~ msgid "%(name)s object with primary key %(key)r does not exist."
-#~ msgstr "объект %(name)s с первичным ключом %(key)r не существует."
-
-#~ msgid "Change %s"
-#~ msgstr "Изменить %s"
 
 #~ msgid "Applications"
 #~ msgstr "Приложения"
@@ -1734,9 +3348,6 @@ msgstr "Неизвестная страна"
 #~ msgid "A user with that username already exists."
 #~ msgstr "Пользователь с таким именем уже существует."
 
-#~ msgid "This email is used already."
-#~ msgstr "Данный адрес электронной почты уже используется."
-
 #~ msgid ""
 #~ "That e-mail address doesn't have an associated active user account. Are "
 #~ "you sure you've registered and e-mail is confirmed?"
@@ -1783,9 +3394,6 @@ msgstr "Неизвестная страна"
 #~ msgid "Users"
 #~ msgstr "Пользователи"
 
-#~ msgid "title"
-#~ msgstr "тема"
-
 #~ msgid "link"
 #~ msgstr "ссылка"
 
@@ -1797,9 +3405,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "is active?"
 #~ msgstr "активно?"
-
-#~ msgid "created"
-#~ msgstr "создано"
 
 #~ msgid "announcement"
 #~ msgstr "Объявление"
@@ -1821,12 +3426,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "user achievements"
 #~ msgstr "Достижения пользователя"
-
-#~ msgid "name"
-#~ msgstr "имя"
-
-#~ msgid "description"
-#~ msgstr "описание"
 
 #~ msgid "active icon"
 #~ msgstr "Активная иконка"
@@ -1888,9 +3487,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "Comment"
 #~ msgstr "Комментарий"
-
-#~ msgid "Status"
-#~ msgstr "Состояние"
 
 #~ msgid "Fixed"
 #~ msgstr "Исправлена"
@@ -1972,12 +3568,6 @@ msgstr "Неизвестная страна"
 #~ msgid "author"
 #~ msgstr "автор"
 
-#~ msgid "tags"
-#~ msgstr "таги"
-
-#~ msgid "rating"
-#~ msgstr "рейтинг"
-
 #~ msgid "rated by"
 #~ msgstr "повлиял"
 
@@ -2001,9 +3591,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "Cancel"
 #~ msgstr "Отмена"
-
-#~ msgid "Files"
-#~ msgstr "Файлы"
 
 #~ msgid "View snipets"
 #~ msgstr "Просмотреть сниппеты"
@@ -2061,9 +3648,6 @@ msgstr "Неизвестная страна"
 #~ msgid "You can reply to the comments of the same object only"
 #~ msgstr "Отвечать можно только на комментарии с этой страницы"
 
-#~ msgid "object ID"
-#~ msgstr "Идентификатор объекта"
-
 #~ msgid "reply to"
 #~ msgstr "ответить"
 
@@ -2087,9 +3671,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "xpath"
 #~ msgstr "xpath"
-
-#~ msgid "status"
-#~ msgstr "статус"
 
 #~ msgid "doc. comment"
 #~ msgstr "комментарии к доке"
@@ -2176,9 +3757,6 @@ msgstr "Неизвестная страна"
 #~ msgstr ""
 #~ "Рецепт был добавлен успешно и будет проверен, как только появится "
 #~ "возможность."
-
-#~ msgid "Message"
-#~ msgstr "Сообщение"
 
 #~ msgid "Name"
 #~ msgstr "Имя"
@@ -2269,17 +3847,14 @@ msgstr "Неизвестная страна"
 
 #~ msgid ""
 #~ "\n"
-#~ "                            Updated %(updated)s by <strong>%(updated_by)"
-#~ "s</strong>.\n"
+#~ "                            Updated %(updated)s by <strong>"
+#~ "%(updated_by)s</strong>.\n"
 #~ "                        "
 #~ msgstr ""
 #~ "\n"
 #~ "                            Обновлено <strong>%(updated_by)s</strong> в "
 #~ "%(updated)s.\n"
 #~ "                        "
-
-#~ msgid "Location"
-#~ msgstr "Из"
 
 #~ msgid "Replies"
 #~ msgstr "Отклики"
@@ -2298,9 +3873,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "Sticky"
 #~ msgstr "Прикреплён"
-
-#~ msgid "Add post"
-#~ msgstr "Добавить отклик"
 
 #~ msgid "New post"
 #~ msgstr "Новые сообщение"
@@ -2323,9 +3895,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "New topic"
 #~ msgstr "Новая тема"
-
-#~ msgid "Edit post"
-#~ msgstr "Изменить отклик"
 
 #~ msgid "Unread topics"
 #~ msgstr "Непрочтённые темы"
@@ -2362,9 +3931,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "Move"
 #~ msgstr "Переместить"
-
-#~ msgid "Save"
-#~ msgstr "Сохранить"
 
 #~ msgid "Home"
 #~ msgstr "Домой"
@@ -2493,9 +4059,6 @@ msgstr "Неизвестная страна"
 #~ msgid "Books"
 #~ msgstr "Книги"
 
-#~ msgid "slug"
-#~ msgstr "метка"
-
 #~ msgid "book"
 #~ msgstr "книга"
 
@@ -2516,9 +4079,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "link to original"
 #~ msgstr "ссылка на оригинал"
-
-#~ msgid "active?"
-#~ msgstr "активно?"
 
 #~ msgid "last update"
 #~ msgstr "обновлено"
@@ -2646,14 +4206,8 @@ msgstr "Неизвестная страна"
 #~ msgid "Author search"
 #~ msgstr "Поиск по автору"
 
-#~ msgid "Search in"
-#~ msgstr "Поиск"
-
 #~ msgid "Show results as"
 #~ msgstr "Отобразить результаты как"
-
-#~ msgid "User with login %s does not exist"
-#~ msgstr "Пользователь с логином %s не существует"
 
 #~ msgid "You already voted for this post"
 #~ msgstr "Вы уже проголосовали за этот отклик"
@@ -2699,9 +4253,6 @@ msgstr "Неизвестная страна"
 #~ msgid "To"
 #~ msgstr "К"
 
-#~ msgid "Time"
-#~ msgstr "Время"
-
 #~ msgid "Sign"
 #~ msgstr "Подпись"
 
@@ -2714,9 +4265,6 @@ msgstr "Неизвестная страна"
 #~ msgid "Reputations"
 #~ msgstr "Репутации"
 
-#~ msgid "Site"
-#~ msgstr "Сайт"
-
 #~ msgid "Jabber"
 #~ msgstr "Джаббер"
 
@@ -2726,17 +4274,11 @@ msgstr "Неизвестная страна"
 #~ msgid "MSN"
 #~ msgstr "MSN"
 
-#~ msgid "AIM"
-#~ msgstr "AIM"
-
 #~ msgid "Yahoo"
 #~ msgstr "Yahoo"
 
 #~ msgid "Signature"
 #~ msgstr "Подпись"
-
-#~ msgid "Time zone"
-#~ msgstr "Временная зона"
 
 #~ msgid "Language"
 #~ msgstr "Язык"
@@ -2780,23 +4322,14 @@ msgstr "Неизвестная страна"
 #~ msgid "Banned user"
 #~ msgstr "Забаненный пользователь"
 
-#~ msgid "Ban start"
-#~ msgstr "Бан начинается"
-
 #~ msgid "Ban end"
 #~ msgstr "Бан завершается"
-
-#~ msgid "Ban"
-#~ msgstr "Бан"
 
 #~ msgid "Bans"
 #~ msgstr "Баны"
 
 #~ msgid "Size"
 #~ msgstr "Размер"
-
-#~ msgid "Content type"
-#~ msgstr "Тип содержимого"
 
 #~ msgid "Path"
 #~ msgstr "Путь"
@@ -2854,9 +4387,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "User list"
 #~ msgstr "Пользователи"
-
-#~ msgid "PM"
-#~ msgstr "PM"
 
 #~ msgid "Logged in as"
 #~ msgstr "Вошёл как"
@@ -2985,9 +4515,6 @@ msgstr "Неизвестная страна"
 #~ msgid "Select where to search"
 #~ msgstr "Выберете место поиска"
 
-#~ msgid "All forums"
-#~ msgstr "Все форумы"
-
 #~ msgid ""
 #~ "Choose in which forum you would like to search and if you want to search "
 #~ "in topic subjects, message text or both."
@@ -3006,9 +4533,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "Your search returned no hits."
 #~ msgstr "Ничего не найдено."
-
-#~ msgid "Search results"
-#~ msgstr "Результаты поиска"
 
 #~ msgid ""
 #~ "This topic is full of heresy! Don't use code examples represented here. "
@@ -3095,9 +4619,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "Real name:"
 #~ msgstr "Настоящее имя:"
-
-#~ msgid "(Unknown)"
-#~ msgstr "(Неизвестно)"
 
 #~ msgid "Website:"
 #~ msgstr "Сайт:"
@@ -3314,14 +4835,8 @@ msgstr "Неизвестная страна"
 #~ msgid "Processed"
 #~ msgstr "Выполнено"
 
-#~ msgid "ago"
-#~ msgstr "прошло"
-
 #~ msgid "email"
 #~ msgstr "е-почта"
-
-#~ msgid "Users number"
-#~ msgstr "Всего пользователей"
 
 #~ msgid "No search results"
 #~ msgstr "Ничего не найдено"
@@ -3360,9 +4875,6 @@ msgstr "Неизвестная страна"
 #~ msgid "Jump to "
 #~ msgstr "Перейти к"
 
-#~ msgid "Enter a valid e-mail address"
-#~ msgstr "Введите адрес вашей Е-почты"
-
 #~ msgid "Open in new tab"
 #~ msgstr "Открыть новую вкладку"
 
@@ -3385,9 +4897,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "Edit profile"
 #~ msgstr "Изменить профиль"
-
-#~ msgid "or"
-#~ msgstr "или"
 
 #~ msgid "Secured Data Transmittion Service"
 #~ msgstr "Сервис безопасной передачи данных"
@@ -3486,10 +4995,6 @@ msgstr "Неизвестная страна"
 #~ msgstr "Категория"
 
 #, fuzzy
-#~ msgid "Status Title"
-#~ msgstr "Состояние изменено"
-
-#, fuzzy
 #~ msgid "Statuses"
 #~ msgstr "Состояние"
 
@@ -3504,10 +5009,6 @@ msgstr "Неизвестная страна"
 #, fuzzy
 #~ msgid "Media Title"
 #~ msgstr "Заголовок"
-
-#, fuzzy
-#~ msgid "and"
-#~ msgstr "Бан"
 
 #, fuzzy
 #~ msgid "You will be redirected on SecureLayer for secure data entering."

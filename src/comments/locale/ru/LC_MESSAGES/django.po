@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-09 21:02+0300\n"
+"POT-Creation-Date: 2016-01-08 17:39+0300\n"
 "PO-Revision-Date: 2013-05-30 13:32+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -18,35 +18,35 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: forms.py:14 models.py:26
+#: src/comments/forms.py:14 src/comments/models.py:26
 msgid "Comment"
 msgstr "Комментарий"
 
-#: forms.py:38
+#: src/comments/forms.py:38
 msgid "You can reply to the comments of the same object only"
 msgstr "Отвечать можно только на комментарии с этой страницы"
 
-#: models.py:17
+#: src/comments/models.py:17
 msgid "object ID"
 msgstr "Идентификатор объекта"
 
-#: models.py:19
+#: src/comments/models.py:19
 msgid "user"
 msgstr "пользователь"
 
-#: models.py:20
+#: src/comments/models.py:20
 msgid "reply to"
 msgstr "ответить"
 
-#: models.py:21
+#: src/comments/models.py:21
 msgid "comment"
 msgstr "комментарий"
 
-#: models.py:22
+#: src/comments/models.py:22
 msgid "submit date"
 msgstr "дата отправки"
 
-#: models.py:27
+#: src/comments/models.py:27
 msgid "Comments"
 msgstr "Комментарии"
 

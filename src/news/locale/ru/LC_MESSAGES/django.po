@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-09 21:02+0300\n"
+"POT-Creation-Date: 2016-01-08 17:39+0300\n"
 "PO-Revision-Date: 2012-08-31 16:02+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -18,75 +18,75 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: feeds.py:11
+#: src/news/feeds.py:11
 msgid "Russian DjangoBook"
 msgstr "DjangoBook по-русски"
 
-#: feeds.py:13
+#: src/news/feeds.py:13
 msgid "The freshest news about Russian version of DjangoBook"
 msgstr "Последние новости с DjangoBook по-русски"
 
-#: models.py:17 models.py:56
+#: src/news/models.py:17 src/news/models.py:56
 msgid "title"
 msgstr "тема"
 
-#: models.py:18
+#: src/news/models.py:18
 msgid "content"
 msgstr "содержимое"
 
-#: models.py:18
+#: src/news/models.py:18
 msgid "Use Markdown and HTML"
 msgstr "Иcпользуйте Markdown или HTML"
 
-#: models.py:19
+#: src/news/models.py:19
 msgid "created"
 msgstr "создано"
 
-#: models.py:21
+#: src/news/models.py:21
 msgid "approved"
 msgstr ""
 
-#: models.py:22
+#: src/news/models.py:22
 msgid "Can be used for draft"
 msgstr ""
 
-#: models.py:23
+#: src/news/models.py:23
 msgid "link to original"
 msgstr ""
 
-#: models.py:27 models.py:28 models.py:40
+#: src/news/models.py:27 src/news/models.py:28 src/news/models.py:40
 msgid "News"
 msgstr "Новости"
 
-#: models.py:57
+#: src/news/models.py:57
 msgid "description"
 msgstr ""
 
-#: models.py:58
+#: src/news/models.py:58
 msgid "link"
 msgstr ""
 
-#: models.py:59
+#: src/news/models.py:59
 msgid "active?"
 msgstr ""
 
-#: models.py:60
+#: src/news/models.py:60
 msgid "last update"
 msgstr ""
 
-#: models.py:62
+#: src/news/models.py:62
 msgid "author"
 msgstr ""
 
-#: models.py:64
+#: src/news/models.py:64
 msgid "approved by default?"
 msgstr ""
 
-#: models.py:70
+#: src/news/models.py:70
 msgid "RSS source"
 msgstr ""
 
-#: models.py:71
+#: src/news/models.py:71
 msgid "RSS sources"
 msgstr ""
 

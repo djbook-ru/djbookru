@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-09 21:02+0300\n"
+"POT-Creation-Date: 2016-01-08 17:39+0300\n"
 "PO-Revision-Date: 2012-08-31 15:39+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -18,100 +18,100 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: admin.py:16
+#: src/claims/admin.py:16
 msgid "Meta"
 msgstr "Мета"
 
-#: admin.py:17
+#: src/claims/admin.py:17
 msgid "Error"
 msgstr "Ошибка"
 
-#: admin.py:18
+#: src/claims/admin.py:18
 msgid "Comment"
 msgstr "Комментарий"
 
-#: admin.py:30
+#: src/claims/admin.py:30
 msgid "Status"
 msgstr "Состояние"
 
-#: admin.py:51 models.py:17
+#: src/claims/admin.py:51 src/claims/models.py:17
 msgid "Fixed"
 msgstr "Исправлена"
 
-#: admin.py:56 models.py:18
+#: src/claims/admin.py:56 src/claims/models.py:18
 msgid "Invalid"
 msgstr "Отклонена"
 
-#: models.py:15
+#: src/claims/models.py:15
 msgid "New"
 msgstr "Новая"
 
-#: models.py:16
+#: src/claims/models.py:16
 msgid "Assigned"
 msgstr "Принята"
 
-#: models.py:21
+#: src/claims/models.py:21
 msgid "Left Context Value"
 msgstr "Контекст слева"
 
-#: models.py:22
+#: src/claims/models.py:22
 msgid "Selected Text"
 msgstr "Выделенные текст"
 
-#: models.py:23
+#: src/claims/models.py:23
 msgid "Right Context Value"
 msgstr "Контекст справа"
 
-#: models.py:24
+#: src/claims/models.py:24
 msgid "Status of the Claim"
 msgstr "Состояние жалобы"
 
-#: models.py:25
+#: src/claims/models.py:25
 msgid "Status Applied"
 msgstr "Состояние изменено"
 
-#: models.py:26
+#: src/claims/models.py:26
 msgid "Reader's Comment"
 msgstr "Комментарий читателя"
 
-#: models.py:27
+#: src/claims/models.py:27
 msgid "Enter here the reply for the Reader"
 msgstr "Введите здесь сообщение для читателя"
 
-#: models.py:28
+#: src/claims/models.py:28
 msgid "Context URL"
 msgstr "URL контекста"
 
-#: models.py:29
+#: src/claims/models.py:29
 msgid "Reader's E-mail"
 msgstr "Е-почта читателя"
 
-#: models.py:30
+#: src/claims/models.py:30
 msgid "Reader wants the Notify"
 msgstr "Уведомлять читателя"
 
-#: models.py:31
+#: src/claims/models.py:31
 msgid "Registered"
 msgstr "Зарегистрировано"
 
-#: models.py:34
+#: src/claims/models.py:34
 msgid "Claim"
 msgstr "Жалоба"
 
-#: models.py:35
+#: src/claims/models.py:35
 msgid "Claims"
 msgstr "Жалобы"
 
-#: models.py:48
+#: src/claims/models.py:48
 msgid "DjangoBook in russian: Claim's state was changed to"
 msgstr "DjangoBook по-русски: Состояние жалобы было изменено на"
 
-#: models.py:50
+#: src/claims/models.py:50
 msgid "This is automatic generated message, you do not need to answer on it."
 msgstr ""
 "Это сообщение сгенерировано автоматически, вам не требуется отвечать на него."
 
-#: models.py:54
+#: src/claims/models.py:54
 #, python-format
 msgid ""
 "%(auto)s\n"
