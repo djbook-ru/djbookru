@@ -15,7 +15,7 @@ from .forms import AddPositionForm, EditPositionForm
 class JobsListView(ListView):
     queryset = Jobs.objects.published_jobs()
     template_name = 'jobs/index.html'
-    paginate_by = 3
+    paginate_by = 10
 
 
 class CompanyAllVacanciesListView(ListView):
