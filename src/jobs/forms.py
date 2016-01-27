@@ -19,7 +19,7 @@ class AddPositionForm(forms.ModelForm):
 
     class Media(object):
         css = {
-            'all': ('theme/css/pagedown.css',) # css rules for pagedown widget
+            'all': ('theme/css/pagedown.css',)  # css rules for pagedown widget
         }
 
     def __init__(self, *args, **kwargs):
@@ -57,7 +57,7 @@ class EditPositionForm(forms.ModelForm):
 
     class Media(object):
         css = {
-            'all': ('theme/css/pagedown.css',) # css rules for pagedown widget
+            'all': ('theme/css/pagedown.css',)  # css rules for pagedown widget
         }
 
     def __init__(self, *args, **kwargs):
