@@ -11,7 +11,7 @@ from .models import Jobs
 
 class AddPositionForm(forms.ModelForm):
 
-	class Meta(object):
+	class Meta:
 		model = Jobs
 		fields = ('employment_type', 'location', 'remote_work', 'title',
 			      'description', 'company_name', 'company_website',
@@ -49,7 +49,7 @@ class AddPositionForm(forms.ModelForm):
 class EditPositionForm(forms.ModelForm):
 	# TODO: Inherit from form AddPositionForm
 
-	class Meta(object):
+	class Meta:
 		model = Jobs
 		fields = ('employment_type', 'location', 'remote_work', 'title',
 			      'description', 'company_name', 'company_website',

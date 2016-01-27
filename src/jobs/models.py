@@ -63,7 +63,7 @@ class Jobs(models.Model):
 
     objects = JobsManager()
 
-    class Meta(object):
+    class Meta:
         verbose_name = _(u'job')
         verbose_name_plural = _(u'jobs')
         ordering = ['-pub_date']
