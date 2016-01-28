@@ -49,6 +49,9 @@ class Jobs(models.Model):
                                     u'href="http://daringfireball.net/projects/'
                                     u'markdown/syntax">Markdown</a> and HTML'))
     company_name = models.CharField(max_length=255, verbose_name=_(u'company name'))
+    company_name_slug = models.SlugField(max_length=255,
+                                         verbose_name=_(u'company name slug'),
+                                         null=True)
     company_website = models.URLField(verbose_name=_(u'company website'),
                                       blank=True)
     how_to_apply = models.TextField(verbose_name=_(u'how to apply'),
