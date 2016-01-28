@@ -74,3 +74,6 @@ class EditPositionForm(forms.ModelForm):
         obj.save()
 
         return obj
+
+# TODO: change the form that slug field in model filling with company_name field
+# Use slugify from package pytils.translate
