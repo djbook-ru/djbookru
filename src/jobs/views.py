@@ -24,7 +24,7 @@ class CompanyAllVacanciesListView(ListView):
     def get_queryset(self):
         # transform a URL string to a string IRI
         company = uri_to_iri(self.kwargs['company'])
-        return get_list_or_404(Jobs, company_name__iexact=company)
+        return get_list_or_404(Jobs, company_name_slug__iexact=company)
 
     def get_context_data(self, **kwargs):
         context = super(CompanyAllVacanciesListView, self).get_context_data(**kwargs)

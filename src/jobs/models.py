@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.core.urlresolvers import reverse
-from django.utils.http import urlquote
-from django.utils.encoding import iri_to_uri, uri_to_iri
 from django.utils.translation import ugettext_lazy as _
 
 from src.accounts.models import User
@@ -81,5 +79,5 @@ class Jobs(models.Model):
         return reverse('admin:jobs_jobs_change', args=[str(self.id)])
 
     def get_all_vacancies_company(self):
-        url = iri_to_uri(urlquote(self.company_name.lower()))
-        return reverse('jobs:all_vacancies_company', kwargs={'company': url})
+        sluged = self.company_name_slug.lower()
+        return reverse('jobs:all_vacancies_company', kwargs={'company': sluged})
