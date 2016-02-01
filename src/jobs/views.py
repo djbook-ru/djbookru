@@ -24,7 +24,7 @@ class CompanyAllVacanciesListView(ListView):
     def get_queryset(self):
         # transform a URL string to a string IRI
         company = uri_to_iri(self.kwargs['company'])
-        return get_list_or_404(Jobs, company_name__iexact=company)
+        return get_list_or_404(Jobs, company_name_slug__iexact=company)
 
     def get_context_data(self, **kwargs):
         context = super(CompanyAllVacanciesListView, self).get_context_data(**kwargs)
@@ -36,15 +36,15 @@ class CompanyAllVacanciesListView(ListView):
 
 
 class JobDetailView(DetailView):
-	model = Jobs
-	template_name = 'jobs/detail.html'
+    model = Jobs
+    template_name = 'jobs/detail.html'
 
-	def get_context_data(self, **kwargs):
-		context = super(JobDetailView, self).get_context_data(**kwargs)
-		# learn the number of vacancies of this company
-		context['num_of_vac'] = len(get_list_or_404(Jobs,
-			                        company_name__iexact=self.object.company_name))
-		return context
+    def get_context_data(self, **kwargs):
+        context = super(JobDetailView, self).get_context_data(**kwargs)
+        # learn the number of vacancies of this company
+        context['num_of_vac'] = len(get_list_or_404(Jobs,
+                                    company_name__iexact=self.object.company_name))
+        return context
 
 
 @login_required

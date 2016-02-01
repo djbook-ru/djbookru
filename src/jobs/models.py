@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.core.urlresolvers import reverse
-from django.utils.http import urlquote
-from django.utils.encoding import iri_to_uri, uri_to_iri
 from django.utils.translation import ugettext_lazy as _
 
 from src.accounts.models import User
@@ -49,6 +47,9 @@ class Jobs(models.Model):
                                     u'href="http://daringfireball.net/projects/'
                                     u'markdown/syntax">Markdown</a> and HTML'))
     company_name = models.CharField(max_length=255, verbose_name=_(u'company name'))
+    company_name_slug = models.SlugField(max_length=255,
+                                         verbose_name=_(u'company name slug'),
+                                         null=True)
     company_website = models.URLField(verbose_name=_(u'company website'),
                                       blank=True)
     how_to_apply = models.TextField(verbose_name=_(u'how to apply'),
@@ -63,7 +64,7 @@ class Jobs(models.Model):
 
     objects = JobsManager()
 
-    class Meta(object):
+    class Meta:
         verbose_name = _(u'job')
         verbose_name_plural = _(u'jobs')
         ordering = ['-pub_date']
@@ -78,5 +79,5 @@ class Jobs(models.Model):
         return reverse('admin:jobs_jobs_change', args=[str(self.id)])
 
     def get_all_vacancies_company(self):
-        url = iri_to_uri(urlquote(self.company_name.lower()))
-        return reverse('jobs:all_vacancies_company', kwargs={'company': url})
+        sluged = self.company_name_slug.lower()
+        return reverse('jobs:all_vacancies_company', kwargs={'company': sluged})
