@@ -3,6 +3,7 @@ from django import forms
 from django.core.mail import mail_managers
 from django.contrib.sites.models import Site
 from django.utils.translation import ugettext_lazy as _
+from pytils.translit import slugify
 
 from pagedown.widgets import PagedownWidget
 
@@ -33,6 +34,7 @@ class AddPositionForm(forms.ModelForm):
         obj = super(AddPositionForm, self).save(False)
         obj.author = user
         obj.status = obj.PUBLISHED
+        obj.company_name_slug = slugify(obj.company_name)
         obj.save()
 
         # sending messages to the administrator about adding positions
@@ -71,9 +73,7 @@ class EditPositionForm(forms.ModelForm):
         obj = super(EditPositionForm, self).save(False)
         obj.author = user
         obj.status = obj.PUBLISHED
+        obj.company_name_slug = slugify(obj.company_name)
         obj.save()
 
         return obj
-
-# TODO: change the form that slug field in model filling with company_name field
-# Use slugify from package pytils.translate
