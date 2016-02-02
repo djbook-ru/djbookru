@@ -17,18 +17,18 @@ class AddPositionForm(forms.ModelForm):
         fields = ('employment_type', 'location', 'remote_work', 'title',
                   'description', 'company_name', 'company_website',
                   'how_to_apply')
+        widgets = {
+            'description': PagedownWidget(),
+        }
+        help_texts = {
+            'description': _(u'Use markdown'),
+            'how_to_apply': _(u'For example: Email your resume to job@contact.me'),
+        }
 
     class Media(object):
         css = {
             'all': ('theme/css/pagedown.css',)  # css rules for pagedown widget
         }
-
-    def __init__(self, *args, **kwargs):
-        super(AddPositionForm, self).__init__(*args, **kwargs)
-        self.fields['description'].widget = PagedownWidget()
-        self.fields['description'].help_text = _(u'Use markdown')
-        self.fields['how_to_apply'].help_text = _(u'For example:'
-            ' Email your resume to job@contact.me')
 
     def save(self, user):
         obj = super(AddPositionForm, self).save(False)
@@ -56,18 +56,18 @@ class EditPositionForm(forms.ModelForm):
         fields = ('employment_type', 'location', 'remote_work', 'title',
                   'description', 'company_name', 'company_website',
                   'how_to_apply')
+        widgets = {
+            'description': PagedownWidget(),
+        }
+        help_texts = {
+            'description': _(u'Use markdown'),
+            'how_to_apply': _(u'For example: Email your resume to job@contact.me'),
+        }
 
     class Media(object):
         css = {
             'all': ('theme/css/pagedown.css',)  # css rules for pagedown widget
         }
-
-    def __init__(self, *args, **kwargs):
-        super(EditPositionForm, self).__init__(*args, **kwargs)
-        self.fields['description'].widget = PagedownWidget()
-        self.fields['description'].help_text = _(u'Use markdown')
-        self.fields['how_to_apply'].help_text = _(u'For example:'
-            ' Email your resume to job@contact.me')
 
     def save(self, user):
         obj = super(EditPositionForm, self).save(False)
