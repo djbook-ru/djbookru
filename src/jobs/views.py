@@ -29,7 +29,7 @@ class CompanyAllVacanciesListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(CompanyAllVacanciesListView, self).get_context_data(**kwargs)
         # getting company name
-        context['company'] = self.object_list[0].company_name
+        context['company'] = self.kwargs['company']
         # get a number of positions in the company
         context['num_of_vac'] = len(self.object_list)
         return context
