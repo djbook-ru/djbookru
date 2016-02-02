@@ -31,7 +31,7 @@ class AddPositionForm(forms.ModelForm):
         }
 
     def save(self, user):
-        obj = super(AddPositionForm, self).save(False)
+        obj = super(AddPositionForm, self).save(commit=False)
         obj.author = user
         obj.status = obj.PUBLISHED
         obj.company_name_slug = slugify(obj.company_name)
@@ -43,7 +43,7 @@ class AddPositionForm(forms.ModelForm):
                     'Please check and approve it. URL: %(link)s') % {
             'link': 'http://%s%s' % (Site.objects.get_current().domain, obj.get_edit_url()),
             'author': obj.author}
-        mail_managers(subject, message, True)
+        mail_managers(subject, message, fail_silently=True)
 
         return obj
 
@@ -70,7 +70,7 @@ class EditPositionForm(forms.ModelForm):
         }
 
     def save(self, user):
-        obj = super(EditPositionForm, self).save(False)
+        obj = super(EditPositionForm, self).save(commit=False)
         obj.author = user
         obj.status = obj.PUBLISHED
         obj.company_name_slug = slugify(obj.company_name)
