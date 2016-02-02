@@ -65,14 +65,12 @@ def edit_position(request, pk):
     # message with job title
     msg = _(u'The vacancy %(job_title)s has been successfully updated.') % \
     {'job_title': job.title}
-    # job_id for url action form attribute
-    job_id = job.id
     # bounded form
     form = EditPositionForm(request.POST or None, instance=job)
 
     if form.is_valid():
         form.save(request.user)
         messages.success(request, msg)
-        return redirect(reverse('jobs:job_detail', args=[job_id]))
+        return redirect(reverse('jobs:job_detail', args=[job.id]))
 
-    return render(request, 'jobs/edit.html', {'form': form, 'job_id': job_id})
+    return render(request, 'jobs/edit.html', {'form': form, 'job_id': job.id})
