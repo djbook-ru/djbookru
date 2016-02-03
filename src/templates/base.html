@@ -210,6 +210,13 @@
             delay: { show: 500, hide: 100 }
         });
         $('[data-toggle="tooltip"]').tooltip();
+        $('[type="submit"]').click(function(){
+            $(this)
+                    .attr("disabled", true)
+                    .closest('form')
+                    .submit();
+
+        });
     </script>
     {% endblock %}
     {% endblock %}
