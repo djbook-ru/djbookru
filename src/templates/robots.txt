@@ -1,8 +1,15 @@
 User-agent: *
 Disallow: /admin/
+Disallow: /rel1.4/
+Disallow: /rel1.5/
+Disallow: /rel1.6/
+Disallow: /rel1.7/
 
 User-agent: YandexBot
 Disallow: /admin/
-
+Disallow: /rel1.4/
+Disallow: /rel1.5/
+Disallow: /rel1.6/
+Disallow: /rel1.7/
 
 Sitemap: http://djbook.ru/sitemap.xml

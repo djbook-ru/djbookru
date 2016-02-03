@@ -5,13 +5,11 @@ import markdown
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import ObjectDoesNotExist
-from django.http import Http404, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 from django.utils import translation
 from django.utils.http import is_safe_url
 from django.utils.translation import ugettext_lazy as _
-from django.views.generic.base import RedirectView
 from src.utils.urlize import urlize
 from src.utils.views import object_list
 
@@ -23,25 +21,7 @@ from . import models
 
 @render_to('main/index.html')
 def index(request):
-    return dict(book=models.Book.get())
-
-
-@render_to('main/first_page.html')
-def first_page(request):
-    try:
-        page = models.Book.get().pages.get(slug='index')
-    except ObjectDoesNotExist:
-        page = None
-    return dict(page=page)
-
-
-@render_to('main/page.html')
-def page(request, slug):
-    try:
-        page = models.Book.get().pages.get(slug=slug)
-    except ObjectDoesNotExist:
-        raise Http404
-    return dict(page=page)
+    return {}
 
 
 def search(request):
@@ -106,10 +86,3 @@ def lang(request, lang_code):
                                 path=settings.LANGUAGE_COOKIE_PATH,
                                 domain=settings.LANGUAGE_COOKIE_DOMAIN)
     return response
-
-
-class BookRedirectView(RedirectView):
-    url = '/%(slug)s.html'
-    permanent = True
-
-book_redirect = BookRedirectView.as_view()
