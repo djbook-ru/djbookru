@@ -8,7 +8,7 @@ SITE_URL = 'http://127.0.0.1:8000/'
 DATABASES = {
     'default': dict(
         ENGINE='django.db.backends.sqlite3',
-        NAME=REL('db.sqlite'),
+        NAME=rel_project('db.sqlite'),
     )
 }
 

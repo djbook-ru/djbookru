@@ -30,6 +30,7 @@ urlpatterns = patterns('',
     url(r'^doc_comments/', include('src.doc_comments.urls', 'doc_comments')),
     url(r'^comments/', include('src.comments.urls', 'comments')),
     url(r'^tagging_autocomplete/', include('tagging_autocomplete.urls')),
+    url(r'^jobs/', include('src.jobs.urls', 'jobs')),
 )
 
 urlpatterns += staticfiles_urlpatterns()

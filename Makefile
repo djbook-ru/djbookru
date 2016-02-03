@@ -7,3 +7,9 @@ test:
 
 open_coverage_report:
 	google-chrome ./cover/index.html
+
+po_update:
+	./po_update.sh
+
+po_compile:
+	./po_compile.sh

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 11:15+0300\n"
+"POT-Creation-Date: 2015-07-09 21:02+0300\n"
 "PO-Revision-Date: 2012-08-31 16:04+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -18,31 +18,31 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: videos/forms.py:24
+#: forms.py:24
 msgid "Incorrect video URL"
 msgstr "Неправильный URL видео"
 
-#: videos/models.py:11
+#: models.py:11
 msgid "title"
 msgstr "тема"
 
-#: videos/models.py:12
+#: models.py:12
 msgid "video URL"
 msgstr "URL видео"
 
-#: videos/models.py:14
+#: models.py:14
 msgid "tags"
 msgstr "таги"
 
-#: videos/models.py:15
+#: models.py:15
 msgid "created"
 msgstr "создано"
 
-#: videos/models.py:19
+#: models.py:19
 msgid "video"
 msgstr "видео"
 
-#: videos/models.py:20
+#: models.py:20
 msgid "videos"
 msgstr "видео"
 

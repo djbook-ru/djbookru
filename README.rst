@@ -1,6 +1,6 @@
 .. image:: https://badges.gitter.im/Join%20Chat.svg
-   :alt: Join the chat at https://gitter.im/RaD/djbookru
-   :target: https://gitter.im/RaD/djbookru?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+   :alt: Join the chat at https://gitter.im/djbook-ru/djbookru
+   :target: https://gitter.im/djbook-ru/djbookru?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
 Требования
 ==========
@@ -87,3 +87,8 @@ https://github.com/Alerion/django_documentation. Собираем её и
 local_settings.py.dev.template. Пример команды::
 
     ln -s ~/Workspace/django_documentation/_build/html/ ~/Workspace/djbookru/src/static/html
+
+
+.. image:: https://badges.gitter.im/Join%20Chat.svg
+   :alt: Join the chat at https://gitter.im/djbook-ru/djbookru
+   :target: https://gitter.im/djbook-ru/djbookru?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge

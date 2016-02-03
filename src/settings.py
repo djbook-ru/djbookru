@@ -93,6 +93,7 @@ INSTALLED_APPS = (
     'src.videos',
     'src.links',
     'src.header_messages',
+    # 'src.jobs',
 )
 
 TEMPLATES = [
@@ -103,6 +104,7 @@ TEMPLATES = [
         ],
         'APP_DIRS': True,
         'OPTIONS': {
+            'debug': DEBUG,
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',

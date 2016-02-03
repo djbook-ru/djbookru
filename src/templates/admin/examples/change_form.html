@@ -12,5 +12,11 @@
                 <li class="warning">{% trans "Pay attention! This post is not approved and can be from users. It can contain XSS in content, so use 'View on site' carefully." %}</li>
             </ul>
         {% endif %}
+        {% if original.is_draft_for %}
+            {% url "admin:examples_example_change" original.is_draft_for.id as other_post_url %}
+            <ul class="messagelist">
+                <li class="warning">{% blocktrans %}This post is edited version of <a href="{{ other_post_url }}" target="_blank">other post</a>.{% endblocktrans %}</li>
+            </ul>
+        {% endif %}
     {% endif %}
 {% endblock %}

@@ -131,6 +131,13 @@ class Forum(models.Model):
             visits.append(Visit(user=user, topic=topic, time=now))
         Visit.objects.bulk_create(visits)
 
+    def has_access(self, user):
+        return self.category.has_access(user)
+
+    def can_post(self, user):
+        return self.has_access(user) and user.is_authenticated() and user.is_active \
+            and user.is_valid_email
+
 
 class Visit(models.Model):
     user = models.ForeignKey('accounts.User', verbose_name=_('user'), related_name='forum_visits')
@@ -272,7 +279,8 @@ class Topic(models.Model, RatingMixin):
         return user.is_active and user.is_superuser
 
     def can_post(self, user):
-        return self.has_access(user) and not self.closed and user.is_authenticated()
+        return self.has_access(user) and not self.closed and user.is_authenticated() \
+            and user.is_active and user.is_valid_email
 
     def do_send_notification(self):
         return self.send_response and self.can_post(self.user) and self.user.is_valid_email

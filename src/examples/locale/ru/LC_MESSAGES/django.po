@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-06 11:15+0300\n"
+"POT-Creation-Date: 2015-10-17 09:44+0300\n"
 "PO-Revision-Date: 2012-08-17 15:31+0300\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -26,7 +26,7 @@ msgstr "Примеры с Russian DjangoBook"
 msgid "Newly examples from Russian DjangoBook"
 msgstr "Последние примеры с Russian DjangoBook"
 
-#: examples/forms.py:20
+#: examples/forms.py:27
 msgid ""
 "Choose the category for your recipe in which it should be placed in. If no "
 "category is matching your needs, choose any and write note to us. We will "
@@ -36,12 +36,12 @@ msgstr ""
 "Если подходящей категории не найдено, укажите любую и напишите нам "
 "сообщение. Мы добавим новую категорию как только сможем."
 
-#: examples/forms.py:24
+#: examples/forms.py:31
 msgid "Use Markdown for formating the content. All HTML will be escaped."
 msgstr ""
 "Используйте Markdown для форматирования текста. Весь HTML будет экранирован."
 
-#: examples/forms.py:26
+#: examples/forms.py:34
 msgid ""
 "Left the note for us. For instance, your email for this recipe, if it does "
 "not exist in your profile."
@@ -49,11 +49,11 @@ msgstr ""
 "Оставьте нам сообщение. Например, ваш адрес электронной почты, если он "
 "отсутствует в вашем профайле."
 
-#: examples/forms.py:35
+#: examples/forms.py:46 examples/forms.py:62
 msgid "New recipe has been added on djbook.ru"
 msgstr "Новый рецепт добавлен на djbook.ru"
 
-#: examples/forms.py:36
+#: examples/forms.py:47 examples/forms.py:63
 #, python-format
 msgid ""
 "User %(author)s added a new recipe on djbook.ru.\n"
@@ -88,7 +88,7 @@ msgstr "тема"
 msgid "content"
 msgstr "содержимое"
 
-#: examples/models.py:36
+#: examples/models.py:37
 msgid ""
 "Use <a target=\"blank\" href=\"http://daringfireball.net/projects/markdown/"
 "syntax\">Markdown</a> and HTML"
@@ -96,39 +96,43 @@ msgstr ""
 "Используйте <a target=\"blank\" href=\"http://daringfireball.net/projects/"
 "markdown/syntax\">Markdown</a> и HTML"
 
-#: examples/models.py:37
+#: examples/models.py:39
 msgid "created"
 msgstr "создано"
 
-#: examples/models.py:39
+#: examples/models.py:42
 msgid "approved"
 msgstr "разрешено"
 
-#: examples/models.py:39
+#: examples/models.py:42
 msgid "Can be used for draft"
 msgstr "Может быть использовано для черновиков"
 
-#: examples/models.py:40
+#: examples/models.py:44
 msgid "note"
 msgstr "заметка"
 
-#: examples/models.py:40
+#: examples/models.py:44
 msgid "author's note, is not visible on site"
 msgstr "авторская заметка, не отображается на сайте"
 
-#: examples/models.py:41
+#: examples/models.py:45
 msgid "URL"
 msgstr "URL"
 
-#: examples/models.py:42
+#: examples/models.py:46
 msgid "Topic ID"
 msgstr "Идентификатор темы"
 
-#: examples/models.py:45 examples/models.py:99
+#: examples/models.py:47
+msgid "is draft for"
+msgstr "черновик для"
+
+#: examples/models.py:50 examples/models.py:106
 msgid "Example"
 msgstr "Пример"
 
-#: examples/models.py:46
+#: examples/models.py:51
 msgid "Examples"
 msgstr "Примеры"
 
@@ -138,4 +142,12 @@ msgid ""
 "possible."
 msgstr ""
 "Рецепт был добавлен успешно и будет проверен, как только появится "
+"возможность."
+
+#: examples/views.py:47
+msgid ""
+"The recipe has been edited successfully and will be reviewed as soon as "
+"possible."
+msgstr ""
+"Рецепт был отредактирован успешно и будет проверен, как только появится "
 "возможность."

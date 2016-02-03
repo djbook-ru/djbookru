@@ -18,11 +18,11 @@ class ExampleForm(ModelForm):
 
     class Meta:
         model = models.Example
-        fields = '__all__'
+        exclude = ['is_draft_for']
 
 
 class ExampleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'author', 'approved', 'created')
+    list_display = ('title', 'category', 'author', 'approved', 'created', 'is_draft_for')
     list_filter = ('category', 'approved')
     raw_id_fields = ('author',)
     search_fields = ('title',)

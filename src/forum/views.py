@@ -136,6 +136,10 @@ def add_topic(request, pk):
     if not forum.has_access(request.user):
         raise Http404
 
+    if not forum.can_post(request.user):
+        messages.error(request, _(u'You have no permission to add new topic. Maybe you need to approve your email.'))
+        return redirect(forum)
+
     form = AddTopicForm(forum, request.user, request.POST or None)
     if form.is_valid():
         topic = form.save()

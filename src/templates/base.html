@@ -96,7 +96,7 @@
     <!-- mobile navigation trigger-->
     <h5 class="mobile_nav"><a href="javascript:void(0)">&nbsp;<span></span></a></h5>
     <!--end mobile navigation trigger-->
-
+    <div class="preheader-wrapper">
     <section class="container preheader">
 
         <!--this is the login for the user-->
@@ -135,13 +135,13 @@
                 <a href="{% url 'rss' %}" data-placement="bottom" title="{% trans 'Subscribe to our RSS' %}"><i class="fa fa-rss fa-lg"></i></a>
             </li>
             <li>
-                <a href="https://github.com/Alerion/django_documentation/" data-placement="bottom" title="{% trans 'Documentation translation' %}">
+                <a href="https://github.com/djbook-ru/" data-placement="bottom" title="{% trans 'Documentation translation' %}">
                     <i class="fa fa-github-alt fa-lg"></i>
                 </a>
             </li>
         </ul>
     </section>
-
+    </div>
     {% block menu %}{% menu %}{% endblock %}
 
     <!-- begin #page - the container for everything but header -->
