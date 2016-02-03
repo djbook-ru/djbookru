@@ -2,7 +2,6 @@
 from settings import *
 
 DEBUG = True
-TEMPLATE_DEBUG = True
 SITE_URL = 'http://127.0.0.1:8000/'
 
 DATABASES = {

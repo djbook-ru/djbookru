@@ -4,7 +4,6 @@ LOCAL_SETTINGS = True
 from settings import *
 
 DEBUG = True
-TEMPLATE_DEBUG = True
 
 ADMINS = (
     ('Ruslan Popov', 'ruslan.popov@gmail.com'),

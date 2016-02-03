@@ -3,7 +3,7 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
-import oembed
+import oembed.sites
 
 from . import models
 
@@ -19,7 +19,7 @@ class VideoAdminForm(forms.ModelForm):
 
         if video_link:
             try:
-                oembed.site.embed(video_link)
+                oembed.sites.site.embed(video_link)
             except oembed.exceptions.OEmbedException:
                 raise forms.ValidationError(_(u'Incorrect video URL'))
 
