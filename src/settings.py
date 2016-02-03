@@ -54,6 +54,7 @@ DATABASES = {
 
 MIGRATION_MODULES = {
     'auth': 'src.main.migrations_auth',
+    'default': 'src.main.migrations_socialauth',
 }
 
 ROOT_URLCONF = 'src.urls'

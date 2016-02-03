@@ -5,7 +5,7 @@
 Требования
 ==========
 
-Руками надо поставить: ``python2.7``, ``virtualenv``, ``sqlite3``.
+Руками надо поставить: ``python2.7``, ``virtualenv``, ``mysql``.
 
 Установка
 =========
@@ -35,7 +35,11 @@
 База данных
 -----------
 
-Создаем базу данных на SQLite::
+Создаем базу данных на MySQL::
+
+    > CREATE DATABASE djbookru DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+
+Выполняем миграции::
 
     $ python manage.py migrate
 

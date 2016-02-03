@@ -5,10 +5,13 @@ DEBUG = True
 SITE_URL = 'http://127.0.0.1:8000/'
 
 DATABASES = {
-    'default': dict(
-        ENGINE='django.db.backends.sqlite3',
-        NAME=rel_project('db.sqlite'),
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'djbookru',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+    }
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

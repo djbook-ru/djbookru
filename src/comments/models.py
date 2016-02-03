@@ -2,7 +2,7 @@
 
 from django.db import models
 from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes import generic
+from django.contrib.contenttypes.fields import GenericForeignKey
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
@@ -15,7 +15,7 @@ class Comment(models.Model):
     content_type = models.ForeignKey(ContentType,
             related_name="content_type_set_for_%(class)s")
     object_pk = models.TextField(_('object ID'))
-    content_object = generic.GenericForeignKey(ct_field="content_type", fk_field="object_pk")
+    content_object = GenericForeignKey(ct_field="content_type", fk_field="object_pk")
     user = models.ForeignKey(User, verbose_name=_(u'user'))
     reply_to = models.ForeignKey('self', blank=True, null=True, verbose_name=_(u'reply to'))
     content = models.TextField(_(u'comment'), max_length=COMMENT_MAX_LENGTH)
