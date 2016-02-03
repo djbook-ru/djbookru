@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-09 21:02+0300\n"
+"POT-Creation-Date: 2016-02-03 17:41+0300\n"
 "PO-Revision-Date: 2015-03-06 15:53+0300\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -19,27 +19,27 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: admin.py:53
+#: accounts/admin.py:53
 msgid "Personal info"
 msgstr "Персональные данные"
 
-#: admin.py:59
+#: accounts/admin.py:59
 msgid "Permissions"
 msgstr "Права доступа"
 
-#: admin.py:65
+#: accounts/admin.py:65
 msgid "Important dates"
 msgstr "Важные даты"
 
-#: forms.py:21
+#: accounts/forms.py:21
 msgid "Email"
 msgstr "Е-почта"
 
-#: forms.py:22
+#: accounts/forms.py:22
 msgid "Password"
 msgstr "Пароль"
 
-#: forms.py:25
+#: accounts/forms.py:25
 msgid ""
 "Please enter a correct email and password. Note that both fields are case-"
 "sensitive."
@@ -47,19 +47,19 @@ msgstr ""
 "Пожалуйста введите правильные адрес электронной почты и пароль. Оба поля "
 "чувствительны к регистру."
 
-#: forms.py:27
+#: accounts/forms.py:27
 msgid "This account is inactive."
 msgstr "Аккаунт не активен."
 
-#: forms.py:77
+#: accounts/forms.py:77
 msgid "captcha"
 msgstr "капча"
 
-#: forms.py:86
+#: accounts/forms.py:86
 msgid "Current password"
 msgstr "Текущий пароль"
 
-#: forms.py:87
+#: accounts/forms.py:87
 msgid ""
 "Ignore if you do not have one yet. We recommend setup password, so you can "
 "use it to login, because sometime we broke login via some external service."
@@ -68,171 +68,171 @@ msgstr ""
 "могли авторизироваться, используя email/пароль, т.к. мы иногда ломаем "
 "авторизацию через внешние сервисы."
 
-#: forms.py:91
+#: accounts/forms.py:91
 msgid "New password"
 msgstr "Новый пароль"
 
-#: forms.py:93
+#: accounts/forms.py:93
 msgid "Confirm new password"
 msgstr "Подтверждение нового пароля"
 
-#: forms.py:101
+#: accounts/forms.py:101
 msgid "We use this an small pieces of info."
 msgstr "Мы используем его в мелких информационных блоках."
 
-#: forms.py:109
+#: accounts/forms.py:109
 msgid "Invalid password."
 msgstr "Неправильный пароль."
 
-#: forms.py:111
+#: accounts/forms.py:111
 msgid "The two passwords did not match."
 msgstr "Введённые пароли не совпадают."
 
-#: forms.py:117
+#: accounts/forms.py:117
 msgid "A user with that username already exists."
 msgstr "Пользователь с таким ником уже существует."
 
-#: forms.py:125
+#: accounts/forms.py:125
 msgid "This email is used already."
 msgstr "Данный адрес электронной почты уже используется."
 
-#: models.py:47
+#: accounts/models.py:47
 #, python-format
 msgid "You just created account on %(site)s"
 msgstr "Вы создали аккаунт на %(site)s"
 
-#: models.py:63
+#: accounts/models.py:63
 msgid "biography"
 msgstr "биография"
 
-#: models.py:64
+#: accounts/models.py:64
 msgid "homepage"
 msgstr "домашняя страница"
 
-#: models.py:65
+#: accounts/models.py:65
 msgid "is valid email?"
 msgstr "почта верна?"
 
-#: models.py:67 models.py:198
+#: accounts/models.py:67 accounts/models.py:198
 msgid "achievements"
 msgstr "достижения"
 
-#: models.py:68
+#: accounts/models.py:68
 msgid "forum signature"
 msgstr "подпись на форуме"
 
-#: models.py:72
+#: accounts/models.py:72
 msgid "longitude"
 msgstr "долгота"
 
-#: models.py:73
+#: accounts/models.py:73
 msgid "latitude"
 msgstr "широта"
 
-#: models.py:78
+#: accounts/models.py:78
 msgid "User"
 msgstr "Пользователь"
 
-#: models.py:79
+#: accounts/models.py:79
 msgid "Users"
 msgstr "Пользователи"
 
-#: models.py:161
+#: accounts/models.py:161
 msgid "title"
 msgstr "заголовок"
 
-#: models.py:162
+#: accounts/models.py:162
 msgid "link"
 msgstr "ссылка"
 
-#: models.py:163
+#: accounts/models.py:163
 msgid "content"
 msgstr "содержимое"
 
-#: models.py:163
+#: accounts/models.py:163
 msgid "Use Markdown and HTML"
 msgstr "Используйте Markdown и HTML"
 
-#: models.py:164
+#: accounts/models.py:164
 msgid "is active?"
 msgstr "активен?"
 
-#: models.py:165
+#: accounts/models.py:165
 msgid "created"
 msgstr "создан"
 
-#: models.py:168
+#: accounts/models.py:168
 msgid "announcement"
 msgstr "объявление"
 
-#: models.py:169
+#: accounts/models.py:169
 msgid "announcements"
 msgstr "объявления"
 
-#: models.py:176 models.py:216
+#: accounts/models.py:176 accounts/models.py:216
 msgid "user"
 msgstr "пользователь"
 
-#: models.py:177 models.py:197
+#: accounts/models.py:177 accounts/models.py:197
 msgid "achievement"
 msgstr "достижение"
 
-#: models.py:178
+#: accounts/models.py:178
 msgid "note"
 msgstr "заметка"
 
-#: models.py:181
+#: accounts/models.py:181
 msgid "user achievement"
 msgstr "достижение пользователя"
 
-#: models.py:182
+#: accounts/models.py:182
 msgid "user achievements"
 msgstr "достижения пользователей"
 
-#: models.py:187
+#: accounts/models.py:187
 msgid "name"
 msgstr "имя"
 
-#: models.py:188
+#: accounts/models.py:188
 msgid "description"
 msgstr "описание"
 
-#: models.py:190
+#: accounts/models.py:190
 msgid "active icon"
 msgstr "активная иконка"
 
-#: models.py:217
+#: accounts/models.py:217
 msgid "type"
 msgstr ""
 
-#: models.py:218
+#: accounts/models.py:218
 #, fuzzy
 #| msgid "Login"
 msgid "login"
 msgstr "Вход"
 
-#: models.py:221
+#: accounts/models.py:221
 msgid "user repository"
 msgstr ""
 
-#: models.py:222
+#: accounts/models.py:222
 msgid "user repositories"
 msgstr ""
 
-#: models.py:260
+#: accounts/models.py:260
 #, python-format
 msgid "Please confirm your email address for %(site)s"
 msgstr "Пожалуйста, подтвердите адрес вашей электронной почты для %(site)s"
 
-#: models.py:281
+#: accounts/models.py:281
 msgid "e-mail confirmation"
 msgstr "подтверждение почты"
 
-#: models.py:282
+#: accounts/models.py:282
 msgid "e-mail confirmations"
 msgstr "подтверждения почты"
 
-#: social_auth_pipelines.py:26
+#: accounts/social_auth_pipelines.py:26
 #, python-format
 msgid ""
 "\"%(email)s\" is already used by other account. If it is your account, login "
@@ -241,61 +241,64 @@ msgstr ""
 "Адрес \"%(email)s\" используется для другого аккаунта. Если это ваш аккаунт, "
 "войдите и подключите сторонний аккаунт на странице редактирования профиля."
 
-#: social_auth_pipelines.py:31
+#: accounts/social_auth_pipelines.py:31
 msgid "Social service does not return email. Use registration form."
 msgstr ""
 "Социальный сервис не вернул адрес электронной почты. Воспользуйтесь "
 "регистрационной формой."
 
-#: templates/accounts/_menu.html:3
+#: accounts/templates/accounts/_menu.html:3
 #, fuzzy
 #| msgid "Profile"
 msgid "My profile"
 msgstr "Профиль"
 
-#: templates/accounts/_menu.html:6 templates/accounts/base.html:5
+#: accounts/templates/accounts/_menu.html:6
+#: accounts/templates/accounts/base.html:5
 msgid "Profile"
 msgstr "Профиль"
 
-#: templates/accounts/_menu.html:9 templates/accounts/profile.html:80
+#: accounts/templates/accounts/_menu.html:9
+#: accounts/templates/accounts/profile.html:80
 msgid "Edit"
 msgstr "Изменить"
 
-#: templates/accounts/create.html:5 templates/accounts/create.html.py:11
+#: accounts/templates/accounts/create.html:5
+#: accounts/templates/accounts/create.html:11
 msgid "Register"
 msgstr "Зарегистрировать"
 
-#: templates/accounts/create.html:18
+#: accounts/templates/accounts/create.html:18
 msgid "Create"
 msgstr "Создать"
 
-#: templates/accounts/edit.html:5
+#: accounts/templates/accounts/edit.html:5
 msgid "Edit Profile"
 msgstr "Изменить профиль"
 
-#: templates/accounts/edit.html:9
+#: accounts/templates/accounts/edit.html:9
 msgid "Connect accounts"
 msgstr "Подкючить аккаунты"
 
-#: templates/accounts/edit.html:18
+#: accounts/templates/accounts/edit.html:18
 msgid "Connect account"
 msgstr "Подключить аккаунт"
 
-#: templates/accounts/edit.html:25
+#: accounts/templates/accounts/edit.html:25
 #, fuzzy
 #| msgid "Edit Profile"
 msgid "Edit your profile"
 msgstr "Изменить профиль"
 
-#: templates/accounts/edit.html:29
+#: accounts/templates/accounts/edit.html:29
 msgid "You can edit your avatar on"
 msgstr ""
 
-#: templates/accounts/edit.html:36
+#: accounts/templates/accounts/edit.html:36
 msgid "Update"
 msgstr "Обновить"
 
-#: templates/accounts/email_confirmation_message.html:1
+#: accounts/templates/accounts/email_confirmation_message.html:1
 #, python-format
 msgid ""
 "\n"
@@ -319,7 +322,7 @@ msgstr ""
 "\n"
 "<p>С уважением, команда %(site_name)s.</p>\n"
 
-#: templates/accounts/email_new_user.html:1
+#: accounts/templates/accounts/email_new_user.html:1
 #, python-format
 msgid ""
 "\n"
@@ -335,70 +338,70 @@ msgid ""
 "<p>With best regards, %(site_name)s team.</p>\n"
 msgstr ""
 
-#: templates/accounts/email_password_reset.html:3
+#: accounts/templates/accounts/email_password_reset.html:3
 msgid "You are going reset password for"
 msgstr "Вы сбрасываете пароль для"
 
-#: templates/accounts/login.html:12
+#: accounts/templates/accounts/login.html:12
 msgid "Forgot Password? Please enter your email and we’ll send it you."
 msgstr ""
 
-#: templates/accounts/login.html:16
+#: accounts/templates/accounts/login.html:16
 msgid "Email Address"
 msgstr ""
 
-#: templates/accounts/login.html:17
-#: templates/accounts/password_reset_confirm.html:19
+#: accounts/templates/accounts/login.html:17
+#: accounts/templates/accounts/password_reset_confirm.html:19
 msgid "Send"
 msgstr "Отправить"
 
-#: templates/accounts/login.html:27
+#: accounts/templates/accounts/login.html:27
 msgid "Login to your account..."
 msgstr ""
 
-#: templates/accounts/login.html:36
+#: accounts/templates/accounts/login.html:36
 msgid "Login"
 msgstr "Вход"
 
-#: templates/accounts/login.html:40
+#: accounts/templates/accounts/login.html:40
 #, fuzzy
 #| msgid "Forgot password?"
 msgid "Forgot Password?"
 msgstr "Забыли пароль?"
 
-#: templates/accounts/login.html:49
+#: accounts/templates/accounts/login.html:49
 msgid "Sign in with"
 msgstr ""
 
-#: templates/accounts/login.html:54
+#: accounts/templates/accounts/login.html:54
 msgid "Not a member? Join today!"
 msgstr ""
 
-#: templates/accounts/login.html:58
+#: accounts/templates/accounts/login.html:58
 msgid "You are authenticated already"
 msgstr "Вы уже аутентифицированы"
 
-#: templates/accounts/map.html:5
+#: accounts/templates/accounts/map.html:5
 msgid "Map"
 msgstr ""
 
-#: templates/accounts/map.html:125 views.py:45
+#: accounts/templates/accounts/map.html:129 accounts/views.py:45
 msgid "Authenticate please!"
 msgstr "Аутентифицируйтесь, пожалуйста!"
 
-#: templates/accounts/map.html:139
+#: accounts/templates/accounts/map.html:143
 msgid "Add yourself on the map!"
 msgstr "Добавьте себя на карту!"
 
-#: templates/accounts/map.html:140
+#: accounts/templates/accounts/map.html:144
 msgid "This is just for fun."
 msgstr "Это всё просто для забавы."
 
-#: templates/accounts/map.html:141
+#: accounts/templates/accounts/map.html:145
 msgid "You should be authenticated."
 msgstr "Вы должны быть аутентифицированы."
 
-#: templates/accounts/map.html:142
+#: accounts/templates/accounts/map.html:146
 #, fuzzy
 #| msgid ""
 #| "Green marker should appear on your position, otherwise put marker on map "
@@ -411,44 +414,44 @@ msgstr ""
 "поддерживает возможности геолокации, добавьте маркер вручную, просто "
 "перетащив его с панельки на карту."
 
-#: templates/accounts/password_reset.html:5
-#: templates/accounts/password_reset_complete.html:5
-#: templates/accounts/password_reset_confirm.html:5
-#: templates/accounts/password_reset_done.html:5
+#: accounts/templates/accounts/password_reset.html:5
+#: accounts/templates/accounts/password_reset_complete.html:5
+#: accounts/templates/accounts/password_reset_confirm.html:5
+#: accounts/templates/accounts/password_reset_done.html:5
 msgid "Reset password"
 msgstr "Сбросить пароль"
 
-#: templates/accounts/password_reset.html:11
+#: accounts/templates/accounts/password_reset.html:11
 msgid "Forgot password? Please enter your email"
 msgstr ""
 
-#: templates/accounts/password_reset.html:18
+#: accounts/templates/accounts/password_reset.html:18
 #, fuzzy
 #| msgid "Password"
 msgid "Send Password"
 msgstr "Пароль"
 
-#: templates/accounts/password_reset_complete.html:12
+#: accounts/templates/accounts/password_reset_complete.html:12
 msgid "Password reset complete"
 msgstr "Пароль сброшен"
 
-#: templates/accounts/password_reset_complete.html:13
+#: accounts/templates/accounts/password_reset_complete.html:13
 msgid "Your password has been set.  You may go ahead and log in now."
 msgstr "Ваш пароль установлен. Вы можете войти."
 
-#: templates/accounts/password_reset_complete.html:14
+#: accounts/templates/accounts/password_reset_complete.html:14
 msgid "Log in"
 msgstr "Вход"
 
-#: templates/accounts/password_reset_confirm.html:12
+#: accounts/templates/accounts/password_reset_confirm.html:12
 msgid "Enter new password"
 msgstr "Введите новый пароль"
 
-#: templates/accounts/password_reset_confirm.html:24
+#: accounts/templates/accounts/password_reset_confirm.html:24
 msgid "Password reset unsuccessful"
 msgstr "Пароль не сброшен"
 
-#: templates/accounts/password_reset_confirm.html:25
+#: accounts/templates/accounts/password_reset_confirm.html:25
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used. Please request a new password reset."
@@ -456,99 +459,103 @@ msgstr ""
 "Ссылка для сброса пароля была неверной, возможно ей уже воспользовались. "
 "Пожалуйста, запросите сброс пароля заново."
 
-#: templates/accounts/password_reset_done.html:12
+#: accounts/templates/accounts/password_reset_done.html:12
 msgid "We sent you email that includes a password reset link."
 msgstr ""
 
-#: templates/accounts/profile.html:78 templates/accounts/profile.html.py:87
+#: accounts/templates/accounts/profile.html:78
+#: accounts/templates/accounts/profile.html:87
 #, fuzzy
 #| msgid "This is just for fun."
 msgid "This is visible for staff only."
 msgstr "Это всё просто для забавы."
 
-#: templates/accounts/profile.html:92 templates/accounts/profile_voted.html:33
+#: accounts/templates/accounts/profile.html:92
+#: accounts/templates/accounts/profile_voted.html:33
 msgid "Forum posts count"
 msgstr "Количество постов на форуме"
 
-#: templates/accounts/profile.html:97 templates/accounts/profile_voted.html:38
+#: accounts/templates/accounts/profile.html:97
+#: accounts/templates/accounts/profile_voted.html:38
 msgid "Comments count"
 msgstr "Количество комментариев"
 
-#: templates/accounts/profile.html:102
-#: templates/accounts/profile_voted.html:43
+#: accounts/templates/accounts/profile.html:102
+#: accounts/templates/accounts/profile_voted.html:43
 msgid "Date of join"
 msgstr ""
 
-#: templates/accounts/profile.html:107
-#: templates/accounts/profile_voted.html:48
+#: accounts/templates/accounts/profile.html:107
+#: accounts/templates/accounts/profile_voted.html:48
 msgid "Date of last login"
 msgstr ""
 
-#: templates/accounts/profile.html:115
+#: accounts/templates/accounts/profile.html:115
 #, fuzzy
 #| msgid "voted topics"
 msgid "Voted topics"
 msgstr "отмеченные темы"
 
-#: templates/accounts/profile.html:124 templates/accounts/profile.html:141
+#: accounts/templates/accounts/profile.html:124
+#: accounts/templates/accounts/profile.html:141
 msgid "View more"
 msgstr ""
 
-#: templates/accounts/profile.html:132
+#: accounts/templates/accounts/profile.html:132
 #, fuzzy
 #| msgid "voted posts"
 msgid "Voted posts"
 msgstr "отмеченные отклики"
 
-#: templates/accounts/profile_voted.html:70
+#: accounts/templates/accounts/profile_voted.html:70
 #, fuzzy
 #| msgid "Edit Profile"
 msgid "Back to Profile"
 msgstr "Изменить профиль"
 
-#: views.py:54
+#: accounts/views.py:54
 msgid "invalid form"
 msgstr "неправильная форма"
 
-#: views.py:64
+#: accounts/views.py:63
 msgid "Account created success! Confirm your email."
 msgstr "Аккаунт успешно создан! Подтвердите свою почту."
 
-#: views.py:66 views.py:128
+#: accounts/views.py:65 accounts/views.py:127
 msgid "Please correct the error below."
 msgstr "Пожалуйста, исправьте ошибки перечисленные далее."
 
-#: views.py:95
+#: accounts/views.py:95
 msgid "voted topics"
 msgstr "отмеченные темы"
 
-#: views.py:112
+#: accounts/views.py:112
 msgid "voted posts"
 msgstr "отмеченные отклики"
 
-#: views.py:126
+#: accounts/views.py:125
 msgid "Profile changed success! Confirm your email if it was changed."
 msgstr ""
 "Профиль успешно изменён! Подтвердите адрес вашей электронной почты, если он "
 "был изменен."
 
-#: views.py:141
+#: accounts/views.py:142
 msgid "Confirmation key expired."
 msgstr "Ключ подтверждения почты просрочен."
 
-#: views.py:144
+#: accounts/views.py:145
 msgid "Email is confirmed."
 msgstr "Адрес электронной почты подтверждён."
 
-#: views.py:158
+#: accounts/views.py:156
 msgid "Your email is already confirmed."
 msgstr "Данный адрес электронной почты уже используется."
 
-#: views.py:160
+#: accounts/views.py:158
 msgid "Add email to your profile."
 msgstr "Добавьте электронный адрес в свой профиль"
 
-#: views.py:164
+#: accounts/views.py:162
 #, python-format
 msgid ""
 "We have sent you confirmation email. New one you can get in %(days)s days"
@@ -556,7 +563,7 @@ msgstr ""
 "Мы отправили вам письмо для подтверждения адреса электронной почты. "
 "Следующий запрос вы сможете сделать через  %(days)s дня."
 
-#: views.py:169
+#: accounts/views.py:167
 msgid "Confirmation email is sent."
 msgstr "Отправлено письмо для подтверждения адреса электронной почты."
 

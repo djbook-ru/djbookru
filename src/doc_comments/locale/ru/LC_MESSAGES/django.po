@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-09 21:02+0300\n"
+"POT-Creation-Date: 2016-02-03 17:41+0300\n"
 "PO-Revision-Date: 2012-08-31 15:50+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -18,51 +18,51 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: models.py:14
+#: doc_comments/models.py:14
 msgid "none"
 msgstr "none"
 
-#: models.py:15
+#: doc_comments/models.py:15
 msgid "accepted"
 msgstr "принят"
 
-#: models.py:16
+#: doc_comments/models.py:16
 msgid "closed"
 msgstr "закрыт"
 
-#: models.py:18
+#: doc_comments/models.py:18
 msgid "content"
 msgstr "содержимое"
 
-#: models.py:19
+#: doc_comments/models.py:19
 msgid "author"
 msgstr "автор"
 
-#: models.py:20
+#: doc_comments/models.py:20
 msgid "path to page"
 msgstr "путь к странице"
 
-#: models.py:21
+#: doc_comments/models.py:21
 msgid "page title"
 msgstr "заголовок станицы"
 
-#: models.py:22
+#: doc_comments/models.py:22
 msgid "xpath"
 msgstr "xpath"
 
-#: models.py:24
+#: doc_comments/models.py:24
 msgid "status"
 msgstr "статус"
 
-#: models.py:27
+#: doc_comments/models.py:27
 msgid "doc. comment"
 msgstr "комментарий к доке"
 
-#: models.py:28
+#: doc_comments/models.py:28
 msgid "doc. comments"
 msgstr "комментарии к доке"
 
-#: views.py:86
+#: doc_comments/views.py:86
 msgid "You are not authenticated."
 msgstr "Вы не авторизированы"
 

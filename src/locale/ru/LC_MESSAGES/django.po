@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-09 21:02+0300\n"
+"POT-Creation-Date: 2016-02-03 17:41+0300\n"
 "PO-Revision-Date: 2015-07-09 21:01+0300\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -26,6 +26,100 @@ msgstr "Фраза"
 #: header_messages/models.py:12
 msgid "Phrases"
 msgstr "Фразы"
+
+#: jobs/models.py:25
+#, fuzzy
+#| msgid "Time"
+msgid "Full Time"
+msgstr "Время"
+
+#: jobs/models.py:26
+#, fuzzy
+#| msgid "East Timor"
+msgid "Part Time"
+msgstr "Восточный Тимор"
+
+#: jobs/models.py:27
+#, fuzzy
+#| msgid "Control"
+msgid "Contract"
+msgstr "Контроль"
+
+#: jobs/models.py:34 templates/examples/detail.html:13
+msgid "Draft"
+msgstr "Черновик"
+
+#: jobs/models.py:35
+msgid "Published"
+msgstr ""
+
+#: jobs/models.py:40
+#, fuzzy
+#| msgid "Content type"
+msgid "employment type"
+msgstr "Тип содержимого"
+
+#: jobs/models.py:41
+#, fuzzy
+#| msgid "Location"
+msgid "location"
+msgstr "Из"
+
+#: jobs/models.py:42
+msgid "remote work?"
+msgstr ""
+
+#: jobs/models.py:43
+msgid "author"
+msgstr "автор"
+
+#: jobs/models.py:44
+#, fuzzy
+#| msgid "title"
+msgid "job title"
+msgstr "тема"
+
+#: jobs/models.py:45
+#, fuzzy
+#| msgid "description"
+msgid "job description"
+msgstr "описание"
+
+#: jobs/models.py:46
+msgid "Formatted with Markdown"
+msgstr ""
+
+#: jobs/models.py:47
+msgid "company name"
+msgstr ""
+
+#: jobs/models.py:48
+msgid "company website"
+msgstr ""
+
+#: jobs/models.py:50
+#, fuzzy
+#| msgid "Show all"
+msgid "how to apply"
+msgstr "Показать все"
+
+#: jobs/models.py:51
+msgid "For example: Email yourresume to job@exmpl.com"
+msgstr ""
+
+#: jobs/models.py:54
+#, fuzzy
+#| msgid "Position"
+msgid "status position"
+msgstr "Позиция"
+
+#: jobs/models.py:63
+msgid "job"
+msgstr ""
+
+#: jobs/models.py:64
+msgid "jobs"
+msgstr ""
 
 #: patch.py:12
 msgid "URL"
@@ -50,15 +144,15 @@ msgstr ""
 msgid "Advanced options"
 msgstr "Дополнительные возможности"
 
-#: settings.py:147
+#: settings.py:150
 msgid "Russian"
 msgstr "Русский"
 
-#: settings.py:148
+#: settings.py:151
 msgid "English"
 msgstr "English"
 
-#: settings.py:239
+#: settings.py:242
 msgid "Feedback message from Djbook.ru"
 msgstr "Ответное сообщение с Djbook.ru"
 
@@ -70,36 +164,36 @@ msgstr "Потерянная страница..."
 msgid "We have broken..."
 msgstr "Что-то поломалось..."
 
-#: templates/_menu.html:11 templates/news/_last_news.html:2
+#: templates/_menu.html:21 templates/news/_last_news.html:2
 #: templates/news/base.html:5 templates/news/base.html.py:7
 #: templates/news/news.html:24
 msgid "News"
 msgstr "Новости"
 
-#: templates/_menu.html:12 templates/videos/base.html:5
+#: templates/_menu.html:22 templates/videos/base.html:5
 #: templates/videos/base.html.py:7
 msgid "Videos"
 msgstr "Видео"
 
-#: templates/_menu.html:13 templates/_user_activities.html:5
+#: templates/_menu.html:23 templates/_user_activities.html:5
 msgid "Forum"
 msgstr "Форум"
 
-#: templates/_menu.html:14 templates/_recipes.html:2
+#: templates/_menu.html:24 templates/_recipes.html:2
 #: templates/examples/base.html:5 templates/examples/base.html.py:7
 #: templates/examples/detail.html:20
 msgid "Recipes"
 msgstr "Рецепты"
 
-#: templates/_menu.html:16 templates/examples/_examples_menu.html:4
+#: templates/_menu.html:26 templates/examples/_examples_menu.html:4
 msgid "All"
 msgstr "Все"
 
-#: templates/_menu.html:17
+#: templates/_menu.html:27
 msgid "Add recipe"
 msgstr "Добавить рецепт"
 
-#: templates/_menu.html:23
+#: templates/_menu.html:33
 msgid "About"
 msgstr "О проекте"
 
@@ -151,6 +245,13 @@ msgstr ""
 "Обратите внимание! Это сообщение не подтверждено и может идти от "
 "пользователей. Оно может содержать XSS, т.е. используйте \"Посмотреть на "
 "сайте\" аккуратно."
+
+#: templates/admin/examples/change_form.html:18
+#, python-format
+msgid ""
+"This post is edited version of <a href=\"%(other_post_url)s\" target=\"_blank"
+"\">other post</a>."
+msgstr ""
 
 #: templates/admin/login.html:17
 msgid "Please correct the error below."
@@ -270,7 +371,8 @@ msgstr "Удалить"
 
 #: templates/comments/_display_item.html:21 templates/comments/_item.html:26
 #: templates/doc_comments/_display_item.html:21
-#: templates/examples/detail.html:23 templates/news/news.html:27
+#: templates/examples/detail.html:24 templates/examples/detail.html.py:29
+#: templates/news/news.html:27
 msgid "Edit"
 msgstr "Редактировать"
 
@@ -336,17 +438,13 @@ msgstr "Оставьте комментарий"
 msgid "Recipe categories"
 msgstr "Категории рецепта"
 
-#: templates/examples/add.html:5
+#: templates/examples/add.html:5 templates/examples/edit.html:5
 msgid "Add"
 msgstr "Добавить"
 
 #: templates/examples/add.html:16
 msgid "Add new recipe"
 msgstr "Добавить новый рецепт"
-
-#: templates/examples/edit.html:16
-msgid "Edit recipe"
-msgstr "Редактировать рецепт"
 
 #: templates/examples/add.html:19
 msgid ""
@@ -359,7 +457,7 @@ msgstr ""
 "что найденное решение проблемы. Или это может быть интересный трюк, о "
 "котором даже Google ещё ничего не знает."
 
-#: templates/examples/add.html:26
+#: templates/examples/add.html:26 templates/examples/edit.html:19
 msgid ""
 "We\n"
 "          use <a href=\"http://daringfireball.net/projects/markdown/syntax"
@@ -375,21 +473,25 @@ msgstr ""
 msgid "Create"
 msgstr "Создать"
 
-#: templates/examples/detail.html:13
-msgid "Draft"
-msgstr "Черновик"
-
 #: templates/examples/detail.html:35
 msgid "Discuss this recipe"
 msgstr "Обсудить рецепт"
 
-#: templates/examples/detail.html:59 templates/news/news.html:60
+#: templates/examples/detail.html:69 templates/news/news.html:60
 msgid "older"
 msgstr "предыдущие"
 
-#: templates/examples/detail.html:62 templates/news/news.html:63
+#: templates/examples/detail.html:72 templates/news/news.html:63
 msgid "newer"
 msgstr "следующие"
+
+#: templates/examples/edit.html:16
+msgid "Edit recipe"
+msgstr "Редактировать рецепт"
+
+#: templates/examples/edit.html:30
+msgid "Save"
+msgstr "Сохранить"
 
 #: templates/links/_archive.html:2
 msgid "archive"
@@ -1787,9 +1889,6 @@ msgstr "Неизвестная страна"
 #~ msgid "Users"
 #~ msgstr "Пользователи"
 
-#~ msgid "title"
-#~ msgstr "тема"
-
 #~ msgid "link"
 #~ msgstr "ссылка"
 
@@ -1828,9 +1927,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "name"
 #~ msgstr "имя"
-
-#~ msgid "description"
-#~ msgstr "описание"
 
 #~ msgid "active icon"
 #~ msgstr "Активная иконка"
@@ -1973,9 +2069,6 @@ msgstr "Неизвестная страна"
 #~ msgid "Main snippet language"
 #~ msgstr "Язык сниппета"
 
-#~ msgid "author"
-#~ msgstr "автор"
-
 #~ msgid "tags"
 #~ msgstr "таги"
 
@@ -2011,9 +2104,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "View snipets"
 #~ msgstr "Просмотреть сниппеты"
-
-#~ msgid "Show all"
-#~ msgstr "Показать все"
 
 #~ msgid "To my snippets"
 #~ msgstr "К моим сниппетам"
@@ -2193,9 +2283,6 @@ msgstr "Неизвестная страна"
 #~ msgid "Only users from these groups can see this category"
 #~ msgstr "Только пользователи из этих групп могут читать данную категорию"
 
-#~ msgid "Position"
-#~ msgstr "Позиция"
-
 #~ msgid "Description"
 #~ msgstr "Описание"
 
@@ -2273,17 +2360,14 @@ msgstr "Неизвестная страна"
 
 #~ msgid ""
 #~ "\n"
-#~ "                            Updated %(updated)s by <strong>%(updated_by)"
-#~ "s</strong>.\n"
+#~ "                            Updated %(updated)s by <strong>"
+#~ "%(updated_by)s</strong>.\n"
 #~ "                        "
 #~ msgstr ""
 #~ "\n"
 #~ "                            Обновлено <strong>%(updated_by)s</strong> в "
 #~ "%(updated)s.\n"
 #~ "                        "
-
-#~ msgid "Location"
-#~ msgstr "Из"
 
 #~ msgid "Replies"
 #~ msgstr "Отклики"
@@ -2366,9 +2450,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "Move"
 #~ msgstr "Переместить"
-
-#~ msgid "Save"
-#~ msgstr "Сохранить"
 
 #~ msgid "Home"
 #~ msgstr "Домой"
@@ -2572,9 +2653,6 @@ msgstr "Неизвестная страна"
 #~ msgid "Log out"
 #~ msgstr "Выйти"
 
-#~ msgid "Control"
-#~ msgstr "Контроль"
-
 #~ msgid "Receipts"
 #~ msgstr "Рецепты"
 
@@ -2703,9 +2781,6 @@ msgstr "Неизвестная страна"
 #~ msgid "To"
 #~ msgstr "К"
 
-#~ msgid "Time"
-#~ msgstr "Время"
-
 #~ msgid "Sign"
 #~ msgstr "Подпись"
 
@@ -2798,9 +2873,6 @@ msgstr "Неизвестная страна"
 
 #~ msgid "Size"
 #~ msgstr "Размер"
-
-#~ msgid "Content type"
-#~ msgstr "Тип содержимого"
 
 #~ msgid "Path"
 #~ msgstr "Путь"

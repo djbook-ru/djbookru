@@ -24,7 +24,7 @@ open_coverage_report:
 
 # target: po_update - Update .po files.
 po_update:
-	./po_update.sh
+	cd src && ../manage.py makemessages --locale ru
 
 # target: po_compile - Compile .po files.
 po_compile:

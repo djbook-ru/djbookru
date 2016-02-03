@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-17 09:44+0300\n"
+"POT-Creation-Date: 2016-02-03 17:41+0300\n"
 "PO-Revision-Date: 2012-08-17 15:31+0300\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -49,14 +49,35 @@ msgstr ""
 "Оставьте нам сообщение. Например, ваш адрес электронной почты, если он "
 "отсутствует в вашем профайле."
 
-#: examples/forms.py:46 examples/forms.py:62
+#: examples/forms.py:46
 msgid "New recipe has been added on djbook.ru"
 msgstr "Новый рецепт добавлен на djbook.ru"
 
-#: examples/forms.py:47 examples/forms.py:63
+#: examples/forms.py:47
 #, python-format
 msgid ""
 "User %(author)s added a new recipe on djbook.ru.\n"
+"\n"
+"Please check and approve it. URL: %(link)s"
+msgstr ""
+"Пользователь %(author)s добавил новый рецепт на djbook.ru.\n"
+"\n"
+"Пожалуйста, проверьте и подтвердите его. URL: %(link)s"
+
+#: examples/forms.py:69
+#, fuzzy
+#| msgid "New recipe has been added on djbook.ru"
+msgid "Recipe has been edited on djbook.ru"
+msgstr "Новый рецепт добавлен на djbook.ru"
+
+#: examples/forms.py:70
+#, fuzzy, python-format
+#| msgid ""
+#| "User %(author)s added a new recipe on djbook.ru.\n"
+#| "\n"
+#| "Please check and approve it. URL: %(link)s"
+msgid ""
+"User %(author)s edited a recipe on djbook.ru.\n"
 "\n"
 "Please check and approve it. URL: %(link)s"
 msgstr ""
@@ -128,7 +149,7 @@ msgstr "Идентификатор темы"
 msgid "is draft for"
 msgstr "черновик для"
 
-#: examples/models.py:50 examples/models.py:106
+#: examples/models.py:50 examples/models.py:117
 msgid "Example"
 msgstr "Пример"
 
