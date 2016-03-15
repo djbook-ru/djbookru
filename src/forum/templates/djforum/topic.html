@@ -136,6 +136,7 @@
             {% else %}
                 {% include "djforum/_post.html" %}
             {% endif %}
+        {% if forloop.counter == 5 %}{% include "_yandex.html" %}{% endif %}
         {% endfor %}
 
         {% if is_paginated %}

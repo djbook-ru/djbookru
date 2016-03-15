@@ -12,40 +12,6 @@
 {% endblock %}
 
 {% block page %}
-<!-- Яндекс.Директ -->
-<div id="yandex_ad" class="container clearfix"></div>
-<!-- Яндекс.Директ -->
-<div id="yandex_ad"></div>
-<script type="text/javascript">
-(function(w, d, n, s, t) {
-    w[n] = w[n] || [];
-    w[n].push(function() {
-        Ya.Direct.insertInto(160954, "yandex_ad", {
-            ad_format: "direct",
-            font_size: 0.8,
-            type: "horizontal",
-            limit: 3,
-            title_font_size: 1,
-            links_underline: false,
-            site_bg_color: "FFFFFF",
-            header_bg_color: "FEEAC7",
-            title_color: "0000CC",
-            url_color: "006600",
-            text_color: "000000",
-            hover_color: "0066FF",
-            favicon: true,
-            no_sitelinks: true
-        });
-    });
-    t = d.getElementsByTagName("script")[0];
-    s = d.createElement("script");
-    s.src = "//an.yandex.ru/system/context.js";
-    s.type = "text/javascript";
-    s.async = true;
-    t.parentNode.insertBefore(s, t);
-})(window, document, "yandex_context_callbacks");
-</script>
-
 <div class="container clearfix" id="main-content">
     {% block content %}{% endblock %}
 </div>
