@@ -111,12 +111,6 @@ class User(BaseUser):
         if send_confirmation and send_email_confirmation:
             EmailConfirmation.objects.send_confirmation(self)
 
-    @property
-    def comments_count(self):
-        if not hasattr(self, '_comments_count'):
-            setattr(self, '_comments_count', self.comment_set.count())
-        return self._comments_count
-
     @models.permalink
     def get_absolute_url(self):
         return ('accounts:profile', [self.pk])
