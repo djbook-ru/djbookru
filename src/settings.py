@@ -74,7 +74,6 @@ INSTALLED_APPS = (
 
     'bootstrapform',
     'pagedown',
-    'oembed',
     'pagination',
     'sorl.thumbnail',
     'tagging',
@@ -91,7 +90,6 @@ INSTALLED_APPS = (
     'src.examples',
     'src.main',
     'src.news',
-    'src.videos',
     'src.links',
     'src.header_messages',
     # 'src.jobs',
