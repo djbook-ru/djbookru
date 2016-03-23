@@ -1,4 +1,4 @@
-<aside class="widget">{% load i18n staticfiles markup comments_tags components %}
+<aside class="widget">{% load i18n staticfiles markup components %}
     <h5 class="short_headline"><span>{% trans 'News' %}</span></h5>
     <ul class="blogposts news clearfix">
         {% for obj in news %}
@@ -8,12 +8,6 @@
                     <p>{{ obj.content|filter_markdown:35 }}</p>
                 </div>
                 <i class="fa fa-clock-o"></i> <a href="{{ obj.get_absolute_url }}" style="font-size: 0.8em">{{ obj.created|date:'DATE_FORMAT' }}</a>
-                <a href="{{ obj.get_absolute_url }}#comments" class="pull-right" >
-                    <p>
-                        <i class="fa fa-comments"></i>
-                        {% blocktrans count counter=obj|get_comment_count %}{{ counter }} comment{% plural %}{{ counter }} comments{% endblocktrans %}
-                    </p>
-                </a>
             </li>
         {% endfor %}
     </ul>

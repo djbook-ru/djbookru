@@ -3,7 +3,6 @@
     <div class="sidebar-tabs">
         <ul class="tabs">
             <li class="tab"><a href="#user-activites-forum">{% trans "Forum" %}</a></li>
-            <li class="tab"><a href="#user-activites-comment">{% trans "Comments" %}</a></li>
             <li class="tab"><a href="#user-activites-documentation">{% trans "Documentation" %}</a></li>
         </ul>
         <div class="panels">
@@ -25,22 +24,6 @@
                                 {% blocktrans count counter=topic.reply_count %}reply{% plural %}replies{% endblocktrans %}
                             </p>
                         </a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div id="user-activites-comment">
-                <ul class="blogposts clearfix">
-                    {% for comment in last_comments|slice:":4" %}
-                    <li>
-                        <span class="date">
-                            <span class="month">{{ comment.submit_date|date:"b" }}</span>
-                            <span class="day">{{ comment.submit_date|date:"j" }}</span>
-                            <span class="year">{{ comment.submit_date|date:"Y" }}</span>
-                        </span>
-                        <h3><a href="{{ comment.get_absolute_url }}">{{ comment.content_object }}</a></h3>
-                        <p>{{ comment.content|truncatewords:35|linebreaksbr }}
-                        <p><a href="{{ comment.user.get_absolute_url }}"><i class="fa fa-pencil"></i> {{ comment.user }}</a></p>
                     </li>
                     {% endfor %}
                 </ul>

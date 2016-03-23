@@ -1,6 +1,6 @@
 {% extends 'news/base.html' %}
 
-{% load i18n markup components comments_tags %}
+{% load i18n markup components %}
 
 {% block title %}{{ obj }} | {{ block.super }}{% endblock %}
 
@@ -12,13 +12,7 @@
         <header class="entry-header">
             <h1>{{ obj }}</h1>
             <div class="byline">
-                <i class="fa fa-clock-o"></i> <abbr class="published" title="{{ obj.created|date:'DATETIME_FORMAT' }}">{{ obj.created|date:'DATE_FORMAT' }}</abbr> &nbsp;&nbsp;
-                <a href="{{ obj.get_absolute_url }}#comments">
-                    <i class="fa fa-comment"></i>
-                    {% with comments_count=obj|get_comment_count %}
-                        {% blocktrans count counter=comments_count %}{{ counter }} comment{% plural %}{{ counter }} comments{% endblocktrans %}
-                    {% endwith %}
-                </a>
+                <i class="fa fa-clock-o"></i> <abbr class="published" title="{{ obj.created|date:'DATETIME_FORMAT' }}">{{ obj.created|date:'DATE_FORMAT' }}</abbr>
             </div>
             <div class="entry-meta">
                 <i class="fa fa-folder-open"></i> <a href="{% url 'news:index' %}">{% trans "News" %}</a>
@@ -65,6 +59,4 @@
         </ul>
         <!--close pager-->
     </div>
-
-    {% render_comment_list_with_form obj %}
 {% endblock %}

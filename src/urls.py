@@ -27,7 +27,6 @@ urlpatterns = patterns('',
     url(r'^forum/', include('src.forum.urls', 'forum')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^doc_comments/', include('src.doc_comments.urls', 'doc_comments')),
-    url(r'^comments/', include('src.comments.urls', 'comments')),
     url(r'^tagging_autocomplete/', include('tagging_autocomplete.urls')),
     url(r'^jobs/', include('src.jobs.urls', 'jobs')),
 )

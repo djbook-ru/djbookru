@@ -85,7 +85,6 @@ INSTALLED_APPS = (
     'src.forum',
     'src.accounts',
     'src.claims',
-    'src.comments',
     'src.doc_comments',
     'src.examples',
     'src.main',
