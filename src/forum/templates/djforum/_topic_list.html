@@ -30,6 +30,7 @@
                 {% endwith %}
             </td>
         </tr>
+        {% if forloop.counter == 5 %}<tr><td colspan="4">{% include "_yandex.html" %}</td></tr>{% endif %}
     {% endfor %}
     </tbody>
 </table>
