@@ -7,6 +7,8 @@
 
 Руками надо поставить: ``python2.7``, ``virtualenv``, ``sqlite3``.
 
+Подразумевается, что в системе установлен свежий ``pip`` и через него поставлен ``virtualenvwrapper``.
+
 Установка
 =========
 
@@ -20,8 +22,8 @@
 Выполняем::
 
     $ cd djbookru
-    $ virtualenv --python=python2.7 env
-    $ . env/bin/activate
+    $ mkvirtualenv djbookru
+    $ workon djbookru
     $ pip install -r reqs/base.txt
     $ pip install -r reqs/test.txt
 

@@ -7,7 +7,8 @@
 /cover
 *.sqlite
 /src/local_settings.py
-*.sublime-*
+/src/prod_settings.py
 /src/static/html
-/src/public/media/uploads
+/src/public/media
+*.sublime-*
 .coverage
