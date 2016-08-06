@@ -10,3 +10,4 @@
 /search/xapian_index/
 /src/local_settings.py
 /src/public/media/uploads
+.ropeproject/
