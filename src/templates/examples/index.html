@@ -4,6 +4,12 @@
 
 {% block content %}
     {% for category in categories %}
+        {% if forloop.counter > 1 %}
+<div class="margin-bottom-20">
+    {% include "_yandex.html" %}
+</div>
+        {% endif %}
+
         {% include 'examples/_category.html' %}
     {% endfor %}
 {% endblock %}

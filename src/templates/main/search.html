@@ -39,6 +39,12 @@
             {{ item.created|pretty_date:'blog' }}
         </footer>
     </article>
+
+    {% if forloop.counter|divisibleby:"5" %}
+    <article class="entry-post">
+      {% include "_yandex.html" %}
+    </article>
+    {% endif %}
     {% endfor %}
 
     {% comment %}
