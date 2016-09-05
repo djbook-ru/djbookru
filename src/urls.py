@@ -1,13 +1,19 @@
 # -*- coding: utf-8 -*-
 
+from django import http
 from django.conf import settings
 from django.conf.urls import patterns, url, include
 from django.contrib import admin
+from django.contrib.sitemaps import FlatPageSitemap, GenericSitemap
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.template import RequestContext, loader
 
 from patch import sites_flatpages_patch
 from src.main import feeds
 from src.utils.views import direct_to_template
+from . examples import models as r_models
+from . news import models as n_models
+from . forum import models as f_models
 
 sites_flatpages_patch()
 
@@ -15,7 +21,8 @@ js_info_dict = {
     'packages': ('src.main', 'src'),
 }
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^', include('src.main.urls', 'main')),
     url(r'^', include('social.apps.django_app.urls', namespace='social')),
     url(r'^feed/$', feeds.LatestFeed(), name='rss'),
@@ -31,26 +38,23 @@ urlpatterns = patterns('',
     url(r'^comments/', include('src.comments.urls', 'comments')),
     url(r'^tagging_autocomplete/', include('tagging_autocomplete.urls')),
     url(r'^jobs/', include('src.jobs.urls', 'jobs')),
+    url(r'^sentry/', include('sentry.urls')),
 )
 
 urlpatterns += staticfiles_urlpatterns()
 
 if settings.DEBUG:
-    urlpatterns += patterns('',
+    urlpatterns += patterns(
+        '',
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': settings.MEDIA_ROOT,
         }),
-   )
+    )
 
 # if settings.DEBUG:
 #     urlpatterns += patterns('',
 #         url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 #     )
-
-from django.contrib.sitemaps import FlatPageSitemap, GenericSitemap
-from . examples import models as r_models
-from . news import models as n_models
-from . forum import models as f_models
 
 sitemap_forum = {
     'queryset': f_models.Topic.objects.all(),
@@ -71,14 +75,12 @@ sitemaps = {
     'forum': GenericSitemap(sitemap_forum, priority=0.5)
 }
 
-urlpatterns += patterns('',
+urlpatterns += patterns(
+    '',
     (r'^sitemap\.xml$', 'django.contrib.sitemaps.views.index', {'sitemaps': sitemaps}),
     (r'^sitemap-(?P<section>.+)\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
     (r'^robots.txt$', direct_to_template, {'template': 'robots.txt', 'mimetype': 'text/plain'}),
 )
-
-from django import http
-from django.template import RequestContext, loader
 
 
 def handler500(request, template_name='500.html'):

@@ -4,8 +4,6 @@ import os
 import sys
 import glob
 
-gettext_noop = lambda s: s
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -295,8 +293,15 @@ LOGGING = {
             'maxBytes': 1024 * 1024 * 1,
             'backupCount': 5,
             'formatter': 'plain',
-        }
-
+        },
+        'sentry_log': {
+            'level': 'ERROR',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': rel_project('logs', 'sentry.log'),
+            'maxBytes': 1024 * 1024 * 1,
+            'backupCount': 5,
+            'formatter': 'verbose',
+        },
     },
     'loggers': {
         'django.request': {
@@ -313,9 +318,28 @@ LOGGING = {
             handlers=['profile_db_log'],
             level='ERROR',
             propagate=True,
-        )
+        ),
+        'sentry.errors': dict(
+            handlers=['sentry_log'],
+            level='INFO',
+            propagate=True,
+        ),
     }
 }
+
+
+# django-sentry
+INSTALLED_APPS += (
+    'indexer',
+    'paging',
+    'sentry',
+    'sentry.client',
+    'sentry.plugins.sentry_servers',
+    'sentry.plugins.sentry_sites',
+    'sentry.plugins.sentry_urls',
+)
+MIDDLEWARE_CLASSES += ('sentry.client.middleware.SentryResponseErrorIdMiddleware',)
+
 
 try:
     from local_settings import *
