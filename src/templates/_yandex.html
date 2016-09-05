@@ -1,11 +1,12 @@
 <!-- Яндекс.Директ -->
-<div id="yandex_ad" class="container clearfix"></div>
+<div id="yandex_ad{{ index|default:"0" }}" class="container clearfix"></div>
 <script type="text/javascript">
 (function(w, d, n, s, t) {
     w[n] = w[n] || [];
     w[n].push(function() {
-        Ya.Direct.insertInto(160954, "yandex_ad", {
+        Ya.Direct.insertInto(160954, "yandex_ad{{ index|default:"0" }}", {
             ad_format: "direct",
+            stat_id: {{ index|default:"0" }},
             font_size: 1,
             type: "horizontal",
             limit: 3,

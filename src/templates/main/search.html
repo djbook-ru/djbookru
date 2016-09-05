@@ -40,11 +40,25 @@
         </footer>
     </article>
 
-    {% if forloop.counter|divisibleby:"5" %}
+    {% comment %}
+    Яндекс не разрешает показывать больше девяти рекламных блоков на странице.
+    Подключаемый шаблон содержит три блока, поэтому подключаем этот шаблон три раза.
+    {% endcomment %}
+    {% if forloop.counter|divisibleby:"5" and forloop.counter < 20 %}
     <article class="entry-post">
-      {% include "_yandex.html" %}
+      {% include "_yandex.html" with index=forloop.counter %}
     </article>
     {% endif %}
+
+    {% comment %}
+    Если результатов поиска нет или их меньше пяти, то подключаем рекламу только в низу страницы.
+    {% endcomment %}
+    {% if object_list|length < 5 %}
+    <article class="entry-post">
+      {% include "_yandex.html" with index=forloop.counter %}
+    </article>
+    {% endif %}
+
     {% endfor %}
 
     {% comment %}

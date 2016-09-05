@@ -30,8 +30,8 @@
                 {% endwith %}
             </td>
         </tr>
-        {% if forloop.counter == 5 %}<tr><td colspan="4">{% include "_yandex.html" %}</td></tr>{% endif %}
-        {% if forloop.last and object_list|length > 10 %}<tr><td colspan="4">{% include "_yandex.html" %}</td></tr>{% endif %}
+        {% if forloop.counter == 5 %}<tr><td colspan="4">{% include "_yandex.html" with index=forloop.counter %}</td></tr>{% endif %}
+        {% if forloop.last and object_list|length > 10 %}<tr><td colspan="4">{% include "_yandex.html" with index=forloop.counter %}</td></tr>{% endif %}
     {% endfor %}
     </tbody>
 </table>

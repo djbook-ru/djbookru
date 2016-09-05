@@ -61,7 +61,7 @@
         </table>
         {% endif %}
         {% endwith %}
-        {% if forloop.counter == 1 or forloop.last %}{% include "_yandex.html" %}{% endif %}
+        {% if forloop.counter == 1 or forloop.last %}{% include "_yandex.html" with index=forloop.counter %}{% endif %}
     </aside>
     {% endfor %}
 
