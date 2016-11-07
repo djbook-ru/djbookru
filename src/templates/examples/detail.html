@@ -62,6 +62,8 @@
     </article>
     <!--end entry-post -->
 
+    {% include "_yandex.html" %}
+
     <div class="entry-pagination">
         <ul class="pager">
             {% with prev=obj.get_prev %}
@@ -74,8 +76,6 @@
         <!--close pager-->
     </div>
     <!--end entry-pagination-->
-
-    {% include "_yandex.html" %}
 
     {% comment %}
     <div class="entry-related">
