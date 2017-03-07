@@ -71,7 +71,7 @@ INSTALLED_APPS = (
 
     'bootstrapform',
     'pagedown',
-    'oembed',
+    'micawber.contrib.mcdjango',
     'pagination',
     'sorl.thumbnail',
     'tagging',

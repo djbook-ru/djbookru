@@ -3,8 +3,7 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
-import oembed
-
+import micawber
 from . import models
 
 
@@ -19,8 +18,9 @@ class VideoAdminForm(forms.ModelForm):
 
         if video_link:
             try:
-                oembed.site.embed(video_link)
-            except oembed.exceptions.OEmbedException:
+                providers = micawber.bootstrap_basic()
+                providers.request(video_link)
+            except (micawber.exceptions.ProviderNotFoundException, micawber.exceptions.InvalidResponseException):
                 raise forms.ValidationError(_(u'Incorrect video URL'))
 
         return video_link

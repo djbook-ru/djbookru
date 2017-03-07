@@ -1,8 +1,8 @@
-<aside class="widget">{% load i18n staticfiles markup comments_tags %}
+<aside class="widget">{% load i18n staticfiles markup comments_tags micawber_tags %}
     <h5 class="short_headline"><span>{% trans 'Something to watch' %}</span></h5>
     <ul class="blogposts clearfix">
         <li class="video">
-            {{ index_video.video_preview_code|safe }}
+            {{ index_video.video|oembed:'348x261' }}
         </li>
     </ul>
 </aside>
@@ -10,7 +10,7 @@
 <div class="row-fluid equalHero last-videos">
     {% for video in index_video %}
         <div class="span6" style="height: 215px">
-            <div style="float: left; margin: 10px;">{{ video.video_preview_code|safe }}</div>
+            <div style="float: left; margin: 10px;">{{ video.video|oembed }}</div>
             <h4><a href="{{ video.get_absolute_url }}">{{ video }}</a></h4>
         </div>
     {% endfor %}

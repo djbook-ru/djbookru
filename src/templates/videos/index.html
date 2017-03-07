@@ -1,6 +1,6 @@
 {% extends 'videos/base.html' %}
 
-{% load pagination_tags i18n markup comments_tags components tagging_tags %}
+{% load pagination_tags i18n markup comments_tags components tagging_tags micawber_tags %}
 
 {% block header %}
     {{ block.super }}{% if tag %}: "{{ tag }}"{% endif %}
@@ -28,7 +28,7 @@
         <div class="entry-content">
             <div class="video-wrapper">
                 <div class="fluid-width-video-wrapper" style="padding-top: 66.66666666666666%;">
-                    {{ obj.video_embed_code|safe }}
+                    {{ obj.video|oembed }}
                 </div>
             </div>
             {{ obj.description|linebreaks }}
