@@ -23,6 +23,9 @@ sqlparse==0.1.14
 pytz
 sorl-thumbnail==12.2
 beautifulsoup==3.2.1
+indexer==0.6.2
+django-paging==0.2.5
+django-indexer==0.3.0
 -e git+http://github.com/clintecker/django-google-analytics.git/#egg=django-google_analytics
 -e git+https://github.com/RaD/haystack-static-pages.git/#egg=haystack-static-pages
 # -e git+https://github.com/notanumber/xapian-haystack.git/#egg=xapian-haystack
