@@ -6,11 +6,11 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <meta name="robots" content="NONE,NOARCHIVE">
-        <link href="http{% if request.is_secure %}s{% endif %}://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:light,regular&amp;subset=latin" rel="stylesheet" type="text/css">
+        <link href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz:light,regular&amp;subset=latin" rel="stylesheet" type="text/css">
         <link href="{% url 'sentry-media' "styles/global.css" %}" rel="stylesheet" type="text/css"/>
         <link href="{% url 'sentry-media' "images/sentry.png" %}" rel="shortcut icon"/>
         <title>{% block title %}Sentry{% endblock %}</title>
-        <script type="text/javascript" src="http{% if request.is_secure %}s{% endif %}://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script type="text/javascript" src="{% url 'sentry-media' "scripts/highcharts.js" %}" ></script>
         <script type="text/javascript" src="{% url 'sentry-media' "scripts/jquery.animate-colors-min.js" %}"></script>
         <script type="text/javascript" src="{% url 'sentry-media' "scripts/global.js" %}"></script>
@@ -107,7 +107,7 @@
          </div>
         <div id="footer">
             <div class="container">
-                Sentry {% sentry_version %} | Powered by sexy Django magic | Conjured up by the <a href="http://code.disqus.com">DISQUS</a> team and other noble <a href="https://github.com/dcramer/django-sentry/contributors">sorcerers</a>.
+                Sentry {% sentry_version %} | Powered by sexy Django magic | Conjured up by the <a href="//code.disqus.com">DISQUS</a> team and other noble <a href="https://github.com/dcramer/django-sentry/contributors">sorcerers</a>.
             </div>
         </div>
         {% endblock %}
