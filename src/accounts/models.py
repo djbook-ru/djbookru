@@ -122,7 +122,7 @@ class User(BaseUser):
         return ('accounts:profile', [self.pk])
 
     def gravatar_photo(self):
-        return 'http://www.gravatar.com/avatar/%s.jpg?d=wavatar' % self.getMD5()
+        return 'https://www.gravatar.com/avatar/%s.jpg?d=wavatar' % self.getMD5()
 
     def avatar(self):
         return self.gravatar_photo()
@@ -188,10 +188,10 @@ class Achievement(models.Model):
     description = models.TextField(_('description'), blank=True)
     active_icon = models.ImageField(
         _('active icon'), upload_to='uploads/Achievement/',
-        help_text='http://mapicons.nicolasmollet.com/ #95ce4a')
+        help_text='https://mapicons.nicolasmollet.com/ #95ce4a')
     inactive_icon = models.ImageField(
         'inactive icon', upload_to='uploads/Achievement/',
-        help_text='http://mapicons.nicolasmollet.com/ #d5d5d5')
+        help_text='https://mapicons.nicolasmollet.com/ #d5d5d5')
 
     class Meta:
         verbose_name = _('achievement')
@@ -250,7 +250,7 @@ class EmailConfirmationManager(models.Manager):
         except Site.DoesNotExist:
             return
         path = reverse('accounts:confirm_email', args=[confirmation_key])
-        activate_url = 'http://%s%s' % (unicode(current_site.domain), path)
+        activate_url = 'https://%s%s' % (unicode(current_site.domain), path)
         context = {
             'user': user,
             'activate_url': activate_url,

@@ -105,7 +105,7 @@ class Example(models.Model):
             super(Example, self).save()
 
         if is_create:
-            body = u"""Обсуждение рецепта "%s" (http://djbook.ru%s)."""
+            body = u"""Обсуждение рецепта "%s" (https://djbook.ru%s)."""
             title = self.title
             url = self.get_absolute_url()
 

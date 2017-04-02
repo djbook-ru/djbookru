@@ -5,4 +5,4 @@ User-agent: YandexBot
 Disallow: /admin/
 
 
-Sitemap: http://djbook.ru/sitemap.xml
+Sitemap: https://djbook.ru/sitemap.xml

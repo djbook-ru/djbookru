@@ -7,7 +7,7 @@
 @import url('blog.css'); /*blog */
 @import url('gallery-folio-masonry.css'); /*isotope/masonry/grid css */
 @import url('../js/fancybox/source/jquery.fancybox.css'); /*combined buttons, thumbs and base fancybox*/
-@import url(//fonts.googleapis.com/css?family=Ubuntu&subset=latin,cyrillic-ext,cyrillic);
+@import url('//fonts.googleapis.com/css?family=Ubuntu&subset=latin,cyrillic-ext,cyrillic');
 @import url('//fonts.googleapis.com/css?family=Raleway:300,500,600,700');/*fonts*/
 
 #digital_ocean_referal {

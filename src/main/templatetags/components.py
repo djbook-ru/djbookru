@@ -84,7 +84,7 @@ def facebook_like(link):
     if hasattr(link, 'get_absolute_url'):
         link = link.get_absolute_url()
     return {
-        'link': 'http://%s%s' % (site.domain, link)
+        'link': 'https://%s%s' % (site.domain, link)
     }
 
 
@@ -102,7 +102,7 @@ class ShareNode(template.Node):
             url = resolved.get_absolute_url()
             title = resolved.__unicode__
         return get_template('main/_share_links.html').render(Context({
-            'url': 'http://%s%s' % (self.site.domain, url),
+            'url': 'https://%s%s' % (self.site.domain, url),
             'content': getattr(resolved, 'get_share_description', lambda: u'')(),
             'title': getattr(resolved, 'get_share_title', title)(),
             'obj': resolved,

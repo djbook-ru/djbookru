@@ -156,7 +156,7 @@ LOCALE_PATHS = (
 )
 
 SITE_ID = 1
-SITE_URL = 'http://djbook.ru/'
+SITE_URL = 'https://djbook.ru/'
 
 ###########################################################
 # AUTH_USER_MODEL = 'accounts.User'

@@ -20,8 +20,8 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('title', models.CharField(max_length=500, verbose_name='name')),
                 ('description', models.TextField(verbose_name='description', blank=True)),
-                ('active_icon', models.ImageField(help_text=b'http://mapicons.nicolasmollet.com/ #95ce4a', upload_to=b'uploads/Achievement/', verbose_name='active icon')),
-                ('inactive_icon', models.ImageField(help_text=b'http://mapicons.nicolasmollet.com/ #d5d5d5', upload_to=b'uploads/Achievement/', verbose_name='inactive icon')),
+                ('active_icon', models.ImageField(help_text=b'https://mapicons.nicolasmollet.com/ #95ce4a', upload_to=b'uploads/Achievement/', verbose_name='active icon')),
+                ('inactive_icon', models.ImageField(help_text=b'https://mapicons.nicolasmollet.com/ #d5d5d5', upload_to=b'uploads/Achievement/', verbose_name='inactive icon')),
             ],
             options={
                 'verbose_name': 'achievement',

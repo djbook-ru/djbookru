@@ -46,7 +46,7 @@ class AddExampleForm(ExampleForm):
         subject = _(u'New recipe has been added on djbook.ru')
         message = _(u'User %(author)s added a new recipe on djbook.ru.\n\n'
                     'Please check and approve it. URL: %(link)s') % {
-            'link': 'http://%s%s' % (Site.objects.get_current().domain, obj.get_edit_url()),
+            'link': 'https://%s%s' % (Site.objects.get_current().domain, obj.get_edit_url()),
             'author': obj.author}
         mail_managers(subject, message, True)
         return obj
@@ -69,7 +69,7 @@ class EditExampleForm(ExampleForm):
                 subject = _(u'Recipe has been edited on djbook.ru')
                 message = _(u'User %(author)s edited a recipe on djbook.ru.\n\n'
                             'Please check and approve it. URL: %(link)s') % {
-                    'link': 'http://%s%s' % (Site.objects.get_current().domain, obj.get_edit_url()),
+                    'link': 'https://%s%s' % (Site.objects.get_current().domain, obj.get_edit_url()),
                     'author': obj.author}
                 mail_managers(subject, message, fail_silently=True)
             except (models.Example.DoesNotExist, models.Example.MultipleObjectsReturned):
