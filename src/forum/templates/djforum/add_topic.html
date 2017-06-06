@@ -7,6 +7,18 @@
 {% block head %}
     {{ block.super }}
     {{ form.media }}
+    <script>
+    jQuery(function($){
+        $('.post-form').submit(function(){
+            if ( ! $('textarea', this).val() || ! $('#id_name', this).val() ){
+                alert('{% trans "Enter message" %}');
+                return false;
+            } else {
+                $(this).find("[type=submit]").attr("disabled", true);
+            }
+        });
+    });
+    </script>
     <style>
     .control-group-name {
         margin-bottom: -15px;
