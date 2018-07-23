@@ -7,26 +7,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-17 09:44+0300\n"
-"PO-Revision-Date: 2012-08-17 15:31+0300\n"
-"Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
+"POT-Creation-Date: 2018-07-23 13:29+0300\n"
+"PO-Revision-Date: 2018-07-23 13:37+0300\n"
+"Last-Translator: Ruslan Popov <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
-"Language: \n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Poedit 2.0.9\n"
 
-#: examples/feeds.py:11
+#: feeds.py:11
 msgid "Russian DjangoBook Examples"
 msgstr "Примеры с Russian DjangoBook"
 
-#: examples/feeds.py:13
+#: feeds.py:13
 msgid "Newly examples from Russian DjangoBook"
 msgstr "Последние примеры с Russian DjangoBook"
 
-#: examples/forms.py:27
+#: forms.py:27
 msgid ""
 "Choose the category for your recipe in which it should be placed in. If no "
 "category is matching your needs, choose any and write note to us. We will "
@@ -36,12 +37,12 @@ msgstr ""
 "Если подходящей категории не найдено, укажите любую и напишите нам "
 "сообщение. Мы добавим новую категорию как только сможем."
 
-#: examples/forms.py:31
+#: forms.py:31
 msgid "Use Markdown for formating the content. All HTML will be escaped."
 msgstr ""
 "Используйте Markdown для форматирования текста. Весь HTML будет экранирован."
 
-#: examples/forms.py:34
+#: forms.py:34
 msgid ""
 "Left the note for us. For instance, your email for this recipe, if it does "
 "not exist in your profile."
@@ -49,11 +50,11 @@ msgstr ""
 "Оставьте нам сообщение. Например, ваш адрес электронной почты, если он "
 "отсутствует в вашем профайле."
 
-#: examples/forms.py:46 examples/forms.py:62
+#: forms.py:46
 msgid "New recipe has been added on djbook.ru"
 msgstr "Новый рецепт добавлен на djbook.ru"
 
-#: examples/forms.py:47 examples/forms.py:63
+#: forms.py:47
 #, python-format
 msgid ""
 "User %(author)s added a new recipe on djbook.ru.\n"
@@ -64,31 +65,46 @@ msgstr ""
 "\n"
 "Пожалуйста, проверьте и подтвердите его. URL: %(link)s"
 
-#: examples/models.py:11
+#: forms.py:69
+msgid "Recipe has been edited on djbook.ru"
+msgstr "Рецепт был изменён на djbook.ru"
+
+#: forms.py:70
+#, python-format
+msgid ""
+"User %(author)s edited a recipe on djbook.ru.\n"
+"\n"
+"Please check and approve it. URL: %(link)s"
+msgstr ""
+"Пользователь %(author)s изменил рецепт на djbook.ru.\n"
+"\n"
+"Пожалуйста, проверьте и подтвердите его. URL: %(link)s"
+
+#: models.py:11
 msgid "name"
 msgstr "имя"
 
-#: examples/models.py:15
+#: models.py:15
 msgid "Category"
 msgstr "Категория"
 
-#: examples/models.py:16
+#: models.py:16
 msgid "Categories"
 msgstr "Категории"
 
-#: examples/models.py:34
+#: models.py:34
 msgid "category"
 msgstr "категория"
 
-#: examples/models.py:35
+#: models.py:35
 msgid "title"
 msgstr "тема"
 
-#: examples/models.py:36
+#: models.py:36
 msgid "content"
 msgstr "содержимое"
 
-#: examples/models.py:37
+#: models.py:37
 msgid ""
 "Use <a target=\"blank\" href=\"http://daringfireball.net/projects/markdown/"
 "syntax\">Markdown</a> and HTML"
@@ -96,47 +112,47 @@ msgstr ""
 "Используйте <a target=\"blank\" href=\"http://daringfireball.net/projects/"
 "markdown/syntax\">Markdown</a> и HTML"
 
-#: examples/models.py:39
+#: models.py:39
 msgid "created"
 msgstr "создано"
 
-#: examples/models.py:42
+#: models.py:42
 msgid "approved"
 msgstr "разрешено"
 
-#: examples/models.py:42
+#: models.py:42
 msgid "Can be used for draft"
 msgstr "Может быть использовано для черновиков"
 
-#: examples/models.py:44
+#: models.py:44
 msgid "note"
 msgstr "заметка"
 
-#: examples/models.py:44
+#: models.py:44
 msgid "author's note, is not visible on site"
 msgstr "авторская заметка, не отображается на сайте"
 
-#: examples/models.py:45
+#: models.py:45
 msgid "URL"
 msgstr "URL"
 
-#: examples/models.py:46
+#: models.py:46
 msgid "Topic ID"
 msgstr "Идентификатор темы"
 
-#: examples/models.py:47
+#: models.py:47
 msgid "is draft for"
 msgstr "черновик для"
 
-#: examples/models.py:50 examples/models.py:106
+#: models.py:50 models.py:117
 msgid "Example"
 msgstr "Пример"
 
-#: examples/models.py:51
+#: models.py:51
 msgid "Examples"
 msgstr "Примеры"
 
-#: examples/views.py:29
+#: views.py:29
 msgid ""
 "The recipe has been added successfully and will be reviewed as soon as "
 "possible."
@@ -144,7 +160,7 @@ msgstr ""
 "Рецепт был добавлен успешно и будет проверен, как только появится "
 "возможность."
 
-#: examples/views.py:47
+#: views.py:47
 msgid ""
 "The recipe has been edited successfully and will be reviewed as soon as "
 "possible."
