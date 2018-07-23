@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import markdown
-
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -12,13 +11,12 @@ from django.utils import translation
 from django.utils.http import is_safe_url
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic.base import RedirectView
+
 from src.forum.util import urlize
 from src.utils.views import object_list
-
-from .. decorators import render_to
-
 from . import forms
 from . import models
+from ..decorators import render_to
 
 
 @render_to('main/index.html')
@@ -62,7 +60,7 @@ def search(request):
 @render_to('main/feedback.html')
 def feedback(request):
     if request.method == 'POST':
-        form = forms.FeedbackForm(request.POST, initial={'captcha': request.META['REMOTE_ADDR']})
+        form = forms.FeedbackForm(request.POST)
         if form.is_valid():
             form.send(request)
             messages.success(request, _(u'Feedback sent success!'))

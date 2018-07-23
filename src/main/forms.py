@@ -1,30 +1,27 @@
 # -*- coding: utf-8 -*-
 
 import re
+from zipfile import ZipFile, BadZipfile
 
 from django import forms
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from django.core.mail import EmailMessage
-from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
-
+from django.utils.translation import ugettext_lazy as _
 from haystack.forms import SearchForm as HaystackSearchForm
 from haystack_static_pages.models import StaticPage
-from zipfile import ZipFile, BadZipfile
 
-from .. forum.models import Topic
-from .. examples.models import Example
-from .. news.models import News
-from .. utils.forms import ReCaptchaField
 from . import models
+from ..examples.models import Example
+from ..forum.models import Topic
+from ..news.models import News
 
 
 class FeedbackForm(forms.Form):
     email = forms.EmailField(label=_(u'Email'), required=False)
     message = forms.CharField(label=_(u'Message'), widget=forms.Textarea())
     referer = forms.CharField(required=False, widget=forms.HiddenInput())
-    captcha = ReCaptchaField(label=_(u'Captcha'))
 
     def send(self, request):
         email = self.cleaned_data['email']

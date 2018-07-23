@@ -7,7 +7,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.utils.translation import ugettext_lazy as _
 
 from src.accounts.models import User
-from src.utils.forms import ReCaptchaField
 
 
 class SavePositionForm(forms.ModelForm):
@@ -74,11 +73,9 @@ class AuthenticationForm(forms.Form):
 
 
 class CreateUserForm(UserCreationForm):
-    captcha = ReCaptchaField(label=_('captcha'))
-
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2', 'captcha')
+        fields = ('username', 'email', 'password1', 'password2')
 
 
 class UserEditForm(forms.ModelForm):

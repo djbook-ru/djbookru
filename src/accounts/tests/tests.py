@@ -2,7 +2,6 @@
 from __future__ import absolute_import, unicode_literals
 
 import json
-import mock
 
 from django.core import mail
 from django.core.urlresolvers import reverse
@@ -20,8 +19,7 @@ class ViewsTests(TestCase):
     def login(self):
         self.assertTrue(self.client.login(username='user@test.com', password='user'))
 
-    @mock.patch('src.utils.forms.ReCaptchaField.clean', side_effect=lambda data, initial: data)
-    def test_create(self, recaptcha_clean_mock):
+    def test_create(self):
         url = reverse('accounts:create')
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
@@ -31,7 +29,6 @@ class ViewsTests(TestCase):
             'email': 'newuser@example.org',
             'password1': 'newuser',
             'password2': 'newuser',
-            'captcha': '123'
         }
         mail.outbox = []
         response = self.client.post(url, data)

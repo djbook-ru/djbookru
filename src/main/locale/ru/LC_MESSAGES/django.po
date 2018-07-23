@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-09 21:02+0300\n"
+"POT-Creation-Date: 2018-07-23 13:19+0300\n"
 "PO-Revision-Date: 2014-09-27 15:18+0400\n"
 "Last-Translator: Ruslan Popob <ruslan.popov@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -26,47 +26,43 @@ msgstr "Книга о Django на русском"
 msgid "Newly examples from Russian DjangoBook"
 msgstr "Свежие примеры от русского Django"
 
-#: forms.py:24
+#: forms.py:22
 msgid "Email"
 msgstr "е-почта"
 
-#: forms.py:25
+#: forms.py:23
 msgid "Message"
 msgstr "сообщение"
 
-#: forms.py:27
-msgid "Captcha"
-msgstr "капча"
-
-#: forms.py:43
+#: forms.py:40
 msgid "archive"
 msgstr "архив"
 
-#: forms.py:59
+#: forms.py:56
 msgid "This should be zip archive"
 msgstr "Хочу zip архив"
 
-#: forms.py:128
+#: forms.py:125
 msgid "All"
 msgstr "Все"
 
-#: forms.py:132
+#: forms.py:129
 msgid "Recipes"
 msgstr "Рецепты"
 
-#: forms.py:133
+#: forms.py:130
 msgid "Forum"
 msgstr "Форум"
 
-#: forms.py:134
+#: forms.py:131
 msgid "News"
 msgstr "Новости"
 
-#: forms.py:135
+#: forms.py:132
 msgid "Documentation"
 msgstr "Документация"
 
-#: forms.py:143
+#: forms.py:140
 msgid "Search by"
 msgstr "Поиск по"
 
@@ -122,9 +118,12 @@ msgstr "Страница"
 msgid "Pages"
 msgstr "Страницы"
 
-#: views.py:68
+#: views.py:66
 msgid "Feedback sent success!"
 msgstr "Отзыв успешно отправлен!"
+
+#~ msgid "Captcha"
+#~ msgstr "капча"
 
 #~ msgid "From forum"
 #~ msgstr "Форум"

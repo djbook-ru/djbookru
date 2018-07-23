@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+import glob
 import os
 import sys
-import glob
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -238,9 +238,6 @@ EMAIL_SUBJECT_PREFIX = '[Djbook.ru]'
 DATETIME_FORMAT = 'j N Y, G:i'
 FEEDBACK_SUBJECT = gettext_noop(u'Feedback message from Djbook.ru')
 ###########################################################
-
-RECAPTCHA_PUBLIC = ''
-RECAPTCHA_PRIVATE = ''
 
 LOGGING = {
     'version': 1,

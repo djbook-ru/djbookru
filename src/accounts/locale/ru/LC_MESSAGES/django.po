@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: release\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-09 21:02+0300\n"
+"POT-Creation-Date: 2018-07-23 13:19+0300\n"
 "PO-Revision-Date: 2015-03-06 15:53+0300\n"
 "Last-Translator: Dmitriy Kostochko <alerion.um@gmail.com>\n"
 "Language-Team: ru <ru@li.org>\n"
@@ -31,15 +31,15 @@ msgstr "Права доступа"
 msgid "Important dates"
 msgstr "Важные даты"
 
-#: forms.py:21
+#: forms.py:20
 msgid "Email"
 msgstr "Е-почта"
 
-#: forms.py:22
+#: forms.py:21
 msgid "Password"
 msgstr "Пароль"
 
-#: forms.py:25
+#: forms.py:24
 msgid ""
 "Please enter a correct email and password. Note that both fields are case-"
 "sensitive."
@@ -47,19 +47,15 @@ msgstr ""
 "Пожалуйста введите правильные адрес электронной почты и пароль. Оба поля "
 "чувствительны к регистру."
 
-#: forms.py:27
+#: forms.py:26
 msgid "This account is inactive."
 msgstr "Аккаунт не активен."
 
-#: forms.py:77
-msgid "captcha"
-msgstr "капча"
-
-#: forms.py:86
+#: forms.py:83
 msgid "Current password"
 msgstr "Текущий пароль"
 
-#: forms.py:87
+#: forms.py:84
 msgid ""
 "Ignore if you do not have one yet. We recommend setup password, so you can "
 "use it to login, because sometime we broke login via some external service."
@@ -68,31 +64,31 @@ msgstr ""
 "могли авторизироваться, используя email/пароль, т.к. мы иногда ломаем "
 "авторизацию через внешние сервисы."
 
-#: forms.py:91
+#: forms.py:88
 msgid "New password"
 msgstr "Новый пароль"
 
-#: forms.py:93
+#: forms.py:90
 msgid "Confirm new password"
 msgstr "Подтверждение нового пароля"
 
-#: forms.py:101
+#: forms.py:98
 msgid "We use this an small pieces of info."
 msgstr "Мы используем его в мелких информационных блоках."
 
-#: forms.py:109
+#: forms.py:106
 msgid "Invalid password."
 msgstr "Неправильный пароль."
 
-#: forms.py:111
+#: forms.py:108
 msgid "The two passwords did not match."
 msgstr "Введённые пароли не совпадают."
 
-#: forms.py:117
+#: forms.py:114
 msgid "A user with that username already exists."
 msgstr "Пользователь с таким ником уже существует."
 
-#: forms.py:125
+#: forms.py:122
 msgid "This email is used already."
 msgstr "Данный адрес электронной почты уже используется."
 
@@ -474,13 +470,11 @@ msgstr "Количество постов на форуме"
 msgid "Comments count"
 msgstr "Количество комментариев"
 
-#: templates/accounts/profile.html:102
-#: templates/accounts/profile_voted.html:43
+#: templates/accounts/profile.html:102 templates/accounts/profile_voted.html:43
 msgid "Date of join"
 msgstr ""
 
-#: templates/accounts/profile.html:107
-#: templates/accounts/profile_voted.html:48
+#: templates/accounts/profile.html:107 templates/accounts/profile_voted.html:48
 msgid "Date of last login"
 msgstr ""
 
@@ -559,6 +553,9 @@ msgstr ""
 #: views.py:169
 msgid "Confirmation email is sent."
 msgstr "Отправлено письмо для подтверждения адреса электронной почты."
+
+#~ msgid "captcha"
+#~ msgstr "капча"
 
 #~ msgid "Andorra"
 #~ msgstr "Андорра"

@@ -58,7 +58,7 @@ def save_user_position(request):
 @render_to('accounts/create.html')
 def create(request):
     if request.method == 'POST':
-        form = CreateUserForm(request.POST, initial={'captcha': request.META['REMOTE_ADDR']})
+        form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, _('Account created success! Confirm your email.'))

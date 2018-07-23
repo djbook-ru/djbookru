@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-09 21:02+0300\n"
+"POT-Creation-Date: 2018-07-23 13:19+0300\n"
 "PO-Revision-Date: 2015-07-09 21:05+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,7 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: feeds.py:19
+#, python-brace-format
 msgid "Last messages on forum in categories {0}"
 msgstr ""
 
@@ -207,7 +208,7 @@ msgstr "Просмотров"
 msgid "Last post"
 msgstr "Последний отклик"
 
-#: templates/djforum/_topic_list.html:38
+#: templates/djforum/_topic_list.html:40
 msgid "No topics"
 msgstr "Нет тем"
 
@@ -232,12 +233,12 @@ msgid "New post"
 msgstr "Новый отклик"
 
 #: templates/djforum/add_post.html:23 templates/djforum/add_topic.html:32
-#: templates/djforum/edit_post.html:23 templates/djforum/topic.html:148
+#: templates/djforum/edit_post.html:23 templates/djforum/topic.html:150
 msgid "Submit"
 msgstr "Отправить"
 
 #: templates/djforum/add_post.html:26 templates/djforum/add_topic.html:35
-#: templates/djforum/edit_post.html:26 templates/djforum/topic.html:151
+#: templates/djforum/edit_post.html:26 templates/djforum/topic.html:153
 #, python-format
 msgid ""
 "\n"
@@ -257,7 +258,7 @@ msgstr "Добавить тему"
 msgid "New topic"
 msgstr "Новая тема"
 
-#: templates/djforum/edit_post.html:5 templates/djforum/edit_post.html:18
+#: templates/djforum/edit_post.html:5 templates/djforum/edit_post.html.py:18
 msgid "Edit post"
 msgstr "Изменить отклик"
 
@@ -292,31 +293,32 @@ msgid "Search"
 msgstr "Поиск"
 
 #: templates/djforum/index.html:15 templates/djforum/my_topics.html:5
-#: templates/djforum/my_topics.html:12 templates/djforum/unread_topics.html:17
+#: templates/djforum/my_topics.html.py:12
+#: templates/djforum/unread_topics.html:17
 msgid "My topics"
 msgstr "Мои темы"
 
-#: templates/djforum/index.html:69
+#: templates/djforum/index.html:70
 msgid "Total number of registered users:"
 msgstr "Пользователей зарегистрировано:"
 
-#: templates/djforum/index.html:70
+#: templates/djforum/index.html:71
 msgid "Total number of topics:"
 msgstr "Тем создано"
 
-#: templates/djforum/index.html:71
+#: templates/djforum/index.html:72
 msgid "Total number of posts:"
 msgstr "Откликов написано:"
 
-#: templates/djforum/index.html:74
+#: templates/djforum/index.html:75
 msgid "Registered users online:"
 msgstr "Пользователей онлайн:"
 
-#: templates/djforum/index.html:75
+#: templates/djforum/index.html:76
 msgid "Guests online:"
 msgstr "Гостей онлайн:"
 
-#: templates/djforum/index.html:77
+#: templates/djforum/index.html:78
 msgid "Online:"
 msgstr "Онлайн:"
 
@@ -353,12 +355,10 @@ msgid "Active users:"
 msgstr "Активные пользователи:"
 
 #: templates/djforum/statistic.html:20
-#| msgid "Topics"
 msgid "Topics:"
 msgstr "Темы:"
 
 #: templates/djforum/statistic.html:24
-#| msgid "Posts"
 msgid "Posts:"
 msgstr "Отклики:"
 
@@ -395,7 +395,6 @@ msgid "Users with most topics"
 msgstr ""
 
 #: templates/djforum/statistic.html:77
-#| msgid "topic"
 msgid "topics"
 msgstr "темы"
 
@@ -495,6 +494,5 @@ msgid "Posts per month"
 msgstr "Откликов за месяц"
 
 #: views.py:370
-#| msgid "views count"
 msgid "Posts count"
 msgstr "Количество отликов"
