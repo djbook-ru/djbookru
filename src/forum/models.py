@@ -137,8 +137,13 @@ class Visit(models.Model):
 class TopicManager(models.Manager):
 
     def unread(self, user, forum):
-        query = '''SELECT ft.* FROM forum_topic ft LEFT JOIN forum_visit fv ON ft.id = fv.topic_id AND fv.user_id = %s
-WHERE ft.forum_id = %s AND (fv.time IS NULL OR fv.time < ft.updated);'''
+        query = '''
+SELECT ft.* FROM forum_topic ft 
+  LEFT JOIN forum_visit fv 
+         ON ft.id = fv.topic_id AND fv.user_id = %s
+ WHERE ft.forum_id = %s 
+   AND (fv.time IS NULL OR fv.time < ft.updated);
+        '''
         return self.raw(query, [user.pk, forum.pk])
 
     def unread_for_user(self, user):

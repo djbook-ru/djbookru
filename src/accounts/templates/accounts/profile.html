@@ -73,9 +73,9 @@
     {% endif %}
 
     {% if user.is_staff %}
-    <div class="row">
+    <div class="row" title="{% trans "This is visible for staff only." %}">
       <div class="span5 offset2"></div>
-      <div class="span3" title="{% trans "This is visible for staff only." %}">
+      <div class="span3">
         <a href="{% url 'admin:accounts_user_change' user_obj.pk %}">
             <i class="fa fa-pencil"></i> {% trans "Edit" %}
         </a>
