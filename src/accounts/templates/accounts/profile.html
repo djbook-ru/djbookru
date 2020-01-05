@@ -77,8 +77,9 @@
       <div class="span5 offset2"></div>
       <div class="span3">
         <a href="{% url 'admin:accounts_user_change' user_obj.pk %}">
-            <i class="fa fa-pencil"></i> {% trans "Edit" %}
-        </a>
+            <i class="fa fa-pencil"> {% trans "Edit" %}</i></a>
+        <a href="{% url 'accounts:profile_spammer' user_obj.pk %}">
+          <i class="fa fa-warning"> {% trans "Spammer" %}</i></a>
       </div>
     </div>
 

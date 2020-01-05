@@ -81,6 +81,18 @@ def profile(request, pk):
     }
 
 
+def profile_spammer(request, pk):
+    user_obj = get_object_or_404(User, pk=pk)
+    user_obj.forum_posts.all().delete()
+    user_obj.forum_topics.all().delete()
+    user_obj.comment_set.all().delete()
+    user_obj.example_set.all().delete()
+    user_obj.is_active = False
+    user_obj.spammer = True
+    user_obj.save()
+    return redirect('accounts:profile', pk=user_obj.pk)
+
+
 class VotedTopicsListView(ListView):
     template_name = 'accounts/profile_voted.html'
     paginate_by = 10

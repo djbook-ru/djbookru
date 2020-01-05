@@ -145,6 +145,26 @@ class User(BaseUser):
     def forum_post_count(self):
         return self.forum_posts.count()
 
+    @property
+    def spammer(self):
+        try:
+            _ = Achievement.objects.get(
+                userachievement__user=self, title=u'Спаммер')  # FIXME
+        except Achievement.DoesNotExist:
+            return False
+        else:
+            return True
+
+    @spammer.setter
+    def spammer(self, value):
+        achievement = Achievement.objects.get(title=u'Спаммер')
+        if value:
+            UserAchievement.objects.create(
+                user=self, achievement=achievement)
+        else:
+            UserAchievement.objects.filter(
+                user=self, achievement=achievement).delete()
+
 
 def create_custom_user(sender, instance, created, **kwargs):
     if created:

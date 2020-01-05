@@ -52,6 +52,7 @@ urlpatterns = [
 
 urlpatterns += [
     url(r'^(?P<pk>\d+)/$', views.profile, name='profile'),
+    url(r'^(?P<pk>\d+)/spammer/$', views.profile_spammer, name='profile_spammer'),
     url(r'^voted/topics/(?P<pk>\d+)/$', views.profile_topics, name='profile_more_topics'),
     url(r'^voted/posts/(?P<pk>\d+)/$', views.profile_posts, name='profile_more_posts'),
     url(r'^map/$', views.user_map, name='map'),
