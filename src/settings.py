@@ -205,7 +205,7 @@ AUTHENTICATION_BACKENDS = (
 ###########################################################
 
 ###########################################################
-DJANGO_DOCUMENTATION_VERSION = '1.9'
+DJANGO_DOCUMENTATION_VERSION = '3.0'
 DJANGO_DOCUMENTATION_HTML = rel_project('docs/rel%s/' % DJANGO_DOCUMENTATION_VERSION)
 DJANGO_DOCUMENTATION_URL = '/rel%s/' % DJANGO_DOCUMENTATION_VERSION
 DJANGO_DOCUMENTATION_SITEMAP_URL = '%ssitemap.xml' % DJANGO_DOCUMENTATION_URL
