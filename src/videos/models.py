@@ -2,9 +2,7 @@
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-
 from tagging_autocomplete.models import TagAutocompleteField
-import oembed
 
 
 class Video(models.Model):
@@ -25,17 +23,3 @@ class Video(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('videos:index',)
-
-    def video_embed_code(self, maxwidth=300, maxheight=225):
-        try:
-            resource = oembed.site.embed(self.video, maxwidth=maxwidth, maxheight=maxheight)
-            return resource.get_data()['html']
-        except (oembed.exceptions.OEmbedException, KeyError):
-            return ''
-
-    def video_preview_code(self):
-        try:
-            resource = oembed.site.embed(self.video, maxwidth=348, maxheight=261)
-            return resource.get_data()['html']
-        except (oembed.exceptions.OEmbedException, KeyError):
-            return ''
